@@ -3,7 +3,7 @@
   <ModulePrefs title="ED-footer.xml"
     description=""
     author_affiliation="Sopra"
-    height="2000">
+    height="200">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
 	<Require feature="dynamic-height"/>
