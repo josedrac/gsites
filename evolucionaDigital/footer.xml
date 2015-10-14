@@ -3,7 +3,7 @@
   <ModulePrefs title="ED-footer.xml"
     description=""
     author_affiliation="Sopra"
-    height="150">
+    height="2000">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
 	<Require feature="dynamic-height"/>
@@ -53,7 +53,8 @@
 						padding: 0 9px 0 20px;
 						position: relative;
 						text-align: left;
-						width: 30%;
+            min-height: 200px;
+						width: 31%;
 						border-right: 1px solid #DCDCDC;
 					}
 
@@ -200,10 +201,6 @@
 			</style>
 
 		<![endif]-->
-
-    <script>
-      console.log('footer-v1');
-    </script>
 
 	</head>
 
