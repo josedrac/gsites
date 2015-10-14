@@ -13,7 +13,7 @@
  <style type="text/css">
 .container { max-width: 910px; font-family: 'BBVA Web Book'; padding: 10px; min-height: 150px; width: 100%; display: inline-block; border: 1px solid  #DDE3EA; background: #ffffff; background: -moz-linear-gradient(top, white 0%, #f5f7f8 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f5f7f8)); background: -webkit-linear-gradient(top, white 0%, #f5f7f8 100%); background: -o-linear-gradient(top, white 0%, #f5f7f8 100%); background: -ms-linear-gradient(top, white 0%, #f5f7f8 100%); background: linear-gradient(to bottom, #ffffff 0%, #f5f7f8 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 ); }
 .container .survey, .container .feedback, .container .positive { font-family: 'BBVA Web Book'; padding-bottom: 20px; }
-.container .survey h1, .container .feedback h1, .container .positive h1 { margin-top: 0; padding-top: 0; font-weight: normal; color: #0078D2; font-family: BBVA Web Light, BBVA Web, Arial; font-size: 22px; margin: 15px 0px 12px 0px; background-image: url(https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png); background-position: bottom; background-repeat: repeat-x; padding-bottom: 10px; }
+.container .survey h1, .container .feedback h1, .container .positive h1 { margin-top: 0; padding-top: 0; font-weight: normal; color: #0078D2; font-family: BBVA Web Light, BBVA Web, Arial; font-size: 22px; margin: 15px 0px 12px 0px; background-image: url(https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png); background-position: bottom; background-repeat: repeat-x; padding-bottom: 10px; }
 .container .survey h2, .container .feedback h2, .container .positive h2 { margin-top: 0; padding-top: 0; font-weight: normal; color: #0078D2; font-family: BBVA Web Light, BBVA Web, Arial; font-size: 18px; margin: 15px 0px 12px 0px; padding-bottom: 10px; }
 .container .survey form, .container .feedback form, .container .positive form { display: inline-block; }
 .container .feedback form, .container .positive form { display: inline-block; }
@@ -27,17 +27,17 @@
 
 
 /* @group fonts */
-@font-face { font-family: 'BBVA Web Book'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot"); 
-      src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"), 
-      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff") format("woff"), 
-      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf") format("truetype"), 
-      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book") format("svg"); font-style: normal; font-weight: normal; }
+@font-face { font-family: 'BBVA Web Book'; src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot"); 
+      src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"), 
+      url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff") format("woff"), 
+      url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf") format("truetype"), 
+      url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book") format("svg"); font-style: normal; font-weight: normal; }
 
-@font-face { font-family: 'BBVA Web Light'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot"); 
-      src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"), 
-      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff") format("woff"), 
-      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf") format("truetype"), 
-      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light") format("svg"); font-style: normal; font-weight: normal; }
+@font-face { font-family: 'BBVA Web Light'; src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot"); 
+      src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"), 
+      url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff") format("woff"), 
+      url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf") format("truetype"), 
+      url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light") format("svg"); font-style: normal; font-weight: normal; }
 </style>
 <!--[if lt IE 9]>
 <style>

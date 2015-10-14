@@ -23,22 +23,22 @@
 	  	/* @group fonts */
 		@font-face {
 			font-family: 'BBVA Web Light';
-			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
-			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
 		
 		 @font-face {
              font-family: 'BBVA Web Book';
-             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
-             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
-                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+             src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+             src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
              font-style: normal;
              font-weight: normal;
           } 
@@ -90,7 +90,7 @@
 		
 	}
 	.selected{
-		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/backGreenLemon.png') repeat-x;
+		background:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/backGreenLemon.png') repeat-x;
 		float: left;
 		width: auto;
 		height: 25px;
@@ -101,7 +101,7 @@
 		font-weight: normal;
 	}	
 	.blockLabels {
-		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/backBlue1.png') repeat-x;
+		background:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/backBlue1.png') repeat-x;
 		float: left;
 		width: auto;
 		height: 25px;
@@ -113,7 +113,7 @@
 	}
 	
 	.blockTypes {
-		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/backBlue2.png') repeat-x;
+		background:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/backBlue2.png') repeat-x;
 		float: left;
 		width: auto;
 		height: 25px;
@@ -125,7 +125,7 @@
 	}	
 		
 	.blockFormats {
-		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/backBlue3.png') repeat-x;
+		background:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/backBlue3.png') repeat-x;
 		width: auto;
 		height:25px;
 		float:left;
@@ -216,7 +216,7 @@
 		}
 	
 	.blockTypes {
-		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/backBlue2.png') repeat-x;
+		background:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/backBlue2.png') repeat-x;
 		float: left;
 		width: 120px;
 		height: 30px;

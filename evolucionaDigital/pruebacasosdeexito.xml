@@ -18,33 +18,33 @@
 	  /* @group fonts */
 		@font-face {
 			font-family: 'BBVA Web Light';
-			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
-			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
 		
 		@font-face {
 			font-family: 'BBVA Web Book';
-			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
-			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
 		
 		@font-face {
 			font-family: 'BBVA Web Medium';
-			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
-			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
-				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
@@ -330,7 +330,7 @@
 			
 			 if(filas<1)
             {
-    			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+    			html += '<p class="text">No hay ningï¿½n contenido referente a Portales.</p>';
             }
             else
             {               
@@ -338,7 +338,7 @@
             }
 			
 			
-			html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png' class='linetitle'/>";
+			html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
 			
 			 for(var i=0;i<filas;i++){
 			 
@@ -363,7 +363,7 @@
 			   html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
 			   var url = "https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0);
 			   html += '<button type="button" id="allcontent" onclick="javascript:Go(\''+url+'\')">Saber mÃ¡s</button>';
-			   html +="</div></div><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png' class='linevideo'/></div>";
+			   html +="</div></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 			
 			   if(pagTotales>1){
 			     
@@ -373,23 +373,23 @@
                     var pagSiguiente = pagActualParaMostrar+1;
 					
 					if(i>2){
-					 html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/anterior.png" /></a></div>';
+					 html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 					}
 					
 					for(var j=1;j<=pagTotales;j++){
 					if ((j==pagActual) && (j==1)){
-					   	html += '<div id="paginas1" class="checkpage1"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
+					   	html += '<div id="paginas1" class="checkpage1"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
 
 					}
 					else if(j==pagActual){
-					    html += '<div id="paginas" class="checkpage"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
+					    html += '<div id="paginas" class="checkpage"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
 					  }else{
-					    html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActual +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png" id="pagination'+j+'"/></a></div>';
+					    html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActual +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
 
 					  }
 					}
 					
-					html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/siguiente.png" /> </a></div>';
+					html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /> </a></div>';
                     html += '</div>';
                     html += '<div id="pagina'+ pagActualParaMostrar +'" class="paginaNueva" style="display:none; width: auto;height: 660px; margin-top:40px">';
 			   
@@ -401,12 +401,12 @@
 						var pagActualAux = pagActual;
 				        pagActual--;
 						
-					    html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/anterior.png" /></a></div>';
+					    html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 						for(var j=1;j<=pagTotales;j++){
 							if(j==pagActualAux){
-								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
+								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
 							}else{
-								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png" id="pagination'+j+'"/></a></div>';
+								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
 							}
 						}
 						html += '</div>';
@@ -442,8 +442,8 @@
             var bloque_anterior = "pagina"+ numInt2;
             document.getElementById(bloque_actual).style.display='none';
             document.getElementById(bloque_anterior).style.display='block';
-			document.getElementById('pagination'+numInt).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png";
-		    document.getElementById('pagination'+numInt2).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png";
+			document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
+		    document.getElementById('pagination'+numInt2).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
         }
 
     	function anteriorUltima(num)
@@ -453,8 +453,8 @@
             var bloque_anterior = "pagina"+ numInt;
             document.getElementById(bloque).style.display='none';
             document.getElementById(bloque_anterior).style.display='block';
-			document.getElementById('pagination'+num).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png";
-		    document.getElementById('pagination'+numInt).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png";
+			document.getElementById('pagination'+num).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
+		    document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
     	}
 		function changePage(num,pag){
 		
@@ -467,8 +467,8 @@
 		}
 		function changeImage(pagina,old){
 
-		    document.getElementById('pagination'+old).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png";
-		    document.getElementById('pagination'+pagina).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png";
+		    document.getElementById('pagination'+old).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
+		    document.getElementById('pagination'+pagina).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
 		}	
 	    function Go(destination){
 	    window.parent.location.href = destination;

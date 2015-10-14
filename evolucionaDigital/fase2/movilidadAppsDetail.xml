@@ -14,23 +14,23 @@
 <![CDATA[
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 <style type="text/css">
-@font-face { font-family: 'BBVA Web Book'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot");
-src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff") format("woff"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf") format("truetype"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book") format("svg"); font-style: normal; font-weight: normal; }
+@font-face { font-family: 'BBVA Web Book'; src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot");
+src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff") format("woff"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf") format("truetype"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book") format("svg"); font-style: normal; font-weight: normal; }
 
-@font-face { font-family: 'BBVA Web Light'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot");
-src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff") format("woff"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf") format("truetype"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light") format("svg"); font-style: normal; font-weight: normal; }
+@font-face { font-family: 'BBVA Web Light'; src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot");
+src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff") format("woff"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf") format("truetype"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light") format("svg"); font-style: normal; font-weight: normal; }
 
-@font-face { font-family: 'BBVA Web Medium'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot");
-src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix") format("embedded-opentype"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff") format("woff"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf") format("truetype"),
-url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium") format("svg"); font-style: normal; font-weight: normal; }
+@font-face { font-family: 'BBVA Web Medium'; src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot");
+src: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix") format("embedded-opentype"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff") format("woff"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf") format("truetype"),
+url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium") format("svg"); font-style: normal; font-weight: normal; }
 
 .container { max-width: 605px; font-family: 'BBVA Web Book'; padding: 10px; min-height: 300px; width: 100%; display: inline-block; }
 .container .title { margin-top: 0; padding-top: 0; font-weight: normal; color: #0078D2; font-family: BBVA Web Light, BBVA Web, Arial; font-size: 22px; margin: 15px 0px 12px 0px; }
@@ -43,7 +43,7 @@ url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-med
 .container .graphics .compatibility ul.oslist li { display: inline; list-style-type: none; padding-right: 10px; }
 .container .graphics .compatibility ul.oslist li .oslogo { width: 32px; display: inline-block; }
 .container .graphics .compatibility ul.oslist li span { display: inline-block; padding-left: 10px; vertical-align: super; }
-.container .description { background-image: url(https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png); background-position: bottom; background-repeat: no-repeat; font-family: 'BBVA Web Book'; padding-bottom: 20px; }
+.container .description { background-image: url(https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png); background-position: bottom; background-repeat: no-repeat; font-family: 'BBVA Web Book'; padding-bottom: 20px; }
 .container .description h2 { text-align: left; font-size: 1em; }
 .container .description p.long { text-align: left; font-family: 'BBVA Web Book'; padding: 10px; font-size: 0.8em; }
 .container .manuals .titleguia { font-size: 16px; font-family: BBVA Web Light, Arial; color: #000; margin-bottom: 15px; font-weight: normal; }
@@ -171,9 +171,9 @@ url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-med
                 {
                   var URLICONS =
                               {
-                              "Android":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/android.png",
-                              "Iphone":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/iphone.png",
-                              "Ipad":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/ipad.png"
+                              "Android":"https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fase2/img/android.png",
+                              "Iphone":"https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fase2/img/iphone.png",
+                              "Ipad":"https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fase2/img/ipad.png"
                               };
 
                   var iconshtml="";
@@ -202,7 +202,7 @@ url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-med
                  return html;
               }
                 html +="<h2 class=\"title\">"+dataDC.getTitle(row)+"</h2>";
-                html +="<img src=\"https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png\" class=\"linetitle\">";
+                html +="<img src=\"https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png\" class=\"linetitle\">";
                 html +="<div class=\"graphics\">";
 	              html +="<div class=\"articleimg\"><img src='"+dataDC.getImage(row)+"'></div>";
 	              html +="<div class=\"compatibility\">Disponible para:<ul class=\"oslist\">"+renderIcons(dataDC.getType(row))+"</ul></div>";

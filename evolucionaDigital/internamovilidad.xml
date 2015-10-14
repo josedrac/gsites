@@ -18,33 +18,33 @@
 	  /* @group fonts */
 @font-face {
 	font-family: 'BBVA Web Light';
-	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
-	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
 
 @font-face {
 	font-family: 'BBVA Web Book';
-	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
-	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
 
 @font-face {
 	font-family: 'BBVA Web Medium';
-	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
-	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
+	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
@@ -132,7 +132,7 @@
 		margin-left: -5px;
 		padding:5px 5px;
 		float:left;
-		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/addinfo.png')no-repeat;
+		background:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/addinfo.png')no-repeat;
 	  }
 	  #textVideo2{
 		color:#0065B7;
@@ -143,7 +143,7 @@
 		margin-top: 15px;
 		margin-left: 7px;
 		float:left;
-		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/addinfo.png')no-repeat;
+		background:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/addinfo.png')no-repeat;
 	    }
 	#infoVideo{
 	float:left;
@@ -363,7 +363,7 @@
 			   data = response.getDataTable();	
 			   var filas = data.getNumberOfRows();
 			   var html = "";
-			   html += "<div id='titlecomboVideo'><h2>"+data.getValue(0,2)+"</h2></div><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png' class='linetitle'/>";
+			   html += "<div id='titlecomboVideo'><h2>"+data.getValue(0,2)+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
 			
 			   html += "<div id='comboVideo'>";
 			   html += "<div id='video-container'><div id='infoVideo'>";
@@ -371,14 +371,14 @@
 			   html += "<div id='urlVideo'>";
 			   //html += "<embed src='"+data.getValue(0,3)+"' type='application/x-shockwave-flash' allowfullscreen='true' allowScriptAccess='always' width='620' height='427'></embed></div>";
 			   html += "<img src='"+getImgUrl(data.getValue(0,3))+"' width='360' height='427' /></div>";
-			   html +="</div></div></div><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png' class='linevideo'/>";
+			   html +="</div></div></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/>";
 			   html +="<span class='titleguia'>Índice de esta guía</span>";
 			   html += "<ul class='guias'>";
 			   for(var i=0; i<filas; i++){
-			   html +="<li><a target='_blank' href='"+data.getValue(i,5)+"'>"+data.getValue(i,6)+"  <img class='savePDF' alt='Descargar PDF' title='Descargar PDF' src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/icopdf.png'></a></li>";
+			   html +="<li><a target='_blank' href='"+data.getValue(i,5)+"'>"+data.getValue(i,6)+"  <img class='savePDF' alt='Descargar PDF' title='Descargar PDF' src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/icopdf.png'></a></li>";
 			   }
 			   html +="</ul>";
-			   html +="</div></div></div><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png' class='linevideo'/>";
+			   html +="</div></div></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/>";
 			   //html +="<div id='emailTo'>&iquest;Alg&uacute;n error? Por favor, <a  href='#' onclick='SendGmail()'>env&iacute;a un correo</a> describiendo el error encontrado. Muchas gracias por ayudarnos a mejorar.</div>";
 			   document.getElementById('listportales').innerHTML = html;				
 		}

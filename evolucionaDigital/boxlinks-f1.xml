@@ -38,11 +38,11 @@
         <style>
           @font-face {
              font-family: 'BBVA Web Book';
-             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
-             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
-                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+             src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+             src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
              font-style: normal;
              font-weight: normal;
           }   
@@ -108,36 +108,36 @@
 		}  
 				        
   		ul li.op1 {
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px 15px; 
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat -0px 15px; 
         }
         ul li.op2 {
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -55px; 
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat -0px -55px; 
         }
         ul li.op3 {
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -125px;  
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat -0px -125px;  
         }
         ul li.op4 {
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -195px; 
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat -0px -195px; 
         }
         ul li.op5 {
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -269px; 
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat -0px -269px; 
         }
         ul li.op6 {
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -410px;  
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat -0px -410px;  
         }
         ul li.op7 {
-        background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat 1px -481px; 
+        background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat 1px -481px; 
                 }
         ul li.op8 {
         	
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat 1px -552px;  
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat 1px -552px;  
 
         }
         ul li.op9 {
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -626px;  
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat -0px -626px;  
         }
         ul li.op10 {
-        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -700px; 
+        	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/result.png') no-repeat -0px -700px; 
         }               
         </style>
     	

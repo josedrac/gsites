@@ -34,7 +34,7 @@
 			background-attachment: scroll;
 			background-clip: border-box;
 			background-color: transparent;
-			background-image: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/bg-separador-doble.png");
+			background-image: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/bg-separador-doble.png");
 			background-origin: padding-box;
 			background-position: left bottom;
 			background-repeat: repeat-x;

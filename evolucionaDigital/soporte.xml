@@ -18,11 +18,11 @@
 	  /* @group fonts */
 @font-face {
 	font-family: 'BBVA Web Light';
-	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
-	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
-		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
@@ -141,7 +141,7 @@
 				var html= "";
 				html += "<table id='tablasoporte'>";
 				html += "<thead><tr><th class='col0'>Pa&iacute;s</th><th class='col1'>Tel&eacute;fono</th></tr></thead>";
-			    html += "<tbody><tr><td colspan='3'><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='linedownheadertable' /></td></tr>";
+			    html += "<tbody><tr><td colspan='3'><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/linepagetitledown.png' class='linedownheadertable' /></td></tr>";
 				for(var i=1;i<filas;i++){
 				  /* if (data.getValue(i,1) == "luis.mayorga@bbva.com")
 					{ 
