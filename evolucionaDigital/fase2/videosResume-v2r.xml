@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="videoResume-v2r.xml"
+    description=""
+    author_affiliation="SopraGroup-UX">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+
+<UserPref name="titlecomboVideo" display_name="Tilte Box Video" required="true" />
+<UserPref name="imgTag" display_name="Image Tag Video" required="true" />
+<UserPref name="tagVideo" display_name="Tag Video" required="true" />
+<UserPref name="titleVideo" display_name="Title Video" required="true" />
+<UserPref name="textVideo" display_name="Text Video" required="true" />
+<UserPref name="textbutton1" display_name="Text, button 1" required="true" />
+<UserPref name="urlbutton1" display_name="Url, button 1" required="true" />
+<UserPref name="textbutton2" display_name="Text, button 2" required="true" />
+<UserPref name="urlbutton2" display_name="Url, button 2" required="true" />
+<UserPref name="urlVideo" display_name="Url Video" required="true" />
+
+
+
+ <Content type="html" view="configuration" preferred_height="480">
+
+<![CDATA[
+<style type="text/css">
+    input#VarrootSite {
+           width: 300px;
+          }
+	table td {
+				color: #000;
+				font-size: 11px;
+				font-weight: bold;
+			}
+  </style>
+  <table width="100%" border="0" id="tablaconfig">
+
+			<tr/>
+			<tr>
+                <td>
+                    Title - ComboBoxVideo: <input type="text" size="100" id="titlecomboVideo" value="__UP_titlecomboVideo__"   onchange="registra('titlecomboVideo')"/>
+                </td>
+            </tr>
+			<tr/>
+			<tr>
+                <td>
+                    Img - Tag: <input type="text" size="100" id="imgTag" value="__UP_imgTag__"   onchange="registra('imgTag')"/>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                    Tag - Video: <input type="text" size="100" id="tagVideo" value="__UP_tagVideo__"   onchange="registra('tagVideo')"/>
+                </td>
+            </tr>
+
+
+				<tr>
+                <td>
+                    Title - Video: <input type="text" size="100" id="titleVideo" value="__UP_titleVideo__"   onchange="registra('titleVideo')"/>
+                </td>
+            </tr>
+			 <tr>
+                <td>
+				 Url to Video: <input type="text" size="100" id="urlVideo" value="__UP_urlVideo__"   onchange="registra('urlVideo')"/>
+                </td>
+            </tr>
+			<tr>
+                <td>
+				 Text to button 1: <input type="text" size="100" id="textbutton1" value="__UP_textbutton1__"   onchange="registra('textbutton1')"/>
+                </td>
+            </tr>
+            	<tr>
+                <td>
+				 Url to button 1: <input type="text" size="100" id="urlbutton1" value="__UP_urlbutton1__"   onchange="registra('urlbutton1')"/>
+                </td>
+            </tr>
+            	<tr>
+                <td>
+				 Text to button 2: <input type="text" size="100" id="textbutton2" value="__UP_textbutton2__"   onchange="registra('textbutton2')"/>
+                </td>
+            </tr>
+            	<tr>
+                <td>
+				 Url to button 2: <input type="text" size="100" id="urlbutton2" value="__UP_urlbutton2__"   onchange="registra('urlbutton2')"/>
+                </td>
+            </tr>
+			<tr>
+                <td>
+                Text - Video: <textarea id="textVideo" style="height: 245px; width: 100%" onchange="registra('textVideo')" >__UP_textVideo__</textarea>
+
+                </td>
+            </tr>
+
+
+	</table>
+
+    <script type="text/javascript">
+            // Get userprefs
+            var prefs = new gadgets.Prefs();
+            function registra(variable)
+            {
+                prefs.set(variable,document.getElementById(variable).value);
+            }
+			gadgets.window.adjustHeight();
+    </script>
+ ]]>
+
+ </Content>
+  <Content type="html" charset="UTF-8">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>	 
+	<style type="text/css">		
+	  /* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				/*url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),*/
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				/*url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),*/
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+
+		/* @end */
+
+		#titlecomboVideo{
+			margin-top:-9px;
+			margin-left:-15px;
+			height: 43px;
+		}
+
+		#titlecomboVideo h2{
+			float:left;
+			color:#0078D2;
+			font-family: BBVA Web Light, Arial;
+			font-size:22px;
+			margin:15px 0px 10px 22px;
+			font-weight: normal;
+		}
+
+		#comboVideo{
+			width:620px;
+			float:left;
+		}
+
+	      #video-container,
+	      #video-container2 {
+	   	    float:left;
+			width:607px;
+			height:234px;
+			margin-bottom: 10px;
+		}
+
+		  #urlVideo,
+		  #urlVideo2 {
+			float:right;
+		    width:302px;
+			height:201px;
+			margin-right:4px;
+			margin-top:5px;
+			display:block;
+		  }
+		  #tagVideo img,
+		  #tagVideo2 img{
+		   float:left;
+		   margin:-4px 10px 0px 0px;
+		  }
+		  #tagVideo{
+		   color:#000;
+		   margin-bottom:11px;
+		   margin-left:11px;
+		   margin-top:-7px;
+			font-family: BBVA Web Light, Arial;
+			font-weight: normal;
+		  }
+
+		  #tagVideo2{
+		    color:#000;
+			margin-bottom:11px;
+			margin-left: 11px;
+			margin-top: -13px;
+			font-family: BBVA Web Light, Arial;
+			font-weight: normal;
+		  }
+
+	      #titleVideo a,
+	      #titleVideo2 a{
+			  color:#0078D2;
+			  font-family:BBVA Web Book, Arial;
+			  font-size:18px;
+			  width:248px;
+			  margin: 0 0 20px 0px;
+			  text-decoration:none;
+		  }
+
+		  h3 {
+		    color: #0078D2;
+font-family: BBVA Web Book, Arial;
+font-size: 18px;
+width: 248px;
+margin: 0 0 20px 0px;
+font-weight: normal;
+		  }
+
+		  #textVideo,
+		  #textVideo2 {
+color:#434A58;
+			font-size:12px;
+			font-family:arial;
+			height:100px;
+			width:269px;
+			margin-top: 20px;
+
+		  }
+
+
+
+		#infoVideo,
+		#infoVideo2 {
+			float:left;
+			width:600px;
+			height:160px;
+			margin-left:12px;
+		}
+
+		hr{
+		    width:610px;
+			margin-bottom:20px;
+			margin-left:-1px;
+			color:#DCDCDC;
+		}
+
+		#allcontent{
+			-webkit-border-radius: .4em;
+			-moz-border-radius: .4em;
+			border-radius: .4em;
+			height: 3em;
+			padding-left: 1.4em;
+			padding-right: 1.4em;
+			float:right;
+			margin-right:8px;
+			width:110px;
+			margin-top:10px;
+			font-size:14px;
+			font-family: BBVA Web Medium, Arial;
+			color:#FFF;
+		}
+
+		 #allcontent1{
+			float:left;
+			position: relative;
+			top: -1px;
+			margin-right: 0;
+			text-decoration:none;
+			color:#FFF;
+			font-family: BBVA Web Medium, Arial;
+			font-size:12px;
+			margin-left:-16px;
+			width:auto;
+
+		}
+		 #allcontent2{
+			float:left;
+			position: relative;
+			top: -1px;
+			margin-right: 0;
+			text-decoration:none;
+			color:#FFF;
+			font-family: BBVA Web Medium, Arial;
+			font-size:12px;
+			margin-left:-16px;
+			width:auto;
+
+		}
+		#buttons{
+		padding-top:20px;
+		font-size:12px;
+
+		}
+		#buttons2{
+		padding-top:40px;
+		font-size:12px;
+
+		}
+		#buttons button,
+		#buttons2 button{
+		background: #0079C1;
+		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+		background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+		-webkit-border-radius: .3em;
+		-moz-border-radius: .3em;
+		border-radius: .3em;
+		text-align: center;
+		font-size: 12px;
+		vertical-align: middle;
+		height: 1.75em;
+		padding-left: .9em;
+		padding-right: .9em;
+		padding-bottom: 2px;
+		border: .1em solid #00559D;
+		color: white;
+		cursor: pointer;
+		position: relative;
+		overflow: visible;
+		margin-left:10px;
+		}
+		button{
+			background: #0079C1;
+			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+			background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+			background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			border-radius: .3em;
+			font-size: 10px;
+			text-align: center;
+			vertical-align: middle;
+			height: 3em;
+			padding-left: .9em;
+			padding-right: .9em;
+			border: .1em solid #00559D;
+			color: white;
+			cursor: pointer;
+			position: relative;
+			overflow: visible;
+		}
+
+		#allcontent:hover{
+			background: #004C99;
+		}
+		#allcontent1:hover{
+			background: #004C99;
+		}
+		#allcontent2:hover{
+			background: #004C99;
+		}
+		.linetitle{
+			display:block;
+			display:-moz-stack;
+			width:613px;
+			height:4px;
+			margin-bottom:20px;
+		}
+
+		.linevideo{
+			width:613px;
+			height:4px;
+			display:block;
+			margin-bottom:26px;
+		}
+
+		.linevideoLast{
+			width:613px;
+			height:4px;
+			display:block;
+			margin-bottom:10px;
+		}
+
+		.sites-embed-align-left-wrapping-off{
+			display: block;
+			clear: both;
+			text-align: left;
+			margin: 5px auto 5px 0;
+			width: 650px;
+		}
+
+		.youtubeIframe{
+			display:none;
+		}
+
+	</style>
+
+	<!--[if IE 7]>
+
+		<style type="text/css">
+
+			#allcontent button,
+			#buttons button,
+			#buttons2 button{
+				background: #0079C1;
+			}
+
+		  	button{
+				background: #0079C1;
+
+			}
+
+			#allcontent{
+				padding-bottom: 4px;
+			}
+
+			#tagVideo,
+			#tagVideo2{
+				margin-top: 4px;
+			}
+
+			.linetitle{
+				margin-bottom:3px;
+			}
+
+			.linevideo{
+				margin-bottom:4px;
+				margin-top: -12px;
+			}
+
+			.linevideoLast{
+				margin-bottom:3px;
+				margin-top: -12px;
+			}
+
+			#titlecomboVideo h2{
+				margin-bottom: 5px;
+				margin-top: 5px;
+			}
+
+		</style>
+
+	<![endif]-->
+
+	<!--[if IE 8]>
+
+		<style type="text/css">
+
+			#allcontent button,
+			#buttons button,
+			#buttons2 button{
+				background: #0079C1;
+			}
+
+		  	button{
+				background: #0079C1;
+			}
+
+			#tagVideo,
+			#tagVideo2{
+				margin-top: 4px;
+			}
+
+			.linetitle{
+				margin-bottom:3px;
+			}
+
+			.linevideo{
+				margin-bottom:4px;
+				margin-top: -12px;
+			}
+
+			.linevideoLast{
+				margin-bottom:3px;
+				margin-top: -12px;
+			}
+
+			#titlecomboVideo h2{
+				margin-bottom: 5px;
+				margin-top: 5px;
+			}
+
+		</style>
+
+	<![endif]-->
+
+<div id="titlecomboVideo"></div>
+<img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png" class="linetitle"/>
+<div id="comboVideo">
+	<div id="video-container">
+		<div id="tagVideo"></div>
+		<div id="infoVideo">
+			<div id="urlVideo"></div>
+			<div id="titleVideo"></div>
+        	<div id="textVideo"></div>
+			<div id="buttons"></div>
+        </div>
+     </div>
+	 <img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png" class="linevideo"/>
+
+</div>
+
+ <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new gadgets.Prefs();
+
+	 var titlecomboVideo = prefs.getString("titlecomboVideo");
+	 var Urlall = prefs.getString("Urlall");
+
+	 var titleVideo = prefs.getString("titleVideo");
+	 var textVideo = prefs.getString("textVideo");
+	 var urlVideo = prefs.getString("urlVideo");
+	 var tagVideo = prefs.getString("tagVideo");
+		var urlbutton1 = prefs.getString("urlbutton1");
+		var textbutton1 = prefs.getString("textbutton1");
+		var urlbutton2 = prefs.getString("urlbutton2");
+		var textbutton2 = prefs.getString("textbutton2");
+	 var imgTag = prefs.getString("imgTag");
+
+
+	 function cargaVideo()
+	 {
+		 document.getElementById("titlecomboVideo").innerHTML = '<h2>'+titlecomboVideo+'</h2>';
+			
+         if(imgTag  != ''){
+		 document.getElementById("tagVideo").innerHTML = "<img src='"+imgTag+"'/>"+ tagVideo;
+		 }
+		 
+		 document.getElementById("titleVideo").innerHTML = "<h3>"+titleVideo+"</h3>";
+
+		 document.getElementById("textVideo").innerHTML = textVideo;
+		
+		
+	
+
+ 		document.getElementById("buttons").innerHTML  += "<button type='button' id='allcontent1'>" + textbutton1 + "</button>";
+
+		 
+		 document.getElementById("buttons").innerHTML  += "<button type='button' id='allcontent2'>" + textbutton2 + "</button>";
+
+		 document.getElementById("urlVideo").innerHTML = '<iframe class="youtubeIframe" allowScriptAccess="always" frameborder="0" style="border:1px solid #AAA; width:302px; height:201px;" src="'+urlVideo+'"></iframe>'; 
+
+		 document.getElementById("allcontent1").onclick = function(){ Go(urlbutton1);};
+		 document.getElementById("allcontent2").onclick = function(){ Go(urlbutton2);};
+
+		 return delayRender();
+	}
+
+	function Go(destination)
+	{
+		window.parent.location.href = destination;
+
+		return false;
+	}
+	//Load
+	 cargaVideo();
+	 function delayRender(){
+	 	//console.log('delay');
+	 	window.setTimeout("showIframes()",1500);
+	 }	 
+	 function showIframes() {
+	 	//console.log('debugg');
+	 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+	 	for (var i=0;i<iframes;i++)
+		{ 
+		document.getElementsByClassName('youtubeIframe')[i].style.display='block';	
+		}
+	 	
+	 }	
+ </script>
+    ]]>
+  </Content>
+</Module>

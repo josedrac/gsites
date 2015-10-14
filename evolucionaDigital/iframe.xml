@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Iframe test"    
+  scrolling="true"> 
+  </ModulePrefs>
+<Content type="url"  href="http://www.whatbrowser.org/intl/es/"/>
+</Module>

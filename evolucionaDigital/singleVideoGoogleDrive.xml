@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="singleVideoGoogleDrive.xml"
+    description=""
+    height="430"
+    width="660"
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+
+<UserPref name="tagVideo" display_name="Tag Video" required="true" />  
+<UserPref name="titleVideo" display_name="Title Video" required="true" />
+<UserPref name="urlLink" display_name="Text Video" required="true" />
+<UserPref name="urlVideo" display_name="Url Video" required="true" />
+	
+<Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+		/* Fonts */
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* Styles */
+		#video-container {
+			float:left;
+		}
+	  	#urlVideo {
+			padding: 20px 10px 20px 10px;
+	  	}
+	  	#TagVideo {
+	    	color: #0078D2;
+	    	font-size: 18px;
+			font-family: BBVA Web Book, Arial;
+	    	
+	    	padding-left: 10px;
+	  	}
+      	#titleVideo {
+			color: #0078D2;
+			font-size: 22px;
+			font-family: BBVA Web Light, Arial;
+			padding-bottom: 10px;
+			padding-left: 10px;
+			border-bottom: 1px #D1D1D1 solid;
+			width: 100%;
+	  	}
+		#urlLink {
+			border-radius: .2em;
+			height: 2em;
+			padding-left: 1.4em;
+			padding-right: 2.4em;
+			float: right;
+			margin-right: 25px;
+			width: 90px;
+			margin-top: 10px;
+		}
+		#urlLink a{
+			float: left;
+			position: relative;
+			top: -1px;
+			margin-right: 0;
+			text-decoration: none;
+			color: white;
+			font-size: 16px;
+			font-family: BBVA Web Medium, Arial;
+			margin-left: -16px;
+			width: 90px;
+		}
+		hr {
+	    	margin-top:-5px;
+		}
+		
+	</style>
+    
+	
+	<div id="video-container">
+		<div id="titleVideo"></div>
+		<div id="urlVideo"></div>
+		<div id="tagVideo"></div>        
+	</div>
+	 
+	
+	<script type="text/javascript">
+		var gadgetHelper = null;
+		var prefs = new gadgets.Prefs();
+	 
+		var titleVideo = prefs.getString("titleVideo");
+		var urlLink = prefs.getString("urlLink");
+		var urlVideo = prefs.getString("urlVideo");
+		var tagVideo = prefs.getString("tagVideo");
+	 
+		document.getElementById("tagVideo").innerHTML = tagVideo;
+		document.getElementById("titleVideo").innerHTML = titleVideo;		
+		document.getElementById("urlVideo").innerHTML = '<iframe allowScriptAccess="always" frameborder="0" style="border:1px solid #AAA; width:640px; height:345px;" src="'+urlVideo+'"></iframe>';   //'<embed src="'+urlVideo+'" type="application/x-shockwave-flash" allowfullscreen="true" allowScriptAccess="always" width="302" height="201" ></object> </embed>';
+  	</script>
+    ]]>
+  </Content>
+  <Content type="html" view="configuration" preferred_height="480">
+
+<![CDATA[
+	<style type="text/css">
+	    input#VarrootSite {
+        	width: 300px;
+		}
+		table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+	</style>
+	<table width="100%" border="0" id="tablaconfig">  
+		<tr>       
+        	<td>
+            	Tag - Video: <input type="text" size="100" id="tagVideo" value="__UP_tagVideo__" onchange="registra('tagVideo')"/>                   
+			</td>
+		</tr>
+		<tr>       
+			<td>
+				Title - Video: <input type="text" size="100" id="titleVideo" value="__UP_titleVideo__" onchange="registra('titleVideo')"/>                   
+			</td>
+		</tr>
+		<tr>       
+			<td>
+				Url to Video: <input type="text" size="100" id="urlVideo" value="__UP_urlVideo__" onchange="registra('urlVideo')"/>
+			</td>
+		</tr>
+		<tr>       
+			<td>
+				Url link: <input type="text" size="100" id="urlLink" value="__UP_urlLink__" onchange="registra('urlLink')"/>
+			</td>
+		</tr>
+	</table>	
+
+    <script type="text/javascript">           
+		//Get userprefs
+		var prefs = new gadgets.Prefs();           
+		function registra(variable)
+		{	
+			prefs.set(variable,document.getElementById(variable).value);
+		} 
+		gadgets.window.adjustHeight();
+    </script>   	
+ ]]>	
+
+ </Content>
+</Module>

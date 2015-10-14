@@ -1,0 +1,1456 @@
+/* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('fonts/web-light/web-light.eot');
+	src:url('fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		/*url('fonts/web-light/web-light.woff') format("woff"),*/
+		url('fonts/web-light/web-light.ttf') format("truetype"),
+		url('fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('fonts/web-book/web-book.eot');
+	src:url('fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		/*url('fonts/web-book/web-book.woff') format("woff"),*/
+		url('fonts/web-book/web-book.ttf') format("truetype"),
+		url('fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('fonts/web-medium/web-medium.eot');
+	src:url('fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		/*url('fonts/web-medium/web-medium.woff') format("woff"),*/
+		url('fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+/* @end */
+
+/* @group general */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none outside none;
+}
+
+body {
+	min-width: 96em;
+}
+
+.hidden {
+	display: none;
+}
+
+.block {
+	display: block;
+}
+
+.w1200 {
+	width: 1200px; 
+	right: 0px;
+}
+
+.indented{
+	display: block;
+	left: -999em;
+	line-height: 0;
+	position: absolute;
+	text-indent: -999em;
+	top: -999em;
+}
+
+body, html {
+	font-size: 125%;
+	background-color: rgb(255, 255, 255);
+}
+
+body {
+	font-size: 0.5em;
+	font-family: Arial;
+	color: rgb(0, 76, 153);
+	text-align: left;
+}
+
+body, html {
+	font-size: 125%;
+	background-color: rgb(255, 255, 255);
+}
+
+body {
+	font-size: 0.5em;
+	font-family: Arial;
+	color: rgb(0, 76, 153);
+	text-align: left;
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none outside none;
+}
+
+:focus {
+	outline: 0px dotted rgb(241, 202, 127);
+}
+
+body, html {
+	font-size: 125%;
+	background-color: rgb(255, 255, 255);
+}
+
+body {
+	font-size: 0.5em;
+	font-family: Arial;
+	color: rgb(0, 76, 153);
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+	color: #0065B7;
+}
+
+.hide {
+	display: none !important;
+}
+
+.visible {
+	display: block !important;
+}
+
+.contentmh {
+	min-height: 600px !important;
+}
+/* @end */
+
+
+
+/* @group container grid */
+
+#app {
+	background: url(../img/bng-general.png) repeat-x left 4px;
+}
+
+.container_20 {
+	margin-left: auto;
+	margin-right: auto;
+	width: 96em;
+	margin: 0pt auto;
+	/*background: url(../img/Home-segmento.fw.png) no-repeat 0 5px;*/
+	
+}
+
+.grid_5 {
+	float: left;
+	position: relative;
+	margin-left: 2em;
+	margin-right: 0em;
+}
+
+.grid_15 {
+	float: left;
+	position: relative;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.grid_15 .variable-text a{
+	color: #434A58;
+	text-decoration: underline;
+}
+
+.grid_15 strong {
+	font-weight: bold;
+}
+
+.container_20 .grid_5 {
+	width: 20em;
+	margin-left: 1em;
+}
+
+.container_20 .grid_15 {
+	width: 70em;
+}
+
+.container_20 .grid_20 {
+	width: 96em;
+}
+
+.container_20 .grid_20.plus {
+	width: 94em;
+	padding: 1em 0.8em;
+}
+
+.container_20 .grid_20.footer {
+	padding-top: 17em;
+}
+
+
+
+#content {
+	padding: 3.5em 0em 2em;
+}
+
+body.home #content {
+	padding: 1.6em 0 0 0;
+}
+
+#wrap-frame {
+	
+}
+/* @end */
+
+/* @group header */
+header, section, nav {
+	position: relative;
+}
+
+header.principal {
+	z-index: 99998;
+}
+
+header.principal h1.logo_bbva {
+	float: left;
+	width: 15.8em;
+	height: 9em;
+}
+
+header.principal h1.logo_bbva img {
+	width: 15.8em;
+	height: 9em;
+}
+
+header.principal #userAccess {
+	position: absolute;
+	top: 6em;
+	right: 0em;
+}
+
+header.principal h1.logo_bbva .subtitle-logo {
+	display:inline;
+}
+
+/* @end */
+
+/* @group nav */
+nav.tipo_cliente {
+	margin-top: 6em;
+	margin-left: 1em;
+	float: left;
+}
+
+nav.navegacion_principal {
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+-o -border-radius: 5px;
+border-radius: 5px;
+	background-size: 100% auto;
+	background: #0079c1;
+background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDUyOWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+background: -moz-linear-gradient(top,  #0079c1 0%, #00529b 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079c1), color-stop(100%,#00529b));
+background: -webkit-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+background: -o-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+background: -ms-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+background: linear-gradient(to bottom,  #0079c1 0%,#00529b 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c1', endColorstr='#00529b',GradientType=0 );
+
+	float: left;
+	width: 96em;
+	height: 4.7em;
+	margin-top: 1.5em;
+}
+/* @end */
+
+/* @group userAccess */
+#userAccess {
+	width: 24em;
+	position: relative;
+	top: 1.3em;
+	left: 72.6em;
+}
+
+#userAccess section.acceso_usuario_panel {
+	display: none;
+}
+
+#userAccess h1 {
+	display: block;
+	left: -999em;
+	line-height: 0;
+	position: absolute;
+	text-indent: -999em;
+	top: -999em;
+}
+
+#userAccess h2 {
+	font-size: 1.4em;
+	font-weight: bold;
+	color: #1F84CE;
+	line-height: 1.3em;
+	padding: 8px 0px 7px 4px;
+	font-family: Arial;
+}
+
+#userAccess ul {
+	height: 5em;
+}
+
+#userAccess li#loginFlotante {
+	display: block;
+	width: 100%;
+	position: relative;
+	top: -35px;
+}
+
+#userAccess p.access_clients {
+	font-family: Arial;
+	font-size: 12px;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+	top: -36px;
+	left: 104px;
+}
+
+#userAccess p.access_clients a {
+	width: 130px;
+	padding: 4.2px 0em;
+	display: inline-block;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: white;
+	float: right;	
+	-webkit-box-shadow: 0px 3px 3px 0 #d2d2d2;
+	-moz-box-shadow: 0px 3px 3px 0 #d2d2d2;
+	box-shadow: 0px 3px 3px 0 #d2d2d2;
+	background: #0079c1;
+background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDUyOWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+background: -moz-linear-gradient(top,  #0079c1 0%, #00529b 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079c1), color-stop(100%,#00529b));
+background: -webkit-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+background: -o-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+background: -ms-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+background: linear-gradient(to bottom,  #0079c1 0%,#00529b 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c1', endColorstr='#00529b',GradientType=0 );
+
+}
+
+#userAccess p.access_clients a span {
+   background: url('../img/bbvanet_ico-acceso-clientes-inactive.png') no-repeat scroll 0em 3px transparent;
+	padding: 0 4px 0 14px;
+	font-weight: bold;
+	font-family: Arial;
+}
+/* @end */
+
+/* @group separador */
+.separator1 {
+	border-top: 1px solid #E8EBEE;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	padding-top: 1.9em;
+}
+
+.separator1 .info {
+	font-family: arial;
+	font-size: 1.2em;
+}
+/* @end */
+
+/* @group c-estructural-pie */
+.c-estructural-pie {
+	padding: 1.5em 0em;
+	overflow: hidden;
+	background: none repeat scroll 0% 0% rgb(244, 248, 248);
+	border-top: 1px solid rgb(219, 220, 223);
+	border-bottom: 1px solid rgb(219, 220, 223);
+}
+
+.c-estructural-pie .copyright {
+	color: rgb(153, 160, 163);
+	text-align: right;
+}
+
+.c-estructural-pie .navPie ul li {
+	padding: 0em 1em;
+	display: inline-block;
+	background: url('../img/top-nav-li-separator.gif') no-repeat scroll left top transparent;
+}
+
+.c-estructural-pie .navPie ul li a {
+	font-size: 1.1em;
+	color: rgb(113, 119, 127);
+	font-family: sans-serif;
+}
+
+.c-estructural-pie .navPie ul li:first-child {
+	padding-left: 0em;
+	background: none repeat scroll 0% 0% transparent;
+}
+/* @end */
+
+/* @group c-structural_header */
+.c-structural_header {
+	width: 96em;
+	z-index: 50;
+	position: relative;
+	background: none repeat scroll 0% 0% rgb(255, 255, 255);
+}
+
+.c-structural_header .logo_bbva {
+	float: left;
+}
+
+.c-structural_header .logo_bbva img {
+	width: 15.6em;
+	height: 9em;
+	float: left;
+	cursor: pointer;
+}
+
+.c-structural_header .logo_bbva .active.first {
+	background-image: none;
+}
+
+.c-structural_header .logo_bbva .active {
+	font-size: 1.8em;
+	line-height: 120%;
+	font-family: BBVA Web Book,arial;
+	color: #003F8C;
+	float: left;
+	padding: 3.167em 0.722em 0 0.5em;
+	background: url(../img/lineSep.png) no-repeat 0 3.333em;
+}
+
+.c-structural_header .logo_bbva .active.last {
+	font-size: 1.8em;
+	line-height: 120%;
+	font-family: BBVA Web Book,arial;
+	color: #003F8C;
+	float: left;
+	padding: 3.167em 0.722em 0 0.5em;
+	background: url(../img/lineSep.png) no-repeat 0 3.333em;
+}
+
+.c-structural_header .logo_bbva .not-active {
+	font-size: 1.8em;
+	line-height: 120%;
+	font-family: BBVA Web Light,arial;
+	float: left;
+	padding: 3.167em 0.722em 0 0.611em;
+	color: #8B9098;
+	background: url(../img/lineSep.png) no-repeat 0 3.333em;
+	cursor: pointer;
+}
+
+.c-structural_header .logo_bbva .not-active.first {
+	font-size: 1.8em;
+	line-height: 120%;
+	font-family: BBVA Web Light,arial;
+	float: left;
+	padding: 3.167em 0.722em 0 0.611em;
+	color: #8B9098;
+	background-image: none;
+	cursor: pointer;
+}
+/* @end */
+
+/* @group c-estructural-navegacionPrincipal_R2 */
+.c-estructural-navegacionPrincipal_R2 {
+	width: 96em;
+	height: 5em;
+	/*margin-top: 1.8em;*/
+	-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+	background: #0079c1;
+	background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDUyOWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+	background: -moz-linear-gradient(top,  #0079c1 0%, #00529b 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079c1), color-stop(100%,#00529b));
+	background: -webkit-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+	background: -o-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+	background: -ms-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+	background: linear-gradient(to bottom,  #0079c1 0%,#00529b 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c1', endColorstr='#00529b',GradientType=0 );
+	position: relative;
+	font-family: BBVA Web Medium,arial;
+	font-weight: normal;
+	text-align: center;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul {
+	margin: 0;
+	padding: 0;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li {
+	float: left;
+	text-align: center;
+	background: url('../img/separador-menu.png') no-repeat scroll right top transparent;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.last {
+	background: none;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li .link, 
+.c-estructural-navegacionPrincipal_R2 ul li .link:hover {
+	font-size: 1.4em;
+	margin-right: 0.071em;
+	display: block;
+	color: #FFF;
+	cursor: pointer;
+	height: 3.571em;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li .link:hover {
+	background-color: #004c99;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.active .link {
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5) inset;
+	background-color: rgb(0, 80, 152);
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.first .link, 
+.c-estructural-navegacionPrincipal_R2 ul li.first .link:hover,
+.c-estructural-navegacionPrincipal_R2 ul li.first.active .link {
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.last .link, 
+.c-estructural-navegacionPrincipal_R2 ul li.last .link:hover,
+.c-estructural-navegacionPrincipal_R2 ul li.last.active .link {
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin: 0;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li .link span {
+	padding-top: 1.286em;
+	padding-left: 2.357em;
+	display: inline-block;
+	height: 2em;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.home {
+	width: 81px;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.ahorro_inversion,
+.c-estructural-navegacionPrincipal_R2 ul li.cuentas_tarjetas,
+.c-estructural-navegacionPrincipal_R2 ul li.creditos_hipotecas,
+.c-estructural-navegacionPrincipal_R2 ul li.seguros {
+	width: 219px;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.home .link span {
+	background: url('../img/ico-spritegraficos24.png') no-repeat scroll 8px -3150px;
+	height: 1.577em;
+}
+
+body.logged .c-estructural-navegacionPrincipal_R2 ul li.posicion_global {
+	width: 114px;
+}
+
+body.logged .c-estructural-navegacionPrincipal_R2 ul li.ahorro_inversion,
+body.logged .c-estructural-navegacionPrincipal_R2 ul li.creditos_hipotecas,
+body.logged .c-estructural-navegacionPrincipal_R2 ul li.cuentas_tarjetas,
+body.logged .c-estructural-navegacionPrincipal_R2 ul li.seguros {
+	width: 211px;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.posicion_global .link span {
+	background: url('../img/ico-spritegraficos24.png') no-repeat scroll 1px -3009px transparent;
+	padding-top: 0.786em;
+	text-align: left;
+	line-height: 1.071em;
+	height: 2.750em;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.cuentas_tarjetas .link span {
+	background: url('../img/ico-spritegraficos24.png') no-repeat scroll 0 -2430px transparent;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.ahorro_inversion .link span {
+	background: url('../img/ico-spritegraficos24.png') no-repeat scroll 0 -2575px transparent;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.creditos_hipotecas .link span {
+	background: url('../img/ico-spritegraficos24.png') no-repeat scroll 0 -2717px transparent;
+}
+
+.c-estructural-navegacionPrincipal_R2 ul li.seguros .link span {
+	background: url('../img/ico-spritegraficos24.png') no-repeat scroll 0 -3437px transparent;
+}
+
+.c-estructural-navegacionPrincipal_R2 .cajaBuscador {
+	margin: 1em 1em 0em 0em;
+	float: right;
+	position: relative;
+}
+
+.c-estructural-navegacionPrincipal_R2 .text {
+	width: 2em;
+	height: 2em;
+	padding-right: 1.786em;
+	padding-left: 0.357em;
+	right: 0em;
+	border-radius: 5px 5px 5px 5px;
+	-moz-transition-property: width;
+	-moz-transition-duration: 0.35s;
+	background-image: url('../img/ico-busca-cabecera.png');
+	background-repeat: no-repeat;
+	background-position: 100% 6px;
+	position: absolute;
+}
+
+.c-estructural-navegacionPrincipal_R2 .text:focus {
+	background-image: url('../img/ico-busca-cabecera.png');
+}
+/* @end */
+
+
+
+
+
+/* @group c-menu-auxiliar_R2 */
+.c-menu-auxiliar_R2 {
+	margin-top: 2em;
+	margin-bottom: 0.4em;
+	float: right;
+}
+
+.c-menu-auxiliar_R2 ul li {
+	padding: 0 1.8em 0 .7em;
+	line-height: normal;
+	background: url('../img/ico-header-separador.png') no-repeat 100% 2px;
+	display: inline-block;
+}
+
+.c-menu-auxiliar_R2 ul li.last {
+	background: none;
+	padding-right: 0;
+}
+
+.c-menu-auxiliar_R2 ul li .link {
+	font-size: 1.1em;
+	padding-top: 0.182em;
+	cursor: pointer;
+	color: #71777F;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.c-menu-auxiliar_R2 ul li.ayuda .link {
+	padding-left: 1.7em;
+	background: url('../img/ico-spritealertainformacion16.png') no-repeat scroll 0pt -3309px transparent;
+	color: rgb(202, 1, 97);
+}
+
+.c-menu-auxiliar_R2 ul li.oficinas .link {
+	padding-top: .091em;
+	padding-left: 2.091em;
+	background: url('../img/ico-sucursal.png') no-repeat scroll 0pt 2px transparent;
+}
+
+.c-menu-auxiliar_R2 ul li.tlf {
+	font-size: 1.1em;
+	color: #717780;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.c-menu-auxiliar_R2 ul li.tlf .lineaBBVA {
+	background: url('../img/ico-sprite10.png') no-repeat scroll 0 -7632px transparent;
+	padding-top: .091em;
+	padding-left: 1.818em;
+}
+
+.c-menu-auxiliar_R2 ul li.sinBorde {
+	background: none repeat scroll 0% 0% transparent;
+}
+/* @end */
+
+/* @group ui */
+.ui-dialog {
+	position: absolute;
+	padding: 0.2em;
+	width: 300px;
+	overflow: hidden;
+}
+
+.ui-widget {
+	font-family: Arial,Verdana,sans-serif;
+	font-size: 1.1em;
+}
+
+.ui-widget-content {
+	border: 1px solid rgb(213, 226, 238);
+	background: url('../img/ui-bg_flat_75_ffffff_40x100.png') repeat-x scroll 50% 50% rgb(255, 255, 255);
+	color: rgb(34, 34, 34);
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+	border-top-left-radius: 4px;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+	border-top-right-radius: 4px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl {
+	border-bottom-left-radius: 4px;
+}
+
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+	border-bottom-right-radius: 4px;
+}
+
+.ui-dialog .ui-dialog-content {
+	position: relative;
+	border: 0pt none;
+	padding: 0.5em 1em;
+	background: none repeat scroll 0% 0% transparent;
+	overflow: auto;
+}
+
+.ui-widget-content {
+	border: 1px solid rgb(213, 226, 238);
+	background: url('../img/ui-bg_flat_75_ffffff_40x100.png') repeat-x scroll 50% 50% rgb(255, 255, 255);
+	color: rgb(34, 34, 34);
+}
+
+.ui-widget-content a {
+	color: #0072C9;
+}
+
+.ui-widget-content {
+	border: 1px solid rgb(213, 226, 238);
+	background: url('../img/ui-bg_flat_75_ffffff_40x100.png') repeat-x scroll 50% 50% rgb(255, 255, 255);
+	color: rgb(34, 34, 34);
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border: 1px solid rgb(213, 226, 238);
+	background: url('../img/ui-bg_glass_100_f5f7f8_1x400.png') repeat-x scroll 50% 50% rgb(245, 247, 248);
+	font-weight: bold;
+	color: rgb(0, 115, 201);
+}
+
+.ui-widget-content .ui-icon {
+	background-image: url('../img/ui-icons_003f8c_256x240.png');
+}
+/* @end */
+
+
+/* @group carousel */
+
+.ui-carousel {
+	height: 100px;
+	margin: 0;
+	overflow: auto;
+	padding: 0;
+	position: relative; /*for ie7 to work e.g in html carousels*/
+	width: 300px
+}
+
+.ui-carousel > .wrapper {
+    margin: 0;
+    padding: 0;
+    width: 9999px;
+}
+
+.ui-carousel > .wrapper > * {
+	border: 0;
+	display: block;
+	float: left;
+	height: 100px;
+	overflow: hidden;
+	width: 100px;	
+}
+
+.carousel-container {
+	width: 96em;
+	margin-bottom: 0;
+	padding: 0;
+	background-color: transparent;
+	position: relative;
+	font-size:10px;
+}
+
+.carousel-container .carousel-box-wrapper{
+	/*border: 1px solid #EDEDED;*/
+	width:95.8em;
+	margin-bottom:0;
+	overflow:hidden;
+}
+
+.carousel-container .carousel-box {
+	background-color: transparent;
+	position: relative;
+	overflow: hidden;
+	width:95.8em;
+	height:26.5em;
+}
+
+.carousel-container .jcarousel-container{
+	background-color: transparent;
+	width:95.8em;
+}
+
+.carousel-container .jcarousel-clip{
+	overflow:hidden;
+	width:95.8em;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+}
+
+.carousel-container .carousel-box .carousel-item {
+	float: left;
+	width:95.8em;
+	/*height:13.8em;*/
+	height:26.5em;
+	display: inline-block;
+	zoom: 1;
+}
+
+.carousel-container .carousel-box .carousel-item .content{
+	width: 95.8em;
+	height: 26.5em;
+	padding: 0em;
+	display: inline-block;
+	color: #0073C9;
+	zoom: 1;
+}
+
+.carousel-box .carousel-item .content em {
+	font-size: 2.4em;
+}
+
+.carousel-box .carousel-item .content .variable-text {
+	width: 40em;
+	position: relative;
+	float: left;
+	margin-right: 1.2em;
+}
+
+.carousel-box .carousel-item .content .variable-img {
+	width: 53em;
+	position: relative;
+	float: left;
+	padding-left: 1.2em;
+}
+
+.carousel-box .carousel-item .content .variable-text img {
+	float: left;
+}
+
+.carousel-box .carousel-item .content .variable-text img.cerocomissions {
+	padding-top: 5px;
+	padding-left: 3px;
+}
+
+.carousel-box .carousel-item .content .variable-text h2 {
+	font-family: BBVA Web Light,arial;
+	font-size: 3em;
+	color: #0072C9;
+	padding-top: 19px;
+	padding-bottom: 10px;
+}
+
+.carousel-box .carousel-item .content .variable-text h2.with-left-image {
+	padding-left: 197px;
+}
+
+.carousel-box .carousel-item .content .variable-text p {
+	font-family: BBVA Web Book,arial;
+	color: #0065B7;
+	font-size: 1.5em;
+	line-height: 1.4em;
+}
+
+.carousel-box .carousel-item .content .variable-text p.with-left-image {
+	padding-left: 198px;
+}
+
+.carousel-box .carousel-item .content .contenidoLink {
+	margin: 13px 0 0 13px;
+}
+
+.carousel-container .carousel-controller{
+	text-align: center;
+	position: relative;
+	top: -39px;
+	float: left;
+	left: 22px;
+}
+
+.carousel-container .carousel-controller li {
+	width: 0.9em;
+	height: 1em;
+	margin: 0em 0.72em 0em 0.72em;
+	display: inline-block;
+	zoom: 1;
+	overflow: hidden;
+	position: relative;
+	top: -0.7em;
+}
+
+.carousel-container .carousel-controller li img {
+	width: 0.9em;
+	height: 10em;
+	top: 0em;
+	left: 0em;
+	position: absolute;
+	cursor: pointer;
+}
+
+.carousel-container .carousel-controller li.arrow {
+	width: 2.2em;
+	height: 2.2em;
+	top: 0em;
+}
+
+.carousel-container .carousel-controller li.arrow img {
+	width: 2.2em;
+	height: 10em;
+	top: -8em;
+}
+
+.carousel-container .carousel-controller li.active img {
+	top: -4.5em;
+}
+
+.carousel-container .carousel-controller li.arrow img:hover {
+	top:0;
+}
+
+.carousel-container .carousel-controller .hiddenCarruselArrow {
+	visibility: hidden;
+}
+/* @end */
+
+/* @group sections - athird */
+
+section.athird {
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 20em;
+	float: left;
+}
+
+	section.athird.last {
+		padding-right: 0px;
+	}
+
+	section.athird header {
+		padding-top: 8px;
+		padding-bottom: 16px;
+		min-height: 4.6em;
+	}
+
+		section.athird header h1 {
+			float: left;
+			font-family: BBVA Web Book,arial;
+			color: #0078D2;
+			font-size: 1.8em;
+			width: 7.9em;
+			padding-top: 5px;
+			margin-right: 5px;
+		}
+		
+	section.athird p {
+		font-family: Arial;
+		color: #434A58;
+		font-size: 1.2em;
+		line-height: 1.3em;
+	}
+	
+	section.athird footer {
+		padding-top: 15px;
+	}
+
+		section.athird footer a {
+	font-family: Arial;
+	/*color: #0065B7;*/
+	color: #0065b7;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.3em;
+	text-decoration: none;
+		}
+	
+/* @end */
+
+/* @group sections - ahalf */
+
+section.ahalf {
+	padding: 5px 0px 0 20px;
+	width: 33em;
+	float: left;
+}
+
+	section.ahalf.last {
+		padding-right: 0px;
+	}
+
+	section.ahalf header {
+		padding-top: 8px;		
+	}
+
+		section.ahalf header h1 {
+			float: left;
+			font-family: BBVA Web Book,arial;
+			color: #0078D2;
+			font-size: 1.8em;			
+			padding-top: 5px;
+		}
+		
+		section.ahalf p {
+			font-family: Arial;
+			color: #434A58;
+			font-size: 1.2em;
+			line-height: 1.3em;
+			float: left;
+			padding-top: 16px;
+		}
+		
+		section.ahalf p.short {			
+			width: 12em;
+		}
+		
+		section.ahalf p.large {			
+			width: 16em;
+			padding-right: 1em;
+		}
+	
+		section.ahalf .section-images {
+			float: left;
+			width: 18em;
+		}
+	
+	section.ahalf img.icon-section {
+		padding-left: 80px;
+	}
+	
+	section.ahalf footer {
+		padding-top: 15px;
+	}
+
+		section.ahalf footer a {
+			font-family: Arial;
+			color: #0065B7;
+			font-size: 1.2em;
+			font-weight: bold;
+			line-height: 1.3em;
+			text-decoration: none;
+		}
+		
+		section.ahalf button.buttonCotizaciones {
+			position: relative;
+			top: -30px;
+		}
+	
+/* @end */
+
+/* @group section news  */
+
+section.news {
+	width:21.8em;
+	margin: 0em 0em 2.3em 0em;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	-ms-border-radius: 1px;
+	-o-border-radius: 1px;
+	border-radius: 1px;
+	border:1px solid #DDE3EA;
+}
+
+	section.news header{
+		height: 2.8em;
+		padding: 1em 1.9em 1em 1.8em;
+		border-bottom:1px solid #DDE3EA;
+		background: #fefefe;
+		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNWY3ZjgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		background: -moz-linear-gradient(top,  #fefefe 0%, #f5f7f8 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(100%,#f5f7f8));
+		background: -webkit-linear-gradient(top,  #fefefe 0%,#f5f7f8 100%);
+		background: -o-linear-gradient(top,  #fefefe 0%,#f5f7f8 100%);
+		background: -ms-linear-gradient(top,  #fefefe 0%,#f5f7f8 100%);
+		background: linear-gradient(to bottom,  #fefefe 0%,#f5f7f8 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#f5f7f8',GradientType=0 );
+		-webkit-border-radius: 1px 1px 0 0;
+		-moz-border-radius: 1px 1px 0 0;
+		-ms-border-radius: 1px 1px 0 0;
+		-o-border-radius: 1px 1px 0 0;
+		border-radius: 1px 1px 0 0;
+	}
+	
+		section.news header h1 {
+			line-height:1.8em;
+			font-size: 1.8em;
+			font-family: BBVA Web Book,arial;
+			color: #0078D2;
+			
+		}
+
+		section.news ul li {
+			padding: 0.9em 0.2em 1em 2em;
+			border-bottom:1px solid #DDE3EA;
+			font-family: Arial;
+			overflow:hidden;
+			background-color: #fff;
+		}
+		
+			section.news ul li span{
+				color:#434a58;
+				float:left;
+			}
+	
+				section.news ul li h2 {
+					color: #0078D2;
+					font-size: 1.2em;
+					line-height: 1.3em;
+					font-weight: bold;
+				}
+				
+				section.news ul li span {
+					color: #71777F;
+					font-size: 1.1em;
+					line-height: 1.3em;
+				}
+
+			section.news ul li.last{
+				border-bottom:none;
+				-webkit-border-radius: 0 0 1px 1px;
+				-moz-border-radius: 0 0 1px 1px;
+				-ms-border-radius: 0 0 1px 1px;
+				-o-border-radius: 0 0 1px 1px;
+				border-radius: 0 0 1px 1px;
+			}
+/* @end */
+
+/* @group aside links  */
+
+aside.links {
+	width:21.8em;
+	margin:0em 0em 3em 0em;
+	border:1px solid #DDE3EA;
+}
+
+	aside.links ul li{
+		border-bottom:1px solid #DDE3EA;
+		background: #fefefe;
+		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZlZmVmZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNWY3ZjgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		background: -moz-linear-gradient(top,  #fefefe 0%, #f5f7f8 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fefefe), color-stop(100%,#f5f7f8));
+		background: -webkit-linear-gradient(top,  #fefefe 0%,#f5f7f8 100%);
+		background: -o-linear-gradient(top,  #fefefe 0%,#f5f7f8 100%);
+		background: -ms-linear-gradient(top,  #fefefe 0%,#f5f7f8 100%);
+		background: linear-gradient(to bottom,  #fefefe 0%,#f5f7f8 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefe', endColorstr='#f5f7f8',GradientType=0 );
+		
+	}
+		
+		aside.links ul li h2 {
+			height: 2.8em;
+			padding: 1em 1.9em 1em 1.8em;
+			/*width:21.8em;*/
+			background: url('../img/BBVA-bg-link.png') no-repeat 20px center;
+			display: block;
+			cursor: pointer;
+		}
+		
+		aside.links ul li h2 span{
+			padding-left: 60px;
+			line-height: 1.9em;
+			font-family: BBVA Web Book,arial;
+			font-size: 1.7em;
+			color: #0072C9;
+		}
+		
+		aside.links ul li.first{
+			-webkit-border-radius: 1px 1px 0 0;
+			-moz-border-radius: 1px 1px 0 0;
+			-ms-border-radius: 1px 1px 0 0;
+			-o-border-radius: 1px 1px 0 0;
+			border-radius: 1px 1px 0 0;
+		}
+	
+		aside.links ul li.last{
+			border-bottom:none;
+			-webkit-border-radius: 0 0 1px 1px;
+			-moz-border-radius: 0 0 1px 1px;
+			-ms-border-radius: 0 0 1px 1px;
+			-o-border-radius: 0 0 1px 1px;
+			border-radius: 0 0 1px 1px;
+		}
+/* @end */
+
+/* @group sections - athird-large */
+
+section.athird-large {
+	padding-left: 18px;
+	padding-right: 18px;
+	width: 28.2em;
+	min-height: 16.8em;
+	float: left;
+	border: 1px solid #DBDCDF;
+	background-color: white;
+}
+
+section.athird-large.first {
+	border-right: none;
+	/*-webkit-border-radius: 0 1px 1px 0;
+	-moz-border-radius: 0 1px 1px 0;
+	-ms-border-radius: 0 1px 1px 0;
+	-o-border-radius: 0 1px 1px 0;
+	border-radius: 0 1px 1px 0;*/
+	width: 27.3em;
+}
+
+section.athird-large.last {
+	border-left: none;
+	width: 27.3em;
+	/*-webkit-border-radius: 0 1px 1px 0;
+	-moz-border-radius: 0 1px 1px 0;
+	-ms-border-radius: 0 1px 1px 0;
+	-o-border-radius: 0 1px 1px 0;
+	border-radius: 0 1px 1px 0;*/
+}
+
+	section.athird-large header {
+		padding: 16px 0;
+	}
+
+		section.athird-large header h1 {
+			/*float: left;*/
+			font-family: BBVA Web Book,arial;
+			color: #434A58;
+			font-size: 1.4em;
+			/*width: 7.9em;*/
+			/*padding-top: 5px;*/
+		}
+		
+	section.athird-large .content-section {
+		height: 9em;
+		overflow: hidden;
+	}
+	
+	section.athird-large p {
+		font-family: Arial;
+		color: #71777F;
+		font-size: 1.2em;
+		line-height: 1.3em;
+		padding-right: 1.4em;
+		width: 15em;
+		float: left;
+	}
+	
+	section.athird-large.last p {
+		padding-right: 2em;
+		width: 12em;
+	}
+	
+		section.athird-large p strong{
+	font-family: Arial;
+	color: #0078D2;
+	font-size: 1.3em;
+	line-height: 2.6em;
+	font-weight: bold;
+		}
+	
+	section.athird-large footer {
+		padding: 0; 
+	}
+
+		section.athird-large footer a {
+	font-family: Arial;
+	/*color: #0065B7;*/
+	color: #0065B7;
+	font-size: 1.2em;
+	font-weight: bold;
+	line-height: 1.3em;
+	text-decoration: none;
+		}
+	
+/* @end */
+
+/* @group other */
+	.divider {
+		padding: 14px 0;
+	}
+
+
+/* @end */
+
+
+/* @group aside footer */
+
+.footer {
+	padding-left: 16px;
+	padding-bottom: 186px;
+}
+
+	.footer ul {
+		display: inline;
+	}
+
+		.footer ul li {
+			background: none repeat scroll 0 0 transparent;
+			float: left;
+			margin: 0;
+			padding: 0 9px 0 20px;
+			position: relative;
+			text-align: left;
+			width: 20em;
+			border-right: 1px solid #DCDCDC;
+		}
+		
+		.footer ul li ul li {
+
+			border-right: none;
+		}
+		.footer ul li ul li.op2{
+
+			border-right: none;
+		}
+		.footer ul li ul li.op3{
+
+			border-right: none;
+		}
+		.footer ul li ul li.op4{
+
+			border-right: none;
+		}
+		.footer ul li.op1,		
+		.footer ul li.op2,
+		.footer ul li.op3,
+		.footer ul li.op4 {
+			min-height: 12em;
+			border: none;
+		}
+		
+		.footer ul li ul li {
+			display: block;
+			float: none;
+			color: #8C9299;
+			border: none;
+			padding: 0;
+		}
+		
+		.footer ul li h2{
+			color: #434A58;
+			font-size: 1.1em;
+			font-family: BBVA Web Book, Arial;
+			padding-bottom: 10px;
+		}
+
+		.footer ul li.first {
+			padding: 0 9px 0 12px;			
+			width: 20em;
+		}
+		
+		.footer ul li.last {
+			padding: 0 0 0 19px;
+			border: none;
+		}
+
+		.footer ul li a {
+			color: #8C9299;
+			font-size: 1.1em;
+			font-weight: normal;
+			text-align: left!important;
+		}
+		
+		.footer ul li ul li a {
+			color: #8C9299;
+			font-weight: normal;
+			line-height: 2em;
+		}
+		
+		.footer ul li ul.redes-sociales li a{
+			line-height: 2.4em;
+			padding: 3px;
+		}
+		
+		.footer ul li ul.redes-sociales li a.face{
+			background: url('../img/ico-face.png') no-repeat left top;
+		}
+		
+		.footer ul li ul.redes-sociales li a.rss{
+			background: url('../img/ico-rss.png') no-repeat left top;
+		}
+		
+		.footer ul li ul.redes-sociales li a.tw{
+			background: url('../img/ico-tw.png') no-repeat left top;
+		}
+		
+		.footer ul li ul.redes-sociales li span {
+			padding-left: 20px;
+		}
+
+/* @end */
+
+/* @group grid_20.foofer footer */
+
+.footer-bottom {
+	border-top: 1px solid #DBDCDF;
+	border-bottom: 1px solid #DBDCDF;
+	height: 3em;
+	padding: 2em 0 0 0;
+	background-color: #F4F6F3;
+	width: 99.9%;
+}
+
+.footer-bottom ul{
+	margin-left: auto;
+	margin-right: auto;
+	width: 96em;
+	margin: 0pt auto;
+}
+
+.footer-bottom ul li {	
+	float: left;
+	padding: 0 9px 0 20px;	
+}
+
+.footer-bottom ul li a {
+	color: #8C9299;
+	font-size: 1.1em;
+	font-weight: normal;
+	text-align: left!important;
+}
+
+.footer-bottom span.copyright {
+	color: #8C9299;
+	font-size: 1.1em;
+	font-weight: normal;
+	/*float: right;*/
+	padding-right: 4.4em;
+	padding-left: 38em;
+}
+/* @end */

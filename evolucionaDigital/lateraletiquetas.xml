@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="lateraletiquetas.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="urlTable" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+<UserPref name="urlTable2" default_value="" display_name="Data source url for Ayuda/Exito (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+
+<UserPref name="titlebox" display_name="Title of Tag Box" required="true" />  
+<UserPref name="titlemedium" display_name="Title of Medium Level" required="true" />  
+<UserPref name="urlmedium" display_name="Url of Medium Level" required="true" />  
+<UserPref name="titlelow" display_name="Title of Low Level" required="true" />  
+<UserPref name="urllow" display_name="Url of Low Level" required="true" />  
+<UserPref name="titlehigh" display_name="Title of High Level" required="true" />
+<UserPref name="urlhigh" display_name="Url of High Level" required="true" />
+    
+<UserPref name="titletrucos" display_name="Title of Trick type" required="true" />
+<UserPref name="urltrucos" display_name="Url of Trick type" required="true" />    
+<UserPref name="titlestep" display_name="Title of Step by Step type" required="true" />
+<UserPref name="urlstep" display_name="Url  of Step by Step type" required="true" />    
+<UserPref name="titleref" display_name="Title of Reference" required="true" />
+<UserPref name="urlref" display_name="Url of Reference" required="true" /> 
+
+<UserPref name="titlehelp" display_name="Title of Help" required="true" />
+<UserPref name="urlhelp" display_name="Url of Help" required="true" />  
+<UserPref name="titleexitos" display_name="Title of Success" required="true" />
+<UserPref name="urlexitos" display_name="Url of Success" required="true" /> 
+
+<UserPref name="titleformatotruco" display_name="Title of Format Trick" required="true" />
+<UserPref name="urlformatotruco" display_name="Url of Format Trick" required="true" /> 
+<UserPref name="titleformatostep" display_name="Title of Format Step" required="true" />
+<UserPref name="urlformatostep" display_name="Url of Format Step" required="true" />     
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+/* @end */
+	#content{
+	
+	 		border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+			margin-top:15px;
+			height:296px;
+	}
+	#titlebox{
+	 	border-bottom: 1px solid  #DDE3EA;
+		background: #ffffff;
+		background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+		background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+		font-size: 16px;
+			font-family: BBVA Web Book, Arial;
+		color: #333333;
+		padding-left: 18px;
+		padding-left: 20px;
+		padding-top: 14px;
+		padding-bottom: 15px;
+	}
+	#niveles{
+	float:left;
+	width:298px;
+	padding-left:20px;
+	padding-top:20px;
+	margin-bottom:-20px;
+	}
+	#tipos{
+	float:left;
+	width:298px;
+	padding-left:20px;
+	padding-top:20px;
+	margin-bottom:-20px;
+	}
+	
+	#mediumlevel{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/medio.png')no-repeat;
+	height:25px;
+	width:110px;
+	text-align:center;
+	padding-top:4px;
+	float:left;
+	margin-right:10px;
+	}
+	#mediumlevel a{
+	font-weight:bold;
+	font-size:12px;
+	color:#fff;
+	text-decoration:none;
+	font-family:BBVA Web Light, Arial;
+	
+	}
+	#lowlevel{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/basico.png')no-repeat;
+	width:109px;
+	height:25px;
+	text-align:center;
+	padding-top:4px;
+	float:left;
+	}
+	#lowlevel a{
+	font-weight:bold;
+	font-size:12px;
+	color:#0072C9;
+	font-family:BBVA Web Light, Arial;
+	text-decoration:none;
+	float:left;
+	padding-left:5px;
+
+	}
+	#highlevel{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/avanzado.png')no-repeat;
+	width:132px;
+	height:25px;
+	text-align:center;
+	padding-top:4px;
+	float:left;
+	}
+	#highlevel a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial;
+	font-size:12px;
+	color:#fff;
+	text-decoration:none;
+	}
+	#trucos{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/trucooconsejo.png')no-repeat;
+	float:left;
+	width: 175px;
+	height:25;
+	text-align:center;
+	padding-top:4px;
+	}
+	#trucos a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	#stepbystep{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	width: 152px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	margin-right:10px;
+	}
+	#stepbystep a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	#referencia{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	width: 105px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	}
+	#referencia a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	#ayudaexito{
+	float:left;
+	width:298px;
+	padding-left:20px;
+	padding-top:20px;
+	}
+	#ayuda{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/medio.png')no-repeat;
+	width: 81px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	margin-right:10px;
+	}
+	#ayuda a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial;
+	font-size:12px;
+	color:#fff;
+	text-decoration:none;
+	}
+	#exitos{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/avanzado.png')no-repeat;
+	width: 129px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	}
+	#exitos a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial;
+	font-size:12px;
+	color:#fff;
+	text-decoration:none;
+	}
+	#formatos{
+	float:left;
+	width:298px;
+	padding-left:20px;
+	padding-top:20px;
+	margin-bottom:-20px;
+	margin-top:-20px;
+	}
+	
+	#formatTruco{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	width: 200px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	}
+	#formatTruco a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	#formatPaso{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	width: 175px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	}
+	#formatPaso a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+</style>
+
+
+<script type="text/javascript" src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/bbcode2html.js"></script>
+<div id="content"><div id="titlebox"></div>
+<div id="niveles"><div id="mediumlevel"></div><div id="lowlevel"></div>
+<div id="highlevel"></div>
+</div>
+<div id="tipos"><div id="trucos"></div>
+<div id="stepbystep"></div><div id="referencia"></div>
+</div>
+<div id="ayudaexito"><div id="ayuda"></div><div id="exitos"></div></div>
+<div id="formatos"><div id="formatTruco"></div><div id="formatPaso"></div></div>
+	
+   <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTable = prefs.getString("urlTable");
+	 var urlTable2 = prefs.getString("urlTable2");
+	 var titlebox = prefs.getString("titlebox");
+	 var titlemedium = prefs.getString("titlemedium");
+	 var urlmedium = prefs.getString("urlmedium");
+	 var titlelow = prefs.getString("titlelow");
+	 var urllow = prefs.getString("urllow");
+	 var titlehigh= prefs.getString("titlehigh");
+	 var urlhigh = prefs.getString("urlhigh");
+	 var titletrucos = prefs.getString("titletrucos");
+	 var urltrucos = prefs.getString("urltrucos");
+	 var titlestep = prefs.getString("titlestep");
+	 var urlstep = prefs.getString("urlstep");
+	 var titleref = prefs.getString("titleref");
+	 var urlref = prefs.getString("urlref");
+	 var titlehelp = prefs.getString("titlehelp");
+	 var urlhelp = prefs.getString("urlhelp");
+	 var titleexitos = prefs.getString("titleexitos");
+	 var urlexitos = prefs.getString("urlexitos");
+	 var titleformatotruco = prefs.getString("titleformatotruco");
+	 var urlformatotruco = prefs.getString("urlformatotruco");
+	 var titleformatostep = prefs.getString("titleformatostep");
+	 var urlformatostep = prefs.getString("urlformatostep");
+	 
+	 var contadorNivelBasico =0;
+	 var contadorNivelMedio=0;
+	 var contadorNivelAvanzado=0;
+	 var contadorTiposTrucos=0;
+	 var contadorTiposStep=0;
+	 var contadorTiposRef=0;
+	 var contadorHelp=0;
+	 var contadorExito=0;
+	 var contadorFormatTruco=0;
+	 var contadorFormatStep=0;
+	  
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 document.getElementById("titlebox").innerHTML = titlebox;
+	 function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+	 function sendQuery() 
+			{   
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};
+					
+				var querybasico = new google.visualization.Query(urlTable, opts);	
+			    var querymedio = new google.visualization.Query(urlTable, opts);	
+				var queryavanzado = new google.visualization.Query(urlTable, opts);	
+				
+				var querytruco = new google.visualization.Query(urlTable, opts);
+				var querystep = new google.visualization.Query(urlTable, opts);
+			    var queryref = new google.visualization.Query(urlTable, opts);
+				
+				var queryhelp = new google.visualization.Query(urlTable2, opts);
+				var queryexito = new google.visualization.Query(urlTable2, opts); 
+				
+				var queryformattruco = new google.visualization.Query(urlTable, opts);
+				var queryformatstep =  new google.visualization.Query(urlTable, opts);
+				
+				var querytosendbasico = "select * where B like 'Básico'";
+				var querytosendmedio = "select * where B like 'Medio'";
+				var querytosendavanzado = "select * where B like 'Avanzado'";
+				
+				var querytipotruco = "select * where C like '%truco%' or C like '%consejo%'";
+				var querytipostep = "select * where C like '%paso%'";
+				var querytiporef = "select * where C like '%referencia%'";
+				
+				var querytohelp = "select * where F like '%Portales%'";
+				var querytoexito = "select * where F like '%casos%'";
+				
+				var querytoformattruco = "select * where F like '%truco%' or C like '%consejo%'";
+				var querytoformatstep = "select  * where F like '%paso%'";
+				
+				querybasico.setQuery(querytosendbasico);	
+				querymedio.setQuery(querytosendmedio);
+				queryavanzado.setQuery(querytosendavanzado);	
+				
+				querybasico.send(handleQueryResponse1);
+				querymedio.send(handleQueryResponse2);
+				queryavanzado.send(handleQueryResponse3);
+				
+				querytruco.setQuery(querytipotruco);	
+				querystep.setQuery(querytipostep);
+				queryref.setQuery(querytiporef);
+					
+				querytruco.send(handleQueryResponse4);
+				querystep.send(handleQueryResponse5);
+				queryref.send(handleQueryResponse6);	
+				
+				queryhelp.setQuery(querytohelp);
+				queryexito.setQuery(querytoexito);
+				
+				queryhelp.send(handleQueryResponse7);
+				queryexito.send(handleQueryResponse8);
+				
+				queryformattruco.setQuery(querytoformattruco);
+				queryformatstep.setQuery(querytoformatstep);
+				
+				queryformattruco.send(handleQueryResponse9);
+				queryformatstep.send(handleQueryResponse10);
+				
+			}
+     function handleQueryResponse1(response) {
+	 
+	
+	        data1 = response.getDataTable();	
+			
+			if(data1.getNumberOfRows() !=""){
+			var filas = data1.getNumberOfRows();
+			contadorNivelBasico = filas;
+			
+			}
+		document.getElementById("lowlevel").innerHTML = "<a target='_parent' href='"+urllow+"'>"+titlelow+" ("+contadorNivelBasico+")</a>";	
+		}
+	 function handleQueryResponse2(response) {
+			
+			data2 = response.getDataTable();
+			 
+           if(data2.getNumberOfRows() !=""){			
+			var filas = data2.getNumberOfRows();
+		    contadorNivelMedio = filas;
+			
+			}
+			document.getElementById("mediumlevel").innerHTML = "<a target='_parent' href='"+urlmedium+"'>"+titlemedium+" ("+contadorNivelMedio+")</a>";
+		}
+	 function handleQueryResponse3(response) {
+				
+			data3 = response.getDataTable();
+			
+            if(data3.getNumberOfRows() !=""){	
+			var filas = data3.getNumberOfRows();
+		    contadorNivelAvanzado = filas;
+			
+			}
+			document.getElementById("highlevel").innerHTML = "<a target='_parent' href='"+urlhigh+"'>"+titlehigh+" ("+contadorNivelAvanzado+")</a>";
+			
+		}
+	 function handleQueryResponse4(response) {
+				
+			data4 = response.getDataTable();
+			
+            if(data4.getNumberOfRows() !=""){	
+			var filas = data4.getNumberOfRows();
+		    contadorTiposTrucos = filas;
+			
+			}
+			document.getElementById("trucos").innerHTML = "<a target='_parent' href='"+urltrucos+"'>"+titletrucos+" ("+contadorTiposTrucos+")</a>";
+			
+		}	
+	 function handleQueryResponse5(response) {
+				
+			data5 = response.getDataTable();
+			
+            if(data5.getNumberOfRows() !=""){	
+			var filas = data5.getNumberOfRows();
+		    contadorTiposStep = filas;
+			
+			}
+			document.getElementById("stepbystep").innerHTML = "<a target='_parent' href='"+urlstep+"'>"+titlestep+" ("+contadorTiposStep+")</a>";
+			
+		}	
+	 function handleQueryResponse6(response) {
+				
+			data6 = response.getDataTable();
+			
+            if(data6.getNumberOfRows() !=""){	
+			var filas = data6.getNumberOfRows();
+		    contadorTiposRef = filas;
+			
+			}
+			document.getElementById("referencia").innerHTML = "<a target='_parent' href='"+urlref+"'>"+titleref+" ("+contadorTiposRef+")</a>";
+			
+		}
+		 function handleQueryResponse7(response) {
+				
+			data7 = response.getDataTable();
+			
+            if(data7.getNumberOfRows() !=""){	
+			var filas = data7.getNumberOfRows();
+		    contadorHelp = filas;
+			
+			}
+			document.getElementById("ayuda").innerHTML = "<a target='_parent' href='"+urlhelp+"'>"+titlehelp+" ("+contadorHelp+")</a>";
+			
+		}
+		 function handleQueryResponse8(response) {
+				
+			data7 = response.getDataTable();
+			
+            if(data7.getNumberOfRows() !=""){	
+			var filas = data7.getNumberOfRows();
+		    contadorExito = filas;
+			
+			}
+			document.getElementById("exitos").innerHTML = "<a target='_parent' href='"+urlexitos+"'>"+titleexitos+" ("+contadorExito+")</a>";
+			
+		}
+		 function handleQueryResponse9(response) {
+				
+			data9 = response.getDataTable();
+			
+            if(data9.getNumberOfRows() !=""){	
+			var filas = data9.getNumberOfRows();
+		    contadorFormatTruco = filas;
+			
+			}
+			document.getElementById("formatTruco").innerHTML = "<a target='_parent' href='"+urlformatotruco+"'>"+titleformatotruco+" ("+contadorFormatTruco+")</a>";
+			
+		}
+		 function handleQueryResponse10(response) {
+				
+			data10 = response.getDataTable();
+			
+            if(data10.getNumberOfRows() !=""){	
+			var filas = data10.getNumberOfRows();
+		    contadorFormatStep = filas;
+			
+			}
+			document.getElementById("formatPaso").innerHTML = "<a target='_parent' href='"+urlformatostep+"'>"+titleformatostep+" ("+contadorFormatStep+")</a>";
+			
+		}
+	 
+	 
+   </script>
+   
+    ]]>
+  </Content>
+  <Content type="html" view="configuration" preferred_height="480">
+
+<![CDATA[
+<script type="text/javascript" src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/editorbbcode.js"></script>
+<style type="text/css">
+    
+	table td {
+				color: #000;
+				font-size: 11px;
+				font-weight: bold;
+			}
+			table td input,
+			textarea {
+				color: #000;
+				font-size: 11px;				
+			}
+  </style>
+  <table width="100%" border="0" id="tablaconfig">  
+			<tr>       
+                <td>
+                    Table - Url: <input type="text" size="100" id="urlTable" value="__UP_urlTable__"   onchange="registra('urlTable')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Table - Url: <input type="text" size="100" id="urlTable2" value="__UP_urlTable2__"   onchange="registra('urlTable2')"/>                   
+                </td>
+            </tr><tr/>
+			<tr>       
+                <td>
+                    Title - Tag Box: <input type="text" size="100" id="titlebox" value="__UP_titlebox__"   onchange="registra('titlebox')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Title - Medium Level: <input type="text" size="100" id="titlemedium" value="__UP_titlemedium__"   onchange="registra('titlemedium')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - Medium Level: <input type="text" size="100" id="urlmedium" value="__UP_urlmedium__"   onchange="registra('urlmedium')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Title - Low Level: <input type="text" size="100" id="titlelow" value="__UP_titlelow__"   onchange="registra('titlelow')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - Low Level: <input type="text" size="100" id="urllow" value="__UP_urllow__"   onchange="registra('urllow')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Title - High Level: <input type="text" size="100" id="titlehigh" value="__UP_titlehigh__"   onchange="registra('titlehigh')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - High Level: <input type="text" size="100" id="urlhigh" value="__UP_urlhigh__"   onchange="registra('urlhigh')"/>                   
+                </td>
+            </tr><tr/><tr/>
+			<tr>       
+                <td>
+                    Title - Trick type: <input type="text" size="100" id="titletrucos" value="__UP_titletrucos__"   onchange="registra('titletrucos')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - Trick type: <input type="text" size="100" id="urltrucos" value="__UP_urltrucos__"   onchange="registra('urltrucos')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Title - Step type: <input type="text" size="100" id="titlestep" value="__UP_titlestep__"   onchange="registra('titlestep')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - Step type: <input type="text" size="100" id="urlstep" value="__UP_urlstep__"   onchange="registra('urlstep')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Title - Ref type: <input type="text" size="100" id="titleref" value="__UP_titleref__"   onchange="registra('titleref')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - Ref type: <input type="text" size="100" id="urlref" value="__UP_urlref__"   onchange="registra('urlref')"/>                   
+                </td>
+            </tr><tr/><tr/>
+			<tr>       
+                <td>
+                    Title - Help: <input type="text" size="100" id="titlehelp" value="__UP_titlehelp__"   onchange="registra('titlehelp')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - Help: <input type="text" size="100" id="urlhelp" value="__UP_urlhelp__"   onchange="registra('urlhelp')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Title - Exito: <input type="text" size="100" id="titleexitos" value="__UP_titleexitos__"   onchange="registra('titleexitos')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - Exito: <input type="text" size="100" id="urlexitos" value="__UP_urlexitos__"   onchange="registra('urlexitos')"/>                   
+                </td>
+            </tr><tr/><tr/>
+			<tr>       
+                <td>
+                    Title - FormTruco: <input type="text" size="100" id="titleformatotruco" value="__UP_titleformatotruco__"   onchange="registra('titleformatotruco')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - FormTruco: <input type="text" size="100" id="urlformatotruco" value="__UP_urlformatotruco__"   onchange="registra('urlformatotruco')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Title - FormStep: <input type="text" size="100" id="titleformatostep" value="__UP_titleformatostep__"   onchange="registra('titleformatostep')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - FormStep: <input type="text" size="100" id="urlformatostep" value="__UP_urlformatostep__"   onchange="registra('urlformatostep')"/>                   
+                </td>
+            </tr>
+			
+			
+			</table>
+			
+			
+			
+	
+
+    <script type="text/javascript">           
+            // Get userprefs
+            var prefs = new gadgets.Prefs();           
+            function registra(variable)
+            {	
+				
+                prefs.set(variable,document.getElementById(variable).value);
+				
+			
+            } 
+			gadgets.window.adjustHeight();
+    </script>   	
+
+	  
+
+	 
+ ]]>	
+
+ </Content>
+</Module>

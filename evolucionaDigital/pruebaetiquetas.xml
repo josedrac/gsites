@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="etiquetas4excel.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="urlTableguias" default_value="" display_name="Data source url guias(Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+<UserPref name="urlTablecontenidos" default_value="" display_name="Data source url contenidos  (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+<UserPref name="urlTableexitos" default_value="" display_name="Data source url exitos (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+<UserPref name="urlTablemovilidad" default_value="" display_name="Data source url movilidad (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+
+<UserPref name="titlebox" display_name="Title of Tag Box" required="true" />  
+    
+ <Content type="html" charset="UTF-8">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+@font-face {
+	font-family: 'BBVA Office Light';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-light/office-light.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-light/office-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-light/office-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-light/office-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-light/office-light.svg#BBVA Office Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+
+@font-face {
+	font-family: 'BBVA Office Book';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-book/office-book.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-book/office-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-book/office-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-book/office-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/office-book/office-book.svg#BBVA Office Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/*
+@font-face {
+	font-family: 'BBVA Office Book';
+    src: url('GrutchShaded-webfont.eot');
+    src: url('GrutchShaded-webfont.eot?#iefix') format('embedded-opentype'),
+         url('GrutchShaded-webfont.woff') format('woff'),
+         url('GrutchShaded-webfont.ttf') format('truetype'),
+         url('GrutchShaded-webfont.svg#BBVA Office Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+@font-face {
+	font-family: 'Stag Light';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-light/stag-light.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-light/stag-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-light/stag-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-light/stag-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-light/stag-light.svg#Stag Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Stag';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag/stag.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag/stag.eot?#iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag/stag.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag/stag.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag/stag.svg#Stag') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Stag Medium';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.svg#Stag Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* @end */
+	.content{
+	
+	 		border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+			margin-top:15px;
+			height:452px;
+			font-family:BBVA Web Light;
+			font-size:12px;
+			
+	}
+	.titulo{
+	 	border-bottom: 1px solid  #DDE3EA;
+		background: #ffffff;
+		background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+		background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+		font-size: 16px;
+		font-family: BBVA Web Book, Arial;
+		color: #333333;
+		padding-left: 18px;
+		padding-left: 20px;
+		padding-top: 14px;
+		padding-bottom: 15px;
+		margin-bottom:10px;
+	}
+
+	/*Grupos de Etiquetas*/
+	.etiquetas{
+	float:left;
+	width:298px;
+	padding-left:20px;
+	padding-top:20px;
+	margin-bottom:-20px;
+	}
+	
+	.tipos{
+	float:left;
+	width:298px;
+	padding-left:20px;
+	padding-top:20px;
+	margin-bottom:-20px;
+	}
+	
+	.formatos{
+	float:left;
+	width:298px;
+	padding-left:20px;
+	padding-top:20px;
+	margin-bottom:-20px;
+	/*margin-top:-20px;*/
+	}
+	/*Fin Grupos de Etiquetas*/
+	
+	/*Etiquetas*/
+	#lowLevel{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/medio.png')no-repeat;
+	width:125px;
+	height:25px;
+	text-align:center;
+	padding-top:4px;
+	float:left;
+	margin-right:10px;
+	background-repeat: repeat-x;
+	}
+	
+	#lowLevel a{
+	font-weight:bold;
+	font-size:12px;
+	color:#FFFFFF;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	text-decoration:none;
+	float:left;
+	padding-left:12px;
+	}
+	
+	#mediumLevel{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/basico.png')no-repeat;
+	height:25px;
+	width:110px;
+	text-align:center;
+	padding-top:4px;
+	float:left;
+	margin-right:30px;
+	}
+	
+	#mediumLevel a{
+	font-weight:bold;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	}
+	
+	#highLevel{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/basico.png')no-repeat;
+	width:132px;
+	height:25px;
+	text-align:center;
+	padding-top:4px;
+	float:left;
+	margin-right: 10px;
+	background-repeat: repeat-x;
+	}
+	
+	#highLevel a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	
+	#bbvaGcs{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/basico.png')no-repeat;
+	width:105px;
+	height:25px;
+	text-align:center;
+	padding-top:4px;
+	float:left;
+	margin-right:30px;
+	}
+	
+	#bbvaGcs a{
+	font-weight:bold;
+	font-size:12px;
+	color:#0072C9;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	text-decoration:none;
+	float:left;
+	padding-left:11px;
+	}
+	/*Fin Etiquetas*/
+	
+	/*Tipos*/
+	#referencia{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/medio.png')no-repeat;
+	width:140px;
+	height:25px;
+	text-align:center;
+	padding-top:4px;
+	float:left;
+	margin-right: 10px;
+	background-repeat: repeat-x;
+	}
+	
+	#referencia a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#FFFFFF;
+	text-decoration:none;
+	}
+	
+	#trucos{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/trucooconsejo.png')no-repeat;
+	float:left;
+	width: 175px;
+	height:25;
+	text-align:center;
+	padding-top:4px;
+	margin-right:10px;
+	}
+	
+	#trucos a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	
+	#como{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	float:left;
+	width: 105px;
+	height:25;
+	text-align:center;
+	padding-top:4px;
+	margin-right: 10px;
+	}
+	
+	#como a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	
+	#casosDeUso{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	float:left;
+	width: 150px;
+	height:25;
+	text-align:center;
+	padding-top:4px;
+	margin-right:34px;
+	}
+	
+	#casosDeUso a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	
+	#exitos{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	width: 150px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	margin-right:10px;
+	}
+	
+	#exitos a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	margin-right:3px;
+	padding-left:5px;
+	}
+	
+	#preguntasFrecuentes{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	float:left;
+	width: 200px;
+	height:25;
+	text-align:center;
+	padding-top:4px;
+	margin-right:10px;
+	}
+	
+	#preguntasFrecuentes a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	
+	#comoEmpiezo{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	float:left;
+	width: 160px;
+	height:25;
+	text-align:center;
+	padding-top:4px;
+	margin-right: 10px;
+	}
+	
+	#comoEmpiezo a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	/*Fin Tipos*/
+	
+	/*Formatos*/
+	#texto{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/medio.png')no-repeat;
+	width: 139px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	margin-right: 10px;
+	background-repeat: repeat-x;
+	}
+	
+	#texto a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#fff;
+	text-decoration:none;
+	}
+	
+	#video{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/avanzado.png')no-repeat;
+	width: 132px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	margin-right:30px;
+	}
+	
+	#video a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#fff;
+	text-decoration:none;
+	}
+	
+	#pdf{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	width: 115px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	margin-right: 30px;
+	}
+	
+	#pdf a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+	
+	#powerPoint{
+	background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/tiposdown.png')no-repeat;
+	width: 116px;
+	height:25;
+	float:left;
+	text-align:center;
+	padding-top:4px;
+	margin-right:30px;
+	margin-left: -20px;
+	}
+	
+	#powerPoint a{
+	font-weight:bold;
+	font-family:BBVA Web Light, Arial, sans-serif;
+	font-size:12px;
+	color:#0072C9;
+	text-decoration:none;
+	}
+
+</style>
+
+<div id="content_div" class="content">
+
+
+
+</div>
+
+   <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTableguias = prefs.getString("urlTableguias");
+	 var urlTablecontenidos = prefs.getString("urlTablecontenidos");
+	 var urlTableexitos = prefs.getString("urlTableexitos");
+	 var urlTablemovilidad = prefs.getString("urlTablemovilidad");
+	 var titlebox = prefs.getString("titlebox");
+	 var aux = new Array();
+	 var titulos = new Array();
+	 var html = new Array();
+	 var tipo = new Array();
+	 var contadorTipo = new Array();
+	 var formato = new Array();
+	 var contadorFormato = new Array();
+	 var contador = new Array();
+	 var ArrayDeEtiquetas = new Array();
+     var filasTotales = 0;
+	 	  
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 document.getElementById("content_div").innerHTML ='<div class=\"titulo\">'+ titlebox+'</div>';
+	 
+	 
+	 function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+				//google.setOnLoadCallback(sendQueryTipos);
+			}
+			
+	 function sendQuery() 
+			{   
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};
+					
+				var queryguias = new google.visualization.Query(urlTableguias, opts);	
+			    var querytosendguias = "select I,D,C where I <> 'Etiquetas' and I <> ''";				
+								
+				
+				queryguias.setQuery(querytosendguias);	
+				queryguias.send(handleQueryResponse1);
+				
+				
+				
+					
+			}
+	/*function sendQueryTipos() 
+			{   
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};
+					
+				var querytipos = new google.visualization.Query(urlTableguias, opts);	
+			    var querytosendtipos = "select E,F where E<>'Tipo' and F<>'Formato'";				
+								
+				
+				querytipos.setQuery(querytosendtipos);	
+				querytipos.send(handleQueryResponse5);
+				
+				
+				
+					
+			}*/		
+			
+			
+     function handleQueryResponse1(response) {
+	        
+	        data1 = response.getDataTable();
+			var filas = data1.getNumberOfRows();
+			//alert("handleQueryResponse1 "+filas);
+			var etiquetas = new Array(); 
+			var titulo = new Array();
+			var subsection="";
+			for (var i=0;i<filas;i++){
+				 etiquetas[i] = data1.getValue(i,0).split(",");
+				  titulo[i] = data1.getValue(i,1);
+				   subsection = data1.getValue(i,2);
+					for(var j=0;j<etiquetas[i].length;j++){
+					  if(aux.indexOf(etiquetas[i][j])== -1){            
+					        
+							aux += etiquetas[i][j]+",";
+							titulos += titulo[i];
+							html[etiquetas[i][j]] = 1;
+							titulos[titulo[i]]= subsection;
+							
+							
+							
+						}else if((aux.indexOf(etiquetas[i][j])!= -1)&&(titulos[titulo[i]]!=subsection)){
+						    
+						    html[etiquetas[i][j]]++;
+							titulos[titulo[i]]=subsection;
+						}
+					
+				}
+			
+			}  
+			   //alert(aux); 			
+			   //alert(etiquetas[0][1]);
+			   //alert(html[etiquetas[0][0]]);
+				var opts = {dataType:'jsonp'};
+				var querycontenidos = new google.visualization.Query(urlTablecontenidos, opts);	
+			    var querytosendcontenidos = "select E,B,G where E <> 'Etiquetas' and E <> ''";
+				querycontenidos.setQuery(querytosendcontenidos);	
+				querycontenidos.send(handleQueryResponse2);
+				
+				
+				
+			
+		}
+		
+	 function handleQueryResponse2(response) {
+	        var opts = {dataType:'jsonp'};
+			
+			data2 = response.getDataTable();
+			var filas = data2.getNumberOfRows();
+			//alert("handleQueryResponse2 "+filas);
+			var etiquetas = new Array();
+			var titulo = new Array();
+			var subsection="";
+			for (var i=0;i<filas;i++){
+				 etiquetas[i] = data2.getValue(i,0).split(",");
+				 titulo[i] = data2.getValue(i,1);
+				   subsection = data2.getValue(i,2);
+					for(var j=0;j<etiquetas[i].length;j++){
+					  if(aux.indexOf(etiquetas[i][j])==-1){
+					       aux += etiquetas[i][j]+",";
+						   html[etiquetas[i][j]] = 1;
+						   titulos[titulo[i]]= subsection;
+						}else if((aux.indexOf(etiquetas[i][j])!= -1)&&(titulos[titulo[i]]!=subsection)){
+						   html[etiquetas[i][j]]++;
+						   titulos[titulo[i]]=subsection;
+						}
+					
+				}
+			
+			}
+			var queryexitos = new google.visualization.Query(urlTableexitos, opts);	
+			var querytosendexitos = "select N where N <> 'Etiquetas' and N <> ''";
+			queryexitos.setQuery(querytosendexitos);	
+			queryexitos.send(handleQueryResponse3);
+		}
+	 function handleQueryResponse3(response) {
+	        var opts = {dataType:'jsonp'};
+			var etiquetas = new Array();	
+			data3 = response.getDataTable();
+			var filas = data3.getNumberOfRows();
+			//alert("handleQueryResponse3 "+filas);
+			for (var i=0;i<filas;i++){
+				 etiquetas[i] = data3.getValue(i,0).split(",");
+					for(var j=0;j<etiquetas[i].length;j++){
+					  if(aux.indexOf(etiquetas[i][j])==-1){
+						    aux += etiquetas[i][j]+",";
+							html[etiquetas[i][j]] = 1;
+						}else{
+						    html[etiquetas[i][j]]++;
+						}
+					
+				}
+			
+			}
+			var querymovilidad = new google.visualization.Query(urlTablemovilidad, opts);	
+			var querytosendmovilidad = "select H where H <> 'Etiquetas' and H <> ''";
+			querymovilidad.setQuery(querytosendmovilidad);	
+			querymovilidad.send(handleQueryResponse4);
+			
+		}
+	 function handleQueryResponse4(response) {
+			var opts = {dataType:'jsonp'};	
+		    var etiquetas = new Array();
+			data4 = response.getDataTable();
+			var filas = data4.getNumberOfRows();
+			//alert("handleQueryResponse4 "+filas);
+			for (var i=0;i<filas;i++){
+				 etiquetas[i] = data4.getValue(i,0).split(",");
+					for(var j=0;j<etiquetas[i].length;j++){
+					  if(aux.indexOf(etiquetas[i][j])==-1){
+							aux += etiquetas[i][j]+",";
+							html[etiquetas[i][j]] = 1;
+						}else{
+						    html[etiquetas[i][j]]++;
+						}
+					
+				}
+			
+			}
+			mostrar();
+			var querytipos = new google.visualization.Query(urlTableguias, opts);	
+			var querytosendtipos = "select E,F where E<>'Tipo' and F<>'Formato'";				
+			querytipos.setQuery(querytosendtipos);	
+			querytipos.send(handleQueryResponse5);
+		}	
+	function handleQueryResponse5(response) {
+			var opts = {dataType:'jsonp'};	
+		    var etiquetas = new Array();
+			var formatos = new Array();
+			data5 = response.getDataTable();
+			var filas = data5.getNumberOfRows();
+			
+			for (var i=0;i<filas;i++){
+				 etiquetas = data5.getValue(i,0);
+				 formatos[i] = data5.getValue(i,1).split(",");	
+					  if(tipo.indexOf(etiquetas)==-1){
+							tipo += etiquetas+",";
+							
+							contadorTipo[etiquetas] = 1;
+						}else{
+						    contadorTipo[etiquetas]++;
+						}
+					for(var j=0;j<formatos[i].length;j++){
+					  if(formato.indexOf(formatos[i][j])==-1){
+							formato += formatos[i][j]+",";
+							
+							contadorFormato[formatos[i][j]] = 1;
+						}else{
+						    contadorFormato[formatos[i][j]]++;
+						}
+				
+					}
+			}
+			var querytiposcontenidos = new google.visualization.Query(urlTablecontenidos, opts);	
+			var querytosendtiposcontenidos = "select K,L where K<>'Tipo' and L<>'Formato'";
+			querytiposcontenidos.setQuery(querytosendtiposcontenidos);	
+			querytiposcontenidos.send(handleQueryResponse6);
+		}
+	function handleQueryResponse6(response) {
+				
+		    var etiquetas = new Array();
+			var formatos = new Array();
+			data6 = response.getDataTable();
+			var filas = data6.getNumberOfRows();
+			
+			for (var i=0;i<filas;i++){
+				 etiquetas = data6.getValue(i,0);
+				 formatos[i] = data6.getValue(i,1).split(",");		
+					  if(tipo.indexOf(etiquetas)==-1){
+							tipo += etiquetas+",";
+							contadorTipo[etiquetas] = 1;
+						}else{
+						    contadorTipo[etiquetas]++;
+						}
+					  for(var j=0;j<formatos[i].length;j++){
+					  if(formato.indexOf(formatos[i][j])==-1){
+							formato += formatos[i][j]+",";
+							
+							contadorFormato[formatos[i][j]] = 1;
+						}else{
+						    contadorFormato[formatos[i][j]]++;
+						}
+				
+					}
+				}
+			mostrarTipos();
+		}	
+		
+	function mostrar(){
+	
+	//alert("llego a muestra");
+	//alert(aux);
+	//alert (aux.length);
+    var muestra="";
+	var aux1= aux.split(",");
+	//alert(aux1.length);
+	for (var i=0; i<aux1.length; i++){
+	    
+		//alert(aux1[i]);
+		//alert("html[aux[i][j]] "+html[aux[i][j]]);
+		if(aux1[i]!=""){
+			
+			if(aux1[i] == "Nivel Básico"){
+				//alert("Entrando nivel basico: " + aux1[i]);
+				muestra +='<div id="lowLevel">';
+				muestra +=' <a target="_parent" href=\'https://sites.google.com/a/bbva.com/portaldeayuda/tags?tag='+aux1[i]+'\'>'+aux1[i]+' ('+html[aux1[i]]+') </a> </div>';
+			}else if(aux1[i] == "Nivel Medio"){
+				//alert("Entrando nivel medio: " + aux1[i]);
+				muestra +='<div id="mediumLevel">';
+				muestra +=' <a target="_parent" href=\'https://sites.google.com/a/bbva.com/portaldeayuda/tags?tag='+aux1[i]+'\'>'+aux1[i]+' ('+html[aux1[i]]+') </a> </div>';
+			}else if(aux1[i] == "Nivel Avanzado"){
+				//alert("Entrando nivel avanzado: " + aux1[i]);
+				muestra +='<div id="highLevel">';
+				muestra +=' <a target="_parent" href=\'https://sites.google.com/a/bbva.com/portaldeayuda/tags?tag='+aux1[i]+'\'>'+aux1[i]+' ('+html[aux1[i]]+') </a> </div>';
+			}else if(aux1[i].trim() == "BBVA GCS"){
+				//alert("Entrando en BBVA GCS: " + aux1[i]);
+				//muestra +='<div id="bbvaGcs">';
+			}
+			
+			
+			
+		}
+	 
+	} 
+	  document.getElementById('content_div').innerHTML +="<div class='etiquetas'>"+muestra+"</div>"; 
+} 
+
+	function mostrarTipos(){
+	
+	//alert("llego a muestra");
+	//alert(aux);
+	//alert (aux.length);
+    var muestra="";
+	var muestra2="";
+	var aux1= tipo.split(",");
+	var aux2= formato.split(",");
+	//alert(aux1.length);
+	for (var i=0; i<aux1.length; i++){
+	    
+		//alert(aux1[i]);
+		//alert("html[aux[i][j]] "+html[aux[i][j]]);
+		if(aux1[i]!=""){
+
+			if(aux1[i] == "Referencia"){
+				//alert("Entrando en Referencia: " + aux1[i]);
+				muestra +='<div id="referencia">';
+			}else if(aux1[i] == "Trucos y consejos"){
+				//alert("Entrando en trucos: " + aux1[i]);
+				muestra +='<div id="trucos">';
+			}else if(aux1[i] == "Cómo"){
+				
+				//alert("Entrando en como: " + aux1[i]);//falta estilo
+				muestra +='<div id="como">';
+					
+			}else if(aux1[i] == "Casos de uso"){
+				
+				//alert("Entrando en Casos de uso: " + aux1[i]);//falta estilo
+				muestra +='<div id="casosDeUso">';
+					
+			}else if(aux1[i] == "Casos de éxito"){
+				
+				//alert("Entrando en Casos de éxito: " + aux1[i]);
+				muestra +='<div id="exitos">';
+			}else if(aux1[i] == "Preguntas Frecuentes"){
+				
+				//alert("Entrando en Preguntas Frecuentes: " + aux1[i]);//falta estilo
+				muestra +='<div id="preguntasFrecuentes">';
+					
+			}else if(aux1[i] == "Cómo empiezo"){
+				
+				//alert("Entrando en Cómo empiezo: " + aux1[i]);//falta estilo
+				muestra +='<div id="comoEmpiezo">';
+			}
+
+			muestra += ' <a target="_parent" href=\'https://sites.google.com/a/bbva.com/portaldeayuda/tags?tag='+aux1[i]+'\'>Tipo:' +aux1[i]+' ('+contadorTipo[aux1[i]]+') </a> </div>';			
+			
+		}
+	 
+	} 
+	
+	 document.getElementById('content_div').innerHTML += "<div class='tipos'>"+muestra+"</div>"; 
+	 for (var i=0; i<aux2.length; i++){
+	    
+		//alert(aux1[i]);
+		//alert("html[aux[i][j]] "+html[aux[i][j]]);
+		if(aux2[i]!=""){
+				
+				if(aux2[i] == "Texto"){
+				
+					//alert("Entrando en texto: " + aux2[i]);//falta estilo
+					muestra2 +='<div id="texto">';
+					
+				}else if(aux2[i] == "Vídeo"){
+				
+					//alert("Entrando en video: " + aux2[i]);//falta estilo
+					muestra2 +='<div id="video">';
+					
+				}else if(aux2[i] == "PDF"){
+				
+					//alert("Entrando en PDF: " + aux2[i]);//falta estilo
+					muestra2 +='<div id="pdf">';
+					
+				}else if(aux2[i].trim() == "PPT"){
+				
+					//alert("Entrando en PPT: " + aux2[i]);//falta estilo
+					muestra2 +='<div id="powerPoint">';
+					
+				}
+		
+				muestra2 += '<a target="_parent" href=\'https://sites.google.com/a/bbva.com/portaldeayuda/tags?tag='+aux2[i]+'\'>Formato:' +aux2[i]+' ('+contadorFormato[aux2[i]]+') </a> </div>';
+		}
+	 
+	}  
+	 document.getElementById('content_div').innerHTML += "<div class='formatos'>"+muestra2+"</div>";  
+} 
+
+
+   </script>
+   
+    ]]>
+  </Content>
+ 
+</Module>
