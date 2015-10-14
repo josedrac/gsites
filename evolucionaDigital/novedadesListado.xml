@@ -363,7 +363,7 @@
             }
 
 
-			html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' />";
+            //html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' />";
 
 			 for(var i=0;i<filas;i++){
 
