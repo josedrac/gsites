@@ -171,11 +171,11 @@ margin-top:-19px;
 
 .cabeceramenu ul li.opcion1
  {
-	width: 170px;
+	width: 180px;
 }
 .cabeceramenu ul li.opcion2
  {
-	width: 120px;
+	width: 110px;
 }
 .cabeceramenu ul li.opcion3
  {
@@ -279,7 +279,7 @@ margin-top:-19px;
   <ul>
 	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/evolucionadigital/" target="_parent"  title="home"/></li>
 
-	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar" target="_parent">Ayuda a digitalizar</a></span></span></li>
+	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar" target="_parent">Ayuda para digitalizar</a></span></span></li>
 
 	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo"  target="_parent">Decálogo</a></span></span></li>
 
