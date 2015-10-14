@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+	<ModulePrefs title="ED-lateralHelp.xml" height ="150">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>   
+		<Require feature="setprefs" />   
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+		
+		<head>
+			<style type="text/css">
+		        @font-face {
+		            font-family: 'BBVA Web Light';
+		            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+		            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		            font-style: normal;
+		            font-weight: normal;
+		        }
+
+		        .container {
+		            border: 1px solid #DDE3EA;
+		            border-radius: 2px;
+		            -ms-border-radius: 2px;
+		            -moz-border-radius: 2px;
+		            -webkit-border-radius: 2px;
+		            -khtml-border-radius: 2px;
+		            width: 290px;
+		            padding: 3px;
+		        }
+
+		        .content{
+		            font-family: 'BBVA Web Light';
+		            display: table;
+		            width: auto;
+		            background: #ffffff;
+		            background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+		            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+		            background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		            background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		            background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+		            background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+		            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+		            font-size: 13px;
+		            font-family: BBVA Web Light, Arial;
+		            padding-left: 10px;
+		            padding-right: : 20px;
+		            padding-top: 14px;
+		            padding-bottom: 15px;
+		        }
+
+		        .content .text, .content .icon {
+		            display: table-cell;
+		        }
+		        .content .text a {
+		            color: #0078d2;
+		            text-decoration: none;
+		            font-weight: bold;
+		        }
+		        .content .icon {
+		            text-align: center;
+		            width: 75px;
+		            vertical-align: middle;
+		        }
+		    </style>
+		</head>
+
+		<div class="container">
+	        <div class="content">
+	            <div class="icon">
+	                <img src="https://raw.githubusercontent.com/sopraux/gsites/ED-lateralHelp/evolucionaDigital/img/mailHelp.png" alt="">
+	            </div>
+	            <div class="text">
+	                <p>¿Anguna duda? Te ayudamos:</p>
+	                <a href="mailto:soportesdigitales.es@bbva.com">soportesdigitales.es@bbva.com</a>
+	                <p>Te contestamos lo antes posible</p>
+	            </div>
+	        </div>
+	    </div>
+
+		]]>
+	 </Content>
+</Module>
