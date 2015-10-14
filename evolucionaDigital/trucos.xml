@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="trucosyconsejos.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+/* @end */
+	
+	#titlepage{
+	float:left;
+	color:#0078D2;
+	font-family: BBVA Web Light, Arial;
+	font-size:30px;
+	margin-bottom:6px;
+	padding-top:11px;
+	height:30px;
+	margin-left:11px;
+	}
+	
+	.linedowntitle{
+	margin-bottom:20px;
+	width:939px;
+	display:block;
+	}
+	.linedownheadertable{
+	margin-bottom:45px;
+	width:690px;
+	display:block;
+	}
+	
+	#textPage{
+	margin-bottom:90px;
+	width:675px;
+	height:57px;
+	font-family: BBVA Office Light, Arial;
+	font-size:14px;
+	color:#434A58;	
+	margin-left:9px;
+	padding-top:11px;
+	}
+	.tablasoporte{
+	width:675px;
+	font-family:BBVA Web Medium, Arial;
+	font-size:12px;
+	color:#434A58;
+	margin-top:-22px;
+	margin-left:6px;
+	
+	}
+	.tablasoporte td{
+	width:250px;
+	padding-bottom:2px;
+	}
+	
+	.cabecera td{
+	font-family:BBVA Web Medium, Arial;
+	font-size:18px;
+	color:#434A58;
+	//padding-bottom:35px;
+	
+	
+	}
+	#iniciate{
+	font-size:16px;
+	font-family: BBVA Web Medium, Arial;
+	color:#0065B7;
+	}
+	#iniciate a{
+	font-size:16px;
+	font-family: BBVA Web Medium, Arial;
+	color:#0065B7;
+	text-decoration:none;
+	padding:10px 0px;
+	margin-left:10px;
+	margin-bottom:10px;
+	}
+	.flecha{
+	margin-left:15px;
+	
+	}
+	.iniciateline{
+		width: 619px;
+		margin-bottom:10px;
+		
+	}
+	.lineitem{
+		width: 619px;
+		margin-bottom:10px;
+		margin-top:10px;
+	}
+	.linedowntitle {
+		margin-bottom: 20px;
+		width: 619px;
+		display: block;
+}
+#movilidad{
+color:#0065B7;
+font-size:12px;
+font-family: Arial;
+margin-left:10px;
+}
+
+#movilidad select{
+width:190px;
+height:30px;
+color:#0065B7;
+font-size:12px;
+font-family: BBVA Web Medium, Arial;
+margin-left:10px;
+}
+#dispositivos{
+color:#0065B7;
+font-size:12px;
+font-family: Arial;
+margin-top:15px;
+}
+#dispositivos a{
+color:#0065B7;
+font-size:12px;
+font-family: Arial;
+margin-top:15px;
+text-decoration:none;
+margin-left:10px;
+}
+.title{
+font-size:16px;
+font-family:BBVA Web Book, Arial;
+color:#00529B;
+margin-bottom:15px;
+}	
+.trucos li {
+color:#00529B;
+}
+.trucos li a{
+font-size:12px;
+font-family: Arial;
+color:#00529B;
+text-decoration:none;
+
+}
+#trucos{
+margin-left:40px;
+float:left;
+}
+#consejos{
+margin-left:40px;
+float:left;
+}
+#content{
+float:left;
+width:650px;
+}
+#content img{
+float:left
+}
+}
+	</style>
+<div id="content">	
+<img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/img_trucosp.png" />	
+<div id="trucos"></div>	
+</div>
+
+   <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTable = prefs.getString("_table_query_url");
+	
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+	
+		
+	 function sendQuery(){
+	   gadgetHelper = new google.visualization.GadgetHelper();
+	   var opts = {dataType:'jsonp'};
+	   
+	   var queryTrucos = new google.visualization.Query(urlTable, opts);
+	   
+	   
+	   var queryTrucostosend = "select max(A),C,G where C like 'truco' group by C,G";
+	  
+	   
+	   queryTrucos.setQuery(queryTrucostosend);			  
+	   queryTrucos.send(handleQueryResponse);
+	   
+	   
+	   
+
+	 }
+	 function handleQueryResponse(response){
+	 
+	   data = response.getDataTable();
+	   var filas = data.getNumberOfRows();
+	
+	   var html= "";
+	   html +="<span class='title'>Trucos</span><ul class='trucos'>";
+	   for(var i=0;i<filas;i++){
+			
+        html +="<li><a href='"+data.getValue(i,2)+"' target='_parent'>"+data.getValue(i,0)+"</a></li>";	
+	 
+	  }
+	   html +="</ul>";
+	   document.getElementById('trucos').innerHTML = html;
+	   
+	 }
+	 
+	
+	 
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>

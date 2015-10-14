@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+	<ModulePrefs title="appModule.xml" height ="500">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>   
+		<Require feature="setprefs" />   
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+		
+		<head>
+			<style type="text/css">
+				@font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot');
+					src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.woff') format("woff"),
+						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+				.content {
+		            font-family: 'BBVA Web Light';
+					width: 100%;
+		            display: table;
+		            font-size: 13px;
+				}
+				.col-text, .col-img {
+					width: 50%;
+		            display: table-cell;
+		            vertical-align: middle;
+				}
+		        .col-text p {
+		            margin: 0 0 15px;
+		        }
+		        .col-text h2 {
+		            margin-bottom: 5px;
+		            color: #0078d2;
+		            font-weight: normal;
+		        }
+		        .col-img {
+		            text-align: center;
+		        }
+		        .col-img img {
+		            text-align: center;
+		        }
+		        .section {
+		            display: table;
+		            margin-bottom: 20px;
+		        }
+		        .section .icon {
+		            width: 40px;
+		        }
+		        .section .text, .section .icon {
+		            display: table-cell;
+		        }
+
+		        button{
+		            background: #0079C1;
+		            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+		            background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		            background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		            background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		            background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+		            -webkit-border-radius: .3em;
+		            -moz-border-radius: .3em;
+		            border-radius: .3em;
+		            font-size: 10px;
+		            text-align: center;
+		            vertical-align: middle;
+		            padding-left: .9em;
+		            padding-right: .9em;
+		            border: .1em solid #00559D;
+		            color: white;
+		            cursor: pointer;
+		            position: relative;
+		            overflow: visible;
+		            width: 90px;
+		            height: 20px;
+		            }
+			</style>
+		</head>
+
+		<div class="content">
+			<div class="col-text">
+				<div class="section">
+					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/demo.png" alt=""></div>
+	                <div class="text">
+	                    <h2>Demo móvil navegable</h2>
+	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
+	                    <button>Accede</button>
+	                </div>
+				</div>
+				<div class="section">
+	                <div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/tour.png" alt=""></div>
+	                <div class="text">
+	    				<h2>Tour por la app</h2>
+	    				<p>Descubre en una visita guiada todo lo que puedes hacer con la aplicación de BBVA.</p>
+	    				<button>Accede</button>
+	                </div>
+				</div>
+				<div class="section">
+					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/movil.png" alt=""></div>
+	                <div class="text">
+	                    <h2>Operativa por canal móvil</h2>
+	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
+	                    <button>Accede</button>
+	                </div>
+				</div>
+				<div class="section">
+					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/mail.png" alt=""></div>
+	                <div class="text">
+	                    <h2>Enviar e-mail autodigitalización</h2>
+	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
+	                    <button>Accede</button>
+	                </div>
+				</div>
+			</div>
+			<div class="col-img">
+				<img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/mobile.png" alt="">
+			</div>
+		</div>
+
+		]]>
+	 </Content>
+</Module>

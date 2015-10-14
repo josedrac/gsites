@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="appslateral.xml Cajetin botones lateral interna Apps"
+        title_url=""
+        height=""
+        width="300"
+        author=""
+        author_email=""
+        description="Cajetin botones"
+        screenshot=""
+        thumbnail=""  
+        scrolling="false"
+        author_location="Asturias, Spain"
+        scaling="false">
+        <Require feature="setprefs"/>
+    </ModulePrefs>
+    <UserPref name="VarTituloVentana" display_name="Título ventana:" default_value="" required="true"/>
+    <UserPref name="VarEnlace1Texto" display_name="Texto enlace 1:" default_value="" required="true"/>
+    <UserPref name="VarEnlace1URL" display_name="enlace 1:" default_value="" required="true"/>
+    <UserPref name="VarEnlace1ImgURL" display_name="imagen 1:" default_value="" required="true"/>
+    <UserPref name="VarEnlace2Texto" display_name="Texto enlace 2:" default_value=""/>
+    <UserPref name="VarEnlace2URL" display_name="enlace 2:" default_value=""/>
+    <UserPref name="VarEnlace2ImgURL" display_name="imagen 2:" default_value=""/>
+    <UserPref name="VarEnlace3Texto" display_name="Texto enlace 3:" default_value=""/>
+    <UserPref name="VarEnlace3URL" display_name="enlace 3:" default_value=""/>
+    <UserPref name="VarEnlace3ImgURL" display_name="imagen 3:" default_value=""/>	
+    <UserPref name="VarEnlace4Texto" display_name="Texto enlace 4:" default_value=""/>
+    <UserPref name="VarEnlace4URL" display_name="enlace 4:" default_value=""/>
+    <UserPref name="VarEnlace4ImgURL" display_name="imagen 4:" default_value=""/>
+    <UserPref name="VarEnlace5Texto" display_name="Texto enlace 5:" default_value=""/>
+    <UserPref name="VarEnlace5URL" display_name="enlace 5:" default_value=""/>
+    <UserPref name="VarEnlace5ImgURL" display_name="imagen 5:" default_value=""/>
+    
+    <Content type="html" view="home"><![CDATA[
+        <style>
+          @font-face {
+             font-family: 'BBVA Web Book';
+             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+             font-style: normal;
+             font-weight: normal;
+          }        
+					.titulo{
+						border-bottom: 1px solid  #DDE3EA;
+						background: #ffffff;
+						background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+						background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+						background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+						font-size:16px;
+						font-family: BBVA Web Book, Arial;
+						color: #333333;
+						padding-left: 18px;
+						padding-left: 18px;
+						padding-top: 14px;
+						padding-bottom: 15px;
+					}
+					.caja{
+						border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+			margin-top:15px;
+					}
+					ul{
+						padding-left: 19px;
+						padding-right: 19px;
+						margin: 0;
+					}
+					ul li{
+						list-style: none;
+						border-bottom: 1px solid #DDE3EA;
+						padding-bottom: 12px;
+						padding-top: 17px;
+					}
+          ul li:last-child{
+						border: 0;
+						padding-bottom: 11px;
+						padding-top: 17px;
+					}     
+					ul li a{
+            padding-left: 2px;
+						vertical-align: 3px;
+						text-decoration: none;
+            font-size: 12px; font-family: Arial; 
+            font-weight: bold;
+						color: #0073C9;
+					}  
+               
+        </style>
+    
+        <div id="content_div" class="caja"></div>
+
+        <script type="text/javascript">
+			if (!Array.prototype.indexOf) {
+				Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
+				"use strict";
+				if (this == null) {
+					throw new TypeError();
+				}
+			var t = Object(this);
+			var len = t.length >>> 0;
+			if (len === 0) {
+            return -1;
+			}
+			var n = 0;
+			if (arguments.length > 0) {
+            n = Number(arguments[1]);
+            if (n != n) { // shortcut for verifying if it's NaN
+                n = 0;
+            } else if (n != 0 && n != Infinity && n != -Infinity) {
+                n = (n > 0 || -1) * Math.floor(Math.abs(n));
+				}
+			}
+			if (n >= len) {
+            return -1;
+			}
+			var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
+			for (; k < len; k++) {
+            if (k in t && t[k] === searchElement) {
+                return k;
+            }
+        }
+        return -1;
+		}
+	}
+		
+            var html="";
+            // Obtener userprefs
+            var prefs = new gadgets.Prefs();            
+            
+            var VarTituloVentana=prefs.getString("VarTituloVentana");
+            var VarEnlace1Texto=prefs.getString("VarEnlace1Texto");
+            var VarEnlace1URL=prefs.getString("VarEnlace1URL");
+            var VarEnlace1ImgURL=prefs.getString("VarEnlace1ImgURL");
+            var VarEnlace2Texto=prefs.getString("VarEnlace2Texto");
+            var VarEnlace2URL=prefs.getString("VarEnlace2URL");
+            var VarEnlace2ImgURL=prefs.getString("VarEnlace2ImgURL");   
+            var VarEnlace3Texto=prefs.getString("VarEnlace3Texto");
+            var VarEnlace3URL=prefs.getString("VarEnlace3URL");
+            var VarEnlace3ImgURL=prefs.getString("VarEnlace3ImgURL");
+            var VarEnlace4Texto=prefs.getString("VarEnlace4Texto");
+            var VarEnlace4URL=prefs.getString("VarEnlace4URL");
+            var VarEnlace4ImgURL=prefs.getString("VarEnlace4ImgURL");
+            var VarEnlace5Texto=prefs.getString("VarEnlace5Texto");
+            var VarEnlace5URL=prefs.getString("VarEnlace5URL");
+            var VarEnlace5ImgURL=prefs.getString("VarEnlace5ImgURL");
+            
+            
+            function devuelveEnlace(varEnlace)
+            {
+                var link = "";
+                if (varEnlace.indexOf("javascript:")!=-1)
+                {
+                    var link = 'href=\"#\" onclick=\"' + varEnlace + '\" ';
+                }
+                else
+                {
+                    var link = 'href=\"'+ varEnlace +'\"  target=\"_parent\" ';
+                }
+                return link;
+            }
+                        
+            function insertarEnlace()
+            {
+                var html = "";
+                var strLink = "";    
+
+                if ((VarEnlace1Texto!="")&&(VarEnlace1URL!="")&&(VarEnlace1ImgURL!=""))
+                {    
+                    var strLink = devuelveEnlace(VarEnlace1URL);
+                    html+='<li><img src=\"' + VarEnlace1ImgURL + '\"/>&nbsp;&nbsp;<a ' + strLink + ' title=\"' + VarEnlace1Texto + '\"  >' + VarEnlace1Texto + '</a></li>';
+                }
+                if ((VarEnlace2Texto!="")&&(VarEnlace2URL!="")&&(VarEnlace2ImgURL!=""))
+                {    
+                    var strLink = devuelveEnlace(VarEnlace2URL);
+                    html+='<li><img src=\"' + VarEnlace2ImgURL + '\"/>&nbsp;&nbsp;<a ' + strLink + ' title=\"' + VarEnlace2Texto + '\"  >' + VarEnlace2Texto + '</a></li>';
+                }
+                if ((VarEnlace3Texto!="")&&(VarEnlace3URL!="")&&(VarEnlace3ImgURL!=""))
+                {    
+                    var strLink = devuelveEnlace(VarEnlace3URL);
+                    html+='<li><img src=\"' + VarEnlace3ImgURL + '\"/>&nbsp;&nbsp;<a ' + strLink + ' title=\"' + VarEnlace3Texto + '\"  >' + VarEnlace3Texto + '</a></li>';
+                }
+								 if ((VarEnlace4Texto!="")&&(VarEnlace4URL!="")&&(VarEnlace4ImgURL!=""))
+                {    
+                    var strLink = devuelveEnlace(VarEnlace4URL);
+                    html+='<li><img src=\"' + VarEnlace4ImgURL + '\"/>&nbsp;&nbsp;<a ' + strLink + ' title=\"' + VarEnlace4Texto + '\"  >' + VarEnlace4Texto + '</a></li>';
+                }
+                 if ((VarEnlace5Texto!="")&&(VarEnlace5URL!="")&&(VarEnlace5ImgURL!=""))
+                {    
+                    var strLink = devuelveEnlace(VarEnlace5URL);
+                    html+='<li><img src=\"' + VarEnlace5ImgURL + '\"/>&nbsp;&nbsp;<a ' + strLink + ' title=\"' + VarEnlace5Texto + '\"  >' + VarEnlace5Texto + '</a></li>';
+                }
+                
+                return html;
+            }    
+            html+='<div class=\"titulo\">' + VarTituloVentana + '</div>';
+            html+='<ul id=\"botonera\">';                        
+            html+=insertarEnlace();            
+            html+='</ul>';    
+            
+            document.getElementById("content_div").innerHTML = html;
+            gadgets.window.adjustHeight();
+        </script>
+    ]]>  
+    </Content>  
+    <Content type="html" view="configuration"  preferred_height="300">
+    <![CDATA[        
+        <style>
+						table td {
+                color: #000;
+                font-size: 11px;
+                font-weight: bold;
+            }
+            table td input {
+                color: #000;
+                font-size: 11px;                
+            }   
+            .btnImg {
+                width: 400px;
+            }        
+            .btnTexto {
+                width: 400px;
+            }
+            .btnURL {
+                width: 400px;
+            }
+            .btnTitulo {
+                width: 400px;
+            }
+            .destacado {
+                color:red;
+                font-size:20px;
+                font-weight:bold;
+            }
+            .textodefecto {
+                width: 40px;
+            }
+            .textocolor {
+                width: 57px;
+            }
+            .separador {
+                border-bottom: 1px solid;
+            }
+            ul.gadget-config-list {
+                list-style: none outside none;
+                margin: 0 !important;
+                padding-left: 5px;
+            }
+        </style>
+        <table width="100%" border="0" id="tablaconfig">
+            <tr>
+                <td class="separador">
+                    Título: <input type="text" id="VarTituloVentana" class="btnTitulo" value="__UP_VarTituloVentana__" onchange="registra('VarTituloVentana')">
+                </td>
+            </tr>     
+            <tr>        
+                <td class="separador">
+                		Enlace 1 - Imagen: <input type="text" id="VarEnlace1ImgURL" class="btnImg" value="__UP_VarEnlace1ImgURL__" onchange="registra('VarEnlace1ImgURL')"><br/>       
+                    Enlace 1 - Texto: <input type="text" id="VarEnlace1Texto" class="btnTexto" value="__UP_VarEnlace1Texto__" onchange="registra('VarEnlace1Texto')"><br/>        
+                    Enlace 1 - URL: <input type="text" id="VarEnlace1URL" class="btnURL" value="__UP_VarEnlace1URL__" onchange="registra('VarEnlace1URL')"><br/>        
+                </td>
+            </tr>
+            <tr>        
+                <td class="separador">
+                		Enlace 2 - Imagen: <input type="text" id="VarEnlace2ImgURL" class="btnImg" value="__UP_VarEnlace2ImgURL__" onchange="registra('VarEnlace2ImgURL')"><br/>       
+                    Enlace 2 - Texto: <input type="text" id="VarEnlace2Texto" class="btnTexto" value="__UP_VarEnlace2Texto__" onchange="registra('VarEnlace2Texto')"><br/>        
+                    Enlace 2 - URL: <input type="text" id="VarEnlace2URL" class="btnURL" value="__UP_VarEnlace2URL__" onchange="registra('VarEnlace2URL')"><br/>                    
+                </td>
+            </tr>
+            <tr>        
+                <td class="separador">
+                		Enlace 3 - Imagen: <input type="text" id="VarEnlace3ImgURL" class="btnImg" value="__UP_VarEnlace3ImgURL__" onchange="registra('VarEnlace3ImgURL')"><br/>       
+                    Enlace 3 - Texto: <input type="text" id="VarEnlace3Texto" class="btnTexto" value="__UP_VarEnlace3Texto__" onchange="registra('VarEnlace3Texto')"><br/>        
+                    Enlace 3 - URL: <input type="text" id="VarEnlace3URL" class="btnURL" value="__UP_VarEnlace3URL__" onchange="registra('VarEnlace3URL')"><br/>                    
+                </td>
+            </tr>
+            <tr>        
+                <td class="separador">
+                		Enlace 4 - Imagen: <input type="text" id="VarEnlace4ImgURL" class="btnImg" value="__UP_VarEnlace4ImgURL__" onchange="registra('VarEnlace4ImgURL')"><br/>       
+                    Enlace 4 - Texto: <input type="text" id="VarEnlace4Texto" class="btnTexto" value="__UP_VarEnlace4Texto__" onchange="registra('VarEnlace4Texto')"><br/>        
+                    Enlace 4 - URL: <input type="text" id="VarEnlace4URL" class="btnURL" value="__UP_VarEnlace4URL__" onchange="registra('VarEnlace4URL')"><br/>                    
+                </td>
+            </tr>
+            <tr>        
+                <td class="separador">
+                		Enlace 5 - Imagen: <input type="text" id="VarEnlace5ImgURL" class="btnImg" value="__UP_VarEnlace5ImgURL__" onchange="registra('VarEnlace5ImgURL')"><br/>       
+                    Enlace 5 - Texto: <input type="text" id="VarEnlace5Texto" class="btnTexto" value="__UP_VarEnlace5Texto__" onchange="registra('VarEnlace5Texto')"><br/>        
+                    Enlace 5 - URL: <input type="text" id="VarEnlace5URL" class="btnURL" value="__UP_VarEnlace5URL__" onchange="registra('VarEnlace5URL')"><br/>                    
+                </td>
+            </tr>
+           
+        </table>        
+        <script type="text/javascript">    
+            var prefs = new gadgets.Prefs();            
+            function registra(variable)
+            {
+                prefs.set(variable,document.getElementById(variable).value);
+            }    
+            gadgets.window.adjustHeight();
+        </script>   
+    ]]>
+    </Content>
+</Module>

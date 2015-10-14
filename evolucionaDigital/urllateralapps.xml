@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="urllateralapps.xml"
+        title_url=""
+        height=""
+        width="300"
+        author=""
+        author_email=""
+        description="Cajetin botones"
+        screenshot=""
+        thumbnail=""  
+        scrolling="false"
+        author_location="Asturias, Spain"
+        scaling="false">
+        <Require feature="setprefs"/>
+		<Require feature="idi"/>
+        <Require feature="locked-domain" />
+	    <Require feature="dynamic-height"/> 
+    </ModulePrefs>
+    <UserPref name="tablequeryurl" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+	
+    <Content type="html" view="home"><![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <style>
+          @font-face {
+             font-family: 'BBVA Web Book';
+             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+             font-style: normal;
+             font-weight: normal;
+          }        
+					.titulo{
+						border-bottom: 1px solid  #DDE3EA;
+						background: #ffffff;
+						background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+						background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+						background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+					
+							font-size:16px;
+	font-family: BBVA Web Book, Arial;
+						color: #333333;
+						padding-left: 18px;
+						padding-left: 18px;
+						padding-top: 14px;
+						padding-bottom: 15px;
+					}
+					.caja{
+						border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+			margin-top:15px;
+					}
+					ul{
+						padding-left: 19px;
+						padding-right: 19px;
+						margin: 0;
+					}
+					ul li{
+						list-style: none;
+						border-bottom: 1px solid #DDE3EA;
+						padding-bottom: 12px;
+						padding-top: 17px;
+					}
+          ul li:last-child{
+						border: 0;
+						padding-bottom: 11px;
+						padding-top: 17px;
+					}     
+					ul li a{
+            padding-left: 2px;
+						vertical-align: 3px;
+						text-decoration: none;
+            font-size: 12px; font-family: Arial; 
+            font-weight: bold;
+						color: #0073C9;
+					}  
+               
+        </style>
+    	
+    	<!--[if IE 7]>
+					
+			<style type="text/css"> 
+				
+				.titulo{
+					background: #F5F7F8
+	    		}
+					
+			</style>
+		
+		<![endif]-->
+		
+		<!--[if IE 8]>
+    					
+			<style type="text/css"> 
+				
+				.titulo{
+					background: #F5F7F8
+	    		}
+	   			
+			</style>
+			
+		<![endif]-->
+    	
+        <div id="content_div" class="caja"></div>
+
+        <script type="text/javascript">
+          var gadgetHelper = null;
+	      var prefs = new _IG_Prefs();
+	      var urlTable = prefs.getString("tablequeryurl");
+		  var html="";
+	      html +='<div class=\"titulo\">Preguntas Frecuentes</div>';
+		  html +='<ul id=\"botonera\">'; 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/preguntas-frecuentes-contactos'>Contactos</a></li>";
+	  
+          html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/como-puedo-ver-mis-carpetas-en-nokia'>Cómo puedo ver mis carpetas en Nokia</a></li>";
+	 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/etiquetas-preguntas-frecuentes'>Etiquetas</a></li>";
+	 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/gmail-preguntas-frecuentes'>Gmail</a></li>";
+	 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/google-calendar-preguntas-frecuentes'>Google Calendar</a></li>";
+	 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/google-docs-preguntas-frecuentes'>Google Docs</a></li>";
+	 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/interactuar-con-los-correos-preguntas-frecuentes'>Interactuar con los correos</a></li>";
+	    
+	 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/migracion-a-gmail-preguntas-frecuentes'>Migración a GMail</a></li>";
+	 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/modo-de-funcionamiento-de-gmail'>Modo de funcionamiento de GMail</a></li>";
+	 
+	      html += "<li><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/outlook-vs-gmail-preguntas-frecuentes'>Outlook vs. GMail</a></li>";
+		  html +="</ul>";		
+		  document.getElementById("content_div").innerHTML = html;
+
+
+					
+            
+
+        </script>
+    ]]>  
+    </Content>  
+		
+   
+</Module>

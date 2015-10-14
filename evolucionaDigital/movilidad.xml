@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="movilidad.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+	
+		#titlepage{
+		float:left;
+		color:#0078D2;
+		font-family: BBVA Web Light, Arial;
+		font-size:30px;
+		margin-bottom:6px;
+		padding-top:11px;
+		height:30px;
+		margin-left:11px;
+		font-weight: normal;
+		}
+		
+		.linedowntitle{
+		margin-bottom:20px;
+		width:939px;
+		display:-moz-stack;
+		}
+		.linedownheadertable{
+		margin-bottom:45px;
+		width:690px;
+		display:block;
+		}
+		
+		#textPage{
+		margin-bottom:90px;
+		width:675px;
+		height:57px;
+		font-family: BBVA Web Light, Arial;
+		font-size:14px;
+		color:#434A58;	
+		margin-left:9px;
+		padding-top:11px;
+		}
+		.tablasoporte{
+		width:675px;
+		font-family:BBVA Web Medium, Arial;
+		font-size:12px;
+		color:#434A58;
+		margin-top:-22px;
+		margin-left:6px;
+		
+		}
+		.tablasoporte td{
+		width:250px;
+		padding-bottom:2px;
+		}
+		
+		.cabecera td{
+		font-family:BBVA Web Medium, Arial;
+		font-size:18px;
+		color:#434A58;
+		}
+		
+		#iniciate{
+		font-size:16px;
+		font-family: BBVA Web Medium, Arial;
+		color:#0065B7;
+		}
+		
+		#iniciate a{
+		font-size:16px;
+		font-family: BBVA Web Medium, Arial;
+		color:#0065B7;
+		text-decoration:none;
+		padding:10px 0px;
+		margin-left:0px;
+		margin-bottom:10px;
+		}
+		
+		.flecha{
+		margin-left:15px;
+		
+		}
+		
+		.iniciateline{
+			width: 619px;
+			margin-bottom:10px;		
+		}
+		
+		.lineitem{
+			width: 619px;
+			margin-bottom:10px;
+			margin-top:10px;
+		}
+		
+		.linedowntitle {
+			margin-bottom: 20px;
+			width: 619px;
+			display: block;
+		}
+		
+		#movilidad{
+		color:#0065B7;
+		font-size:12px;
+		font-family: Arial;
+		margin-left:10px;
+		}
+		
+		#movilidad select{
+		width:190px;
+		height:30px;
+		color:#0065B7;
+		font-size:12px;
+		font-family: BBVA Web Medium, Arial;
+		margin-left:10px;
+		}
+		
+		#dispositivos{
+		color:#0065B7;
+		font-size:12px;
+		font-family: Arial;
+		margin-top:15px;
+		padding-left:15px;
+		}
+		
+		#dispositivos a{
+		color:#0065B7;
+		font-size:12px;
+		font-family: Arial;
+		margin-top:15px;
+		text-decoration:none;
+		margin-left:10px;
+		line-height:30px;
+		}
+		
+		.linkMov {
+		line-height: 20px;
+		}
+		
+		#textMovilidad{
+		color:#434A58;
+		font-size:12px;
+		font-family: Arial;
+		margin-top:10px;
+		margin-bottom:5px;
+		padding-left:15px;
+		}
+		</style>
+<body onload="cargaCompleta()">	
+<div id="textMovilidad">Guías de configuración, según dispositivo: </div>
+<!--<div id="movilidad">Guías de configuración, según dispositivo:
+ <select  onchange="devicesCountry(this.options[this.selectedIndex].value)" id="paises"></select>
+</div>-->
+<div id="dispositivos"></div>	
+</body>
+   <script type="text/javascript">
+     var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTable = prefs.getString("_table_query_url");
+	
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+	 function sendQuery() 
+			{
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};		
+				var query = new google.visualization.Query(urlTable, opts);	
+				var querytosend = "select max(A),B,max(C),max(D) group by B";
+				query.setQuery(querytosend);			  
+				query.send(handleQueryResponse);
+				
+				
+			}
+	 function handleQueryResponse(response) {
+				data = response.getDataTable();	
+				var filas = data.getNumberOfRows();
+				//alert(filas);
+				
+				
+				for(var i=0;i<filas;i++){
+				    
+				 if(data.getValue(i,1) == 'España'){
+					document.getElementById('paises').innerHTML += "<option selected='selected' value='"+data.getValue(i,1)+"'>"+data.getValue(i,1)+"</option>";
+					} else if(data.getValue(i,1) != 'País'){
+				    
+				    document.getElementById('paises').innerHTML += "<option  value='"+data.getValue(i,1)+"'>"+data.getValue(i,1)+"</option>";
+				   }
+				}
+			}
+		
+	 function devicesCountry(pais){
+	   var gadgetHelper = new google.visualization.GadgetHelper();
+	   var opts = {dataType:'jsonp'};
+	   var queryDC = new google.visualization.Query(urlTable, opts);
+	     
+	   var queryDCtosend = "select A,max(B),C,D,E where B like '"+pais+"'   group by A,C,D,E";
+	   
+	   queryDC.setQuery(queryDCtosend);			  
+	   queryDC.send(handleQueryResponseDC);
+	   
+
+	 }
+	 function handleQueryResponseDC(response){
+	 
+	   dataDC = response.getDataTable();
+	   var filas = dataDC.getNumberOfRows();
+	 
+	   var html= "";
+	   
+	   for(var i=0;i<filas;i++)
+	   {
+		if(dataDC.getValue(i,2) != 'Dispositivo')
+		{
+	    html +="<a class='linkMov' href='https://sites.google.com/a/bbva.com/portaldeayuda/movil?dispositivo="+dataDC.getValue(i,0)+"' target='_parent'>"+dataDC.getValue(i,2)+"</a><br/>";
+		}
+	 
+	  }
+	   document.getElementById('dispositivos').innerHTML = html;
+	   
+	 }
+	 function cargaCompleta(){
+	 
+	 devicesCountry('España');
+	 }
+	 
+	 
+	 
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>

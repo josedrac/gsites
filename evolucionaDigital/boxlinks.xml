@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="boxlinks.xml fase 2"
+        title_url=""
+        height=""
+        width="300"
+        author=""
+        author_email=""
+        description="Cajetin botones"
+        screenshot=""
+        thumbnail=""
+        scrolling="false"
+        scaling="false">
+        <Require feature="setprefs"/>
+    </ModulePrefs>
+    <Content type="html" view="home"><![CDATA[
+        <style>
+          @font-face {
+             font-family: 'BBVA Web Book';
+             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+             src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+             font-style: normal;
+             font-weight: normal;
+          }
+
+		.titulo{
+			border-bottom: 1px solid  #DDE3EA;
+			background: #ffffff;
+			background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+			background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+			background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+			background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+			background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+			font-size: 16px;
+			font-family: BBVA Web Book, Arial;
+			color: #333333;
+			padding-left: 18px;
+			padding-left: 18px;
+			padding-top: 14px;
+			padding-bottom: 15px;
+		}
+
+		.caja{
+			border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+			margin-top:15px;
+		}
+
+		ul{
+			padding-left: 19px;
+			padding-right: 19px;
+			margin: 0;
+		}
+
+		ul li{
+			list-style: none;
+			border-bottom: 1px solid #DDE3EA;
+			padding-bottom: 12px;
+			padding-top: 17px;
+			cursor:hand;
+		}
+
+       ul li:last-child{
+			border: 0;
+			padding-bottom: 11px;
+			padding-top: 17px;
+		}
+
+		ul li a{
+         	padding-left: 30px;
+			vertical-align: 3px;
+			text-decoration: none;
+         	 font-size: 12px; font-family: Arial;
+         	font-weight: bold;
+			color: #0073C9;
+
+            padding-left: 30px;
+            vertical-align: 3px;
+            text-decoration: none;
+            font-size: 12px;
+            font-family: Arial;
+            font-weight: bold;
+            color: #0073C9;
+		}
+
+        ul li.op8 {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -55px;
+        }
+
+        ul li.op6 {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -195px;
+        }
+        ul li.op7 {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -269px;
+        }
+        ul li.moreinfo {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -626px;
+        }
+        ul li.op10 {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -700px;
+        }
+        ul li.calendar {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px -410px;
+        }
+
+        ul li.gmail {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat 1px -481px;
+        }
+
+        ul li.contactos {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat 1px -552px;
+        }
+
+  		ul li.drive {
+        	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/result.png') no-repeat -0px 15px;
+        }
+
+        ul li.gplus {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/gplus-56.png') no-repeat;
+            background-size: 24px;
+            background-position: 0px;
+        }
+        ul li.groups {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/groups-56.png') no-repeat;
+            background-size: 24px;
+            background-position: 0px;
+        }
+        ul li.hangouts {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/hangouts-56.png') no-repeat;
+            background-size: 24px;
+            background-position: 0px;            
+        }
+        ul li.sites {
+            background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/sites-56.png') no-repeat;
+            background-size: 24px;
+            background-position: 0px;            
+        }
+
+        </style>
+
+    	<!--[if IE 7]>
+
+			<style type="text/css">
+
+				.titulo{
+					background: #F5F7F8
+	    		}
+
+			</style>
+
+		<![endif]-->
+
+		<!--[if IE 8]>
+
+			<style type="text/css">
+
+				.titulo{
+					background: #F5F7F8
+	    		}
+
+			</style>
+
+		<![endif]-->
+        <div id="content_div" class="caja">
+            <div class="titulo">Google Apps</div>
+            <ul>
+                <li class="drive" onclick="Go2('https://support.google.com/mail/#topic=3394144')"> 
+                    <a class="link1" title="Ir a página de ayuda de Gmail [abre en ventana nueva]">Gmail</a>
+                </li>
+                <li class="gplus" onclick="Go2('https://support.google.com/plus/#topic=3049661')">
+                    <a class="link1" title="Ir a página de ayuda de Google+ [abre en ventana nueva]">Google+</a>
+                </li>
+                <li class="hangouts" onclick="Go2('https://support.google.com/drive/?hl=es')">
+                    <a class="link1" title="Ir a página de ayuda de hangOuts [abre en ventana nueva]">HangOuts</a>
+                </li>
+                <li class="groups" onclick="Go2('https://support.google.com/groups/#topic=9216')">
+                    <a class="link1" title="Ir a página de ayuda de Groups [abre en ventana nueva]">Groups</a>
+                </li>
+                <li class="sites" onclick="Go2('https://support.google.com/sites/#topic=1689606')">
+                    <a class="link1" title="Ir a página de ayuda de Sites [abre en ventana nueva]">Sites</a>
+                </li>
+                <li class="calendar" onclick="Go2('https://support.google.com/calendar/#topic=3417969')">
+                    <a class="link1" title="Ir a página de ayuda de Calendar [abre en ventana nueva]">Calendar</a>
+                </li>
+                <li class="gmail" onclick="Go2(' https://support.google.com/drive/#topic=14940')">
+                    <a class="link1" title="Ir a página de ayuda de Drive [abre en ventana nueva]">Drive</a>
+                </li>
+                <li class="contactos" onclick="Go2('https://support.google.com/mail/?hl=es#topic=3394152')">
+                    <a class="link1" title="Ir a página de ayuda de Contactos [abre en ventana nueva]">Contactos</a>
+                </li>
+                <li class="moreinfo" onclick="Go2('https://support.google.com')">
+                    <a class="link1" title="Ir a página de ayuda de Contactos [abre en ventana nueva]">Más</a>
+                </li>
+            </ul>
+        </div>
+
+        <script type="text/javascript">
+
+			function Go2(destination){
+    			window.open(destination,'_blank');
+    			return false;
+			}
+            gadgets.window.adjustHeight();
+        </script>
+    ]]>
+    </Content>
+</Module>
