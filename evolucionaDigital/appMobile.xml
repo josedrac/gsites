@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="appMobile.xml" height ="500">
+	<ModulePrefs title="ED-appMobile.xml" height ="500">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>   
@@ -15,11 +15,11 @@
 			<style type="text/css">
 				@font-face {
 					font-family: 'BBVA Web Light';
-					src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot');
-					src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.woff') format("woff"),
-						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.ttf') format("truetype"),
-						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+					src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 					font-style: normal;
 					font-weight: normal;
 				}
@@ -90,23 +90,23 @@
 		<div class="content">
 			<div class="col-text">
 				<div class="section">
-					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/demo.png" alt=""></div>
+					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/demo.png" alt=""></div>
 	                <div class="text">
 	                    <h2>Demo móvil navegable</h2>
 	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
-	                    <button>Accede</button>
+	                    <button id="buttonDemo">Accede</button>
 	                </div>
 				</div>
 				<div class="section">
-	                <div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/tour.png" alt=""></div>
+	                <div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/tour.png" alt=""></div>
 	                <div class="text">
 	    				<h2>Tour por la app</h2>
 	    				<p>Descubre en una visita guiada todo lo que puedes hacer con la aplicación de BBVA.</p>
-	    				<button>Accede</button>
+	    				<button id="buttonTour">Accede</button>
 	                </div>
 				</div>
 				<div class="section">
-					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/movil.png" alt=""></div>
+					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/movil.png" alt=""></div>
 	                <div class="text">
 	                    <h2>Operativa por canal móvil</h2>
 	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
@@ -114,18 +114,44 @@
 	                </div>
 				</div>
 				<div class="section">
-					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/mail.png" alt=""></div>
+					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mail.png" alt=""></div>
 	                <div class="text">
 	                    <h2>Enviar e-mail autodigitalización</h2>
 	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
-	                    <button>Accede</button>
+	                    <button id="buttonMail">Accede</button>
 	                </div>
 				</div>
 			</div>
 			<div class="col-img">
-				<img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/mobile.png" alt="">
+				<img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png" onclick="javascript:openMobile()">
 			</div>
 		</div>
+
+		<script type="text/javascript">
+	        function openMobile() {
+	            var width = 360;
+	            var height = 530;
+	            var left = (window.screen.width / 2) - ((width / 2) + 10);
+	            var top = (window.screen.height / 2) - ((height / 2) + 50);
+	            window.open("https://buzz-html.s3.amazonaws.com/feature-moomx-newLanding/apps/buzz/index.html",'',
+	                "status=no,height=" + height + ",width=" + width + ",resizable=yes,left="
+	                + left + ",top=" + top + ",screenX=" + left + ",screenY="
+	                + top + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
+	        }
+
+	        function Go(destination){
+	            window.open(destination,'_blank');
+	            return false;
+	        }
+
+	        function addURL() {
+	            document.getElementById("buttonDemo").onclick = function(){ Go('https://demo.movil.bbva.es/apps/buzz/index.html');};
+	            document.getElementById("buttonTour").onclick = function(){ Go('https://movil.bbva.es/#/tour');};
+	            document.getElementById("buttonMail").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/contacto');};
+	        }
+
+	        addURL();
+	    </script>
 
 		]]>
 	 </Content>
