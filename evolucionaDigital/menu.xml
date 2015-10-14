@@ -280,17 +280,17 @@ margin-top:-19px;
   <ul>
 	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/evolucionadigital/" target="_parent"  title="home"/></li>
 
-	<li id="inicio" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/" target="_parent">Ayuda a digitalizar</a></span></span></li>
+	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar" target="_parent">Ayuda a digitalizar</a></span></span></li>
 
-	<li id="movilidad" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/"  target="_parent">Decálogo</a></span></span></li>
+	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo"  target="_parent">Decálogo</a></span></span></li>
 
-	<li id="exito" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/"  target="_parent" >Novedades</a></span></span></li>
+	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades"  target="_parent" >Novedades</a></span></span></li>
 
- 	<li id="trucosyconsejos" class="opcion4"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/"  target="_parent">Operativa por canal</a></span></span></li>
+ 	<li id="opcion4" class="opcion4"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal"  target="_parent">Operativa por canal</a></span></span></li>
 
-	<li id="googleapps" class="opcion5"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/"  target="_parent">!Pruébalo antes!</a></span></span></li>
+	<li id="opcion5" class="opcion5"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes"  target="_parent">!Pruébalo antes!</a></span></span></li>
 
-  <li id="googleapps" class="opcion6"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/"  target="_parent">Tu opinión</a></span></span></li>
+  <li id="opcion6" class="opcion6"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion"  target="_parent">Tu opinión</a></span></span></li>
 
   </ul>
 </div>
@@ -409,20 +409,22 @@ if (!Array.prototype.indexOf) {
 
 
 	document.getElementById('home').onclick = function(){ Go('home');};
-	document.getElementById('inicio').onclick = function() {Go('inicio');};
-	document.getElementById('googleapps').onclick = function() {Go('googleapps');};
-	document.getElementById('trucosyconsejos').onclick = function() {Go('trucosyconsejos');};
-	document.getElementById('movilidad').onclick = function() {Go('movilidad');};
-	document.getElementById('exito').onclick = function (){Go('exito');};
+	document.getElementById('opcion1').onclick = function() {Go('opcion1');};
+	document.getElementById('opcion2').onclick = function() {Go('opcion2');};
+	document.getElementById('opcion3').onclick = function() {Go('opcion3');};
+	document.getElementById('opcion4').onclick = function() {Go('opcion4');};
+	document.getElementById('opcion5').onclick = function (){Go('opcion5');};
+  document.getElementById('opcion6').onclick = function (){Go('opcion6');};
 
 	function Go(destination)
 	{
-		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/home";}
-		else if(destination=='inicio'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/hpd";}
-		else if(destination=='googleapps'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps";}
-		else if(destination=='trucosyconsejos'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/trucosyconsejos";}
-		else if(destination=='movilidad'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/movilidad";}
-		else if(destination=='exito'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito";}
+		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/";}
+		else if(destination=='opcion1'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar";}
+		else if(destination=='opcion2'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo";}
+		else if(destination=='opcion3'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades";}
+		else if(destination=='opcion4'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal";}
+		else if(destination=='opcion5'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes";}
+    else if(destination=='opcion6'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion";}
 
 		return false;
 	}
