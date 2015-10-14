@@ -327,7 +327,6 @@
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
         var titlecomboVideo = prefs.getString("titlecomboVideo");
-        console.log('beforeonload');
         _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 	 function loadVisualizationAPI()
@@ -338,7 +337,6 @@
 
 		function sendQuery()
         {
-                console.log('insidesendquery');
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
@@ -348,8 +346,10 @@
 
 
 			}
-		function handleQueryResponse(response) {
-			data = response.getDataTable();
+            function handleQueryResponse(response) {
+            console.log('response');
+            data = response.getDataTable();
+            console.log(data);
 			var filas = data.getNumberOfRows();
 			var pagTotales = Math.ceil(filas/3);
 			var pagActual = 1;
