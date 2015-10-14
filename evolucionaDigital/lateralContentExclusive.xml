@@ -82,7 +82,7 @@
 
 	    <script type="text/javascript">
 	        function Go(destination){
-	            window.open(destination,'_self');
+	            window.open(destination,'_parent');
 	            return false;
 	        }
 
