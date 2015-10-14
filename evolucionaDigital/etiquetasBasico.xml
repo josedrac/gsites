@@ -381,7 +381,7 @@
 			}
 	function mostrar(){
 	            var aux1= aux.split("|");
-				//console.debug(aux1.length);
+				////console.debug(aux1.length);
 	            var filas = aux1.length-1;
 				var pagTotales = Math.ceil(filas/5);
 				var pagActual = 1;
@@ -435,7 +435,7 @@
 					}
 					else if(i==filas-1)
                     {    			
-				        //console.debug('ANTERIOR>');
+				        ////console.debug('ANTERIOR>');
 						var pagActualAux = pagActual;
 				        pagActual--;
 						

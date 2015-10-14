@@ -87,7 +87,7 @@ url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medi
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
 				var querytosend = "select * where A like '%"+parameters[0]+"%' ";
-            console.debug(querytosend);
+            //console.debug(querytosend);
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
 

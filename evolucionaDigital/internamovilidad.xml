@@ -388,7 +388,7 @@
 			var baseUrlImg="http://drive.google.com/uc?export=view&id=";
 			var urlImg = url;
 			if(urlImg.indexOf(baseUrlDrive)>=0){
-				console.log('editando url');
+				//console.log('editando url');
 				var id = urlImg.replace(baseUrlDrive,"");
 				id = id.split("/")[0];
 				urlImg = baseUrlImg+id;

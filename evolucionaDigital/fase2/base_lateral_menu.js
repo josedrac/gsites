@@ -73,7 +73,7 @@ var Sidebar = function(options){
   }
   
   function handleQueryResponse(response){
-     //console.log(response);
+     ////console.log(response);
      var dataDC = new DataTable(response.getDataTable(), self.url_detail);
      dataDc.fields = fields;
     var filas = dataDC.getNumberOfRows();

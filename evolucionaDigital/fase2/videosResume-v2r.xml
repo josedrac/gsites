@@ -565,11 +565,11 @@ color:#434A58;
 	//Load
 	 cargaVideo();
 	 function delayRender(){
-	 	//console.log('delay');
+	 	////console.log('delay');
 	 	window.setTimeout("showIframes()",1500);
 	 }	 
 	 function showIframes() {
-	 	//console.log('debugg');
+	 	////console.log('debugg');
 	 	var iframes =document.getElementsByClassName('youtubeIframe').length;
 	 	for (var i=0;i<iframes;i++)
 		{ 

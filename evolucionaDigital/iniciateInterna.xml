@@ -289,7 +289,7 @@
 	}
 	var dispositivo = getDeviceId();
 	
-	console.log('dispositivo');
+	//console.log('dispositivo');
 	
 	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 	 

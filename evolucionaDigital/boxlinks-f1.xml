@@ -345,7 +345,7 @@
 					VarEnlace8URL = urlbase+VarEnlace8URL;
 					var strLink = devuelveEnlace(VarEnlace8URL);
 					}
-					//console.debug('VarEnlace8URL '+VarEnlace8URL);
+					////console.debug('VarEnlace8URL '+VarEnlace8URL);
                     html+='<li class="op8" onclick="Go2(\''+VarEnlace8URL+'\')">&nbsp;&nbsp;<a class="link8" title=\"' + VarEnlace8Texto + '\"  >' + VarEnlace8Texto + '</a></li>';
                 }
                  if ((VarEnlace9Texto!="")&&(VarEnlace9URL!=""))
