@@ -324,10 +324,9 @@
 
    <script type="text/javascript">
        var gadgetHelper = null;
-       console.log('llego');
-     /*  var prefs = new _IG_Prefs();
+             var prefs = new _IG_Prefs();
 	 var urlTable = prefs.getString("_table_query_url");
-	 var titlecomboVideo = prefs.getString("titlecomboVideo");
+     /*	 var titlecomboVideo = prefs.getString("titlecomboVideo");
      _IG_RegisterOnloadHandler(loadVisualizationAPI);
      console.log("llego");
     return;
