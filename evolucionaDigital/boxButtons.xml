@@ -70,7 +70,10 @@
 						padding-bottom: 11px;
 						padding-top: 17px;
 					}
-					ul li a{
+					ul li a,
+          ul li a:visited,
+          ul li a:hover,
+          ul li a:active {
             padding-left: 2px;
 						vertical-align: 3px;
 						text-decoration: none;
@@ -107,8 +110,8 @@
     <div id="content_div" class="caja">
         <div class="titulo">Más información</div>
         <ul id="botonera">
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/el-cliente-tiene-un-smpartphone-valido'>¿El cliente tiene un smartphone válido?</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/argunmentario-utilizacion-app-movil'>Argumentario utilización app móvil</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/el-cliente-tiene-un-smartphone-valido'>¿El cliente tiene un smartphone válido?</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/argumentario-utilizacion-app-movil'>Argumentario utilización app móvil</a></li>
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/argumentario-venta-app-movil'>Argumentario venta app móvil</a></li>
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-validar-un-movil'>Cómo validar un móvil</a></li>
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-descargar-la-app-de-bbva'>Cómo descargar la app de BBVA</a></li>
