@@ -33,6 +33,7 @@
 		            -khtml-border-radius: 2px;
 		            width: 290px;
 		            padding: 3px;
+		            cursor: pointer;
 		        }
 
 		        .content{
@@ -68,7 +69,7 @@
 		    </style>
 		</head>
 
-		<div class="container">
+		<div id="exclusive" class="container">
 	        <div class="content">
 	            <div class="text">
 	                Acceso a contenidos exclusivos para CBC y Embajadores digitales
@@ -78,6 +79,19 @@
 	            </div>
 	        </div>
 	    </div>
+
+	    <script type="text/javascript">
+	        function Go(destination){
+	            window.open(destination,'_self');
+	            return false;
+	        }
+
+	        function addURL() {
+	            document.getElementById("exclusive").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/cdc');};
+	        }
+
+	        addURL();
+	    </script>
 
 		]]>
 	 </Content>
