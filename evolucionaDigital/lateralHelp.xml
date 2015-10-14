@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="ED-lateralContentExclusive.xml" height ="105">
+	<ModulePrefs title="ED-lateralHelp.xml" height ="150">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>   
@@ -13,16 +13,16 @@
 		
 		<head>
 			<style type="text/css">
-		        font-face {
-					font-family: 'BBVA Web Light';
-					src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
-					src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-					font-style: normal;
-					font-weight: normal;
-				}
+		        @font-face {
+		            font-family: 'BBVA Web Light';
+		            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+		            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		            font-style: normal;
+		            font-weight: normal;
+		        }
 
 		        .container {
 		            border: 1px solid #DDE3EA;
@@ -33,7 +33,6 @@
 		            -khtml-border-radius: 2px;
 		            width: 290px;
 		            padding: 3px;
-		            cursor: pointer;
 		        }
 
 		        .content{
@@ -48,10 +47,9 @@
 		            background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
 		            background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
 		            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
-		            font-size: 19px;
+		            font-size: 13px;
 		            font-family: BBVA Web Light, Arial;
-		            color: #0078d2;
-		            padding-left: 20px;
+		            padding-left: 10px;
 		            padding-right: : 20px;
 		            padding-top: 14px;
 		            padding-bottom: 15px;
@@ -59,39 +57,32 @@
 
 		        .content .text, .content .icon {
 		            display: table-cell;
-		            vertical-align: top;
 		        }
-
+		        .content .text a {
+		            color: #0078d2;
+		            text-decoration: none;
+		            font-weight: bold;
+		        }
 		        .content .icon {
 		            text-align: center;
 		            width: 75px;
+		            vertical-align: middle;
 		        }
 		    </style>
 		</head>
 
-		<div id="exclusive" class="container">
+		<div class="container">
 	        <div class="content">
-	            <div class="text">
-	                Acceso a contenidos exclusivos para CBC y Embajadores digitales
-	            </div>
 	            <div class="icon">
-	                <img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/bbva.png" alt="">
+	                <img src="https://raw.githubusercontent.com/sopraux/gsites/ED-lateralHelp/evolucionaDigital/img/mailHelp.png" alt="">
+	            </div>
+	            <div class="text">
+	                <p>¿Anguna duda? Te ayudamos:</p>
+	                <a href="mailto:soportesdigitales.es@bbva.com">soportesdigitales.es@bbva.com</a>
+	                <p>Te contestamos lo antes posible</p>
 	            </div>
 	        </div>
 	    </div>
-
-	    <script type="text/javascript">
-	        function Go(destination){
-	            window.open(destination,'_parent');
-	            return false;
-	        }
-
-	        function addURL() {
-	            document.getElementById("exclusive").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/cdc');};
-	        }
-
-	        addURL();
-	    </script>
 
 		]]>
 	 </Content>
