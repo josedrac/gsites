@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
  <Module>
-  <ModulePrefs title="menu.xml"
-  height="75">
+  <ModulePrefs title="ED - menu.xml" height="75">
   <Require feature="dynamic-height"/>
 	<Require feature="idi"/>
 	<Require feature="locked-domain" />

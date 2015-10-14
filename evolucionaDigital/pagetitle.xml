@@ -1,22 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="pagetitle.xml"
-    description=""
-    author_affiliation="Capgemini"
-    height ="50">
+  <ModulePrefs title="ED - pagetitle.xml" height ="50">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
-	<Require feature="dynamic-height"/>   
-	<Require feature="setprefs" />   
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
   </ModulePrefs>
-<UserPref name="titlepage" display_name="Title of page" required="true" />  
+<UserPref name="titlepage" display_name="Title of page" required="true" />
 
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-	
+
 	<style type="text/css">
-	
+
 	  	/* @group fonts */
 		@font-face {
             font-family: 'BBVA Web Light';
@@ -29,7 +26,7 @@
             font-weight: normal;
         }
 		/* @end */
-	
+
 		#titlepage{
 			background-attachment: scroll;
 			background-clip: border-box;
@@ -50,29 +47,29 @@
 			font-weight: normal;
 			line-height: 20px;
 			clear: both;
-		}	
-		
+		}
+
 	</style>
-	
+
 	<!--[if IE 7]>
-					
-		<style type="text/css"> 
-			#titlepage{	
+
+		<style type="text/css">
+			#titlepage{
 				padding-bottom: 6px;
 			}
 		</style>
-				
+
 	<![endif]-->
-	
-	<h1 id="titlepage"></h1>	
-   	
+
+	<h1 id="titlepage"></h1>
+
    	<script type="text/javascript">
 	 	var gadgetHelper = null;
 	 	var prefs = new gadgets.Prefs();
 	 	var titlepage = prefs.getString("titlepage");
 	 	document.getElementById("titlepage").innerHTML = titlepage;
    </script>
-   
+
     ]]>
   </Content>
   <Content type="html" view="configuration" preferred_height="480">
@@ -85,24 +82,24 @@
 		font-weight: bold;
 	}
  </style>
- <table width="100%" border="0" id="tablaconfig">  
-	<tr>       
+ <table width="100%" border="0" id="tablaconfig">
+	<tr>
        <td>
-           Title -Page: <input type="text" size="100" id="titlepage" value="__UP_titlepage__"   onchange="registra('titlepage')"/>                   
+           Title -Page: <input type="text" size="100" id="titlepage" value="__UP_titlepage__"   onchange="registra('titlepage')"/>
        </td>
     </tr>
-</table>	
+</table>
 
-<script type="text/javascript">           
+<script type="text/javascript">
     // Get userprefs
-    var prefs = new gadgets.Prefs();           
+    var prefs = new gadgets.Prefs();
     function registra(variable)
-    {	
+    {
 
         prefs.set(variable,document.getElementById(variable).value);
 
 
-    } 
+    }
 	gadgets.window.adjustHeight();
 </script>
 
