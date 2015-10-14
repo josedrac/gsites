@@ -53,7 +53,6 @@
 						padding: 0 9px 0 20px;
 						position: relative;
 						text-align: left;
-            min-height: 200px;
 						width: 31%;
 						border-right: 1px solid #DCDCDC;
 					}
@@ -71,7 +70,7 @@
 			.footer ul li.op1,
 			.footer ul li.op2,
 			.footer ul li.op3 {
-						min-height: 120px;
+						min-height: 200px;
 					}
 
 			.footer ul li ul li {
