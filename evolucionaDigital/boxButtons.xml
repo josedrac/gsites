@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="ED-boxButtons.xml"
+        width="300"
+        scrolling="false"
+        scaling="false">
+        <Require feature="setprefs"/>
+		<Require feature="idi"/>
+        <Require feature="locked-domain" />
+	    <Require feature="dynamic-height"/>
+    </ModulePrefs>
+
+    <Content type="html" view="home"><![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <style>
+          @font-face {
+             font-family: 'BBVA Web Book';
+             src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+             src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+             font-style: normal;
+             font-weight: normal;
+          }
+					.titulo{
+						border-bottom: 1px solid  #DDE3EA;
+						background: #ffffff;
+						background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+						background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+						background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+
+							font-size:16px;
+	font-family: BBVA Web Book, Arial;
+						color: #333333;
+						padding-left: 18px;
+						padding-left: 18px;
+						padding-top: 14px;
+						padding-bottom: 15px;
+					}
+					.caja{
+						border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+			margin-top:15px;
+					}
+					ul{
+						padding-left: 19px;
+						padding-right: 19px;
+						margin: 0;
+					}
+					ul li{
+						list-style: none;
+						border-bottom: 1px solid #DDE3EA;
+						padding-bottom: 12px;
+						padding-top: 17px;
+					}
+          ul li:last-child{
+						border: 0;
+						padding-bottom: 11px;
+						padding-top: 17px;
+					}
+					ul li a{
+            padding-left: 2px;
+						vertical-align: 3px;
+						text-decoration: none;
+            font-size: 12px; font-family: Arial;
+            font-weight: bold;
+						color: #0073C9;
+					}
+
+        </style>
+
+    	<!--[if IE 7]>
+
+			<style type="text/css">
+
+				.titulo{
+					background: #F5F7F8
+	    		}
+
+			</style>
+
+		<![endif]-->
+
+		<!--[if IE 8]>
+
+			<style type="text/css">
+
+				.titulo{
+					background: #F5F7F8
+	    		}
+
+			</style>
+
+		<![endif]-->
+
+        <div class="titulo">Más información</div>
+        <ul id="botonera">
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>¿El cliente tiene un smartphone válido?</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>Argumentario utilización app móvil</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>Argumentario venta app móvil</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>Cómo validar un móvil</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>Cómo descargar la aoo de BBVA</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>Confirmar usuario multicanal</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>Login en app BBVA</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>Alta de usuario multicanal</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/el-cliente-tiene-un-smpartphone-valido'>Tour por la app</a></li>
+        </ul>
+
+    ]]>
+    </Content>
+
+
+</Module>
