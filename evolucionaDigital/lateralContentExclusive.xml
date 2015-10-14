@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="lateralContentExclusive.xml" height ="105">
+	<ModulePrefs title="ED-lateralContentExclusive.xml" height ="105">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>   
@@ -13,16 +13,16 @@
 		
 		<head>
 			<style type="text/css">
-		        @font-face {
-		            font-family: 'BBVA Web Light';
-		            src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot');
-		            src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.woff') format("woff"),
-		                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.ttf') format("truetype"),
-		                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-		            font-style: normal;
-		            font-weight: normal;
-		        }
+		        font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+					src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
 
 		        .container {
 		            border: 1px solid #DDE3EA;
@@ -74,7 +74,7 @@
 	                Acceso a contenidos exclusivos para CBC y Embajadores digitales
 	            </div>
 	            <div class="icon">
-	                <img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/bbva.png" alt="">
+	                <img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/bbva.png" alt="">
 	            </div>
 	        </div>
 	    </div>
