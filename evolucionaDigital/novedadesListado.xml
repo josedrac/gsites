@@ -323,17 +323,12 @@
 <div id="listportales"></div>
 
    <script type="text/javascript">
-       var gadgetHelper = null;
-       var prefs = new _IG_Prefs();
-        console.log('before');
-             var urlTable = prefs.getString("_table_query_url");
-             console.log('table');
-             console.log(urlTable);
-     /*	 var titlecomboVideo = prefs.getString("titlecomboVideo");
-     _IG_RegisterOnloadHandler(loadVisualizationAPI);
-     console.log("llego");
-    return;
-
+        var gadgetHelper = null;
+        var prefs = new _IG_Prefs();
+        var urlTable = prefs.getString("_table_query_url");
+        var titlecomboVideo = prefs.getString("titlecomboVideo");
+        console.log('beforeonload');
+        _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 	 function loadVisualizationAPI()
 			{
@@ -342,7 +337,8 @@
 			}
 
 		function sendQuery()
-			{
+        {
+                console.log('insidesendquery');
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
@@ -515,7 +511,7 @@
 			{
 			document.getElementsByClassName('youtubeIframe')[i].style.display='block';
 			}
-            } */
+        }
 
   </script>
     ]]>
