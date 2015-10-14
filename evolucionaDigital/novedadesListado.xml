@@ -327,7 +327,10 @@
 	 var prefs = new _IG_Prefs();
 	 var urlTable = prefs.getString("_table_query_url");
 	 var titlecomboVideo = prefs.getString("titlecomboVideo");
-	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+     _IG_RegisterOnloadHandler(loadVisualizationAPI);
+     console.log("llego");
+    return;
+
 
 	 function loadVisualizationAPI()
 			{
@@ -372,12 +375,6 @@
 			   html += "<div id='urlVideo'>";
 			   if(data.getValue(i,10)!=""){
 			   html += "<iframe src='"+data.getValue(i,10)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
-
-			   /*html += "<object data='"+data.getValue(i,10)+"'>" +
-		   			   "<param name='video' value='"+data.getValue(i,10)+"'></param>" +
-		   			   "<param name='wmode' value='transparent'></param>" +
-		   			   "<embed src='"+data.getValue(i,10)+"' type='application/x-shockwave-flash' wmode='transparent'></embed>" +
-		   			   "</object></div>";*/
 
 			   }else{
 			   html += "<img src='"+data.getValue(i,11)+"'></img></div>";
