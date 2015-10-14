@@ -44,6 +44,7 @@
 		        }
 		        .col-img {
 		            text-align: center;
+		            cursor: pointer;
 		        }
 		        .col-img img {
 		            text-align: center;
@@ -110,7 +111,7 @@
 	                <div class="text">
 	                    <h2>Operativa por canal móvil</h2>
 	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
-	                    <button>Accede</button>
+	                    <button id="buttonMovil">Accede</button>
 	                </div>
 				</div>
 				<div class="section">
@@ -123,30 +124,32 @@
 				</div>
 			</div>
 			<div class="col-img">
-				<img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png" onclick="javascript:openMobile()">
+				<img id="imgMobile" src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png">
 			</div>
 		</div>
 
 		<script type="text/javascript">
-	        function openMobile() {
+	        function openMobile(destination) {
 	            var width = 360;
-	            var height = 530;
+	            var height = 650;
 	            var left = (window.screen.width / 2) - ((width / 2) + 10);
 	            var top = (window.screen.height / 2) - ((height / 2) + 50);
-	            window.open("https://buzz-html.s3.amazonaws.com/feature-moomx-newLanding/apps/buzz/index.html",'',
+	            window.open(destination,'',
 	                "status=no,height=" + height + ",width=" + width + ",resizable=yes,left="
 	                + left + ",top=" + top + ",screenX=" + left + ",screenY="
 	                + top + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
 	        }
 
 	        function Go(destination){
-	            window.open(destination,'_blank');
+	            window.open(destination,'_self');
 	            return false;
 	        }
 
 	        function addURL() {
-	            document.getElementById("buttonDemo").onclick = function(){ Go('https://demo.movil.bbva.es/apps/buzz/index.html');};
-	            document.getElementById("buttonTour").onclick = function(){ Go('https://movil.bbva.es/#/tour');};
+	            document.getElementById("imgMobile").onclick = function(){ openMobile('https://buzz-html.s3.amazonaws.com/feature-moomx-newLanding/apps/buzz/index.html');};
+	            document.getElementById("buttonDemo").onclick = function(){ openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
+	            document.getElementById("buttonTour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
+	            document.getElementById("buttonMovil").onclick = function(){ openMobile('');};
 	            document.getElementById("buttonMail").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/contacto');};
 	        }
 
