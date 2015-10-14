@@ -323,8 +323,9 @@
 <div id="listportales"></div>
 
    <script type="text/javascript">
-	 var gadgetHelper = null;
-	 var prefs = new _IG_Prefs();
+       var gadgetHelper = null;
+       console.log('llego');
+     /*  var prefs = new _IG_Prefs();
 	 var urlTable = prefs.getString("_table_query_url");
 	 var titlecomboVideo = prefs.getString("titlecomboVideo");
      _IG_RegisterOnloadHandler(loadVisualizationAPI);
@@ -512,7 +513,7 @@
 			{
 			document.getElementsByClassName('youtubeIframe')[i].style.display='block';
 			}
-	 	}
+            } */
 
   </script>
     ]]>
