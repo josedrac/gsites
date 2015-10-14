@@ -15,11 +15,11 @@
 			<style type="text/css">
 				@font-face {
 					font-family: 'BBVA Web Light';
-					src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot');
-					src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.woff') format("woff"),
-						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.ttf') format("truetype"),
-						url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+					src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 					font-style: normal;
 					font-weight: normal;
 				}
@@ -90,7 +90,7 @@
 		<div class="content">
 			<div class="col-text">
 				<div class="section">
-					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/demo.png" alt=""></div>
+					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/demo.png" alt=""></div>
 	                <div class="text">
 	                    <h2>Demo móvil navegable</h2>
 	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
@@ -98,7 +98,7 @@
 	                </div>
 				</div>
 				<div class="section">
-	                <div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/tour.png" alt=""></div>
+	                <div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/tour.png" alt=""></div>
 	                <div class="text">
 	    				<h2>Tour por la app</h2>
 	    				<p>Descubre en una visita guiada todo lo que puedes hacer con la aplicación de BBVA.</p>
@@ -106,7 +106,7 @@
 	                </div>
 				</div>
 				<div class="section">
-					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/movil.png" alt=""></div>
+					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/movil.png" alt=""></div>
 	                <div class="text">
 	                    <h2>Operativa por canal móvil</h2>
 	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
@@ -114,7 +114,7 @@
 	                </div>
 				</div>
 				<div class="section">
-					<div class="icon"><img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/mail.png" alt=""></div>
+					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mail.png" alt=""></div>
 	                <div class="text">
 	                    <h2>Enviar e-mail autodigitalización</h2>
 	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
@@ -123,7 +123,7 @@
 				</div>
 			</div>
 			<div class="col-img">
-				<img src="https://raw.githubusercontent.com/josedrac/gsite/home/img/mobile.png" alt="">
+				<img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png">
 			</div>
 		</div>
 
