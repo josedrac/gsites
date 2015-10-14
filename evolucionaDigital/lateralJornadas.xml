@@ -37,6 +37,7 @@
 		        }
 		        .content {
 		            padding: 30px 0;
+		            text-align: center;
 		        }
 		        .subtitle {
 		            color: #0078d2;
