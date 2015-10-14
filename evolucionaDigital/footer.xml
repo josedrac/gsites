@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="ED-footer"
+  <ModulePrefs title="ED-footer.xml"
     description=""
     author_affiliation="Sopra"
     height="150">
@@ -200,6 +200,10 @@
 			</style>
 
 		<![endif]-->
+
+    <script>
+      console.log('footer-v1');
+    </script>
 
 	</head>
 
