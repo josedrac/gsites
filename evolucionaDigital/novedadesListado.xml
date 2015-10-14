@@ -340,7 +340,7 @@
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdExito'";
+				var querytosend = "select * where A <> 'IdNovedad'";
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
 
@@ -362,10 +362,7 @@
                 html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
             }
 
-
-            //html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' />";
-
-			 for(var i=0;i<filas;i++){
+            for(var i=0;i<filas;i++){
 
 			   html += "<div id='comboVideo'>";
 			   html += "<div id='video-container'><div id='infoVideo'>";
