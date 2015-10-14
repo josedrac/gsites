@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="appModule.xml" height ="500">
+	<ModulePrefs title="ED-appModule.xml" height ="500">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>   
@@ -123,9 +123,22 @@
 				</div>
 			</div>
 			<div class="col-img">
-				<img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png">
+				<img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png" onclick="javascript:openMobile()">
 			</div>
 		</div>
+
+		<script type="text/javascript">
+	        function openMobile() {
+	            var width = 360;
+	            var height = 530;
+	            var left = (window.screen.width / 2) - ((width / 2) + 10);
+	            var top = (window.screen.height / 2) - ((height / 2) + 50);
+	            window.open("https://buzz-html.s3.amazonaws.com/feature-moomx-newLanding/apps/buzz/index.html",'',
+	                "status=no,height=" + height + ",width=" + width + ",resizable=yes,left="
+	                + left + ",top=" + top + ",screenX=" + left + ",screenY="
+	                + top + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
+	        }
+	    </script>
 
 		]]>
 	 </Content>
