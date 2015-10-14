@@ -436,11 +436,13 @@ if (!Array.prototype.indexOf) {
 	function resetStyles (){
 
 			jQuery('.homefirst').removeClass("selectedLeft");
-			jQuery('.exito').removeClass("selected");
-			jQuery('.apps').removeClass("selected");
-			jQuery('.trucos').removeClass("selected");
-			jQuery('.iniciate').removeClass("selected");
-			jQuery('.movilidad').removeClass("selected");
+			jQuery('.opcion1').removeClass("selected");
+			jQuery('.opcion2').removeClass("selected");
+			jQuery('.opcion3').removeClass("selected");
+			jQuery('.opcion4').removeClass("selected");
+			jQuery('.opcion5').removeClass("selected");
+      jQuery('.opcion6').removeClass("selected");
+
 
 		return datospagina();
 	}
@@ -454,20 +456,28 @@ if (!Array.prototype.indexOf) {
 		{
 			jQuery('.homefirst').addClass("selectedLeft");
 			return;
-		}else if(parametros.indexOf("casos-de-exito")!=-1){
-			jQuery('.exito').addClass("selected");
+		}else if(parametros.indexOf("ayuda-a-digitalizar")!=-1){
+			jQuery('.opcion1').addClass("selected");
 			return;
-		} else if(parametros.indexOf("google-apps")!=-1){
-			jQuery('.apps').addClass("selected");
+		} else if(parametros.indexOf("decalogo")!=-1){
+			jQuery('.opcion2').addClass("selected");
 			return;
-		} else if(parametros.indexOf("trucosyconsejos")!=-1){
-			jQuery('.trucos').addClass("selected");
+		} else if(parametros.indexOf("novedades")!=-1){
+			jQuery('.opcion3').addClass("selected");
 			return;
-		} else if((parametros.indexOf("iniciate")!=-1) || (parametros.indexOf("hpd")!=-1) &&(parametros.indexOf("google-apps")==-1)){
-			jQuery('.iniciate').addClass("selected");
+		} else if((parametros.indexOf("ayuda-a-digitalizar")!=-1) || (parametros.indexOf("ayuda-a-digitalizar")!=-1) &&(parametros.indexOf("ayuda-a-digitalizar")==-1)){
+			jQuery('.opcion1').addClass("selected");
 			return;
-		}else if(parametros.indexOf("movilidad")!=-1){
-			jQuery('.movilidad').addClass("selected");
+		}else if(parametros.indexOf("operativa-por-canal")!=-1){
+			jQuery('.opcion4').addClass("selected");
+			return;
+		}
+    else if(parametros.indexOf("pruebalo-antes")!=-1){
+			jQuery('.opcion5').addClass("selected");
+			return;
+		}
+    else if(parametros.indexOf("tu-opinion")!=-1){
+			jQuery('.opcion6').addClass("selected");
 			return;
 		}
 	}
