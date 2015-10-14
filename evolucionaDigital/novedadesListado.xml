@@ -346,10 +346,8 @@
 
 
 			}
-            function handleQueryResponse(response) {
-            console.log('response');
+        function handleQueryResponse(response) {
             data = response.getDataTable();
-            console.log(data);
 			var filas = data.getNumberOfRows();
 			var pagTotales = Math.ceil(filas/3);
 			var pagActual = 1;
@@ -365,7 +363,7 @@
             }
 
 
-			html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
+			html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' />";
 
 			 for(var i=0;i<filas;i++){
 
