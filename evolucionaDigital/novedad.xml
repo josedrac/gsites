@@ -376,7 +376,7 @@
                 html +="<div>"+data.getValue(i,2)+"-"+data.getValue(i,5)+"</div>"
                 html +="<div>"+data.getValue(i,3)+"</div>";
 			    if(data.getValue(i,5)!=''){
-                    html +="<img src='"+data.getValue(i,5)+"'/>";
+                    html +="<div><img src='"+data.getValue(i,5)+"'/></div>";
                 }else{
                     html +="<div id='video'>"
 			        html +="<span class='titlesection'>Video:</span>";
