@@ -271,7 +271,7 @@
 			gadgetHelper = new google.visualization.GadgetHelper();
 			var opts = {dataType:'jsonp'};
 			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where A <> 'IdImplantacion' order by Anyo";
+			var querytosend = "select * where A <> 'IdImplantacion' order by G, F";
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
