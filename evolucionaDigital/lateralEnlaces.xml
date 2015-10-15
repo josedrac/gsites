@@ -10,18 +10,22 @@
 
 <UserPref name="VarTextLink1" default_value="" display_name="VarTextLink1" required="true" />
 <UserPref name="VarLink1" default_value="" display_name="VarLink1" required="true" />
+<UserPref name="VarTargetLink1" default_value="" display_name="VarTargetLink1" required="true" />
 <UserPref name="VarText1" default_value="" display_name="VarText1" required="true" />
 
 <UserPref name="VarTextLink2" default_value="" display_name="VarTextLink2" required="true" />
 <UserPref name="VarLink2" default_value="" display_name="VarLink2" required="true" />
+<UserPref name="VarTargetLink2" default_value="" display_name="VarTargetLink2" required="true" />
 <UserPref name="VarText2" default_value="" display_name="VarText2" required="true" />
 
 <UserPref name="VarTextLink3" default_value="" display_name="VarTextLink3" required="true" />
 <UserPref name="VarLink3" default_value="" display_name="VarLink3" required="true" />
+<UserPref name="VarTargetLink3" default_value="" display_name="VarTargetLink3" required="true" />
 <UserPref name="VarText3" default_value="" display_name="VarText3" required="true" />
 
 <UserPref name="VarTextLink4" default_value="" display_name="VarTextLink4" required="true" />
 <UserPref name="VarLink4" default_value="" display_name="VarLink4" required="true" />
+<UserPref name="VarTargetLink4" default_value="" display_name="VarTargetLink4" required="true" />
 <UserPref name="VarText4" default_value="" display_name="VarText4" required="true" />
 
 
