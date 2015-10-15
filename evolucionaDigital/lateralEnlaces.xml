@@ -151,7 +151,7 @@
 			html +="	<div class='title'>";
 			html +=			VarTextLink1;
 			html +="	</div>";  
-			html +="    <img src='arrow_right.png'>";
+			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText1;
 			html +="	</div>";
@@ -163,7 +163,7 @@
 			html +="	<div class='title'>";
 			html +=			VarTextLink2;
 			html +="	</div>";  
-			html +="    <img src='arrow_right.png'>";
+			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText2;
 			html +="	</div>";
@@ -175,7 +175,7 @@
 			html +="	<div class='title'>";
 			html +=			VarTextLink3;
 			html +="	</div>";  
-			html +="    <img src='arrow_right.png'>";
+			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText3;
 			html +="	</div>";
@@ -187,7 +187,7 @@
 			html +="	<div class='title'>";
 			html +=			VarTextLink4;
 			html +="	</div>";  
-			html +="    <img src='arrow_right.png'>";
+			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText4;
 			html +="	</div>";
