@@ -74,14 +74,13 @@
 		.date {
 		    background: none repeat scroll 0 0 #018DF5;
 		    border-radius: 4px 4px 4px 4px;
-		    box-shadow: 0 1px #DDDDDD;
-		    color: #444444;
+		    color: #FFFFFF;
 		    float: left;
 		    left: 9px;
 		    margin-bottom: 6px;
 		    padding: 4px 10px;
 		    text-align: center;
-		    width: 65px;
+		    width: 45px;
 		}
 
 		.month, .year {
@@ -89,7 +88,7 @@
 		}
 
 		.info {
-			margin-left: 100px;
+			margin-left: 90px;
 		}
 
 		.title {
@@ -176,7 +175,6 @@
 			height:4px;
 			display:block;
 			margin-bottom: 20px;
-			padding-top: 25px;
 		}
 
 		.sites-embed-align-left-wrapping-off{
@@ -318,7 +316,7 @@
 
 			    if(pagTotales>1){
 
-				  	if (i==3*pagActual-1) {
+				  	if (i==3 * pagActual-1) {
 
 					    var pagActualParaMostrar = pagActual+1;
 	                    var pagSiguiente = pagActualParaMostrar+1;
