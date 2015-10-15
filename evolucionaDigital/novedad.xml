@@ -302,7 +302,12 @@
 		margin:3px 10px 15px 0;
 		width:595px;
 		height:410px;
-	}
+    }
+    .userBBVA .icon img {
+        width: 24px;
+        height: 24px;
+    }
+
 	#citaAutor{
 
 	color:#3D85C6;
