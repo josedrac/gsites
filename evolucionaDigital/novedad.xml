@@ -280,7 +280,6 @@
     }
 
     #icons {
-        display: inline !important;
     }
     /*aqui*/
 	#userBBVA{
