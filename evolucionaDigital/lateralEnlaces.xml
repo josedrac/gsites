@@ -133,22 +133,26 @@
 	   	var VarTitleModule = prefs.getString("VarTitleModule");
 		var VarTextLink1 = prefs.getString("VarTextLink1");
         var VarLink1 = prefs.getString("VarLink1");
+        var VarTargetLink1 = prefs.getString("VarTargetLink1");
         var VarText1 = prefs.getString("VarText1");
         var VarTextLink2 = prefs.getString("VarTextLink2");
         var VarLink2 = prefs.getString("VarLink2");
+        var VarTargetLink2 = prefs.getString("VarTargetLink2");
         var VarText2 = prefs.getString("VarText2");
         var VarTextLink3 = prefs.getString("VarTextLink3");
         var VarLink3 = prefs.getString("VarLink3");
+        var VarTargetLink3 = prefs.getString("VarTargetLink3");
         var VarText3 = prefs.getString("VarText3");
          var VarTextLink4 = prefs.getString("VarTextLink4");
         var VarLink4 = prefs.getString("VarLink4");
+        var VarTargetLink4 = prefs.getString("VarTargetLink4");
         var VarText4 = prefs.getString("VarText4");
         
         document.getElementById("nivel").innerHTML = VarTitleModule;
         
         if (VarLink1!="")
         {
-        	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\')">';
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\', \''+VarTargetLink1+'\')">';
 			html +="	<div class='title'>";
 			html +=			VarTextLink1;
 			html +="	</div>";  
@@ -160,7 +164,7 @@
      	}
      	if (VarLink2!="")
         {
-        	html +='<div class="event" onclick="javascript:Go(\''+VarLink2+'\')">';
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink2+'\', \''+VarTargetLink2+'\')">';
 			html +="	<div class='title'>";
 			html +=			VarTextLink2;
 			html +="	</div>";  
@@ -172,7 +176,7 @@
      	}
      	if (VarLink3!="")
         {
-        	html +='<div class="event" onclick="javascript:Go(\''+VarLink3+'\')">';
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink3+'\', \''+VarTargetLink3+'\')">';
 			html +="	<div class='title'>";
 			html +=			VarTextLink3;
 			html +="	</div>";  
@@ -184,7 +188,7 @@
      	}
      	if (VarLink4!="")
         {
-        	html +='<div class="event" onclick="javascript:Go(\''+VarLink4+'\')">';
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink4+'\', \''+VarTargetLink4+'\')">';
 			html +="	<div class='title'>";
 			html +=			VarTextLink4;
 			html +="	</div>";  
@@ -198,9 +202,9 @@
      	document.getElementById('events').innerHTML += html;
      	
      				
-		function Go(destination)
+		function Go(destination, target)
 		{
-			window.open(destination);
+			window.open(destination, target);
 			return false;
 		}
 		
@@ -241,6 +245,11 @@
 		</tr>
 		<tr>       
 		   	<td>
+		       	Link1 - Target: <input type="text" size="100" id="VarTargetLink1" value="__UP_VarTargetLink1__" onchange="registra('VarTargetLink1')"/>                   
+		    </td>
+		</tr>
+		<tr>       
+		   	<td>
 		       	Link1 - URL: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>                   
 		    </td>
 		</tr>
@@ -261,6 +270,11 @@
 		       	Link2 - URL: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>                   
 		    </td>
 		</tr>
+		<tr>       
+		   	<td>
+		       	Link2 - Target: <input type="text" size="100" id="VarTargetLink2" value="__UP_VarTargetLink2__" onchange="registra('VarTargetLink2')"/>                   
+		    </td>
+		</tr>
 	    <tr>
 	        <td>
 				Text2: 
@@ -278,6 +292,11 @@
 		       	Link3 - URL: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>                   
 		    </td>
 		</tr>
+		<tr>       
+		   	<td>
+		       	Link3 - Target: <input type="text" size="100" id="VarTargetLink3" value="__UP_VarTargetLink3__" onchange="registra('VarTargetLink3')"/>                   
+		    </td>
+		</tr>
 	    <tr>
 	        <td>
 				Text3: 
@@ -293,6 +312,11 @@
 		<tr>       
 		   	<td>
 		       	Link4 - URL: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>                   
+		    </td>
+		</tr>
+		<tr>       
+		   	<td>
+		       	Link4 - Target: <input type="text" size="100" id="VarTargetLink4" value="__UP_VarTargetLink4__" onchange="registra('VarTargetLink4')"/>                   
 		    </td>
 		</tr>
 	    <tr>
