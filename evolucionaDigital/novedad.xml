@@ -371,10 +371,8 @@
 
 			for(var i=0; i<filas;i++){
                 html +="<div id='userBBVA'>";
-                html +="<div>"+data.getValue(i,1)+"</div>";
                 html +="<div>iconos</div>";
                 html +="<div>"+data.getValue(i,2)+"-"+data.getValue(i,5)+"</div>"
-                html +="<div>"+data.getValue(i,3)+"</div>";
 			    if(data.getValue(i,5)!=''){
                     html +="<div><img src='"+data.getValue(i,5)+"'/></div>";
                 }else{
