@@ -59,7 +59,10 @@
 		}
 
 		.implantation {
-			margin-left: 173px;
+			font-family: arial, sans-serif;
+		    font-size: 12px;
+		    margin-bottom: 16px;
+		    position: relative;
 		}
 
 		.datesandtags {
@@ -91,13 +94,22 @@
 		    font-family: Arial;
 		    line-height: 12px;
 		}
-		
+
 		.ambito span, .destinatarios span {
 		    font-size: 12px;
 		    font-family: Arial;
 		    color: #0078D2;
 		    line-height: 2px;
 		}
+
+		.description {
+		    color: #434A58;
+		    font-size: 12px;
+		    font-family: Arial;
+		    margin-top: 20px;
+		    width: 435px;
+		}
+
 
 
 		
@@ -400,6 +412,7 @@
 			   	html += "<div class='title'>" + data.getValue(i,1) + "</div>";
 			   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,2) + "</span></div>";
 			   	html += "<div class='ambito'>Ámbito: <span>" + data.getValue(i,3) + "</span></div>";
+			   	html += "<div class='description'>" + data.getValue(i,4) + "</div>"
 			    html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
 			    html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
 			    html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
