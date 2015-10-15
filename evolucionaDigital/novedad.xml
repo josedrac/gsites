@@ -421,11 +421,19 @@
                 };
             var isCellphoneShown = false;
             for (var column in iconCols) {
-                if (!iconCols.hasOwnProperty(column)) continue;
-                if (isCellphoneShown && (column == 9 || column == 10 || column == 11)) continue;
+                if (!iconCols.hasOwnProperty(column)) {
+                    continue;
+                }
+
+                if (isCellphoneShown && (column == 9 || column == 10 || column == 11)) {
+                    continue;
+                }
 
                 if (data.getValue(row, parseInt(column)) === 'x') {
-                        html += "<div class='icon'><img src='"+iconCols[column]+"' width='20' height='24' /></div>";
+                    if (column == 9 || column == 10 || column == 11) {
+                        isCellphoneShown = true;
+                    }
+                    html += "<div class='icon'><img src='"+iconCols[column]+"' width='20' height='24' /></div>";
                 }
             }
             html += "</div>";
