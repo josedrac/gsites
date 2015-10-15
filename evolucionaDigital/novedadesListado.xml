@@ -83,7 +83,12 @@
 		height:201px;
 		margin-right:4px;
 		margin-top:5px;
-	  }
+        }
+
+      #urlVideo img {
+        width: 300px;
+        height: 150px;
+      }
 
 	  #TagVideo{
 	   color:#000;
@@ -368,13 +373,11 @@
 			   html += "<div id='video-container'><div id='infoVideo'>";
 			   html += "<div id='urlVideo'>";
                if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
-                    console.log(data.getValue(i,7));
-			   html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+			        html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
 
-           }else{
-                    console.log('img');
-			   html += "<img src='"+data.getValue(i,6)+"'></img></div>";
-				}
+               }else{
+			        html += "<img src='"+data.getValue(i,6)+"'></img></div>";
+               }
 			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
 			   html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
 			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
