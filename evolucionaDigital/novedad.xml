@@ -281,6 +281,7 @@
 
     #icons {
     }
+
     /*aqui*/
 	#userBBVA{
 		float:left;
@@ -332,7 +333,10 @@
 	}
 	 .titlesection #video span{
 	margin-bottom:10px;
-	}
+    }
+    #video {
+        clear:both;
+    }
 	#video iframe{
 	margin:25px 0px 0px 55px;
 	}
@@ -377,7 +381,6 @@
                 html +="<div id='icons'>iconos</div>";
                 html +="<div id='dateVideo'>"+data.getValue(i,2)+" - </div>";
                 html +="<div id='userVideo'>"+data.getValue(i,5)+"</div>";
-                html +="<div style='clear:both;'></div>";
                 html +="<div id='video'>";
 			    if(data.getValue(i,5)!=''){
                     html +="<img src='"+data.getValue(i,5)+"'/>";
