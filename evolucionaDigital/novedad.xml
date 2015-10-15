@@ -411,9 +411,12 @@
                 10: 'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/accion.png',
                 11:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/accion.png',
                 12: 'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/accion.png',
-                13:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/accion.png'};
+                13:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/accion.png'
+             };
+            console.log('before for');
             for (var column in iconCols) {
                 if (data.getValue(row, column) === 'x') {
+                    console.log('entro if');
                     html += "<div class='icon'><img src='"+iconCols[column]+"' /></div>";
                 }
             }
