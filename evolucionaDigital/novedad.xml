@@ -254,15 +254,15 @@
 	color:#71777F;
 	font-size:11px;
 	float:left;
-	margin-top:-15px;
-	margin-left:8px;
+	margin-top:0px;
+	margin-left:0px;
 	}
 	#userVideo{
 	color:#71777F;
 	font-size:11px;
 	float:left;
-	margin-left:72px;
-	margin-top:-15px;
+	margin-left:3px;
+	margin-top:0px;
 	}
     #emailTo{
 	width:607px;
