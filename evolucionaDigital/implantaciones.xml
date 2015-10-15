@@ -9,7 +9,6 @@
 	<Require feature="setprefs" />
   </ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<UserPref name="titlecomboVideo" display_name="Tilte Box Video" required="true" />
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -50,20 +49,6 @@
 		}
 
 		/* @end */
-
-		#titlecomboVideo{
-		margin-top:-9px;
-		margin-left:-15px;
-
-		}
-		#titlecomboVideo h2{
-		float:left;
-		color:#0078D2;
-		font-family:BBVA Web Light, Arial;
-		font-size:22px;
-		margin:31px 0px 10px 35px;
-		font-weight: normal;
-		}
 
 		#comboVideo{
 		width:620px;
@@ -326,7 +311,6 @@
 	 var gadgetHelper = null;
 	 var prefs = new _IG_Prefs();
 	 var urlTable = prefs.getString("_table_query_url");
-	 var titlecomboVideo = prefs.getString("titlecomboVideo");
 	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 	 function loadVisualizationAPI()
@@ -361,9 +345,6 @@
             {
                 html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
             }
-
-
-			html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
 
 			 for(var i=0;i<filas;i++){
 
