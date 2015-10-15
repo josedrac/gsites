@@ -392,7 +392,7 @@
                 html +="<div id='userVideo'>"+data.getValue(i,5)+"</div>";
                 html +="<div class='smalldescription'>"+data.getValue(i,3)+"</div>";
                 html +="<div id='video'>";
-                if(data.getValue(i,7)!=''){
+                if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
                     html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:600px; height:400px; '></iframe>";
                 }else{
                     html +="<img src='"+data.getValue(i,6)+"' />";
