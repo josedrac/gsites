@@ -277,8 +277,12 @@
 	font-size:12px;
 	font-family:BBVA Web Book, Arial;
 	color:#0065B7;
-	}
-	/*aqui*/
+    }
+
+    .icons {
+        display: inline;
+    }
+    /*aqui*/
 	#userBBVA{
 		float:left;
 		margin-left:15px;
@@ -371,8 +375,8 @@
 
 			for(var i=0; i<filas;i++){
                 html +="<div id='userBBVA'>";
-                html +="<div>iconos</div>";
-                html +="<div id='dateVideo'>"+data.getValue(i,2)+"-</div>";
+                html +="<div class="icons">iconos</div>";
+                html +="<div id='dateVideo'>"+data.getValue(i,2)+" - </div>";
                 html +="<div id='userVideo'>"+data.getValue(i,5)+"</div>";
 			    if(data.getValue(i,5)!=''){
                     html +="<div><img src='"+data.getValue(i,5)+"'/></div>";
