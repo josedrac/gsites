@@ -416,7 +416,8 @@
             console.log('before for');
             for (var column in iconCols) {
                 if (iconCols.hasOwnProperty(column)) {
-                    console.log('inside'+ column);
+                console.log('inside'+ column);
+                console.log('otro');
                     if (data.getValue(row, parseInt(column)) === 'x') {
                         console.log('entro if');
                         html += "<div class='icon'><img src='"+iconCols[column]+"' /></div>";
