@@ -393,10 +393,9 @@
                 html +="<div class='smalldescription'>"+data.getValue(i,3)+"</div>";
                 html +="<div id='video'>";
 			    if(data.getValue(i,5)!=''){
-                    html +="<img src='"+data.getValue(i,5)+"'/>";
+                    html +="<img src='"+data.getValue(i,5)+"' height="410" width="610" />";
                 }else{
-			        html +="<span class='titlesection'>Video:</span>";
-			        html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:1px solid #AAA; width:575px; height:427px; '></iframe>";
+			        html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:1px solid #AAA; width:610px; height:410px; '></iframe>";
                 }
                 html += "</div>";
                 html += "<div class='description'>"+data.getValue(i,4)+"</div>";
