@@ -292,14 +292,27 @@
 
             html += "<div id='textInit'><p>"+textInit+"</p></div>";
 
+            var month = new Array();
+			month[0] = "Ene";
+			month[1] = "Feb";
+			month[2] = "Mar";
+			month[3] = "Abr";
+			month[4] = "May";
+			month[5] = "Jun";
+			month[6] = "Jul";
+			month[7] = "Agt";
+			month[8] = "Sep";
+			month[9] = "Oct";
+			month[10] = "Nov";
+			month[11] = "Dic";
+
 			for(var i=0; i < filas; i++) {
 			   	html += "<div class='implantation'>";
 			   	
 			   	//Fecha
-			   	var fecha = data.getValue(i,5).split(/);
 			   	html += "<div class='datesandtags'><div class='date'>";
-				html += "<div class='month' id='mes'>fecha[1]</div>";
-				html += "<div class='year' id='anyo'>fecha[2]</div>";
+				html += "<div class='month' id='mes'>data.getValue(i,5)</div>";
+				html += "<div class='year' id='anyo'>data.getValue(i,6)</div>";
 			    html += "</div></div>";
 				
 				//Contenido
