@@ -343,7 +343,6 @@
 	 var urlTable = prefs.getString("_table_query_url");
 	 var emailTo = prefs.getString("emailTo");
 	 var portalContenido = gadgets.util.getUrlParameters()["parent"].split("=");
-    console.log(gadgets.util.getUrlParameters());
 	 var situation = gadgets.util.getUrlParameters()["parent"];
 	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
@@ -371,60 +370,23 @@
 			   html += "<div id='titlecomboVideo'><h2>"+data.getValue(0,1)+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
 
 			for(var i=0; i<filas;i++){
-			   var resultados = data.getValue(i,9).split(",");
-			   var beneficios = data.getValue(i,12).split(",");
-
-			   html +="<div id='userBBVA'>";
-			   if(data.getValue(i,6)!=''){
-			   html +="<img src='"+data.getValue(i,6)+"'/>";
-			   }else{
-			   html +="<img src='"+data.getValue(i,11)+"'/>";
-			   }
-			   html +='<div id="citaAutor">"'+data.getValue(i,4)+'"</div>';
-			   html +="<div id='autorydpt'>"+data.getValue(i,5)+" - "+data.getValue(i,7)+"</div>";
-			   html +="</div>";
-			   html +="<div id='reto'><span class='titlesection'>Reto:</span>"+data.getValue(i,8)+"</div>";
-			   html +="<span class='titlesection' >Resultados:</span>";
-			   html +="<div id='resultados'>";
-			   html +="<ul>";
-				for(var j=0;j<resultados.length;j++){
-				  html +="<li>"+resultados[j]+"</li>";
-				 }
-			   html +="</ul>";
-			   html +="</div>";
-			   html +="<span class='titlesection'>Beneficios:</span>";
-			   html +="<div id='beneficios'>";
-			   html +="<ul>";
-				for(var x=0;x<beneficios.length;x++){
-				  html +="<li>"+beneficios[x]+"</li>";
-				 }
-			   html +="</ul></div>";
-			   if(data.getValue(i,10)!=''){
-			   html +="<div id='video'>"
-			   html +="<span class='titlesection'>Video:</span>";
-			   html += "<iframe src='"+data.getValue(i,10)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:1px solid #AAA; width:575px; height:427px; '></iframe>";
-			   html +="</div>";
-			   }
-
+                html +="<div id='userBBVA'>";
+                html +="<div>iconos</div>";
+                html +="<div>"+data.getValue(i,1)+"-"+data.getValue(i,4)+"</div>"
+                html +="<div>"+data.getValue(i,2)+"</div>";
+			    if(data.getValue(i,5)!=''){
+                    html +="<img src='"+data.getValue(i,5)+"'/>";
+                }else{
+                    html +="<div id='video'>"
+			        html +="<span class='titlesection'>Video:</span>";
+			        html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:1px solid #AAA; width:575px; height:427px; '></iframe>";
+                    html +="</div>";
+                }
+                html += "<div>"+data.getValue(i,3)+"</div>";
+			    html +="</div>";
 			}
 				document.getElementById('listportales').innerHTML = html;
 		}
-
-		/*function SendGmail(){
-
-				//window.open = ("https://mail.google.com/mail/?view=cm&fs=1&to="+emailTo,"send mail");
-				var to = emailTo;
-				var subject ='Error en Portal de Ayuda';
-				var str = 'https://mail.google.com/mail/?view=cm&fs=1&to='+to+'&su='+subject;
-				//window.parent.location.href = str;
-
-				window.open(str,'_blank','send mail');
-				//window.parent.location.href = aux;
-				//window.parent.open(gadgets.util.getUrlParameters()["parent"],'_parent','Video');
-				//window.open(gadgets.util.getUrlParameters()["parent"],'_parent','Video');
-
-				return false;
-				}*/
 
 
   </script>
