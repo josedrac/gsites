@@ -372,7 +372,8 @@
 			for(var i=0; i<filas;i++){
                 html +="<div id='userBBVA'>";
                 html +="<div>iconos</div>";
-                html +="<div>"+data.getValue(i,2)+"-"+data.getValue(i,5)+"</div>"
+                html +="<div id='dateVideo'>"+data.getValue(i,2)+"-</div>";
+                html +="<div id='userVideo'>"+data.getValue(i,5)+"</div>";
 			    if(data.getValue(i,5)!=''){
                     html +="<div><img src='"+data.getValue(i,5)+"'/></div>";
                 }else{
