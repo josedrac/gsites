@@ -300,7 +300,7 @@
 	#userBBVA img{
 	    float:left;
 		margin:3px 10px 15px 0;
-		width:610px;
+		width:595px;
 		height:410px;
 	}
 	#citaAutor{
