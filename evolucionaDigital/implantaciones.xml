@@ -9,12 +9,13 @@
 	<Require feature="setprefs" />
   </ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+	<UserPref name="textInit" display_name="Text init" required="true" />
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
 	<style type="text/css">
-	  /* @group fonts */
+	  	/* @group fonts */
 		@font-face {
 			font-family: 'BBVA Web Light';
 			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
@@ -25,7 +26,6 @@
 			font-style: normal;
 			font-weight: normal;
 		}
-
 		@font-face {
 			font-family: 'BBVA Web Book';
 			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
@@ -36,7 +36,6 @@
 			font-style: normal;
 			font-weight: normal;
 		}
-
 		@font-face {
 			font-family: 'BBVA Web Medium';
 			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
@@ -47,8 +46,12 @@
 			font-style: normal;
 			font-weight: normal;
 		}
-
 		/* @end */
+
+		#textInit{
+			margin-top:-9px;
+			margin-left:-15px;
+		}
 
 		#comboVideo{
 		width:620px;
@@ -305,31 +308,29 @@
 	<![endif]-->
 
 
-<div id="listportales"></div>
+	<div id="listportales"></div>
 
-   <script type="text/javascript">
-	 var gadgetHelper = null;
-	 var prefs = new _IG_Prefs();
-	 var urlTable = prefs.getString("_table_query_url");
-	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+   	<script type="text/javascript">
+		var gadgetHelper = null;
+		var prefs = new _IG_Prefs();
+	 	var urlTable = prefs.getString("_table_query_url");
+	 	var textInit = prefs.getString("TextInit");
+	 	_IG_RegisterOnloadHandler(loadVisualizationAPI);
 
-	 function loadVisualizationAPI()
-			{
-				google.load("visualization", "1", {"packages": ["table"]});
-				google.setOnLoadCallback(sendQuery);
-			}
+	 	function loadVisualizationAPI() {
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
 
-		function sendQuery()
-			{
-				gadgetHelper = new google.visualization.GadgetHelper();
-				var opts = {dataType:'jsonp'};
-				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdExito'";
-				query.setQuery(querytosend);
-				query.send(handleQueryResponse);
+		function sendQuery(){
+			gadgetHelper = new google.visualization.GadgetHelper();
+			var opts = {dataType:'jsonp'};
+			var query = new google.visualization.Query(urlTable, opts);
+			var querytosend = "select * where A <> 'IdExito'";
+			query.setQuery(querytosend);
+			query.send(handleQueryResponse);
+		}
 
-
-			}
 		function handleQueryResponse(response) {
 			data = response.getDataTable();
 			var filas = data.getNumberOfRows();
@@ -337,98 +338,81 @@
 			var pagActual = 1;
 			var html = "";
 
-			 if(filas<1)
-            {
-    			html += '<p class="text">No hay ning򮠣ontenido referente a Portales.</p>';
+			if(filas<1) {
+    			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
             }
-            else
-            {
+            else {
                 html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
             }
 
-			 for(var i=0;i<filas;i++){
+            html += "<div id='textInit'><p>"+textInit+"</p></div>";
 
-			   html += "<div id='comboVideo'>";
-			   html += "<div id='video-container'><div id='infoVideo'>";
-			   html += "<div id='urlVideo'>";
-			   if(data.getValue(i,10)!=""){
-			   html += "<iframe src='"+data.getValue(i,10)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
-
-			   /*html += "<object data='"+data.getValue(i,10)+"'>" +
-		   			   "<param name='video' value='"+data.getValue(i,10)+"'></param>" +
-		   			   "<param name='wmode' value='transparent'></param>" +
-		   			   "<embed src='"+data.getValue(i,10)+"' type='application/x-shockwave-flash' wmode='transparent'></embed>" +
-		   			   "</object></div>";*/
-
-			   }else{
-			   html += "<img src='"+data.getValue(i,11)+"'></img></div>";
+			for(var i=0;i<filas;i++) {
+			   	html += "<div id='comboVideo'>";
+			   	html += "<div id='video-container'><div id='infoVideo'>";
+			   	html += "<div id='urlVideo'>";
+			   	if(data.getValue(i,10)!=""){
+			   		html += "<iframe src='"+data.getValue(i,10)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+				} else {
+			   		html += "<img src='"+data.getValue(i,11)+"'></img></div>";
 				}
-			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
-			   html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
-			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
-			   html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
-			   var url = "https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0);
-			   html += '<button type="button" id="allcontent" onclick="javascript:Go(\''+url+'\')">Saber más</button>';
-			   html +="</div></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
+			    html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
+			    html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
+			    html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
+			    html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
+			    var url = "https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0);
+			    html += '<button type="button" id="allcontent" onclick="javascript:Go(\''+url+'\')">Saber más</button>';
+			    html +="</div></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 
-			   if(pagTotales>1){
+			    if(pagTotales>1){
 
-				  if (i==3*pagActual-1){
+				  	if (i==3*pagActual-1) {
 
-				    var pagActualParaMostrar = pagActual+1;
-                    var pagSiguiente = pagActualParaMostrar+1;
+					    var pagActualParaMostrar = pagActual+1;
+	                    var pagSiguiente = pagActualParaMostrar+1;
 
-					if(i>2){
-					 html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
+						if(i>2){
+						 	html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
+						}
+
+						for(var j=1;j<=pagTotales;j++) {
+							if ((j==pagActual) && (j==1)){
+							   	html += '<div id="paginas1" class="checkpage1"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
+							} else if(j==pagActual) {
+						    	html += '<div id="paginas" class="checkpage"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
+						  	} else {
+						    	html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActual +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
+						  	}
+						}
+
+						html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /> </a></div>';
+	                    html += '</div>';
+
+	                    html += '<div id="pagina'+ pagActualParaMostrar +'" class="paginaNueva" style="display:none; width: auto;height: 660px; margin-top:40px">';
+
+				        pagActual++;
 					}
-
-					for(var j=1;j<=pagTotales;j++){
-					if ((j==pagActual) && (j==1)){
-					   	html += '<div id="paginas1" class="checkpage1"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-
-					}
-					else if(j==pagActual){
-					    html += '<div id="paginas" class="checkpage"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-					  }else{
-					    html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActual +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
-
-					  }
-					}
-
-					html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /> </a></div>';
-                    html += '</div>';
-
-                    html += '<div id="pagina'+ pagActualParaMostrar +'" class="paginaNueva" style="display:none; width: auto;height: 660px; margin-top:40px">';
-
-			        pagActual++;
-
-					}
-					else if(i==filas-1)
-                    {
+					else if(i==filas-1) {
 				        ////console.debug('ANTERIOR>');
 						var pagActualAux = pagActual;
 				        pagActual--;
 
 					    html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
-						for(var j=1;j<=pagTotales;j++){
-							if(j==pagActualAux){
+						for(var j=1;j<=pagTotales;j++) {
+							if(j==pagActualAux) {
 								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-							}else{
+							} else {
 								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
 							}
 						}
 						html += '</div>';
 				    }
                 }
-
 			}
+			document.getElementById('listportales').innerHTML += html;
+		}
 
-
-				document.getElementById('listportales').innerHTML += html;
-
-			}
-		 function continuacion(num)
-        {
+		function continuacion(num) {
             var bloque = "pagina"+num;
             var numInt = parseInt(num)-1;
             var bloque_anterior = "pagina"+ numInt;
@@ -436,13 +420,11 @@
             document.getElementById(bloque_anterior).style.display='none';
         }
 
-    	function anterior(num)
-        {
+    	function anterior(num) {
             var bloque = "pagina"+num;
             var numInt = parseInt(num)-1;
             var numInt2 = parseInt(num)-2;
-            if (numInt2 == 0)
-            {
+            if (numInt2 == 0) {
                 numInt  = 2;
                 numInt2 = 1;
             }
@@ -454,8 +436,7 @@
 		    document.getElementById('pagination'+numInt2).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
         }
 
-    	function anteriorUltima(num)
-        {
+    	function anteriorUltima(num) {
             var bloque = "pagina"+num;
             var numInt = parseInt(num)-1;
             var bloque_anterior = "pagina"+ numInt;
@@ -464,23 +445,23 @@
 			document.getElementById('pagination'+num).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
 		    document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
     	}
-		function changePage(num,pag){
 
+		function changePage(num,pag){
 		    var bloque = "pagina"+pag;
-			//var numInt = parseInt(num)-1;
 			var bloque_anterior = "pagina"+ num;
 
 		    document.getElementById(bloque).style.display='none';
             document.getElementById(bloque_anterior).style.display='block';
 		}
-		function changeImage(pagina,old){
 
+		function changeImage(pagina,old){
 		    document.getElementById('pagination'+old).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
 		    document.getElementById('pagination'+pagina).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
 		}
+
 	    function Go(destination){
-	    window.parent.location.href = destination;
-	    return false;
+		    window.parent.location.href = destination;
+		    return false;
 		}
 
 		//delay loading
@@ -488,17 +469,16 @@
 	    function delayRender(){
 	    	window.setTimeout('showIframes()',2000);
 	    }
-	 	function showIframes() {
-	 		////console.log('debugg');
-		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
 
-		 	for (var i=0;i<iframes;i++)
-			{
-			document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+	 	function showIframes() {
+		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+		 	for (var i=0;i<iframes;i++) {
+				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
 			}
 	 	}
 
-  </script>
+  	</script>
+
     ]]>
   </Content>
 
