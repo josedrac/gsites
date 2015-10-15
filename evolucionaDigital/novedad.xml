@@ -407,9 +407,9 @@
         function getIcons(data, row) {
             var html = "<div class='icons'>";
                 var iconCols = {
-                9: 'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/smartphone.png',
-                10: 'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/smartphone.png',
-                11:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/smartphone.png',
+                9: 'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/cellphone.png',
+                10: 'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/cellphone.png',
+                11:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/cellphone.png',
                 12: 'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/mouse.png',
                 13:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/tablet.png',
                 14:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/phone.png'
