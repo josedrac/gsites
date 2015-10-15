@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
- 	<ModulePrefs title="ED-enlaces.xml">
+ 	<ModulePrefs title="ED-lateralEnlaces.xml">
     	<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>   
