@@ -283,6 +283,7 @@
     }
 
     .description, .smalldescription {
+        color: #71777F;
         clear:both;
         font-size: 11px;
     }
