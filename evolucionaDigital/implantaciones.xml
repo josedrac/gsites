@@ -279,7 +279,7 @@
 		function handleQueryResponse(response) {
 			data = response.getDataTable();
 			var filas = data.getNumberOfRows();
-			var pagTotales = Math.ceil(filas/3);
+			var pagTotales = Math.ceil(filas/6);
 			var pagActual = 1;
 			var html = "";
 
@@ -330,7 +330,7 @@
 
 			    if(pagTotales>1){
 
-				  	if (i==3 * pagActual-1) {
+				  	if (i==6 * pagActual-1) {
 
 					    var pagActualParaMostrar = pagActual+1;
 	                    var pagSiguiente = pagActualParaMostrar+1;
