@@ -343,7 +343,7 @@
 	 var urlTable = prefs.getString("_table_query_url");
 	 var emailTo = prefs.getString("emailTo");
 	 var portalContenido = gadgets.util.getUrlParameters()["parent"].split("=");
-
+    console.log(gadgets.util.getUrlParameters());
 	 var situation = gadgets.util.getUrlParameters()["parent"];
 	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
