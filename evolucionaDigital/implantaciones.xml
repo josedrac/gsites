@@ -69,6 +69,13 @@
 		.info {
 			margin-left: 173px;
 		}
+
+		.title {
+		    font-size: 19px;
+		    font-family: BBVA Web Light, Arial;
+		    color: #0078D2;
+		    font-weight: bold;
+		}
 		
 		
 
@@ -366,12 +373,7 @@
 			   	html += "<div class='implantation'>";
 			   	html += "<div class='datesandtags'></div>";
 			   	html += "<div class='info'><div id='infoVideo'>";
-			   	html += "<div id='urlVideo'>";
-			   	if(data.getValue(i,10)!=""){
-			   		html += "<iframe src='"+data.getValue(i,10)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
-				} else {
-			   		html += "<img src='"+data.getValue(i,11)+"'></img></div>";
-				}
+			   	html += "<div class='title'>"+data.getValue(i,1)+"</div>";
 			    html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
 			    html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
 			    html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
