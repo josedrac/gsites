@@ -390,7 +390,7 @@
 			   	html += "<div class='datesandtags'></div>";
 			   	html += "<div class='info'>";
 			   	html += "<div class='title'>" + data.getValue(i,1) + "</div>";
-			   	html += "<div class="destinatarios">Destinatarios: <span>" + data.getValue(i,1) + "</span></div>";
+			   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,1) + "</span></div>";
 			    html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
 			    html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
 			    html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
