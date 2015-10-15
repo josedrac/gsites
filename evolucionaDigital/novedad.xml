@@ -282,8 +282,9 @@
     #icons {
     }
 
-    .description {
+    .description, .smalldescription {
         clear:both;
+        font-size: 11px;
     }
 
     /*aqui*/
@@ -385,6 +386,7 @@
                 html +="<div id='icons'>iconos</div>";
                 html +="<div id='dateVideo'>"+data.getValue(i,2)+" - </div>";
                 html +="<div id='userVideo'>"+data.getValue(i,5)+"</div>";
+                html +="<div id='smalldescription'>"+data.getValue(i,3)+"</div>";
                 html +="<div id='video'>";
 			    if(data.getValue(i,5)!=''){
                     html +="<img src='"+data.getValue(i,5)+"'/>";
@@ -393,7 +395,7 @@
 			        html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:1px solid #AAA; width:575px; height:427px; '></iframe>";
                 }
                 html += "</div>";
-                html += "<div class='description'>"+data.getValue(i,3)+"</div>";
+                html += "<div class='description'>"+data.getValue(i,4)+"</div>";
 			    html +="</div>";
 			}
 				document.getElementById('listportales').innerHTML = html;
