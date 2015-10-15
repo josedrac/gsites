@@ -48,15 +48,30 @@
 		}
 		/* @end */
 
-		#textInit{
-			margin-top:-9px;
-			margin-left:-15px;
+		#textInit {
+			color: #66666;
+			font-size: 12px;
+    		padding: 0px 25px;
 		}
 
-		#comboVideo{
-		width:620px;
-		float:left;
+		#textInit p {
+			margin: 0;
 		}
+
+		.implantation {
+			margin-left: 173px;
+		}
+
+		.datesandtags {
+    		float: left;
+		}
+
+		.info {
+			margin-left: 173px;
+		}
+		
+		
+
       #video-container,
 	  #video-container2 {
 	    float:left;
@@ -338,7 +353,7 @@
 			var pagActual = 1;
 			var html = "";
 
-			if(filas<1) {
+			if(filas < 1) {
     			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
             }
             else {
@@ -347,9 +362,10 @@
 
             html += "<div id='textInit'><p>"+textInit+"</p></div>";
 
-			for(var i=0;i<filas;i++) {
-			   	html += "<div id='comboVideo'>";
-			   	html += "<div id='video-container'><div id='infoVideo'>";
+			for(var i=0; i < filas; i++) {
+			   	html += "<div class='implantation'>";
+			   	html += "<div class='datesandtags'></div>";
+			   	html += "<div class='info'><div id='infoVideo'>";
 			   	html += "<div id='urlVideo'>";
 			   	if(data.getValue(i,10)!=""){
 			   		html += "<iframe src='"+data.getValue(i,10)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
