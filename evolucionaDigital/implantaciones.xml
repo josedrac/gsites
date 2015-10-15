@@ -311,7 +311,7 @@
 			   	
 			   	//Fecha
 			   	html += "<div class='datesandtags'><div class='date'>";
-				html += "<div class='month' id='mes'>" + data.getValue(i,5) + "</div>";
+				html += "<div class='month' id='mes'>" + month[data.getValue(i,5)] + "</div>";
 				html += "<div class='year' id='anyo'>" + data.getValue(i,6) + "</div>";
 			    html += "</div></div>";
 				
