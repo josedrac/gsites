@@ -367,11 +367,12 @@
 			   html += "<div id='comboVideo'>";
 			   html += "<div id='video-container'><div id='infoVideo'>";
 			   html += "<div id='urlVideo'>";
-               if(data.getValue(i,7) != ""){
+               if(data.getValue(i,7) != null && data.getValue(i,7) != ""){
                     console.log(data.getValue(i,7));
 			   html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
 
-			   }else{
+           }else{
+                    console.log('img');
 			   html += "<img src='"+data.getValue(i,6)+"'></img></div>";
 				}
 			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
