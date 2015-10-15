@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="ED-lateralHelp.xml" height ="150">
+	<ModulePrefs title="ED-lateralHelp.xml" height ="135">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>   
@@ -38,7 +38,7 @@
 		        .content{
 		            font-family: 'BBVA Web Light';
 		            display: table;
-		            width: auto;
+		            width: 280px;
 		            background: #ffffff;
 		            background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
 		            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
