@@ -303,9 +303,9 @@
 		width:595px;
 		height:410px;
     }
-    .userBBVA .icon img {
-        width: 24px;
-        height: 24px;
+    .icon img {
+        width: 24px !important;
+        height: 24px !important;
     }
 
 	#citaAutor{
@@ -418,13 +418,14 @@
                 12: 'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/mouse.png',
                 13:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/tablet.png',
                 14:'https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/phone.png'
-             };
-            console.log('before for');
+                };
+            var isCellphoneShown = false;
             for (var column in iconCols) {
-                if (iconCols.hasOwnProperty(column)) {
-                    if (data.getValue(row, parseInt(column)) === 'x') {
+                if (!iconCols.hasOwnProperty(column)) continue;
+                if (isCellphoneShown && (column == 9 || column == 10 || column == 11)) continue;
+
+                if (data.getValue(row, parseInt(column)) === 'x') {
                         html += "<div class='icon'><img src='"+iconCols[column]+"' width='20' height='24' /></div>";
-                    }
                 }
             }
             html += "</div>";
