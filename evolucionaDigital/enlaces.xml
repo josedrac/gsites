@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+ 	<ModulePrefs title="ED-enlaces.xml">
+    	<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>   
+		<Require feature="setprefs" />   
+  	</ModulePrefs>
+<UserPref name="VarTitleModule" default_value="" display_name="VarTitleModule" required="true" />
+
+<UserPref name="VarTextLink1" default_value="" display_name="VarTextLink1" required="true" />
+<UserPref name="VarLink1" default_value="" display_name="VarLink1" required="true" />
+<UserPref name="VarText1" default_value="" display_name="VarText1" required="true" />
+
+<UserPref name="VarTextLink2" default_value="" display_name="VarTextLink2" required="true" />
+<UserPref name="VarLink2" default_value="" display_name="VarLink2" required="true" />
+<UserPref name="VarText2" default_value="" display_name="VarText2" required="true" />
+
+<UserPref name="VarTextLink3" default_value="" display_name="VarTextLink3" required="true" />
+<UserPref name="VarLink3" default_value="" display_name="VarLink3" required="true" />
+<UserPref name="VarText3" default_value="" display_name="VarText3" required="true" />
+
+<UserPref name="VarTextLink4" default_value="" display_name="VarTextLink4" required="true" />
+<UserPref name="VarLink4" default_value="" display_name="VarLink4" required="true" />
+<UserPref name="VarText4" default_value="" display_name="VarText4" required="true" />
+
+
+ <Content type="html" charset="UTF-8">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  	/* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+		.container{
+			border: 1px solid #DDE3EA;
+			border-radius: 2px 2px 2px 2px;
+			clear: both;
+			margin-top: 15px;
+			width: 298px;
+		}
+		#nivel{
+			background: #ffffff; /* Old browsers */
+			background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%); /* FF3.6+ */
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8)); /* Chrome,Safari4+ */
+			background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* Chrome10+,Safari5.1+ */
+			background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* Opera 11.10+ */
+			background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* IE10+ */
+			background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%); /* W3C */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 ); /* IE6-9 */
+			border-bottom: 1px solid #DDE3EA;
+			color: #333333;
+			font-family: BBVA Web Book,Arial;
+			font-size: 16px;
+			padding-bottom: 15px;
+			padding-left: 18px;
+			padding-top: 14px;
+		}
+		.event{
+			border-bottom: 1px solid #DDE3EA;
+			padding:20px 10px;
+		}
+		.event:hover{
+			background-color:#E2FAFE;
+			cursor:pointer;
+		}
+		.event:last-child{
+			border-bottom: none;
+		}
+		.when{
+			color:#0072C9;
+			font-size:12px;
+			font-weight:bold;
+			font-family: BBVA Web Book, Arial;
+			float:right;
+		}
+		
+		.title {
+			color:#0072C9;
+			font-size:12px;
+			font-weight: bold;
+			font-family: BBVA Web Book, Arial;
+			text-decoration:none;
+		}
+		.subtitle{
+			color:#434A58;
+			font-size:12px;
+			font-family: BBVA Web Book, Arial;
+			margin-top:5px;
+		}
+		#buttons{
+			background-color:#f5f7f8;
+			padding: 10px 0;
+		}
+		#allcontent{
+			-webkit-border-radius: .2em;
+			-moz-border-radius: .2em;
+			border-radius: .2em;
+			height: 2em;
+			padding-left: .7em;
+			padding-bottom:2px;
+			margin-left:90px;
+			width:120px;
+			margin-top:0px;
+			font-family: BBVA Web Medium, Arial;
+			font-size:12px;			
+		}
+		button{
+			background: #0079C1;
+			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+			background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+			background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			border-radius: .3em;
+			font-size: 10px;
+			text-align: center;
+			vertical-align: middle;
+			height: 3em;
+			padding-left: .9em;
+			padding-right: .9em;
+			border: .1em solid #00559D;
+			color: white;
+			cursor: pointer;
+			position: relative;
+			overflow: visible;
+		}
+		#allcontent:hover{
+			background: #004C99;
+		}			
+	</style>
+
+
+	<div class="container">
+		<div id="nivel"></div>
+		<div id="events"></div>
+	</div>
+
+   <script type="text/javascript">
+	   	var html="";        
+	   	var gadgetHelper = null;
+	   	var prefs = new gadgets.Prefs();         
+	       
+	   	var VarTitleModule = prefs.getString("VarTitleModule");
+		var VarTextLink1 = prefs.getString("VarTextLink1");
+        var VarLink1 = prefs.getString("VarLink1");
+        var VarText1 = prefs.getString("VarText1");
+        var VarTextLink2 = prefs.getString("VarTextLink2");
+        var VarLink2 = prefs.getString("VarLink2");
+        var VarText2 = prefs.getString("VarText2");
+        var VarTextLink3 = prefs.getString("VarTextLink3");
+        var VarLink3 = prefs.getString("VarLink3");
+        var VarText3 = prefs.getString("VarText3");
+         var VarTextLink4 = prefs.getString("VarTextLink4");
+        var VarLink4 = prefs.getString("VarLink4");
+        var VarText4 = prefs.getString("VarText4");
+        
+        document.getElementById("nivel").innerHTML = VarTitleModule;
+        
+        if (VarLink1!="")
+        {
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\')">';
+			html +="	<div class='title'>";
+			html +=			VarTextLink1;
+			html +="	</div>";  
+			html +="	<div class='subtitle'>";
+			html +=			VarText1;
+			html +="	</div>";
+			html +="</div>";        
+     	}
+     	if (VarLink2!="")
+        {
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink2+'\')">';
+			html +="	<div class='title'>";
+			html +=			VarTextLink2;
+			html +="	</div>";  
+			html +="	<div class='subtitle'>";
+			html +=			VarText2;
+			html +="	</div>";
+			html +="</div>";        
+     	}
+     	if (VarLink3!="")
+        {
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink3+'\')">';
+			html +="	<div class='title'>";
+			html +=			VarTextLink3;
+			html +="	</div>";  
+			html +="	<div class='subtitle'>";
+			html +=			VarText3;
+			html +="	</div>";
+			html +="</div>";        
+     	}
+     	if (VarLink4!="")
+        {
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink4+'\')">';
+			html +="	<div class='title'>";
+			html +=			VarTextLink4;
+			html +="	</div>";  
+			html +="	<div class='subtitle'>";
+			html +=			VarText4;
+			html +="	</div>";
+			html +="</div>";        
+     	}
+     	
+     	document.getElementById('events').innerHTML += html;
+     	
+     				
+		function Go(destination)
+		{
+			window.open(destination);
+			return false;
+		}
+		
+	</script>
+   
+    ]]>
+  	</Content>
+  
+  	<Content type="html" view="configuration" preferred_height="550">
+
+	<![CDATA[
+	<style type="text/css">
+	    
+		table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+		
+		table td input,
+		textarea {
+			color: #000;
+			font-size: 11px;				
+		}
+	 
+	</style>
+ 
+	<table width="100%" border="0" id="tablaconfig">  
+		<tr>       
+	        <td>
+		        Title - Module: <input type="text" size="100" id="VarTitleModule" value="__UP_VarTitleModule__"   onchange="registra('VarTitleModule')"/>                   
+	        </td>
+	    </tr>
+	    <tr>       
+		    <td>
+		       	Link1 - Text: <input type="text" size="100" id="VarTextLink1" value="__UP_VarTextLink1__"   onchange="registra('VarTextLink1')"/>                   
+		    </td>
+		</tr>
+		<tr>       
+		   	<td>
+		       	Link1 - URL: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>                   
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				Text1: 
+				<textarea id="VarText1" style="height: 25px; width: 80%" onchange="registra('VarText1')" >__UP_VarText1__</textarea>
+			</td>
+	    </tr>
+	    
+	     <tr>       
+		    <td>
+		       	Link2 - Text: <input type="text" size="100" id="VarTextLink2" value="__UP_VarTextLink2__"   onchange="registra('VarTextLink2')"/>                   
+		    </td>
+		</tr>
+		<tr>       
+		   	<td>
+		       	Link2 - URL: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>                   
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				Text2: 
+				<textarea id="VarText2" style="height: 25px; width: 80%" onchange="registra('VarText2')" >__UP_VarText2__</textarea>
+			</td>
+	    </tr>
+	    
+	      <tr>       
+		    <td>
+		       	Link3 - Text: <input type="text" size="100" id="VarTextLink3" value="__UP_VarTextLink3__"   onchange="registra('VarTextLink3')"/>                   
+		    </td>
+		</tr>
+		<tr>       
+		   	<td>
+		       	Link3 - URL: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>                   
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				Text3: 
+				<textarea id="VarText4" style="height: 25px; width: 80%" onchange="registra('VarText4')" >__UP_VarText4__</textarea>
+			</td>
+	    </tr>
+	    
+	      <tr>       
+		    <td>
+		       	Link4 - Text: <input type="text" size="100" id="VarTextLink4" value="__UP_VarTextLink4__"   onchange="registra('VarTextLink4')"/>                   
+		    </td>
+		</tr>
+		<tr>       
+		   	<td>
+		       	Link4 - URL: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>                   
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				Text4: 
+				<textarea id="VarText4" style="height: 25px; width: 80%" onchange="registra('VarText4')" >__UP_VarText4__</textarea>
+			</td>
+	    </tr>
+	</table>	
+
+	<script type="text/javascript">           
+	    // Get userprefs
+	    var prefs = new gadgets.Prefs();           
+
+	    function registra(variable) {	
+			prefs.set(variable,document.getElementById(variable).value);
+		} 
+		gadgets.window.adjustHeight();
+	</script>   	
+	 
+ ]]>	
+ </Content>
+  
+</Module>
