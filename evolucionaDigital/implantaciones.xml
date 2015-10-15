@@ -71,8 +71,25 @@
     		float: left;
 		}
 
+		.date {
+		    background: none repeat scroll 0 0 #018DF5;
+		    border-radius: 4px 4px 4px 4px;
+		    box-shadow: 0 1px #DDDDDD;
+		    color: #444444;
+		    float: left;
+		    left: 9px;
+		    margin-bottom: 6px;
+		    padding: 4px 10px;
+		    text-align: center;
+		    width: 65px;
+		}
+
+		.month, .year {
+		    font-size: 20px;
+		}
+
 		.info {
-			margin-left: 173px;
+			margin-left: 100px;
 		}
 
 		.title {
