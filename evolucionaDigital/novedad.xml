@@ -282,6 +282,10 @@
     #icons {
     }
 
+    .description {
+        clear:both;
+    }
+
     /*aqui*/
 	#userBBVA{
 		float:left;
@@ -389,7 +393,7 @@
 			        html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:1px solid #AAA; width:575px; height:427px; '></iframe>";
                 }
                 html += "</div>";
-                html += "<div>"+data.getValue(i,3)+"</div>";
+                html += "<div class='description'>"+data.getValue(i,3)+"</div>";
 			    html +="</div>";
 			}
 				document.getElementById('listportales').innerHTML = html;
