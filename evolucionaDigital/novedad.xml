@@ -65,8 +65,8 @@
 	}
 
 	#comboVideo{
-	width:620px;
-	float:left;
+	    width:620px;
+	    float:left;
 	}
       #video-container{
    	    float:left;
@@ -347,7 +347,7 @@
         clear:both;
     }
 	#video iframe{
-	margin:25px 0px 0px 55px;
+	margin:0;
 	}
 	</style>
 
