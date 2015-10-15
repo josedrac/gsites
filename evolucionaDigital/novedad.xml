@@ -415,10 +415,12 @@
              };
             console.log('before for');
             for (var column in iconCols) {
-                console.log('columna '+column);
-                if (data.getValue(row, column) === 'x') {
-                    console.log('entro if');
-                    html += "<div class='icon'><img src='"+iconCols[column]+"' /></div>";
+            console.log('columna '+column);
+                if (iconCols.hasOwnProperty(column)) {
+                    if (data.getValue(row, column) === 'x') {
+                        console.log('entro if');
+                        html += "<div class='icon'><img src='"+iconCols[column]+"' /></div>";
+                    }
                 }
             }
             html += "</div>";
