@@ -285,7 +285,15 @@
 		padding-top:4px;
 		padding-left:2px;
 		padding-right:2px;
-	}
+    }
+
+    .icons img {
+        margin: 0 0 5px 0 !important;
+    }
+
+    .clearBoth {
+        clear:both;
+    }
 
 	</style>
 
@@ -378,6 +386,7 @@
                }else{
 			        html += "<img src='"+data.getValue(i,6)+"'></img></div>";
                }
+               html += getIcons(data, i);
 			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
 			   html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
 			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
@@ -512,6 +521,53 @@
 			document.getElementsByClassName('youtubeIframe')[i].style.display='block';
 			}
         }
+
+        function getIcons(data, row) {
+            var html = "<div class='icons'>";
+                var iconCols = {
+                9: ['https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/cellphone.png', 10, 16],
+                10: ['https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/cellphone.png', 10, 16],
+                11: ['https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/cellphone.png', 10, 16],
+                12: ['https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/mouse.png', 11, 16],
+                13: ['https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/tablet.png', 13, 16],
+                14: ['https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/phone.png', 15, 15]
+                };
+
+            var isCellphoneShown = false;
+            var countIcons = 0;
+            for (var column in iconCols) {
+                if (!iconCols.hasOwnProperty(column)) {
+                    continue;
+                }
+
+                if (isCellphoneShown && (column == 9 || column == 10 || column == 11)) {
+                    continue;
+                }
+
+                if (data.getValue(row, parseInt(column)) !== 'x') {
+                    continue;
+                }
+
+                if (column == 9 || column == 10 || column == 11) {
+                    isCellphoneShown = true;
+                }
+
+                if (countIcons == 0) {
+                    html += "<div class='icon'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                    countIcons++;
+                    continue;
+                }
+
+                html += "<div class='iconMargin'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";margin-left: 10px !important;' /></div>";
+                countIcons++;
+
+            }
+            html += "</div>";
+            html += "<div class='clearBoth'></div>";
+            return html;
+        }
+
+
 
   </script>
     ]]>
