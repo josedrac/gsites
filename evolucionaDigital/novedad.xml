@@ -306,10 +306,6 @@
         margin: 0 0 5px 0 !important;
     }
 
-    .iconMargin {
-        margin-left: 20px !important;
-    }
-
     .clearBoth {
         clear:both;
     }
@@ -450,7 +446,7 @@
                     continue;
                 }
 
-                html += "<div class='iconMargin'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                html += "<div class='iconMargin'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";margin-left: 20px !important;' /></div>";
                 countIcons++;
 
             }
