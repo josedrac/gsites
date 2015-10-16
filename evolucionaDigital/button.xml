@@ -50,7 +50,6 @@
         -webkit-border-radius: 4px;
         -moz-border-radius: 4px;
         border-radius: 4px;
-        font-size: 12px;
         text-align: center;
         vertical-align: middle;
         height: 40px;
@@ -62,6 +61,8 @@
         position: relative;
         overflow: visible;
         float: right;
+        font-size: 14px;
+        font-weight:bold;
         }
     </style>
 
@@ -81,12 +82,10 @@
 
         if (VarLink1!="")
         {
-          html += "<button type='button'>";
-          html +='<a  href=\''+VarLink1+'\'';
-          html +='target=\''+VarTargetLink1+'\'>';
-          html +=			VarTextLink1;
-          html +='</a></button>';
-     	    }
+          html += "<button type='button' onclick=window.open('"+ VarLink1 +"','" + VarTargetLink1 + "');>";
+          html += VarTextLink1;
+          html +='</button>';
+     	}
 
      	document.getElementById('button-container').innerHTML += html;
 
