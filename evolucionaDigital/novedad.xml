@@ -303,12 +303,7 @@
 		width:595px;
 		height:410px;
     }
-    .icon img {
-        width: 24px !important;
-        height: 24px !important;
-    }
-
-	#citaAutor{
+   	#citaAutor{
 
 	color:#3D85C6;
 	font-size:small;
@@ -433,7 +428,7 @@
                     if (column == 9 || column == 10 || column == 11) {
                         isCellphoneShown = true;
                     }
-                    html += "<div class='icon'><img src='"+iconCols[column][0]+"' width='"+iconCols[column][1]+"' height='"+iconCols[column][2]+"' /></div>";
+                    html += "<div class='icon'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
                 }
             }
             html += "</div>";
