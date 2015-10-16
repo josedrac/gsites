@@ -294,6 +294,10 @@
     .icon {
         float:left;
     }
+    .iconMargin {
+        float:left;
+    }
+
     .clearBoth {
         clear:both;
     }
