@@ -306,6 +306,10 @@
         margin: 0 0 5px 0 !important;
     }
 
+    .iconMargin {
+        margin-left: 20px !important:
+    }
+
     .clearBoth {
         clear:both;
     }
@@ -422,6 +426,7 @@
                 14: ['https://raw.githubusercontent.com/sopraux/gsites/ED-novedades/evolucionaDigital/img/phone.png', 15, 15]
                 };
             var isCellphoneShown = false;
+            var countIcons = 0;
             for (var column in iconCols) {
                 if (!iconCols.hasOwnProperty(column)) {
                     continue;
@@ -431,12 +436,23 @@
                     continue;
                 }
 
-                if (data.getValue(row, parseInt(column)) === 'x') {
-                    if (column == 9 || column == 10 || column == 11) {
-                        isCellphoneShown = true;
-                    }
-                    html += "<div class='icon'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                if (data.getValue(row, parseInt(column)) !== 'x') {
+                    continue;
                 }
+
+                if (column == 9 || column == 10 || column == 11) {
+                    isCellphoneShown = true;
+                }
+
+                if (countIcons == 0) {
+                    html += "<div class='icon'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                    countIcons++;
+                    continue;
+                }
+
+                html += "<div class='iconMargin'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                countIcons++;
+
             }
             html += "</div>";
             html += "<div class='clearBoth'></div>";
