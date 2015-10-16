@@ -303,7 +303,7 @@
     }
 
     .icons img {
-        margin: 0;
+        margin: 0 0 5px 0 !important;
     }
 
     .clearBoth {
