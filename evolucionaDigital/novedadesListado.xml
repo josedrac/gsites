@@ -562,8 +562,8 @@
                 countIcons++;
 
             }
-            html += "</div>";
             html += "<div class='clearBoth'></div>";
+            html += "</div>";
             return html;
         }
 
