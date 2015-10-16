@@ -279,8 +279,6 @@
 	color:#0065B7;
     }
 
-    #icons {
-    }
 
     .description, .smalldescription {
         color: #71777F;
@@ -303,6 +301,15 @@
 		width:595px;
 		height:410px;
     }
+
+    .icons img {
+        margin: 0;
+    }
+
+    .clearBoth {
+        clear:both;
+    }
+
    	#citaAutor{
 
 	color:#3D85C6;
@@ -432,6 +439,7 @@
                 }
             }
             html += "</div>";
+            html += "<div class='clearBoth'></div>";
             return html;
         }
 
