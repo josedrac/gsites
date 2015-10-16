@@ -441,7 +441,9 @@
 					}
 					else if(i==filas-1)
                     {
-                        console.debug('ANTERIOR>');
+                    console.debug('ANTERIOR>');
+                    console.debug('pagActual'+pagActual);
+                    console.debug('i'+i);
 						var pagActualAux = pagActual;
 				        pagActual--;
                         if (i > 2) {
