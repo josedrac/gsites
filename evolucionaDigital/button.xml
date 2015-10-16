@@ -86,16 +86,9 @@
           html +='target=\''+VarTargetLink1+'\'>';
           html +=			VarTextLink1;
           html +='</a></button>';
-     	}
+     	    }
 
      	document.getElementById('button-container').innerHTML += html;
-
-
-		function Go(destination, target)
-		{
-			window.open(destination, target);
-			return false;
-		}
 
 	</script>
 
