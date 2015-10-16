@@ -384,6 +384,7 @@
 
             for(var i=0;i<filas;i++){
 
+               html += getIcons(data, i);
 			   html += "<div id='comboVideo'>";
 			   html += "<div id='video-container'><div id='infoVideo'>";
 			   html += "<div id='urlVideo'>";
@@ -393,7 +394,7 @@
                }else{
 			        html += "<img src='"+data.getValue(i,6)+"'></img></div>";
                }
-               html += getIcons(data, i);
+
 			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
 			   html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
 			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
@@ -569,8 +570,8 @@
                 countIcons++;
 
             }
-            html += "<div class='clearBoth'></div>";
             html += "</div>";
+            html += "<div class='clearBoth'></div>";
             return html;
         }
 
