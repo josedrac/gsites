@@ -81,11 +81,11 @@
 
         if (VarLink1!="")
         {
-          html += "<button type='button'>";
-          html +='<a  href=\''+VarLink1+'\'';
-          html +='target=\''+VarTargetLink1+'\'>';
-          html +=			VarTextLink1;
-          html +='</a></button>';
+        html += "<button type='button' onclick='window.open(\'https://www.google.com\');'>";
+            //    html +='<a  href=\''+VarLink1+'\'';
+                //html +='target=\''+VarTargetLink1+'\'>';
+                html += VarTextLink1;
+          html +='</button>';
      	    }
 
      	document.getElementById('button-container').innerHTML += html;
