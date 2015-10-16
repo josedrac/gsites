@@ -441,10 +441,10 @@
 					}
 					else if(i==filas-1)
                     {
-                        //console.debug('ANTERIOR>');
+                        console.debug('ANTERIOR>');
 						var pagActualAux = pagActual;
 				        pagActual--;
-                        if (pagActual > 1) {
+                        if (i > 2) {
                             html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
                         }
 						for(var j=1;j<=pagTotales;j++){
