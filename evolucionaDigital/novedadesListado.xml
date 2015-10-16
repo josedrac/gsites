@@ -441,11 +441,12 @@
 					}
 					else if(i==filas-1)
                     {
-				        console.debug('ANTERIOR>');
+                        //console.debug('ANTERIOR>');
 						var pagActualAux = pagActual;
 				        pagActual--;
-
-					    html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
+                        if (pagActual > 1) {
+                            html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
+                        }
 						for(var j=1;j<=pagTotales;j++){
 							if(j==pagActualAux){
 								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
