@@ -29,7 +29,6 @@ width="100"
     	font-weight: normal;
     }
     #button-container a{
- 	float:left;
  	position: relative;
  	top: -1px;
  	margin-right: 0;
@@ -38,6 +37,8 @@ width="100"
  	font-family: BBVA Web Medium, Arial;
  	font-size:14px;
   font-weight:bold;
+  line-height: 30px
+
  	}
         button{
         background: #0079C1;
