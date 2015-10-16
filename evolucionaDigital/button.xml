@@ -81,7 +81,7 @@
 
         if (VarLink1!="")
         {
-        html += "<button type='button' onclick='window.open(\'https://www.google.com\');'>";
+        html += "<button type='button' onclick=window.open('https://www.google.com');>";
             //    html +='<a  href=\''+VarLink1+'\'';
                 //html +='target=\''+VarTargetLink1+'\'>';
                 html += VarTextLink1;
