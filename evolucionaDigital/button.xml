@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
- 	<ModulePrefs title="ED-lateralEnlaces.xml">
+ 	<ModulePrefs title="ED-button.xml"
+height="100"
+width="100"
+    >
     	<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -15,6 +18,28 @@
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
 	<style type="text/css">
+    @font-face {
+    	font-family: 'BBVA Web Light';
+    	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+    	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+    		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+    		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+    		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    	font-style: normal;
+    	font-weight: normal;
+    }
+    #button-container a{
+ 	float:left;
+ 	position: relative;
+ 	top: -1px;
+ 	margin-right: 0;
+ 	text-decoration:none;
+ 	color:#FFF;
+ 	font-family: BBVA Web Medium, Arial;
+ 	font-size:12px;
+ 	margin-left:-16px;
+ 	width:90px;
+ 	}
         button{
         background: #0079C1;
         background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
