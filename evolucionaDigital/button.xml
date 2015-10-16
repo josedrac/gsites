@@ -82,6 +82,9 @@ width="100"
 
         if (VarLink1!="")
         {
+        html +='<a  href=\''+VarLink1+'\'';
+        html +='target=\''+VarTargetLink1+'\'>';
+        html +=			VarTextLink1;
           html += "<button type='button'>";
           html +='<a  href=\''+VarLink1+'\'';
           html +='target=\''+VarTargetLink1+'\'>';
