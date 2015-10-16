@@ -37,7 +37,8 @@ width="100"
  	font-family: BBVA Web Medium, Arial;
  	font-size:14px;
   font-weight:bold;
-  line-height: 30px
+  line-height: 30px;
+  z-index:9999;
 
  	}
         button{
@@ -83,9 +84,6 @@ width="100"
 
         if (VarLink1!="")
         {
-        html +='<a  href=\''+VarLink1+'\'';
-        html +='target=\''+VarTargetLink1+'\'>';
-        html +=			VarTextLink1;
           html += "<button type='button'>";
           html +='<a  href=\''+VarLink1+'\'';
           html +='target=\''+VarTargetLink1+'\'>';
