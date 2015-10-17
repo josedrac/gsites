@@ -98,8 +98,7 @@ ol, ul {
 .cabeceramenu ul li.opcion2,
 .cabeceramenu ul li.opcion3,
 .cabeceramenu ul li.opcion4,
-.cabeceramenu ul li.opcion5,
-.cabeceramenu ul li.opcion6 {
+.cabeceramenu ul li.opcion5 {
   float: left;
   text-align: center;
   background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/separador-menu.png') no-repeat scroll right top transparent;
