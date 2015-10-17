@@ -182,7 +182,7 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion4
  {
-	width: 150px;
+	width: 160px;
 }
 .cabeceramenu ul li.opcion5
  {
@@ -190,7 +190,13 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion6
  {
-	width: 130px;
+	width: 125px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.cabeceramenu ul li.opcion6 a:hover{
+border-bottom-right-radius: 5px;
+border-top-right-radius: 5px;
 }
 .cabeceramenu  ul li.homefirst {
 	width: 81px;
