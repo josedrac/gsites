@@ -182,7 +182,7 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion4
  {
-	width: 160px;
+	width: 165px;
 }
 .cabeceramenu ul li.opcion5
  {
@@ -190,7 +190,7 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion6
  {
-	width: 125px;
+	width: 120px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
