@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+ 	<ModulePrefs title="ED-lateralEnlaces.xml">
+    	<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+  	</ModulePrefs>
+<UserPref name="VarTitleModule" default_value="" display_name="VarTitleModule" required="true" />
+<UserPref name="VarText1" default_value="" display_name="VarText1" required="true" />
+<UserPref name="VarTextLink1" default_value="" display_name="VarTextLink1" required="true" />
+<UserPref name="VarLink1" default_value="" display_name="VarLink1" required="true" />
+<UserPref name="VarTargetLink1" default_value="" display_name="VarTargetLink1" required="true" />
+<UserPref name="VarImgLink1" default_value="" display_name="VarImgLink1" required="true" />
+
+
+ <Content type="html" charset="UTF-8">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+	<style type="text/css">
+        /* @group fonts */
+        @font-face {
+            font-family: 'BBVA Web Light';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'BBVA Web Book';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'BBVA Web Medium';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+        /* @end */
+        .container{
+            border: 1px solid #DDE3EA;
+            border-radius: 2px 2px 2px 2px;
+            clear: both;
+            margin-top: 15px;
+            width: 298px;
+        }
+        #nivel{
+            background: #ffffff; /* Old browsers */
+            background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 ); /* IE6-9 */
+            border-bottom: 1px solid #DDE3EA;
+            color: #333333;
+            font-family: BBVA Web Book,Arial;
+            font-size: 16px;
+            padding-bottom: 15px;
+            padding-left: 18px;
+            padding-top: 14px;
+        }
+        .event{
+            border-bottom: 1px solid #DDE3EA;
+            padding:20px 10px;
+        }
+        .event:hover{
+            background-color:#E2FAFE;
+            cursor:pointer;
+        }
+        .event:last-child{
+            border-bottom: none;
+        }
+
+        .title {
+            color:#0072C9;
+            font-size:12px;
+            font-weight: bold;
+            font-family: BBVA Web Book, Arial;
+            text-decoration:none;
+        }
+        .subtitle{
+            color:#434A58;
+            font-size:12px;
+            font-family: BBVA Web Book, Arial;
+            margin-top:5px;
+        }
+        img {
+            float: right;
+            padding-left: 10px;
+        }
+    </style>
+
+
+	<div class="container">
+		<div id="events"></div>
+	</div>
+
+   <script type="text/javascript">
+	   	var html="";
+	   	var gadgetHelper = null;
+	   	var prefs = new gadgets.Prefs();
+
+	   	 var VarTitleModule = prefs.getString("VarTitleModule");
+		    var VarTextLink1 = prefs.getString("VarTextLink1");
+        var VarLink1 = prefs.getString("VarLink1");
+        var VarTargetLink1 = prefs.getString("VarTargetLink1");
+        var VarText1 = prefs.getString("VarText1");
+        var VarImgLink1 = prefs.getString("VarImgLink1");
+
+
+        document.getElementById("nivel").innerHTML = VarTitleModule;
+
+        if (VarLink1!="")
+        {
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\', \''+VarTargetLink1+'\')">';
+			html +="	<div class='title'>";
+			html +=			VarTextLink1;
+			html +="	</div>";
+			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
+			html +="	<div class='subtitle'>";
+			html +=			VarText1;
+			html +="	</div>";
+			html +="</div>";
+
+
+      	html +='<div class="content_aplicaciones">';
+        html +='  <div class="app">';
+        html +='    <div class="col0">';
+        html +='      <img src="'+VarImgLink1+'" class="ico">';
+        html +='    </div>';
+        html +='  <div class="col1">';
+        html +='    <h3 class="app_titulo">';
+        html +='      VarTitleModule';
+        html +='    </h3>';
+        html +='    <div class="listacategorias">';
+        html +='      VarText1';
+        html +='    </div>';'
+        html +="    <button type='button' onclick=window.open('"+ VarLink1 +"','" + VarTargetLink1 + "');>";
+        html +=       VarTextLink1;
+        html +='    </button>';
+        html +='  </div>';
+        html +='</div>';
+        html +='</div>';
+
+
+
+     	}
+
+     	document.getElementById('events').innerHTML += html;
+
+
+		function Go(destination, target)
+		{
+			window.open(destination, target);
+			return false;
+		}
+
+	</script>
+
+    ]]>
+  	</Content>
+
+  	<Content type="html" view="configuration" preferred_height="550">
+
+	<![CDATA[
+	<style type="text/css">
+
+		table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+
+		table td input,
+		textarea {
+			color: #000;
+			font-size: 11px;
+		}
+
+	</style>
+
+	<table width="100%" border="0" id="tablaconfig">
+		<tr>
+	        <td>
+		        Title - Module: <input type="text" size="100" id="VarTitleModule" value="__UP_VarTitleModule__"   onchange="registra('VarTitleModule')"/>
+	        </td>
+	    </tr>
+	    <tr>
+		    <td>
+		       	Link1 - Text: <input type="text" size="100" id="VarTextLink1" value="__UP_VarTextLink1__"   onchange="registra('VarTextLink1')"/>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	Link1 - Target: <input type="text" size="100" id="VarTargetLink1" value="__UP_VarTargetLink1__" onchange="registra('VarTargetLink1')"/>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	Link1 - URL: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
+		    </td>
+		</tr>
+    <tr>
+		   	<td>
+		       	Imagen - URL: <input type="text" size="100" id="VarImgLink1" value="__UP_VarImgLink1__" onchange="registra('VarImgLink1')"/>
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				Text1:
+				<textarea id="VarText1" style="height: 25px; width: 80%" onchange="registra('VarText1')" >__UP_VarText1__</textarea>
+			</td>
+	    </tr>
+
+
+	</table>
+
+	<script type="text/javascript">
+	    // Get userprefs
+	    var prefs = new gadgets.Prefs();
+
+	    function registra(variable) {
+			prefs.set(variable,document.getElementById(variable).value);
+		}
+		gadgets.window.adjustHeight();
+	</script>
+
+ ]]>
+ </Content>
+
+</Module>
