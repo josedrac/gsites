@@ -1,50 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-
 <Module>
   <ModulePrefs title="ED - blockApp.xml">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
-        <Require feature="dynamic-height"/>
-        <Require feature="setprefs" />
+    <Require feature="dynamic-height"/>
+    <Require feature="setprefs" />
   </ModulePrefs>
 
 <Content type="html" view="home"><![CDATA[
 
-
- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
-      <script src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/bbvarepo/war/js/common.js" type="text/javascript"></script>
-        <link rel=StyleSheet href="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/bbvarepo/war/css/bbva-tables.css" type="text/css">
-        <link rel=StyleSheet href="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/bbvarepo/war/css/bbva-styles.css" type="text/css">
-        <link rel=StyleSheet href="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/bbvarepo/war/css/bbva-boxProgression.css" type="text/css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 
 <style type="text/css">
-/* @group fonts */
-@font-face {
-        font-family: 'BBVA Web Light';
-                        src:url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.eot');
-                        src:url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.eot?iefix') format("embedded-opentype"),
-                                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.woff') format("woff"),
-                                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.ttf') format("truetype"),
-                                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.svg#BBVA Web Light') format("svg");
-                        font-style: normal;
-                        font-weight: normal;
-}
+  @font-face {
+    font-family: 'BBVA Web Light';
+    src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+    src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+      url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+      url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+      url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    font-style: normal;
+    font-weight: normal;
+  }
+  @font-face {
+  	font-family: 'BBVA Web Book';
+  	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+  	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+  		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+  		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+  		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+  	font-style: normal;
+  	font-weight: normal;
+  }
+  @font-face {
+  	font-family: 'BBVA Web Medium';
+  	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
+  	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+  		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+  		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+  		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+  	font-style: normal;
+  	font-weight: normal;
+  }
 
-@font-face {
-        font-family: 'BBVA Web Book';
-        src:url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.eot');
-        src:url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.woff') format("woff"),
-                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.ttf') format("truetype"),
-                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.svg#BBVA Web Book') format("svg");
-        font-style: normal;
-        font-weight: normal;
-}
-
-
-/* @group fonts */
-
-h2.titulo {
+  h2.titulo {
         font-family:"BBVA Web Light",arial,sans-serif;
         font-weight: lighter;
         border-bottom: 1px solid #DCDCDC;
@@ -52,8 +51,7 @@ h2.titulo {
         font-size: 22px;
         padding-bottom: 9px;
         margin-bottom:30px;
-
-}
+        }
 
 div.content_aplicaciones {
         width:951px;
@@ -73,7 +71,6 @@ h3.app_titulo {
         font-size: 20px;
         font-weight: lighter;
         margin-bottom:5px;
-/*      padding-top:25px;*/
 }
 button.btn {
         background: #0079C1;
@@ -296,7 +293,7 @@ width:100%;
 
         <div class="app">
                 <div class="col0">
-                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-2.png" alt="" class="ico">
+                    <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-4.png" alt="" class="ico">
                 </div>
                 <div class="col1">
                         <h3 class="app_titulo">Remotizar</h3>
