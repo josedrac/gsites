@@ -282,38 +282,14 @@ width:100%;
 
 <div class="content_aplicaciones">
 
-        <div class="app">
-                <div class="col0">
-                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-1.png" alt="" class="ico">
-                        <h4 class="app_subtitulo" >Nacar</h4>
-                </div>
-                <div class="col1">
-                        <h3 class="app_titulo">Hoy</h3>
-                        <div id='cursosHoy' class='listacategorias'></div>
-                        <button id="today" class="btn" type="button">Acceder</button>
-                </div>
-        </div>
-
-        <div class="app">
-                <div class="col0">
-                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/objetoCliente.png" alt="" class="ico">
-                        <h4 class="app_subtitulo">Nacar</h4>
-                </div>
-                <div class="col1">
-                        <h3 class="app_titulo">Objeto de Negocio</h3>
-                        <div id='cursosObjeto' class='listacategorias'></div>
-                        <button id="objeto" class="btn" type="button">Acceder</button>
-                </div>
-        </div>
 
         <div class="app">
                 <div class="col0">
                         <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-4.png" alt="" class="ico">
-                        <h4 class="app_subtitulo">Nacar</h4>
                 </div>
                 <div class="col1">
-                        <h3 class="app_titulo">Escenario Operativo</h3>
-                        <div id='cursosEscenario' class='listacategorias'></div>
+                        <h3 class="app_titulo">Digitalizar</h3>
+                        <div id='cursosEscenario' class='listacategorias'>Esta guía te ayudará a digitalizar a tu cliente</div>
                         <button id="escenario" class="btn" type="button">Acceder</button>
                 </div>
         </div>
@@ -321,62 +297,14 @@ width:100%;
         <div class="app">
                 <div class="col0">
                         <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-2.png" alt="" class="ico">
-                        <h4 class="app_subtitulo">Nacar</h4>
                 </div>
                 <div class="col1">
-                        <h3 class="app_titulo">Gestión de Clientes</h3>
-                        <div id='cursosGestion' class='listacategorias'></div>
+                        <h3 class="app_titulo">Remotizar</h3>
+                        <div id='cursosGestion' class='listacategorias'>Esta guía te ayudará a trasladar a tus clientes con perfil remoto al servicio de BBVA contigo</div>
                         <button id="gestion" class="btn" type="button">Acceder</button>
                 </div>
         </div>
-
-        <div class="app">
-                <div class="col0">
-                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/misAccesos.png" alt="" class="ico">
-                        <h4 class="app_subtitulo">Nacar</h4>
-                </div>
-                <div class="col1">
-                        <h3 class="app_titulo">Mis Accesos</h3>
-                        <div id='cursosMis' class='listacategorias'></div>
-                        <button id="accesos" class="btn" type="button">Acceder</button>
-                </div>
-        </div>
-
-        <div class="app">
-                <div class="col0">
-                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-3.png" alt="" class="ico">
-                        <h4 class="app_subtitulo"></h4>
-                </div>
-                <div class="col1">
-                        <h3 class="app_titulo">Modelo de Dirección</h3>
-                        <div id='cursosDireccion' class='listacategorias'></div>
-                        <button id="modelo" class="btn" type="button">Acceder</button>
-                </div>
-        </div>
-
-        <div class="app">
-                <div class="col0">
-                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-5.png" alt="" class="ico">
-                        <h4 class="app_subtitulo"></h4>
-                </div>
-                <div class="col1">
-                        <h3 class="app_titulo">E-Spacio</h3>
-                        <div id='cursosspacio' class='listacategorias'></div>
-                        <button id="E-Spacio" class="btn" type="button">Acceder</button>
-                </div>
-        </div>
-
-        <div class="app">
-                <div class="col0">
-                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-6.png" alt="" class="ico">
-                        <h4 class="app_subtitulo"></h4>
-                </div>
-                <div class="col1">
-                        <h3 class="app_titulo">3270</h3>
-                <div id='cursosult' class='listacategorias'></div>
-                        <button id="ult" class="btn" type="button">Acceder</button>
-                </div>
-        </div>
+</div>
 </body>
 
 
