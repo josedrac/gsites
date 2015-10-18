@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module>
+  <ModulePrefs title="ED - blockApp.xml">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+        <Require feature="dynamic-height"/>
+        <Require feature="setprefs" />
+  </ModulePrefs>
+
+<Content type="html" view="home"><![CDATA[
+
+
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+      <script src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/bbvarepo/war/js/common.js" type="text/javascript"></script>
+        <link rel=StyleSheet href="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/bbvarepo/war/css/bbva-tables.css" type="text/css">
+        <link rel=StyleSheet href="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/bbvarepo/war/css/bbva-styles.css" type="text/css">
+        <link rel=StyleSheet href="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/bbvarepo/war/css/bbva-boxProgression.css" type="text/css">
+
+<style type="text/css">
+/* @group fonts */
+@font-face {
+        font-family: 'BBVA Web Light';
+                        src:url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.eot');
+                        src:url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.eot?iefix') format("embedded-opentype"),
+                                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.woff') format("woff"),
+                                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.ttf') format("truetype"),
+                                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-light.svg#BBVA Web Light') format("svg");
+                        font-style: normal;
+                        font-weight: normal;
+}
+
+@font-face {
+        font-family: 'BBVA Web Book';
+        src:url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.eot');
+        src:url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.woff') format("woff"),
+                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.ttf') format("truetype"),
+                url('https://sites.google.com/a/bbva.com/implantaciones-eyp/web-book.svg#BBVA Web Book') format("svg");
+        font-style: normal;
+        font-weight: normal;
+}
+
+
+/* @group fonts */
+
+h2.titulo {
+        font-family:"BBVA Web Light",arial,sans-serif;
+        font-weight: lighter;
+        border-bottom: 1px solid #DCDCDC;
+        color: #0078D2;
+        font-size: 22px;
+        padding-bottom: 9px;
+        margin-bottom:30px;
+
+}
+
+div.content_aplicaciones {
+        width:951px;
+        display: inline-block;
+}
+
+div.app {
+    border: 5px solid #F4F7F5;
+    float: left;
+    width: 305px;
+        height:216px;
+}
+
+h3.app_titulo {
+        font-family:"BBVA Web Light",arial,sans-serif;
+        color: #0078D2;
+        font-size: 20px;
+        font-weight: lighter;
+        margin-bottom:5px;
+/*      padding-top:25px;*/
+}
+button.btn {
+        background: #0079C1;
+        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+        background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+        background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+        -webkit-border-radius: .3em;
+        -moz-border-radius: .3em;
+        border-radius: .3em;
+        text-align: center;
+        font-size: 12px;
+        vertical-align: middle;
+        height: 1.75em;
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 2px;
+        border: .1em solid #00559D;
+        color: white;
+        cursor: pointer;
+        position: relative;
+    text-align: center;
+    vertical-align: middle;
+        float:right;
+        margin-right:10px;
+        margin-bottom: 0px;
+        margin-top:5px;
+        width:72px;
+}
+
+button.btn:hover{
+        background: #004C99;
+}
+
+.btn span {
+    display: inline-block;
+    font-family:"BBVA Web Medium",arial,sans-serif;
+    font-size: 12px;
+    margin-left: -1px;
+    margin-right: -1px;
+}
+
+p.app_texto {
+    color: #434A58;
+    font-family: arial;
+    font-size: 12px;
+    height: 35px;
+    margin-bottom: 18px;
+}
+
+img.ico {
+    margin: 25px 0 10px 0;
+}
+
+h4.app_subtitulo {
+        color: #66ACE7;
+        float: left;
+        font-family: "BBVA Web Light",arial,sans-serif;
+        font-size: 18px;
+        font-weight: lighter;
+        margin: 0;
+        width:100%;
+}
+.enlaceCurso{
+color:#0065B7;
+font-size:12px;
+font-family:BBVA Web Light, Arial;
+line-height:10px;
+width:100px;
+}
+
+        .listacategorias ul{
+                margin-top: 5px;
+            padding-left: 0;
+            margin-left:0;
+            width: 100%;
+            margin-bottom: 5px;
+            list-style:none outside none;
+        }
+
+        .listacategorias ul li {
+                margin-left:0px;
+                width:100%;
+        }
+
+        .listacategorias ul li a.enlaceCurso{
+                width:100%;
+                line-height:20px;
+                text-decoration:none;
+                font-size: 12px;
+                font-family: BBVA Web Light, Arial;
+        }
+
+#cursosult{
+color:#0078D2;
+}
+
+
+.listacategorias{
+heigth: 114px;
+width:100%;
+
+}
+ .app .col0 {
+                //width:90px;
+                width:29.50819672131148%;
+                float:left;
+                height: 205px;
+                text-align:center;
+   }
+
+   .app .col1 {
+                //width:210px;
+                width:68.85245901639344%;
+                float:left;
+   }
+</style>
+
+
+<!--[if IE]>
+<style type="text/css">
+
+        #today button,
+        #objeto button,
+        #escenario button,
+        #gestion button,
+        #accesos button,
+        #modelo button,
+        #E-Spacio button,
+        #ult button{
+                background: #0079C1;
+                border:0;
+        }
+
+        button.btn{
+                background: #0079C1;
+                border:0;
+        }
+        .bloqueAnterior{
+            clear:both;
+            display:block;
+            margin-left:245px;
+            font-family: BBVA Web Book;
+                        color:#0078D2;
+                        float:left;
+                        margin-top:-6px;
+                        border:none;
+                        outline: none;
+                        text-decoration:none;
+                        margin-right:10px;
+        }
+        .checkpage1 a{
+                height:9px;
+                float:left;
+                padding-top:4px;
+                padding-left:2px;
+                padding-right:2px;
+        }
+        ul li a.enlaceCurso{
+                width:213px;
+                line-height:20px;
+                text-decoration:none;
+                font-size: 12px;
+                font-family: BBVA Web Light, Arial;
+        }
+        .content_aplicaciones{
+        float:left;
+        width:945px;
+        display: inline-block;
+        }
+
+        .app {
+                border: 5px solid #F4F7F5;
+                float: left;
+                width: 305px;
+                height:216px;
+        }
+
+
+   .listacategorias{
+     height:140px;
+     min-height:140px;
+     position:relative;
+   }
+
+    h3.app_titulo{
+       padding-top: 20px;
+       margin-top: 0px;
+    }
+
+    .btn{
+   position: inherit;
+   bottom: 25px;
+   rigth: 20px;
+   margin-top:0px;
+    }
+
+
+
+</style>
+<![endif]-->
+ <body>
+
+<div class="content_aplicaciones">
+
+        <div class="app">
+                <div class="col0">
+                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-1.png" alt="" class="ico">
+                        <h4 class="app_subtitulo" >Nacar</h4>
+                </div>
+                <div class="col1">
+                        <h3 class="app_titulo">Hoy</h3>
+                        <div id='cursosHoy' class='listacategorias'></div>
+                        <button id="today" class="btn" type="button">Acceder</button>
+                </div>
+        </div>
+
+        <div class="app">
+                <div class="col0">
+                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/objetoCliente.png" alt="" class="ico">
+                        <h4 class="app_subtitulo">Nacar</h4>
+                </div>
+                <div class="col1">
+                        <h3 class="app_titulo">Objeto de Negocio</h3>
+                        <div id='cursosObjeto' class='listacategorias'></div>
+                        <button id="objeto" class="btn" type="button">Acceder</button>
+                </div>
+        </div>
+
+        <div class="app">
+                <div class="col0">
+                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-4.png" alt="" class="ico">
+                        <h4 class="app_subtitulo">Nacar</h4>
+                </div>
+                <div class="col1">
+                        <h3 class="app_titulo">Escenario Operativo</h3>
+                        <div id='cursosEscenario' class='listacategorias'></div>
+                        <button id="escenario" class="btn" type="button">Acceder</button>
+                </div>
+        </div>
+
+        <div class="app">
+                <div class="col0">
+                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-2.png" alt="" class="ico">
+                        <h4 class="app_subtitulo">Nacar</h4>
+                </div>
+                <div class="col1">
+                        <h3 class="app_titulo">Gestión de Clientes</h3>
+                        <div id='cursosGestion' class='listacategorias'></div>
+                        <button id="gestion" class="btn" type="button">Acceder</button>
+                </div>
+        </div>
+
+        <div class="app">
+                <div class="col0">
+                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/misAccesos.png" alt="" class="ico">
+                        <h4 class="app_subtitulo">Nacar</h4>
+                </div>
+                <div class="col1">
+                        <h3 class="app_titulo">Mis Accesos</h3>
+                        <div id='cursosMis' class='listacategorias'></div>
+                        <button id="accesos" class="btn" type="button">Acceder</button>
+                </div>
+        </div>
+
+        <div class="app">
+                <div class="col0">
+                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-3.png" alt="" class="ico">
+                        <h4 class="app_subtitulo"></h4>
+                </div>
+                <div class="col1">
+                        <h3 class="app_titulo">Modelo de Dirección</h3>
+                        <div id='cursosDireccion' class='listacategorias'></div>
+                        <button id="modelo" class="btn" type="button">Acceder</button>
+                </div>
+        </div>
+
+        <div class="app">
+                <div class="col0">
+                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-5.png" alt="" class="ico">
+                        <h4 class="app_subtitulo"></h4>
+                </div>
+                <div class="col1">
+                        <h3 class="app_titulo">E-Spacio</h3>
+                        <div id='cursosspacio' class='listacategorias'></div>
+                        <button id="E-Spacio" class="btn" type="button">Acceder</button>
+                </div>
+        </div>
+
+        <div class="app">
+                <div class="col0">
+                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-6.png" alt="" class="ico">
+                        <h4 class="app_subtitulo"></h4>
+                </div>
+                <div class="col1">
+                        <h3 class="app_titulo">3270</h3>
+                <div id='cursosult' class='listacategorias'></div>
+                        <button id="ult" class="btn" type="button">Acceder</button>
+                </div>
+        </div>
+</body>
+
+
+<script type="text/javascript">
+
+
+</script>
+
+
+]]>
+ </Content>
+</Module>
