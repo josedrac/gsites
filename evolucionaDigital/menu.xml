@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
- <Module>
-  <ModulePrefs title="ED - menu.xml" height="75">
-  <Require feature="dynamic-height"/>
-	<Require feature="idi"/>
-	<Require feature="locked-domain" />
-	<Require feature="setprefs" />
-  </ModulePrefs>
-<Content type="html">
-<![CDATA[
+<Module>
+    <ModulePrefs height="60" title="ED - menu.xml">
+        <Require feature="dynamic-height"/>
+        <Require feature="idi"/>
+        <Require feature="locked-domain"/>
+        <Require feature="setprefs"/>
+    </ModulePrefs>
+    <Content type="html">
+        <![CDATA[
 
 <style type="text/css">
 	/* @group fonts */
@@ -62,8 +62,7 @@ ol, ul {
 }
 
 .cabeceramenu {
-	width: 95em;
-	height: 5.1em;
+	height: 51px;
 	margin-top: 0px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -95,11 +94,11 @@ ol, ul {
 }
 
 .cabeceramenu ul li.homefirst,
-.cabeceramenu ul li.iniciate,
-.cabeceramenu ul li.hpd2,
-.cabeceramenu ul li.trucos,
-.cabeceramenu ul li.exito,
-.cabeceramenu ul li.movilidad{
+.cabeceramenu ul li.opcion1,
+.cabeceramenu ul li.opcion2,
+.cabeceramenu ul li.opcion3,
+.cabeceramenu ul li.opcion4,
+.cabeceramenu ul li.opcion5 {
   float: left;
   text-align: center;
   background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/separador-menu.png') no-repeat scroll right top transparent;
@@ -171,7 +170,7 @@ margin-top:-19px;
 
 .cabeceramenu ul li.opcion1
  {
-	width: 180px;
+	width: 190px;
 }
 .cabeceramenu ul li.opcion2
  {
@@ -183,15 +182,21 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion4
  {
-	width: 150px;
+	width: 165px;
 }
 .cabeceramenu ul li.opcion5
  {
-	width: 155px;
+	width: 165px;
 }
 .cabeceramenu ul li.opcion6
  {
-	width: 140px;
+	width: 120px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.cabeceramenu ul li.opcion6 a:hover{
+border-bottom-right-radius: 5px;
+border-top-right-radius: 5px;
 }
 .cabeceramenu  ul li.homefirst {
 	width: 81px;
@@ -245,8 +250,8 @@ margin-top:-19px;
 
 	.cabeceramenu{
 		color: #fff;
-		width: 95em;
-		height: 5.1em;
+		width: 950px;
+		height: 51px;
 		margin-top: 0px;
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
@@ -258,11 +263,12 @@ margin-top:-19px;
 		text-align: center;
 		}
 
-	#googleapps a,
-	#inicio a,
-	#trucosyconsejos a,
-	#movilidad a,
-	#exito a{
+	#opcion1 a,
+	#opcion2 a,
+	#opcion3 a,
+	#opcion4 a,
+	#opcion5 a,
+    #opcion6 a{
 	 color:#fff;
 	}
 
