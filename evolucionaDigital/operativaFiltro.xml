@@ -155,7 +155,7 @@
 	        window.setTimeout('showIframes()',2000);
         }
 
-        function createComboProduct
+        function createComboProduct() {
             var html = "<div id='products'>";
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
