@@ -246,7 +246,7 @@
 			   	html += "<div class='block-linkHelp'>";
 			   	html += "<h2>" + data.getValue(i,1) + "</h2>";
 			   	html += "<p>" + data.getValue(i,2) + "</p>";
-			   	html += "<a href='" + data.getValue(i,3) + "'>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
+			   	html += "<a href='" + data.getValue(i,3) + "' target='_parent'>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
 			    html += "</div>";
 			}
 			document.getElementById('listLinksHelpers').innerHTML += html;
