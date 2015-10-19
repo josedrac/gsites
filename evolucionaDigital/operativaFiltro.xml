@@ -166,6 +166,7 @@
             var html = "<div id='buttonResults'>";
             html +=         "<button>Ver resultados</button>";
             html +=    "</div>";
+            return html;
         }
 
 
