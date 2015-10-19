@@ -321,7 +321,7 @@
 			   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,2) + "</span></div>";
 			   	html += "<div class='ambito'>Ámbito: <span>" + data.getValue(i,3) + "</span></div>";
 			   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
-			    html += "<button type='button' class='btn' onclick='javascript:Go(" + data.getValue(i,7) + ")'>Saber más</button>";
+			    html += "<button type='button' class='btn' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
 			    html += "</div>";
 				
 				//Separación
