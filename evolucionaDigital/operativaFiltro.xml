@@ -171,8 +171,6 @@
             var html = "<div id='channel'>";
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
-                console.log('llego');
-
             for(var channel in channels)  {
                                 if (isSearchDone()) {
                                     html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
@@ -194,6 +192,7 @@
         }
 
         function isSearchDone() {
+            console.log('isearchdone');
             if (window.parent.location.search === "") {
                 return false;
             }
