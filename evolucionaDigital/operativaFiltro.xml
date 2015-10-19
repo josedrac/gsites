@@ -158,6 +158,9 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
+                                if (isSearchDone() && products[product] == gadgets.util.getUrlParameters().producto) {
+                                    html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
+                                }
                                 html += "<option value='"+products[product]+"'>"+products[product]+"</option>";
             }
             html +=         "</select>";
