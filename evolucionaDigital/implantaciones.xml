@@ -334,7 +334,7 @@
 					    var pagActualParaMostrar = pagActual+1;
 	                    var pagSiguiente = pagActualParaMostrar+1;
 
-						if(i>2){
+						if(i>2 && pagActual > 1){
 						 	html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 						}
 
