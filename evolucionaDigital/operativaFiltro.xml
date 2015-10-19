@@ -82,23 +82,26 @@
 
     #products {
         float:left;
+        margin-left: 10px;
     }
 
     #channel {
         float: left;
+        margin-left: 20px;
+    }
+
+    #buttonResults {
+        margin-left: 20px;
     }
 
     .clearBoth {
         clear: both;
     }
 
-
-
-
 	p.text {
-            font-size: 0.8em;
-            color: #3B3B3B;
-        }
+        font-size: 0.8em;
+        color: #3B3B3B;
+    }
     </style>
 
     <div id="listportales"></div>
@@ -133,6 +136,7 @@
             html += createComboProduct();
             html += createComboChannel();
             html += createButtonShowResults();
+            html += "<div class='clearBoth'></div>";
 		    document.getElementById('listportales').innerHTML += html;
 
 		}
@@ -159,7 +163,9 @@
         }
 
         function createButtonShowResults() {
-            return "<button>Ver resultados</button>";
+            var html = "<div id='buttonResults'>";
+            html +=         "<button>Ver resultados</button>";
+            html +=    "</div>";
         }
 
 
