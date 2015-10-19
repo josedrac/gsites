@@ -133,6 +133,7 @@
     <div id="listportales"></div>
 
     <script type="text/javascript">
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
         var gadgetHelper = null;
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
@@ -182,7 +183,11 @@
         function createComboChannel() {
             var html = "<div id='channel'>";
             html +=         "<label>Canal</label>";
-            html +=         "<select id='channelSelector'><option>first</option><option>second</option></select>";
+            html +=         "<select id='channelSelector'>";
+            for(var channel in channels)  {
+               html += "<option>"+channel+"</option>";
+            }
+            html += "</select>";
             html +=    "</div>";
             return html;
         }
