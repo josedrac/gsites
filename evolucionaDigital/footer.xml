@@ -117,27 +117,27 @@
 					}
 
 			.footer ul li ul.redes-sociales li a.face{
-						background: url('../img/ico-face.png') no-repeat left;
+						background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-face.png') no-repeat left;
 					}
 
 			.footer ul li ul.redes-sociales li a.rss{
-						background: url('../img/ico-rss.png') no-repeat left;
+						background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-rss.png') no-repeat left;
 					}
 
 			.footer ul li ul.redes-sociales li a.tw{
-						background: url('../img/ico-tw.png') no-repeat left;
+						background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-tw.png') no-repeat left;
 					}
 
 			.footer ul li ul.redes-sociales li a.link{
-						background: url('../img/ico-link.png') no-repeat left;
+						background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-link.png') no-repeat left;
 					}
 
 			.footer ul li ul.redes-sociales li a.you{
-						background: url('../img/ico-you.png') no-repeat left;
+						background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-you.png') no-repeat left;
 					}
 
 			.footer ul li ul.redes-sociales li a.gplus{
-						background: url('../img/ico-tw.png') no-repeat left;
+						background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-gplus.png') no-repeat left;
 					}
 
 			.footer ul li ul.redes-sociales li span {
