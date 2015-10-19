@@ -232,8 +232,6 @@
 		function handleQueryResponse(response) {
 			data = response.getDataTable();
 			var filas = data.getNumberOfRows();
-			var pagTotales = Math.ceil(filas/4);
-			var pagActual = 1;
 			var html = "";
 
 			if(filas < 1) {
@@ -262,8 +260,6 @@
 		function handleQueryResponse2(response) {
 			data = response.getDataTable();
 			var filas = data.getNumberOfRows();
-			var pagTotales = Math.ceil(filas/4);
-			var pagActual = 1;
 			var html = "";
 
 			if(filas < 1) {
