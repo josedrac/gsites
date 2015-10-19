@@ -262,7 +262,7 @@
 			   	html += "<div class='block-linkHelp'>";
 			   	html += "<h2>Requisitos Smartphone/Cliente</h2>";
 			   	html += "<p>Configuración mínima que necesita tener tu cliente en su móvil para disfrutar de nuestras aplicaciones.</p>";
-			   	html += "<a href="">Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
+			   	html += "<a href=''>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
 			    html += "</div>";
 				
 
