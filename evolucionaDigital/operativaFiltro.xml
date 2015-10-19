@@ -110,7 +110,7 @@
         }
 
         function handleQueryResponse(response) {
-            var html = createComboProduct();
+            var html += createComboProduct();
             html += createComboChannel();
             html += createButtonShowResults();
 		    document.getElementById('listportales').innerHTML += html;
@@ -123,11 +123,16 @@
         }
 
         function createComboProduct() {
-            return "<select id='products'><option>first</option><option>second</option></select>";
+            var html = "<p>Listado de todo lo que tus clientes pueden a través de los canales digitales de BBVA</p>";
+            html += "<label>Servicio o producto</label>";
+            html += "<select id='products'><option>first</option><option>second</option></select>";
+            return html;
         }
 
         function createComboChannel() {
-            return "<select id='channel'><option>first</option><option>second</option></select>";
+            html += "<label>Servicio o producto</label>";
+            html += "<select id='channel'><option>first</option><option>second</option></select>";
+            return html;
         }
 
         function createButtonShowResults() {
