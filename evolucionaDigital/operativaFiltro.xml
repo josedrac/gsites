@@ -183,7 +183,7 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
-                                html += "<option>"+products[product]+"</option>";
+                                html += "<option value='"+products[product]+"'>"+products[product]+"</option>";
             }
             html +=         "</select>";
             html +=    "</div>";
@@ -195,7 +195,7 @@
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
             for(var channel in channels)  {
-                                html += "<option>"+channels[channel]+"</option>";
+                                html += "<option value='"+channels[channel]+"'>"+channels[channel]+"</option>";
             }
             html +=         "</select>";
             html +=    "</div>";
