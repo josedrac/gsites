@@ -169,7 +169,9 @@
             var html = "<div id='channel'>";
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
-            for(var channel in channels)  {
+                for(var channel in channels)  {
+                                console.log(channels[channel]);
+                                console.log(gadgets.util.getUrlParameters());
                                 if (isSearchDone() && channels[channel] == gadgets.util.getUrlParameters().canal) {
                                     html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
                                     continue;
