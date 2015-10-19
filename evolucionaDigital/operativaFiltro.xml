@@ -172,6 +172,7 @@
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
                 console.log('llego');
+
             for(var channel in channels)  {
                                 console.log(getSelectedChannel());
                                 if (isSearchDone() && channels[channel] == getSelectedChannel()) {
