@@ -159,9 +159,6 @@
         }
 	</style>
 
-	<div id="listLinksHelpers"></div>
-	<div id="listNewMobile"></div>
-
 	<div class="content">
         <div id="tabs">
             <ul>
@@ -170,6 +167,7 @@
                 <div class="border"></div>
             </ul>
             <div id="tabs-1">
+            	<div id="listLinksHelpers"></div>
                 <div class="block-linkHelp">
                     <h2>Requisitos Smartphone/Cliente</h2>
                     <p>Configuración mínima que necesita tener tu cliente en su móvil para disfrutar de nuestras aplicaciones.</p>
@@ -187,6 +185,7 @@
                 </div>
             </div>
             <div id="tabs-2">
+            	<div id="listNewMobile"></div>
                 <div class="block-newMobile">
                     <div class="text">
                         <h2>Firma diferida</h2>
