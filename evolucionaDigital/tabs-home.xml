@@ -168,21 +168,6 @@
             </ul>
             <div id="tabs-1">
             	<div id="listLinksHelpers"></div>
-                <div class="block-linkHelp">
-                    <h2>Requisitos Smartphone/Cliente</h2>
-                    <p>Configuración mínima que necesita tener tu cliente en su móvil para disfrutar de nuestras aplicaciones.</p>
-                    <a href="">Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>
-                </div>
-                <div class="block-linkHelp">
-                    <h2>Blog BBVA para clientes</h2>
-                    <p>Suscríbete a la newsletter del blog para recibir por correo todas las novedades que pueden ser interesantes para tus clientes.</p>
-                    <a href="">Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>
-                </div>
-                <div class="block-linkHelp">
-                    <h2>Acceso a BBVA Wallet</h2>
-                    <p>Amplía información sobre la aplicación BBVA Wallet: pagar con el móvil y gestionar tus tarjetas</p>
-                    <a href="">Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>
-                </div>
             </div>
             <div id="tabs-2">
             	<div id="listNewMobile"></div>
@@ -259,12 +244,10 @@
 
 			for(var i=0; i < filas; i++) {
 			   	html += "<div class='block-linkHelp'>";
-			   	html += "<h2>Requisitos Smartphone/Cliente</h2>";
-			   	html += "<p>Configuración mínima que necesita tener tu cliente en su móvil para disfrutar de nuestras aplicaciones.</p>";
-			   	html += "<a href=''>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
+			   	html += "<h2>" + data.getValue(i,1) + "</h2>";
+			   	html += "<p>" + data.getValue(i,2) + "</p>";
+			   	html += "<a href='" + data.getValue(i,3) + "'>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
 			    html += "</div>";
-				
-
 			}
 			document.getElementById('listLinksHelpers').innerHTML += html;
 		}
