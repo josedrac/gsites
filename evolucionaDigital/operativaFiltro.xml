@@ -190,15 +190,12 @@
         }
 
         function isSearchDone() {
-            console.log('isearchdone');
-            console.log(window.parent);
-            console.log(window.parent.location);
-            if (window.parent.location.search === "") {
-                console.log('beforesearch');
+            console.log('before search');
+            if (typeof gadgets.util.getUrlParameters()["parent"] === "undefined") {
+                console.log('isSearchDonefalse');
                 return false;
-
             }
-            console.log('afterseach');
+            console.log('isSearchDonetrue');
             return true;
         }
 
