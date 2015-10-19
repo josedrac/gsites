@@ -137,7 +137,7 @@
 
     <script type="text/javascript">
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
-        var services = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
+        var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
         var gadgetHelper = null;
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
@@ -180,7 +180,11 @@
         function createComboProduct() {
             var html = "<div id='products'>";
             html +=         "<label>Servicio o producto</label>";
-            html +=         "<select id='productsSelector'><option>first</option><option>second</option></select>";
+            html +=         "<select id='productsSelector'>";
+            for (var product in products) {
+                                html += "<option>"+products[product]+"</option>";
+            }
+            html +=         "</select>";
             html +=    "</div>";
             return html;
         }
@@ -190,9 +194,9 @@
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
             for(var channel in channels)  {
-               html += "<option>"+channels[channel]+"</option>";
+                                html += "<option>"+channels[channel]+"</option>";
             }
-            html += "</select>";
+            html +=         "</select>";
             html +=    "</div>";
             return html;
         }
