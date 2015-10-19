@@ -190,8 +190,7 @@
         }
 
         function isSearchDone() {
-            console.log('before search');
-            if (typeof gadgets.util.getUrlParameters()["parent"] === "undefined") {
+            if (typeof gadgets.util.getUrlParameters().producto === 'undefined') {
                 console.log('isSearchDonefalse');
                 return false;
             }
