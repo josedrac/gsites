@@ -37,7 +37,7 @@
 			/*footer*/
 			.footer {
                 padding-left: 16px;
-                padding-bottom: 0;
+                padding-bottom: 210;
             }
 
             .footer ul {
@@ -149,9 +149,10 @@
 
             .footer-bottom {
                 border: 1px solid #EDEDEF;
-                height: 3em;
-                padding: 2em 0 0 0;
+                height: 2.5em;
+                padding: 1.25em 0 0 0;
                 width: 99%;
+                font-size: 1.1em;
                 background: #F9FAF9;
                 color: #8C9299;
             }
@@ -184,7 +185,6 @@
                 color: #8C9299;
                 float: right;
                 padding-right: 4.4em;
-                padding-left: 38em;
             }
             /* @end */
 
