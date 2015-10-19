@@ -138,10 +138,6 @@
     <script type="text/javascript">
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
         var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
-        delayRender();
-	    function delayRender(){
-	        window.setTimeout('showIframes()',2000);
-        }
 
         renderPage();
 
