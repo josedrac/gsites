@@ -130,7 +130,7 @@
         }
 
         function createComboChannel() {
-            html += "<label>Servicio o producto</label>";
+            var html = "<label>Servicio o producto</label>";
             html += "<select id='channel'><option>first</option><option>second</option></select>";
             return html;
         }
