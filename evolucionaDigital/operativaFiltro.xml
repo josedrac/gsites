@@ -153,6 +153,7 @@
 
 		function sendQuery()
         {
+
         /*           gadgetHelper = new google.visualization.GadgetHelper();
             var opts = {dataType:'jsonp'};
             var query = new google.visualization.Query(urlTable, opts);
