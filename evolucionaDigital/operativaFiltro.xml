@@ -190,8 +190,7 @@
         }
 
         function isSearchDone() {
-        if (typeof gadgets.util.getUrlParameters().producto === 'undefined') ||
-            (typeof gadgets.util.getUrlParameters().canal === 'undefined') {
+            if ((typeof gadgets.util.getUrlParameters().producto === 'undefined') || (typeof gadgets.util.getUrlParameters().canal === 'undefined')) {
                 return false;
             }
             return true;
