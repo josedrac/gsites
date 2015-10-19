@@ -110,7 +110,7 @@
         }
 
         function handleQueryResponse(response) {
-            var html += createComboProduct();
+            var html = createComboProduct();
             html += createComboChannel();
             html += createButtonShowResults();
 		    document.getElementById('listportales').innerHTML += html;
