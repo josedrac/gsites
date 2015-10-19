@@ -25,7 +25,7 @@
 		}
 		.content {
             font-family: 'BBVA Web Light';
-			width: 100%;
+			width: 98%;
             display: table;
             font-size: 13px;
 		}
@@ -121,12 +121,9 @@
 
         .block-linkHelp {
             float: left;
-            width: 43%;
+            width: 44%;
             margin-bottom: 25px;
-        }
-        .block-linkHelp:nth-child(even) {
-            float: right;
-            width: 43%;
+            padding: 0 3%;
         }
         .block-linkHelp a {
             font-weight: bold;
