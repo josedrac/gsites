@@ -188,6 +188,7 @@
 
         function getSelectedChannel() {
         //return window.parent.location.search.split("&")[1].split("=")[1];
+            console.log('imin');
             return window.parent.location;
         }
 
