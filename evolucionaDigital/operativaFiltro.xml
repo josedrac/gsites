@@ -74,7 +74,25 @@
 		cursor: pointer;
 		position: relative;
 		overflow: visible;
-	}
+    }
+
+    label {
+        display: block;
+    }
+
+    #products {
+        float:left;
+    }
+
+    #channel {
+        float: left;
+    }
+
+    .clearBoth {
+        clear: both;
+    }
+
+
 
 
 	p.text {
