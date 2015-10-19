@@ -76,6 +76,10 @@
 		overflow: visible;
     }
 
+    #textSelects {
+        margin-left: 10px;
+    }
+
     label {
         display: block;
     }
@@ -132,7 +136,7 @@
 
         function handleQueryResponse(response) {
             var html = "";
-            html += "<p>Listado de todo lo que tus clientes pueden a través de los canales digitales de BBVA</p>";
+            html += "<div id='textSelects'>Listado de todo lo que tus clientes pueden a través de los canales digitales de BBVA</div>";
             html += createComboProduct();
             html += createComboChannel();
             html += createButtonShowResults();
