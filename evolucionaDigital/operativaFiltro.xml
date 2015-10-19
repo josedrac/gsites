@@ -185,7 +185,7 @@
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
             for(var channel in channels)  {
-               html += "<option>"+channel+"</option>";
+               html += "<option>"+channels[channel]+"</option>";
             }
             html += "</select>";
             html +=    "</div>";
