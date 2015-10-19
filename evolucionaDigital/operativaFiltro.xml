@@ -194,8 +194,11 @@
         function isSearchDone() {
             console.log('isearchdone');
             if (window.parent.location.search === "") {
+                console.log('beforesearch');
                 return false;
+
             }
+            console.log('afterseach');
             return true;
         }
 
