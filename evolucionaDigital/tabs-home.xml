@@ -7,7 +7,7 @@
 	<Require feature="setprefs" />
   </ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<UserPref name="textInit" display_name="Text init" required="true" />
+	<UserPref name="_table2_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -214,7 +214,7 @@
 		var gadgetHelper = null;
 		var prefs = new _IG_Prefs();
 	 	var urlTable = prefs.getString("_table_query_url");
-	 	var textInit = prefs.getString("textInit");
+	 	var urlTable2 = prefs.getString("_table2_query_url");
 	 	_IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 	 	function loadVisualizationAPI() {
