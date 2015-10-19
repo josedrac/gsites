@@ -321,8 +321,7 @@
 			   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,2) + "</span></div>";
 			   	html += "<div class='ambito'>Ámbito: <span>" + data.getValue(i,3) + "</span></div>";
 			   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
-			    var url = "https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0);
-			    html += '<button type="button" class="btn" onclick="javascript:Go(\''+url+'\')">Saber más</button>';
+			    html += "<button type='button' class='btn' onclick='javascript:Go(" + data.getValue(i,7) + ")'>Saber más</button>";
 			    html += "</div>";
 				
 				//Separación
