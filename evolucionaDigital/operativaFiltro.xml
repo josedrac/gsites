@@ -158,7 +158,7 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
-                                if (isSearchDone() ) {
+                                if (isSearchDone() && products[product] == gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0] ) {
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
                                 }
                                 html += "<option value='"+products[product]+"'>"+products[product]+"</option>";
@@ -173,8 +173,6 @@
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
                 for(var channel in channels)  {
-                                console.log(channels[channel]);
-                                console.log(gadgets.util.getUrlParameters());
                                 if (isSearchDone() && channels[channel] == gadgets.util.getUrlParameters().parent.split("=")[2]) {
                                     html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
                                     continue;
