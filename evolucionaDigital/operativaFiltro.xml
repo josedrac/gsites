@@ -81,7 +81,7 @@
             font-size: 0.8em;
             color: #3B3B3B;
         }
-
+    </style>
 
     <div id="listportales"></div>
 
