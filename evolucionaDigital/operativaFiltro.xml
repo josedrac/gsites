@@ -170,7 +170,7 @@
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
             for(var channel in channels)  {
-                                if (isSearchDone()) {
+                                if (isSearchDone() && channels[channel] == gadgets.util.getUrlParameters().canal) {
                                     html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
                                     continue;
                                 }
@@ -190,11 +190,10 @@
         }
 
         function isSearchDone() {
-            if (typeof gadgets.util.getUrlParameters().producto === 'undefined') {
-                console.log('isSearchDonefalse');
+        if (typeof gadgets.util.getUrlParameters().producto === 'undefined') ||
+            (typeof gadgets.util.getUrlParameters().canal === 'undefined') {
                 return false;
             }
-            console.log('isSearchDonetrue');
             return true;
         }
 
