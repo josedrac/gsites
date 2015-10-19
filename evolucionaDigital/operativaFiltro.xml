@@ -175,10 +175,10 @@
 
             for(var channel in channels)  {
                                 console.log(getSelectedChannel());
-                                if (isSearchDone() && channels[channel] == getSelectedChannel()) {
+                                /* if (isSearchDone() && channels[channel] == getSelectedChannel()) {
                                     html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
                                     continue;
-                                }
+                                    } */
                                 html += "<option value='"+channels[channel]+"'>"+channels[channel]+"</option>";
             }
             html +=         "</select>";
@@ -187,7 +187,8 @@
         }
 
         function getSelectedChannel() {
-            return window.parent.location.search.split("&")[1].split("=")[1];
+        //return window.parent.location.search.split("&")[1].split("=")[1];
+            return window.parent.location;
         }
 
         function getSelectedProduct() {
