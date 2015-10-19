@@ -115,6 +115,9 @@
     #buttonResults {
         margin-top: 10px;
         margin-left: 10px;
+    }
+
+    #showResults {
         font-size: 13px;
     }
 
@@ -195,7 +198,7 @@
 
         function createButtonShowResults() {
             var html = "<div id='buttonResults'>";
-            html +=         "<button>Ver resultados</button>";
+            html +=         "<button id='showResults'>Ver resultados</button>";
             html +=    "</div>";
             return html;
         }
