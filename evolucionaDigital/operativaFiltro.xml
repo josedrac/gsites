@@ -95,8 +95,9 @@
     }
 
     #buttonResults {
-        margin-left: 20px;
+        margin-left: 10px;
     }
+
 
     .clearBoth {
         clear: both;
@@ -139,8 +140,8 @@
             html += "<div id='textSelects'>Listado de todo lo que tus clientes pueden a través de los canales digitales de BBVA</div>";
             html += createComboProduct();
             html += createComboChannel();
-            html += createButtonShowResults();
             html += "<div class='clearBoth'></div>";
+            html += createButtonShowResults();
 		    document.getElementById('listportales').innerHTML += html;
 
 		}
