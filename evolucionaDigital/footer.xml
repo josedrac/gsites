@@ -243,12 +243,12 @@
 			<li class="last op3">
 				<h2>BBVA EN REDES SOCIALES</h2>
 				<ul class="redes-sociales">
-					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/facebook/ class="face">Facebook</a></li>
+					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/facebook/" class="face">Facebook</a></li>
 					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/twitter/" class="tw">Twitter</a></li>
           <li><a target="_blank" href="http://www.bbvasocialmedia.com/es/youtube/" class="you">Youtube</a></li>
 					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/google/" class="gplus">Google+</a></li>
           <li><a target="_blank" href="http://www.bbvasocialmedia.com/es/google/" class="rss">Blog BBVA</a></li>
-					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/linkedin/" clasn="link">Linkedin</a></li>
+					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/linkedin/" class="link">Linkedin</a></li>
 				</ul>
 			</li>
 		</ul>
