@@ -204,9 +204,17 @@
 
         function createButtonShowResults() {
             var html = "<div id='buttonResults'>";
-            html +=         "<button id='showResults'>Ver resultados</button>";
+            html +=         "<button id='showResults' onclick='javascript:showResults();'>Ver resultados</button>";
             html +=    "</div>";
             return html;
+        }
+
+        function showResults() {
+            var elementProductSelector = document.getElementById(productsSelector);
+            var elementChannelSelector = document.getElementById(channelSelector);
+            var selectedProduct = elementProductSelector.options[elementProductSelector.selectedIndex].text;
+            var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].text;
+            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel,"_self");
         }
 
 
