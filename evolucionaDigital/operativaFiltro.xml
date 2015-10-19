@@ -104,6 +104,14 @@
         margin-top: 20px;
     }
 
+    #channelSelector {
+        width: 200px;
+    }
+
+    #productsSelector {
+        width: 200px;
+    }
+
     #buttonResults {
         margin-top: 10px;
         margin-left: 10px;
