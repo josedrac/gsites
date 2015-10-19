@@ -138,32 +138,9 @@
     <script type="text/javascript">
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
         var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
-        /*var gadgetHelper = null;
-        var prefs = new _IG_Prefs();
-        var urlTable = prefs.getString("_table_query_url");
-        var titlecomboVideo = prefs.getString("titlecomboVideo");
-        _IG_RegisterOnloadHandler(loadVisualizationAPI); */
-        handleQueryResponse("text");
+        renderPage();
 
-
-	    function loadVisualizationAPI()
-		{
-			google.load("visualization", "1", {"packages": ["table"]});
-			google.setOnLoadCallback(sendQuery);
-		}
-
-		function sendQuery()
-        {
-
-        /*           gadgetHelper = new google.visualization.GadgetHelper();
-            var opts = {dataType:'jsonp'};
-            var query = new google.visualization.Query(urlTable, opts);
-            var querytosend = "select * where A <> 'IdNovedad'";
-            query.setQuery(querytosend);
-            query.send(handleQueryResponse); */
-        }
-
-        function handleQueryResponse(response) {
+        function renderPage() {
             var html = "";
             html += createComboProduct();
             html += createComboChannel();
@@ -178,7 +155,7 @@
 	        window.setTimeout('showIframes()',2000);
         }
 
-        function createComboProduct() {
+        function createComboProduct
             var html = "<div id='products'>";
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
@@ -191,16 +168,35 @@
         }
 
         function createComboChannel() {
-
             var html = "<div id='channel'>";
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
             for(var channel in channels)  {
+                                console.log(getSelectedChannel());
+                                if (isSearchDone() && channels[channel] == getSelectedChannel()) {
+                                    html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
+                                    continue;
+                                }
                                 html += "<option value='"+channels[channel]+"'>"+channels[channel]+"</option>";
             }
             html +=         "</select>";
             html +=    "</div>";
             return html;
+        }
+
+        function getSelectedChannel() {
+            return window.parent.location.search.split("&")[1].split("=")[1];
+        }
+
+        function getSelectedProduct() {
+            return window.parent.location.search.split("&")[0].split("=")[1];
+        }
+
+        function isSearchDone() {
+            if (window.parent.location.search === "") {
+                return false;
+            }
+            return true;
         }
 
         function createButtonShowResults() {
