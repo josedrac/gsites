@@ -217,6 +217,7 @@
 	 	function loadVisualizationAPI() {
 			google.load("visualization", "1", {"packages": ["table"]});
 			google.setOnLoadCallback(sendQuery);
+			google.setOnLoadCallback(sendQuery2);
 		}
 
 		function sendQuery(){
@@ -229,6 +230,36 @@
 		}
 
 		function handleQueryResponse(response) {
+			data = response.getDataTable();
+			var filas = data.getNumberOfRows();
+			var pagTotales = Math.ceil(filas/4);
+			var pagActual = 1;
+			var html = "";
+
+			if(filas < 1) {
+    			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+            }
+
+			for(var i=0; i < filas; i++) {
+			   	html += "<div class='block-linkHelp'>";
+			   	html += "<h2>" + data.getValue(i,1) + "</h2>";
+			   	html += "<p>" + data.getValue(i,2) + "</p>";
+			   	html += "<a href='" + data.getValue(i,3) + "' target='_parent'>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
+			    html += "</div>";
+			}
+			document.getElementById('listLinksHelpers').innerHTML += html;
+		}
+
+		function sendQuery2(){
+			gadgetHelper = new google.visualization.GadgetHelper();
+			var opts = {dataType:'jsonp'};
+			var query = new google.visualization.Query(urlTable2, opts);
+			var querytosend = "select * where A <> 'IdNovedad' order by C";
+			query.setQuery(querytosend);
+			query.send(handleQueryResponse2);
+		}
+
+		function handleQueryResponse2(response) {
 			data = response.getDataTable();
 			var filas = data.getNumberOfRows();
 			var pagTotales = Math.ceil(filas/4);
