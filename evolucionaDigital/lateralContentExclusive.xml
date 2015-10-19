@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 	<ModulePrefs title="ED-lateralContentExclusive.xml" height ="105">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>   
-		<Require feature="setprefs" />   
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
 	</ModulePrefs>
 
 	<Content type="html">
 	    <![CDATA[
 		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-		
+
 		<head>
 			<style type="text/css">
 		        font-face {
@@ -72,7 +72,7 @@
 		<div id="exclusive" class="container">
 	        <div class="content">
 	            <div class="text">
-	                Acceso a contenidos exclusivos para CBC y Embajadores digitales
+	                Acceso a contenidos exclusivos para DCBC's y Embajadores digitales
 	            </div>
 	            <div class="icon">
 	                <img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/bbva.png" alt="">
