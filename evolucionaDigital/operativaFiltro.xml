@@ -158,7 +158,7 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
-                                if (isSearchDone() && products[product] == gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0] ) {
+                                if (isSearchDone() && products[product] == getSelectedProduct() ) {
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
                                 }
                                 html += "<option value='"+products[product]+"'>"+products[product]+"</option>";
@@ -173,7 +173,7 @@
             html +=         "<label>Canal</label>";
             html +=         "<select id='channelSelector'>";
                 for(var channel in channels)  {
-                                if (isSearchDone() && channels[channel] == gadgets.util.getUrlParameters().parent.split("=")[2]) {
+                                if (isSearchDone() && channels[channel] == getSelectedChannel()) {
                                     html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
                                     continue;
                                 }
@@ -185,11 +185,11 @@
         }
 
         function getSelectedChannel() {
-            return window.parent.location.search.split("&")[1].split("=")[1];
+            return gadgets.util.getUrlParameters().parent.split("=")[2];
         }
 
         function getSelectedProduct() {
-            return window.parent.location.search.split("&")[0].split("=")[1];
+            return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
         }
 
         function isSearchDone() {
