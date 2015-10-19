@@ -138,12 +138,13 @@
     <script type="text/javascript">
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
         var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
-        var gadgetHelper = null;
+        /*var gadgetHelper = null;
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
         var titlecomboVideo = prefs.getString("titlecomboVideo");
-        _IG_RegisterOnloadHandler(loadVisualizationAPI);
+        _IG_RegisterOnloadHandler(loadVisualizationAPI); */
         handleQueryResponse("text");
+
 
 	    function loadVisualizationAPI()
 		{
