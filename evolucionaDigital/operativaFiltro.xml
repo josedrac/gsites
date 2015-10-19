@@ -158,7 +158,7 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
-                                if (isSearchDone() && products[product] == gadgets.util.getUrlParameters().producto) {
+                                if (isSearchDone() ) {
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
                                 }
                                 html += "<option value='"+products[product]+"'>"+products[product]+"</option>";
@@ -175,7 +175,7 @@
                 for(var channel in channels)  {
                                 console.log(channels[channel]);
                                 console.log(gadgets.util.getUrlParameters());
-                                if (isSearchDone() && channels[channel] == gadgets.util.getUrlParameters().canal) {
+                                if (isSearchDone() && channels[channel] == gadgets.util.getUrlParameters().parent.split("=")[2]) {
                                     html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
                                     continue;
                                 }
@@ -195,10 +195,10 @@
         }
 
         function isSearchDone() {
-            if ((typeof gadgets.util.getUrlParameters().producto === 'undefined') ) {
-                return false;
+            if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+                return true;
             }
-            return true;
+            return false;
         }
 
         function createButtonShowResults() {
