@@ -193,6 +193,8 @@
 
         function isSearchDone() {
             console.log('isearchdone');
+            console.log(window.parent);
+            console.log(window.parent.location);
             if (window.parent.location.search === "") {
                 console.log('beforesearch');
                 return false;
