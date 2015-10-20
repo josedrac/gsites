@@ -168,6 +168,7 @@
             </div>
             <div id="tabs-2">
             	<div id="listNewMobile"></div>
+
                 <div class="block-newMobile">
                     <div class="text">
                         <h2>Firma diferida</h2>
@@ -235,7 +236,7 @@
 			var html = "";
 
 			if(filas < 1) {
-    			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+    			html += '<p class="text">No hay ningún contenido.</p>';
             }
 
 			for(var i=0; i < filas; i++) {
@@ -263,17 +264,23 @@
 			var html = "";
 
 			if(filas < 1) {
-    			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+    			html += '<p class="text">No hay ningún contenido referente.</p>';
             }
 
+                        
+                    </div>
+
 			for(var i=0; i < filas; i++) {
-			   	html += "<div class='block-linkHelp'>";
+			   	html += "<div class='block-newMobile'>";
+			   	html += "<div class='text'>";
 			   	html += "<h2>" + data.getValue(i,1) + "</h2>";
-			   	html += "<p>" + data.getValue(i,2) + "</p>";
-			   	html += "<a href='" + data.getValue(i,3) + "' target='_parent'>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
+			   	html += "<p>" + data.getValue(i,3) + "</p>";
+			   	html += "<button onclick=javascript:Go('" + data.getValue(i,8) + "')>Más información</button>";
+			   	html += "</div>";
+			   	html += "<div class='img'><img src='" + data.getValue(i,6) + "'></div>";
 			    html += "</div>";
 			}
-			document.getElementById('listLinksHelpers').innerHTML += html;
+			document.getElementById('listNewMobile').innerHTML += html;
 		}
 
 		//delay loading
