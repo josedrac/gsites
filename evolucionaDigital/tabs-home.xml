@@ -230,7 +230,7 @@
     			html += '<p class="text">No hay ningún contenido referente.</p>';
             }
 
-			for(var i=0; i < filas; i++) {
+			for(var i=0; i < filas && i < 4; i++) {
 			   	html += "<div class='block-newMobile'>";
 			   	html += "<div class='text'>";
 			   	html += "<h2>" + data2.getValue(i,1) + "</h2>";
