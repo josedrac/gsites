@@ -149,7 +149,9 @@
             float: right;
         }
         .block-newMobile .img img {
-            width: 100%;
+            max-width: 100%;
+		    width: auto;
+		    float: right;
         }
         h2 {
             font-size: 17px;
