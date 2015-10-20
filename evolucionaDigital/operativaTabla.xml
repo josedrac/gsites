@@ -201,6 +201,7 @@
             var previousAction = "";
             for (var i=0;i<filas;i++) {
                 if (previousAction != data.getValue(i,1)) {
+                    previousAction = data.getValue(i,1);
                     html += "<div class='rowTitle'>"+data.getValue(i,1)+"</div>";
                     continue;
                 }
