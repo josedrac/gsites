@@ -133,14 +133,14 @@
             color: #0078d2;
             font-size: 12px;
             overflow: hidden;
-            padding: 7px;
+            padding: 6px;
             padding-left: 10px;
             padding-right: 40px;
             position: relative;
             text-align: left;
             width: 100%;
             line-height: 14px;
-            width: 220px;
+            width: 190px;
         }
         .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
             color: #0078d2;
@@ -180,8 +180,13 @@
         .ui-selectmenu-button span.ui-icon {
             top: 25%;
         }
-        .element {
-            padding: 10px;
+        .element-year {
+            padding-top: 20px;
+            padding-bottom: 5px
+        }
+        .element-month {
+            padding-top: 5px;
+            padding-bottom: 20px
         }
         .name {
             color: #434a58;
@@ -189,7 +194,7 @@
             font-family: Arial;
             font-size: 12px;
             margin-left: 15px;
-            margin-right: 5px;
+            margin-right: 10px;
             padding-top: 10px;
             font-weight: bold;
         }
@@ -210,7 +215,7 @@
 		<div class="container">
         <div class="title">Histórico de Implantaciones</div>
         <div class="form">
-            <div class="element">
+            <div class="element-year">
                 <label class="name">Año: </label>
                 <select name="anyo" id="yearSelector">
                     <option value="0">Todos</option>
@@ -220,7 +225,7 @@
                     <option value="2016">2016</option>
                 </select>
             </div>
-            <div class="element">
+            <div class="element-month">
                 <label class="name">Mes: </label>
                 <select id="monthSelector" name="mes">
                     <option value="0">Cualquiera</option>
@@ -251,7 +256,7 @@
             var elementMonthSelector = document.getElementById('monthSelector');
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
             var selectedMonth = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
-            window.open(window.location.href+"?anyo="+selectedYear+"&month="+selectedMonth,"_parent");
+            window.open(https://sites.google.com/a/bbva.com/evolucionadigital/implantaciones+"?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
             return false;
         }
 
