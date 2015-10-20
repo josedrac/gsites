@@ -143,14 +143,12 @@
                 var query = new google.visualization.Query(urlTable, opts);
                 var querytosend;
                 if (isSearchDone()) {
-                    console.log('busqueda hecha');
                     var channel = getSelectedChannel();
                     var product = getSelectedProduct();
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"'";
+                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
                 }
                 else {
-                    console.log('por defecto');
-				    querytosend = "select * where A <> 'IdNovedad'";
+				    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Valores' order by B";
                 }
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
