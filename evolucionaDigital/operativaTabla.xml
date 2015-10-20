@@ -122,6 +122,11 @@
     .row {
         clear: both;
     }
+
+    .rowTitle {
+        clear: both;
+        width: 100%;
+    }
     #lastcol {
         border-right: 0 !important;
     }
@@ -193,7 +198,13 @@
        function createBody() {
             var html = "";
             var filas = data.getNumberOfRows();
+            var previousAction = "";
             for (var i=0;i<filas;i++) {
+                if (previousAction != data.getValue(i,1)) {
+                    html += "<div class='rowTitle'>"+data.getValue(i,1)+"</div>";
+                    continue;
+                }
+
                 html +=  "<div class='row'>";
                 html +=     "<div class='col'>"+data.getValue(i,1)+"</div>";
                 html +=     "<div class='col'>"+data.getValue(i,2)+"</div>";
@@ -203,6 +214,7 @@
                 html +=     "<div class='col'></div>";
                 html +=     "<div class='col'></div>";
                 html +=  "</div>";
+                previousAction = data.getValue(i,1);
             }
             return html;
        }
