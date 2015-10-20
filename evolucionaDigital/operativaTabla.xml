@@ -125,6 +125,7 @@
     <div id="listportales"></div>
 
     <script type="text/javascript">
+        var data;
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
         var titlecomboVideo = prefs.getString("titlecomboVideo");
@@ -155,9 +156,9 @@
         }
 
         function handleQueryResponse(response) {
-            var data = response.getDataTable();
+            data = response.getDataTable();
             console.log(data);
-            //		var filas = data.getNumberOfRows();
+
             // var pagTotales = Math.ceil(filas/4);
             renderPage();
         }
@@ -185,8 +186,16 @@
 
        function createBody() {
             var html = "";
-
-
+            var filas = data.getNumberOfRows();
+            for (var i=0;i<filas;i++) {
+                html +=  "<div class='col'>"+data.getValue(i,1)+"</div>";
+                html +=  "<div class='col'>"+data.getValue(i,2)+"</div>";
+                html +=  "<div class='col'></div>";
+                html +=  "<div class='col'></div>";
+                html +=  "<div class='col'></div>";
+                html +=  "<div class='col'></div>";
+                html +=  "<div class='col'></div>";
+            }
             return html;
        }
 
