@@ -233,11 +233,11 @@
 			for(var i=0; i < filas; i++) {
 			   	html += "<div class='block-newMobile'>";
 			   	html += "<div class='text'>";
-			   	html += "<h2>" + data.getValue(i,1) + "</h2>";
-			   	html += "<p>" + data.getValue(i,3) + "</p>";
-			   	html += "<button onclick=javascript:Go('" + data.getValue(i,8) + "')>Más información</button>";
+			   	html += "<h2>" + data2.getValue(i,1) + "</h2>";
+			   	html += "<p>" + data2.getValue(i,3) + "</p>";
+			   	html += "<button onclick=javascript:Go('" + data2.getValue(i,8) + "')>Más información</button>";
 			   	html += "</div>";
-			   	html += "<div class='img'><img src='" + data.getValue(i,6) + "'></div>";
+			   	html += "<div class='img'><img src='" + data2.getValue(i,6) + "'></div>";
 			    html += "</div>";
 			}
 			document.getElementById('listNewMobile').innerHTML += html;
