@@ -159,6 +159,13 @@
             font-size: 18px;
             color: #0078d2;
             font-weight: normal;
+    		display: block;
+    		display: -webkit-box;
+		    height: 60px;
+		    overflow: hidden;
+		    -webkit-line-clamp: 3;
+		    -webkit-box-orient: vertical;
+		    text-overflow: ellipsis;
         }
         .block-newMobile .text h2 {
             min-height: 60px;
@@ -166,10 +173,15 @@
             overflow: hidden;
         }
         .block-newMobile .text p {
-            min-height: 75px;
-            max-height: 75px;
-            overflow: hidden;
-        }
+		    font-family: arial,sans-serif;
+		    height: 75px;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    display: block;
+		    display: -webkit-box;
+		    -webkit-box-orient: vertical;
+		    -webkit-line-clamp: 5;
+		}
 	</style>
 
 	<div class="content">
