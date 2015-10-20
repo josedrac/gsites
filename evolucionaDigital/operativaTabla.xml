@@ -124,10 +124,10 @@
                 html +=         "<div class='col' id='firstcol'></div>";
                 html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div>Smartphone APP BBVA</div></div>";
                 html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div>Smartphone APP BBVA WALLET</div></div>";
-                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div></div></div>";
-                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/mouseb.png' /></div><div></div></div>";
-                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/tabletb.png' /></div><div></div></div>";
-                html +=         "<div class='col' id='lastcol'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/phoneb.png' /></div><div></div></div>";
+                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div>Smartphone bbva.es</div></div>";
+                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/mouseb.png' /></div><div>PC bbva.es</div></div>";
+                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/tabletb.png' /></div><div>Tablet APP BBVA</div></div>";
+                html +=         "<div class='col' id='lastcol'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/phoneb.png' /></div><div>Linea BBVA</div></div>";
                 html +=     "</div>";
             return html;
         }
