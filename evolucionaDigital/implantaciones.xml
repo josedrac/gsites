@@ -127,7 +127,7 @@
 		    font-family: Arial;
 		    margin-top: 20px;
 		}
-	
+
 		hr{
 		    width:610px;
 			margin-bottom:20px;
@@ -267,11 +267,43 @@
 			google.setOnLoadCallback(sendQuery);
 		}
 
+		function isSearchDone() {
+        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            return true;
+        }
+        return false;
+    }
+
+ 		function getSelectedYear() {
+        return gadgets.util.getUrlParameters().parent.split("=")[2];
+    }
+    function getSelectedMonth() {
+        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+    }
+
+    function getQueryParameters() {
+    		var filter = "";
+    		if (isSearchDone()){
+	    		var year = getSelectedYear();
+	    		if (year > 0) {
+	    			filter = " AND (G = year)";
+	    		}
+	    		var month = getSelectedMonth();
+	    		if (month > 0) {
+	    			filter = filter.concat(" AND (G = month)");
+	    		}
+	    	}
+    		return filter;
+    }
+
 		function sendQuery(){
 			gadgetHelper = new google.visualization.GadgetHelper();
 			var opts = {dataType:'jsonp'};
 			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where A <> 'IdImplantacion' order by G, F";
+			var querytosend = "select * where (A <> 'IdImplantacion)'";
+			querytosend = querytosend.concat(getQueryParameters());
+			var orderQuery = " order by G, F"
+			querytosend = querytosend.concat(orderQuery);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
@@ -308,13 +340,13 @@
 
 			for(var i=0; i < filas; i++) {
 			   	html += "<div class='implantation'>";
-			   	
+
 			   	//Fecha
 			   	html += "<div class='datesandtags'><div class='date'>";
 				html += "<div class='month' id='mes'>" + month[data.getValue(i,5)] + "</div>";
 				html += "<div class='year' id='anyo'>" + data.getValue(i,6) + "</div>";
 			    html += "</div></div>";
-				
+
 				//Contenido
 			   	html += "<div class='info'>";
 			   	html += "<div class='title'>" + data.getValue(i,1) + "</div>";
@@ -323,7 +355,7 @@
 			   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
 			    html += "<button type='button' class='btn' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
 			    html += "</div>";
-				
+
 				//Separación
 			    html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/></div>";
 
