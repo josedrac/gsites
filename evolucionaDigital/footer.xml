@@ -3,7 +3,7 @@
   <ModulePrefs title="ED-footer.xml"
     description=""
     author_affiliation="Sopra"
-    height="200">
+    height="300">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
 	<Require feature="dynamic-height"/>
@@ -37,7 +37,6 @@
 			/*footer*/
 			.footer {
                 padding-left: 16px;
-                padding-bottom: 210px;
             }
 
             .footer ul {
@@ -45,6 +44,9 @@
                     list-style-type: none;
 
                 }
+      .footer ul.footer-container {
+      		display: inline-block;
+      }
 
             .footer ul li {
                         background: none repeat scroll 0 0 transparent;
@@ -216,7 +218,7 @@
 
 <div class="grid_20 footer">
 	<div class="footer">
-		<ul>
+		<ul class="footer-container">
 			<li class="first op1">
 				<h2>EVOLUCIONA DIGITAL</h2>
 				<ul>
