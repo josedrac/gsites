@@ -284,10 +284,10 @@
 			   	html += "<button onclick=javascript:Go('" + data2.getValue(i,8) + "')>Más información</button>";
 			   	html += "</div>";
 			   	html += "<div class='img'>";
-			   	if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
+			   	if(data2.getValue(i,7) != null && typeof data2.getValue(i,7) != 'undefined' && data2.getValue(i,7) !== undefined && data2.getValue(i,7) != ""){
 			        html += "<iframe src='"+data2.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
 
-               	}else if(data.getValue(i,6) != null && typeof data.getValue(i,6) != 'undefined' && data.getValue(i,6) !== undefined && data.getValue(i,6) != "") {
+               	}else if(data2.getValue(i,6) != null && typeof data2.getValue(i,6) != 'undefined' && data2.getValue(i,6) !== undefined && data2.getValue(i,6) != "") {
 			        html += "<img src='" + data2.getValue(i,6) + "'>";
                	}
 			   	html += "</div></div>";
