@@ -125,11 +125,40 @@
     <div id="listportales"></div>
 
     <script type="text/javascript">
-        renderPage();
+        var prefs = new _IG_Prefs();
+        var urlTable = prefs.getString("_table_query_url");
+        var titlecomboVideo = prefs.getString("titlecomboVideo");
+        _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+	    function loadVisualizationAPI()
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+
+		function sendQuery()
+        {
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};
+				var query = new google.visualization.Query(urlTable, opts);
+				var querytosend = "select * where A <> 'IdNovedad'";
+				query.setQuery(querytosend);
+				query.send(handleQueryResponse);
+
+
+			}
+        function handleQueryResponse(response) {
+            data = response.getDataTable();
+			var filas = data.getNumberOfRows();
+			var pagTotales = Math.ceil(filas/4);
+            renderPage();
+        }
+
 
         function renderPage() {
             var html = "Tabla resultados";
             html += createHeader();
+            html += createBody();
 		    document.getElementById('listportales').innerHTML += html;
         }
 
@@ -144,8 +173,14 @@
                 html +=         "<div class='col' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/phoneb.png' /></div><div class='headerText'>Linea BBVA</div></div>";
                 html +=     "</div>";
             return html;
-        }
-            html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div>Smartphone App BBVA</div></div>";
+       }
+
+       function createBody() {
+            var html = "";
+
+
+            return html;
+       }
 
   </script>
     ]]>
