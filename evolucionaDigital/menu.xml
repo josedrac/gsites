@@ -190,7 +190,7 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion6
  {
-	width: 120px;
+	width: 119px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
