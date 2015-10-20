@@ -142,11 +142,10 @@
 		    display: table;
         }
         .block-newMobile .text {
-            width: 50%;
+            width: 60%;
     		display: table-cell;
         }
         .block-newMobile .img {
-            width: 50%;
     		display: table-cell;
     		vertical-align: bottom;
         }
