@@ -37,7 +37,7 @@
 			/*footer*/
 			.footer {
                 padding-left: 16px;
-                padding-bottom: 210;
+                padding-bottom: 210px;
             }
 
             .footer ul {
