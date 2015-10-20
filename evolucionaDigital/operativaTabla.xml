@@ -131,7 +131,8 @@
         _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 	    function loadVisualizationAPI()
-			{
+        {
+            console.log('entro');
 				google.load("visualization", "1", {"packages": ["table"]});
 				google.setOnLoadCallback(sendQuery);
 			}
@@ -148,7 +149,8 @@
 
 			}
         function handleQueryResponse(response) {
-            data = response.getDataTable();
+            var data = response.getDataTable();
+            console.log(data);
             //		var filas = data.getNumberOfRows();
             // var pagTotales = Math.ceil(filas/4);
             renderPage();
