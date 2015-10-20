@@ -142,9 +142,11 @@
         }
         .block-newMobile .text {
             width: 50%;
+            float: left;
         }
         .block-newMobile .img {
             width: 50%;
+            float: right;
         }
         h2 {
             font-size: 17px;
@@ -216,7 +218,7 @@
 			gadgetHelper = new google.visualization.GadgetHelper();
 			var opts = {dataType:'jsonp'};
 			var query = new google.visualization.Query(urlTable2, opts);
-			var querytosend = "select * where A <> 'IdNovedad' order by C";
+			var querytosend = "select * where A <> 'IdNovedad' and P like 'x' order by C";
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse2);
 		}
