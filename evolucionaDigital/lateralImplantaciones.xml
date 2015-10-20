@@ -11,7 +11,8 @@
 	    <![CDATA[
 
 		<head>
-			<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/base/jquery-ui.css" media="all">
+			<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/css/jquery-ui.min.css" media="all">
+				<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/buttons.css" media="all">
 			<style type="text/css">
 		       /* @group fonts */
         @font-face {
@@ -110,6 +111,7 @@
             text-align: center;
             vertical-align: middle;
             margin-left: 0px;
+            margin-right: 0px;
         }
         select {
             width:220px;
@@ -242,7 +244,8 @@
             <button onclick='javascript:Go();' class="btn">Ver</button>
         </div>
     </div>
-
+    <div class="btn arrow-left">left
+    </div>
     <script type="text/javascript">
 
         function Go() {
