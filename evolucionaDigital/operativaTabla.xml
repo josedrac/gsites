@@ -112,7 +112,7 @@
         border-right: 1px solid #E5E5E5;
         border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5; }
     #firstcol {
-        width: 495px !important;
+        width: 490px !important;
         border-left: 0;
     }
     .col {
@@ -200,6 +200,8 @@
             var filas = data.getNumberOfRows();
             var previousAction = "";
             for (var i=0;i<filas;i++) {
+                console.log('prevac:'+previousAction);
+                console.log('data'+data.getValue(i,1));
                 if (previousAction != data.getValue(i,1)) {
                     previousAction = data.getValue(i,1);
                     html += "<div class='rowTitle'>"+data.getValue(i,1)+"</div>";
