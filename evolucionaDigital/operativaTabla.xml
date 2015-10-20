@@ -96,11 +96,7 @@
         height: 85px;
         float: left;
         border-right: 1px solid #E5E5E5;
-        border-top: 1px solid #E5E5E5;
-        border-bottom: 1px solid #E5E5E5;
-        background-color: #F8F8F5;
-    }
-
+        border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5; }
     #firstcol {
         width: 570px !important;
         border-left: 0;
@@ -125,17 +121,17 @@
 
         function createHeader() {
             var html = "<div id='tableHeader'>";
-            html +=         "<div class='col' id='firstcol'></div>";
-            html +=         "<div class='col'><div><img src='' /></div><div></div></div>";
-            html +=         "<div class='col'><div><img src='' /></div><div></div></div>";
-            html +=         "<div class='col'><div><img src='' /></div><div></div></div>";
-            html +=         "<div class='col'><div><img src='' /></div><div></div></div>";
-            html +=         "<div class='col'><div><img src='' /></div><div></div></div>";
-            html +=         "<div class='col' id='lastcol'><div><img src='' /></div><div></div></div>";
-            html +=     "</div>";
+                html +=         "<div class='col' id='firstcol'></div>";
+                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div>Smartphone APP BBVA</div></div>";
+                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div>Smartphone APP BBVA WALLET</div></div>";
+                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div></div></div>";
+                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/mouseb.png' /></div><div></div></div>";
+                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/tabletb.png' /></div><div></div></div>";
+                html +=         "<div class='col' id='lastcol'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/phoneb.png' /></div><div></div></div>";
+                html +=     "</div>";
             return html;
         }
-
+            html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div>Smartphone App BBVA</div></div>";
 
   </script>
     ]]>
