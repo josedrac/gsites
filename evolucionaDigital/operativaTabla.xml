@@ -105,7 +105,7 @@
         margin-top: 10px;
     }
 
-    .col {
+    .colHeader {
         width: 75px;
         height: 85px;
         float: left;
@@ -115,7 +115,13 @@
         width: 495px !important;
         border-left: 0;
     }
+    .col {
+        float: left;
 
+    }
+    .row {
+        clear: both;
+    }
     #lastcol {
         border-right: 0 !important;
     }
@@ -173,13 +179,13 @@
 
         function createHeader() {
             var html = "<div id='tableHeader'>";
-                html +=         "<div class='col' id='firstcol'></div>";
-                html +=         "<div class='col'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
-                html +=         "<div class='col'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
-                html +=         "<div class='col'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
-                html +=         "<div class='col'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
-                html +=         "<div class='col'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></div>";
-                html +=         "<div class='col' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/phoneb.png' /></div><div class='headerText'>Linea BBVA</div></div>";
+                html +=         "<div class='colHeader' id='firstcol'></div>";
+                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
+                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
+                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
+                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
+                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></div>";
+                html +=         "<div class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/phoneb.png' /></div><div class='headerText'>Linea BBVA</div></div>";
                 html +=     "</div>";
             return html;
        }
@@ -188,13 +194,15 @@
             var html = "";
             var filas = data.getNumberOfRows();
             for (var i=0;i<filas;i++) {
-                html +=  "<div class='col'>"+data.getValue(i,1)+"</div>";
-                html +=  "<div class='col'>"+data.getValue(i,2)+"</div>";
-                html +=  "<div class='col'></div>";
-                html +=  "<div class='col'></div>";
-                html +=  "<div class='col'></div>";
-                html +=  "<div class='col'></div>";
-                html +=  "<div class='col'></div>";
+                html +=  "<div class='row'>";
+                html +=     "<div class='col'>"+data.getValue(i,1)+"</div>";
+                html +=     "<div class='col'>"+data.getValue(i,2)+"</div>";
+                html +=     "<div class='col'></div>";
+                html +=     "<div class='col'></div>";
+                html +=     "<div class='col'></div>";
+                html +=     "<div class='col'></div>";
+                html +=     "<div class='col'></div>";
+                html +=  "</div>";
             }
             return html;
        }
