@@ -285,7 +285,7 @@
 			   	html += "</div>";
 			   	html += "<div class='img'>";
 			   	if(data2.getValue(i,7) != null && typeof data2.getValue(i,7) != 'undefined' && data2.getValue(i,7) !== undefined && data2.getValue(i,7) != ""){
-			        html += "<iframe src='"+data2.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+			        html += "<iframe src='"+data2.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe>";
 
                	}else if(data2.getValue(i,6) != null && typeof data2.getValue(i,6) != 'undefined' && data2.getValue(i,6) !== undefined && data2.getValue(i,6) != "") {
 			        html += "<img src='" + data2.getValue(i,6) + "'>";
