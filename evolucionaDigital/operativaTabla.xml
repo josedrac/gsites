@@ -149,8 +149,8 @@
 			}
         function handleQueryResponse(response) {
             data = response.getDataTable();
-			var filas = data.getNumberOfRows();
-			var pagTotales = Math.ceil(filas/4);
+            //		var filas = data.getNumberOfRows();
+            // var pagTotales = Math.ceil(filas/4);
             renderPage();
         }
 
