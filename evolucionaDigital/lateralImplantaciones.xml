@@ -263,9 +263,9 @@
             return false;
         }
 
-        $( "#yearSelector" ).selectmenu({width: 150px});
+        $( "#yearSelector" ).selectmenu({width: 150});
 
-        $( "#monthSelector" ).selectmenu({width: 150px});
+        $( "#monthSelector" ).selectmenu({width: 150});
 
     </script>
 
