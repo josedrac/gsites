@@ -11,7 +11,7 @@
 	    <![CDATA[
 
 		<head>
-			<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/css/jquery-ui.min.css" media="all">
+			<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/css/jquery-ui.min.css" media="all">
 			<style type="text/css">
 		       /* @group fonts */
         @font-face {
