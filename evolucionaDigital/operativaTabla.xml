@@ -132,22 +132,30 @@
 
 	    function loadVisualizationAPI()
         {
-            console.log('entro');
-				google.load("visualization", "1", {"packages": ["table"]});
-				google.setOnLoadCallback(sendQuery);
-			}
+            google.load("visualization", "1", {"packages": ["table"]});
+            google.setOnLoadCallback(sendQuery);
+		}
 
 		function sendQuery()
         {
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
-				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdNovedad'";
+                var query = new google.visualization.Query(urlTable, opts);
+                var querytosend;
+                if (isSearchDone()) {
+                    console.log('busqueda hecha');
+                    var channel = getSelectedChannel();
+                    var product = getSelectedProduct();
+                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"'";
+                }
+                else {
+                    console.log('por defecto');
+				    querytosend = "select * where A <> 'IdNovedad'";
+                }
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
+        }
 
-
-			}
         function handleQueryResponse(response) {
             var data = response.getDataTable();
             console.log(data);
@@ -183,6 +191,22 @@
 
             return html;
        }
+
+        function getSelectedChannel() {
+            return gadgets.util.getUrlParameters().parent.split("=")[2];
+        }
+
+        function getSelectedProduct() {
+            return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+        }
+
+        function isSearchDone() {
+            if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+                return true;
+            }
+            return false;
+        }
+
 
   </script>
     ]]>
