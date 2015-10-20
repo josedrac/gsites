@@ -206,7 +206,6 @@
                 }
 
                 html +=  "<div class='row'>";
-                html +=     "<div class='col'>"+data.getValue(i,1)+"</div>";
                 html +=     "<div class='col'>"+data.getValue(i,2)+"</div>";
                 html +=     "<div class='col'></div>";
                 html +=     "<div class='col'></div>";
