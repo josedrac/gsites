@@ -268,7 +268,6 @@
 		}
 
 		function isSearchDone() {
-		console.log(gadgets.util.getUrlParameters().parent.split("=").length)
         if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
             return true;
         }
@@ -305,7 +304,6 @@
 			querytosend = querytosend.concat(getQueryParameters());
 			var orderQuery = " order by G, F"
 			querytosend = querytosend.concat(orderQuery);
-			console.log(querytosend);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
