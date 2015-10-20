@@ -149,8 +149,8 @@
 
             .footer-bottom {
                 border: 1px solid #EDEDEF;
-                height: 2.5em;
-                padding: 1.25em 0 0 0;
+                height: 3em;
+                padding: 1.5em 0 0 0;
                 width: 99%;
                 font-size: 0.7em;
                 background: #F9FAF9;
@@ -233,7 +233,7 @@
 				<h2>ENLACES DE INTERÉS</h2>
 				<ul>
 					<li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">Evoluciona</a></li>
-          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">CBC</a></li>
+          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">DCBC</a></li>
           <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">BBVA Contigo</a></li>
           <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">Soporte</a></li>
           <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">BBVA OpenMind</a></li>
