@@ -121,11 +121,19 @@
     }
     .row {
         clear: both;
+        font-size: 12px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid black;
+        width: 100%;
     }
 
     .rowTitle {
         clear: both;
         width: 100%;
+        margin-top:10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 12px;
     }
     #lastcol {
         border-right: 0 !important;
