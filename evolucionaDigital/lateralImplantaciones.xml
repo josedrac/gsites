@@ -11,7 +11,7 @@
 	    <![CDATA[
 
 		<head>
-			<link href="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/css/jquery-ui.min.css" rel="stylesheet">
+			<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/css/jquery-ui.min.css" media="all">
 			<style type="text/css">
 		       /* @group fonts */
         @font-face {
@@ -110,6 +110,7 @@
             text-align: center;
             vertical-align: middle;
             margin-left: 0px;
+            margin-right: 0px;
         }
         select {
             width:220px;
