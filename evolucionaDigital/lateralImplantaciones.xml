@@ -166,7 +166,7 @@
         .ui-state-default .ui-icon {
             border: 0;
             border-left: 1px solid #d2e5eb;
-            background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+            background: url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
             background-position: 3px 0px;
             width: 30px;
             height: 30px;
@@ -211,8 +211,8 @@
             font-weight: normal;
         }
 		    </style>
-		    <script src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
-    		<script src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
+		    <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+    		<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
 		</head>
 
 		<div class="container">
