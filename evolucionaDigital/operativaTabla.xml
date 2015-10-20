@@ -98,6 +98,13 @@
         font-weight: bold;
         text-align: center;
     }
+    .headerImg {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 10px;
+    }
+
     .col {
         width: 75px;
         height: 85px;
@@ -129,7 +136,7 @@
         function createHeader() {
             var html = "<div id='tableHeader'>";
                 html +=         "<div class='col' id='firstcol'></div>";
-                html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
+                html +=         "<div class='col'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
                 html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
                 html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
                 html +=         "<div class='col'><div><img src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
