@@ -11,8 +11,7 @@
 	    <![CDATA[
 
 		<head>
-			<link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/css/jquery-ui.min.css" media="all">
-				<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/buttons.css" media="all">
+			<link rel="stylesheet" type="text/css" href="https://sites.google.com/a/bbva.com/evolucionadigital/jqueryui-css/jquery-ui.min.css?attredirects=0&d=1" media="all">
 			<style type="text/css">
 		       /* @group fonts */
         @font-face {
@@ -244,7 +243,6 @@
             <button onclick='javascript:Go();' class="btn">Ver</button>
         </div>
     </div>
-    <div class="btn arrow-left">left
     </div>
     <script type="text/javascript">
 
