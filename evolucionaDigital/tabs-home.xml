@@ -130,6 +130,15 @@
             color: #0078d2;
             text-decoration: none;
         }
+         .block-linkHelp p {
+            fheight: 45px;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    display: block;
+		    display: -webkit-box;
+		    -webkit-box-orient: vertical;
+		    -webkit-line-clamp: 3;
+        }
         .block-linkHelp a img {
             padding-left: 10px;
         }
@@ -159,7 +168,13 @@
             font-size: 18px;
             color: #0078d2;
             font-weight: normal;
-    		display: block;
+    		
+        }
+        .block-newMobile .text h2 {
+            min-height: 60px;
+            max-height: 60px;
+            overflow: hidden;
+            display: block;
     		display: -webkit-box;
 		    height: 60px;
 		    overflow: hidden;
@@ -167,13 +182,7 @@
 		    -webkit-box-orient: vertical;
 		    text-overflow: ellipsis;
         }
-        .block-newMobile .text h2 {
-            min-height: 60px;
-            max-height: 60px;
-            overflow: hidden;
-        }
         .block-newMobile .text p {
-		    font-family: arial,sans-serif;
 		    height: 75px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
