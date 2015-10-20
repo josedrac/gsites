@@ -287,11 +287,11 @@
     		if (isSearchDone()){
 	    		var year = getSelectedYear();
 	    		if (year > 0) {
-	    			filter = " AND (G = year)";
+	    			filter = " AND (G = "+year+")";
 	    		}
 	    		var month = getSelectedMonth();
 	    		if (month > 0) {
-	    			filter = filter.concat(" AND (F = month)");
+	    			filter = filter.concat(" AND (F = "+month+")");
 	    		}
 	    	}
     		return filter;
