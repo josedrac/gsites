@@ -130,7 +130,7 @@
             color: #0078d2;
             text-decoration: none;
         }
-         .block-linkHelp p {
+        .block-linkHelp p {
             fheight: 45px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
@@ -138,6 +138,11 @@
 		    display: -webkit-box;
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 3;
+        }
+		.block-linkHelp h2 {
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		    white-space: nowrap;
         }
         .block-linkHelp a img {
             padding-left: 10px;
