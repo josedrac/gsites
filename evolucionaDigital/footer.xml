@@ -36,158 +36,169 @@
 
 			/*footer*/
 			.footer {
-				padding-left: 16px;
-				padding-bottom: 186px;
-			}
+                padding-left: 16px;
+                padding-bottom: 210px;
+            }
 
-			.footer ul {
-					display: inline;
-					list-style-type: none;
+            .footer ul {
+                    display: inline;
+                    list-style-type: none;
 
-				}
+                }
 
-			.footer ul li {
-						background: none repeat scroll 0 0 transparent;
-						float: left;
-						margin: 0;
-						padding: 0 9px 0 20px;
-						position: relative;
-						text-align: left;
-						width: 30%;
-						border-right: 1px solid #DCDCDC;
-					}
+            .footer ul li {
+                        background: none repeat scroll 0 0 transparent;
+                        float: left;
+                        margin: 0;
+                        padding: 0 9px 0 20px;
+                        position: relative;
+                        text-align: left;
+                        width: 30%;
+                        border-right: 1px solid #DCDCDC;
+                    }
 
-			.footer ul li ul li {
+            .footer ul li ul li {
             width: 200px;
-						border-right: none;
-					}
+                        border-right: none;
+                    }
 
-			.footer ul li ul li.op3{
+            .footer ul li ul li.op3{
 
-						border-right: none;
-					}
+                        border-right: none;
+                    }
 
-			.footer ul li.op1,
-			.footer ul li.op2,
-			.footer ul li.op3 {
-						min-height: 200px;
-					}
+            .footer ul li.op1,
+            .footer ul li.op2,
+            .footer ul li.op3 {
+                        min-height: 200px;
+                    }
 
-			.footer ul li ul li {
-						display: block;
-						float: left;
-						color: #8C9299;
-						border: none;
-						padding: 0;
-					}
+            .footer ul li ul li {
+                        display: block;
+                        float: left;
+                        color: #8C9299;
+                        border: none;
+                        padding: 0;
+                    }
 
-			.footer ul li h2{
-						color: #434A58;
-						font-size: 11px;
-						font-family: BBVA Web Book, Arial;
-						/*padding-bottom: 10px;*/
-					}
+            .footer ul li h2{
+                        color: #434A58;
+                        font-size: 11px;
+                        font-family: BBVA Web Book, Arial;
+                        /*padding-bottom: 10px;*/
+                    }
 
-			.footer ul li.first {
-						padding: 0 9px 0 12px;
-					}
+            .footer ul li.first {
+                        padding: 0 9px 0 12px;
+                    }
 
-			.footer ul li.last {
-						padding: 0 0 0 19px;
-						border: none;
-					}
+            .footer ul li.last {
+                        padding: 0 0 0 19px;
+                        border: none;
+                    }
 
-			.footer ul li a {
-						color: #8C9299;
-						font-size: 11px;
-						font-weight: normal;
-						text-align: left!important;
-						text-decoration: none;
-					}
+            .footer ul li a {
+                        color: #8C9299;
+                        font-size: 11px;
+                        font-weight: normal;
+                        text-align: left!important;
+                        text-decoration: none;
+                    }
 
-			.footer ul li ul li a {
-						color: #8C9299;
-						font-weight: normal;
-						line-height: 20px;
-					}
+            .footer ul li ul li a {
+                        color: #8C9299;
+                        font-weight: normal;
+                        line-height: 20px;
+                    }
 
-			.footer ul li ul.redes-sociales li a{
-						line-height: 24px;
-						padding: 3px;
-					}
+            .footer ul li ul.redes-sociales li a{
+                        line-height: 24px;
+                        padding: 3px 3px 3px 20px;
+                    }
 
-			.footer ul li ul.redes-sociales li a.face{
-						background: url('../img/ico-face.png') no-repeat left top;
-					}
+            .footer ul li ul.redes-sociales li a.face{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-face.png') no-repeat left;
+                    }
 
-			.footer ul li ul.redes-sociales li a.rss{
-						background: url('../img/ico-rss.png') no-repeat left top;
-					}
+            .footer ul li ul.redes-sociales li a.rss{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-rss.png') no-repeat left;
+                    }
 
-			.footer ul li ul.redes-sociales li a.tw{
-						background: url('../img/ico-tw.png') no-repeat left top;
-					}
+            .footer ul li ul.redes-sociales li a.tw{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-tw.png') no-repeat left;
+                    }
 
-			.footer ul li ul.redes-sociales li span {
-						padding-left: 20px;
-					}
+            .footer ul li ul.redes-sociales li a.link{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-link.png') no-repeat left;
+                    }
 
+            .footer ul li ul.redes-sociales li a.you{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-you.png') no-repeat left;
+                    }
 
-			/* @end */
+            .footer ul li ul.redes-sociales li a.gplus{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-gplus.png') no-repeat left;
+                    }
 
-			.footer-bottom {
-				border-top: 1px solid #DBDCDF;
-				border-bottom: 1px solid #DBDCDF;
-				height: 3em;
-				padding: 2em 0 0 0;
-				background-color: #F4F6F3;
-				width: 99.9%;
-			}
-
-			.footer-bottom ul{
-				margin-left: auto;
-				margin-right: auto;
-				width: 96em;
-				margin: 0pt auto;
-			}
-
-			.footer-bottom ul li {
-				float: left;
-				padding: 0 9px 0 20px;
-			}
-
-			.footer-bottom ul li a {
-				color: #8C9299;
-				font-size: 1.1em;
-				font-weight: normal;
-				text-align: left!important;
-			}
-
-			.footer-bottom ul li ul { /*prueba*/
-				background-color: red;
-				padding-top: -10px;
-			}
-
-			.footer-bottom span.copyright {
-				color: #8C9299;
-				font-size: 1.1em;
-				font-weight: normal;
-				/*float: right;*/
-				padding-right: 4.4em;
-				padding-left: 38em;
-			}
-			/* @end */
+            .footer ul li ul.redes-sociales li span {
+                        padding-left: 20px;
+                    }
 
 
+            /* @end */
 
-				.linedowntitle{
-				margin-bottom:40px;
-				width:939px;
-				display:block;
-				}
-				.container_20 .grid_20.footer {
-				padding-top: 17em;
-				}
+            .footer-bottom {
+                border: 1px solid #EDEDEF;
+                height: 3em;
+                padding: 1.5em 0 0 0;
+                width: 99%;
+                font-size: 0.7em;
+                background: #F9FAF9;
+                color: #8C9299;
+            }
+
+            .footer-bottom ul{
+                margin-left: auto;
+                margin-right: auto;
+                width: 96em;
+                margin: 0pt auto;
+            }
+
+            .footer-bottom span {
+                float: left;
+                padding: 0 9px 0 4.4em;
+            }
+
+            .footer-bottom ul li a {
+                color: #8C9299;
+                font-size: 1.1em;
+                font-weight: normal;
+                text-align: left!important;
+            }
+
+            .footer-bottom ul li ul { /*prueba*/
+                background-color: red;
+                padding-top: -10px;
+            }
+
+            .footer-bottom span.copyright {
+                color: #8C9299;
+                float: right;
+                padding-right: 4.4em;
+            }
+            /* @end */
+
+
+
+            .linedowntitle{
+                margin-bottom:40px;
+                width:939px;
+                display:block;
+                }
+                .container_20 .grid_20.footer {
+                padding: 17em 0;
+                }
+
 
 		</style>
 
@@ -221,26 +232,29 @@
 			<li class="op2">
 				<h2>ENLACES DE INTERÉS</h2>
 				<ul>
-					<li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">Evoluciona</a></li>
-          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">CBC</a></li>
-          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">BBVA Contigo</a></li>
-          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">Soporte</a></li>
-          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital">BBVA OpenMind</a></li>
+					<li><a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/">Evoluciona</a></li>
+          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital/cdc">DCBC</a></li>
+          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/somos-bbva-contigo">BBVA Contigo</a></li>
+          <li><a target="_blank" href="https://www.bbvaopenmind.com/">BBVA OpenMind</a></li>
 				</ul>
 			</li>
 			<li class="last op3">
 				<h2>BBVA EN REDES SOCIALES</h2>
 				<ul class="redes-sociales">
-					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/facebook/">Facebook</a></li>
-					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/twitter/">Twitter</a></li>
-          <li><a target="_blank" href="http://www.bbvasocialmedia.com/es/youtube/">Youtube</a></li>
-					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/google/">Google+</a></li>
-          <li><a target="_blank" href="http://www.bbvasocialmedia.com/es/google/">Blog BBVA</a></li>
-					<li><a target="_blank" href="http://www.bbvasocialmedia.com/es/linkedin/">Linkedin</a></li>
+					<li><a target="_blank" href="https://www.facebook.com/BBVAespana" class="face">Facebook</a></li>
+					<li><a target="_blank" href="https://twitter.com/BBVA_esp" class="tw">Twitter</a></li>
+          <li><a target="_blank" href="https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed" class="you">Youtube</a></li>
+					<li><a target="_blank" href="https://plus.google.com/+BbvaEs" class="gplus">Google+</a></li>
+          <li><a target="_blank" href="https://www.blogbbva.es" class="rss">Blog BBVA</a></li>
+					<li><a target="_blank" href="http://www.linkedin.com/company/bbvaespana" class="link">Linkedin</a></li>
 				</ul>
 			</li>
 		</ul>
 	</div>
+	<div class="footer-bottom">
+      <span>Aviso Legal</span>
+      <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
+  </div>
 </div>
 
     ]]>
