@@ -156,8 +156,12 @@
 		    float: right;
         }
         h2 {
-            font-size: 17px;
+            font-size: 18px;
             color: #0078d2;
+            font-weight: normal;
+            min-height: 60px;
+            max-height: 60px;
+            overflow: hidden;
         }
 	</style>
 
