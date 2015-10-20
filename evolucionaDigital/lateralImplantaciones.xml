@@ -9,9 +9,9 @@
 
 	<Content type="html">
 	    <![CDATA[
-		<link href="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/css/jquery-ui.min.css" rel="stylesheet">
 
 		<head>
+			<link href="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/css/jquery-ui.min.css" rel="stylesheet">
 			<style type="text/css">
 		       /* @group fonts */
         @font-face {
@@ -109,7 +109,6 @@
             position: relative;
             text-align: center;
             vertical-align: middle;
-            margin-right: 22px;
             margin-left: 0px;
         }
         select {
