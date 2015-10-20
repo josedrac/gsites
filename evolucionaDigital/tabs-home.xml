@@ -164,39 +164,6 @@
             </div>
             <div id="tabs-2">
             	<div id="listNewMobile"></div>
-
-                <div class="block-newMobile">
-                    <div class="text">
-                        <h2>Firma diferida</h2>
-                        <p>Descubre como tus clientes pueden firmar contratos desde el móvil.</p>
-                        <button onclick="javascript:Go('')">Más información</button>
-                    </div>
-                    <div class="img"></div>
-                </div>
-                <div class="block-newMobile">
-                    <div class="text">
-                        <h2>Aportaciones a planes de pensiones</h2>
-                        <p>Anima a tus clientes a acordarse de su futuro haciendo una aportación desde el móvil.</p>
-                        <button onclick="javascript:Go('')">Más información</button>
-                    </div>
-                    <div class="img"></div>
-                </div>
-                <div class="block-newMobile">
-                    <div class="text">
-                        <h2>Llamada a tu gestor</h2>
-                        <p>Enseña a tus clientes a contactar desde la aplicación, con un simple gesto, con su gestor BBVA contigo.</p>
-                        <button onclick="javascript:Go('')">Más información</button>
-                    </div>
-                    <div class="img"></div>
-                </div>
-                <div class="block-newMobile">
-                    <div class="text">
-                        <h2>Aportaciones periódicas a fondos</h2>
-                        <p>Fomenta el ahorro de tus clientes con aportaciones periódicas a sus fondos.</p>
-                        <button onclick="javascript:Go('')">Más información</button>
-                    </div>
-                    <div class="img"></div>
-                </div>
             </div>
         </div>
 	</div>
@@ -255,15 +222,15 @@
 		}
 
 		function handleQueryResponse2(response) {
-			data = response.getDataTable();
-			var filas = data.getNumberOfRows();
+			data2 = response.getDataTable();
+			var filas = data2.getNumberOfRows();
 			var html = "";
 
 			if(filas < 1) {
     			html += '<p class="text">No hay ningún contenido referente.</p>';
             }
 
-			for(var i=0; i < filas; i++) {
+			for(var i=0; i < filas || i < 4; i++) {
 			   	html += "<div class='block-newMobile'>";
 			   	html += "<div class='text'>";
 			   	html += "<h2>" + data.getValue(i,1) + "</h2>";
