@@ -126,12 +126,12 @@
         function createHeader() {
             var html = "<div id='tableHeader'>";
             html +=         "<div class='col' id='firstcol'></div>";
-            html +=         "<div class='col'><div></div><div></div></div>";
-            html +=         "<div class='col'><div></div><div></div></div>";
-            html +=         "<div class='col'><div></div><div></div></div>";
-            html +=         "<div class='col'><div></div><div></div></div>";
-            html +=         "<div class='col'><div></div><div></div></div>";
-            html +=         "<div class='col' id='lastcol'></div>";
+            html +=         "<div class='col'><div><img src="" /></div><div></div></div>";
+            html +=         "<div class='col'><div><img src="" /></div><div></div></div>";
+            html +=         "<div class='col'><div><img src="" /></div><div></div></div>";
+            html +=         "<div class='col'><div><img src="" /></div><div></div></div>";
+            html +=         "<div class='col'><div><img src="" /></div><div></div></div>";
+            html +=         "<div class='col' id='lastcol'><div><img src="" /></div><div></div></div>";
             html +=     "</div>";
             return html;
         }
