@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="ED-lateralImplantaciones.xml" height="204">
+	<ModulePrefs title="ED-lateralImplantaciones.xml" height="260">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -263,9 +263,9 @@
             return false;
         }
 
-        $( "#yearSelector" ).selectmenu({width: 150});
+        $( "#yearSelector" ).selectmenu({width: 190});
 
-        $( "#monthSelector" ).selectmenu({width: 150});
+        $( "#monthSelector" ).selectmenu({width: 190});
 
     </script>
 
