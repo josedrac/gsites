@@ -180,6 +180,9 @@
         .ui-selectmenu-button span.ui-icon {
             top: 25%;
         }
+        .ui-selectmenu-menu .ui-menu {
+        		height: 115px;
+        }
         .element-year {
             padding-top: 20px;
             padding-bottom: 5px
@@ -260,9 +263,9 @@
             return false;
         }
 
-        $( "#yearSelector" ).selectmenu();
+        $( "#yearSelector" ).selectmenu({width: 150px});
 
-        $( "#monthSelector" ).selectmenu();
+        $( "#monthSelector" ).selectmenu({width: 150px});
 
     </script>
 
