@@ -196,6 +196,10 @@
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 5;
 		}
+		iframe {
+			width: 100%;
+    		height: 115px;
+		}
 	</style>
 
 	<div class="content">
