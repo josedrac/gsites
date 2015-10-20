@@ -78,7 +78,6 @@
 		overflow: visible;
     }
 
-
     .clearBoth {
         clear: both;
     }
@@ -88,6 +87,27 @@
         color: #3B3B3B;
     }
 
+    #tableHeader {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        background-color: #F8F8F5;
+    }
+
+    .col {
+        width: 75px;
+        height: 85px;
+        float: left;
+        border-right: 1px solid black;
+    }
+
+    #firstcol {
+        width: 570px !important;
+        border-left: 0;
+    }
+
+    #lastcol {
+        border-right: 0;
+    }
     </style>
 
 
@@ -98,9 +118,21 @@
 
         function renderPage() {
             var html = "Tabla resultados";
+            html += createHeader();
 		    document.getElementById('listportales').innerHTML += html;
+        }
 
-		}
+        function createHeader() {
+            var html += "<div id='tableHeader'>";
+            html +=         "<div class='col' id='firstcol'>col</div>";
+            html +=         "<div class='col'>col</div>";
+            html +=         "<div class='col'>col</div>";
+            html +=         "<div class='col'>col</div>";
+            html +=         "<div class='col'>col</div>";
+            html +=         "<div class='col' id='lastcol'>col</div>";
+            html +=     "</div>";
+            return html;
+        }
 
 
   </script>
