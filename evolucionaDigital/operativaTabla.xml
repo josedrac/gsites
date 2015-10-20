@@ -208,12 +208,10 @@
             var filas = data.getNumberOfRows();
             var previousAction = "";
             for (var i=0;i<filas;i++) {
-                console.log('prevac:'+previousAction);
-                console.log('data'+data.getValue(i,1));
+
                 if (previousAction != data.getValue(i,1)) {
                     previousAction = data.getValue(i,1);
                     html += "<div class='rowTitle'>"+data.getValue(i,1)+"</div>";
-                    continue;
                 }
 
                 html +=  "<div class='row'>";
