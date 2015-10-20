@@ -275,10 +275,10 @@
         return false;
     }
 
- 		function getSelectedYear() {
+ 		function getSelectedMonth() {
         return gadgets.util.getUrlParameters().parent.split("=")[2];
     }
-    function getSelectedMonth() {
+    function getSelectedYear() {
         return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
     }
 
