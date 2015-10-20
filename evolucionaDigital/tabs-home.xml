@@ -148,6 +148,9 @@
             width: 50%;
             float: right;
         }
+        .block-newMobile .img img {
+            width: 100%;
+        }
         h2 {
             font-size: 17px;
             color: #0078d2;
