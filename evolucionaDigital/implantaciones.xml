@@ -317,14 +317,14 @@
 			var pagActual = 1;
 			var html = "";
 
+      html += "<div id='textInit'><p>"+textInit+"</p></div>";
 			if(filas < 1) {
-    			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+    			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
             }
             else {
                 html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
-            }
 
-            html += "<div id='textInit'><p>"+textInit+"</p></div>";
+
 
             var month = new Array();
 			month[1] = "Ene";
@@ -403,6 +403,7 @@
 							}
 						}
 						html += '</div>';
+					}
 				    }
                 }
 			}
