@@ -121,6 +121,10 @@
         float:left;
         border-bottom: 1px solid #E5E5E5;
         line-height: 35px;
+        }
+
+    .colBodyIcon {
+        height: 25px;
     }
     .row {
         clear: both;
@@ -284,7 +288,7 @@
                 10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16]
                 };
 
-            html += "<div style='height: 25px;'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+            html += "<div class='colBodyIcon'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
             return html;
 
         }
