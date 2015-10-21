@@ -364,15 +364,16 @@
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdNovedad' order by C";
+				var querytosend = "select * where A <> 'IdNovedad' order by C desc";
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
-
 
 			}
         function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
+            console.log(filas);
+
 			var pagTotales = Math.ceil(filas/4);
 			var pagActual = 1;
 			var html = "";
