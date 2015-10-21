@@ -334,15 +334,22 @@ color:#0078D2;
 
 <script type="text/javascript">
 
-  function go(){
+
+  function Go(destination){
+              window.open(destination,'_parent');
+              return false;
+          }
       function addURL() {
               var baseUrl = 'https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar';
               document.getElementById("digitalizar").onclick = function(){ window.open(baseUrl+'/digitalizar');};
+
+
+
               document.getElementById("remotizar").onclick = function(){ window.open(baseUrl+'/remotizar');};
           }
 
           addURL();
-  }
+  
 
 </script>
 
