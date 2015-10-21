@@ -386,7 +386,6 @@
             {
                 html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
             }
-            var date = data.getValue(i,2).getDate();
             console.log(date);
             for(var i=0;i<filas;i++){
 
@@ -402,6 +401,7 @@
                }
 
 			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
+            	var date = data.getValue(i,2).getDate();
 			   html += "<div id='dateVideo'>"+date+" - </div>";
 			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
 			   html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
