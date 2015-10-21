@@ -212,7 +212,6 @@
             var html = "";
             html += createHeader();
             html += createBody();
-            html += viewAllButton();
 		    document.getElementById('listportales').innerHTML += html;
         }
 
@@ -289,19 +288,6 @@
             return html;
 
         }
-
-        function viewAllButton(){
-            var html = "<div id='buttonViewAll'>";
-            html +=         "<button id='viewAll' onclick='javascript:showResults();'>Ver resultados</button>";
-            html +=    "</div>";
-            return html;
-        }
-
-        function showResults() {
-
-
-        }
-
 
   </script>
     ]]>
