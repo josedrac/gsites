@@ -176,12 +176,21 @@
                 var channel = getSelectedChannel();
                 var product = getSelectedProduct();
                 console.log(product);console.log(channel);
+                if (product == "Todos") {
+                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
+                    query.setQuery(querytosend);
+                    query.send(handleQueryResponse);
+                    return;
+                }
+
                 if (channel == channels[0]) {
-                   querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
+                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
+                    query.setQuery(querytosend);
+                    query.send(handleQueryResponse);
+                    return;
                 }
-                else {
-                   querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
-                }
+
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
             }
             else {
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Cuentas' order by B";
