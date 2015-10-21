@@ -244,6 +244,7 @@
             var filas = data.getNumberOfRows();
             var previousAction = "";
             for (var i=0;i<filas;i++) {
+                console.log('nuevo');
                 console.log(data.getValue(i,1));
                 if (data.getValue(i,1) == 'null') continue;
                 if (data.getValue(i,2) == 'null') continue;
