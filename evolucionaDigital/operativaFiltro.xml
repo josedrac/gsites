@@ -147,6 +147,7 @@
             html += createComboChannel();
             html += "<div class='clearBoth'></div>";
             html += createButtonShowResults();
+            html += createButtonShowAll();
 		    document.getElementById('listportales').innerHTML += html;
 
 		}
@@ -206,6 +207,14 @@
             return html;
         }
 
+        function createButtonShowAll() {
+            var html = "<div id='buttonViewAll'>";
+            html +=         "<button id='viewAll' onclick='javascript:showAll();'>Ver tabla completa</button>";
+            html +=    "</div>";
+            return html;
+        }
+
+
         function showResults() {
             var elementProductSelector = document.getElementById('productsSelector');
             var elementChannelSelector = document.getElementById('channelSelector');
@@ -214,7 +223,9 @@
             window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
         }
 
+        function showAll(){
 
+        }
   </script>
     ]]>
   </Content>
