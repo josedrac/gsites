@@ -253,6 +253,7 @@
        }
 
         function getSelectedChannel() {
+            console.log('a ver ahora');
             return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).replace(/\+/g, ' ');
         }
 
