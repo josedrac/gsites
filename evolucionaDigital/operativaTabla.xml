@@ -115,15 +115,15 @@
         width: 490px !important;
         border-left: 0;
     }
-    .col {
-        float: left;
 
+    .colBody{
+        float:left;
+        border-bottom: 1px solid #E5E5E5;
     }
     .row {
         clear: both;
         font-size: 12px;
         margin-bottom: 10px;
-        border-bottom: 1px solid black;
         width: 100%;
     }
 
@@ -133,7 +133,7 @@
         margin-top:10px;
         margin-bottom: 10px;
         font-weight: bold;
-        font-size: 12px;
+        font-size: 13px;
     }
     #lastcol {
         border-right: 0 !important;
@@ -220,12 +220,12 @@
                 }
 
                 html +=  "<div class='row'>";
-                html +=     "<div class='col'>"+data.getValue(i,2)+"</div>";
-                html +=     "<div class='col'></div>";
-                html +=     "<div class='col'></div>";
-                html +=     "<div class='col'></div>";
-                html +=     "<div class='col'></div>";
-                html +=     "<div class='col'></div>";
+                html +=     "<div class='colBody'>"+data.getValue(i,2)+"</div>";
+                html +=     "<div class='colBody'></div>";
+                html +=     "<div class='colBody'></div>";
+                html +=     "<div class='colBody'></div>";
+                html +=     "<div class='colBody'></div>";
+                html +=     "<div class='colBody'></div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
             }
