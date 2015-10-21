@@ -25,6 +25,7 @@
 		        }
 		        #content {
 		        	font-family: BBVA Web Light;
+		        	padding-left: 15px;
 		        }
 		        .breadcrumb a {
 					font-size: 12px;
