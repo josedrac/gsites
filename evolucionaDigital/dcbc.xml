@@ -119,8 +119,8 @@
         
     	html += "<div class='dcbc'>";
 		html += "	<div class='text'>";
-		html += "		<h2 class='title'>NEXTINIT: ¿Cúal es tu reto?</h2>";
-		html += "		<p>Localiza e identifica el mayor potencial de tu organización, o áreas por las que te preocupes; (por ejemplo, aumentar la eficiencia, reducir costes, etc.) Aplicando la inteligencia colectiva de todos los que te rodean, serás capaz de llegar a soluciones únicas para enfrentar estos desafíos.</p>";  
+		html += "		<h2 class='title'>" + Title + "</h2>";
+		html += "		<p>"+ Description +"</p>";  
 		html += "		<button class='btn' onclick=javascript:Go('https://www.nextinit.com/login.jsp')>Acceder</button>";
 		html += "	</div>";
 		html +=	"	<div class='media'>";
