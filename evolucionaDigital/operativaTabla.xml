@@ -171,6 +171,7 @@
             if (isSearchDone()) {
                 var channel = getSelectedChannel();
                 var product = getSelectedProduct();
+                console.log(product);console.log(channel);
                 if (channel == channels[0]) {
                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
                 }
