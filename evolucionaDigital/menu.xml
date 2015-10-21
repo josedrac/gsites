@@ -245,9 +245,9 @@ border-top-right-radius: 5px;
 	box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 5px inset !important;;
 }
 .externallink,
-externallink:hover,
-externallink:visited,
-externallink:focus{
+.externallink:hover,
+.externallink:visited,
+.externallink:focus{
       color: #0078d2;
       display: block;
       font-size: 12px;
