@@ -171,6 +171,7 @@
             for (var product in products) {
                                 if ((isSearchDone() && products[product] == getSelectedProduct()) ||
                                 (!isSearchDone() && product == "Cuentas")) {
+                                    console.log('entro');
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
                                     continue;
                                 }

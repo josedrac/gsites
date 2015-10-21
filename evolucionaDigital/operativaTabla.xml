@@ -112,7 +112,7 @@
         border-right: 1px solid #E5E5E5;
         border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5; }
     .firstcol {
-        width: 570px !important;
+        width: 550px !important;
         border-left: 0;
     }
 
