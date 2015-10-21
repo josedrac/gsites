@@ -67,7 +67,7 @@ div.app {
     border: 15px solid #F4F7F5;
     float: left;
     width: 305px;
-        height:216px;
+        height:185px;
 }
 .app.left {
     border-right: 5px solid #F4F7F5;
@@ -197,7 +197,7 @@ color:#0078D2;
                 //width:90px;
                 width:29.50819672131148%;
                 float:left;
-                height: 205px;
+                height: 175px;
                 text-align:center;
    }
 
@@ -205,7 +205,7 @@ color:#0078D2;
                 width:68.85245901639344%;
                 float:left;
                 position: relative;
-                height:205px;
+                height:175px;
    }
 </style>
 
