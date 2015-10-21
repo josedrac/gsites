@@ -167,6 +167,7 @@
             var html = "<div id='products'>";
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
+                console.log('nuevo');
             for (var product in products) {
                                 if ((isSearchDone() && products[product] == getSelectedProduct()) ||
                                 (!isSearchDone() && product == "Cuentas")) {
