@@ -387,7 +387,7 @@
                 html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
             }
             var formatter = new google.visualization.DateFormat({pattern: "dd/MM/yyyy"});
-            formatter.formatValue(data,2);
+            formatter.format(data,2);
             console.log(data);
             for(var i=0;i<filas;i++){
 
