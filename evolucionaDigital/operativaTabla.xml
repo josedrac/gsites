@@ -181,7 +181,6 @@
             else {
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Valores' order by B";
             }
-                console.log(querytosend);
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
         }
@@ -199,7 +198,6 @@
             if (channel == channels[3]) {
                 sql += " AND (J like 'x' OR K like 'x') ";
             }
-            console.log(sql);
             return sql;
         }
 
@@ -213,6 +211,7 @@
             var html = "";
             html += createHeader();
             html += createBody();
+            html += viewAllButton();
 		    document.getElementById('listportales').innerHTML += html;
         }
 
@@ -289,6 +288,19 @@
             return html;
 
         }
+
+        function viewAllButton(){
+            var html = "<div id='buttonResults'>";
+            html +=         "<button id='showResults' onclick='javascript:showResults();'>Ver resultados</button>";
+            html +=    "</div>";
+            return html;
+        }
+
+        function showResults() {
+
+
+        }
+
 
   </script>
     ]]>
