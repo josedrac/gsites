@@ -115,12 +115,21 @@
     #buttonResults {
         margin-top: 10px;
         margin-left: 10px;
+        float:left;
     }
 
     #showResults {
         font-size: 13px;
     }
 
+    #buttonViewAll {
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    #viewAll {
+        font-size: 13px;
+    }
     .clearBoth {
         clear: both;
     }
