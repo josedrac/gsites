@@ -401,7 +401,7 @@
                }
 
 			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
-            	var date = data.getValue(i,2).toDateString();
+            	var date = data.getValue(i,2).getDate()+"/"+data.getValue(i,2).getMonth()+"/"+data.getValue(i,2).getYear();
 			   html += "<div id='dateVideo'>"+date+" - </div>";
 			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
 			   html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
