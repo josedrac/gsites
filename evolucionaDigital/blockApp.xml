@@ -64,10 +64,18 @@ div.content_aplicaciones {
 }
 
 div.app {
-    border: 5px solid #F4F7F5;
+    border: 15px solid #F4F7F5;
     float: left;
     width: 305px;
         height:216px;
+}
+.app.left {
+    border-right: 5px solid #F4F7F5;
+    border-left: 10px solid #F4F7F5;
+}
+.app.right {
+    border-right: 10px solid #F4F7F5;
+    border-left: 5px solid #F4F7F5;
 }
 
 h3.app_titulo {
