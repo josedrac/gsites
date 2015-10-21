@@ -372,7 +372,7 @@
         function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
-            console.log(filas);
+            console.log(data);
 
 			var pagTotales = Math.ceil(filas/4);
 			var pagActual = 1;
