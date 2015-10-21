@@ -111,7 +111,7 @@
         float: left;
         border-right: 1px solid #E5E5E5;
         border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5; }
-    #firstcol {
+    .firstcol {
         width: 490px !important;
         border-left: 0;
     }
@@ -119,6 +119,7 @@
     .colBody{
         float:left;
         border-bottom: 1px solid #E5E5E5;
+        line-height: 35px;
     }
     .row {
         clear: both;
@@ -197,7 +198,7 @@
 
         function createHeader() {
             var html = "<div id='tableHeader'>";
-                html +=         "<div class='colHeader' id='firstcol'></div>";
+                html +=         "<div class='colHeader firstcol'></div>";
                 html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
                 html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
                 html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/ED-operativa/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
@@ -220,12 +221,12 @@
                 }
 
                 html +=  "<div class='row'>";
-                html +=     "<div class='colBody'>"+data.getValue(i,2)+"</div>";
-                html +=     "<div class='colBody'></div>";
-                html +=     "<div class='colBody'></div>";
-                html +=     "<div class='colBody'></div>";
-                html +=     "<div class='colBody'></div>";
-                html +=     "<div class='colBody'></div>";
+                html +=     "<div class='colBody firstcol'>"+data.getValue(i,2)+"</div>";
+                html +=     "<div class='colBody'>a</div>";
+                html +=     "<div class='colBody'>b</div>";
+                html +=     "<div class='colBody'>c</div>";
+                html +=     "<div class='colBody'>d</div>";
+                html +=     "<div class='colBody'>e</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
             }
