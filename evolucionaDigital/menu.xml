@@ -300,7 +300,7 @@ border-top-right-radius: 5px;
   <ul>
 	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/evolucionadigital/" target="_parent"  title="home"/></li>
 
-	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar" target="_parent">Ayuda para digitalizar</a></span></span></li>
+	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar" target="_parent">Digitalizar y remotizar</a></span></span></li>
 
 	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo"  target="_parent">Decálogo</a></span></span></li>
 
