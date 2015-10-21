@@ -164,41 +164,42 @@
 
 		function sendQuery()
         {
-				gadgetHelper = new google.visualization.GadgetHelper();
-				var opts = {dataType:'jsonp'};
-                var query = new google.visualization.Query(urlTable, opts);
-                var querytosend;
-                if (isSearchDone()) {
-                    var channel = getSelectedChannel();
-                    var product = getSelectedProduct();
-                    if (channel == channels[0]) {
-                       querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
-                    }
-                    else {
-                       querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
-                    }
+            gadgetHelper = new google.visualization.GadgetHelper();
+            var opts = {dataType:'jsonp'};
+            var query = new google.visualization.Query(urlTable, opts);
+            var querytosend;
+            if (isSearchDone()) {
+                var channel = getSelectedChannel();
+                var product = getSelectedProduct();
+                if (channel == channels[0]) {
+                   querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
                 }
                 else {
-				    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Valores' order by B";
+                   querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
                 }
-				query.setQuery(querytosend);
-				query.send(handleQueryResponse);
+            }
+            else {
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Valores' order by B";
+            }
+                console.log(querytosend);
+            query.setQuery(querytosend);
+            query.send(handleQueryResponse);
         }
 
         function getChannelCondition(channel) {
             var sql="";
             if (channel == channels[0]) {
-                sql += "AND (D like 'x' OR E like 'x' OR F like 'x' OR G like 'x' OR H like 'x') ";
+                sql += " AND (D like 'x' OR E like 'x' OR F like 'x' OR G like 'x' OR H like 'x') ";
             }
 
             if (channel == channels[1]) {
-                sql += "AND (I like 'x') ";
+                sql += " AND (I like 'x') ";
             }
 
             if (channel == channels[2]) {
-                sql += "AND (J like 'x' OR K like 'x') ";
-                }
-                console.log(sql);
+                sql += " AND (J like 'x' OR K like 'x') ";
+            }
+            console.log(sql);
             return sql;
         }
 
