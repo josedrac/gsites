@@ -64,10 +64,18 @@ div.content_aplicaciones {
 }
 
 div.app {
-    border: 5px solid #F4F7F5;
+    border: 15px solid #F4F7F5;
     float: left;
     width: 305px;
-        height:216px;
+        height:185px;
+}
+.app.left {
+    border-right: 5px solid #F4F7F5;
+    border-left: 10px solid #F4F7F5;
+}
+.app.right {
+    border-right: 10px solid #F4F7F5;
+    border-left: 5px solid #F4F7F5;
 }
 
 h3.app_titulo {
@@ -75,7 +83,7 @@ h3.app_titulo {
         color: #0078D2;
         font-size: 20px;
         font-weight: lighter;
-        margin-bottom:5px;
+        margin-bottom:40px;
 }
 button.btn {
         background: #0079C1;
@@ -92,7 +100,6 @@ button.btn {
         text-align: center;
         font-size: 12px;
         vertical-align: middle;
-        height: 1.75em;
         padding-left: 0;
         padding-right: 0;
         padding-bottom: 2px;
@@ -106,7 +113,11 @@ button.btn {
         margin-right:10px;
         margin-bottom: 0px;
         margin-top:5px;
-        width:72px;
+        width:80px;
+        padding: 8px;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
 }
 
 button.btn:hover{
@@ -178,22 +189,23 @@ color:#0078D2;
 
 
 .listacategorias{
-heigth: 114px;
-width:100%;
-
+    heigth: 114px;
+    width:100%;
+    font-size: 13px;
 }
  .app .col0 {
                 //width:90px;
                 width:29.50819672131148%;
                 float:left;
-                height: 205px;
+                height: 175px;
                 text-align:center;
    }
 
    .app .col1 {
-                //width:210px;
                 width:68.85245901639344%;
                 float:left;
+                position: relative;
+                height:175px;
    }
 </style>
 
@@ -251,10 +263,20 @@ width:100%;
         }
 
         .app {
-                border: 5px solid #F4F7F5;
+                border: 15px solid #F4F7F5;
+                
+                border-right: 10px solid #F4F7F5;
                 float: left;
                 width: 305px;
                 height:216px;
+        }
+        .app.left {
+            border-right: 5px solid #F4F7F5;
+            border-left: 10px solid #F4F7F5;
+        }
+        .app.right {
+            border-right: 10px solid #F4F7F5;
+            border-left: 5px solid #F4F7F5;
         }
 
 
@@ -285,9 +307,9 @@ width:100%;
 <div class="content_aplicaciones">
 
 
-        <div class="app">
+        <div class="app left">
                 <div class="col0">
-                        <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-4.png" alt="" class="ico">
+                        <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-4.png" alt="" class="ico">
                 </div>
                 <div class="col1">
                         <h3 class="app_titulo">Digitalizar</h3>
@@ -296,9 +318,9 @@ width:100%;
                 </div>
         </div>
 
-        <div class="app">
+        <div class="app right">
                 <div class="col0">
-                    <img src="https://bbva-implantaciones-eyp.googlecode.com/svn/trunk/img/ico-4.png" alt="" class="ico">
+                    <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-05.png" alt="" class="ico">
                 </div>
                 <div class="col1">
                         <h3 class="app_titulo">Remotizar</h3>
