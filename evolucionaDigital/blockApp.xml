@@ -197,6 +197,7 @@ color:#0078D2;
                 width:68.85245901639344%;
                 float:left;
                 position: relative;
+                height:205px;
    }
 </style>
 
@@ -254,10 +255,20 @@ color:#0078D2;
         }
 
         .app {
-                border: 5px solid #F4F7F5;
+                border: 15px solid #F4F7F5;
+                
+                border-right: 10px solid #F4F7F5;
                 float: left;
                 width: 305px;
                 height:216px;
+        }
+        .app.left {
+            border-right: 5px solid #F4F7F5;
+            border-left: 10px solid #F4F7F5;
+        }
+        .app-right {
+            border-right: 10px solid #F4F7F5;
+            border-left: 5px solid #F4F7F5;
         }
 
 
@@ -288,7 +299,7 @@ color:#0078D2;
 <div class="content_aplicaciones">
 
 
-        <div class="app">
+        <div class="app left">
                 <div class="col0">
                         <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-4.png" alt="" class="ico">
                 </div>
@@ -299,7 +310,7 @@ color:#0078D2;
                 </div>
         </div>
 
-        <div class="app">
+        <div class="app right">
                 <div class="col0">
                     <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-05.png" alt="" class="ico">
                 </div>
