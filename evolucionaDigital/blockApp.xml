@@ -314,7 +314,7 @@ color:#0078D2;
                 <div class="col1">
                         <h3 class="app_titulo">Digitalizar</h3>
                         <div id='cursosEscenario' class='listacategorias'>Esta guía te ayudará a digitalizar a tu cliente</div>
-                        <button id="escenario" class="btn" type="button">Acceder</button>
+                        <button id="digitalizar" class="btn" type="button">Acceder</button>
                 </div>
         </div>
 
@@ -325,7 +325,7 @@ color:#0078D2;
                 <div class="col1">
                         <h3 class="app_titulo">Remotizar</h3>
                         <div id='cursosGestion' class='listacategorias'>Esta guía te ayudará a trasladar a tus clientes con perfil remoto al servicio de BBVA contigo</div>
-                        <button id="gestion" class="btn" type="button">Acceder</button>
+                        <button id="remotizar" class="btn" type="button">Acceder</button>
                 </div>
         </div>
 </div>
@@ -334,6 +334,15 @@ color:#0078D2;
 
 <script type="text/javascript">
 
+
+      function addURL() {
+              var baseUrl = 'https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar';
+              document.getElementById("digitalizar").onclick = function(){ window.open(baseUrl+'/digitalizar','_parent');};
+              document.getElementById("remotizar").onclick = function(){ window.open(baseUrl+'/remotizar','_parent');};
+          }
+
+          addURL();
+  
 
 </script>
 
