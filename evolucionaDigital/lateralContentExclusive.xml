@@ -87,7 +87,7 @@
 	        }
 
 	        function addURL() {
-	            document.getElementById("exclusive").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/dcdc');};
+	            document.getElementById("exclusive").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/dcbc');};
 	        }
 
 	        addURL();
