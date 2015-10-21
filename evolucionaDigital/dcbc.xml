@@ -85,8 +85,8 @@
 			margin: 15px 0;
 		}
 		.text, .media {
-			width: 48%;
-			padding: 0 1%;
+			width: 44%;
+    		padding: 0 3%;
 			float: left;
 		} 
 		.text p {
