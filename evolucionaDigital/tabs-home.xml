@@ -281,11 +281,12 @@
             }
 
 			for(var i=0; i < filas && i < 4; i++) {
+				var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
 			   	html += "<div class='block-newMobile'>";
 			   	html += "<div class='text'>";
 			   	html += "<h2>" + data2.getValue(i,1) + "</h2>";
 			   	html += "<p>" + data2.getValue(i,3) + "</p>";
-			   	html += "<button onclick=javascript:Go('" + data2.getValue(i,8) + "')>Más información</button>";
+			   	html += "<button onclick=javascript:Go('" + url + "')>Más información</button>";
 			   	html += "</div>";
 			   	html += "<div class='img'>";
 			   	if(data2.getValue(i,6) != null && typeof data2.getValue(i,6) != 'undefined' && data2.getValue(i,6) !== undefined && data2.getValue(i,6) != "") {
