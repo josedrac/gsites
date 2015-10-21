@@ -9,7 +9,6 @@
 	<Require feature="setprefs" />
   </ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<UserPref name="textInit" display_name="Text init" required="true" />
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -47,18 +46,6 @@
 			font-weight: normal;
 		}
 		/* @end */
-
-		#textInit {
-			font-size: 12px;
-    		padding: 0px 5px;
-		}
-
-		#textInit p {
-			margin: 0;
-			margin-bottom: 35px;
-			color: #666666;
-			line-height: 20px;
-		}
 
 		.implantation {
 			font-family: arial, sans-serif;
@@ -259,7 +246,6 @@
 		var gadgetHelper = null;
 		var prefs = new _IG_Prefs();
 	 	var urlTable = prefs.getString("_table_query_url");
-	 	var textInit = prefs.getString("textInit");
 	 	_IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 	 	function loadVisualizationAPI() {
@@ -302,7 +288,7 @@
 			var query = new google.visualization.Query(urlTable, opts);
 			var querytosend = "select * where (A <> 'IdImplantacion')";
 			querytosend = querytosend.concat(getQueryParameters());
-			var orderQuery = " order by G, F"
+			var orderQuery = " order by G, F desc"
 			querytosend = querytosend.concat(orderQuery);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
@@ -315,7 +301,6 @@
 			var pagActual = 1;
 			var html = "";
 
-      html += "<div id='textInit'><p>"+textInit+"</p></div>";
 			if(filas < 1) {
     			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
             }
