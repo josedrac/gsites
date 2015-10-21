@@ -237,6 +237,7 @@
         }
 
         function showAll(){
+            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Todos","_parent");
 
         }
   </script>
