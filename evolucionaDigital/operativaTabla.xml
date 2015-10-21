@@ -112,7 +112,7 @@
         border-right: 1px solid #E5E5E5;
         border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5; }
     .firstcol {
-        width: 490px !important;
+        width: 570px !important;
         border-left: 0;
     }
 
@@ -220,11 +220,11 @@
 
                 html +=  "<div class='row'>";
                 html +=     "<div class='colBody firstcol'>"+data.getValue(i,2)+"</div>";
-                html +=     "<div class='colBody'>a</div>";
-                html +=     "<div class='colBody'>b</div>";
-                html +=     "<div class='colBody'>c</div>";
-                html +=     "<div class='colBody'>d</div>";
-                html +=     "<div class='colBody'>e</div>";
+                html +=     "<div class='colBody'>getIcon(data, i, 3)</div>";
+                html +=     "<div class='colBody'>getIcon(data, i, 6)</div>";
+                html +=     "<div class='colBody'>getIcon(data, i, 5)</div>";
+                html +=     "<div class='colBody'>getIcon(data, i, 7)</div>";
+                html +=     "<div class='colBody'>getIcon(data, i, 8)</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
             }
@@ -246,6 +246,27 @@
             return false;
         }
 
+        function getIcon(data, row, column) {
+            var html="";
+            if (data.getValue(row, column) != 'x') {
+                return html = "<div style='text-align:center;'>-</div>";
+            }
+
+            var iconCols = {
+                3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                5: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                8: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
+                9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
+                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16]
+                };
+
+            html += "<div><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+
+            retun html;
+        }
 
   </script>
     ]]>
