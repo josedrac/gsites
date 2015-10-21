@@ -188,15 +188,15 @@
 
         function getChannelCondition(channel) {
             var sql="";
-            if (channel == channels[0]) {
+            if (channel == channels[1]) {
                 sql += " AND (D like 'x' OR E like 'x' OR F like 'x' OR G like 'x' OR H like 'x') ";
             }
 
-            if (channel == channels[1]) {
+            if (channel == channels[2]) {
                 sql += " AND (I like 'x') ";
             }
 
-            if (channel == channels[2]) {
+            if (channel == channels[3]) {
                 sql += " AND (J like 'x' OR K like 'x') ";
             }
             console.log(sql);
