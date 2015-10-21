@@ -52,7 +52,7 @@
             cursor: pointer;
             position: relative;
             overflow: visible;
-            width: 110px;
+            width: 130px;
             font-size: 11px;
             height: 20px;
             font-weight: bold;
