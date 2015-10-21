@@ -272,9 +272,13 @@ border-top-right-radius: 5px;
 	 color:#fff;
 	}
 
-  .external_link{
+  .externallink{
+      color: #0078d2;
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      padding-bottom: 10px;
       text-align: right;
-
   }
 
 
@@ -285,7 +289,7 @@ border-top-right-radius: 5px;
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-<a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/" class="external_link">
+<a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/" class="externallink">
     [Volver a evoluciona]
 </a>
 <div class="cabeceramenu">
