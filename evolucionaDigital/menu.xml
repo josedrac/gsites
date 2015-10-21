@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-    <ModulePrefs height="60" title="ED - menu.xml">
+    <ModulePrefs height="70" title="ED - menu.xml">
         <Require feature="dynamic-height"/>
         <Require feature="idi"/>
         <Require feature="locked-domain"/>
@@ -272,6 +272,11 @@ border-top-right-radius: 5px;
 	 color:#fff;
 	}
 
+  .external_link{
+      text-align: right;
+
+  }
+
 
 </style>
 
@@ -280,7 +285,9 @@ border-top-right-radius: 5px;
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-
+<a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/" class="external_link">
+    [Volver a evoluciona]
+</a>
 <div class="cabeceramenu">
   <ul>
 	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/evolucionadigital/" target="_parent"  title="home"/></li>
