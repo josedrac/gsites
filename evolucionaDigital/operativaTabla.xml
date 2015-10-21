@@ -229,6 +229,7 @@
                 html +=     "<div class='colBody'>c</div>";
                 html +=     "<div class='colBody'>d</div>";
                 html +=     "<div class='colBody'>e</div>";
+                html +=     "<div class='colBody'>f</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
             }
