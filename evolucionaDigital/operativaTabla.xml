@@ -220,11 +220,11 @@
 
                 html +=  "<div class='row'>";
                 html +=     "<div class='colBody firstcol'>"+data.getValue(i,2)+"</div>";
-                html +=     "<div class='colBody'>getIcon(data, i, 3)</div>";
-                html +=     "<div class='colBody'>getIcon(data, i, 6)</div>";
-                html +=     "<div class='colBody'>getIcon(data, i, 5)</div>";
-                html +=     "<div class='colBody'>getIcon(data, i, 7)</div>";
-                html +=     "<div class='colBody'>getIcon(data, i, 8)</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 3)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 6)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 7)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
             }
