@@ -165,7 +165,12 @@
                 if (isSearchDone()) {
                     var channel = getSelectedChannel();
                     var product = getSelectedProduct();
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
+                    if (channel == "Todos") {
+                       querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
+                    }
+                    else {
+                       querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
+                    }
                 }
                 else {
 				    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Valores' order by B";
@@ -184,7 +189,7 @@
 
 
         function renderPage() {
-            var html = "Tabla resultados";
+            var html = "";
             html += createHeader();
             html += createBody();
 		    document.getElementById('listportales').innerHTML += html;
