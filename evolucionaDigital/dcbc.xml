@@ -10,7 +10,6 @@
 <UserPref name="Title" default_value="" display_name="Title" required="true" />
 <UserPref name="Description" default_value="" display_name="Description" required="true" />
 <UserPref name="Link" default_value="" display_name="Link" required="true" />
-<UserPref name="Image" default_value="" display_name="Image" required="true" />
 <UserPref name="Video" default_value="" display_name="Video" required="true" />
 
  <Content type="html" charset="UTF-8">
@@ -114,7 +113,6 @@
 		var Title = prefs.getString("Title");
         var Description = prefs.getString("Description");
         var Link = prefs.getString("Link");
-        var Image = prefs.getString("Image"); 
         var Video = prefs.getString("Video"); 
         
     	html += "<div class='dcbc'>";
@@ -124,7 +122,7 @@
 		html += "		<button class='btn' onclick=javascript:Go('https://www.nextinit.com/login.jsp')>Acceder</button>";
 		html += "	</div>";
 		html +=	"	<div class='media'>";
-		html +=	"		<img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/CBC.png'>";
+		html +=	"		<iframe src='" + Video + "' allowfullscreen='true' allowScriptAccess='always' style='border: 0px solid #AAA; width:600px; height:400px;'></iframe>";
 		html +=	"	</div>";
 		html += "	<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/>";
 		html += "</div>";        
@@ -174,11 +172,6 @@
 		       	Link: <input type="text" size="100" id="Link" value="__UP_Link__" onchange="registra('Link')"/>                   
 		    </td>
 		</tr>
-	    <tr>
-	        <td>
-				Image: <input type="text" size="100" id="Image" value="__UP_Image__" onchange="registra('Image')"/>
-			</td>
-	    </tr>
 	    <tr>
 	        <td>
 				Video: <input type="text" size="100" id="Video" value="__UP_Video__" onchange="registra('Video')"/>
