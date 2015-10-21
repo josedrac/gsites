@@ -66,7 +66,7 @@ div.content_aplicaciones {
 div.app {
     border: 15px solid #F4F7F5;
     float: left;
-    width: 305px;
+    width: 290px;
         height:185px;
 }
 .app.left {
