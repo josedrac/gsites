@@ -168,8 +168,10 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
-                                if (isSearchDone() && products[product] == getSelectedProduct() ) {
+                                if ((isSearchDone() && products[product] == getSelectedProduct()) ||
+                                (!isSearchDone && product == "Cuentas")) {
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
+                                    continue;
                                 }
                                 html += "<option value='"+products[product]+"'>"+products[product]+"</option>";
             }
