@@ -168,7 +168,6 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
-                console.log(products[product]);
                                 if ((isSearchDone() && products[product] == getSelectedProduct()) ||
                                 (!isSearchDone() && products[product] == "Cuentas")) {
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";

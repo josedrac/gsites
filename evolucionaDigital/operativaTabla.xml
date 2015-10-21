@@ -175,7 +175,6 @@
             if (isSearchDone()) {
                 var channel = getSelectedChannel();
                 var product = getSelectedProduct();
-                console.log(product);console.log(channel);
                 if (product == "Todos") {
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
                     query.setQuery(querytosend);
