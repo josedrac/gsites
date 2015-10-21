@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+	<ModulePrefs title="ED-lateralJornadas.xml" height ="260">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>   
+		<Require feature="setprefs" />   
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+		
+		<head>
+			<style type="text/css">
+		        @font-face {
+		            font-family: 'BBVA Web Light';
+		            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+		            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		            font-style: normal;
+		            font-weight: normal;
+		        }
+		        #content {
+		        	font-family: BBVA Web Light;
+		        }
+		        .breadcrumb a {
+					font-size: 12px;
+				    font-family: Arial;
+				    font-weight: bold;
+				    color: #0072C9;
+				    text-decoration: none;
+				    text-transform: capitalize;
+				}
+				.breadcrumb img {
+					padding: 0 5px;
+					position: relative;
+			    	top: 2px;
+				}
+		    </style>
+		</head>
+
+		<div id="content"></div>
+
+	    <script type="text/javascript">
+
+			var baseLink = "https://sites.google.com/a/bbva.com/evolucionadigital";
+
+			breadcrumb(gadgets.util.getUrlParameters().parent);
+
+			function breadcrumb (path) {
+
+				// Me quedo con el trozo de la url que me interesa
+				var link = path.toLowerCase().split('evolucionadigital')[1].split('/');
+				link.splice(0,1);
+
+				breadcrumb = "<div class='breadcrumb'>"
+				// Primer nivel
+				breadcrumb += "<a href='" + baseLink + "' target='_parent'>Home</a>";
+
+				// Segundo nivel
+				if(link[0] != "") {
+					breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
+					breadcrumb += " <a href='" + baseLink + "/" + link[0] + "' target='_parent'>" + link[0] + "</a>";
+				} 
+
+				// Tercer nivel
+				if(link[1] != undefined) {
+					linkExtend = link[1].toLowerCase().split('=');
+					breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
+					breadcrumb += " <a href='" + baseLink + "/" + link[0] + "/" + linkExtend[0] + "=" + linkExtend[0] + "' target='_parent'>" + linkExtend[1] + "</a>";
+				} 
+
+				breadcrumb += "</div>"
+
+				// Muestro el resultado
+				var html = document.getElementById('content');
+				html.innerHTML = breadcrumb;
+
+			}
+
+		</script>
+
+		]]>
+	 </Content>
+</Module>
