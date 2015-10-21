@@ -244,7 +244,10 @@ border-top-right-radius: 5px;
 	background-color: rgb(0, 80, 152) !important;
 	box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 5px inset !important;;
 }
-.externallink{
+.externallink,
+externallink:hover,
+externallink:visited,
+externallink:focus{
       color: #0078d2;
       display: block;
       font-size: 12px;
