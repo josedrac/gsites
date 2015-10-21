@@ -246,8 +246,8 @@
             for (var i=0;i<filas;i++) {
                 console.log('nuevo');
                 console.log(data.getValue(i,1));
-                if (data.getValue(i,1) == 'null') continue;
-                if (data.getValue(i,2) == 'null') continue;
+                if (data.getValue(i,1) == 'null' || data.getValue(i,1) == null) continue;
+                if (data.getValue(i,2) == 'null' || data.getValue(i,2) == null) continue;
 
                 if (previousAction != data.getValue(i,1)) {
                     previousAction = data.getValue(i,1);
