@@ -244,6 +244,14 @@ border-top-right-radius: 5px;
 	background-color: rgb(0, 80, 152) !important;
 	box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 5px inset !important;;
 }
+.externallink{
+      color: #0078d2;
+      display: block;
+      font-size: 12px;
+      font-weight: bold;
+      padding-bottom: 10px;
+      text-align: right;
+  }
 </style>
 <!--[if IE]>
 <style type="text/css">
@@ -272,14 +280,7 @@ border-top-right-radius: 5px;
 	 color:#fff;
 	}
 
-  .externallink{
-      color: #0078d2;
-      display: block;
-      font-size: 12px;
-      font-weight: bold;
-      padding-bottom: 10px;
-      text-align: right;
-  }
+
 
 
 </style>
