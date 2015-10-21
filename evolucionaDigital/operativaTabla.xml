@@ -267,6 +267,7 @@
             html += "<div><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
 
             retun html;
+
         }
 
   </script>
