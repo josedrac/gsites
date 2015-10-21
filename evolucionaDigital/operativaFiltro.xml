@@ -170,7 +170,7 @@
             for (var product in products) {
                 console.log(product);
                                 if ((isSearchDone() && products[product] == getSelectedProduct()) ||
-                                (!isSearchDone() && product == "Cuentas")) {
+                                (!isSearchDone() && products[product] == "Cuentas")) {
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
                                     continue;
                                 }
