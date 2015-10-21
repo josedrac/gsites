@@ -253,11 +253,11 @@
        }
 
         function getSelectedChannel() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).replace(/+/g, ' ');
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).replace(/\+/g, ' ');
         }
 
         function getSelectedProduct() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/+/g, ' ');
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
         }
 
         function isSearchDone() {
