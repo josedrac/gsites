@@ -249,7 +249,8 @@
         function getIcon(data, row, column) {
             var html="";
             if (data.getValue(row, column) != 'x') {
-                return html = "<div style='text-align:center;'>-</div>";
+                html = "<div style='text-align:center;'>-</div>";
+                return html;
             }
 
             var iconCols = {
