@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 	<ModulePrefs title="ED-appMobile.xml" height ="500">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>   
-		<Require feature="setprefs" />   
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
 	</ModulePrefs>
 
 	<Content type="html">
 	    <![CDATA[
 		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-		
+
 		<head>
 			<style type="text/css">
 				@font-face {
@@ -124,7 +124,9 @@
 				</div>
 			</div>
 			<div class="col-img">
-				<img id="imgMobile" src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png">
+				<a href="https://movil.bbva.es">
+					<img id="imgMobile" src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png">
+				</a>
 			</div>
 		</div>
 
