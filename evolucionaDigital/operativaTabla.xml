@@ -140,7 +140,9 @@
         border-right: 0 !important;
         margin-bottom: 20px;
     }
-
+    .centerText {
+        text-align:center;
+    }
     </style>
 
 
@@ -223,8 +225,8 @@
                 html +=     "<div class='colBody'>"+getIcon(data, i, 3)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 6)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
-                html +=     "<div class='colBody'>"+getIcon(data, i, 7)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 9)+"</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
             }
@@ -250,7 +252,7 @@
             var html="";
             console.log('llego');
             if (data.getValue(row, column) != 'x') {
-                html = "<div style='text-align:center;'>-</div>";
+                html = "<div class='centerText'>-</div>";
                 return html;
             }
 
@@ -265,7 +267,7 @@
                 10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16]
                 };
 
-            html += "<div><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+            html += "<div style='height: 25px;'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
             console.log(html);
             return html;
 
