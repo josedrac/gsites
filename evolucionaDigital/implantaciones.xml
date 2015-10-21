@@ -288,7 +288,7 @@
 			var query = new google.visualization.Query(urlTable, opts);
 			var querytosend = "select * where (A <> 'IdImplantacion')";
 			querytosend = querytosend.concat(getQueryParameters());
-			var orderQuery = " order by G, F desc"
+			var orderQuery = " order by G desc, F desc"
 			querytosend = querytosend.concat(orderQuery);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
