@@ -179,7 +179,7 @@
                 }
             }
             else {
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Valores' order by B";
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
@@ -290,8 +290,8 @@
         }
 
         function viewAllButton(){
-            var html = "<div id='buttonResults'>";
-            html +=         "<button id='showResults' onclick='javascript:showResults();'>Ver resultados</button>";
+            var html = "<div id='buttonViewAll'>";
+            html +=         "<button id='viewAll' onclick='javascript:showResults();'>Ver resultados</button>";
             html +=    "</div>";
             return html;
         }
