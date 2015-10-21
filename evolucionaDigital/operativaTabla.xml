@@ -268,7 +268,6 @@
 
         function getIcon(data, row, column) {
             var html="";
-            console.log('llego');
             if (data.getValue(row, column) != 'x') {
                 html = "<div class='centerText'>-</div>";
                 return html;
@@ -286,7 +285,6 @@
                 };
 
             html += "<div style='height: 25px;'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
-            console.log(html);
             return html;
 
         }
