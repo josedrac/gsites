@@ -124,9 +124,7 @@
 				</div>
 			</div>
 			<div class="col-img">
-				<a href="https://movil.bbva.es">
 					<img id="imgMobile" src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png">
-				</a>
 			</div>
 		</div>
 
@@ -148,7 +146,7 @@
 	        }
 
 	        function addURL() {
-	            document.getElementById("imgMobile").onclick = function(){ openMobile('https://buzz-html.s3.amazonaws.com/feature-moomx-newLanding/apps/buzz/index.html');};
+	            document.getElementById("imgMobile").onclick = function(){ openMobile('https://movil.bbva.es');};
 	            document.getElementById("buttonDemo").onclick = function(){ openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
 	            document.getElementById("buttonTour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
 	            document.getElementById("buttonMovil").onclick = function(){ openMobile('');};
