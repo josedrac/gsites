@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-	<ModulePrefs title="ED-lateralJornadas.xml" height ="260">
+	<ModulePrefs title="ED-breadcrumb.xml" height ="30">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>   
