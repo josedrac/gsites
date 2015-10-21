@@ -184,9 +184,6 @@
 
         function handleQueryResponse(response) {
             data = response.getDataTable();
-            console.log(data);
-
-            // var pagTotales = Math.ceil(filas/4);
             renderPage();
         }
 
