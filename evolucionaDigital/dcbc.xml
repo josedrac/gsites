@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+ 	<ModulePrefs title="ED-dcbc.xml">
+    	<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>   
+		<Require feature="setprefs" />   
+  	</ModulePrefs>
+
+<UserPref name="Title" default_value="" display_name="Title" required="true" />
+<UserPref name="Description" default_value="" display_name="Description" required="true" />
+<UserPref name="Link" default_value="" display_name="Link" required="true" />
+<UserPref name="Image" default_value="" display_name="Image" required="true" />
+<UserPref name="Video" default_value="" display_name="Video" required="true" />
+
+ <Content type="html" charset="UTF-8">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+        /* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+
+		.btn {
+		    background: #0079C1;
+		    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		    background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+		    background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+		    -webkit-border-radius: .3em;
+		    -moz-border-radius: .3em;
+		    border-radius: .3em;
+		    text-align: center;
+		    font-size: 12px;
+		    vertical-align: middle;
+		    height: 1.75em;
+		    padding-left: .9em;
+		    padding-right: .9em;
+		    padding-bottom: 2px;
+		    border: .1em solid #00559D;
+		    color: white;
+		    cursor: pointer;
+		    position: relative;
+		    text-align: center;
+		    vertical-align: middle;
+		    margin: 20px 20px 15px 0;
+		    width: 90px;
+		}
+
+		.dcbc {
+			font-family: BBVA Web Light, Arial;
+			margin: 15px 0;
+		}
+		.text, .media {
+			width: 48%;
+			padding: 0 1%;
+			float: left;
+		} 
+		.text p {
+			color: #434A58;
+	    	font-size: 12px;
+		}
+		.title {
+		    font-size: 19px;
+		    color: #0078D2;
+		    font-weight: bold;
+		}
+    </style>
+
+
+	<div class="container">
+		<div id="nivel"></div>
+		<div id="events"></div>
+	</div>
+
+   <script type="text/javascript">
+	   	var html="";        
+	   	var gadgetHelper = null;
+	   	var prefs = new gadgets.Prefs();         
+	       
+		var Title = prefs.getString("Title");
+        var Description = prefs.getString("Description");
+        var Link = prefs.getString("Link");
+        var Image = prefs.getString("Image"); 
+        var Video = prefs.getString("Video"); 
+        
+    	html += "<div class='dcbc'>";
+		html += "	<div class='text'>";
+		html += "		<h2 class='title'>NEXTINIT: ¿Cúal es tu reto?</h2>";
+		html += "		<p>Localiza e identifica el mayor potencial de tu organización, o áreas por las que te preocupes; (por ejemplo, aumentar la eficiencia, reducir costes, etc.) Aplicando la inteligencia colectiva de todos los que te rodean, serás capaz de llegar a soluciones únicas para enfrentar estos desafíos.</p>";  
+		html += "		<button class='btn' onclick=javascript:Go('https://www.nextinit.com/login.jsp')>Acceder</button>";
+		html += "	</div>";
+		html +=	"	<div class='media'>";
+		html +=	"		<img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/CBC.png'>";
+		html +=	"	</div>";
+		html += "	<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/>";
+		html += "</div>";        
+
+     	
+     	document.getElementById('events').innerHTML += html;
+     	
+     				
+		function Go(destination, target)
+		{
+			window.open(destination, target);
+			return false;
+		}
+		
+	</script>
+   
+    ]]>
+  	</Content>
+  
+  	<Content type="html" view="configuration" preferred_height="550">
+
+	<![CDATA[
+	<style type="text/css">
+	    
+		table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+		
+		table td input,
+		textarea {
+			color: #000;
+			font-size: 11px;				
+		}
+	 
+	</style>
+ 
+	<table width="100%" border="0" id="tablaconfig">  
+	    <tr>       
+		    <td>
+		       	Title: <input type="text" size="100" id="Title" value="__UP_Title__"  onchange="registra('Title')"/>                   
+		    </td>
+		</tr>
+		<tr>       
+		   	<td>
+		       	Link: <input type="text" size="100" id="Link" value="__UP_Link__" onchange="registra('Link')"/>                   
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				Image: <input type="text" size="100" id="Image" value="__UP_Image__" onchange="registra('Image')"/>
+			</td>
+	    </tr>
+	    <tr>
+	        <td>
+				Video: <input type="text" size="100" id="Video" value="__UP_Video__" onchange="registra('Video')"/>
+			</td>
+	    </tr>
+	    <tr>       
+		   	<td>
+		       	Description: <textarea id="Description" style="height: 25px; width: 80%" onchange="registra('Description')" >__UP_Description__</textarea>                  
+		    </td>
+		</tr>
+	</table>	
+
+	<script type="text/javascript">           
+	    // Get userprefs
+	    var prefs = new gadgets.Prefs();           
+
+	    function registra(variable) {	
+			prefs.set(variable,document.getElementById(variable).value);
+		} 
+		gadgets.window.adjustHeight();
+	</script>   	
+	 
+ ]]>	
+ </Content>
+  
+</Module>
