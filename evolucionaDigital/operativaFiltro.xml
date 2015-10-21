@@ -124,7 +124,7 @@
 
     #buttonViewAll {
         margin-top: 10px;
-        margin-left: 10px;
+        margin-left: 130px;
     }
 
     #viewAll {
