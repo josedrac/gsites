@@ -12,6 +12,7 @@
 		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 		
 		<head>
+			<style type="text/css">
 			@font-face {
             font-family: 'BBVA Web Light';
             src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
