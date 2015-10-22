@@ -53,8 +53,8 @@
         label {
     	    display: block;
 		    width: 200px;
-		    padding-bottom: 20px;
-		    font-size: 13px;
+		    padding-bottom: 15px;
+		    font-size: 15px;
 		    color: rgb(67,74,88);
 		    font-weight: bold;
 		    font-family:BBVA Web Light, Arial;
@@ -63,15 +63,15 @@
     	    width: 200px;
 		    height: 30px;
 		    font-size: 13px;
-		    margin-bottom: 20px;
+		    margin-bottom: 15px;
         }
 
         .btn {
             display: block;
 		    background: white;
 		    color: rgb(67,74,88);
-		    border: 1px solid rgb(238,238,238);
-		    border-bottom: 1px solid rgb(238,238,238);
+		    border: 1px solid rgb(198,198,198);
+		    border-bottom: 1px solid rgb(198,198,198);
 		    font-weight: bold;
 		    width: 60px;
 		    padding: 0;
