@@ -364,7 +364,7 @@
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdNovedad' and P <> 'x'";
+				var querytosend = "select * where A <> 'IdNovedad' and P <> 'x' order by C";
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
 
@@ -400,7 +400,7 @@
                }
 
 			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
-			   html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
+			   html += "<div id='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
 			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
 			   html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
 			   var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
