@@ -394,7 +394,7 @@
 			   html += "<div id='urlVideo'>";
                if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
 			        html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
-			        html+= "<iframe title="YouTube video player" class="youtube-player" type="text/html" src="//www.youtube.com/embed/tY41TeKFncM?rel=0&amp;wmode=opaque" frameborder="0" allowfullscreen="true" width="480" height="270"></iframe>";
+			        html+= "<iframe class='youtube-player' type='text/html' src='//www.youtube.com/embed/tY41TeKFncM?rel=0&amp;wmode=opaque' frameborder='0' allowfullscreen='true' width='480' height='270'></iframe>";
 
                }else{
 			        html += "<img src='"+data.getValue(i,6)+"'></img></div>";
