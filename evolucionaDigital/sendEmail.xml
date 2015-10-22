@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 	<ModulePrefs title="ED-sendEmail.xml" height ="100">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>   
-		<Require feature="setprefs" />   
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
 	</ModulePrefs>
 
 	<Content type="html">
 	    <![CDATA[
 		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-		
+
 		<head>
 			<style type="text/css">
 			@font-face {
@@ -48,7 +48,7 @@
         .required {
         	float: right;
         	color: #c3381b;
-        	padding-top: 5px;		
+        	padding-top: 5px;
         }
         label {
     	    display: block;
@@ -95,8 +95,15 @@
 		<form id="contact">
 			<label>E-mail del cliente<span class="required">*</span></label>
 			<input name="email"/>
-			<button class="btn">Enviar</button>
-		</form>
+			<button class="btn" onclick="javascript:sendEmail();">Enviar</button>
+        </form>
+
+        <script type="text/javascript">
+            function sendEmail() {
+                console.log(MailApp);
+                console.log('hello');
+            }
+        </script>
 
 		]]>
 	 </Content>
