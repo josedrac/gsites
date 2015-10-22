@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+	<ModulePrefs title="ED-sendEmail.xml" height ="100">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>   
+		<Require feature="setprefs" />   
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+		
+		<head>
+			@font-face {
+            font-family: 'BBVA Web Light';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'BBVA Web Book';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'BBVA Web Medium';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+        .required {
+        	float: right;
+        	color: red;
+        }
+        label {
+        	    display: block;
+			    width: 200px;
+			    padding-bottom: 10px;
+			    font-size: 18px;
+			    color: rgb(67,74,88);
+			    font-weight: bold;
+			    font-family:BBVA Web Light, Arial;
+        }
+        input {
+    	    width: 200px;
+		    height: 30px;
+		    font-size: 15px;
+		    margin-bottom: 10px;
+        }
+
+        .btn {
+            display: block;
+		    background: white;
+		    color: rgb(67,74,88);
+		    border: 2px solid rgb(238,238,238);
+		    border-radius: 4px;
+		    font-weight: bold;
+		    width: 60px;
+		    padding: 0;
+		    font-size: 13px;
+            -webkit-border-radius: .1em;
+            -moz-border-radius: .1em;
+            text-align: center;
+            vertical-align: middle;
+            height: 1.75em;
+            padding-left: 2em;
+            padding-right: 2em;
+            padding-bottom: 2px;
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+		    </style>
+		</head>
+
+		<form id="contact">
+			<label>E-mail del cliente<span class="required">*</span></label>
+			<input name="email"/>
+			<button class="btn">Enviar</button>
+		</form>
+
+		]]>
+	 </Content>
+</Module>
