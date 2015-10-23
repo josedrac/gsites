@@ -152,10 +152,11 @@
                 border: 1px solid #EDEDEF;
                 height: 3em;
                 padding: 1.5em 0 0 0;
-                width: 80%;
+                width: 99%;
                 font-size: 0.7em;
                 background: #F9FAF9;
                 color: #8C9299;
+                margin-top:20px;
             }
 
             .footer-bottom ul{
