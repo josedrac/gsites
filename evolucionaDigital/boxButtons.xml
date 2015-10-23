@@ -118,13 +118,13 @@
     <div id="content_div" class="caja">
         <div class="titulo">Más información</div>
         <ul id="botonera">
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/el-cliente-tiene-un-smartphone-valido'>¿El cliente tiene un smartphone válido?</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/argumentario-utilizacion-app-movil'>Argumentario utilización/venta app móvil</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-validar-un-movil'>Cómo validar un móvil</a></li>
+          <li id="validMobile">¿El cliente tiene un smartphone válido?</li>
+          <li id="appMobile">Argumentario utilización/venta app móvil</li>
+          <li id="validate">Cómo validar un móvil</li>
           <li id="downloadapp">Cómo descargar la app de BBVA</li>
           <li id="confirmuser">Confirmar usuario multicanal</li>
           <li id="login">Login en app BBVA</li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/alta-de-usuario-multicanal'>Alta de usuario multicanal</a></li>
+          <li id="register">Alta de usuario multicanal</li>
           <li id='tour'>Tour por la app</li>
         </ul>
     </div>
@@ -142,7 +142,7 @@
           }
 
           function Go(destination){
-              window.open(destination,'_parent');
+              window.open(destination,'_blank');
               return false;
           }
 
@@ -151,6 +151,10 @@
               document.getElementById("login").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MmU5YzAyMWIzMWQ3NmMzMA');};
               document.getElementById("confirmuser").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6ZjdlZDVkMjBkMWM2YmQw');};
               document.getElementById("downloadapp").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWViYWFkZmEzODQ3ZDRiYQ');};
+              document.getElementById("validate").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MTQzOTZlNGQ3NjAzZmY0Mw');};
+              document.getElementById("register").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MTk2MTc0YmJjYjIxMDk2OQ');};
+              document.getElementById("appMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NjAxYzE3NjEwMDRiNTAxZg');};
+              document.getElementById("validMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWI4NWI5MGEyYTlhYjcxNw');};
 
           }
 
