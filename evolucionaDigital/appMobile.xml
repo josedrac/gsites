@@ -131,7 +131,8 @@
                 <iframe src="https://movil.bbva.es" height="650" width="360"></iframe>
             </div>
 		</div>
-        $(function() {
+       		<script type="text/javascript">
+	    $(function() {
             $("#dialog").dialog({autoOpen : false, modal : true, show : "blind", hide : "blind"});
 
                 $("#imgMobile").click(function() {
@@ -139,8 +140,7 @@
                         return false;
                           });
                           });
-		<script type="text/javascript">
-	        function openMobile(destination) {
+     function openMobile(destination) {
 	            var width = 360;
 	            var height = 650;
 	            var left = (window.screen.width / 2) - ((width / 2) + 10);
