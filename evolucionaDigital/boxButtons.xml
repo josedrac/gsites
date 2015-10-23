@@ -137,27 +137,26 @@
 
           function createBody(digitalizar) {
               if(digitalizar) {
-                  return "<div id='content_div' class='caja'>
-                              <div class='titulo'>Más información</div>
-                              <ul id='botonera'>
-                                <li id='validMobile'>¿El cliente tiene un smartphone válido?</li>
-                                <li id='appMobile'>Argumentario utilización/venta app móvil</li>
-                                <li id='validate'>Cómo validar un móvil</li>
-                                <li id='downloadapp'>Cómo descargar la app de BBVA</li>
-                                <li id='confirmuser'>Confirmar usuario multicanal</li>
-                                <li id='login'>Login en app BBVA</li>
-                                <li id='register'>Alta de usuario multicanal</li>
-                                <li id='tour'>Tour por la app</li>
-                              </ul>
+                  return "<div id='content_div' class='caja'><div class='titulo'>Más información</div> \
+                              <ul id='botonera'>\
+                                <li id='validMobile'>¿El cliente tiene un smartphone válido?</li>\
+                                <li id='appMobile'>Argumentario utilización/venta app móvil</li>\
+                                <li id='validate'>Cómo validar un móvil</li>\
+                                <li id='downloadapp'>Cómo descargar la app de BBVA</li>\
+                                <li id='confirmuser'>Confirmar usuario multicanal</li>\
+                                <li id='login'>Login en app BBVA</li>\
+                                <li id='register'>Alta de usuario multicanal</li>\
+                                <li id='tour'>Tour por la app</li>\
+                              </ul>\
                           </div>";
               }
-              return "<div id='content_div' class='caja'>
-                          <div class='titulo'>Más información</div>
-                          <ul id='botonera'>
-                            <li id='cbc'>Remotización en CBC 2.0</li>
-                            <li id='cbcplus'>Remotización en CBC 2.0+</li>
-                            <li id='profile'>¿QUÉ PERFIL DE REMOTIZACIÓN TIENE EL CLIENTE?</li>
-                          </ul>
+              return "<div id='content_div' class='caja'>\
+                          <div class='titulo'>Más información</div>\
+                          <ul id='botonera'>\
+                            <li id='cbc'>Remotización en CBC 2.0</li>\
+                            <li id='cbcplus'>Remotización en CBC 2.0+</li>\
+                            <li id='profile'>¿QUÉ PERFIL DE REMOTIZACIÓN TIENE EL CLIENTE?</li>\
+                          </ul>\
                       </div>";
           }
 
