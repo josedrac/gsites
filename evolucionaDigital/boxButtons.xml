@@ -155,7 +155,7 @@
                           <ul id='botonera'>\
                             <li id='cbc'>Remotización en CBC 2.0</li>\
                             <li id='cbcplus'>Remotización en CBC 2.0+</li>\
-                            <li id='profile'>¿QUÉ PERFIL DE REMOTIZACIÓN TIENE EL CLIENTE?</li>\
+                            <li id='profile'>¿Qué perfil de remotización tiene el cliente?</li>\
                           </ul>\
                       </div>";
           }
@@ -189,7 +189,7 @@
               } else {
                   document.getElementById("cbc").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NGQ1ZWUwZWJiMzkyYjk0ZQ');};
                   document.getElementById("cbcplus").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6Nzg2MWE4OTg4ZGZjZDhlNA');};
-                  document.getElementById("profile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MTE5ZDUzNTk1ODFlYzNhYw');};
+                  document.getElementById("profile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6ZjIyMWFjNDk0Y2VjNDI');};
               }
 
           }
