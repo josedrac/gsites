@@ -139,6 +139,7 @@
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 3;
             line-height: 18px;
+            color: #434a58;
         }
 		.block-linkHelp h2 {
 		    text-overflow: ellipsis;
@@ -197,6 +198,7 @@
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 5;
             line-height: 18px;
+            color: #434a58;
 		}
 		iframe {
 			width: 100%;

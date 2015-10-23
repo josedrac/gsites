@@ -37,6 +37,7 @@
 		        .col-text p {
 		            margin: 0 0 15px;
 		            line-height: 18px;
+		            color: #434a58;
 		        }
 		        .col-text h2 {
 		            margin-bottom: 5px;

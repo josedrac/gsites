@@ -192,6 +192,7 @@ color:#0078D2;
     width:100%;
     font-size: 13px;
     line-height:18px;
+    color: #434a58;
 }
  .app .col0 {
                 //width:90px;

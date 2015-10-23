@@ -121,6 +121,7 @@
         float:left;
         border-bottom: 1px solid #E5E5E5;
         line-height: 35px;
+        color: #434a58;
         }
 
     .colBodyIcon {
