@@ -124,7 +124,7 @@
 
     #buttonViewAll {
         margin-top: 10px;
-        margin-left: 130px;
+        float: right;
     }
 
     #viewAll {
@@ -146,6 +146,7 @@
 
     <script type="text/javascript">
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
+        var channelNames = ['Todos', 'Smartphone app BBVA', 'PC', 'Tablet'];
         var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
 
         renderPage();
@@ -186,10 +187,10 @@
             html +=         "<select id='channelSelector'>";
                 for(var channel in channels)  {
                                 if (isSearchDone() && channels[channel] == getSelectedChannel()) {
-                                    html += "<option value='"+channels[channel]+"' selected='selected'>"+channels[channel]+"</option>";
+                                    html += "<option value='"+channels[channel]+"' selected='selected'>"+channelNames[channel]+"</option>";
                                     continue;
                                 }
-                                html += "<option value='"+channels[channel]+"'>"+channels[channel]+"</option>";
+                                html += "<option value='"+channels[channel]+"'>"+channelNames[channel]+"</option>";
             }
             html +=         "</select>";
             html +=    "</div>";
@@ -229,8 +230,8 @@
         function showResults() {
             var elementProductSelector = document.getElementById('productsSelector');
             var elementChannelSelector = document.getElementById('channelSelector');
-            var selectedProduct = elementProductSelector.options[elementProductSelector.selectedIndex].text;
-            var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].text;
+            var selectedProduct = elementProductSelector.options[elementProductSelector.selectedIndex].value;
+            var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].value;
             window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
         }
 
