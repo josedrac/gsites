@@ -121,9 +121,9 @@
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/el-cliente-tiene-un-smartphone-valido'>¿El cliente tiene un smartphone válido?</a></li>
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/argumentario-utilizacion-app-movil'>Argumentario utilización/venta app móvil</a></li>
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-validar-un-movil'>Cómo validar un móvil</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-descargar-la-app-de-bbva'>Cómo descargar la app de BBVA</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/confirmar-usuario-multicanal'>Confirmar usuario multicanal</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/login-en-app-bbva'>Login en app BBVA</a></li>
+          <li id="downloadapp">Cómo descargar la app de BBVA</li>
+          <li id="confirmuser">Confirmar usuario multicanal</li>
+          <li id="login">Login en app BBVA</li>
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/alta-de-usuario-multicanal'>Alta de usuario multicanal</a></li>
           <li id='tour'>Tour por la app</li>
         </ul>
@@ -148,7 +148,10 @@
 
           function addURL() {
               document.getElementById("tour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
-              document.getElementById("buttonMail").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/contacto');};
+              document.getElementById("login").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MmU5YzAyMWIzMWQ3NmMzMA');};
+              document.getElementById("confirmuser").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6ZjdlZDVkMjBkMWM2YmQw');};
+              document.getElementById("downloadapp").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWViYWFkZmEzODQ3ZDRiYQ');};
+
           }
 
           addURL();
