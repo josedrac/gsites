@@ -300,7 +300,7 @@
 	#userBBVA img{
   		  margin:3px 10px 15px 0;
   		  max-height: 400px;
-        height: 100%;
+        width: 100%;
     }
 
     .icons img {
