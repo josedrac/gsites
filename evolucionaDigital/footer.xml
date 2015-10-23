@@ -17,7 +17,6 @@
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 	<head>
 		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/reset.css" media="all">
-		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/styles-personas.css" media="all">
 		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/buttons.css" media="all">
 		<style type="text/css">
 		  /* @group fonts */
@@ -153,7 +152,7 @@
                 border: 1px solid #EDEDEF;
                 height: 3em;
                 padding: 1.5em 0 0 0;
-                width: 99%;
+                width: 80%;
                 font-size: 0.7em;
                 background: #F9FAF9;
                 color: #8C9299;
@@ -254,7 +253,6 @@
 		</ul>
 	</div>
 	<div class="footer-bottom">
-      <span>Aviso Legal</span>
       <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
   </div>
 </div>

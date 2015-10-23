@@ -173,7 +173,7 @@
             font-size: 18px;
             color: #0078d2;
             font-weight: normal;
-    		
+
         }
         .block-newMobile .text h2 {
             min-height: 60px;
@@ -205,16 +205,17 @@
 	<div class="content">
         <div id="tabs">
             <ul>
-                <li><a href="#tabs-1">Enlaces y ayuda</a></li>
-                <li><a href="#tabs-2">Nuevo en el móvil</a></li>
+                <li><a href="#tabs-1">Nuevo en el móvil</a></li>
+                <li><a href="#tabs-2">Enlaces y ayuda</a></li>
                 <div class="border"></div>
             </ul>
             <div id="tabs-1">
-            	<div id="listLinksHelpers"></div>
+                <div id="listNewMobile"></div>
             </div>
             <div id="tabs-2">
-            	<div id="listNewMobile"></div>
+            	<div id="listLinksHelpers"></div>
             </div>
+
         </div>
 	</div>
 
