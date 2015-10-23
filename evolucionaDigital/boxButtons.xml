@@ -68,7 +68,7 @@
             padding-left: 2px;
             vertical-align: 3px;
             text-decoration: none;
-            font-size: 12px; font-family: Arial;
+            font-size: 13px; font-family: Arial;
             font-weight: bold;
             color: #0073C9;
 					}
@@ -84,7 +84,7 @@
             padding-left: 2px;
 						vertical-align: 3px;
 						text-decoration: none;
-            font-size: 12px; font-family: Arial;
+            font-size: 13px; font-family: Arial;
             font-weight: bold;
 						color: #0073C9;
 					}

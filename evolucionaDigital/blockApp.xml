@@ -83,7 +83,7 @@ h3.app_titulo {
         color: #0078D2;
         font-size: 20px;
         font-weight: lighter;
-        margin-bottom:40px;
+        margin-bottom:30px;
 }
 button.btn {
         background: #0079C1;
@@ -189,9 +189,9 @@ color:#0078D2;
 
 
 .listacategorias{
-    heigth: 114px;
     width:100%;
     font-size: 13px;
+    line-height:18px;
 }
  .app .col0 {
                 //width:90px;
@@ -264,7 +264,7 @@ color:#0078D2;
 
         .app {
                 border: 15px solid #F4F7F5;
-                
+
                 border-right: 10px solid #F4F7F5;
                 float: left;
                 width: 305px;
@@ -342,7 +342,7 @@ color:#0078D2;
           }
 
           addURL();
-  
+
 
 </script>
 

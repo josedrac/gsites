@@ -88,21 +88,21 @@
 
 		.destinatarios {
 		    color: #434A58;
-		    font-size: 12px;
+		    font-size: 13px;
 		    font-family: Arial;
 		    margin-top: 15px;
-		    line-height: 20px;
+		    line-height: 18px;
 		}
 
 		.ambito {
 		    color: #434A58;
-		    font-size: 12px;
+		    font-size: 13px;
 		    font-family: Arial;
-		    line-height: 12px;
+		    line-height: 18px;
 		}
 
 		.ambito span, .destinatarios span {
-		    font-size: 12px;
+		    font-size: 13px;
 		    font-family: Arial;
 		    color: #0078D2;
 		    line-height: 2px;
@@ -110,9 +110,10 @@
 
 		.description {
 		    color: #434A58;
-		    font-size: 12px;
+		    font-size: 13px;
 		    font-family: Arial;
 		    margin-top: 20px;
+		    line-height: 18px;
 		}
 
 		hr{
