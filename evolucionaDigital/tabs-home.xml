@@ -165,7 +165,7 @@
     		vertical-align: bottom;
         }
         .block-newMobile .img img {
-            max-width: 100%;
+            max-width: 110px;
 		    width: auto;
 		    float: right;
         }
