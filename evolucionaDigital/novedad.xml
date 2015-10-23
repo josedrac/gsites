@@ -291,15 +291,14 @@
 
     /*aqui*/
 	#userBBVA{
-		float:left;
 		margin-left:15px;
 		width:620px;
+
 	}
 	#userBBVA img{
-	    float:left;
-		margin:3px 10px 15px 0;
-		width:595px;
-		height:410px;
+  		  margin:3px 10px 15px 0;
+  		  max-height: 400px;
+        height: 100%;
     }
 
     .icons img {
@@ -352,6 +351,8 @@
     }
     #video {
         clear:both;
+        text-align:center;
+        padding-right: 50px;
     }
 	#video iframe{
 	margin:0;
@@ -402,7 +403,7 @@
                 if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
                     html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:600px; height:400px; '></iframe>";
                 }else{
-                    html +="<img src='"+data.getValue(i,6)+"' />";
+                    html +="<img src='"+data.getValue(i,17)+"' />";
 			    }
                 html += "</div>";
                 html += "<div class='description'>"+data.getValue(i,4)+"</div>";
