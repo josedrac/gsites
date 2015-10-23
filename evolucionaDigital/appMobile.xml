@@ -149,7 +149,7 @@
 	            document.getElementById("imgMobile").onclick = function(){ openMobile('https://movil.bbva.es');};
 	            document.getElementById("buttonDemo").onclick = function(){ openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
 	            document.getElementById("buttonTour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
-	            document.getElementById("buttonMovil").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal');};
+	            document.getElementById("buttonMovil").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
                 document.getElementById("buttonMail").onclick = function(){ Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
 	        }
 
