@@ -65,6 +65,12 @@
 						padding-bottom: 12px;
 						padding-top: 17px;
             cursor: pointer;
+            padding-left: 2px;
+            vertical-align: 3px;
+            text-decoration: none;
+            font-size: 12px; font-family: Arial;
+            font-weight: bold;
+            color: #0073C9;
 					}
           ul li:last-child{
 						border: 0;
@@ -108,6 +114,21 @@
 			</style>
 
 		<![endif]-->
+
+    <div id="content_div" class="caja">
+        <div class="titulo">Más información</div>
+        <ul id="botonera">
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/el-cliente-tiene-un-smartphone-valido'>¿El cliente tiene un smartphone válido?</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/argumentario-utilizacion-app-movil'>Argumentario utilización/venta app móvil</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-validar-un-movil'>Cómo validar un móvil</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-descargar-la-app-de-bbva'>Cómo descargar la app de BBVA</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/confirmar-usuario-multicanal'>Confirmar usuario multicanal</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/login-en-app-bbva'>Login en app BBVA</a></li>
+          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/alta-de-usuario-multicanal'>Alta de usuario multicanal</a></li>
+          <li id='tour'>Tour por la app</li>
+        </ul>
+    </div>
+
     <script type="text/javascript">
           function openMobile(destination) {
               var width = 360;
@@ -132,19 +153,6 @@
 
           addURL();
       </script>
-    <div id="content_div" class="caja">
-        <div class="titulo">Más información</div>
-        <ul id="botonera">
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/el-cliente-tiene-un-smartphone-valido'>¿El cliente tiene un smartphone válido?</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/argumentario-utilizacion-app-movil'>Argumentario utilización/venta app móvil</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-validar-un-movil'>Cómo validar un móvil</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/como-descargar-la-app-de-bbva'>Cómo descargar la app de BBVA</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/confirmar-usuario-multicanal'>Confirmar usuario multicanal</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/login-en-app-bbva'>Login en app BBVA</a></li>
-          <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/alta-de-usuario-multicanal'>Alta de usuario multicanal</a></li>
-          <li id='tour'><a id='tour'>Tour por la app</a></li>
-        </ul>
-    </div>
 
     ]]>
     </Content>
