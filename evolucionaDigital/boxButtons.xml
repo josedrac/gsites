@@ -64,6 +64,7 @@
 						border-bottom: 1px solid #DDE3EA;
 						padding-bottom: 12px;
 						padding-top: 17px;
+            cursor: pointer;
 					}
           ul li:last-child{
 						border: 0;
@@ -141,7 +142,7 @@
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/confirmar-usuario-multicanal'>Confirmar usuario multicanal</a></li>
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/login-en-app-bbva'>Login en app BBVA</a></li>
           <li><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar/digitalizar/alta-de-usuario-multicanal'>Alta de usuario multicanal</a></li>
-          <li><a id='tour'>Tour por la app</a></li>
+          <li id='tour'><a id='tour'>Tour por la app</a></li>
         </ul>
     </div>
 
