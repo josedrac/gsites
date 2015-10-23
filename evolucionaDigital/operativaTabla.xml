@@ -97,6 +97,7 @@
         font-size: 12px;
         font-weight: bold;
         text-align: center;
+        color: #434a58;
     }
     .headerImg {
         margin-left: auto;
@@ -140,6 +141,7 @@
         margin-top:55px;
         font-weight: bold;
         font-size: 13px;
+        color: #434a58;
     }
     #lastcol {
         border-right: 0 !important;
