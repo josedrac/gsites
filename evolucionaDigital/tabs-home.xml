@@ -131,13 +131,14 @@
             text-decoration: none;
         }
         .block-linkHelp p {
-            fheight: 45px;
+            height: 55px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    display: block;
 		    display: -webkit-box;
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 3;
+            line-height: 18px;
         }
 		.block-linkHelp h2 {
 		    text-overflow: ellipsis;
@@ -188,13 +189,14 @@
 		    text-overflow: ellipsis;
         }
         .block-newMobile .text p {
-		    height: 75px;
+		    height: 85px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    display: block;
 		    display: -webkit-box;
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 5;
+            line-height: 18px;
 		}
 		iframe {
 			width: 100%;
