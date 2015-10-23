@@ -258,11 +258,11 @@
 
                 html +=  "<div class='row'>";
                 html +=     "<div class='colBody firstcol'>"+data.getValue(i,2)+"</div>";
-                html +=     "<div class='colBody'>"+getIcon(data, i, 3)+"</div>";
-                html +=     "<div class='colBody'>"+getIcon(data, i, 6)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 3, 4)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 6, 7)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
-                html +=     "<div class='colBody'>"+getIcon(data, i, 9)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 9, 10)+"</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
             }
@@ -284,11 +284,19 @@
             return false;
         }
 
-        function getIcon(data, row, column) {
+        function getIcon(data, row, column, columnb) {
             var html="";
-            if (data.getValue(row, column) != 'x') {
-                html = "<div class='centerText'>-</div>";
-                return html;
+            if (typeof columnb == undefined) {
+                if (data.getValue(row, column) != 'x') {
+                    html = "<div class='centerText'>-</div>";
+                    return html;
+                }
+            }
+            else {
+                if (data.getValue(row, column) != 'x' && data.getValue(row,columnb) != 'x') {
+                    html = "<div class='centerText'>-</div>";
+                    return html;
+                }
             }
 
             var iconCols = {
