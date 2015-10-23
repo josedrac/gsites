@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
  	<ModulePrefs title="ED-dcbc.xml">
     	<Require feature="idi"/>
 	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>   
-		<Require feature="setprefs" />   
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
   	</ModulePrefs>
 
 <UserPref name="Title" default_value="" display_name="Title" required="true" />
@@ -15,7 +15,7 @@
  <Content type="html" charset="UTF-8">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-	
+
 	<style type="text/css">
         /* @group fonts */
 		@font-face {
@@ -87,10 +87,11 @@
 			width: 44%;
     		padding: 0 3%;
 			float: left;
-		} 
+		}
 		.text p {
 			color: #434A58;
-	    	font-size: 12px;
+	    	font-size: 13px;
+	    	line-height: 18px;
 		}
 		.title {
 		    font-size: 19px;
@@ -109,70 +110,70 @@
 	</div>
 
    <script type="text/javascript">
-	   	var html="";        
+	   	var html="";
 	   	var gadgetHelper = null;
-	   	var prefs = new gadgets.Prefs();         
-	       
+	   	var prefs = new gadgets.Prefs();
+
 		var Title = prefs.getString("Title");
         var Description = prefs.getString("Description");
         var Link = prefs.getString("Link");
-        var Video = prefs.getString("Video"); 
-        
+        var Video = prefs.getString("Video");
+
     	html += "<div class='dcbc'>";
 		html += "	<div class='text'>";
 		html += "		<h2 class='title'>" + Title + "</h2>";
-		html += "		<p>"+ Description +"</p>";  
+		html += "		<p>"+ Description +"</p>";
 		html += "		<button class='btn' onclick=javascript:Go('https://www.nextinit.com/login.jsp')>Acceder</button>";
 		html += "	</div>";
 		html +=	"	<div class='media'>";
 		html +=	"		<iframe src='" + Video + "' allowfullscreen='true' allowScriptAccess='always' style='border: 0px solid #AAA;'></iframe>";
 		html +=	"	</div>";
 		html += "	<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/>";
-		html += "</div>";        
+		html += "</div>";
 
-     	
+
      	document.getElementById('events').innerHTML += html;
-     	
-     				
+
+
 		function Go(destination, target)
 		{
 			window.open(destination, target);
 			return false;
 		}
-		
+
 	</script>
-   
+
     ]]>
   	</Content>
-  
+
   	<Content type="html" view="configuration" preferred_height="550">
 
 	<![CDATA[
 	<style type="text/css">
-	    
+
 		table td {
 			color: #000;
 			font-size: 11px;
 			font-weight: bold;
 		}
-		
+
 		table td input,
 		textarea {
 			color: #000;
-			font-size: 11px;				
+			font-size: 11px;
 		}
-	 
+
 	</style>
- 
-	<table width="100%" border="0" id="tablaconfig">  
-	    <tr>       
+
+	<table width="100%" border="0" id="tablaconfig">
+	    <tr>
 		    <td>
-		       	Title: <input type="text" size="100" id="Title" value="__UP_Title__"  onchange="registra('Title')"/>                   
+		       	Title: <input type="text" size="100" id="Title" value="__UP_Title__"  onchange="registra('Title')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link: <input type="text" size="100" id="Link" value="__UP_Link__" onchange="registra('Link')"/>                   
+		       	Link: <input type="text" size="100" id="Link" value="__UP_Link__" onchange="registra('Link')"/>
 		    </td>
 		</tr>
 	    <tr>
@@ -180,24 +181,24 @@
 				Video: <input type="text" size="100" id="Video" value="__UP_Video__" onchange="registra('Video')"/>
 			</td>
 	    </tr>
-	    <tr>       
+	    <tr>
 		   	<td>
-		       	Description: <textarea id="Description" style="height: 25px; width: 80%" onchange="registra('Description')" >__UP_Description__</textarea>                  
+		       	Description: <textarea id="Description" style="height: 25px; width: 80%" onchange="registra('Description')" >__UP_Description__</textarea>
 		    </td>
 		</tr>
-	</table>	
+	</table>
 
-	<script type="text/javascript">           
+	<script type="text/javascript">
 	    // Get userprefs
-	    var prefs = new gadgets.Prefs();           
+	    var prefs = new gadgets.Prefs();
 
-	    function registra(variable) {	
+	    function registra(variable) {
 			prefs.set(variable,document.getElementById(variable).value);
-		} 
+		}
 		gadgets.window.adjustHeight();
-	</script>   	
-	 
- ]]>	
+	</script>
+
+ ]]>
  </Content>
-  
+
 </Module>
