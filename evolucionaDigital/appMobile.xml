@@ -117,8 +117,8 @@
 				<div class="section">
 					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mail.png" alt=""></div>
 	                <div class="text">
-	                    <h2>Enviar e-mail autodigitalización</h2>
-	                    <p>Accede aquí para enviar un email a tu cliente con todos los pasos que ha de dar para digitalizarse.</p>
+	                    <h2>App BBVA Wallet</h2>
+	                    <p>Amplia información sobre la aplicación BBVA Wallet: pagar con el móvil y gestionar tus tarjetas.</p>
 	                    <button id="buttonMail">Accede</button>
 	                </div>
 				</div>
@@ -150,7 +150,7 @@
 	            document.getElementById("buttonDemo").onclick = function(){ openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
 	            document.getElementById("buttonTour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
 	            document.getElementById("buttonMovil").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal');};
-	            document.getElementById("buttonMail").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/contacto');};
+                document.getElementById("buttonMail").onclick = function(){ Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
 	        }
 
 	        addURL();
