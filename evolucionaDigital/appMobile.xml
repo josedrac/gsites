@@ -110,7 +110,7 @@
 					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/movil.png" alt=""></div>
 	                <div class="text">
 	                    <h2>Operativa por canal móvil</h2>
-	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
+	                    <p>Listado de todo lo que tus clientes pueden hacer a través del móvil en comparación con otros canales.</p>
 	                    <button id="buttonMovil">Accede</button>
 	                </div>
 				</div>
@@ -118,7 +118,7 @@
 					<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mail.png" alt=""></div>
 	                <div class="text">
 	                    <h2>Enviar e-mail autodigitalización</h2>
-	                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
+	                    <p>Accede aquí para enviar un email a tu cliente con todos los pasos que ha de dar para digitalizarse.</p>
 	                    <button id="buttonMail">Accede</button>
 	                </div>
 				</div>
@@ -149,7 +149,7 @@
 	            document.getElementById("imgMobile").onclick = function(){ openMobile('https://movil.bbva.es');};
 	            document.getElementById("buttonDemo").onclick = function(){ openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
 	            document.getElementById("buttonTour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
-	            document.getElementById("buttonMovil").onclick = function(){ openMobile('');};
+	            document.getElementById("buttonMovil").onclick = function(){ openMobile('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal');};
 	            document.getElementById("buttonMail").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/contacto');};
 	        }
 
