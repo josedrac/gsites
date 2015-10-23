@@ -286,7 +286,7 @@
 
         function getIcon(data, row, column, columnb) {
             var html="";
-            if (typeof columnb == undefined) {
+            if (typeof columnb == "undefined") {
                 if (data.getValue(row, column) != 'x') {
                     html = "<div class='centerText'>-</div>";
                     return html;
