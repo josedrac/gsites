@@ -125,13 +125,14 @@
 	  #textVideo,
 	  #textVideo2{
 		color:#434A58;
-		font-size:12px;
+		font-size:13px;
 		font-family:arial;
 		height:80px;
 		width:269px;
 		margin-top: 15px;
 		margin-left: 7px;
 		float:left;
+    line-height:18px;
 	    }
 
 		#infoVideo,
