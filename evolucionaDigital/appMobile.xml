@@ -127,11 +127,18 @@
 			<div class="col-img">
 					<img id="imgMobile" src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png">
             </div>
-            <div id="dialog" title="Basic dialog">
-                <iframe src="https://www.bbva.es/estaticos/micros/wallet/index.html" height="650" width="360"></iframe>
+            <div id="dialog" title="Basic dialog" style='display:none;'>
+                <iframe src="https://movil.bbva.es" height="650" width="360"></iframe>
             </div>
 		</div>
+        $(function() {
+            $("#dialog").dialog({autoOpen : false, modal : true, show : "blind", hide : "blind"});
 
+                $("#imgMobile").click(function() {
+                    $("#dialog").dialog("open");
+                        return false;
+                          });
+                          });
 		<script type="text/javascript">
 	        function openMobile(destination) {
 	            var width = 360;
@@ -150,7 +157,7 @@
 	        }
 
 	        function addURL() {
-	            document.getElementById("imgMobile").onclick = function(){ openMobile('https://movil.bbva.es');};
+            //document.getElementById("imgMobile").onclick = function(){ openMobile('https://movil.bbva.es');};
 	            document.getElementById("buttonDemo").onclick = function(){ openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
 	            document.getElementById("buttonTour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
 	            document.getElementById("buttonMovil").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
