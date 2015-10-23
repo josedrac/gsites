@@ -176,7 +176,11 @@
                 var channel = getSelectedChannel();
                 var product = getSelectedProduct();
                 if (product == "Todos") {
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
+                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
+                    if (channel != "Todos") {
+                        querytosend = querytosend.concat(getChannelCondition(channel));
+                    }
+                    querytosend = querytosend.concat(" order by B");
                     query.setQuery(querytosend);
                     query.send(handleQueryResponse);
                     return;
