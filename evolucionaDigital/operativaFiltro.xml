@@ -190,7 +190,7 @@
                                     html += "<option value='"+channels[channel]+"' selected='selected'>"+channelNames[channel]+"</option>";
                                     continue;
                                 }
-                                html += "<option value='"+channels[channel]+"'>"+channels[channel]+"</option>";
+                                html += "<option value='"+channels[channel]+"'>"+channelNames[channel]+"</option>";
             }
             html +=         "</select>";
             html +=    "</div>";
