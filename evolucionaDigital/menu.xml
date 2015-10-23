@@ -473,7 +473,7 @@ if (!Array.prototype.indexOf) {
 
 		var parametros = gadgets.util.getUrlParameters()["parent"];
 
-		if (parametros.indexOf("home")!=-1 || parametros == "https://sites.google.com/a/bbva.com/portaldeayuda/")
+		if (parametros.indexOf("home")!=-1 || parametros == "https://sites.google.com/a/bbva.com/evolucionadigital/")
 		{
 			jQuery('.homefirst').addClass("selectedLeft");
 			return;
