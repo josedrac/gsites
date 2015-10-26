@@ -13,7 +13,7 @@
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-
+    <link rel="stylesheet" type="text/css" href="https://sites.google.com/a/bbva.com/evolucionadigital/jqueryui-css/jquery-ui.min.css?attredirects=0&d=1" media="all">
 	<style type="text/css">
 	  /* @group fonts */
 		@font-face {
@@ -140,7 +140,8 @@
     }
 
     </style>
-
+    <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
 
     <div id="listportales"></div>
 
