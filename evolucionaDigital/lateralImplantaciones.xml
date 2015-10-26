@@ -160,15 +160,18 @@
         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
             background: white;
         }
+        .ui-selectmenu-button span.ui-icon {
+            right: 0;
+        }
         .ui-selectmenu-button.ui-corner-top .ui-icon {
-            background-position: 3px -10.083em;
+            background-position: 3px -9.2em;
         }
         .ui-state-default .ui-icon {
             border: 0;
             border-left: 1px solid #d2e5eb;
             background: url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
             background-position: 3px 0px;
-            width: 30px;
+            width: 35px;
             height: 30px;
             position: absolute;
             top: 0;
@@ -200,6 +203,8 @@
             margin-right: 10px;
             padding-top: 10px;
             font-weight: bold;
+            display: inline-block;
+            width: 30px;
         }
         .ui-menu-item {
             color: #003f8c;
