@@ -139,6 +139,78 @@
         color: #3B3B3B;
     }
 
+    .ui-widget-content {
+            background: white;
+        }
+        .ui-selectmenu-button {
+            background: white;
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+            background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffffff), color-stop(200%, #d2e5eb));
+            background: -moz-linear-gradient(top, #ffffff 40%, #d2e5eb 200%);
+            background: -webkit-linear-gradient(top, #ffffff 40%, #d2e5eb 200%);
+            background: linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+            border-color: #d2e5eb;
+            border: 1px solid #d5e2ee;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            color: #0078d2;
+            font-size: 13px;
+            overflow: hidden;
+            padding: 6px;
+            padding-left: 10px;
+            padding-right: 40px;
+            position: relative;
+            text-align: left;
+            width: 100%;
+            line-height: 14px;
+            width: 190px;
+        }
+        .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
+            color: #0078d2;
+        }
+        .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus  {
+            background: #e2fafe none repeat scroll 0 0;
+            color: #003f8c;
+            border: 1px solid #e1e1e1;
+        }
+        .ui-widget-content {
+            border: 1px solid rgb(213, 226, 238);
+            color: rgb(34, 34, 34);
+        }
+        .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus {
+            background-image: none;
+        }
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+            background: white;
+        }
+        .ui-selectmenu-button span.ui-icon {
+            right: 0;
+        }
+        .ui-selectmenu-button.ui-corner-top .ui-icon {
+            background-position: 3px -9.2em;
+        }
+        .ui-state-default .ui-icon {
+            border: 0;
+            border-left: 1px solid #d2e5eb;
+            background: url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+            background-position: 3px 0px;
+            width: 35px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .ui-selectmenu-button span.ui-selectmenu-text {
+            padding: 0;
+        }
+        .ui-selectmenu-button span.ui-icon {
+            top: 25%;
+        }
+        .ui-selectmenu-menu .ui-menu {
+                height: 115px;
+        }
+
     </style>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
