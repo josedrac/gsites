@@ -150,6 +150,9 @@
         var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
 
         renderPage();
+        $( "#productsSelector" ).selectmenu({width: 200});
+
+        $( "#channelSelector" ).selectmenu({width: 200});
 
         function renderPage() {
             var html = "";
