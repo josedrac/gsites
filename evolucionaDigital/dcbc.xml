@@ -126,8 +126,9 @@
 		html += "		<button class='btn' onclick=javascript:Go('https://www.nextinit.com/login.jsp')>Acceder</button>";
 		html += "	</div>";
 		html +=	"	<div class='media'>";
-		html +=	"		<iframe src='" + Video + "' allowfullscreen='true' allowScriptAccess='always' style='border: 0px solid #AAA;'></iframe>";
-		html +=	"	</div>";
+            //		html +=	"		<iframe src='" + Video + "' allowfullscreen='true' allowScriptAccess='always' style='border: 0px solid #AAA;'></iframe>";
+        html += "       <img src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/nextinit.png' />";
+        html +=	"	</div>";
 		html += "	<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/>";
 		html += "</div>";
 
