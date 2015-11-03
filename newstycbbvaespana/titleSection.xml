@@ -2,14 +2,14 @@
 
 <Module>
 
- 	<ModulePrefs title="NB-titleSection.xml"  height ="50">
+ 	<ModulePrefs title="NB-titleSection.xml">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
-	<UserPref name="VarTitleSection" display_name="Title section" required="true" />
+	<UserPref name="titleSection" display_name="Title section" required="true" />
 
  	<Content type="html" charset="UTF-8">
     	<![CDATA[
@@ -17,6 +17,7 @@
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
 	  		<style type="text/css">
+
 	    		@font-face {
 	      			font-family: 'BBVA Web Light';
 	      			src:url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.eot');
@@ -27,7 +28,8 @@
 	      			font-style: normal;
 	      			font-weight: normal;
 				}
-	    		.title-section {
+
+	    		h2 {
 	          		font-family:"BBVA Web Light",arial,sans-serif;
 	          		font-weight: lighter;
 	          		border-bottom: 1px solid #DCDCDC;
@@ -36,14 +38,18 @@
 	          		padding-bottom: 9px;
 	          		margin-bottom:30px;
 				}
+
 			</style>
 
-			<h2 id="titleSection" class="title-section"></h2>
+			<h2 id="titleSection"></h2>
 
 		   	<script type="text/javascript">
+
+		   		var gadgetHelper = null;
 			   	var prefs = new gadgets.Prefs();
-				var VarTitleSection = prefs.getString("VarTitleSection");
-		     	document.getElementById('titleSection').innerHTML += VarTitleSection;
+				var titleSection = prefs.getString("titleSection");
+		     	document.getElementById("titleSection").innerHTML = titleSection;
+
 			</script>
 
     	]]>
@@ -68,7 +74,7 @@
 			<table width="100%" border="0" id="tablaconfig">
 				<tr>
 	        		<td>
-		        		Title - Module: <input type="text" size="100" id="VarTitleSection" value="__UP_VarTitleSection__"   onchange="register('VarTitleSection')"/>
+		        		Title - Module: <input type="text" size="100" id="titleSection" value="__UP_titleSection__"   onchange="register('titleSection')"/>
 	        		</td>
 	    		</tr>
 			</table>
