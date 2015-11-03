@@ -17,7 +17,6 @@
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 	<head>
 		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/reset.css" media="all">
-		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/styles-personas.css" media="all">
 		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/buttons.css" media="all">
 		<style type="text/css">
 		  /* @group fonts */
@@ -157,6 +156,7 @@
                 font-size: 0.7em;
                 background: #F9FAF9;
                 color: #8C9299;
+                margin-top:20px;
             }
 
             .footer-bottom ul{
@@ -227,7 +227,7 @@
 					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo">Decálogo</a></li>
           <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades">Novedades</a></li>
           <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal">Operativa por canal</a></li>
-          <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes">!Pruébalo antes!</a></li>
+          <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes">¡Pruébalo antes!</a></li>
           <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion">Tu opinión</a></li>
 				</ul>
 			</li>
@@ -254,11 +254,9 @@
 		</ul>
 	</div>
 	<div class="footer-bottom">
-      <span>Aviso Legal</span>
       <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
   </div>
 </div>
-
     ]]>
   </Content>
 

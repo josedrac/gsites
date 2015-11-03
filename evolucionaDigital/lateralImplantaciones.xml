@@ -97,7 +97,7 @@
             -moz-border-radius: .1em;
             border-radius: .1em;
             text-align: center;
-            font-size: 12px;
+            font-size: 13px;
             vertical-align: middle;
             height: 1.75em;
             padding-left: 2em;
@@ -131,7 +131,7 @@
             -webkit-border-radius: 4px;
             border-radius: 4px;
             color: #0078d2;
-            font-size: 12px;
+            font-size: 13px;
             overflow: hidden;
             padding: 6px;
             padding-left: 10px;
@@ -160,15 +160,18 @@
         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
             background: white;
         }
+        .ui-selectmenu-button span.ui-icon {
+            right: 0;
+        }
         .ui-selectmenu-button.ui-corner-top .ui-icon {
-            background-position: 3px -10.083em;
+            background-position: 3px -9.2em;
         }
         .ui-state-default .ui-icon {
             border: 0;
             border-left: 1px solid #d2e5eb;
             background: url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
             background-position: 3px 0px;
-            width: 30px;
+            width: 35px;
             height: 30px;
             position: absolute;
             top: 0;
@@ -195,11 +198,13 @@
             color: #434a58;
             float: left;
             font-family: Arial;
-            font-size: 12px;
+            font-size: 13px;
             margin-left: 15px;
             margin-right: 10px;
             padding-top: 10px;
             font-weight: bold;
+            display: inline-block;
+            width: 30px;
         }
         .ui-menu-item {
             color: #003f8c;
@@ -207,7 +212,7 @@
             line-height: 2.5em;
             padding: 0 0 0 1.25em;
             border-top: 1px solid #e1e1e1;
-            font-size: 12px;
+            font-size: 13px;
             font-weight: normal;
         }
 		    </style>

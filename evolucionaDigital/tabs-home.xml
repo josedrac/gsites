@@ -131,13 +131,15 @@
             text-decoration: none;
         }
         .block-linkHelp p {
-            fheight: 45px;
+            height: 55px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    display: block;
 		    display: -webkit-box;
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 3;
+            line-height: 18px;
+            color: #434a58;
         }
 		.block-linkHelp h2 {
 		    text-overflow: ellipsis;
@@ -165,7 +167,7 @@
     		vertical-align: bottom;
         }
         .block-newMobile .img img {
-            max-width: 100%;
+            max-width: 110px;
 		    width: auto;
 		    float: right;
         }
@@ -173,7 +175,7 @@
             font-size: 18px;
             color: #0078d2;
             font-weight: normal;
-    		
+
         }
         .block-newMobile .text h2 {
             min-height: 60px;
@@ -188,13 +190,15 @@
 		    text-overflow: ellipsis;
         }
         .block-newMobile .text p {
-		    height: 75px;
+		    height: 85px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    display: block;
 		    display: -webkit-box;
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 5;
+            line-height: 18px;
+            color: #434a58;
 		}
 		iframe {
 			width: 100%;
@@ -205,16 +209,17 @@
 	<div class="content">
         <div id="tabs">
             <ul>
-                <li><a href="#tabs-1">Enlaces y ayuda</a></li>
-                <li><a href="#tabs-2">Nuevo en el móvil</a></li>
+                <li><a href="#tabs-1">Nuevo en el móvil</a></li>
+                <li><a href="#tabs-2">Enlaces y ayuda</a></li>
                 <div class="border"></div>
             </ul>
             <div id="tabs-1">
-            	<div id="listLinksHelpers"></div>
+                <div id="listNewMobile"></div>
             </div>
             <div id="tabs-2">
-            	<div id="listNewMobile"></div>
+            	<div id="listLinksHelpers"></div>
             </div>
+
         </div>
 	</div>
 

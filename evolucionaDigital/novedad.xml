@@ -252,14 +252,16 @@
 
 	#dateVideo{
 	color:#71777F;
-	font-size:11px;
+	font-size: 13px;
+        line-height: 18px;
 	float:left;
 	margin-top:0px;
 	margin-left:0px;
 	}
 	#userVideo{
 	color:#71777F;
-	font-size:11px;
+	font-size: 13px;
+        line-height: 18px;
 	float:left;
 	margin-left:3px;
 	margin-top:0px;
@@ -280,26 +282,27 @@
     }
 
 
+
     .description, .smalldescription {
         color: #71777F;
         clear:both;
-        font-size: 11px;
+        font-size: 13px;
+        line-height: 18px;
         margin-top: 30px;
-        line-height: 20px;
         margin-bottom: 10px;
+        padding-right: 62px;
     }
 
     /*aqui*/
 	#userBBVA{
-		float:left;
 		margin-left:15px;
-		width:620px;
+		width:600px;
+
 	}
 	#userBBVA img{
-	    float:left;
-		margin:3px 10px 15px 0;
-		width:595px;
-		height:410px;
+  		  margin:3px 10px 15px 0;
+  		  max-height: 400px;
+        width: 100%;
     }
 
     .icons img {
@@ -308,6 +311,9 @@
 
     .clearBoth {
         clear:both;
+    }
+    .icon {
+      display: inline-block;
     }
 
    	#citaAutor{
@@ -352,6 +358,8 @@
     }
     #video {
         clear:both;
+        text-align:center;
+        padding-right: 50px;
     }
 	#video iframe{
 	margin:0;
@@ -400,9 +408,9 @@
                 html +="<div class='smalldescription'>"+data.getValue(i,3)+"</div>";
                 html +="<div id='video'>";
                 if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
-                    html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:600px; height:400px; '></iframe>";
+                    html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:575px; height:400px; '></iframe>";
                 }else{
-                    html +="<img src='"+data.getValue(i,6)+"' />";
+                    html +="<img src='"+data.getValue(i,16)+"' />";
 			    }
                 html += "</div>";
                 html += "<div class='description'>"+data.getValue(i,4)+"</div>";
@@ -446,7 +454,7 @@
                     continue;
                 }
 
-                html += "<div class='iconMargin'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";margin-left: 10px !important;' /></div>";
+                html += "<div class='icon'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";margin-left: 10px !important;' /></div>";
                 countIcons++;
 
             }
