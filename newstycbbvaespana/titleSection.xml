@@ -27,7 +27,7 @@
 	      			font-style: normal;
 	      			font-weight: normal;
 				}
-	    		h2.title-section {
+	    		.title-section {
 	          		font-family:"BBVA Web Light",arial,sans-serif;
 	          		font-weight: lighter;
 	          		border-bottom: 1px solid #DCDCDC;
