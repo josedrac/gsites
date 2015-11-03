@@ -6,7 +6,7 @@
 	<Require feature="dynamic-height"/>
 	<Require feature="setprefs" />
   </ModulePrefs>
-<UserPref name="titlepage" display_name="Title of page" required="true" />
+<UserPref name="titleSection" display_name="Title of section" required="true" />
 
  <Content type="html">
     <![CDATA[
@@ -38,18 +38,18 @@
 
 		</style>
 
-	<h2 id="titlepage"></h1>
+	<h2 id="titleSection"></h1>
 
    	<script type="text/javascript">
 	 	var gadgetHelper = null;
 	 	var prefs = new gadgets.Prefs();
-	 	var titlepage = prefs.getString("titlepage");
-	 	document.getElementById("titlepage").innerHTML = titlepage;
+	 	var titleSection = prefs.getString("titleSection");
+	 	document.getElementById("titleSection").innerHTML = titleSection;
    </script>
 
     ]]>
   </Content>
-  <Content type="html" view="configuration" preferred_height="480">
+  <Content type="html" view="configuration">
 
 <![CDATA[
 <style type="text/css">
@@ -62,22 +62,20 @@
  <table width="100%" border="0" id="tablaconfig">
 	<tr>
        <td>
-           Title -Page: <input type="text" size="100" id="titlepage" value="__UP_titlepage__"   onchange="registra('titlepage')"/>
+           Title -Page: <input type="text" size="100" id="titleSection" value="__UP_titleSection__"   onchange="register('titleSection')"/>
        </td>
     </tr>
 </table>
 
 <script type="text/javascript">
-    // Get userprefs
+
     var prefs = new gadgets.Prefs();
-    function registra(variable)
-    {
-
-        prefs.set(variable,document.getElementById(variable).value);
-
-
+    function register(variable) {
+        prefs.set(variable, document.getElementById(variable).value);
     }
+
 	gadgets.window.adjustHeight();
+	
 </script>
 
  ]]>
