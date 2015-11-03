@@ -1,1 +1,95 @@
-//TODO
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Module>
+
+ 	<ModulePrefs title="NB-titleSection.xml">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<UserPref name="VarTitleSection" default_value="" display_name="VarTitleSection" required="true" />
+
+ 	<Content type="html" charset="UTF-8">
+    	<![CDATA[
+
+			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+	  		<style type="text/css">
+	    		@font-face {
+	      			font-family: 'BBVA Web Light';
+	      			src:url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+	      			src:url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+	        			url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+	        			url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+	        			url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	      			font-style: normal;
+	      			font-weight: normal;
+				}
+	    		h2.title-section {
+	          		font-family:"BBVA Web Light",arial,sans-serif;
+	          		font-weight: lighter;
+	          		border-bottom: 1px solid #DCDCDC;
+	          		color: #0078D2;
+	          		font-size: 22px;
+	          		padding-bottom: 9px;
+	          		margin-bottom:30px;
+				}
+			</style>
+
+			<div id="titleSection"></div>
+
+		   	<script type="text/javascript">
+				var html="";
+			   	var prefs = new gadgets.Prefs();
+				var VarTitleSection = prefs.getString("VarTitleSection");
+
+				html += '<h2 class="title-section">';
+				html += 	VarTitleSection;
+				html += '</h2>'
+				    
+		     	document.getElementById('titleSection').innerHTML += html;
+
+			</script>
+
+    	]]>
+  	</Content>
+
+  	<Content type="html" view="configuration" preferred_height="550">
+		<![CDATA[
+		
+			<style type="text/css">
+				table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+				table td input,
+					textarea {
+					color: #000;
+					font-size: 11px;
+				}
+			</style>
+
+			<table width="100%" border="0" id="tablaconfig">
+				<tr>
+	        		<td>
+		        		Title - Module: <input type="text" size="100" id="VarTitleSection" value="__UP_VarTitleSection__"   onchange="register('VarTitleSection')"/>
+	        		</td>
+	    		</tr>
+			</table>
+
+			<script type="text/javascript">
+	    		// Get userprefs
+	    		var prefs = new gadgets.Prefs();
+	    		function register(var) {
+					prefs.set(var, document.getElementById(var).value);
+				}
+				gadgets.window.adjustHeight();
+			</script>
+
+ 		]]>
+	</Content>
+
+</Module>
