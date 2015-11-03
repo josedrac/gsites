@@ -15,15 +15,15 @@
 		<style type="text/css">
 
 			@font-face {
-	  			font-family: 'BBVA Web Light';
-	  			src:url('https://github.com/sopraux/gsites/raw/NB-titleSection/newstycbbvaespana/fonts/web-light/web-light.eot');
-	  			src:url('https://github.com/sopraux/gsites/raw/NB-titleSection/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-	    			url('https://github.com/sopraux/gsites/raw/NB-titleSection/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-	    			url('https://github.com/sopraux/gsites/raw/NB-titleSection/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-	    			url('https://github.com/sopraux/gsites/raw/NB-titleSection/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-	  			font-style: normal;
-	  			font-weight: normal;
-			}
+	            font-family: 'BBVA Web Light';
+	            src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot');
+	            src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+	                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.woff') format("woff"),
+	                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.ttf') format("truetype"),
+	                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	            font-style: normal;
+	            font-weight: normal;
+	        }
 
 			h2 {
 	      		font-family:"BBVA Web Light",arial,sans-serif;
@@ -75,7 +75,7 @@
     }
 
 	gadgets.window.adjustHeight();
-	
+
 </script>
 
  ]]>
