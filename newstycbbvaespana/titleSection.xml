@@ -16,11 +16,11 @@
 
 			@font-face {
 	            font-family: 'BBVA Web Light';
-	            src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot');
-	            src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-	                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.woff') format("woff"),
-	                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.ttf') format("truetype"),
-	                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	            src:url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+	            src:url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+	                url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+	                url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+	                url('https://github.com/sopraux/gsites/raw/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 	            font-style: normal;
 	            font-weight: normal;
 	        }
@@ -34,49 +34,48 @@
 	      		padding-bottom: 9px;
 	      		margin-bottom:30px;
 	  		}
-			
 
 		</style>
 
-	<h2 id="titleSection"></h1>
+		<h2 id="titleSection"></h1>
 
-   	<script type="text/javascript">
-	 	var gadgetHelper = null;
-	 	var prefs = new gadgets.Prefs();
-	 	var titleSection = prefs.getString("titleSection");
-	 	document.getElementById("titleSection").innerHTML = titleSection;
-   </script>
+	   	<script type="text/javascript">
+		 	var gadgetHelper = null;
+		 	var prefs = new gadgets.Prefs();
+		 	var titleSection = prefs.getString("titleSection");
+		 	document.getElementById("titleSection").innerHTML = titleSection;
+	   </script>
 
     ]]>
   </Content>
   <Content type="html" view="configuration">
 
 <![CDATA[
-<style type="text/css">
- 	table td {
-		color: #000;
-		font-size: 11px;
-		font-weight: bold;
-	}
- </style>
- <table width="100%" border="0" id="tablaconfig">
-	<tr>
-       <td>
-           Title -Page: <input type="text" size="100" id="titleSection" value="__UP_titleSection__"   onchange="register('titleSection')"/>
-       </td>
-    </tr>
-</table>
+	<style type="text/css">
+	 	table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+	 </style>
+	 <table width="100%" border="0" id="tablaconfig">
+		<tr>
+	       <td>
+	           Title -Page: <input type="text" size="100" id="titleSection" value="__UP_titleSection__"   onchange="register('titleSection')"/>
+	       </td>
+	    </tr>
+	</table>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 
-    var prefs = new gadgets.Prefs();
-    function register(variable) {
-        prefs.set(variable, document.getElementById(variable).value);
-    }
+	    var prefs = new gadgets.Prefs();
+	    function register(variable) {
+	        prefs.set(variable, document.getElementById(variable).value);
+	    }
 
-	gadgets.window.adjustHeight();
+		gadgets.window.adjustHeight();
 
-</script>
+	</script>
 
  ]]>
  </Content>
