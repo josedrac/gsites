@@ -47,7 +47,7 @@
 
 				html += '<h2 class="title-section">';
 				html += 	VarTitleSection;
-				html += '</h2>'
+				html += '</h2>';
 				    
 		     	document.getElementById('titleSection').innerHTML += html;
 
