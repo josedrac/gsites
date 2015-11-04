@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
- 	<ModulePrefs title="NB-Carousel.xml" height ="350">
+ 	<ModulePrefs title="NB-Carousel.xml" height ="295">
     	<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
