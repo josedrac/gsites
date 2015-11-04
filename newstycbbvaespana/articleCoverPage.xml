@@ -157,6 +157,11 @@
 
 		 	articleCoverPage += '</div>';
 		 	articleCoverPage += '</div>';
+
+			articleCoverPage += '<div class="article-image">';
+			articleCoverPage += '<img src="https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/article-coper-page-image.png" alt="article-coper-page-image" />';
+			articleCoverPage += '</div>';
+
 		 	articleCoverPage += '</div>';
 		 	
 		 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
