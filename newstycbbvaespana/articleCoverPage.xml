@@ -138,7 +138,9 @@
 		 	var articleCoverPage = '';
 
 		 	articleCoverPage += '<div class="article-cover-page">';
-		 	articleCoverPage += 'Hello world 1';
+		 	articleCoverPage += '<div class="article-content">';
+		 	articleCoverPage += 'Hello world 2';
+		 	articleCoverPage += '</div>';
 		 	articleCoverPage += '</div>';
 		 	
 		 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
