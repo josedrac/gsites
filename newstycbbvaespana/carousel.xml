@@ -185,6 +185,27 @@
 
 	<div class="banner">
 	    <ul id="carousel">
+	    	<li style="background-image: url('https://drive.google.com/uc?id=0Bz5c4zIocZp3MV90MjlRVkN1QU0');">
+	    		<div class="content">
+	    			<h2>Bienvenidos a la nueva Newsletter de Talento y Cultura</h2>
+	    			<p>Una nueva forma de conocer la información de tu territorio.</p>
+	    			<button onclick="javascript:Go('')">Más info</button>
+	    		</div>
+	    	</li>
+	        <li style="background-image: url('https://drive.google.com/uc?id=0Bz5c4zIocZp3djNiYnVaSWQ4czA');">
+	        	<div class="content">
+	    			<h2>Bienvenidos a la nueva Newsletter de Talento y Cultura</h2>
+	    			<p>Una nueva forma de conocer la información de tu territorio.</p>
+	    			<button onclick="javascript:Go('')">Más info</button>
+	    		</div>
+	        </li>
+	    	<li style="background-image: url('https://drive.google.com/uc?id=0Bz5c4zIocZp3Szk4OHpHUUlyVXM');">
+	    		<div class="content">
+	    			<h2>Bienvenidos a la nueva Newsletter de Talento y Cultura</h2>
+	    			<p>Una nueva forma de conocer la información de tu territorio.</p>
+	    			<button onclick="javascript:Go('')">Más info</button>
+	    		</div>
+	    	</li>
 	    </ul>
 	    <div class="control">
 	    	<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>
@@ -259,7 +280,7 @@
 			html +="</li>";
      	}
 
-     	document.getElementById('carousel').innerHTML += html;
+     	/*document.getElementById('carousel').innerHTML += html;*/
 
 
 		function Go(destination){
@@ -364,7 +385,7 @@
 		</tr>
 	    <tr>
 	        <td>
-				Image3: <input type="text" size="100" id="VarImage4" value="__UP_VarImage4__" onchange="registra('VarImage4')"/>
+				Image3: <input type="text" size="100" id="VarImage3" value="__UP_VarImage3__" onchange="registra('VarImage3')"/>
 			</td>
 	    </tr>
 
@@ -385,7 +406,7 @@
 		</tr>
 	    <tr>
 	        <td>
-				Image4: <input type="text" size="100" id="Image4" value="__UP_Image4__" onchange="registra('Image4')"/>
+				Image4: <input type="text" size="100" id="VarImage4" value="__UP_VarImage4__" onchange="registra('VarImage4')"/>
 			</td>
 	    </tr>
 	</table>
