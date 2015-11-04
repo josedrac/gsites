@@ -242,7 +242,7 @@
         if (VarTitle1!="")
         {
         	html +="<li style='background-image: url(\"" + VarImage1 + "\");'>";
-			html +="	<div class="content">";
+			html +="	<div class='content'>";
 			html +="		<h2>" + VarTitle1 + "</h2>";
 			html +="    	<p>" + VarSubTitle1 + "</p>";
 			html +="		<button onclick=javascript:Go('" + VarLink1 + "')>Más info</button>";
@@ -252,7 +252,7 @@
      	if (VarTitle2!="")
         {
         	html +="<li style='background-image: url(\"" + VarImage2 + "\");'>";
-			html +="	<div class="content">";
+			html +="	<div class='content'>";
 			html +="		<h2>" + VarTitle2 + "</h2>";
 			html +="    	<p>" + VarSubTitle2 + "</p>";
 			html +="		<button onclick=javascript:Go('" + VarLink2 + "')>Más info</button>";
@@ -262,7 +262,7 @@
      	if (VarTitle3!="")
         {
         	html +="<li style='background-image: url(\"" + VarImage3 + "\");'>";
-			html +="	<div class="content">";
+			html +="	<div class='content'>";
 			html +="		<h2>" + VarTitle3 + "</h2>";
 			html +="    	<p>" + VarSubTitle3 + "</p>";
 			html +="		<button onclick=javascript:Go('" + VarLink3 + "')>Más info</button>";
@@ -272,7 +272,7 @@
      	if (VarTitle4!="")
         {
         	html +="<li style='background-image: url(\"" + VarImage4 + "\");'>";
-			html +="	<div class="content">";
+			html +="	<div class='content'>";
 			html +="		<h2>" + VarTitle4 + "</h2>";
 			html +="    	<p>" + VarSubTitle4 + "</p>";
 			html +="		<button onclick=javascript:Go('" + VarLink4 + "')>Más info</button>";
