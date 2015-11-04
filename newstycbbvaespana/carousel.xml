@@ -316,12 +316,12 @@
 		</tr>
 		<tr>
 		   	<td>
-		       	Link1: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
+		       	Button Link1: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
 		    </td>
 		</tr>
 	    <tr>
 	        <td>
-				Image1: <input type="text" size="100" id="VarImage1" value="__UP_VarImage1__" onchange="registra('VarImage1')"/>
+				URL Image1: <input type="text" size="100" id="VarImage1" value="__UP_VarImage1__" onchange="registra('VarImage1')"/><hr>
 			</td>
 	    </tr>
 
@@ -337,12 +337,12 @@
 		</tr>
 		<tr>
 		   	<td>
-		       	Link2: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>
+		       	Button Link2: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>
 		    </td>
 		</tr>
 	    <tr>
 	        <td>
-				Image2: <input type="text" size="100" id="VarImage2" value="__UP_VarImage2__" onchange="registra('VarImage2')"/>
+				URL Image2: <input type="text" size="100" id="VarImage2" value="__UP_VarImage2__" onchange="registra('VarImage2')"/><hr>
 			</td>
 	    </tr>
 
@@ -358,12 +358,12 @@
 		</tr>
 		<tr>
 		   	<td>
-		       	Link3: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>
+		       	Button Link3: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>
 		    </td>
 		</tr>
 	    <tr>
 	        <td>
-				Image3: <input type="text" size="100" id="VarImage3" value="__UP_VarImage3__" onchange="registra('VarImage3')"/>
+				URL Image3: <input type="text" size="100" id="VarImage3" value="__UP_VarImage3__" onchange="registra('VarImage3')"/><hr>
 			</td>
 	    </tr>
 
@@ -379,12 +379,12 @@
 		</tr>
 		<tr>
 		   	<td>
-		       	Link4: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>
+		       	Button Link4: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>
 		    </td>
 		</tr>
 	    <tr>
 	        <td>
-				Image4: <input type="text" size="100" id="VarImage4" value="__UP_VarImage4__" onchange="registra('VarImage4')"/>
+				URL Image4: <input type="text" size="100" id="VarImage4" value="__UP_VarImage4__" onchange="registra('VarImage4')"/>
 			</td>
 	    </tr>
 	</table>
