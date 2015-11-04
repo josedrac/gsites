@@ -65,7 +65,7 @@
 		}
 		/* @end */
 
-		section {
+		.equipo {
 			background-color: #40B2DA;
 			background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backgroundEquipo.png');
 			background-repeat: no-repeat;
@@ -74,7 +74,7 @@
 			overflow: hidden;
 			padding: 20px;
 		}
-		section .title {
+		.equipo .title {
 			font-family: 'BBVA Web Book';
 		    width: 52%;
 		    float: left;
@@ -83,28 +83,28 @@
 			background-repeat: no-repeat;
 			background-position: 2% 85%;
 		}
-		section .title h2{
+		.equipo .title h2{
 			margin: 10px 0;
     		font-size: 30px;
 		}
-		section .title p{
+		.equipo .title p{
 			margin: 0;
     		font-size: 14px;
 		}
-		section .links {
+		.equipo .links {
 			font-family: 'BBVA Web Light';
 			width: 40%;
 			float: left;
 		}
-		section .links ul {
+		.equipo .links ul {
 			margin: 0;
 			padding: 0;
 		}
-		section .links ul li {
+		.equipo .links ul li {
 			list-style: none;
 			margin: 10px;
 		}
-		section .links ul li a {
+		.equipo .links ul li a {
 			text-decoration: none;
 			color: white;
 			font-size: 23px;
@@ -112,7 +112,7 @@
 
     </style>
 
-	<section>
+	<div class="equipo">
 		<div class="title">
 			<h2>Nuestro equipo DT Sur</h2>
 			<p>Descubre las últimas novedades de tu territorio</p>
@@ -126,7 +126,7 @@
 				<li><a href="#" target='_parent'>¿Sábes quien es...?</a></li>
 			</ul>
 		</div>
-	</section>
+	</div>
 
    <script type="text/javascript">
 	   	var html="";
