@@ -39,19 +39,23 @@
 			.article-cover-page {
 				display: inline-block;
 				width: 100%;
-				background-image: url(https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/border-bottom-shaded.png);
+				background-image: url(img/border-bottom-shaded.png);
 				background-position: bottom;
 				background-repeat: repeat-x;
 			}
 
-			.content-wrapper {
+			.article-content {
 				float: left;
-				width: 280px;
-				padding-left: 22px;
-				height: 266px;
+				width: 50%;
+			    height: 266px;
 			}
 
-			.content-wrapper h2 {
+			.article-content-wrapper {
+				padding-left: 20px;
+				width: 280px;
+			}
+
+			.article-content h2 {
 				font-family: BBVA Web Light, Arial;
 				font-size: 16px;
 				font-weight: normal;
@@ -62,7 +66,7 @@
 				margin-bottom: 5px;
 			}
 
-			.content-wrapper .subtitle-link {
+			.article-content .subtitle-link {
 	  			font-family: BBVA Web Book, Arial;
 	  			font-size: 18px;
 				color: #0078D2;
@@ -70,7 +74,7 @@
 	  			word-spacing: -2px;
 			}
 
-			.content-wrapper .author-signature {
+			.article-content .author-signature {
 				font-family: arial;
 				font-size: 11px;
 				color: #71777F;
@@ -78,13 +82,13 @@
 	  			margin-bottom: 19px;
 			}
 
-			.content-wrapper p {
+			.article-content p {
 				font-family: arial;
 				font-size: 13px;
 				color: #434A58;
 			}
 
-			.content-wrapper button {
+			.article-content button {
 				background: #0079C1;
 				background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
 				background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
@@ -108,11 +112,19 @@
 				margin-top: 25px;
 			}
 
-			.content-wrapper button:hover {
+			.article-content button:hover {
 				background: #004C99;
 			}
 
-			.image-wrapper {
+			.article-image {
+				width: 50%;
+			    height: 266px;
+				float: right;
+			}
+
+			.article-image img {
+				max-width: 100%;
+				max-height: 262px;
 				float: right;
 			}
 
@@ -125,7 +137,8 @@
 		 	var gadgetHelper = null;
 		 	var articleCoverPage = '';
 		 	articleCoverPage += '<div class="article-cover-page">';
-		 	articleCoverPage += '<div class="content-wrapper">'
+		 	articleCoverPage += '<div class="article-content">'
+			articleCoverPage += '<div class="article-content-wrapper">':
 		 	articleCoverPage += '<h2>Comunidad apuntate</h2>';
 		 	articleCoverPage += '<a class="subtitle-link" href="#">Apuntate...merece la pena</a>';
 		 	articleCoverPage += '<p class="author-signature">';
@@ -138,6 +151,7 @@
 		 	articleCoverPage += '</p>';
 		 	articleCoverPage += '<button type="button">Saber más</button>';
 		 	articleCoverPage += '</div>';
+		 	articleCoverPage += '</div>';
 		 	articleCoverPage += '<div class="image-wrapper">';
 		 	articleCoverPage += '<img src="https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/article-coper-page-image.png" alt="article-coper-page-image" />';
 		 	articleCoverPage += '</div>';
@@ -149,7 +163,7 @@
 
     ]]>
   </Content>
-  <Content type="html" view="configuration">
+	<Content type="html" view="configuration">
 
- </Content>
+ 	</Content>
 </Module>
