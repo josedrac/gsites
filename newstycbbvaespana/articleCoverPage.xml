@@ -36,11 +36,6 @@
 				font-weight: normal;
 			}
 
-			.component-wrapper {
-				width: 629px;
-				margin: 0 auto;
-			}
-
 			.article-cover-page {
 				display: inline-block;
 				width: 100%;
@@ -140,35 +135,9 @@
 	   	<script type="text/javascript">
 
 		 	var gadgetHelper = null;
-		 	var articleCoverPage = '';
+		 	var articleCoverPage = 'Hello World !';
 
-		 	articleCoverPage += '<div class="article-cover-page">';
-		 	articleCoverPage += '<div class="article-content">';
-		 	articleCoverPage += '<div class="article-content-wrapper">';
-
-		 	articleCoverPage += '<h2>Comunidad apuntate</h2>';
-		 	articleCoverPage += '<a class="subtitle-link" href="#">Apuntate...merece la pena</a>';
-
-		 	articleCoverPage += '<p class="author-signature">';
-		 	articleCoverPage += '<span>22/11/2015</span>';
-		 	articleCoverPage += '<span>-</span>';
-		 	articleCoverPage += '<span>Pedro J. Méndez Vega</span>';
-		 	articleCoverPage += '</p>';
-
-		 	articleCoverPage += '<p>;
-		 	articleCoverPage += 'BBVA no es sólo actividad económica o producción de bienes y servicios. Antes que eso, somos una comunidad de personas, es decir, es más que una máquina, es un ser vivo. Un ser vivo que necesita cuidados, a veces pasa malos momentos y otras los pasa buenos.';
-		 	articleCoverPage += '</p>';
-
-		 	articleCoverPage += '<button type="button">Saber más</button>';
-
-		 	articleCoverPage += '</div>';
-		 	articleCoverPage += '</div>';
-
-		 	articleCoverPage += '<div class="article-image">';
-		 	articleCoverPage += '<img src="https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/article-coper-page-image.png" alt="article-coper-page-image" />';
-		 	articleCoverPage += '</div>';
-
-		 	articleCoverPage += '</div>';
+		 	
 		 	
 		 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
 
@@ -176,36 +145,5 @@
 
     ]]>
   </Content>
-	<Content type="html" view="configuration">
 
-	<![CDATA[
-		<style type="text/css">
-		 	table td {
-				color: #000;
-				font-size: 11px;
-				font-weight: bold;
-			}
-		 </style>
-		 <table width="100%" border="0" id="tablaconfig">
-			<tr>
-		       <td>
-		           Title -Page: <input type="text" size="100" id="titleSection" value="__UP_titleSection__"   onchange="register('titleSection')"/>
-		       </td>
-		    </tr>
-		</table>
-
-		<script type="text/javascript">
-
-		    var prefs = new gadgets.Prefs();
-		    function register(variable) {
-		        prefs.set(variable, document.getElementById(variable).value);
-		    }
-
-			gadgets.window.adjustHeight();
-
-		</script>
-
-	 ]]>
-
- 	</Content>
 </Module>
