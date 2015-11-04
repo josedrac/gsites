@@ -149,6 +149,12 @@
 			articleCoverPage += '<span>Pedro J. Méndez Vega</span>';
 			articleCoverPage += '</p>';
 
+			articleCoverPage += '<p>';
+			articleCoverPage += 'BBVA no es sólo actividad económica o producción de bienes y servicios. Antes que eso, somos una comunidad de personas, es decir, es más que una máquina, es un ser vivo. Un ser vivo que necesita cuidados, a veces pasa malos momentos y otras los pasa buenos.';
+			articleCoverPage += '</p>';
+
+			articleCoverPage += '<button type="button">Saber más</button>';
+
 		 	articleCoverPage += '</div>';
 		 	articleCoverPage += '</div>';
 		 	articleCoverPage += '</div>';
