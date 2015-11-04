@@ -167,7 +167,7 @@
 		 	articleCoverPage += '<div class="article-image">';
 		 	articleCoverPage += '<img src="https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/article-coper-page-image.png" alt="article-coper-page-image" />';
 		 	articleCoverPage += '</div>';
-		 	
+
 		 	articleCoverPage += '</div>';
 		 	
 		 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
@@ -177,6 +177,35 @@
     ]]>
   </Content>
 	<Content type="html" view="configuration">
+
+	<![CDATA[
+		<style type="text/css">
+		 	table td {
+				color: #000;
+				font-size: 11px;
+				font-weight: bold;
+			}
+		 </style>
+		 <table width="100%" border="0" id="tablaconfig">
+			<tr>
+		       <td>
+		           Title -Page: <input type="text" size="100" id="titleSection" value="__UP_titleSection__"   onchange="register('titleSection')"/>
+		       </td>
+		    </tr>
+		</table>
+
+		<script type="text/javascript">
+
+		    var prefs = new gadgets.Prefs();
+		    function register(variable) {
+		        prefs.set(variable, document.getElementById(variable).value);
+		    }
+
+			gadgets.window.adjustHeight();
+
+		</script>
+
+	 ]]>
 
  	</Content>
 </Module>
