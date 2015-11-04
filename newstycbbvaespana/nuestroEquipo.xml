@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+ 	<ModulePrefs title="NB-NuestroEquipo.xml" height ="225">
+    	<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+  	</ModulePrefs>
+
+	<UserPref name="VarTitle" default_value="" display_name="VarTitle" required="true" />
+	<UserPref name="VarSubTitle" default_value="" display_name="VarSubTitle" required="true" />
+
+	<UserPref name="Label1" default_value="" display_name="Label1" required="true" />
+	<UserPref name="Link1" default_value="" display_name="Link1" required="true" />
+
+	<UserPref name="Label2" default_value="" display_name="Label2" required="true" />
+	<UserPref name="Link2" default_value="" display_name="Link2" required="true" />
+
+	<UserPref name="Label3" default_value="" display_name="Label3" required="true" />
+	<UserPref name="Link3" default_value="" display_name="Link3" required="true" />
+
+	<UserPref name="Label4" default_value="" display_name="Label4" required="true" />
+	<UserPref name="Link4" default_value="" display_name="Link4" required="true" />
+
+	<UserPref name="Label5" default_value="" display_name="Label5" required="true" />
+	<UserPref name="Link5" default_value="" display_name="Link5" required="true" />
+
+
+ <Content type="html" charset="UTF-8">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+	<style type="text/css">
+        /* @group fonts */
+		@font-face {
+            font-family: 'BBVA Web Light';
+            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-medium/web-medium.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+
+		#equipo {
+			background-color: #40B2DA;
+			background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backgroundEquipo.png');
+			background-repeat: no-repeat;
+			background-position: left 80%;
+			color: white;
+			overflow: hidden;
+			padding: 20px;
+		}
+		#equipo .title {
+			font-family: 'BBVA Web Book';
+		    width: 52%;
+		    float: left;
+		    padding-left: 8%;
+		    background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/iconEquipo.png');
+			background-repeat: no-repeat;
+			background-position: 2% 85%;
+		}
+		#equipo .title h2{
+			margin: 10px 0;
+    		font-size: 30px;
+		}
+		#equipo .title p{
+			margin: 0;
+    		font-size: 14px;
+		}
+		#equipo .links {
+			font-family: 'BBVA Web Light';
+			width: 40%;
+			float: left;
+		}
+		#equipo .links ul {
+			margin: 0;
+			padding: 0;
+		}
+		#equipo .links ul li {
+			list-style: none;
+			margin: 10px;
+		}
+		#equipo .links ul li a {
+			text-decoration: none;
+			color: white;
+			font-size: 23px;
+		}
+
+    </style>
+
+	<div id='equipo'></div>
+
+   <script type="text/javascript">
+	   	var html="";
+	   	var gadgetHelper = null;
+	   	var prefs = new gadgets.Prefs();
+
+		var VarTitle = prefs.getString("VarTitle");
+        var VarSubTitle = prefs.getString("VarSubTitle");
+        var Label1 = prefs.getString("Label1");
+        var Link1 = prefs.getString("Link1");
+        var Label2 = prefs.getString("Label2");
+        var Link2 = prefs.getString("Link2");
+        var Label3 = prefs.getString("Label3");
+        var Link3 = prefs.getString("Link3");
+        var Label4 = prefs.getString("Label4");
+        var Link4 = prefs.getString("Link4");
+        var Label5 = prefs.getString("Label5");
+        var Link5 = prefs.getString("Link5");
+
+
+		html += "<div class='title'>";
+		html +=	"	<h2>" + VarTitle + "</h2>";
+		html +=	"	<p>" + VarSubTitle + "</p>";
+		html +=	"</div>";
+		html +=	"<div class='links'>";
+		html +=	"	<ul>";
+
+		if (Label1 != "") {
+        	html += "<li><a href='" + Link1 + "' target='_parent'>" + Label1 + "</a></li>";
+     	}
+     	if (Label2 != "") {
+        	html += "<li><a href='" + Link2 + "' target='_parent'>" + Label3 + "</a></li>";
+     	}
+     	if (Label3 != "") {
+        	html +="<li><a href='" + Link3 + "' target='_parent'>" + Label3 + "</a></li>";
+     	}
+     	if (Label4 != "") {
+        	html += "<li><a href='" + Link4 + "' target='_parent'>" + Label4 + "</a></li>";
+     	}
+     	if (Label5 != "") {
+        	html += "<li><a href='" + Link5 + "' target='_parent'>" + Label5 + "</a></li>";
+     	}
+
+		html +=	"	</ul>";
+		html += "</div>";
+
+
+        
+
+     	document.getElementById('equipo').innerHTML += html;
+
+
+	</script>
+
+    ]]>
+  	</Content>
+
+  	<Content type="html" view="configuration" preferred_height="550">
+
+	<![CDATA[
+	<style type="text/css">
+
+		table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+
+		table td input,
+		textarea {
+			color: #000;
+			font-size: 11px;
+		}
+
+	</style>
+
+	<table width="100%" border="0" id="tablaconfig">
+	    <tr>
+		    <td>
+		       	Title: <input type="text" size="100" id="VarTitle" value="__UP_VarTitle__"   onchange="registra('VarTitle')"/>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	SubTitle: <input type="text" size="100" id="VarSubTitle" value="__UP_VarSubTitle__" onchange="registra('VarSubTitle')"/><hr>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	Label 1: <input type="text" size="100" id="Label1" value="__UP_Label1__" onchange="registra('Label1')"/>
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				URL 1: <input type="text" size="100" id="Link1" value="__UP_Link1__" onchange="registra('Link1')"/><hr>
+			</td>
+	    </tr>
+
+	     <tr>
+		    <td>
+		       	Label 2: <input type="text" size="100" id="Label2" value="__UP_Label2__"   onchange="registra('Label2')"/>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	URL 2: <input type="text" size="100" id="Link2" value="__UP_Link2__" onchange="registra('Link2')"/><hr>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	Label 3: <input type="text" size="100" id="Label3" value="__UP_Label3__" onchange="registra('Label3')"/>
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				URL 3: <input type="text" size="100" id="Link3" value="__UP_Link3__" onchange="registra('Link3')"/><hr>
+			</td>
+	    </tr>
+
+	      <tr>
+		    <td>
+		       	Label 4: <input type="text" size="100" id="Label4" value="__UP_Label4__"   onchange="registra('Label4')"/>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	URL 4: <input type="text" size="100" id="Link4" value="__UP_Link4__" onchange="registra('Link4')"/><hr>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	Label 5: <input type="text" size="100" id="Label5" value="__UP_Label5__" onchange="registra('Label5')"/>
+		    </td>
+		</tr>
+	    <tr>
+	        <td>
+				URL 5: <input type="text" size="100" id="Link5" value="__UP_Link5__" onchange="registra('Link5')"/>
+			</td>
+	    </tr>
+	</table>
+
+	<script type="text/javascript">
+	    // Get userprefs
+	    var prefs = new gadgets.Prefs();
+
+	    function registra(variable) {
+			prefs.set(variable,document.getElementById(variable).value);
+		}
+		gadgets.window.adjustHeight();
+	</script>
+
+ ]]>
+ </Content>
+
+</Module>
