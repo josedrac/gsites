@@ -304,89 +304,85 @@
 	<table width="100%" border="0" id="tablaconfig">
 	    <tr>
 		    <td>
-		       	Link1 - Text: <input type="text" size="100" id="VarTitle1" value="__UP_VarTitle1__"   onchange="registra('VarTitle1')"/>
+		       	Title1: <input type="text" size="100" id="VarTitle1" value="__UP_VarTitle1__"   onchange="registra('VarTitle1')"/>
 		    </td>
 		</tr>
 		<tr>
 		   	<td>
-		       	Link1 - Target: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
+		       	SubTitle1: <input type="text" size="100" id="VarSubTitle1" value="__UP_VarSubTitle1__" onchange="registra('VarSubTitle1')"/>
 		    </td>
 		</tr>
 		<tr>
 		   	<td>
-		       	Link1 - URL: <input type="text" size="100" id="VarSubTitle1" value="__UP_VarSubTitle1__" onchange="registra('VarSubTitle1')"/>
+		       	Link1: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
 		    </td>
 		</tr>
 	    <tr>
 	        <td>
-				Text1:
-				<textarea id="VarImage1" style="height: 25px; width: 80%" onchange="registra('VarImage1')" >__UP_VarImage1__</textarea>
+				Image1: <input type="text" size="100" id="VarImage1" value="__UP_VarImage1__" onchange="registra('VarImage1')"/>
 			</td>
 	    </tr>
 
 	     <tr>
 		    <td>
-		       	Link2 - Text: <input type="text" size="100" id="VarTitle2" value="__UP_VarTitle2__"   onchange="registra('VarTitle2')"/>
+		       	Title2: <input type="text" size="100" id="VarTitle2" value="__UP_VarTitle2__"   onchange="registra('VarTitle2')"/>
 		    </td>
 		</tr>
 		<tr>
 		   	<td>
-		       	Link2 - URL: <input type="text" size="100" id="VarSubTitle2" value="__UP_VarSubTitle2__" onchange="registra('VarSubTitle2')"/>
+		       	SubTitle2: <input type="text" size="100" id="VarSubTitle2" value="__UP_VarSubTitle2__" onchange="registra('VarSubTitle2')"/>
 		    </td>
 		</tr>
 		<tr>
 		   	<td>
-		       	Link2 - Target: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>
+		       	Link2: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>
 		    </td>
 		</tr>
 	    <tr>
 	        <td>
-				Text2:
-				<textarea id="VarImage2" style="height: 25px; width: 80%" onchange="registra('VarImage2')" >__UP_VarImage2__</textarea>
+				Image2: <input type="text" size="100" id="VarImage2" value="__UP_VarImage2__" onchange="registra('VarImage2')"/>
 			</td>
 	    </tr>
 
 	      <tr>
 		    <td>
-		       	Link3 - Text: <input type="text" size="100" id="VarTitle3" value="__UP_VarTitle3__"   onchange="registra('VarTitle3')"/>
+		       	Title3: <input type="text" size="100" id="VarTitle3" value="__UP_VarTitle3__"   onchange="registra('VarTitle3')"/>
 		    </td>
 		</tr>
 		<tr>
 		   	<td>
-		       	Link3 - URL: <input type="text" size="100" id="VarSubTitle3" value="__UP_VarSubTitle3__" onchange="registra('VarSubTitle3')"/>
+		       	SubTitle3: <input type="text" size="100" id="VarSubTitle3" value="__UP_VarSubTitle3__" onchange="registra('VarSubTitle3')"/>
 		    </td>
 		</tr>
 		<tr>
 		   	<td>
-		       	Link3 - Target: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>
+		       	Link3: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>
 		    </td>
 		</tr>
 	    <tr>
 	        <td>
-				Text3:
-				<textarea id="VarImage4" style="height: 25px; width: 80%" onchange="registra('VarImage4')" >__UP_VarImage4__</textarea>
+				Image3: <input type="text" size="100" id="VarImage4" value="__UP_VarImage4__" onchange="registra('VarImage4')"/>
 			</td>
 	    </tr>
 
 	      <tr>
 		    <td>
-		       	Link4 - Text: <input type="text" size="100" id="VarTitle4" value="__UP_VarTitle4__"   onchange="registra('VarTitle4')"/>
+		       	Title4: <input type="text" size="100" id="VarTitle4" value="__UP_VarTitle4__"   onchange="registra('VarTitle4')"/>
 		    </td>
 		</tr>
 		<tr>
 		   	<td>
-		       	Link4 - URL: <input type="text" size="100" id="VarSubTitle4" value="__UP_VarSubTitle4__" onchange="registra('VarSubTitle4')"/>
+		       	SubTitle4: <input type="text" size="100" id="VarSubTitle4" value="__UP_VarSubTitle4__" onchange="registra('VarSubTitle4')"/>
 		    </td>
 		</tr>
 		<tr>
 		   	<td>
-		       	Link4 - Target: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>
+		       	Link4: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>
 		    </td>
 		</tr>
 	    <tr>
 	        <td>
-				Text4:
-				<textarea id="VarImage4" style="height: 25px; width: 80%" onchange="registra('VarImage4')" >__UP_VarImage4__</textarea>
+				Image4: <input type="text" size="100" id="Image4" value="__UP_Image4__" onchange="registra('Image4')"/>
 			</td>
 	    </tr>
 	</table>
