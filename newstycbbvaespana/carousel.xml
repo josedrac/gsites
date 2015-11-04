@@ -302,11 +302,6 @@
 	</style>
 
 	<table width="100%" border="0" id="tablaconfig">
-		<tr>
-	        <td>
-		        Title - Module: <input type="text" size="100" id="VarTitleModule" value="__UP_VarTitleModule__"   onchange="registra('VarTitleModule')"/>
-	        </td>
-	    </tr>
 	    <tr>
 		    <td>
 		       	Link1 - Text: <input type="text" size="100" id="VarTitle1" value="__UP_VarTitle1__"   onchange="registra('VarTitle1')"/>
