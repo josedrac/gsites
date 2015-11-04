@@ -139,7 +139,9 @@
 
 		 	articleCoverPage += '<div class="article-cover-page">';
 		 	articleCoverPage += '<div class="article-content">';
-		 	articleCoverPage += 'Hello world 2';
+		 	articleCoverPage += '<div class="article-content-wrapper">';
+		 	articleCoverPage += '<h2>Comunidad apuntate</h2>';
+		 	articleCoverPage += '</div>';
 		 	articleCoverPage += '</div>';
 		 	articleCoverPage += '</div>';
 		 	
