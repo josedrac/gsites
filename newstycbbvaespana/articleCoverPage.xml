@@ -48,6 +48,7 @@
 				float: left;
 				width: 280px;
 				padding-left: 22px;
+				height: 266px;
 			}
 
 			.content-wrapper h2 {
