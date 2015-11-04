@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="NB - articleCoverPage.xml">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+<UserPref name="articleCoverPage" display_name="Article of cover page" required="true" />
+
+ <Content type="html">
+    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+		<style type="text/css">
+
+			p {
+				color: red;
+			}
+
+		</style>
+
+		<div id="articleCoverPage"></div>
+
+	   	<script type="text/javascript">
+		 	var gadgetHelper = null;
+		 	
+		 	var articleCoverPage = '';
+
+		 	articleCoverPage += '<p>articleCoverPage !</p>';
+
+
+		 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
+	   </script>
+
+    ]]>
+  </Content>
+  <Content type="html" view="configuration">
+
+ </Content>
+</Module>
