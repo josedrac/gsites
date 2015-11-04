@@ -39,7 +39,7 @@
 			.article-cover-page {
 				display: inline-block;
 				width: 100%;
-				background-image: url(img/border-bottom-shaded.png);
+				background-image: url(https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/border-bottom-shaded.png);
 				background-position: bottom;
 				background-repeat: repeat-x;
 			}
@@ -138,12 +138,12 @@
 		 	articleCoverPage += '<button type="button">Saber más</button>';
 		 	articleCoverPage += '</div>';
 		 	articleCoverPage += '<div class="image-wrapper">';
-		 	articleCoverPage += '<img src="img/article-coper-page-image.png" alt="article-coper-page-image" />';
+		 	articleCoverPage += '<img src="https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/article-coper-page-image.png" alt="article-coper-page-image" />';
 		 	articleCoverPage += '</div>';
 			articleCoverPage += '</div>';
 
 		 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
-		 	
+
 	   </script>
 
     ]]>
