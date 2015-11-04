@@ -65,7 +65,7 @@
 		}
 		/* @end */
 
-		.equipo {
+		#equipo {
 			background-color: #40B2DA;
 			background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backgroundEquipo.png');
 			background-repeat: no-repeat;
@@ -74,7 +74,7 @@
 			overflow: hidden;
 			padding: 20px;
 		}
-		.equipo .title {
+		#equipo .title {
 			font-family: 'BBVA Web Book';
 		    width: 52%;
 		    float: left;
@@ -83,28 +83,28 @@
 			background-repeat: no-repeat;
 			background-position: 2% 85%;
 		}
-		.equipo .title h2{
+		#equipo .title h2{
 			margin: 10px 0;
     		font-size: 30px;
 		}
-		.equipo .title p{
+		#equipo .title p{
 			margin: 0;
     		font-size: 14px;
 		}
-		.equipo .links {
+		#equipo .links {
 			font-family: 'BBVA Web Light';
 			width: 40%;
 			float: left;
 		}
-		.equipo .links ul {
+		#equipo .links ul {
 			margin: 0;
 			padding: 0;
 		}
-		.equipo .links ul li {
+		#equipo .links ul li {
 			list-style: none;
 			margin: 10px;
 		}
-		.equipo .links ul li a {
+		#equipo .links ul li a {
 			text-decoration: none;
 			color: white;
 			font-size: 23px;
@@ -112,21 +112,7 @@
 
     </style>
 
-	<div class="equipo">
-		<div class="title">
-			<h2>Nuestro equipo DT Sur</h2>
-			<p>Descubre las últimas novedades de tu territorio</p>
-		</div>
-		<div class="links">
-			<ul>
-				<li><a href="#" target='_parent'>Nombramientos</a></li>
-				<li><a href="#" target='_parent'>Un dia en...</a></li>
-				<li><a href="#" target='_parent'>Ventajas</a></li>
-				<li><a href="#" target='_parent'>Desarrollo profesional</a></li>
-				<li><a href="#" target='_parent'>¿Sábes quien es...?</a></li>
-			</ul>
-		</div>
-	</div>
+	<div id='equipo'></div>
 
    <script type="text/javascript">
 	   	var html="";
@@ -147,58 +133,36 @@
         var Link5 = prefs.getString("Link5");
 
 
-        /*if (Label1 != "")
-        {
-        	html +="<li style='background-image: url(\"" + Link1 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle + "</h2>";
-			html +="    	<p>" + VarSubTitle + "</p>";
-			html +="		<button onclick=javascript:Go('" + Label1 + "')>Más info</button>";
-			html +="	</div>";
-			html +="</li>";
+		html += "<div class='title'>";
+		html +=	"	<h2>" + VarTitle + "</h2>";
+		html +=	"	<p>" + VarSubTitle + "</p>";
+		html +=	"</div>";
+		html +=	"<div class='links'>";
+		html +=	"	<ul>";
+
+		if (Label1 != "") {
+        	html += "<li><a href='" + Link1 + "' target='_parent'>" + Label1 + "</a></li>";
      	}
-     	if (Label2 != "")
-        {
-        	html +="<li style='background-image: url(\"" + Link3 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + Label2 + "</h2>";
-			html +="    	<p>" + Link2 + "</p>";
-			html +="		<button onclick=javascript:Go('" + Link1 + "')>Más info</button>";
-			html +="	</div>";
-			html +="</li>";
+     	if (Label2 != "") {
+        	html += "<li><a href='" + Link2 + "' target='_parent'>" + Label3 + "</a></li>";
      	}
-     	if (Label3 != "")
-        {
-        	html +="<li style='background-image: url(\"" + Link5 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + Label4 + "</h2>";
-			html +="    	<p>" + Link4 + "</p>";
-			html +="		<button onclick=javascript:Go('" + Label2 + "')>Más info</button>";
-			html +="	</div>";
-			html +="</li>";
+     	if (Label3 != "") {
+        	html +="<li><a href='" + Link3 + "' target='_parent'>" + Label3 + "</a></li>";
      	}
-     	if (Label4 != "")
-        {
-        	html +="<li style='background-image: url(\"" + VarImage4 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle4 + "</h2>";
-			html +="    	<p>" + VarSubTitle4 + "</p>";
-			html +="		<button onclick=javascript:Go('" + Link2 + "')>Más info</button>";
-			html +="	</div>";
-			html +="</li>";
+     	if (Label4 != "") {
+        	html += "<li><a href='" + Link4 + "' target='_parent'>" + Label4 + "</a></li>";
      	}
-     	if (Label5 != "")
-        {
-        	html +="<li style='background-image: url(\"" + VarImage4 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle4 + "</h2>";
-			html +="    	<p>" + VarSubTitle4 + "</p>";
-			html +="		<button onclick=javascript:Go('" + Link2 + "')>Más info</button>";
-			html +="	</div>";
-			html +="</li>";
+     	if (Label5 != "") {
+        	html += "<li><a href='" + Link5 + "' target='_parent'>" + Label5 + "</a></li>";
      	}
 
-     	document.getElementById('carousel').innerHTML += html;*/
+		html +=	"	</ul>";
+		html += "</div>";
+
+
+        
+
+     	document.getElementById('equipo').innerHTML += html;
 
 
 	</script>
