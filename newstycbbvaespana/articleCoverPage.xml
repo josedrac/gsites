@@ -14,8 +14,105 @@
 
 		<style type="text/css">
 
-			p {
-				color: red;
+			@font-face {
+				font-family: 'BBVA Web Light';
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+
+			@font-face {
+				font-family: 'BBVA Web Book';
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+
+			.article-cover-page {
+				display: inline-block;
+				width: 100%;
+				background-image: url(img/border-bottom-shaded.png);
+				background-position: bottom;
+				background-repeat: repeat-x;
+			}
+
+			.content-wrapper {
+				float: left;
+				width: 280px;
+				padding-left: 22px;
+			}
+
+			.content-wrapper h2 {
+				font-family: BBVA Web Light, Arial;
+				font-size: 16px;
+				font-weight: normal;
+				text-transform: uppercase;
+    			word-spacing: 2px;
+				color: #333;
+				margin-top: 17px;
+				margin-bottom: 5px;
+			}
+
+			.content-wrapper .subtitle-link {
+	  			font-family: BBVA Web Book, Arial;
+	  			font-size: 18px;
+				color: #0078D2;
+	  			text-decoration: none;
+	  			word-spacing: -2px;
+			}
+
+			.content-wrapper .author-signature {
+				font-family: arial;
+				font-size: 11px;
+				color: #71777F;
+				margin-top: 2px;
+	  			margin-bottom: 19px;
+			}
+
+			.content-wrapper p {
+				font-family: arial;
+				font-size: 13px;
+				color: #434A58;
+			}
+
+			.content-wrapper button {
+				background: #0079C1;
+				background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+				background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+				background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+				-webkit-border-radius: .3em;
+				-moz-border-radius: .3em;
+				border-radius: .3em;
+				font-size: 11px;
+				font-weight: bolder;
+				word-spacing: 2px;
+				height: 20px;
+				padding-left: .9em;
+				padding-right: .9em;
+				border: .1em solid #00559D;
+				color: white;
+				cursor: pointer;
+				margin-top: 25px;
+			}
+
+			.content-wrapper button:hover {
+				background: #004C99;
+			}
+
+			.image-wrapper {
+				float: right;
 			}
 
 		</style>
@@ -23,14 +120,30 @@
 		<div id="articleCoverPage"></div>
 
 	   	<script type="text/javascript">
+
 		 	var gadgetHelper = null;
-		 	
 		 	var articleCoverPage = '';
-
-		 	articleCoverPage += '<p>articleCoverPage !</p>';
-
+		 	articleCoverPage += '<div class="article-cover-page">';
+		 	articleCoverPage += '<div class="content-wrapper">'
+		 	articleCoverPage += '<h2>Comunidad apuntate</h2>';
+		 	articleCoverPage += '<a class="subtitle-link" href="#">Apuntate...merece la pena</a>';
+		 	articleCoverPage += '<p class="author-signature">';
+		 	articleCoverPage += '<span>22/11/2015</span>';
+		 	articleCoverPage += '<span>-</span>';
+		 	articleCoverPage += '<span>Pedro J. Méndez Vega</span>';
+		 	articleCoverPage += '</p>';
+		 	articleCoverPage += '<p>';
+		 	articleCoverPage += 'BBVA no es sólo actividad económica o producción de bienes y servicios. Antes que eso, somos una comunidad de personas, es decir, es más que una máquina, es un ser vivo. Un ser vivo que necesita cuidados, a veces pasa malos momentos y otras los pasa buenos.';
+		 	articleCoverPage += '</p>';
+		 	articleCoverPage += '<button type="button">Saber más</button>';
+		 	articleCoverPage += '</div>';
+		 	articleCoverPage += '<div class="image-wrapper">';
+		 	articleCoverPage += '<img src="img/article-coper-page-image.png" alt="article-coper-page-image" />';
+		 	articleCoverPage += '</div>';
+			articleCoverPage += '</div>';
 
 		 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
+		 	
 	   </script>
 
     ]]>
