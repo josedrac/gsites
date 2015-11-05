@@ -10,12 +10,13 @@
 
 	<UserPref name="articleHeader" display_name="Article header" required="true" />
 	<UserPref name="articleSubtitle" display_name="Article subtitle" required="true" />
-	<UserPref name="articleSubtitleURL" display_name="Article subtitle URL" required="true" />
 	<UserPref name="articleDate" display_name="Article date" required="true" />
 	<UserPref name="articleAuthor" display_name="Article author" required="true" />
 	<UserPref name="articleContent" display_name="Article content" required="true" />
 	<UserPref name="articleTextButton" display_name="Article text button" required="true" />
+	<UserPref name="articleURL" display_name="Article URL" required="true" />
 	<UserPref name="articleImageURL" display_name="Article image URL" required="true" />
+	<UserPref name="articleImageDescription" display_name="Article image description" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -75,9 +76,10 @@
 					margin-bottom: 5px;
 				}
 
-				.article-content .subtitle-link {
+				.article-content h3 {
 		  			font-family: BBVA Web Book, Arial;
 		  			font-size: 18px;
+		  			font-weight: normal;
 					color: #0078D2;
 		  			text-decoration: none;
 		  			word-spacing: -2px;
@@ -149,12 +151,13 @@
 
 				var articleHeader = prefs.getString('articleHeader');
 				var articleSubtitle = prefs.getString('articleSubtitle');
-				var articleSubtitleURL = prefs.getString('articleSubtitleURL');
 				var articleDate = prefs.getString('articleDate');
 				var articleAuthor = prefs.getString('articleAuthor');
 				var articleContent = prefs.getString('articleContent');
 				var articleTextButton = prefs.getString('articleTextButton');
+				var articleURL = prefs.getString('articleURL');
 				var articleImageURL = prefs.getString('articleImageURL');
+				var articleImageDescription = prefs.getString('articleImageDescription');
 
 			 	var articleCoverPage = '';
 
@@ -163,7 +166,7 @@
 			 	articleCoverPage += '<div class="article-content-wrapper">';
 
 			 	articleCoverPage += '<h2>' + articleHeader + '</h2>';
-				articleCoverPage += '<a class="subtitle-link" href="' + articleSubtitleURL + '">' + articleSubtitle + '</a>';
+				articleCoverPage += '<h3>' + articleSubtitle + '</h3>';
 				articleCoverPage += '<p class="author-signature">';
 				articleCoverPage += '<span>' + articleDate + '</span>';
 				articleCoverPage += '<span>-</span>';
@@ -177,7 +180,7 @@
 			 	articleCoverPage += '</div>';
 
 				articleCoverPage += '<div class="article-image">';
-				articleCoverPage += '<img src="https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/article-coper-page-image.png" alt="article-coper-page-image" />';
+				articleCoverPage += '<img src="' + articleImageURL + '" alt="' + articleImageDescription + '" />';
 				articleCoverPage += '</div>';
 
 			 	articleCoverPage += '</div>';
@@ -243,6 +246,11 @@
 				<tr>
 			       <td>
 			           Article image URL: <input type="text" size="100" id="articleImageURL" value="__UP_articleImageURL__"   onchange="register('articleImageURL')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article image URL: <input type="text" size="100" id="articleImageDescription" value="__UP_articleImageDescription__"   onchange="register('articleImageDescription')"/>
 			       </td>
 			    </tr>
 			</table>
