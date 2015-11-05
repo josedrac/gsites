@@ -83,6 +83,7 @@
 					color: #0078D2;
 		  			text-decoration: none;
 		  			word-spacing: -2px;
+		  			margin: 0;
 				}
 
 				.article-content .author-signature {
