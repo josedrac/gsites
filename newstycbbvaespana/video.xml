@@ -39,7 +39,7 @@
     ]]>
  </Content>
 
-  <Content type="html" view="configuration">
+  <Content type="html" view="configuration" preferred_height="200">
 
 <![CDATA[
 	<style type="text/css">
