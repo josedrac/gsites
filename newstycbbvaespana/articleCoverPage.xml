@@ -49,7 +49,7 @@
 				.article-cover-page {
 					display: inline-block;
 					width: 100%;
-					background-image: url(https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 					background-position: bottom;
 					background-repeat: repeat-x;
 				}
