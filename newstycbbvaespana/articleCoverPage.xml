@@ -174,7 +174,7 @@
 				articleCoverPage += '</p>';
 
 				articleCoverPage += '<p>' + articleContent + '</p>';
-				articleCoverPage += '<button type="button" onclick="javascript:Go(\'' + articleSubtitleURL + '\')">' + articleTextButton + '</button>';
+				articleCoverPage += '<button type="button" onclick="javascript:Go(\'' + articleURL + '\')">' + articleTextButton + '</button>';
 
 			 	articleCoverPage += '</div>';
 			 	articleCoverPage += '</div>';
@@ -220,11 +220,6 @@
 			    </tr>
 				<tr>
 			       <td>
-			           Article subtitle URL: <input type="text" size="100" id="articleSubtitleURL" value="__UP_articleSubtitleURL__"   onchange="register('articleSubtitleURL')"/>
-			       </td>
-			    </tr>
-				<tr>
-			       <td>
 			           Article date: <input type="text" size="100" id="articleDate" value="__UP_articleDate__"   onchange="register('articleDate')"/>
 			       </td>
 			    </tr>
@@ -241,6 +236,11 @@
 				<tr>
 			       <td>
 			           Article text button: <input type="text" size="100" id="articleTextButton" value="__UP_articleTextButton__"   onchange="register('articleTextButton')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article URL: <input type="text" size="100" id="articleURL" value="__UP_articleURL__"   onchange="register('articleURL')"/>
 			       </td>
 			    </tr>
 				<tr>
