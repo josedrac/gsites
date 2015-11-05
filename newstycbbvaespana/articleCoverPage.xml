@@ -162,7 +162,9 @@
 			 	articleCoverPage += '<div class="article-content">';
 			 	articleCoverPage += '<div class="article-content-wrapper">';
 
-			 	articleCoverPage += '<h2>Comunidad apuntate</h2>';
+			 	articleCoverPage += '<h2>';
+			 	articleCoverPage += articleHeader;
+				articleCoverPage += '</h2>';
 				articleCoverPage += '<a class="subtitle-link" href="#">Apuntate...merece la pena</a>';
 				articleCoverPage += '<p class="author-signature">';
 				articleCoverPage += '<span>22/11/2015</span>';
