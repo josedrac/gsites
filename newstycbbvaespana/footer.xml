@@ -93,8 +93,8 @@
                 font-family: arial,sans-serif;
                 border: 1px solid #EDEDEF;
                 height: 3em;
-                padding: 1.5em 4% 0;
-                width: 90%;
+                padding: 1.5em 5% 0;
+                width: 89.5%;
                 font-size: 0.7em;
                 background: #F9FAF9;
                 color: #8C9299;
@@ -173,7 +173,7 @@
         <span><a href="javascript:void(0)">Aviso legal</a></span>
         <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
     </div>
-    
+
     ]]>
 </Content>
 </Module>
