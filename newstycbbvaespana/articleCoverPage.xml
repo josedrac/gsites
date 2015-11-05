@@ -8,7 +8,15 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
-	<UserPref name="articleCoverPage" display_name="Article of cover page" required="true" />
+	<UserPref name="articleHeader" display_name="Article header" required="true" />
+	<UserPref name="articleSubtitle" display_name="Article subtitle" required="true" />
+	<UserPref name="articleSubtitleURL" display_name="Article subtitle URL" required="true" />
+	<UserPref name="articleDate" display_name="Article date" required="true" />
+	<UserPref name="articleAuthor" display_name="Article author" required="true" />
+	<UserPref name="articleContent" display_name="Article content" required="true" />
+	<UserPref name="articleTextButton" display_name="Article text button" required="true" />
+	<UserPref name="articleImageURL" display_name="Article image URL" required="true" />
+
 
 	<Content type="html">
 	    <![CDATA[
