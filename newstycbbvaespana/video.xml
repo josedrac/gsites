@@ -39,7 +39,7 @@
     ]]>
  </Content>
 
-  <Content type="html" view="configuration" preferred_height="200">
+  <Content type="html" view="configuration" preferred_height="400">
 
 <![CDATA[
 	<style type="text/css">
@@ -52,7 +52,7 @@
 	 <table width="100%" border="0" id="tablaconfig">
 		<tr>
 	       <td>
-	           URL - Video: <input type="text" size="100" id="urlVideo" value="__UP_urlVideo__"   onchange="register('urlVideo')"/>
+	           URL - Video: <input type="text" size="100" id="urlVideo" value="__UP_urlVideo__" onchange="register('urlVideo')"/>
 	       </td>
 	    </tr>
 	</table>
