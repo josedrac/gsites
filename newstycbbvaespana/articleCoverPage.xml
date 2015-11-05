@@ -162,21 +162,16 @@
 			 	articleCoverPage += '<div class="article-content">';
 			 	articleCoverPage += '<div class="article-content-wrapper">';
 
-			 	articleCoverPage += '<h2>';
-			 	articleCoverPage += articleHeader;
-				articleCoverPage += '</h2>';
-				articleCoverPage += '<a class="subtitle-link" href="#">Apuntate...merece la pena</a>';
+			 	articleCoverPage += '<h2>' + articleHeader + '</h2>';
+				articleCoverPage += '<a class="subtitle-link" href="' + articleSubtitleURL + '">' + articleSubtitle + '</a>';
 				articleCoverPage += '<p class="author-signature">';
-				articleCoverPage += '<span>22/11/2015</span>';
+				articleCoverPage += '<span>' + articleDate + '</span>';
 				articleCoverPage += '<span>-</span>';
-				articleCoverPage += '<span>Pedro J. Méndez Vega</span>';
+				articleCoverPage += '<span>' + articleAuthor + '</span>';
 				articleCoverPage += '</p>';
 
-				articleCoverPage += '<p>';
-				articleCoverPage += 'BBVA no es sólo actividad económica o producción de bienes y servicios. Antes que eso, somos una comunidad de personas, es decir, es más que una máquina, es un ser vivo. Un ser vivo que necesita cuidados, a veces pasa malos momentos y otras los pasa buenos.';
-				articleCoverPage += '</p>';
-
-				articleCoverPage += '<button type="button">Saber más</button>';
+				articleCoverPage += '<p>' + articleContent + '</p>';
+				articleCoverPage += '<button type="button" onclick="javascript:Go(\'' + articleSubtitleURL + '\')">' + articleTextButton + '</button>';
 
 			 	articleCoverPage += '</div>';
 			 	articleCoverPage += '</div>';
@@ -188,6 +183,11 @@
 			 	articleCoverPage += '</div>';
 			 	
 			 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
+
+				function Go(destination){
+			    	window.parent.location.href = destination;
+			    	return false;
+				}
 
 		   </script>
 
