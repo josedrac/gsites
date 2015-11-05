@@ -67,7 +67,7 @@
             .footer ul li.last {
                 background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backFooter3.png');
                 background-repeat: no-repeat;
-                background-position: 95% 5%;
+                background-position: 92% 5%;
                 border: none;
                 width: 233px;
             }
