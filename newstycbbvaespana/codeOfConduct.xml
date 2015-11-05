@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+
+	<ModulePrefs title="NB - codeOfConduct.xml">
+		<Require feature="idi"/>
+		<Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<UserPref name="cocHeader" display_name="Code of conduct header" required="true" />
+	<UserPref name="cocCourseLabel" display_name="Code of conduct course label" required="true" />
+	<UserPref name="cocCourseValue" display_name="Code of conduct course value" required="true" />
+	<UserPref name="cocObjetiveLabel" display_name="Code of conduct objetive label" required="true" />
+	<UserPref name="cocObjetiveValue" display_name="Code of conduct objetive value" required="true" />
+	<UserPref name="cocContent" display_name="Code of conduct content" required="true" />
+	<UserPref name="cocTextButton" display_name="Code of conduct text button" required="true" />
+	<UserPref name="cocURL" display_name="Code of conduct URL" required="true" />
+
+	<Content type="html">
+	    <![CDATA[
+			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+			<style type="text/css">
+
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				.component-wrapper {
+					width: 629px;
+					margin: 0 auto;
+				}
+
+				.code-of-conduct {
+					display: inline-block;
+					width: 100%;
+				}
+
+				h3 {
+		  			font-family: BBVA Web Book, Arial;
+		  			font-size: 18px;
+		  			font-weight: normal;
+					color: #0078D2;
+		  			text-decoration: none;
+		  			word-spacing: -2px;
+		  			margin: 0;
+				}
+
+				p, dl {
+					font-family: arial;
+					font-size: 13px;
+					color: #434A58;
+				}
+
+				p {
+				    width: 305px;
+				}
+
+				dl {
+				    margin-top: 14px;
+				    margin-bottom: 16px;
+				}
+
+				dt {
+					float: left;
+				}
+				dt:after {
+					content: "\003A";
+					margin-right: 3px;
+				}
+				dd {
+					color: #0078D2;
+				    margin-bottom: 4px;
+				}
+
+
+
+				button {
+					background: #0079C1;
+					background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+					background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+					background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+					-webkit-border-radius: .3em;
+					-moz-border-radius: .3em;
+					border-radius: .3em;
+					font-size: 11px;
+					font-weight: bolder;
+					word-spacing: 2px;
+					height: 20px;
+					padding-left: .9em;
+					padding-right: .9em;
+					border: .1em solid #00559D;
+					color: white;
+					cursor: pointer;
+					margin-top: 38px;
+				}
+
+				button:hover {
+					background: #004C99;
+				}
+
+			</style>
+
+			<div id="codeOfConduct"></div>
+
+		   	<script type="text/javascript">
+
+			 	var gadgetHelper = null;
+
+				var prefs = new gadgets.Prefs();
+
+				var cocHeader = prefs.getString('cocHeader');
+				var cocCourseLabel = prefs.getString('cocCourseLabel');
+				var cocCourseValue = prefs.getString('cocCourseValue');
+				var cocObjetiveLabel = prefs.getString('cocObjetiveLabel');
+				var cocObjetiveValue = prefs.getString('cocObjetiveValue');
+				var cocContent = prefs.getString('cocContent');
+				var cocTextButton = prefs.getString('cocTextButton');
+				var cocURL = prefs.getString('cocURL');
+
+			 	var codeOfConduct = '';
+
+			 	codeOfConduct += '<div class="code-of-conduct">';
+			 	codeOfConduct += '<h3>' + cocHeader + '</h3>';
+			 	codeOfConduct += '<dl>';
+			 	codeOfConduct += '<dt>' + cocCourseLabel + '</dt>';
+			 	codeOfConduct += '<dd>' + cocCourseValue + '</dd>';
+			 	codeOfConduct += '<dt>' + cocObjetiveLabel + '</dt>';
+			 	codeOfConduct += '<dd>' + cocObjetiveValue + '</dd>';
+			 	codeOfConduct += '</dl>';
+				codeOfConduct += '<p>' + cocContent + '</p>';
+				codeOfConduct += '<button type="button" onclick="javascript:Go(\'' + cocURL + '\')">' + cocTextButton + '</button>';
+				codeOfConduct += '</div>';
+
+			 	
+			 	
+			 	document.getElementById("codeOfConduct").innerHTML = codeOfConduct;
+
+				function Go(destination){
+			    	window.parent.location.href = destination;
+			    	return false;
+				}
+
+		   </script>
+
+	    ]]>
+	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+			<style type="text/css">
+			 	table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+			 </style>
+			 <table width="100%" border="0" id="tablaconfig">
+				<tr>
+			       <td>
+			           Header: <input type="text" size="100" id="cocHeader" value="__UP_cocHeader__" onchange="register('cocHeader')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Course label: <input type="text" size="100" id="cocCourseLabel" value="__UP_cocCourseLabel__" onchange="register('cocCourseLabel')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Course value: <input type="text" size="100" id="cocCourseValue" value="__UP_cocCourseValue__" onchange="register('cocCourseValue')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Objetive label: <input type="text" size="100" id="cocObjetiveLabel" value="__UP_cocObjetiveLabel__" onchange="register('cocObjetiveLabel')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Objetive value: <input type="text" size="100" id="cocObjetiveValue" value="__UP_cocObjetiveValue__" onchange="register('cocObjetiveValue')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Content: <input type="text" size="100" id="cocContent" value="__UP_cocContent__" onchange="register('cocContent')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Text button: <input type="text" size="100" id="cocTextButton" value="__UP_cocTextButton__" onchange="register('cocTextButton')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           URL: <input type="text" size="100" id="cocURL" value="__UP_cocURL__" onchange="register('cocURL')"/>
+			       </td>
+			    </tr>
+			</table>
+
+			<script type="text/javascript">
+
+			    var prefs = new gadgets.Prefs();
+			    function register(variable) {
+			        prefs.set(variable, document.getElementById(variable).value);
+			    }
+
+				gadgets.window.adjustHeight();
+
+			</script>
+
+		]]>
+ 	</Content>
+
+</Module>
