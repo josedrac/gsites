@@ -31,6 +31,9 @@
             }
             /* @end */
 
+            .footer {
+                width: 950px;
+            }
             .footer ul {
                 display: inline;
                 list-style-type: none;
@@ -53,20 +56,20 @@
                 background-repeat: no-repeat;
                 background-position: 77% 5%;
                 padding-left: 70px;
-                width: 276px;
+                width: 272px;
             }
             .footer ul li.middle {
                 background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backFooter2.png');
                 background-repeat: no-repeat;
                 background-position: 79% 5%;
-                width: 286px;
+                width: 282px;
             }
             .footer ul li.last {
                 background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backFooter3.png');
                 background-repeat: no-repeat;
                 background-position: 95% 5%;
                 border: none;
-                width: 235px;
+                width: 233px;
             }
             .footer ul li h2{
                 color: #434A58;
@@ -90,7 +93,7 @@
                 font-family: arial,sans-serif;
                 border: 1px solid #EDEDEF;
                 height: 3em;
-                padding: 1.5em 5% 0;
+                padding: 1.5em 4% 0;
                 width: 90%;
                 font-size: 0.7em;
                 background: #F9FAF9;
