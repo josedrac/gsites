@@ -144,7 +144,7 @@
         	html += "<li><a href='" + Link1 + "' target='_parent'>" + Label1 + "</a></li>";
      	}
      	if (Label2 != "") {
-        	html += "<li><a href='" + Link2 + "' target='_parent'>" + Label3 + "</a></li>";
+        	html += "<li><a href='" + Link2 + "' target='_parent'>" + Label2 + "</a></li>";
      	}
      	if (Label3 != "") {
         	html +="<li><a href='" + Link3 + "' target='_parent'>" + Label3 + "</a></li>";
