@@ -58,8 +58,6 @@
 					font-family: arial;
 					font-size: 13px;
 					color: #434A58;
-					letter-spacing: -.5px;
-					word-spacing: .5px;
 				}
 
 				p {
@@ -81,7 +79,6 @@
 				dd {
 					color: #0078D2;
 				    margin-bottom: 4px;
-				    letter-spacing: -0.35px;
 				}
 
 
