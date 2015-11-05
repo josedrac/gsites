@@ -17,7 +17,6 @@
 	<UserPref name="articleTextButton" display_name="Article text button" required="true" />
 	<UserPref name="articleImageURL" display_name="Article image URL" required="true" />
 
-
 	<Content type="html">
 	    <![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -145,6 +144,18 @@
 		   	<script type="text/javascript">
 
 			 	var gadgetHelper = null;
+
+				var prefs = new gadgets.Prefs();
+
+				var articleHeader = prefs.getString('articleHeader');
+				var articleSubtitle = prefs.getString('articleSubtitle');
+				var articleSubtitleURL = prefs.getString('articleSubtitleURL');
+				var articleDate = prefs.getString('articleDate');
+				var articleAuthor = prefs.getString('articleAuthor');
+				var articleContent = prefs.getString('articleContent');
+				var articleTextButton = prefs.getString('articleTextButton');
+				var articleImageURL = prefs.getString('articleImageURL');
+
 			 	var articleCoverPage = '';
 
 			 	articleCoverPage += '<div class="article-cover-page">';
