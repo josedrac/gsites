@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="NB-footer.xml"
+    description=""
+    author_affiliation="Sopra" height="390">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+
+
+ <Content type="html">
+
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<head>
+
+		<style type="text/css">
+		
+            /* @group fonts */
+            @font-face {
+                font-family: 'BBVA Web Book';
+                src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+                src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                    url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+                    url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+                    url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+                font-style: normal;
+                font-weight: normal;
+            }
+            /* @end */
+
+            .footer ul {
+                display: inline;
+                list-style-type: none;
+                padding-left: 0;
+                font-family: BBVA Web Book, Arial;
+            }
+            .footer ul.footer-container {
+                display: inline-block;
+            }
+            .footer ul li {
+                float: left;
+                margin: 0;
+                padding-left: 45px;
+                text-align: left;
+                border-right: 1px solid #DCDCDC;
+                min-height: 280px;
+            }
+            .footer ul li.first {
+                background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backFooter1.png');
+                background-repeat: no-repeat;
+                background-position: 77% 5%;
+                padding-left: 70px;
+                width: 276px;
+            }
+            .footer ul li.middle {
+                background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backFooter2.png');
+                background-repeat: no-repeat;
+                background-position: 79% 5%;
+                width: 286px;
+            }
+            .footer ul li.last {
+                background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backFooter3.png');
+                background-repeat: no-repeat;
+                background-position: 95% 5%;
+                border: none;
+                width: 235px;
+            }
+            .footer ul li h2{
+                color: #434A58;
+                font-size: 11px;
+            }
+            .footer ul li ul li {
+                width: 240px;
+                border-right: none;
+                min-height: auto;
+                padding-left: 0;
+            }
+            .footer ul li ul li a {
+                line-height: 24px;
+                color: #8C9299;
+                font-size: 12px;
+                font-weight: normal;
+                text-align: left!important;
+                text-decoration: none;
+            }
+            .footer-bottom {
+                font-family: arial,sans-serif;
+                border: 1px solid #EDEDEF;
+                height: 3em;
+                padding: 1.5em 5% 0;
+                width: 90%;
+                font-size: 0.7em;
+                background: #F9FAF9;
+                color: #8C9299;
+                margin-top:20px;
+            }
+
+            .footer-bottom a {
+                float: left;
+                color: #8C9299;
+                text-decoration: none;
+            }
+
+            .footer-bottom span.copyright {
+                float: right;
+            }
+
+		</style>
+
+		<!--[if IE]>
+
+			<style type="text/css">
+				.footer ul li h2{
+					padding-bottom: 10px;
+				}
+			</style>
+
+		<![endif]-->
+
+	</head>
+
+    <div class="footer">
+        <ul class="footer-container">
+            <li class="first">
+                <h2>NEWS BBVA ESPAÑA</h2>
+                <ul>
+                    <li><a target="_parent" href="javascript:void(0)">Canarias</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Cataluña</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Centro</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Este</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Noroeste</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Norte</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Portugal</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Seguros</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Servicios Centrales</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Sur</a></li>
+                </ul>
+            </li>
+            <li class="middle">
+                <h2>NUESTRO EQUIPO</h2>
+                <ul>
+                    <li><a target="_parent" href="javascript:void(0)">Nombramientos</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Un día en...</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Ventajas</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Desarrollo profesional</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">¿Sabes quién es...?</a></li>
+                </ul>
+            </li>
+            <li class="last">
+                <h2>ENLACES DE INTERÉS</h2>
+                <ul>
+                    <li><a target="_parent" href="javascript:void(0)">Apúntate +</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">CV</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Campus BBVA</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Tú & BBVA</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">SAE</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Banco10</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Implantaciones EyP</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Código de conducta</a></li>
+                    <li><a target="_parent" href="javascript:void(0)">Salud laboral</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer-bottom">
+        <span><a href="javascript:void(0)">Aviso legal</a></span>
+        <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
+    </div>
+    
+    ]]>
+</Content>
+</Module>
