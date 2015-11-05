@@ -251,7 +251,7 @@
 			    </tr>
 				<tr>
 			       <td>
-			           Article image URL: <input type="text" size="100" id="articleImageDescription" value="__UP_articleImageDescription__"   onchange="register('articleImageDescription')"/>
+			           Article image description: <input type="text" size="100" id="articleImageDescription" value="__UP_articleImageDescription__"   onchange="register('articleImageDescription')"/>
 			       </td>
 			    </tr>
 			</table>
