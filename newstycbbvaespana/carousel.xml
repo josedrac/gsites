@@ -119,6 +119,7 @@
 		  height: 295px;
 		  background-size: cover;
 		  background-position: center;
+		  border-top: 10px solid #0091E5;
 		}
 
 		.banner ul li .content {
