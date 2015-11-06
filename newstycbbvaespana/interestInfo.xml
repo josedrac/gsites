@@ -92,13 +92,13 @@
 				.info-extra {
 					margin: 10px 18px 18px;
 					border-top: 1px solid #DDE3EA;
-					font-family: BBVA Web Book, Arial;
 					font-size: 11px;
 					color: #666;
 					line-height: 14px;
 				}
 
 				.info-extra p {
+					font-family: BBVA Web Book, Arial;
 					margin: 8px 0;
 				}
 
