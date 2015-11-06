@@ -42,7 +42,6 @@
 				}
 
 				.content {
-					font-family: 'BBVA Web Light';
 					background: #ffffff;
 					background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
 					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
@@ -77,6 +76,7 @@
 				}
 
 				.info h2 {
+					font-family: 'BBVA Web Light';
 					font-size: 20px;
 					font-weight: normal;
 				    margin: 18px 18px 14px;
