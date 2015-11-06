@@ -8,13 +8,14 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
-	<UserPref name="ifHeader" display_name="Code of conduct header" required="true" />
-	<UserPref name="ifPrimaryText" display_name="Code of conduct course label" required="true" />
-	<UserPref name="ifSecondaryText" display_name="Code of conduct course value" required="true" />
+	<UserPref name="ifHeader" display_name="Interest info header" required="true" />
+	<UserPref name="ifPrimaryText" display_name="Interest info primary text" required="true" />
+	<UserPref name="ifSecondaryText" display_name="Interest info secondary text" required="true" />
 	
 	<Content type="html">
 	    <![CDATA[
-			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+				<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
 				@font-face {
 					font-family: 'BBVA Web Light';
@@ -38,12 +39,7 @@
 					font-weight: normal;
 				}
 
-				.component-wrapper {
-					width: 300px;
-					margin: 0 auto;
-				}
-
-				.content{
+				.content {
 					font-family: 'BBVA Web Light';
 					background: #ffffff;
 					background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
