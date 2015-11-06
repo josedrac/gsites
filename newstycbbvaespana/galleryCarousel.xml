@@ -206,7 +206,7 @@
     </style>
 
     <div class="banner">
-    	<div id="titleCarousel">En nuestra territorial</div>
+    	<div id="titleCarousel"></div>
 	    <ul id="carousel"></ul>
 	    <div class="control">
 	    	<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>
@@ -215,7 +215,7 @@
 	</div>
 
 
-	<div class="banner">
+	<!-- <div class="banner">
 		<div id="titleCarousel"></div>
 	    <ul>
 	        <li>
@@ -250,7 +250,7 @@
 	    	<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>
 			<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png" alt=""></a>
 	    </div>
-	</div>
+	</div> -->
 
 	<script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
