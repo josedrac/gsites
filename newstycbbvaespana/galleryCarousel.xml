@@ -216,7 +216,6 @@
 
 
 	<!-- <div class="banner">
-		<div id="titleCarousel"></div>
 	    <ul>
 	        <li>
 	        	<div class="image">
@@ -277,45 +276,56 @@
 
 		titleHtml = TitleCarousel;
 
-        /*if (VarTitle1!="")
+        if (VarTitle1!="")
         {
-        	html +="<li style='background-image: url(\"" + VarImage1 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle1 + "</h2>";
-			html +="    	<p>" + VarSubTitle1 + "</p>";
-			html +="		<button onclick=javascript:Go('" + TitleCarousel + "')>Más info</button>";
-			html +="	</div>";
-			html +="</li>";
+        	html += "<li>";
+        	html += "	<div class='image'>"
+	        html += "		<div class='background' style='background-image: url(\"" + VarImage1 + "\");'></div>";	
+	        html += "	</div>";
+			html += "	<div class='content'>";
+			html += "		<h2>" + VarTitle1 + "</h2>";
+			html += "    	<p>" + VarSubTitle1 + "</p>";
+			html += "	</div>";
+			html += "</li>";
      	}
      	if (VarTitle2!="")
         {
-        	html +="<li style='background-image: url(\"" + VarImage2 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle2 + "</h2>";
-			html +="    	<p>" + VarSubTitle2 + "</p>";
-			html +="	</div>";
-			html +="</li>";
+        	html += "<li>";
+        	html += "	<div class='image'>"
+	        html += "		<div class='background' style='background-image: url(\"" + VarImage2 + "\");'></div>";	
+	        html += "	</div>";
+			html += "	<div class='content'>";
+			html += "		<h2>" + VarTitle2 + "</h2>";
+			html += "    	<p>" + VarSubTitle2 + "</p>";
+			html += "	</div>";
+			html += "</li>";
      	}
      	if (VarTitle3!="")
         {
-        	html +="<li style='background-image: url(\"" + VarImage3 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle3 + "</h2>";
-			html +="    	<p>" + VarSubTitle3 + "</p>";
-			html +="	</div>";
-			html +="</li>";
+        	html += "<li>";
+        	html += "	<div class='image'>"
+	        html += "		<div class='background' style='background-image: url(\"" + VarImage3 + "\");'></div>";	
+	        html += "	</div>";
+			html += "	<div class='content'>";
+			html += "		<h2>" + VarTitle3 + "</h2>";
+			html += "    	<p>" + VarSubTitle3 + "</p>";
+			html += "	</div>";
+			html += "</li>";
      	}
      	if (VarTitle4!="")
         {
-        	html +="<li style='background-image: url(\"" + VarImage4 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle4 + "</h2>";
-			html +="    	<p>" + VarSubTitle4 + "</p>";
-			html +="	</div>";
-			html +="</li>";
+        	html += "<li>";
+        	html += "	<div class='image'>"
+	        html += "		<div class='background' style='background-image: url(\"" + VarImage4 + "\");'></div>";	
+	        html += "	</div>";
+			html += "	<div class='content'>";
+			html += "		<h2>" + VarTitle4 + "</h2>";
+			html += "    	<p>" + VarSubTitle4 + "</p>";
+			html += "	</div>";
+			html += "</li>";
      	}
 
-     	document.getElementById('carousel').innerHTML += html;*/
+     	document.getElementById('carousel').innerHTML += html;
      	document.getElementById('titleCarousel').innerHTML += titleHtml;
 
 		var unslider = $('.banner').unslider({
