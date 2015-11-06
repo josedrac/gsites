@@ -116,7 +116,7 @@
 				var ifPrimaryText = prefs.getString('ifPrimaryText');
 				var ifSecondaryText = prefs.getString('ifSecondaryText');
 				
-			 	var codeOfConduct = '';
+			 	var interestInfo = '';
 
 			 	interestInfo += '<div class="content">';
 			 	interestInfo += '<div class="info">';
