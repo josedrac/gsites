@@ -202,19 +202,19 @@
 			   		html += "<div class='article-cover-page'>";
 			   		html += "	<div class='article-content'>";
 			   		html += "		<div class='article-content-wrapper'>";
-			   		html += "			<h2>" + data.getValue(i,1) + "</h2>";
-			   		html += "			<h3>" + data.getValue(i,2) + "</h3>";
+			   		html += "			<h2>" + data.getValue(0,1) + "</h2>";
+			   		html += "			<h3>" + data.getValue(0,2) + "</h3>";
 			   		html += "			<p class='author-signature'>";
-			   		html += "				<span>" + data.getValue(i,3) + "</span>";
+			   		html += "				<span>" + data.getValue(0,3) + "</span>";
 			   		html += "				<span>-</span>";
-			   		html += "				<span>" + data.getValue(i,4) + "</span>";
+			   		html += "				<span>" + data.getValue(0,4) + "</span>";
 					html += "			</p>";
-					html += "			<p>" + data.getValue(i,5) + "</p>";
+					html += "			<p>" + data.getValue(0,5) + "</p>";
 					html += "			<button type='button'>Saber más</button>";
 					html += "		</div>";
 					html += "	</div>";
 					html += "	<div class='article-image'>";
-					html += "		<img src='" + data.getValue(i,7) + "'/>";
+					html += "		<img src='" + data.getValue(0,7) + "'/>";
 					html += "	</div>";
 					html += "</div>";
 				}
