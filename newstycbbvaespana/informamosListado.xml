@@ -201,7 +201,7 @@
 				var html = "";
 				
 				if(filas < 1) {
-    				html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+    				html += '<p class="text">No hay ningún contenido.</p>';
             	}
             	else {
             		var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/informacion?informacion="+data.getValue(0,0);
