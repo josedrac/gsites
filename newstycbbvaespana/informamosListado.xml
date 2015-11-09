@@ -167,26 +167,7 @@
 		<![endif]-->
 
 
-		<div id="listadoInformamos">
-			<div class="article-cover-page">
-				 <div class="article-content">
-				 	<div class="article-content-wrapper">
-						<h2>LIGA BBVA</h2>
-						<h3>Ganadores de entradas para la Liga</h3>
-						<p class="author-signature">
-							<span>22/11/2015</span>
-							<span>-</span>
-							<span>Dpt. RRHH</span>
-						</p>
-						<p>El pasado día 11 de Marzo os remitimos desde Recursos Humanos Sur un correo electrónico en el que os invitabamos a participar en el sorteo de ocho lotes de dos entradas cada uno, para asistir al partido de fútbol que enfretaba al Elche C.F. y al Valencia C.f., con ocasión de la celebración de la jornada BBVA Day.</p>
-						<button type="button">Saber más</button>
-					</div>
-				</div>
-				<div class="article-image">
-					<img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/ligaBBVA.png"/>
-				</div>
-			</div>
-		</div>
+		<div id="listadoInformamos"></div>
 
 	   	<script type="text/javascript">
 	        var gadgetHelper = null;
@@ -215,10 +196,33 @@
 				var pagTotales = Math.ceil(filas/4);
 				var pagActual = 1;
 				var html = "";
+				
+				if(filas<1) {
+    				html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+            	}
+            	else {
+	                html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
+	            }
 
-				console.log(VarRegion);
-
-				//document.getElementById('listadoInformamos').innerHTML += html;
+		   		html += "<div class='article-cover-page'>";
+		   		html += "	<div class='article-cover-page'>";
+		   		html += "		<div class='article-content-wrapper'>";
+		   		html += "		<h2>LIGA BBVA</h2>";
+		   		html += "		<h3>Ganadores de entradas para la Liga</h3>";
+		   		html += "		<p class='author-signature'>";
+		   		html += "			<span>22/11/2015</span>";
+		   		html += "			<span>-</span>";
+		   		html += "			<span>Dpt. RRHH</span>";
+				html += "		</p>";
+				html += "		<p>El pasado día 11 de Marzo os remitimos desde Recursos Humanos Sur un correo electrónico en el que os invitabamos a participar en el sorteo de ocho lotes de dos entradas cada uno, para asistir al partido de fútbol que enfretaba al Elche C.F. y al Valencia C.f., con ocasión de la celebración de la jornada BBVA Day.</p>";
+				html += "		<button type='button'>Saber más</button>";
+				html += "	</div>";
+				html += "</div>";
+				html += "<div class='article-image'>";
+				html += "	<img src='https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/ligaBBVA.png'/>";
+				html += "</div>";
+						
+				document.getElementById('listadoInformamos').innerHTML += html;
 			}
 
 			function continuacion(num) {
