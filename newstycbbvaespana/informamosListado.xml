@@ -145,6 +145,12 @@
 				max-height: 262px;
 				float: right;
 			}
+
+			.article-image iframe {
+				border:0px solid #AAA; 
+				width:300px; 
+				height:200px; 
+			}
 		</style>
 
 		<!--[if IE]>
@@ -205,7 +211,7 @@
 			   		html += "			<h2>" + data.getValue(0,1) + "</h2>";
 			   		html += "			<h3>" + data.getValue(0,2) + "</h3>";
 			   		html += "			<p class='author-signature'>";
-			   		html += "				<span>" + data.getValue(0,3) + "</span>";
+			   		html += "				<span>" + data.getFormattedValue(0,3) + "</span>";
 			   		html += "				<span>-</span>";
 			   		html += "				<span>" + data.getValue(0,4) + "</span>";
 					html += "			</p>";
