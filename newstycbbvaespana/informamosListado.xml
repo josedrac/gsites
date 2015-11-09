@@ -8,9 +8,16 @@
   	</ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
 	<UserPref name="VarRegion" display_name="VarRegion" default_value="1" datatype="enum" required="true" >
-    	<EnumValue value="1" display_value="Sur"/>
-    	<EnumValue value="2" display_value="Este"/>
-    	<EnumValue value="3" display_value="Norte"/>
+		<EnumValue value="0" display_value="Canarias"/>
+    	<EnumValue value="1" display_value="Cataluña"/>
+    	<EnumValue value="2" display_value="Centro"/>
+    	<EnumValue value="3" display_value="Este"/>
+    	<EnumValue value="4" display_value="Noroeste"/>
+    	<EnumValue value="5" display_value="Norte"/>
+    	<EnumValue value="6" display_value="Portugal"/>
+    	<EnumValue value="7" display_value="Seguros"/>
+    	<EnumValue value="8" display_value="Este"/>
+    	<EnumValue value="9" display_value="Servicios Centrales"/>
   	</UserPref> 
  
  	<Content type="html">
