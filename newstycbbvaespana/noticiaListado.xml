@@ -209,7 +209,9 @@
 			   		html += "<div class='article-cover-page'>";
 			   		html += "	<div class='article-content'>";
 			   		html += "		<div class='article-content-wrapper'>";
-			   		html += "			<h2>" + data.getValue(0,1) + "</h2>";
+			   		if(data.getValue(0,1) != null && typeof data.getValue(0,1) != 'undefined' && data.getValue(0,1) !== undefined && data.getValue(0,1) != ""){
+			   			html += "<h2>" + data.getValue(0,1) + "</h2>";
+			   		}
 			   		html += "			<h3>" + data.getValue(0,2) + "</h3>";
 			   		html += "			<p class='author-signature'>";
 			   		html += "				<span>" + data.getFormattedValue(0,3) + "</span>";
