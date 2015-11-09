@@ -217,9 +217,9 @@
 					html += "		<img src='https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/ligaBBVA.png'/>";
 					html += "	</div>";
 					html += "</div>";
-							
-					document.getElementById('listadoInformamos').innerHTML += html;
 				}
+
+				document.getElementById('listadoInformamos').innerHTML += html;
 			}
 
 			function continuacion(num) {
