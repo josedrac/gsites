@@ -205,7 +205,7 @@
             	}
             	else {
             		var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/informacion?informacion="+data.getValue(0,0);
-            		
+
 			   		html += "<div class='article-cover-page'>";
 			   		html += "	<div class='article-content'>";
 			   		html += "		<div class='article-content-wrapper'>";
@@ -235,54 +235,6 @@
 				document.getElementById('listadoInformamos').innerHTML += html;
 			}
 
-			function continuacion(num) {
-	            var bloque = "pagina"+num;
-	            var numInt = parseInt(num)-1;
-	            var bloque_anterior = "pagina"+ numInt;
-	            document.getElementById(bloque).style.display='block';
-	            document.getElementById(bloque_anterior).style.display='none';
-	        }
-
-	    	function anterior(num) {
-	            var bloque = "pagina"+num;
-	            var numInt = parseInt(num)-1;
-	            var numInt2 = parseInt(num)-2;
-	            if (numInt2 == 0)
-	            {
-	                numInt  = 2;
-	                numInt2 = 1;
-	            }
-	            var bloque_actual = "pagina"+ numInt;
-	            var bloque_anterior = "pagina"+ numInt2;
-	            document.getElementById(bloque_actual).style.display='none';
-	            document.getElementById(bloque_anterior).style.display='block';
-				document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-			    document.getElementById('pagination'+numInt2).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
-	        }
-
-	    	function anteriorUltima(num) {
-	            var bloque = "pagina"+num;
-	            var numInt = parseInt(num)-1;
-	            var bloque_anterior = "pagina"+ numInt;
-	            document.getElementById(bloque).style.display='none';
-	            document.getElementById(bloque_anterior).style.display='block';
-				document.getElementById('pagination'+num).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-			    document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
-	    	}
-
-			function changePage(num,pag) {
-			    var bloque = "pagina"+pag;
-				//var numInt = parseInt(num)-1;
-				var bloque_anterior = "pagina"+ num;
-
-			    document.getElementById(bloque).style.display='none';
-	            document.getElementById(bloque_anterior).style.display='block';
-			}
-
-			function changeImage(pagina,old) {
-			    document.getElementById('pagination'+old).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-			    document.getElementById('pagination'+pagina).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
-			}
 
 		    function Go(destination) {
 		    	window.parent.location.href = destination;
