@@ -191,7 +191,6 @@
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
 				var querytosend = "select * where A <> 'IdInformacion' and " + VarRegion + " = 'x' order by D desc limit 1";
-				console.log(querytosend);
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
 			}
@@ -199,13 +198,14 @@
 	        function handleQueryResponse(response) {
 	            data = response.getDataTable();
 				var filas = data.getNumberOfRows();
-				var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/informacion?informacion="+data.getValue(0,0);
 				var html = "";
 				
 				if(filas < 1) {
     				html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
             	}
             	else {
+            		var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/informacion?informacion="+data.getValue(0,0);
+            		
 			   		html += "<div class='article-cover-page'>";
 			   		html += "	<div class='article-content'>";
 			   		html += "		<div class='article-content-wrapper'>";
@@ -295,7 +295,6 @@
 		    	window.setTimeout('showIframes()',2000);
 		    }
 		 	function showIframes() {
-		 		//console.log('debugg');
 			 	var iframes =document.getElementsByClassName('youtubeIframe').length;
 
 			 	for (var i=0;i<iframes;i++)
