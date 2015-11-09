@@ -199,6 +199,7 @@
 	        function handleQueryResponse(response) {
 	            data = response.getDataTable();
 				var filas = data.getNumberOfRows();
+				var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/informacion?informacion="+data.getValue(0,0);
 				var html = "";
 				
 				if(filas < 1) {
@@ -216,7 +217,7 @@
 			   		html += "				<span>" + data.getValue(0,4) + "</span>";
 					html += "			</p>";
 					html += "			<p>" + data.getValue(0,5) + "</p>";
-					html += "			<button type='button'>Saber más</button>";
+					html += '			<button type="button" onclick="javascript:Go(\''+url+'\')">Saber más</button>';
 					html += "		</div>";
 					html += "	</div>";
 					html += "	<div class='article-image'>";
