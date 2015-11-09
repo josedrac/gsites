@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  	<ModulePrefs title="ED-informamos-listado.xml" author_affiliation="sopraux" >
+  	<ModulePrefs title="NB-noticia-listado.xml" author_affiliation="sopraux" >
 	    <Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -172,7 +172,7 @@
 		<![endif]-->
 
 
-		<div id="listadoInformamos"></div>
+		<div id="noticia"></div>
 
 	   	<script type="text/javascript">
 	        var gadgetHelper = null;
@@ -190,7 +190,7 @@
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdInformacion' and " + VarRegion + " = 'x' order by D desc limit 1";
+				var querytosend = "select * where A <> 'IdNoticia' and " + VarRegion + " = 'x' order by D desc limit 1";
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
 			}
@@ -204,7 +204,7 @@
     				html += '<p class="text">No hay ningún contenido.</p>';
             	}
             	else {
-            		var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/informacion?informacion="+data.getValue(0,0);
+            		var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/noticia?noticia="+data.getValue(0,0);
 
 			   		html += "<div class='article-cover-page'>";
 			   		html += "	<div class='article-content'>";
@@ -232,7 +232,7 @@
 					html += "</div>";
 				}
 
-				document.getElementById('listadoInformamos').innerHTML += html;
+				document.getElementById('noticia').innerHTML += html;
 			}
 
 
