@@ -220,7 +220,13 @@
 					html += "		</div>";
 					html += "	</div>";
 					html += "	<div class='article-image'>";
-					html += "		<img src='" + data.getValue(0,7) + "'/>";
+
+					if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
+						html += "<img src='" + data.getValue(0,7) + "'/>";
+               		}else{
+			        	html += "<iframe src='"+data.getValue(0,8)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe>";
+               		}
+
 					html += "	</div>";
 					html += "</div>";
 				}
