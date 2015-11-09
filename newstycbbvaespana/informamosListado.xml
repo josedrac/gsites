@@ -184,7 +184,7 @@
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdInformacion' and " + VarRegion + "= 'x' order by D desc limit 1";
+				var querytosend = "select * where A <> 'IdInformacion' and " + VarRegion + " = 'x' order by D desc limit 1";
 				console.log(querytosend);
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
@@ -202,19 +202,19 @@
 			   		html += "<div class='article-cover-page'>";
 			   		html += "	<div class='article-content'>";
 			   		html += "		<div class='article-content-wrapper'>";
-			   		html += "			<h2>LIGA BBVA</h2>";
-			   		html += "			<h3>Ganadores de entradas para la Liga</h3>";
+			   		html += "			<h2>" + data.getValue(i,1) + "</h2>";
+			   		html += "			<h3>" + data.getValue(i,2) + "</h3>";
 			   		html += "			<p class='author-signature'>";
-			   		html += "				<span>22/11/2015</span>";
+			   		html += "				<span>" + data.getValue(i,3) + "</span>";
 			   		html += "				<span>-</span>";
-			   		html += "				<span>Dpt. RRHH</span>";
+			   		html += "				<span>" + data.getValue(i,4) + "</span>";
 					html += "			</p>";
-					html += "			<p>El pasado día 11 de Marzo os remitimos desde Recursos Humanos Sur un correo electrónico en el que os invitabamos a participar en el sorteo de ocho lotes de dos entradas cada uno, para asistir al partido de fútbol que enfretaba al Elche C.F. y al Valencia C.f., con ocasión de la celebración de la jornada BBVA Day.</p>";
+					html += "			<p>" + data.getValue(i,5) + "</p>";
 					html += "			<button type='button'>Saber más</button>";
 					html += "		</div>";
 					html += "	</div>";
 					html += "	<div class='article-image'>";
-					html += "		<img src='https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/ligaBBVA.png'/>";
+					html += "		<img src='" + data.getValue(i,7) + "'/>";
 					html += "	</div>";
 					html += "</div>";
 				}
