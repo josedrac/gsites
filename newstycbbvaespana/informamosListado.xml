@@ -76,7 +76,6 @@
 			.article-cover-page {
 				display: table;
 				width: 620px;
-				height: 100%;
 				background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 				background-position: bottom;
 				background-repeat: repeat-x;
