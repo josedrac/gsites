@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
- 	<ModulePrefs title="ED-novedades-listado.xml"/>
+  	<ModulePrefs title="ED-informamos-listado.xml" author_affiliation="sopraux" >
 	    <Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
 		<Require feature="setprefs" />
   	</ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<!-- <UserPref name="VarRegion" display_name="VarRegion" default_value="1" datatype="enum" required="true" />
+	<UserPref name="VarRegion" display_name="VarRegion" default_value="1" datatype="enum" required="true" >
     	<EnumValue value="1" display_value="Sur"/>
     	<EnumValue value="2" display_value="Este"/>
     	<EnumValue value="3" display_value="Norte"/>
-  	</UserPref> -->
+  	</UserPref> 
  
  	<Content type="html">
 	    <![CDATA[
@@ -185,7 +185,7 @@
 	        var gadgetHelper = null;
 	        var prefs = new _IG_Prefs();
 	        var urlTable = prefs.getString("_table_query_url");
-	        //var VarRegion = prefs.getString("VarRegion");
+	        var VarRegion = prefs.getString("VarRegion");
 	        _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 		 	function loadVisualizationAPI(){
@@ -209,7 +209,7 @@
 				var pagActual = 1;
 				var html = "";
 
-				//console.log(VarRegion);
+				console.log(VarRegion);
 
 				//document.getElementById('listadoInformamos').innerHTML += html;
 			}
