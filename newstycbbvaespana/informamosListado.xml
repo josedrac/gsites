@@ -8,16 +8,16 @@
   	</ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
 	<UserPref name="VarRegion" display_name="VarRegion" default_value="1" datatype="enum" required="true" >
-		<EnumValue value="0" display_value="Canarias"/>
-    	<EnumValue value="1" display_value="Cataluña"/>
-    	<EnumValue value="2" display_value="Centro"/>
-    	<EnumValue value="3" display_value="Este"/>
-    	<EnumValue value="4" display_value="Noroeste"/>
-    	<EnumValue value="5" display_value="Norte"/>
-    	<EnumValue value="6" display_value="Portugal"/>
-    	<EnumValue value="7" display_value="Seguros"/>
-    	<EnumValue value="8" display_value="Este"/>
-    	<EnumValue value="9" display_value="Servicios Centrales"/>
+		<EnumValue value="J" display_value="Canarias"/>
+    	<EnumValue value="K" display_value="Cataluña"/>
+    	<EnumValue value="L" display_value="Centro"/>
+    	<EnumValue value="M" display_value="Este"/>
+    	<EnumValue value="N" display_value="Noroeste"/>
+    	<EnumValue value="O" display_value="Norte"/>
+    	<EnumValue value="P" display_value="Portugal"/>
+    	<EnumValue value="Q" display_value="Seguros"/>
+    	<EnumValue value="R" display_value="Servicios Centrales"/>
+    	<EnumValue value="S" display_value="Sur"/>
   	</UserPref> 
  
  	<Content type="html">
@@ -184,7 +184,7 @@
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdNovedad' and P <> 'x' order by C desc";
+				var querytosend = "select * where A <> 'IdInformacion' and VarRegion = 'x' order by D desc";
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
 			}
@@ -192,11 +192,9 @@
 	        function handleQueryResponse(response) {
 	            data = response.getDataTable();
 				var filas = data.getNumberOfRows();
-				var pagTotales = Math.ceil(filas/4);
-				var pagActual = 1;
 				var html = "";
 				
-				if(filas<1) {
+				if(filas < 1) {
     				html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
             	}
             	else {
