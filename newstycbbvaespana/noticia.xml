@@ -51,11 +51,11 @@
 				}
 
 				.article-content h3 {
-		  			font-family: BBVA Web Book, Arial;
+		  			font-family: BBVA Web Light, Arial;
 		  			font-size: 18px;
 		  			margin-bottom: 0;
 		  			font-weight: normal;
-					color: #333333;
+					color: #000000;
 		  			text-decoration: none;
 		  			word-spacing: -2px;
 				}
