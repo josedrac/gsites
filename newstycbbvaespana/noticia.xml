@@ -11,6 +11,7 @@
  	<Content type="html">
     	<![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+			<style type="text/css">
 				/* @group fonts */
 				@font-face {
 					font-family: 'BBVA Web Light';
@@ -118,8 +119,6 @@
 					width: 100%;
 					height: 330px;
 				}
-			<style type="text/css">
-
 			</style>
 
 			<div id="noticia" class="article-content"></div>
