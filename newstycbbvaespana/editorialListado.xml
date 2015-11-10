@@ -7,7 +7,7 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<UserPref name="VarRegion" display_name="VarRegion" default_value="J" datatype="enum" required="true" >
+	<UserPref name="VarRegion" display_name="VarRegion" default_value="L" datatype="enum" required="true" >
 		<EnumValue value="L" display_value="Canarias"/>
     	<EnumValue value="M" display_value="Cataluña"/>
     	<EnumValue value="N" display_value="Centro"/>
