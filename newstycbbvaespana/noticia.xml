@@ -124,12 +124,26 @@
 					google.setOnLoadCallback(sendQuery);
 				}
 
+				function getSelectedMonth() {
+        			return gadgets.util.getUrlParameters().parent.split("=")[2];
+    			}
+
+    			function getSelectedYear() {
+					return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+				}
+
 				function sendQuery() {
 						gadgetHelper = new google.visualization.GadgetHelper();
 						var opts = {dataType:'jsonp'};
 						var query = new google.visualization.Query(urlTable, opts);
-						var querytosend = "select * where A like '%"+portalContenido[1]+"%' ";
-						console.log(querytosend);
+
+						if (gadgets.util.getUrlParameters().parent.split("=").length > 2) {
+							var year = getSelectedYear();
+							var month = getSelectedMonth();
+							var querytosend = "select * where F = " + year + " and E = " + month;
+						} else {
+							var querytosend = "select * where A like '%"+portalContenido[1]+"%' ";
+						}
 						query.setQuery(querytosend);
 						query.send(handleQueryResponse);
 				}
