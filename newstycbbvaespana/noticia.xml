@@ -142,7 +142,7 @@
 					html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
 					html += "<h3>" + data.getValue(0,2) + "</h3>";
 					html += "<p class='author-signature'>";
-        			html += "	<span>" + data.getValue(0,3) + "</span>";
+        			html += "	<span>" + data.getFormattedValue(0,3) + "</span>";
         			html += "	<span>-</span>";
         			html += "	<span>" + data.getValue(0,4) + "</span>";
         			html += "</p>";
