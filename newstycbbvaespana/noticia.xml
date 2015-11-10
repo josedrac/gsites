@@ -155,7 +155,7 @@
 					var html = "";
 
 					if(filas < 1) {
-	    				html += '<p class="text">No existe newsletter para la fecha solicitada.</p>';
+	    				html += '<h3>No existe newsletter para la fecha solicitada.</h3>';
 	            	}
 					else {
 						html += "<h2>" + data.getValue(0,1) + "</h2>";
