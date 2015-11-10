@@ -128,8 +128,7 @@
 						gadgetHelper = new google.visualization.GadgetHelper();
 						var opts = {dataType:'jsonp'};
 						var query = new google.visualization.Query(urlTable, opts);
-						//var querytosend = "select * where A like '%"+portalContenido[1]+"%' ";
-						var querytosend = "select * where D between date '2015-11-01' and date '2015-11-31' ";
+						var querytosend = "select * where A like '%"+portalContenido[1]+"%' ";
 						console.log(querytosend);
 						query.setQuery(querytosend);
 						query.send(handleQueryResponse);
@@ -144,23 +143,23 @@
 					html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
 					html += "<h3>" + data.getValue(0,2) + "</h3>";
 					html += "<p class='author-signature'>";
-        			html += "	<span>" + data.getFormattedValue(0,3) + "</span>";
+        			html += "	<span>" + data.getValue(0,3) + "/" + data.getValue(0,4) + "/" + data.getValue(0,5) +"</span>";
         			html += "	<span>-</span>";
-        			html += "	<span>" + data.getValue(0,4) + "</span>";
+        			html += "	<span>" + data.getValue(0,6) + "</span>";
         			html += "</p>";
 
         			html += "<div>";
-        			html += "	<div class='description'>" + data.getValue(0,5) + "</div>";
+        			html += "	<div class='description'>" + data.getValue(0,7) + "</div>";
         			html += "	<div class='multimedia'>";
 
-        			if(data.getValue(0,7) != null && typeof data.getValue(0,7) != 'undefined' && data.getValue(0,7) !== undefined && data.getValue(0,7) != ""){
-						html += "<img src='" + data.getValue(0,7) + "'/>";
+        			if(data.getValue(0,9) != null && typeof data.getValue(0,9) != 'undefined' && data.getValue(0,9) !== undefined && data.getValue(0,9) != ""){
+						html += "<img src='" + data.getValue(0,9) + "'/>";
                		}else{
-			        	html += "<iframe src='" + data.getValue(0,8) + "' allowScriptAccess='always' frameborder='0' class='youtubeIframe'></iframe>";
+			        	html += "<iframe src='" + data.getValue(0,10) + "' allowScriptAccess='always' frameborder='0' class='youtubeIframe'></iframe>";
                		}
 
         			html += "	</div>";
-        			html += "	<div class='description'>" + data.getValue(0,6) + "</div>";
+        			html += "	<div class='description'>" + data.getValue(0,8) + "</div>";
         			html += "</div>";
 
 					document.getElementById('noticia').innerHTML = html;
