@@ -129,7 +129,7 @@
 						var opts = {dataType:'jsonp'};
 						var query = new google.visualization.Query(urlTable, opts);
 						//var querytosend = "select * where A like '%"+portalContenido[1]+"%' ";
-						var querytosend = "select * where D <= date '2015-11-31' and D >= date '2015-11-01'";
+						var querytosend = "select * where D <= date '31/11/2015' and D >= date '01/11/2015'";
 						console.log(querytosend);
 						query.setQuery(querytosend);
 						query.send(handleQueryResponse);
