@@ -7,17 +7,17 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<UserPref name="VarRegion" display_name="VarRegion" default_value="J" datatype="enum" required="true" >
-		<EnumValue value="J" display_value="Canarias"/>
-    	<EnumValue value="K" display_value="Cataluña"/>
-    	<EnumValue value="L" display_value="Centro"/>
-    	<EnumValue value="M" display_value="Este"/>
-    	<EnumValue value="N" display_value="Noroeste"/>
-    	<EnumValue value="O" display_value="Norte"/>
-    	<EnumValue value="P" display_value="Portugal"/>
-    	<EnumValue value="Q" display_value="Seguros"/>
-    	<EnumValue value="R" display_value="Servicios Centrales"/>
-    	<EnumValue value="S" display_value="Sur"/>
+	<UserPref name="VarRegion" display_name="VarRegion" default_value="L" datatype="enum" required="true" >
+		<EnumValue value="L" display_value="Canarias"/>
+    	<EnumValue value="M" display_value="Cataluña"/>
+    	<EnumValue value="N" display_value="Centro"/>
+    	<EnumValue value="O" display_value="Este"/>
+    	<EnumValue value="P" display_value="Noroeste"/>
+    	<EnumValue value="Q" display_value="Norte"/>
+    	<EnumValue value="R" display_value="Portugal"/>
+    	<EnumValue value="S" display_value="Seguros"/>
+    	<EnumValue value="T" display_value="Servicios Centrales"/>
+    	<EnumValue value="U" display_value="Sur"/>
   	</UserPref> 
  
  	<Content type="html">
@@ -190,7 +190,7 @@
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdNoticia' and " + VarRegion + " = 'x' order by D desc limit 1";
+				var querytosend = "select * where A <> 'IdNoticia' and " + VarRegion + " = 'x' order by F desc, E desc, D desc limit 1";
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
 			}
@@ -214,20 +214,20 @@
 			   		}
 			   		html += "			<h3>" + data.getValue(0,2) + "</h3>";
 			   		html += "			<p class='author-signature'>";
-			   		html += "				<span>" + data.getFormattedValue(0,3) + "</span>";
+			   		html += "				<span>" + data.getValue(0,3) + "/" + data.getValue(0,4) + "/" + data.getValue(0,5) +"</span>";
 			   		html += "				<span>-</span>";
-			   		html += "				<span>" + data.getValue(0,4) + "</span>";
+			   		html += "				<span>" + data.getValue(0,6) + "</span>";
 					html += "			</p>";
-					html += "			<p>" + data.getValue(0,5) + "</p>";
+					html += "			<p>" + data.getValue(0,7) + "</p>";
 					html += '			<button type="button" onclick="javascript:Go(\''+url+'\')">Saber más</button>';
 					html += "		</div>";
 					html += "	</div>";
 					html += "	<div class='article-image'>";
 
-					if(data.getValue(0,7) != null && typeof data.getValue(0,7) != 'undefined' && data.getValue(0,7) !== undefined && data.getValue(0,7) != ""){
-						html += "<img src='" + data.getValue(0,7) + "'/>";
+					if(data.getValue(0,9) != null && typeof data.getValue(0,9) != 'undefined' && data.getValue(0,9) !== undefined && data.getValue(0,9) != ""){
+						html += "<img src='" + data.getValue(0,9) + "'/>";
                		}else{
-			        	html += "<iframe src='"+data.getValue(0,8)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe>";
+			        	html += "<iframe src='"+data.getValue(0,10)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe>";
                		}
 
 					html += "	</div>";
