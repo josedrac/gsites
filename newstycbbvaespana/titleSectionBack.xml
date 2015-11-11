@@ -53,7 +53,7 @@
 			}
 
 			.back-white {
-				background-image: url(https://rawgit.com/sopraux/gsites/NB-titleSectionBack/newstycbbvaespana/img/bg-boton-encabezado-volver_R2.png);
+				background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/bg-boton-encabezado-volver_R2.png);
 				background-repeat: no-repeat;
 			    background-color: initial;
 			    cursor: pointer;
