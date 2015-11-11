@@ -44,6 +44,7 @@
 
 			.title-section-back h2 {
 				display: inline-block;
+				vertical-align: sub;
 			}
 
 			.title-section-back button {
@@ -68,7 +69,8 @@
 
 		</style>
 
-		<h2 id="titleSectionBack"></h2>
+		<!-- version 1.0 -->
+		<div id="titleSectionBack"></div>
 
 	   	<script type="text/javascript">
 
