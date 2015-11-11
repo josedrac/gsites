@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="NB - titleSectionBack.xml">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+<UserPref name="titleSection" display_name="Title of section" required="true" />
+<UserPref name="buttonBackLabel" display_name="Label of button back" required="true" />
+<UserPref name="buttonBackURL" display_name="URL of button back" required="true" />
+
+ <Content type="html">
+    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+		<style type="text/css">
+
+			@font-face {
+	            font-family: 'BBVA Web Light';
+	            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+	            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+	                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+	                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+	                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+	            font-style: normal;
+	            font-weight: normal;
+	        }
+
+			h2 {
+				font-family:"BBVA Web Light", arial, sans-serif;
+				font-weight: lighter;
+				color: #0078D2;
+				font-size: 29.5px;
+				margin: 0;
+			}
+
+			.title-section-back {
+				padding-bottom: 14px;
+				background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
+				background-position: bottom;
+				background-repeat: repeat-x;
+			}
+
+			.title-section-back h2 {
+				display: inline-block;
+				vertical-align: sub;
+			}
+
+			.title-section-back button {
+				vertical-align: middle;
+		        margin-right: 12px;
+			}
+
+			.back-white {
+				background-image: url(https://rawgit.com/sopraux/gsites/NB-titleSectionBack/newstycbbvaespana/img/bg-boton-encabezado-volver_R2.png);
+				background-repeat: no-repeat;
+			    background-color: initial;
+			    cursor: pointer;
+		        outline: none;
+			    border: 0;
+		        width: 73px;
+    			height: 30px;
+    			color: #0078D2;
+			    font-size: 15px;
+    			font-weight: bold;
+    			padding-left: 10px;
+			}
+
+		</style>
+
+		<div id="titleSectionBack"></div>
+
+	   	<script type="text/javascript">
+
+		 	var gadgetHelper = null;
+		 	var prefs = new gadgets.Prefs();
+
+		 	var titleSection = prefs.getString('titleSection');
+			var buttonBackLabel = prefs.getString('buttonBackLabel');
+			var buttonBackURL = prefs.getString('buttonBackURL');
+
+			var titleSectionBack = '';
+
+			titleSectionBack += '<div class="title-section-back">';
+			titleSectionBack += '<button type="button" class="back-white" onclick="javascript:Go(\'' + buttonBackURL + '\')">' + buttonBackLabel + '</button>';
+			titleSectionBack += '<h2>' + titleSection + '</h2>';
+			titleSectionBack += '</div>';
+
+			document.getElementById("titleSectionBack").innerHTML = titleSectionBack;
+
+			function Go(destination){
+	    		window.parent.location.href = destination;
+		    	return false;
+			}
+		 	
+
+	   </script>
+
+    ]]>
+  </Content>
+  <Content type="html" view="configuration">
+
+	<![CDATA[
+		<style type="text/css">
+		 	table td {
+				color: #000;
+				font-size: 11px;
+				font-weight: bold;
+			}
+		 </style>
+		 <table width="100%" border="0" id="tablaconfig">
+			<tr>
+		       <td>
+		           Title: <input type="text" size="100" id="titleSection" value="__UP_titleSection__" onchange="register('titleSection')"/>
+		       </td>
+		   </tr>
+		   <tr>
+		       <td>
+		           Button label: <input type="text" size="100" id="buttonBackLabel" value="__UP_buttonBackLabel__" onchange="register('buttonBackLabel')"/>
+		       </td>
+		   </tr>
+		   <tr>
+		       <td>
+		           Button URL: <input type="text" size="100" id="buttonBackURL" value="__UP_buttonBackURL__" onchange="register('buttonBackURL')"/>
+		       </td>
+		    </tr>
+		</table>
+
+		<script type="text/javascript">
+
+		    var prefs = new gadgets.Prefs();
+		    function register(variable) {
+		        prefs.set(variable, document.getElementById(variable).value);
+		    }
+
+			gadgets.window.adjustHeight();
+
+		</script>
+
+	 ]]>
+ </Content>
+</Module>
