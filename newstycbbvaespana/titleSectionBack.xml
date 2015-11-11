@@ -114,9 +114,13 @@
 		       <td>
 		           Title: <input type="text" size="100" id="titleSection" value="__UP_titleSection__" onchange="register('titleSection')"/>
 		       </td>
+		   </tr>
+		   <tr>
 		       <td>
 		           Button label: <input type="text" size="100" id="buttonBackLabel" value="__UP_buttonBackLabel__" onchange="register('buttonBackLabel')"/>
 		       </td>
+		   </tr>
+		   <tr>
 		       <td>
 		           Button URL: <input type="text" size="100" id="buttonBackURL" value="__UP_buttonBackURL__" onchange="register('buttonBackURL')"/>
 		       </td>
