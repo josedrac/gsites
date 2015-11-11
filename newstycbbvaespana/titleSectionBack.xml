@@ -44,7 +44,6 @@
 
 			.title-section-back h2 {
 				display: inline-block;
-				vertical-align: sub;
 			}
 
 			.title-section-back button {
