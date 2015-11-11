@@ -158,7 +158,9 @@
 	    				html += '<h3>No existe newsletter para la fecha solicitada.</h3>';
 	            	}
 					else {
-						html += "<h2>" + data.getValue(0,1) + "</h2>";
+						if(data.getValue(0,1) != null && typeof data.getValue(0,1) != 'undefined' && data.getValue(0,1) !== undefined && data.getValue(0,1) != ""){
+							html += "<h2>" + data.getValue(0,1) + "</h2>";
+						}
 						html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
 						html += "<h3>" + data.getValue(0,2) + "</h3>";
 						html += "<p class='author-signature'>";
