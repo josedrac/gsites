@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+
+	<ModulePrefs title="NB - newslettersHistoryList.xml">
+		<Require feature="idi"/>
+		<Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<UserPref name="title" display_name="title of the list" required="true" />
+	<UserPref name="listItemLabel_1" display_name="label of the list" required="true" />
+	<UserPref name="listItemURL_1" display_name="url of the list" required="true" />
+	<UserPref name="listItemLabel_2" display_name="label of the list" required="true" />
+	<UserPref name="listItemURL_2" display_name="url of the list" required="true" />
+	<UserPref name="listItemLabel_3" display_name="label of the list" required="true" />
+	<UserPref name="listItemURL_3" display_name="url of the list" required="true" />
+	<UserPref name="listItemLabel_4" display_name="label of the list" required="true" />
+	<UserPref name="listItemURL_4" display_name="url of the list" required="true" />
+	<UserPref name="listItemLabel_5" display_name="label of the list" required="true" />
+	<UserPref name="listItemURL_5" display_name="url of the list" required="true" />
+	<UserPref name="listItemLabel_6" display_name="label of the list" required="true" />
+	<UserPref name="listItemURL_6" display_name="url of the list" required="true" />
+
+	<Content type="html">
+	    <![CDATA[
+			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+			<style type="text/css">
+
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				.box {
+					border: 1px solid #DDE3EA;
+					border-radius: 2px;
+				}
+
+				.box__title {
+					border-bottom: 1px solid #DDE3EA;
+					background: #ffffff;
+					background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+					background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+					background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+					background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+					background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+					padding: 15px 18px;
+				}
+
+				.box__title h2 {
+					font-family: BBVA Web Book, Arial;
+					font-weight: normal;
+					font-size:16px;
+					color: #333333;
+					margin: 0;
+				}
+
+				.box__list {
+					margin: 0;
+					padding: 0 22px;
+					list-style-type: none;
+				}
+
+				.box__list li {
+					border-bottom: 1px solid #DDE3EA;
+					padding-top: 17px;
+					padding-bottom: 12px;
+					cursor: pointer;
+				}
+
+				.box__list li:last-child {
+					border-bottom: 0;
+				}
+
+				.box__list li a {
+					font-family: Arial;
+					font-weight: bold;
+					font-size: 13px; 
+					text-decoration: none;
+	            	color: #0073C9;
+				}				
+
+			</style>
+
+			<div id="newslettersHistoryList"></div>
+
+		   	<script type="text/javascript">
+
+		   		var gadgetHelper = null;
+		   		var prefs = new gadgets.Prefs();
+
+				var title = prefs.getString('title');
+				var listItemLabel_1 = prefs.getString('listItemLabel_1');
+				var listItemURL_1 = prefs.getString('listItemURL_1');
+				var listItemLabel_2 = prefs.getString('listItemLabel_2');
+				var listItemURL_2 = prefs.getString('listItemURL_2');
+				var listItemLabel_3 = prefs.getString('listItemLabel_3');
+				var listItemURL_3 = prefs.getString('listItemURL_3');
+				var listItemLabel_4 = prefs.getString('listItemLabel_4');
+				var listItemURL_4 = prefs.getString('listItemURL_4');
+				var listItemLabel_5 = prefs.getString('listItemLabel_5');
+				var listItemURL_5 = prefs.getString('listItemURL_5');
+				var listItemLabel_6 = prefs.getString('listItemLabel_6');
+				var listItemURL_6 = prefs.getString('listItemURL_6');
+
+			 	var newslettersHistoryList = '';
+
+			 	newslettersHistoryList += '<div class="box">';
+			 	newslettersHistoryList += '<div class="box__title">';
+			 	newslettersHistoryList += '<h2>' + title + '</h2>';
+			 	newslettersHistoryList += '</div>';
+			 	newslettersHistoryList += '<ul class="box__list">';
+			 	newslettersHistoryList += '<li><a href="' + listItemURL_1 + '">' + listItemLabel_1 + '</a></li>';
+			 	newslettersHistoryList += '<li><a href="' + listItemURL_2 + '">' + listItemLabel_2 + '</a></li>';
+			 	newslettersHistoryList += '<li><a href="' + listItemURL_3 + '">' + listItemLabel_3 + '</a></li>';
+			 	newslettersHistoryList += '<li><a href="' + listItemURL_4 + '">' + listItemLabel_4 + '</a></li>';
+			 	newslettersHistoryList += '<li><a href="' + listItemURL_5 + '">' + listItemLabel_5 + '</a></li>';
+			 	newslettersHistoryList += '<li><a href="' + listItemURL_6 + '">' + listItemLabel_6 + '</a></li>';
+			 	newslettersHistoryList += '</ul>';
+			 	newslettersHistoryList += '</div>';
+
+			 	document.getElementById("newslettersHistoryList").innerHTML = newslettersHistoryList;
+
+				function Go(destination) {
+					window.parent.location.href = destination;
+					return false;
+				}
+
+		   </script>
+
+	    ]]>
+	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+			<style type="text/css">
+			 	table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+			 </style>
+			 <table width="100%" border="0" id="tablaconfig">
+				<tr>
+			       <td>
+			           Title: <input type="text" size="100" id="title" value="__UP_title__" onchange="register('title')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Label 1: <input type="text" size="100" id="listItemLabel_1" value="__UP_listItemLabel_1__" onchange="register('listItemLabel_1')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           URL 1: <input type="text" size="100" id="listItemURL_1" value="__UP_listItemURL_1__" onchange="register('listItemURL_1')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Label 2: <input type="text" size="100" id="listItemLabel_2" value="__UP_listItemLabel_2__" onchange="register('listItemLabel_2')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           URL 2: <input type="text" size="100" id="listItemURL_2" value="__UP_listItemURL_2__" onchange="register('listItemURL_2')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Label 3: <input type="text" size="100" id="listItemLabel_3" value="__UP_listItemLabel_3__" onchange="register('listItemLabel_3')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           URL 3: <input type="text" size="100" id="listItemURL_3" value="__UP_listItemURL_3__" onchange="register('listItemURL_3')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Label 4: <input type="text" size="100" id="listItemLabel_4" value="__UP_listItemLabel_4__" onchange="register('listItemLabel_4')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           URL 4: <input type="text" size="100" id="listItemURL_4" value="__UP_listItemURL_4__" onchange="register('listItemURL_4')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Label 5: <input type="text" size="100" id="listItemLabel_5" value="__UP_listItemLabel_5__" onchange="register('listItemLabel_5')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           URL 5: <input type="text" size="100" id="listItemURL_5" value="__UP_listItemURL_5__" onchange="register('listItemURL_5')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Label 6: <input type="text" size="100" id="listItemLabel_6" value="__UP_listItemLabel_6__" onchange="register('listItemLabel_6')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           URL 6: <input type="text" size="100" id="listItemURL_6" value="__UP_listItemURL_6__" onchange="register('listItemURL_6')"/>
+			       </td>
+			    </tr>			    
+			</table>
+
+			<script type="text/javascript">
+
+			    var prefs = new gadgets.Prefs();
+			    function register(variable) {
+			        prefs.set(variable, document.getElementById(variable).value);
+			    }
+
+				gadgets.window.adjustHeight();
+
+			</script>
+
+		]]>
+ 	</Content>
+
+</Module>
