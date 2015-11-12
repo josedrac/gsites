@@ -104,7 +104,9 @@
        <td>
            Title-Page: <input type="text" size="100" id="titlepage" value="__UP_titlepage__"   onchange="registra('titlepage')"/>
        </td>
-       <td>
+    </tr>
+	<tr>
+    	<td>
            Image-Page: <input type="text" size="100" id="imageTitle" value="__UP_imageTitle__"   onchange="registra('imageTitle')"/>
        </td>
     </tr>
