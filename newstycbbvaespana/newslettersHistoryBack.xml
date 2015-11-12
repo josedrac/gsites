@@ -11,16 +11,16 @@
 	<UserPref name="title" display_name="title of the list" required="true" />
 	<UserPref name="listItemLabel_1" display_name="label of the list" required="true" />
 	<UserPref name="listItemURL_1" display_name="url of the list" required="true" />
-	<UserPref name="listItemLabel_2" display_name="label of the list" required="true" />
-	<UserPref name="listItemURL_2" display_name="url of the list" required="true" />
-	<UserPref name="listItemLabel_3" display_name="label of the list" required="true" />
-	<UserPref name="listItemURL_3" display_name="url of the list" required="true" />
-	<UserPref name="listItemLabel_4" display_name="label of the list" required="true" />
-	<UserPref name="listItemURL_4" display_name="url of the list" required="true" />
-	<UserPref name="listItemLabel_5" display_name="label of the list" required="true" />
-	<UserPref name="listItemURL_5" display_name="url of the list" required="true" />
-	<UserPref name="listItemLabel_6" display_name="label of the list" required="true" />
-	<UserPref name="listItemURL_6" display_name="url of the list" required="true" />
+	<UserPref name="listItemLabel_2" display_name="label of the list" required="false" />
+	<UserPref name="listItemURL_2" display_name="url of the list" required="false" />
+	<UserPref name="listItemLabel_3" display_name="label of the list" required="false" />
+	<UserPref name="listItemURL_3" display_name="url of the list" required="false" />
+	<UserPref name="listItemLabel_4" display_name="label of the list" required="false" />
+	<UserPref name="listItemURL_4" display_name="url of the list" required="false" />
+	<UserPref name="listItemLabel_5" display_name="label of the list" required="false" />
+	<UserPref name="listItemURL_5" display_name="url of the list" required="false" />
+	<UserPref name="listItemLabel_6" display_name="label of the list" required="false" />
+	<UserPref name="listItemURL_6" display_name="url of the list" required="false" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -120,12 +120,23 @@
 			 	newslettersHistoryList += '<h2>' + title + '</h2>';
 			 	newslettersHistoryList += '</div>';
 			 	newslettersHistoryList += '<ul class="box__list">';
-			 	newslettersHistoryList += '<li><a href="' + listItemURL_1 + '">' + listItemLabel_1 + '</a></li>';
-			 	newslettersHistoryList += '<li><a href="' + listItemURL_2 + '">' + listItemLabel_2 + '</a></li>';
-			 	newslettersHistoryList += '<li><a href="' + listItemURL_3 + '">' + listItemLabel_3 + '</a></li>';
-			 	newslettersHistoryList += '<li><a href="' + listItemURL_4 + '">' + listItemLabel_4 + '</a></li>';
-			 	newslettersHistoryList += '<li><a href="' + listItemURL_5 + '">' + listItemLabel_5 + '</a></li>';
-			 	newslettersHistoryList += '<li><a href="' + listItemURL_6 + '">' + listItemLabel_6 + '</a></li>';
+		 		newslettersHistoryList += '<li><a href="' + listItemURL_1 + '">' + listItemLabel_1 + '</a></li>';
+
+		 		if(listItemLabel_2 != '' && listItemURL_2 != '') {
+			 		newslettersHistoryList += '<li><a href="' + listItemURL_2 + '">' + listItemLabel_2 + '</a></li>';
+		 		}
+		 		if(listItemLabel_3 != '' && listItemURL_3 != '') {
+			 		newslettersHistoryList += '<li><a href="' + listItemURL_3 + '">' + listItemLabel_3 + '</a></li>';
+		 		}
+		 		if(listItemLabel_4 != '' && listItemURL_4 != '') {
+			 		newslettersHistoryList += '<li><a href="' + listItemURL_4 + '">' + listItemLabel_4 + '</a></li>';
+		 		}
+		 		if(listItemLabel_5 != '' && listItemURL_5 != '') { 
+			 		newslettersHistoryList += '<li><a href="' + listItemURL_5 + '">' + listItemLabel_5 + '</a></li>';
+		 		}
+		 		if(listItemLabel_6 != '' && listItemURL_6 != '') {
+			 		newslettersHistoryList += '<li><a href="' + listItemURL_6 + '">' + listItemLabel_6 + '</a></li>';
+		 		}
 			 	newslettersHistoryList += '</ul>';
 			 	newslettersHistoryList += '</div>';
 
