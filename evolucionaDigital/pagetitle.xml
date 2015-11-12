@@ -7,14 +7,14 @@
 	<Require feature="setprefs" />
   </ModulePrefs>
 <UserPref name="titlepage" display_name="Title of page" required="true" />
+<UserPref name="imageTitle" display_name="Image Title" required="true" />
 
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
 	<style type="text/css">
-
-	  	/* @group fonts */
+		/* @group fonts */
 		@font-face {
             font-family: 'BBVA Web Light';
             src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot');
@@ -27,7 +27,10 @@
         }
 		/* @end */
 
-		#titlepage{
+		#titlepage {
+			display: table;
+			width: 100%;
+			clear: both;
 			background-attachment: scroll;
 			background-clip: border-box;
 			background-color: transparent;
@@ -36,29 +39,35 @@
 			background-position: left bottom;
 			background-repeat: repeat-x;
 			background-size: auto auto;
-			width: 100%;
-			float: left;
+			padding-bottom: 5px;
+		}
+		#titlepage h1{
 			color: #0078D2;
 			font-family: BBVA Web Light, Arial;
 			font-size: 30px;
-			margin: 5px 0px 10px 11px;
+			margin: 5px 0px 10px 10px;
 			padding: 0px;
 			height: 40px;
 			font-weight: normal;
-			line-height: 20px;
-			clear: both;
+			display: table-cell;
+			vertical-align: top;
+			width: 100%;
 		}
-
+		#titlepage img {
+			max-height: 30px;
+			max-width: 30px;
+			margin-right: 10px;
+			width: 30px;
+			display: table-cell;
+		}
 	</style>
 
 	<!--[if IE 7]>
-
 		<style type="text/css">
 			#titlepage{
 				padding-bottom: 6px;
 			}
 		</style>
-
 	<![endif]-->
 
 	<h1 id="titlepage"></h1>
@@ -67,7 +76,15 @@
 	 	var gadgetHelper = null;
 	 	var prefs = new gadgets.Prefs();
 	 	var titlepage = prefs.getString("titlepage");
-	 	document.getElementById("titlepage").innerHTML = titlepage;
+	 	var imageTitle = prefs.getString("imageTitle");
+	 	var html = "";
+		
+		if(imageTitle != null && typeof imageTitle != 'undefined' && imageTitle !== undefined && imageTitle != ""){
+			html += '<img src="' + imageTitle + '">';
+		}
+		html += '<h1>' + titlepage + '</h1>';
+
+	 	document.getElementById("titlepage").innerHTML = html;
    </script>
 
     ]]>
@@ -85,7 +102,12 @@
  <table width="100%" border="0" id="tablaconfig">
 	<tr>
        <td>
-           Title -Page: <input type="text" size="100" id="titlepage" value="__UP_titlepage__"   onchange="registra('titlepage')"/>
+           Title-Page: <input type="text" size="100" id="titlepage" value="__UP_titlepage__"   onchange="registra('titlepage')"/>
+       </td>
+    </tr>
+	<tr>
+    	<td>
+           Image-Page: <input type="text" size="100" id="imageTitle" value="__UP_imageTitle__"   onchange="registra('imageTitle')"/>
        </td>
     </tr>
 </table>
@@ -95,9 +117,7 @@
     var prefs = new gadgets.Prefs();
     function registra(variable)
     {
-
         prefs.set(variable,document.getElementById(variable).value);
-
 
     }
 	gadgets.window.adjustHeight();
