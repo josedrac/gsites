@@ -86,12 +86,12 @@
 					text-decoration: none;
 					position: relative;
 				    top: -4px;
+				    outline: none;
 				}
 
 				table tbody tr td a span {
 					position: relative;
 				    top: -4px;
-				    left: -2px;
 				    font-weight: bold;
 				    color: #0079C1;
 				}
