@@ -120,7 +120,7 @@
 				_IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 				function loadVisualizationAPI(){
-					google.load("visualization", "1", {"packages": ["table"]});
+					google.load("visualization", "0", {"packages": ["table"]});
 					google.setOnLoadCallback(sendQuery);
 				}
 
