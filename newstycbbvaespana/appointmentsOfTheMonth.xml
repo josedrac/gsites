@@ -162,7 +162,7 @@
 							appointmentsOfTheMonth += '<td>' +  data.getValue(i,4) + '</td>';
 							
 							if(data.getValue(i,5) != null && typeof data.getValue(i,5) != 'undefined' && data.getValue(i,5) !== undefined && data.getValue(i,5) != "") {
-								appointmentsOfTheMonth += '<td class="text-right"><a href="' + data.getValue(i,5) + '">apuntate<span>+</span></a></td>';
+								appointmentsOfTheMonth += '<td class="text-right"><a href="' + data.getValue(i,5) + '" target="_blank">apuntate<span>+</span></a></td>';
 							}
 
 							appointmentsOfTheMonth += '</tr>';
