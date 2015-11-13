@@ -144,13 +144,13 @@
 	            	else {
 
 		            	appointmentsOfTheMonth += '<table>';
+				 		appointmentsOfTheMonth += '<tbody>';
 				 		appointmentsOfTheMonth += '<tr>';
 						appointmentsOfTheMonth += '<td class="col-1">' + data.getValue(0,1) + '</td>';
 						appointmentsOfTheMonth += '<td class="col-2">' + data.getValue(0,2) + '</td>';
 						appointmentsOfTheMonth += '<td class="col-3">' + data.getValue(0,3) + '</td>';
 						appointmentsOfTheMonth += '<td class="col-4" colspan="2">' + data.getValue(0,4) + '</td>';
 				 		appointmentsOfTheMonth += '</tr>';
-				 		appointmentsOfTheMonth += '<tbody>';
 
 	            		for(i=0; i < filas; i++) {
 							appointmentsOfTheMonth += '<tr>';
