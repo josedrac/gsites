@@ -5,18 +5,11 @@
    <Content view="canvas" preferred_height="20px">
       <![CDATA[
       
-      <style>
-         iframe {
-            width: 100%;
-            height: auto;
-         }
-      </style>
-
       <div id="updateNode">This is my initial content to be updated</div>
 
       <script type="text/javascript">
 
-         html = '<iframe src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>';
+         html = '<iframe src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" style="width: 100%; height: calc(28px + 100%)"></iframe>';
 
 
          document.getElementById('updateNode').innerHTML = html;
