@@ -6,14 +6,10 @@
       <![CDATA[
 
 
+      <div id="updateNode"><div id="presentation" class="banner banner--location-top" data-style="width: 100%; height: auto; border: 0; overflow:hidden" data-src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" data-auto-fit="lower" data-width="960" data-height="768"></div></div>
+
       <script type="text/javascript">
 
-         <!-- html = '<iframe src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" frameborder="0" height="768" width="960" /*style="width: 100%; height: calc(28px + 100%)"*/></iframe>'; -->
-
-         <div id="updateNode"><div id="presentation" class="banner banner--location-top" data-style="width: 100%; height: auto; border: 0; overflow:hidden" data-src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" data-auto-fit="lower" data-width="960" data-height="768"></div></div>
-
-
-         //document.getElementById('updateNode').innerHTML = html;
          
          gadgets.window.adjustHeight();
 
