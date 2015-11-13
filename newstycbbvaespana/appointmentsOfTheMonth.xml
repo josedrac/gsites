@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+
+	<ModulePrefs title="NB - appointmentsOfTheMonth.xml">
+		<Require feature="idi"/>
+		<Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+			<style type="text/css">
+
+				@font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				table {
+			    	border-collapse: collapse;
+					background-image: url(https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-position: bottom;
+					background-repeat: repeat-x;
+					width: 100%;
+				}
+
+				table thead tr th {
+					font-family: BBVA Web Light, Arial;
+					font-weight: normal;
+					font-size: 16px;
+				    text-align: left;
+					color: #0078D2;
+					border-bottom: 1px solid #DDE3EA;
+				    padding: 0 20px 6px;
+				}
+
+				table thead tr th.col-1 {
+					width: 27%;
+				}
+
+				table thead tr th.col-2 {
+					width: 15%;
+				}
+
+				table thead tr th.col-3 {
+					width: 22%;
+				}
+
+				table thead tr th.col-4 {
+					width: 36%;
+				}
+
+				table tbody tr td {
+					font-family: arial;
+					font-size: 12.25px;
+					color: #434A58;
+				    padding: 7.25px 20px;
+			        vertical-align: top;
+				}
+
+				table tbody tr:first-child td {
+					padding-top: 26px;
+				}
+
+				table tbody tr:last-child td {
+					padding-bottom: 25px;
+				}
+
+				table tbody tr td.text-right {
+					text-align: right;;
+				}
+
+				table tbody tr td a {
+					font-family: BBVA Web Light, Arial;
+					font-size: 18px;
+					color: #0078D2;
+					text-decoration: none;
+					position: relative;
+				    top: -4px;
+				}
+
+				table tbody tr td a span {
+					position: relative;
+				    top: -4px;
+				    left: -2px;
+				    font-weight: bold;
+				    color: #0079C1;
+				}
+
+				table thead tr th:not(:first-child),
+				table tbody tr td:not(:first-child) {
+					padding-left: 0;
+				}
+
+			</style>
+
+			<div id="appointmentsOfTheMonth"></div>
+
+		   	<script type="text/javascript">
+
+			 	var gadgetHelper = null;
+			 	var appointmentsOfTheMonth = '';
+
+			 	appointmentsOfTheMonth += '<table>';
+			 	appointmentsOfTheMonth += '<thead>';
+			 	appointmentsOfTheMonth += '<tr>';
+			 	appointmentsOfTheMonth += '<th class="col-1">Felicitaciones a</th>';
+			 	appointmentsOfTheMonth += '<th class="col-2">Unidad</th>';
+			 	appointmentsOfTheMonth += '<th class="col-3">Cargo Anterior</th>';
+			 	appointmentsOfTheMonth += '<th class="col-4" colspan="2">Cargo Actual</th>';
+			 	appointmentsOfTheMonth += '</tr>';
+			 	appointmentsOfTheMonth += '</thead>';
+			 	appointmentsOfTheMonth += '<tbody>';
+			 	appointmentsOfTheMonth += '<tr>';
+			 	appointmentsOfTheMonth += '<td>Juan Antonio Álvarez Gutiérrez</td>';
+			 	appointmentsOfTheMonth += '<td>SS.JJ. Eyp</td>';
+			 	appointmentsOfTheMonth += '<td>Asesor Financ. Contigo Zona</td>';
+				appointmentsOfTheMonth += '<td>Técnico Cumpl Normativo</td>';
+			 	appointmentsOfTheMonth += '<td class="text-right"><a href="#">apuntate<span>+</span></a></td>';
+			 	appointmentsOfTheMonth += '</tr>';
+			 	appointmentsOfTheMonth += '<tr>';
+			 	appointmentsOfTheMonth += '<td>Beatriz Gil Núñez</td>';
+			 	appointmentsOfTheMonth += '<td>Medios EyP</td>';
+			 	appointmentsOfTheMonth += '<td>GE Transf Desarrollo</td>';
+			 	appointmentsOfTheMonth += '<td>JF PR Medios EyP</td>';
+			 	appointmentsOfTheMonth += '<td class="text-right"><a href="#">apuntate<span>+</span></a></td>';
+			 	appointmentsOfTheMonth += '</tr>';
+			 	appointmentsOfTheMonth += '<tr>';
+			 	appointmentsOfTheMonth += '<td>Aránzazu Viñuela Reinoso</td>';
+			 	appointmentsOfTheMonth += '<td>Medios EyP</td>';
+			 	appointmentsOfTheMonth += '<td>TCO Control Operativa TERR</td>';
+			 	appointmentsOfTheMonth += '<td>TCO Medios EyP</td>';
+			 	appointmentsOfTheMonth += '</tr>';
+			 	appointmentsOfTheMonth += '<tr>';
+			 	appointmentsOfTheMonth += '<td>Salvador Ravina Fernández</td>';
+			 	appointmentsOfTheMonth += '<td>Riesgos EyP</td>';
+			 	appointmentsOfTheMonth += '<td>Gestor Comercial</td>';
+			 	appointmentsOfTheMonth += '<td>TCO Riesgos y Recuperaciones</td>';
+			 	appointmentsOfTheMonth += '<td class="text-right"><a href="#">apuntate<span>+</span></a></td>';
+			 	appointmentsOfTheMonth += '</tr>';
+			 	appointmentsOfTheMonth += '</tbody>';
+			 	appointmentsOfTheMonth += '</table>';
+			 	
+			 	
+			 	document.getElementById("appointmentsOfTheMonth").innerHTML = appointmentsOfTheMonth;
+
+		   </script>
+
+	    ]]>
+	</Content>
+</Module>
