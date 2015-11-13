@@ -9,7 +9,7 @@
 
       <script type="text/javascript">
 
-         html = '<iframe src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" height="768" width="960" /*style="width: 100%; height: calc(28px + 100%)"*/></iframe>';
+         html = '<iframe src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" frameborder="0" height="768" width="960" /*style="width: 100%; height: calc(28px + 100%)"*/></iframe>';
 
          document.getElementById('updateNode').innerHTML = html;
          
