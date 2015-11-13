@@ -120,7 +120,7 @@
 				_IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 				function loadVisualizationAPI(){
-					google.load("visualization", "0", {"packages": ["table"]});
+					google.load("visualization", "1", {"packages": ["table"]});
 					google.setOnLoadCallback(sendQuery);
 				}
 
@@ -144,17 +144,15 @@
 	            	else {
 
 		            	appointmentsOfTheMonth += '<table>';
-				 		appointmentsOfTheMonth += '<thead>';
 				 		appointmentsOfTheMonth += '<tr>';
-						appointmentsOfTheMonth += '<th class="col-1">' + data.getValue(0,1) + '</th>';
-						appointmentsOfTheMonth += '<th class="col-2">' + data.getValue(0,2) + '</th>';
-						appointmentsOfTheMonth += '<th class="col-3">' + data.getValue(0,3) + '</th>';
-						appointmentsOfTheMonth += '<th class="col-4" colspan="2">' + data.getValue(0,4) + '</th>';
+						appointmentsOfTheMonth += '<td class="col-1">' + data.getValue(0,1) + '</td>';
+						appointmentsOfTheMonth += '<td class="col-2">' + data.getValue(0,2) + '</td>';
+						appointmentsOfTheMonth += '<td class="col-3">' + data.getValue(0,3) + '</td>';
+						appointmentsOfTheMonth += '<td class="col-4" colspan="2">' + data.getValue(0,4) + '</td>';
 				 		appointmentsOfTheMonth += '</tr>';
-				 		appointmentsOfTheMonth += '</thead>';
 				 		appointmentsOfTheMonth += '<tbody>';
 
-	            		for(i=1; i < filas; i++) {
+	            		for(i=0; i < filas; i++) {
 							appointmentsOfTheMonth += '<tr>';
 							appointmentsOfTheMonth += '<td>' +  data.getValue(i,1) + '</td>';
 							appointmentsOfTheMonth += '<td>' +  data.getValue(i,2) + '</td>';
