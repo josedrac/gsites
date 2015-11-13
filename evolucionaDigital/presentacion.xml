@@ -13,7 +13,6 @@
       <script type="text/javascript">
 
          
-         gadgets.window.adjustHeight();
 
 
 
@@ -122,6 +121,7 @@
          placeholder.animate({'height': '480px'}, 800, 'easeInOutQuart');
 
 
+         gadgets.window.adjustHeight();
 
       </script>
       ]]>
