@@ -27,7 +27,7 @@
 
 				table {
 			    	border-collapse: collapse;
-					background-image: url(https://rawgit.com/sopraux/gsites/NB-articleCoverPage/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 					background-position: bottom;
 					background-repeat: repeat-x;
 					width: 100%;
