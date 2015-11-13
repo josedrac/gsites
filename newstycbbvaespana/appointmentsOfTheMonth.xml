@@ -89,6 +89,10 @@
 				    outline: none;
 				}
 
+				table tbody tr td a:visited {
+					color: #0078D2;
+				}
+
 				table tbody tr td a span {
 					position: relative;
 				    top: -4px;
