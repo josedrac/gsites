@@ -35,8 +35,10 @@
             overflow: 'hidden'
          });
 
+         google.setOnLoadCallback(iframe);
+
          /* Función que genera el iframe */
-         var iframe = (function (m) {
+         function iframe() {
             "use strict";
 
             function fif ( el ) {
@@ -61,10 +63,9 @@
             } 
 
             fif(document.getElementById("presentation"));
+            gadgets.window.adjustHeight();
 
-         })(); 
-
-         gadgets.window.adjustHeight();
+         }; 
 
       </script>
       ]]>
