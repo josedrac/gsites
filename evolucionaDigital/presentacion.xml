@@ -21,7 +21,7 @@
          function doRender(){
             // setup variables
             var prefs = new gadgets.Prefs();
-            var urlPresentation = prefs.getString("_presentarion_url"):
+            var urlPresentation = prefs.getString("_presentarion_url");
 
             /* Obtengo las dimensiones del GADGET en google sites */
             if (gadgets.window) {
