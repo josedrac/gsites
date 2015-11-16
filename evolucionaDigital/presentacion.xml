@@ -22,6 +22,8 @@
             }
          }
 
+         console.log('-'+widthGadget);
+
 
          /* jshint scripturl:true */
          var tje = (function (m) {
@@ -30,6 +32,7 @@
              m.ads = m.ads || {};
 
              function fif ( el ) {
+             console.log('--'+widthGadget);
                  var iframe = document.createElement("iframe"), doc;
                  ( iframe.frameElement || iframe ).style.cssText =
                      el.getAttribute("width:" + widthGadget + "; height: " + widthGadget * 0.8 + ";");
