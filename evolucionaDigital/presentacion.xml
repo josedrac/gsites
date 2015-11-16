@@ -8,9 +8,11 @@
    <UserPref name="_presentarion_url" default_value="" display_name="Data source url" required="true" />
    <Content view="canvas" preferred_height="20px">
       <![CDATA[
-   
-      <div id="updateNode">
-         <div id="presentation"></div>
+
+      <div id="presentation">
+         <div style="position: absolute;top:0px;left:0px;font-size:14px;background-color:white;width:960px;height:14px"></div>
+         <div style="position: absolute;top:0px;left:0px;background-color:white;width:2px;height:768px">&nbsp;</div>
+         <div style="position: absolute;top:0px;right:0px;background-color:white;width:2px;height:768px">&nbsp;</div>
       </div>
       
       <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
@@ -61,8 +63,6 @@
                      "f.src = '" + urlPresentation + "';\">"
                   );
                   doc.close();
-
-                  gadgets.window.adjustHeight();
                } 
 
                fif(document.getElementById("presentation"));
