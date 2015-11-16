@@ -8,7 +8,7 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
-	<UserPref name="title" display_name="Title of the News T&C footer" required="true" />
+	<UserPref name="title" display_name="Title of the News T and C footer" required="true" />
 	<UserPref name="areaLabel_1" display_name="label of the area" required="true" />
 	<UserPref name="areaURL_1" display_name="URL of the area" required="true" />
 	<UserPref name="areaLabel_2" display_name="label of the area" required="true" />
