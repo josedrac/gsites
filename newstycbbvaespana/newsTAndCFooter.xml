@@ -8,8 +8,6 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
-	
-
 	<Content type="html">
 	    <![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -86,26 +84,25 @@
 			<div id="newsTAndCFooter"></div>
 
 		   	<script type="text/javascript">
-
-		   		
 				
 			 	var newsTAndCFooter = '';
 
 			 	newsTAndCFooter += '<div class="footer">';
+
 			 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/NB-newsTAndCFooter/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
 			 	newsTAndCFooter += '<div>';
-			 	newsTAndCFooter += '<h2>title</h2>';
+			 	newsTAndCFooter += '<h2>News T&C BBVA España</h2>';
 			 	newsTAndCFooter += '<ul>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
-			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Canarias</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Catalunya</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Centro</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Este</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Noroeste</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Norte</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Portugal</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Seguros</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Servicios Centrales</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Sur</a></li>';
 			 	newsTAndCFooter += '</ul>';
 			 	newsTAndCFooter += '</div>';
 			 	newsTAndCFooter += '</div>';
@@ -116,5 +113,4 @@
 
 	    ]]>
 	</Content>
-
 </Module>
