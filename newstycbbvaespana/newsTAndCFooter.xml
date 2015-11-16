@@ -8,9 +8,7 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
-	<UserPref name="title" display_name="Title of the News T and C footer" required="true" />
-	<UserPref name="areaLabel_1" display_name="label of the area" required="true" />
-	<UserPref name="areaURL_1" display_name="URL of the area" required="true" />
+	
 
 	<Content type="html">
 	    <![CDATA[
@@ -89,23 +87,25 @@
 
 		   	<script type="text/javascript">
 
-		   		var gadgetHelper = null;
-
-		   		var prefs = new gadgets.Prefs();
-
-		   		var title = prefs.getString('title');
-
-		   		var areaLabel_1 = prefs.getString('areaLabel_1');
-		   		var areaURL_1 = prefs.getString('areaURL_1');
-		   						
+		   		
+				
 			 	var newsTAndCFooter = '';
 
 			 	newsTAndCFooter += '<div class="footer">';
 			 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/NB-newsTAndCFooter/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
 			 	newsTAndCFooter += '<div>';
-			 	newsTAndCFooter += '<h2>' + title + '</h2>';
+			 	newsTAndCFooter += '<h2>title</h2>';
 			 	newsTAndCFooter += '<ul>';
-			 	newsTAndCFooter += '<li><a href="' + areaURL_1 + '">' + areaLabel_1 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
+			 	newsTAndCFooter += '<li><a href="areaURL">areaLabel</a></li>';
 			 	newsTAndCFooter += '</ul>';
 			 	newsTAndCFooter += '</div>';
 			 	newsTAndCFooter += '</div>';
@@ -116,47 +116,5 @@
 
 	    ]]>
 	</Content>
-
-	<Content type="html" view="configuration">
-
-		<![CDATA[
-			<style type="text/css">
-			 	table td {
-					color: #000;
-					font-size: 11px;
-					font-weight: bold;
-				}
-			 </style>
-			 <table width="100%" border="0" id="tablaconfig">
-				<tr>
-			       <td>
-			           Title: <input type="text" size="100" id="title" value="__UP_title__" onchange="register('title')"/>
-			       </td>
-			    </tr>
-				<tr>
-			       <td>
-			           Area label 1: <input type="text" size="100" id="areaLabel_1" value="__UP_areaLabel_1__" onchange="register('areaLabel_1')"/>
-			       </td>
-			    </tr>
-				<tr>
-			       <td>
-			           Area URL 1: <input type="text" size="100" id="areaURL_1" value="__UP_areaURL_1__" onchange="register('areaURL_1')"/>
-			       </td>
-			    </tr>
-			</table>
-
-			<script type="text/javascript">
-
-			    var prefs = new gadgets.Prefs();
-			    function register(variable) {
-			        prefs.set(variable, document.getElementById(variable).value);
-			    }
-
-				gadgets.window.adjustHeight();
-
-			</script>
-
-		]]>
- 	</Content>
 
 </Module>
