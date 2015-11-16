@@ -18,9 +18,7 @@
             var viewport = gadgets.window.getViewportDimensions();
             if (viewport.width) {
                var widthGadget = viewport.width;
-            }
-            if (viewport.height) {
-               var heightGadget = viewport.height;
+               var heightGadget = viewport.width * 0.8 - 30;
             }
          }
 
