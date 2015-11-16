@@ -8,6 +8,8 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
+	<UserPref name="title" display_name="Title of the News T and C footer" required="true" />
+
 	<Content type="html">
 	    <![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -84,6 +86,10 @@
 			<div id="newsTAndCFooter"></div>
 
 		   	<script type="text/javascript">
+
+		   		var prefs = new gadgets.Prefs();
+
+		   		var title = prefs.getString('title');
 				
 			 	var newsTAndCFooter = '';
 
@@ -91,7 +97,7 @@
 
 			 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/NB-newsTAndCFooter/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
 			 	newsTAndCFooter += '<div>';
-			 	newsTAndCFooter += '<h2>News T&C BBVA España</h2>';
+			 	newsTAndCFooter += '<h2>' + title + '</h2>';
 			 	newsTAndCFooter += '<ul>';
 			 	newsTAndCFooter += '<li><a href="#">Canarias</a></li>';
 			 	newsTAndCFooter += '<li><a href="#">Catalunya</a></li>';
@@ -113,4 +119,35 @@
 
 	    ]]>
 	</Content>
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+			<style type="text/css">
+			 	table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+			 </style>
+			 <table width="100%" border="0" id="tablaconfig">
+				<tr>
+			       <td>
+			           Title: <input type="text" size="100" id="title" value="__UP_title__" onchange="register('title')"/>
+			       </td>
+			    </tr>
+			</table>
+
+			<script type="text/javascript">
+
+			    var prefs = new gadgets.Prefs();
+			    function register(variable) {
+			        prefs.set(variable, document.getElementById(variable).value);
+			    }
+
+				gadgets.window.adjustHeight();
+
+			</script>
+
+		]]>
+ 	</Content>	
 </Module>
