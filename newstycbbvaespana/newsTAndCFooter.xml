@@ -2,7 +2,7 @@
 <Module>
 
 	<ModulePrefs title="NB - newsTAndCFooter.xml"
-		height="500">
+		height="251">
 		<Require feature="idi"/>
 		<Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
