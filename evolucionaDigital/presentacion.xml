@@ -31,7 +31,7 @@
 
             m.ads = m.ads || {};
 
-            function fif ( el ) 
+            function fif ( el ) {
                var iframe = document.createElement("iframe"), doc;
                ( iframe.frameElement || iframe ).style.cssText = "width:" + widthGadget + "; height:" + widthGadget * 0.8 + ";";
                iframe.frameBorder = 0;
