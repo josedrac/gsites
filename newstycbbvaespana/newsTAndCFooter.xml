@@ -152,12 +152,6 @@
 			 	newsTAndCFooter += '<li><a href="' + areaURL_8 + '">' + areaLabel_8 + '</a></li>';
 			 	newsTAndCFooter += '<li><a href="' + areaURL_9 + '">' + areaLabel_9 + '</a></li>';
 			 	newsTAndCFooter += '<li><a href="' + areaURL_10 + '">' + areaLabel_10 + '</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Noroeste</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Norte</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Portugal</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Seguros</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Servicios Centrales</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Sur</a></li>';
 			 	newsTAndCFooter += '</ul>';
 			 	newsTAndCFooter += '</div>';
 			 	newsTAndCFooter += '</div>';
