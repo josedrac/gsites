@@ -58,6 +58,8 @@
                   "f.src = '" + urlPresentation + "';\">"
                );
                doc.close();
+
+               gadgets.window.adjustHeight();
             } 
 
             fif(document.getElementById("presentation"));
