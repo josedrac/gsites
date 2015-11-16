@@ -42,7 +42,7 @@
       }
 
          /* Función que genera el iframe */
-         function iframe () {
+         function iframe() {
             "use strict";
 
             function fif ( el ) {
