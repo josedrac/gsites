@@ -9,6 +9,12 @@
    <Content view="canvas" preferred_height="20px">
       <![CDATA[
 
+      <style type="text/css">
+         #presentation {
+            position: relative;
+         }
+    </style>
+
       <div id="presentation"></div>
       
       <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
