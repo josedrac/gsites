@@ -6,17 +6,22 @@
       <![CDATA[
       
 
-      <style type="text/css">
-         iframe {
-            width: 100%;
-         }
-      </style>
-
-      <div id="updateNode"><div id="presentation" class="banner banner--location-top" data-style="border: 0; overflow:hidden" data-src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" data-auto-fit="lower" data-width="100%" data-height="100%"></div></div>
+      <div id="updateNode"><div id="presentation" class="banner banner--location-top" data-style="width: 960px; height: 768px; border: 0; overflow:hidden" data-src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" data-auto-fit="lower" data-width="auto" data-height="auto"></div></div>
       
       <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
 
       <script type="text/javascript">
+
+         if (gadgets.window) {
+            var viewport = gadgets.window.getViewportDimensions();
+            if (viewport.width) {
+               var widthGadget = viewport.width;
+            }
+            if (viewport.height) {
+               var heightGadget = viewport.height;
+            }
+         }
+
 
          /* jshint scripturl:true */
          var tje = (function (m) {
@@ -27,7 +32,7 @@
              function fif ( el ) {
                  var iframe = document.createElement("iframe"), doc;
                  ( iframe.frameElement || iframe ).style.cssText =
-                     el.getAttribute("data-style");
+                     el.getAttribute("width:" + widthGadget + "; height: " + widthGadget * 0.8 + ";");
                  iframe.frameBorder = 0;
                  iframe.scrolling = "no";
                  iframe.seamless = "seamless";
@@ -119,8 +124,9 @@
 
 
          /*Desde el iframe*/
-         placeholder = $(window.parent.frameElement);
-         placeholder.animate({'height': '480px'}, 800, 'easeInOutQuart');
+         //placeholder = $(window.parent.frameElement);
+         //placeholder.animate({'height': '480px'}, 800, 'easeInOutQuart');
+
 
 
          gadgets.window.adjustHeight();
