@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+
+	<ModulePrefs title="NB - newsTAndCFooter.xml"
+		height="251">
+		<Require feature="idi"/>
+		<Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<UserPref name="title" display_name="Title of the News T and C footer" required="true" />
+
+	<UserPref name="areaLabel_1" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_1" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_2" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_2" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_3" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_3" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_4" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_4" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_5" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_5" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_6" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_6" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_7" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_7" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_8" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_8" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_9" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_9" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_10" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_10" display_name="URL of the area" required="true" />
+
+	<Content type="html">
+	    <![CDATA[
+			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+			<style type="text/css">
+
+				@font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				.footer {
+					background-color: #36b6bc;
+					display: inline-block;
+					width: 100%;
+					color: #fff;
+				}
+
+				.footer img, .footer div {
+					float: left;
+				}
+
+				.footer img {
+				    margin-top: 6px;
+			        margin-right: 30px;
+	    			margin-left: 16px;
+				}
+
+				.footer div h2 {
+					font-family: 'BBVA Web Book';
+					font-size: 42.25px;
+					text-transform: uppercase;
+					margin-bottom: 20px;
+				}
+
+				.footer div ul {
+					list-style-type: none;
+					columns: 3;
+					-webkit-columns: 3;
+					-moz-columns: 3;
+					padding: 0;
+					font-family: 'BBVA Web Light';
+				}
+
+				.footer div ul li {
+					line-height: 30px;
+				}
+
+				.footer div ul li a {
+					text-decoration: none;
+					color: inherit;
+				}
+
+
+			</style>
+
+			<div id="newsTAndCFooter"></div>
+
+		   	<script type="text/javascript">
+
+		   		var prefs = new gadgets.Prefs();
+
+		   		var title = prefs.getString('title');
+
+		   		var areaLabel_1 = prefs.getString('areaLabel_1');
+		   		var areaURL_1 = prefs.getString('areaURL_1');
+		   		var areaLabel_2 = prefs.getString('areaLabel_2');
+		   		var areaURL_2 = prefs.getString('areaURL_2');
+		   		var areaLabel_3 = prefs.getString('areaLabel_3');
+		   		var areaURL_3 = prefs.getString('areaURL_3');
+		   		var areaLabel_4 = prefs.getString('areaLabel_4');
+		   		var areaURL_4 = prefs.getString('areaURL_4');
+				var areaLabel_5 = prefs.getString('areaLabel_5');
+		   		var areaURL_5 = prefs.getString('areaURL_5');
+		   		var areaLabel_6 = prefs.getString('areaLabel_6');
+		   		var areaURL_6 = prefs.getString('areaURL_6');
+		   		var areaLabel_7 = prefs.getString('areaLabel_7');
+		   		var areaURL_7 = prefs.getString('areaURL_7');
+		   		var areaLabel_8 = prefs.getString('areaLabel_8');
+		   		var areaURL_8 = prefs.getString('areaURL_8');
+		   		var areaLabel_9 = prefs.getString('areaLabel_9');
+		   		var areaURL_9 = prefs.getString('areaURL_8');
+		   		var areaLabel_10 = prefs.getString('areaLabel_10');
+		   		var areaURL_10 = prefs.getString('areaURL_10');
+				
+			 	var newsTAndCFooter = '';
+
+			 	newsTAndCFooter += '<div class="footer">';
+
+			 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/NB-newsTAndCFooter/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
+			 	newsTAndCFooter += '<div>';
+			 	newsTAndCFooter += '<h2>' + title + '</h2>';
+			 	newsTAndCFooter += '<ul>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_1 + '">' + areaLabel_1 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_2 + '">' + areaLabel_2 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_3 + '">' + areaLabel_3 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_4 + '">' + areaLabel_4 + '</a></li>';
+				newsTAndCFooter += '<li><a href="' + areaURL_5 + '">' + areaLabel_5 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_6 + '">' + areaLabel_6 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_7 + '">' + areaLabel_7 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_8 + '">' + areaLabel_8 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_9 + '">' + areaLabel_9 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_10 + '">' + areaLabel_10 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Noroeste</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Norte</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Portugal</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Seguros</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Servicios Centrales</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Sur</a></li>';
+			 	newsTAndCFooter += '</ul>';
+			 	newsTAndCFooter += '</div>';
+			 	newsTAndCFooter += '</div>';
+			 	
+			 	document.getElementById("newsTAndCFooter").innerHTML = newsTAndCFooter;
+
+		   </script>
+
+	    ]]>
+	</Content>
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+			<style type="text/css">
+			 	table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+			 </style>
+			 <table width="100%" border="0" id="tablaconfig">
+				<tr>
+			       <td>
+			           Title: <input type="text" size="100" id="title" value="__UP_title__" onchange="register('title')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 1: <input type="text" size="100" id="areaLabel_1" value="__UP_areaLabel_1__" onchange="register('areaLabel_1')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 1: <input type="text" size="100" id="areaURL_1" value="__UP_areaURL_1__" onchange="register('areaURL_1')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 2: <input type="text" size="100" id="areaLabel_2" value="__UP_areaLabel_2__" onchange="register('areaLabel_2')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 2: <input type="text" size="100" id="areaURL_2" value="__UP_areaURL_2__" onchange="register('areaURL_2')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 3: <input type="text" size="100" id="areaLabel_3" value="__UP_areaLabel_3__" onchange="register('areaLabel_3')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 3: <input type="text" size="100" id="areaURL_3" value="__UP_areaURL_3__" onchange="register('areaURL_3')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 4: <input type="text" size="100" id="areaLabel_4" value="__UP_areaLabel_4__" onchange="register('areaLabel_4')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 4: <input type="text" size="100" id="areaURL_4" value="__UP_areaURL_4__" onchange="register('areaURL_4')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 5 <input type="text" size="100" id="areaLabel_5" value="__UP_areaLabel_5__" onchange="register('areaLabel_5')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 5: <input type="text" size="100" id="areaURL_5" value="__UP_areaURL_5__" onchange="register('areaURL_5')"/>
+			       </td>
+			    </tr>			    
+				<tr>
+			       <td>
+			           Area label 6: <input type="text" size="100" id="areaLabel_6" value="__UP_areaLabel_6__" onchange="register('areaLabel_6')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 6: <input type="text" size="100" id="areaURL_6" value="__UP_areaURL_6__" onchange="register('areaURL_6')"/>
+			       </td>
+			    </tr>			    
+				<tr>
+			       <td>
+			           Area label 7: <input type="text" size="100" id="areaLabel_7" value="__UP_areaLabel_7__" onchange="register('areaLabel_7')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 7: <input type="text" size="100" id="areaURL_7" value="__UP_areaURL_7__" onchange="register('areaURL_7')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 8: <input type="text" size="100" id="areaLabel_8" value="__UP_areaLabel_8__" onchange="register('areaLabel_8)"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 8: <input type="text" size="100" id="areaURL_8" value="__UP_areaURL_8__" onchange="register('areaURL_8')"/>
+			       </td>
+			    </tr>			    
+				<tr>
+			       <td>
+			           Area label 9: <input type="text" size="100" id="areaLabel_9" value="__UP_areaLabel_9__" onchange="register('areaLabel_9')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 9: <input type="text" size="100" id="areaURL_9" value="__UP_areaURL_9__" onchange="register('areaURL_9')"/>
+			       </td>
+			    </tr>			    
+				<tr>
+			       <td>
+			           Area label 10: <input type="text" size="100" id="areaLabel_10" value="__UP_areaLabel_10__" onchange="register('areaLabel_10')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 10: <input type="text" size="100" id="areaURL_10" value="__UP_areaURL_10__" onchange="register('areaURL_10')"/>
+			       </td>
+			    </tr>	
+			</table>
+
+			<script type="text/javascript">
+
+			    var prefs = new gadgets.Prefs();
+			    function register(variable) {
+			        prefs.set(variable, document.getElementById(variable).value);
+			    }
+
+				gadgets.window.adjustHeight();
+
+			</script>
+
+		]]>
+ 	</Content>	
+</Module>
