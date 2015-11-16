@@ -130,7 +130,7 @@
 		   		var areaLabel_8 = prefs.getString('areaLabel_8');
 		   		var areaURL_8 = prefs.getString('areaURL_8');
 		   		var areaLabel_9 = prefs.getString('areaLabel_9');
-		   		var areaURL_9 = prefs.getString('areaURL_8');
+		   		var areaURL_9 = prefs.getString('areaURL_9');
 		   		var areaLabel_10 = prefs.getString('areaLabel_10');
 		   		var areaURL_10 = prefs.getString('areaURL_10');
 				
