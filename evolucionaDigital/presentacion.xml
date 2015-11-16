@@ -9,11 +9,7 @@
    <Content view="canvas" preferred_height="20px">
       <![CDATA[
 
-      <div id="presentation">
-         <div style="position: absolute;top:0px;left:0px;font-size:14px;background-color:white;width:960px;height:14px"></div>
-         <div style="position: absolute;top:0px;left:0px;background-color:white;width:2px;height:768px">&nbsp;</div>
-         <div style="position: absolute;top:0px;right:0px;background-color:white;width:2px;height:768px">&nbsp;</div>
-      </div>
+      <div id="presentation"></div>
       
       <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
       <script type="text/javascript">
@@ -39,6 +35,12 @@
                height: heightGadget,
                overflow: 'hidden'
             });
+
+            /* Ocultamos los márgenes */
+            var html = "";
+            html + = "<div style="position: absolute;top:0px;left:0px;font-size:14px;background-color:white;width:"+widthGadget"px;height:14px"></div>";
+            html + = "<div style="position: absolute;top:0px;left:0px;background-color:white;width:2px;height:"+heightGadget+"px">&nbsp;</div>";
+            html + = "<div style="position: absolute;top:0px;right:0px;background-color:white;width:2px;height:"+heightGadget+"px">&nbsp;</div>";
 
             /* Función que genera el iframe */
             var iframe = (function () {
