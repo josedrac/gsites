@@ -18,7 +18,7 @@
 
          var gadgetHelper = null;
          var prefs = new _IG_Prefs();
-         var urlTable = prefs.getString("_presentarion_url");
+         var urlPresentation = prefs.getString("_presentarion_url");
 
          /* Obtengo las dimensiones del GADGET en google sites */
          if (gadgets.window) {
@@ -55,7 +55,7 @@
                   "var d=document,f=d.body.appendChild(d.createElement('iframe'));" +
                   "f.style.cssText = 'width:100%;height:100%;';" +
                   "f.frameBorder=0;f.scrolling='no';f.seamless='seamless';" +
-                  "f.src = '" + _presentarion_url + "';\">"
+                  "f.src = '" + urlPresentation + "';\">"
                );
                doc.close();
             } 
