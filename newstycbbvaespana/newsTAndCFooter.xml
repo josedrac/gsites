@@ -138,7 +138,7 @@
 
 			 	newsTAndCFooter += '<div class="footer">';
 
-			 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/NB-newsTAndCFooter/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
+			 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
 			 	newsTAndCFooter += '<div>';
 			 	newsTAndCFooter += '<h2>' + title + '</h2>';
 			 	newsTAndCFooter += '<ul>';
