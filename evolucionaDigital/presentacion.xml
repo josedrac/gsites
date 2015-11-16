@@ -25,6 +25,12 @@
          }
 
 
+         $('#presentation').css({
+            height: heightGadget,
+            overflow: 'hidden'
+         });
+
+
          /* jshint scripturl:true */
          var tje = (function (m) {
             "use strict";
