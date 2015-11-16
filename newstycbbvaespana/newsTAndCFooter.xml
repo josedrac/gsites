@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 
-	<ModulePrefs title="NB - newsT&CFooter.xml">
+	<ModulePrefs title="NB - newsTAndCFooter.xml">
 		<Require feature="idi"/>
 		<Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -81,33 +81,33 @@
 
 			</style>
 
-			<div id="newsT&CFooter"></div>
+			<div id="newsTAndCFooter"></div>
 
 		   	<script type="text/javascript">
 				
-			 	var newsT&CFooter = '';
+			 	var newsTAndCFooter = '';
 
-			 	newsT&CFooter += '<div class="footer">';
+			 	newsTAndCFooter += '<div class="footer">';
 
-			 	newsT&CFooter += '<img src="https://rawgit.com/sopraux/gsites/NB-newsTAndCFooter/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
-			 	newsT&CFooter += '<div>';
-			 	newsT&CFooter += '<h2>News T&C BBVA España</h2>';
-			 	newsT&CFooter += '<ul>';
-			 	newsT&CFooter += '<li><a href="#">Canarias</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Catalunya</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Centro</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Este</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Noroeste</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Norte</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Portugal</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Seguros</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Servicios Centrales</a></li>';
-			 	newsT&CFooter += '<li><a href="#">Sur</a></li>';
-			 	newsT&CFooter += '</ul>';
-			 	newsT&CFooter += '</div>';
-			 	newsT&CFooter += '</div>';
+			 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/NB-newsTAndCFooter/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
+			 	newsTAndCFooter += '<div>';
+			 	newsTAndCFooter += '<h2>News T&C BBVA España</h2>';
+			 	newsTAndCFooter += '<ul>';
+			 	newsTAndCFooter += '<li><a href="#">Canarias</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Catalunya</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Centro</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Este</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Noroeste</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Norte</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Portugal</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Seguros</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Servicios Centrales</a></li>';
+			 	newsTAndCFooter += '<li><a href="#">Sur</a></li>';
+			 	newsTAndCFooter += '</ul>';
+			 	newsTAndCFooter += '</div>';
+			 	newsTAndCFooter += '</div>';
 			 	
-			 	document.getElementById("newsT&CFooter").innerHTML = newsT&CFooter;
+			 	document.getElementById("newsTAndCFooter").innerHTML = newsTAndCFooter;
 
 		   </script>
 
