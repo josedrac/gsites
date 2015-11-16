@@ -5,7 +5,7 @@
       <Require feature="dynamic-height"/>
       <Require feature="setprefs" />
    </ModulePrefs>
-   <UserPref name="_presentarion_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYUkBg6THXBZf4AOpjEHnMVg/embed)" required="true" />
+   <UserPref name="_presentarion_url" default_value="" display_name="Data source url" required="true" />
    <Content view="canvas" preferred_height="20px">
       <![CDATA[
    
