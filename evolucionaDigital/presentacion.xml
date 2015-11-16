@@ -28,9 +28,37 @@
             overflow: 'hidden'
          });
 
+         var iframe = (function (m) {
+         "use strict";
+
+          function fif ( el ) {
+              var iframe = document.createElement("iframe"), doc;
+              (iframe.frameElement || iframe).style.cssText = "width:" + widthGadget + "px; height:" + widthGadget * 0.8 + "px;";
+              iframe.frameBorder = 0;
+              iframe.scrolling = "no";
+              iframe.seamless = "seamless";
+              iframe.src = "javascript:false";
+              el.appendChild(iframe);
+              doc = iframe.contentWindow.document;
+
+              doc.open().write(
+                  "<body style=\"margin:0;padding:0;border:0;overflow:hidden\" " +
+                  "onload=\"" +
+                  "var d=document,f=d.body.appendChild(d.createElement('iframe'));" +
+                  "f.style.cssText = 'width:100%;height:100%;';" +
+                  "f.frameBorder=0;f.scrolling='no';f.seamless='seamless';" +
+                  "f.src = '" + el.getAttribute("data-src") + "';\">"
+              );
+              doc.close();
+          }
+
+          fif(document.getElementById("presentation"));
+
+       })(); 
+
 
          /* jshint scripturl:true */
-         var tje = (function (m) {
+         /* var tje = (function (m) {
             "use strict";
 
             m.ads = m.ads || {};
@@ -116,7 +144,7 @@
             if ( autoFit === "true" ) {
                tje.ads.becomeResponsive ( el );
             }
-         })();
+         })(); */
 
          gadgets.window.adjustHeight();
 
