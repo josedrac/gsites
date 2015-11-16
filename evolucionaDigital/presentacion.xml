@@ -35,7 +35,14 @@
             overflow: 'hidden'
          });
 
-         google.setOnLoadCallback(iframe);
+         _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+      function loadVisualizationAPI() {
+
+         google.setOnLoadCallback(sendQuery);
+      }
+
+         
 
          /* Función que genera el iframe */
          function iframe() {
