@@ -10,6 +10,11 @@
 
 	<UserPref name="title" display_name="Title of the News T and C footer" required="true" />
 
+	<UserPref name="areaLabel_1" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_1" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_2" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_2" display_name="URL of the area" required="true" />
+
 	<Content type="html">
 	    <![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -90,6 +95,11 @@
 		   		var prefs = new gadgets.Prefs();
 
 		   		var title = prefs.getString('title');
+
+		   		var areaLabel_1 = prefs.getString('areaLabel_1');
+		   		var areaURL_1 = prefs.getString('areaURL_1');
+		   		var areaLabel_2 = prefs.getString('areaLabel_2');
+		   		var areaURL_2 = prefs.getString('areaURL_2');
 				
 			 	var newsTAndCFooter = '';
 
@@ -99,8 +109,8 @@
 			 	newsTAndCFooter += '<div>';
 			 	newsTAndCFooter += '<h2>' + title + '</h2>';
 			 	newsTAndCFooter += '<ul>';
-			 	newsTAndCFooter += '<li><a href="#">Canarias</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Catalunya</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_1 + '">' + areaLabel_1 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_2 + '">' + areaLabel_2 + '</a></li>';
 			 	newsTAndCFooter += '<li><a href="#">Centro</a></li>';
 			 	newsTAndCFooter += '<li><a href="#">Este</a></li>';
 			 	newsTAndCFooter += '<li><a href="#">Noroeste</a></li>';
@@ -133,6 +143,26 @@
 				<tr>
 			       <td>
 			           Title: <input type="text" size="100" id="title" value="__UP_title__" onchange="register('title')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 1: <input type="text" size="100" id="areaLabel_1" value="__UP_areaLabel_1__" onchange="register('areaLabel_1')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 1: <input type="text" size="100" id="areaURL_1" value="__UP_areaURL_1__" onchange="register('areaURL_1')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 2: <input type="text" size="100" id="areaLabel_2" value="__UP_areaLabel_2__" onchange="register('areaLabel_2')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 2: <input type="text" size="100" id="areaURL_2" value="__UP_areaURL_2__" onchange="register('areaURL_2')"/>
 			       </td>
 			    </tr>
 			</table>
