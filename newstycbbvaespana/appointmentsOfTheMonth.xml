@@ -116,6 +116,8 @@
 			 	var gadgetHelper = null;
 				var prefs = new _IG_Prefs();
 				var urlTable = prefs.getString("_table_query_url");
+				var d = new Date();
+				var currentMonth = d.getMonth() + 1 + '/' + d.getFullYear();
 
 				_IG_RegisterOnloadHandler(loadVisualizationAPI);
 
@@ -155,17 +157,17 @@
 				 		appointmentsOfTheMonth += '<tbody>';
 
 	            		for(i=1; i < filas; i++) {
-							appointmentsOfTheMonth += '<tr>';
-							appointmentsOfTheMonth += '<td>' +  data.getValue(i,1) + '</td>';
-							appointmentsOfTheMonth += '<td>' +  data.getValue(i,2) + '</td>';
-							appointmentsOfTheMonth += '<td>' +  data.getValue(i,3) + '</td>';
-							appointmentsOfTheMonth += '<td>' +  data.getValue(i,4) + '</td>';
-							
-							if(data.getValue(i,5) != null && typeof data.getValue(i,5) != 'undefined' && data.getValue(i,5) !== undefined && data.getValue(i,5) != "") {
-								appointmentsOfTheMonth += '<td class="text-right"><a href="' + data.getValue(i,5) + '" target="_blank">apuntate<span>+</span></a></td>';
+	            			if(currentMonth == data.getValue(i,6)) {
+								appointmentsOfTheMonth += '<tr>';
+								appointmentsOfTheMonth += '<td>' +  data.getValue(i,1) + '</td>';
+								appointmentsOfTheMonth += '<td>' +  data.getValue(i,2) + '</td>';
+								appointmentsOfTheMonth += '<td>' +  data.getValue(i,3) + '</td>';
+								appointmentsOfTheMonth += '<td>' +  data.getValue(i,4) + '</td>';
+								if(data.getValue(i,5) != null && typeof data.getValue(i,5) != 'undefined' && data.getValue(i,5) !== undefined && data.getValue(i,5) != "") {
+									appointmentsOfTheMonth += '<td class="text-right"><a href="' + data.getValue(i,5) + '" target="_blank">apuntate<span>+</span></a></td>';
+								}
+								appointmentsOfTheMonth += '</tr>';
 							}
-
-							appointmentsOfTheMonth += '</tr>';
 	            		}
 
 	            		appointmentsOfTheMonth += '</tbody>';
