@@ -14,6 +14,10 @@
 	<UserPref name="areaURL_1" display_name="URL of the area" required="true" />
 	<UserPref name="areaLabel_2" display_name="label of the area" required="true" />
 	<UserPref name="areaURL_2" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_3" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_3" display_name="URL of the area" required="true" />
+	<UserPref name="areaLabel_4" display_name="label of the area" required="true" />
+	<UserPref name="areaURL_4" display_name="URL of the area" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -100,6 +104,10 @@
 		   		var areaURL_1 = prefs.getString('areaURL_1');
 		   		var areaLabel_2 = prefs.getString('areaLabel_2');
 		   		var areaURL_2 = prefs.getString('areaURL_2');
+		   		var areaLabel_3 = prefs.getString('areaLabel_3');
+		   		var areaURL_3 = prefs.getString('areaURL_3');
+		   		var areaLabel_4 = prefs.getString('areaLabel_4');
+		   		var areaURL_4 = prefs.getString('areaURL_4');
 				
 			 	var newsTAndCFooter = '';
 
@@ -111,8 +119,8 @@
 			 	newsTAndCFooter += '<ul>';
 			 	newsTAndCFooter += '<li><a href="' + areaURL_1 + '">' + areaLabel_1 + '</a></li>';
 			 	newsTAndCFooter += '<li><a href="' + areaURL_2 + '">' + areaLabel_2 + '</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Centro</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Este</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_3 + '">' + areaLabel_3 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_4 + '">' + areaLabel_4 + '</a></li>';
 			 	newsTAndCFooter += '<li><a href="#">Noroeste</a></li>';
 			 	newsTAndCFooter += '<li><a href="#">Norte</a></li>';
 			 	newsTAndCFooter += '<li><a href="#">Portugal</a></li>';
@@ -163,6 +171,26 @@
 				<tr>
 			       <td>
 			           Area URL 2: <input type="text" size="100" id="areaURL_2" value="__UP_areaURL_2__" onchange="register('areaURL_2')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 3: <input type="text" size="100" id="areaLabel_3" value="__UP_areaLabel_3__" onchange="register('areaLabel_3')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 3: <input type="text" size="100" id="areaURL_3" value="__UP_areaURL_3__" onchange="register('areaURL_3')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area label 4: <input type="text" size="100" id="areaLabel_4" value="__UP_areaLabel_4__" onchange="register('areaLabel_4')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Area URL 4: <input type="text" size="100" id="areaURL_4" value="__UP_areaURL_4__" onchange="register('areaURL_4')"/>
 			       </td>
 			    </tr>
 			</table>
