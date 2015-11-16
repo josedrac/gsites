@@ -25,112 +25,94 @@
          }
 
 
-
          /* jshint scripturl:true */
          var tje = (function (m) {
-         "use strict";
+            "use strict";
 
-             m.ads = m.ads || {};
+            m.ads = m.ads || {};
 
-             function fif ( el ) {
-             console.log('--'+widthGadget);
-                 var iframe = document.createElement("iframe"), doc;
-                 ( iframe.frameElement || iframe ).style.cssText = "width:" + widthGadget + "; height:" + widthGadget * 0.8 + ";";
-                 iframe.frameBorder = 0;
-                 iframe.scrolling = "no";
-                 iframe.seamless = "seamless";
-                 iframe.src = "javascript:false";
-                 el.appendChild(iframe);
-                 doc = iframe.contentWindow.document;
+            function fif ( el ) 
+               var iframe = document.createElement("iframe"), doc;
+               ( iframe.frameElement || iframe ).style.cssText = "width:" + widthGadget + "; height:" + widthGadget * 0.8 + ";";
+               iframe.frameBorder = 0;
+               iframe.scrolling = "no";
+               iframe.seamless = "seamless";
+               iframe.src = "javascript:false";
+               el.appendChild(iframe);
+               doc = iframe.contentWindow.document;
 
-                 doc.open().write(
-                     "<body style=\"margin:0;padding:0;border:0;overflow:hidden\" " +
-                     "onload=\"" +
-                     "var d=document,f=d.body.appendChild(d.createElement('iframe'));" +
-                     "f.style.cssText = 'width:100%;height:100%;';" +
-                     "f.frameBorder=0;f.scrolling='no';f.seamless='seamless';" +
-                     "f.src = '" + el.getAttribute("data-src") + "';\">"
-                 );
-                 doc.close();
+               doc.open().write(
+                  "<body style=\"margin:0;padding:0;border:0;overflow:hidden\" " +
+                  "onload=\"" +
+                  "var d=document,f=d.body.appendChild(d.createElement('iframe'));" +
+                  "f.style.cssText = 'width:100%;height:100%;';" +
+                  "f.frameBorder=0;f.scrolling='no';f.seamless='seamless';" +
+                  "f.src = '" + el.getAttribute("data-src") + "';\">"
+               );
+               doc.close();
+            }
 
-             }
+            m.ads.fif = fif;
 
-             m.ads.fif = fif;
+            var getStyle = function ( el ) {
+               var styles = ("getComputedStyle" in window) && window.getComputedStyle( el, null ) || el.currentStyle;
+                  return styles;
+               },
+               ACCURACY_THRESHOLD = 1;
 
-             var getStyle = function ( el ) {
-                     var styles = ("getComputedStyle" in window) &&
-                         window.getComputedStyle( el, null ) || el.currentStyle;
-                     return styles;
-                 },
-                 ACCURACY_THRESHOLD = 1;
+               function becomeResponsive ( el, container ) {
 
-             function becomeResponsive ( el, container ) {
+               var width = parseInt( el.getAttribute("data-width").replace("px", ""), 10 ),
+               height = parseInt(el.getAttribute("data-height").replace("px", ""), 10 ),
+               aspectRatio = height / width;
 
-                 var width = parseInt(
-                         el.getAttribute("data-width").replace("px", ""), 10 ),
-                     height = parseInt(
-                         el.getAttribute("data-height").replace("px", ""), 10 ),
-                     aspectRatio = height / width;
+               if ( !container ) {
+                  container = el.parentElement;
+               }
 
-                 if ( !container ) {
-                     container = el.parentElement;
-                 }
+               el.setAttribute("data-aspectRatio", aspectRatio );
 
-                 el.setAttribute("data-aspectRatio", aspectRatio );
+               var resizeHandler = function () {
+                  var elStyles  = getStyle( el),
+                     oldWidth = parseInt( elStyles.width, 10 ),
+                     oldHeight = parseInt( elStyles.height, 10 ),
+                     contWidth = parseInt( getStyle( container ).width, 10 ),
+                     newWidth = ( width < contWidth ) ? width : contWidth,
+                     newHeight = newWidth * aspectRatio;
 
-                 var resizeHandler = function () {
-                     var elStyles  = getStyle( el),
-                         oldWidth = parseInt( elStyles.width, 10 ),
-                         oldHeight = parseInt( elStyles.height, 10 ),
-                         contWidth = parseInt( getStyle( container ).width, 10 ),
-                         newWidth = ( width < contWidth ) ? width : contWidth,
-                         newHeight = newWidth * aspectRatio;
+                  if ( Math.abs( oldWidth - newWidth ) < ACCURACY_THRESHOLD &&
+                     Math.abs( oldHeight - newHeight ) < ACCURACY_THRESHOLD ) {
+                     return;
+                  }
 
-                     if ( Math.abs( oldWidth - newWidth ) < ACCURACY_THRESHOLD &&
-                         Math.abs( oldHeight - newHeight ) < ACCURACY_THRESHOLD ) {
-                         return;
-                     }
+                  el.style.width = newWidth + "px";
+                  el.style.height = newHeight + "px";
+               };
 
-                     el.style.width = newWidth + "px";
-                     el.style.height = newHeight + "px";
-                 };
+               resizeHandler();
 
-                 resizeHandler();
+               if ( window.addEventListener ) {
+                  window.addEventListener( "resize", resizeHandler, false );
+               } else if ( window.attachEvent ) {
+                  window.attachEvent( "onresize", resizeHandler );
+               }
+            }
 
-                 if ( window.addEventListener ) {
-                     window.addEventListener( "resize", resizeHandler, false );
-                 } else if ( window.attachEvent ) {
-                     window.attachEvent( "onresize", resizeHandler );
-                 }
-
-             }
-
-             m.ads.becomeResponsive = becomeResponsive;
+            m.ads.becomeResponsive = becomeResponsive;
 
             return m;
 
          }) ( tje || {} ); 
 
 
-
-
-
-
          (function () {
-         var el = document.getElementById("presentation"),
-         autoFit = el.getAttribute("data-auto-fit");
-         tje.ads.fif ( el );
-         if ( autoFit === "true" ) {
-         tje.ads.becomeResponsive ( el );
-         }
-         }) ();
-
-
-         /*Desde el iframe*/
-         //placeholder = $(window.parent.frameElement);
-         //placeholder.animate({'height': '480px'}, 800, 'easeInOutQuart');
-
-
+            var el = document.getElementById("presentation"),
+            autoFit = el.getAttribute("data-auto-fit");
+            tje.ads.fif ( el );
+            if ( autoFit === "true" ) {
+               tje.ads.becomeResponsive ( el );
+            }
+         })();
 
          gadgets.window.adjustHeight();
 
