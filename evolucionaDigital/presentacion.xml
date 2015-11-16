@@ -38,9 +38,9 @@
 
             /* Ocultamos los márgenes */
             var html = "";
-            html+= "<div style="position: absolute;top:0px;left:0px;font-size:14px;background-color:white;width:"+widthGadget"px;height:14px"></div>";
-            html+= "<div style="position: absolute;top:0px;left:0px;background-color:white;width:2px;height:"+heightGadget+"px">&nbsp;</div>";
-            html+= "<div style="position: absolute;top:0px;right:0px;background-color:white;width:2px;height:"+heightGadget+"px">&nbsp;</div>";
+            html+= "<div style='position: absolute;top:0px;left:0px;font-size:14px;background-color:white;width:"+widthGadget"px;height:14px'></div>";
+            html+= "<div style='position: absolute;top:0px;left:0px;background-color:white;width:2px;height:"+heightGadget+"px'>&nbsp;</div>";
+            html+= "<div style='position: absolute;top:0px;right:0px;background-color:white;width:2px;height:"+heightGadget+"px'>&nbsp;</div>";
 
             /* Función que genera el iframe */
             var iframe = (function () {
