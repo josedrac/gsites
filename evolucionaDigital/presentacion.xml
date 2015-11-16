@@ -19,7 +19,6 @@
             if (viewport.width) {
                var widthGadget = viewport.width;
                var heightGadget = viewport.width * 0.8 - 28;
-               console.log('- ' + heightGadget);
             }
          }
 
