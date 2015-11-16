@@ -1,6 +1,9 @@
 <Module title="Module dynamically resize view">
    <ModulePrefs title="ED-presentation.xml">
-      <Require feature="dynamic-height" />
+      <Require feature="idi"/>
+       <Require feature="locked-domain" />
+      <Require feature="dynamic-height"/>
+      <Require feature="setprefs" />
    </ModulePrefs>
    <Content view="canvas" preferred_height="20px">
       <![CDATA[
