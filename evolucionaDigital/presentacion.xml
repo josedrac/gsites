@@ -12,7 +12,7 @@
          }
       </style>
 
-      <div id="updateNode"><div id="presentation" class="banner banner--location-top" data-style="width: 960px; height: 768px; border: 0; overflow:hidden" data-src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" data-auto-fit="lower" data-width="auto" data-height="auto"></div></div>
+      <div id="updateNode"><div id="presentation" class="banner banner--location-top" data-style="border: 0; overflow:hidden" data-src="https://docs.google.com/a/bbva.com/presentation/d/1F3jOa33a2DzscOvMxYdhCUkBg6THXBZf4AOpjEHnMVg/embed" data-auto-fit="lower" data-width="auto" data-height="auto"></div></div>
       
       <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
 
