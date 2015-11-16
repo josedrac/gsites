@@ -89,6 +89,8 @@
 
 		   	<script type="text/javascript">
 
+		   		var gadgetHelper = null;
+
 		   		var prefs = new gadgets.Prefs();
 
 		   		var title = prefs.getString('title');
