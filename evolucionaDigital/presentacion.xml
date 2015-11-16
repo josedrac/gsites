@@ -64,7 +64,6 @@
 
          })(); 
 
-         location.reload();
          gadgets.window.adjustHeight();
 
       </script>
