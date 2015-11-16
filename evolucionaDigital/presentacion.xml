@@ -35,14 +35,8 @@
             overflow: 'hidden'
          });
 
-         _IG_RegisterOnloadHandler(loadVisualizationAPI);
-
-      function loadVisualizationAPI() {
-         google.setOnLoadCallback(iframe);
-      }
-
          /* Función que genera el iframe */
-         function iframe() {
+         var iframe = (function () {
             "use strict";
 
             function fif ( el ) {
@@ -68,8 +62,9 @@
 
             fif(document.getElementById("presentation"));
 
-         }; 
-         
+         })(); 
+
+         location.reload();
          gadgets.window.adjustHeight();
 
       </script>
