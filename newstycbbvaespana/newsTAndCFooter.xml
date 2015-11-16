@@ -151,6 +151,7 @@
 			 	newsTAndCFooter += '<li><a href="' + areaURL_7 + '">' + areaLabel_7 + '</a></li>';
 			 	newsTAndCFooter += '<li><a href="' + areaURL_8 + '">' + areaLabel_8 + '</a></li>';
 			 	newsTAndCFooter += '<li><a href="' + areaURL_9 + '">' + areaLabel_9 + '</a></li>';
+			 	newsTAndCFooter += '<li><a href="' + areaURL_10 + '">' + areaLabel_10 + '</a></li>';
 			 	newsTAndCFooter += '</ul>';
 			 	newsTAndCFooter += '</div>';
 			 	newsTAndCFooter += '</div>';
