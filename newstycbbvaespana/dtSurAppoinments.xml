@@ -87,7 +87,7 @@
 
 			 	var dtSurAppoinments = '';
 
-				dtSurAppoinments += '<div class="appoinments" onclick=javascript:Go('" + urlAppointment + "')>';
+				dtSurAppoinments += '<div class="appoinments" onclick="javascript:Go(\''+ urlAppointment +'\')">';
 				dtSurAppoinments += '<h2>' + title + '</h2>';
 				dtSurAppoinments += '<p>' + subtitle + '</p>';
 				dtSurAppoinments += '</div>';
