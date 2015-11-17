@@ -293,6 +293,7 @@
 	    function setVisibleControls() {
 			if($('.control').is('hidden')) {
 				$('.control').show();
+				console.log('control show!');
 			}
 	    }
 
