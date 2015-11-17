@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 
-	<ModulePrefs title="NB - dtSurAppoinments.xml">
+	<ModulePrefs title="NB - dtSurAppoinments.xml"
+		width="465"
+		height="380">
 		<Require feature="idi"/>
 		<Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
