@@ -74,6 +74,7 @@
                } 
 
                fif(document.getElementById("presentation"));
+               document.getElementById("presentation").innerHTML = "html";
 
             })(); 
 
