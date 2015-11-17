@@ -12,6 +12,7 @@
 
 	<UserPref name="title" display_name="Title" required="true" />
 	<UserPref name="subtitle" display_name="Subtitle" required="true" />
+	<UserPref name="urlAppointment" display_name="URL Appointment" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -49,6 +50,7 @@
 					color: white;
 					width: 465px;
 					height: 380px;
+					cursor: pointer;
 				}
 
 				.appoinments h2 {
@@ -81,10 +83,11 @@
 
 		   		var title = prefs.getString('title');
 		   		var subtitle = prefs.getString('subtitle');
+		   		var urlAppointment = prefs.getString('urlAppointment');
 
 			 	var dtSurAppoinments = '';
 
-				dtSurAppoinments += '<div class="appoinments">';
+				dtSurAppoinments += '<div class="appoinments" onclick=javascript:Go('" + urlAppointment + "')>';
 				dtSurAppoinments += '<h2>' + title + '</h2>';
 				dtSurAppoinments += '<p>' + subtitle + '</p>';
 				dtSurAppoinments += '</div>';
@@ -121,6 +124,11 @@
 				<tr>
 			       <td>
 			           Subtitle: <input type="text" size="100" id="subtitle" value="__UP_subtitle__" onchange="register('subtitle')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           URL of the apointment: <input type="text" size="100" id="urlAppointment" value="__UP_urlAppointment__" onchange="register('urlAppointment')"/>
 			       </td>
 			    </tr>
 			</table>
