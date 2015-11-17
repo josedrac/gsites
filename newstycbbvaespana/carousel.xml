@@ -168,6 +168,7 @@
 		}
 
 		.control {
+			display: none;
 			position: absolute;
 		    width: 100%;
 		    text-align: center;
@@ -237,6 +238,9 @@
 			html +="		<button onclick=javascript:Go('" + VarLink2 + "')>Más info</button>";
 			html +="	</div>";
 			html +="</li>";
+
+			setVisibleControls();
+
      	}
      	if (VarTitle3!="")
         {
@@ -247,6 +251,9 @@
 			html +="		<button onclick=javascript:Go('" + VarLink3 + "')>Más info</button>";
 			html +="	</div>";
 			html +="</li>";
+
+			setVisibleControls();
+
      	}
      	if (VarTitle4!="")
         {
@@ -257,6 +264,9 @@
 			html +="		<button onclick=javascript:Go('" + VarLink4 + "')>Más info</button>";
 			html +="	</div>";
 			html +="</li>";
+
+			setVisibleControls();
+
      	}
 
      	document.getElementById('carousel').innerHTML += html;
@@ -279,6 +289,12 @@
 	    });
 
 	    $('.prev').after($('.dots'));
+
+	    function setVisibleControls() {
+			if($('.control').is('hidden')) {
+				$('.control').show();
+			}
+	    }
 
 	</script>
 
