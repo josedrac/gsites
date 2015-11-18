@@ -57,7 +57,7 @@
 				.article-content {
 					float: left;
 					width: 50%;
-				    height: 266px;
+				    height: 286px;
 				}
 
 				.article-content-wrapper {
