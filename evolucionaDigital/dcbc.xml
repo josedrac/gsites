@@ -123,7 +123,7 @@
 		html += "	<div class='text'>";
 		html += "		<h2 class='title'>" + Title + "</h2>";
 		html += "		<p>"+ Description +"</p>";
-		html += "		<button class='btn' onclick=javascript:Go('https://www.nextinit.com/login.jsp')>Acceder</button>";
+		html += "		<button class='btn' onclick=javascript:Go('" + Link + "')>Acceder</button>";
 		html += "	</div>";
 		html +=	"	<div class='media'>";
             //		html +=	"		<iframe src='" + Video + "' allowfullscreen='true' allowScriptAccess='always' style='border: 0px solid #AAA;'></iframe>";
