@@ -159,7 +159,7 @@
 
     <script type="text/javascript">
         var data;
-        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartphone'];
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
         var titlecomboVideo = prefs.getString("titlecomboVideo");
@@ -219,6 +219,10 @@
 
             if (channel == channels[3]) {
                 sql += " AND (J like 'x' OR K like 'x') ";
+            }
+
+            if (channel == channels[4]) {
+                sql += " AND (L like 'x') ";
             }
             return sql;
         }
