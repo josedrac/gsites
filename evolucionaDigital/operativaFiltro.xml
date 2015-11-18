@@ -317,11 +317,11 @@
             var elementChannelSelector = document.getElementById('channelSelector');
             var selectedProduct = elementProductSelector.options[elementProductSelector.selectedIndex].value;
             var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].value;
-            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/prueba?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
+            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
         }
 
         function showAll(){
-            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/prueba?producto=Todos&canal=Todos","_parent");
+            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Todos","_parent");
         }
 
   </script>
