@@ -244,7 +244,7 @@
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></div>";
-                html +=     "<div class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>SmartWatch APP BBVA</div></div>";
+                html +=     "<div class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch APP BBVA</div></div>";
                 html += "</div>";
             return html;
        }
@@ -315,9 +315,8 @@
                 8: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
                 9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
                 10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
-                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16]
-                };
-                };
+                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png', 10, 16]
+            };
 
             html += "<div class='colBodyIcon'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
             return html;
