@@ -9,7 +9,6 @@
 	<Require feature="setprefs" />
   </ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<UserPref name="titlecomboVideo" display_name="Tilte Box Video" required="true" />
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -228,8 +227,8 @@
     <div id="listportales"></div>
 
     <script type="text/javascript">
-        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
-        var channelNames = ['Todos', 'Smartphone app BBVA', 'PC', 'Tablet'];
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartphone'];
+        var channelNames = ['Todos', 'Smartphone app BBVA', 'PC', 'Tablet', 'Smartphone'];
         var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
 
         renderPage();
@@ -323,8 +322,8 @@
 
         function showAll(){
             window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Todos","_parent");
-
         }
+        
   </script>
     ]]>
   </Content>
