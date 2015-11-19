@@ -180,6 +180,8 @@
             if (isSearchDone()) {
                 var channel = getSelectedChannel();
                 var product = getSelectedProduct();
+                var inputText = getInputText();
+                console.log(inputText);
                 if (product == "Todos") {
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
                     if (channel != "Todos") {
@@ -279,6 +281,15 @@
             }
             return html;
        }
+
+       function getInputText() {
+            var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
+            if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
+                return contentInput;
+            } else {
+                return false;
+            }
+        }
 
         function getSelectedChannel() {
             return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
