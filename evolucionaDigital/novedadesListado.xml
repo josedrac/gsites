@@ -370,7 +370,7 @@
 		function getSelectedMonth() {
         	return gadgets.util.getUrlParameters().parent.split("=")[2];
 	    }
-	    
+
 	    function getSelectedYear() {
 	        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
 	    }
@@ -379,12 +379,15 @@
     		var filter = "";
     		if (isSearchDone()) {
 	    		var year = getSelectedYear();
-	    		if (year > 0) {
-	    			filter = " AND (G = "+year+")";
-	    		}
 	    		var month = getSelectedMonth();
-	    		if (month > 0) {
-	    			filter = filter.concat(" AND (F = "+month+")");
+	    		if (year > 0 && month > 0) {
+	    			filter = " AND (C matches '.*/"+ month +"/"+ year +"')";
+	    		}
+	    		else if (year > 0) {
+	    			filter = " AND (C matches '.*/"+ year +"')";
+	    		}
+	    		else if (month > 0) {
+	    			filter = " AND (C matches '.*/"+ month +"/.*')";
 	    		}
 	    	}
     		return filter;
