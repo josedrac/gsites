@@ -331,7 +331,7 @@
             var elementChannelSelector = document.getElementById('channelSelector');
             var selectedProduct = elementProductSelector.options[elementProductSelector.selectedIndex].value;
             var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].value;
-            var inputText = document.getElementById('inputText');
+            var inputText = document.getElementById('inputText').val();
             window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel+"&input="+inputText,"_parent");
         }
 
