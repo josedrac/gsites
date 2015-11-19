@@ -186,11 +186,7 @@
                     if (channel != "Todos") {
                         querytosend = querytosend.concat(getChannelCondition(channel));
                     }
-                    if(text != "") {
-                        querytosend = querytosend.concat(" AND (C like '%" + text + "%') ");
-                    }
                     querytosend = querytosend.concat(" order by B");
-                    console.log(querytosend);
                     query.setQuery(querytosend);
                     query.send(handleQueryResponse);
                     return;
@@ -203,7 +199,12 @@
                     return;
                 }
 
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' " + getChannelCondition(channel);
+                if(text != "") { 
+                    querytosend = querytosend.concat(" AND (C like '%" + text + "%') ");
+                }
+                querytosend =  " order by B";
+                
             }
             else {
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Cuentas' order by B";
