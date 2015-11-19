@@ -381,13 +381,13 @@
 	    		var year = getSelectedYear();
 	    		var month = getSelectedMonth();
 	    		if (year > 0 && month > 0) {
-	    			filter = " AND (C like %/"+ month +"/"+ year +")";
+	    			filter = " AND (C matches '.*\/"+ month +"\/"+ year +"')";
 	    		}
 	    		else if (year > 0) {
-	    			filter = " AND (C like %/"+ year +")";
+	    			filter = " AND (C matches '.*\/"+ year +"')";
 	    		}
 	    		else if (month > 0) {
-	    			filter = " AND (C like %/"+ month +"/%)";
+	    			filter = " AND (C matches '.*\/"+ month +"\/.*')";
 	    		}
 	    	}
     		return filter;
