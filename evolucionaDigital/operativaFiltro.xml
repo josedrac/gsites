@@ -296,7 +296,12 @@
         }
 
         function getInputText() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
+            var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
+            if(contentInput != null && typeof contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
+                return contentInput;
+            } else {
+                return '';
+            }
         }
 
         function getSelectedChannel() {
@@ -336,7 +341,7 @@
             var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].value;
             var inputText = document.getElementById('inputText').value;
             if (inputText != "") {
-                window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel+"&inputText="+inputText,"_parent");
+                window.open("https://sites.google.com/a/bbva.com/evolucionadigital/prueba?producto="+selectedProduct+"&canal="+selectedChannel+"&inputText="+inputText,"_parent");
             } else {
                 window.open("https://sites.google.com/a/bbva.com/evolucionadigital/prueba?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
             }
