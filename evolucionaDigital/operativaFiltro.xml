@@ -220,6 +220,10 @@
             border: 1px solid #d5e2ee;
             width: 200px;
             height: 32px;
+            padding: 10px;
+            color: #0078d2;
+            font-size: 13px;
+            font-weight: bold;
         }
 
     </style>
