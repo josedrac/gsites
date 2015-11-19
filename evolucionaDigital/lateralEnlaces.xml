@@ -253,7 +253,8 @@
      	}
      	
      	document.getElementById('events').innerHTML += html;
-     	
+		gadgets.window.adjustHeight();
+
      				
 		function Go(destination, target)
 		{
