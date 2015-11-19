@@ -180,8 +180,7 @@
             if (isSearchDone()) {
                 var channel = getSelectedChannel();
                 var product = getSelectedProduct();
-                var inputText = getInputText();
-                console.log(inputText);
+                
                 if (product == "Todos") {
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
                     if (channel != "Todos") {
@@ -190,27 +189,28 @@
                     querytosend = querytosend.concat(" order by B");
                     query.setQuery(querytosend);
                     query.send(handleQueryResponse);
-                    console.log('1' + querytosend);
                     return;
                 }
 
-                if (channel == channels[0]) {
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
-                    query.setQuery(querytosend);
-                    query.send(handleQueryResponse);
-                    console.log('2' + querytosend);
-                    return;
+                var inputText = getInputText();
+                var querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '" + product + "'";
+
+                if (inputText != false) {
+                    querytosend += " AND (C like '%" + inputText + "%') ";
+                } 
+
+                if (channel != channels[0]) {
+                    querytosend += getChannelCondition(channel);
                 }
 
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
-                console.log('3' + querytosend);
+                querytosend += " order by B";
             }
             else {
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Cuentas' order by B";
-                console.log('4' + querytosend);
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
+            console.log(querytosend);
         }
 
         function getChannelCondition(channel) {
