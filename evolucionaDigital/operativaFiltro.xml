@@ -285,7 +285,7 @@
         function createInput() {
             var html = "<div id='text'>";
             html +=         "<label>Texto</label>";
-            html +=         "<input type='text' id="inputText"/>";
+            html +=         "<input type='text' id='inputText'/>";
             html +=    "</div>";
             return html;
         }
