@@ -264,7 +264,7 @@
             var elementMonthSelector = document.getElementById('monthSelector');
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
             var selectedMonth = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
-            window.open(window.location.href + "?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
+            window.open(window.top.location.href + "?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
             return false;
         }
 
