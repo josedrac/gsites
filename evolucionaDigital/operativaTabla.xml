@@ -190,6 +190,7 @@
                     querytosend = querytosend.concat(" order by B");
                     query.setQuery(querytosend);
                     query.send(handleQueryResponse);
+                    console.log('1' + querytosend);
                     return;
                 }
 
@@ -197,13 +198,16 @@
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
                     query.setQuery(querytosend);
                     query.send(handleQueryResponse);
+                    console.log('2' + querytosend);
                     return;
                 }
 
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
+                console.log('3' + querytosend);
             }
             else {
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Cuentas' order by B";
+                console.log('4' + querytosend);
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
