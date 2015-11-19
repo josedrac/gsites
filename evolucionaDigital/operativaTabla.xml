@@ -193,7 +193,7 @@
                 }
 
                 var inputText = getInputText();
-                var querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '" + product + "'";
+                var querytosend = "select *, TRANSLATE(UPPER(C), 'ÁÉÍÓÚÀÈÌÒÙÄËÏÖÜÂÊÎÔÛ', 'AEIOUAEIOUAEIOUAEIOU') where A <> 'GRUPO FUNCIONAL' and A like '" + product + "'";
 
                 if (inputText != false) {
                     querytosend += " AND (C like '%" + inputText + "%') ";
