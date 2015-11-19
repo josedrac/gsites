@@ -233,7 +233,6 @@
 
         renderPage();
         $( "#productsSelector" ).selectmenu({width: 200});
-
         $( "#channelSelector" ).selectmenu({width: 200});
 
         function renderPage() {
@@ -281,6 +280,16 @@
             html +=    "</div>";
             return html;
         }
+
+
+        function createInput() {
+            var html = "<div id='text'>";
+            html +=         "<label>Texto</label>";
+            html +=         "<input type='text' id="inputText"/>";
+            html +=    "</div>";
+            return html;
+        }
+
 
         function getSelectedChannel() {
             return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).replace(/\+/g, ' ');
