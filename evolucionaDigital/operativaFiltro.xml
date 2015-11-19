@@ -290,14 +290,17 @@
         function createInput() {
             var html = "<div id='text'>";
             html +=         "<label>Texto</label>";
-            html +=         "<input type='text' id='inputText'/>";
+            html +=         "<input type='text' id='inputText' value='"+ getInputText() +"'/>";
             html +=    "</div>";
             return html;
         }
 
+        function getInputText() {
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
+        }
 
         function getSelectedChannel() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).replace(/\+/g, ' ');
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).split("&")[0]).replace(/\+/g, ' ');
         }
 
         function getSelectedProduct() {
@@ -335,12 +338,12 @@
             if (inputText != "") {
                 window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel+"&inputText="+inputText,"_parent");
             } else {
-                window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
+                window.open("https://sites.google.com/a/bbva.com/evolucionadigital/prueba?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
             }
         }
 
         function showAll(){
-            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Todos","_parent");
+            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/prueba?producto=Todos&canal=Todos","_parent");
         }
 
   </script>
