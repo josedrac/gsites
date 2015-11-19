@@ -281,7 +281,7 @@
        }
 
         function getSelectedChannel() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).replace(/\+/g, ' ');
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
         }
 
         function getSelectedProduct() {
