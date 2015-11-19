@@ -85,29 +85,25 @@
         display: block;
     }
 
+    #products label, #channel label, #text label {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
     #products {
         float:left;
         margin-left: 10px;
         margin-top: 20px;
     }
 
-    #products label, #channel label {
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    #channel {
+    #channel, #text {
         float: left;
         margin-left: 20px;
         margin-top: 20px;
     }
 
-    #channelSelector {
-        width: 200px;
-    }
-
-    #productsSelector {
+    #channelSelector, #productsSelector, #textInput {
         width: 200px;
     }
 
@@ -239,14 +235,13 @@
             var html = "";
             html += createComboProduct();
             html += createComboChannel();
+            html += createInput();
             html += "<div class='clearBoth'></div>";
             html += createButtonShowResults();
             html += createButtonShowAll();
 		    document.getElementById('listportales').innerHTML += html;
 
 		}
-
-
 
         function createComboProduct() {
             var html = "<div id='products'>";
