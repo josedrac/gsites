@@ -264,7 +264,7 @@
             var elementMonthSelector = document.getElementById('monthSelector');
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
             var selectedMonth = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
-            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/novedades"+"?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
+            window.open(window.location.href + "?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
             return false;
         }
 
