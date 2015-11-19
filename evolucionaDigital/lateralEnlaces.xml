@@ -37,7 +37,7 @@
 
 
 
- <Content type="html" charset="UTF-8">
+ <Content view="canvas" preferred_height="20px"> 
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 	
