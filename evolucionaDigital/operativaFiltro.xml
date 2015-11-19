@@ -215,6 +215,12 @@
             font-size: 13px;
             font-weight: normal;
         }
+        input {
+            border-radius: 4px;
+            border: 1px solid #d5e2ee;
+            width: 200px;
+            height: 32px;
+        }
 
     </style>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
