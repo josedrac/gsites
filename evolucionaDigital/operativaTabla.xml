@@ -159,7 +159,7 @@
 
     <script type="text/javascript">
         var data;
-        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartphone'];
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch'];
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
         var titlecomboVideo = prefs.getString("titlecomboVideo");
