@@ -180,7 +180,6 @@
             if (isSearchDone()) {
                 var channel = getSelectedChannel();
                 var product = getSelectedProduct();
-                var text = getInputText();
                 if (product == "Todos") {
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
                     if (channel != "Todos") {
@@ -199,12 +198,7 @@
                     return;
                 }
 
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' " + getChannelCondition(channel);
-                if(text != "") { 
-                    querytosend = querytosend.concat(" AND (C like '%" + text + "%') ");
-                }
-                querytosend =  " order by B";
-                
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
             }
             else {
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Cuentas' order by B";
@@ -286,17 +280,8 @@
             return html;
        }
 
-       function getInputText() {
-            var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
-            if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
-                return contentInput;
-            } else {
-                return '';
-            }
-        }
-
         function getSelectedChannel() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).replace(/\+/g, ' ');
         }
 
         function getSelectedProduct() {
