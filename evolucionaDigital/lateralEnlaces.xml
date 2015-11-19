@@ -33,7 +33,7 @@
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 	
-	<style type="text/css">
+		<style type="text/css">
         /* @group fonts */
         @font-face {
             font-family: 'BBVA Web Light';
@@ -104,7 +104,7 @@
             border-bottom: none;
         }
         .title-container {
-            display: inline-block;
+            display: table-row;
             width: 100%;
         }
         
@@ -115,7 +115,7 @@
             font-family: BBVA Web Book, Arial;
             text-decoration:none;
             vertical-align: middle;
-            display: inline-block;
+            display: table-cell;
         }
         .subtitle{
             color:#434A58;
