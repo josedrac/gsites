@@ -145,7 +145,7 @@
             margin-right: 5px;
         }
 
-        img {
+        .img-arrow {
             float: right;
             padding-left: 10px;
         }
@@ -201,7 +201,7 @@
             html +=             VarTextLink1;
             html +="        </div>"; 
             html +="    </div>";
-            html +="    <img src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/arrow_right.png'>"; 
+            html +="    <img class='img-arrow' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/arrow_right.png'>"; 
             html +="    <div class='subtitle'>";
             html +=         VarText1;
             html +="    </div>";
@@ -218,7 +218,7 @@
             html +=             VarTextLink2;
             html +="        </div>"; 
             html +="    </div>"; 
-			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
+			html +="    <img class='img-arrow' src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText2;
 			html +="	</div>";
@@ -235,7 +235,7 @@
             html +=             VarTextLink3;
             html +="        </div>"; 
             html +="    </div>"; 
-			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
+			html +="    <img class='img-arrow' src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText3;
 			html +="	</div>";
@@ -252,7 +252,7 @@
             html +=             VarTextLink4;
             html +="        </div>"; 
             html +="    </div>";  
-			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
+			html +="    <img class='img-arrow' src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText4;
 			html +="	</div>";
