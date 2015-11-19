@@ -298,7 +298,7 @@
         function getInputText() {
             var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
             console.log(contentInput);
-            if(contentInput != null && typeof contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
+            if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
                 console.log(1);
                 return contentInput;
             } else {
