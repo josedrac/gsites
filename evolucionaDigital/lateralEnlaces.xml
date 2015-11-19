@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
  	<ModulePrefs title="ED-lateralEnlaces.xml">
     	<Require feature="idi"/>
 	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>   
-		<Require feature="setprefs" />   
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
   	</ModulePrefs>
 <UserPref name="VarTitleModule" default_value="" display_name="VarTitleModule" required="true" />
 
@@ -42,6 +42,7 @@
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 	
 		<style type="text/css">
+
         /* @group fonts */
         @font-face {
             font-family: 'BBVA Web Light';
@@ -111,6 +112,7 @@
         .event:last-child{
             border-bottom: none;
         }
+
         .title-container {
             display: table-row;
             width: 100%;
@@ -118,18 +120,21 @@
         
         .title {
             color:#0072C9;
-            font-size:12px;
+            font-size:13px;
             font-weight: bold;
             font-family: BBVA Web Book, Arial;
             text-decoration:none;
             vertical-align: middle;
             display: table-cell;
+            line-height: 18px;
+
         }
         .subtitle{
             color:#434A58;
-            font-size:12px;
+            font-size:13px;
             font-family: BBVA Web Book, Arial;
             margin-top:5px;
+            line-height: 18px;
         }
 
         .img-title {
@@ -142,7 +147,9 @@
 
         img {
             float: right;
-        }         
+            padding-left: 10px;
+        }
+
     </style>
 
 
@@ -152,10 +159,10 @@
 	</div>
 
    <script type="text/javascript">
-	   	var html="";        
+	   	var html="";
 	   	var gadgetHelper = null;
-	   	var prefs = new gadgets.Prefs();         
-	       
+	   	var prefs = new gadgets.Prefs();
+
 	   	var VarTitleModule = prefs.getString("VarTitleModule");
 		var VarTextLink1 = prefs.getString("VarTextLink1");
         var VarLink1 = prefs.getString("VarLink1");
@@ -180,9 +187,9 @@
         var VarTargetLink4 = prefs.getString("VarTargetLink4");
         var VarImage4 = prefs.getString("VarImage4")
         var VarText4 = prefs.getString("VarText4");
-        
+
         document.getElementById("nivel").innerHTML = VarTitleModule;
-        
+
         if (VarLink1!="")
         {
         	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\')">';
@@ -215,7 +222,7 @@
 			html +="	<div class='subtitle'>";
 			html +=			VarText2;
 			html +="	</div>";
-			html +="</div>";        
+			html +="</div>";
      	}
      	if (VarLink3!="")
         {
@@ -232,7 +239,7 @@
 			html +="	<div class='subtitle'>";
 			html +=			VarText3;
 			html +="	</div>";
-			html +="</div>";        
+			html +="</div>";
      	}
      	if (VarLink4!="")
         {
@@ -249,62 +256,62 @@
 			html +="	<div class='subtitle'>";
 			html +=			VarText4;
 			html +="	</div>";
-			html +="</div>";        
+			html +="</div>";
      	}
-     	
+
      	document.getElementById('events').innerHTML += html;
 		gadgets.window.adjustHeight();
 
-     				
+
 		function Go(destination, target)
 		{
 			window.open(destination, target);
 			return false;
 		}
-		
+
 	</script>
-   
+
     ]]>
   	</Content>
-  
+
   	<Content type="html" view="configuration" preferred_height="550">
 
 	<![CDATA[
 	<style type="text/css">
-	    
+
 		table td {
 			color: #000;
 			font-size: 11px;
 			font-weight: bold;
 		}
-		
+
 		table td input,
 		textarea {
 			color: #000;
-			font-size: 11px;				
+			font-size: 11px;
 		}
-	 
+
 	</style>
- 
-	<table width="100%" border="0" id="tablaconfig">  
-		<tr>       
+
+	<table width="100%" border="0" id="tablaconfig">
+		<tr>
 	        <td>
-		        Title - Module: <input type="text" size="100" id="VarTitleModule" value="__UP_VarTitleModule__"   onchange="registra('VarTitleModule')"/>                   
+		        Title - Module: <input type="text" size="100" id="VarTitleModule" value="__UP_VarTitleModule__"   onchange="registra('VarTitleModule')"/>
 	        </td>
 	    </tr>
-	    <tr>       
+	    <tr>
 		    <td>
-		       	Link1 - Text: <input type="text" size="100" id="VarTextLink1" value="__UP_VarTextLink1__"   onchange="registra('VarTextLink1')"/>                   
+		       	Link1 - Text: <input type="text" size="100" id="VarTextLink1" value="__UP_VarTextLink1__"   onchange="registra('VarTextLink1')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link1 - Target: <input type="text" size="100" id="VarTargetLink1" value="__UP_VarTargetLink1__" onchange="registra('VarTargetLink1')"/>                   
+		       	Link1 - Target: <input type="text" size="100" id="VarTargetLink1" value="__UP_VarTargetLink1__" onchange="registra('VarTargetLink1')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link1 - URL: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>                   
+		       	Link1 - URL: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
 		    </td>
 		</tr>
 		<tr>       
@@ -318,20 +325,20 @@
 				<textarea id="VarText1" style="height: 25px; width: 80%" onchange="registra('VarText1')" >__UP_VarText1__</textarea><hr>
 			</td>
 	    </tr>
-	    
-	     <tr>       
+
+	     <tr>
 		    <td>
-		       	Link2 - Text: <input type="text" size="100" id="VarTextLink2" value="__UP_VarTextLink2__"   onchange="registra('VarTextLink2')"/>                   
+		       	Link2 - Text: <input type="text" size="100" id="VarTextLink2" value="__UP_VarTextLink2__"   onchange="registra('VarTextLink2')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link2 - URL: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>                   
+		       	Link2 - URL: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link2 - Target: <input type="text" size="100" id="VarTargetLink2" value="__UP_VarTargetLink2__" onchange="registra('VarTargetLink2')"/>                   
+		       	Link2 - Target: <input type="text" size="100" id="VarTargetLink2" value="__UP_VarTargetLink2__" onchange="registra('VarTargetLink2')"/>
 		    </td>
 		</tr>
 		<tr>       
@@ -347,17 +354,17 @@
 	    </tr>
 	    <tr>       
 		    <td>
-		       	Link3 - Text: <input type="text" size="100" id="VarTextLink3" value="__UP_VarTextLink3__"   onchange="registra('VarTextLink3')"/>                   
+		       	Link3 - Text: <input type="text" size="100" id="VarTextLink3" value="__UP_VarTextLink3__"   onchange="registra('VarTextLink3')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link3 - URL: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>                   
+		       	Link3 - URL: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link3 - Target: <input type="text" size="100" id="VarTargetLink3" value="__UP_VarTargetLink3__" onchange="registra('VarTargetLink3')"/>                   
+		       	Link3 - Target: <input type="text" size="100" id="VarTargetLink3" value="__UP_VarTargetLink3__" onchange="registra('VarTargetLink3')"/>
 		    </td>
 		</tr>
 		<tr>       
@@ -371,20 +378,20 @@
 				<textarea id="VarText4" style="height: 25px; width: 80%" onchange="registra('VarText4')" >__UP_VarText4__</textarea><hr>
 			</td>
 	    </tr>
-	    
-	      <tr>       
+
+	      <tr>
 		    <td>
-		       	Link4 - Text: <input type="text" size="100" id="VarTextLink4" value="__UP_VarTextLink4__"   onchange="registra('VarTextLink4')"/>                   
+		       	Link4 - Text: <input type="text" size="100" id="VarTextLink4" value="__UP_VarTextLink4__"   onchange="registra('VarTextLink4')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link4 - URL: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>                   
+		       	Link4 - URL: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>
 		    </td>
 		</tr>
-		<tr>       
+		<tr>
 		   	<td>
-		       	Link4 - Target: <input type="text" size="100" id="VarTargetLink4" value="__UP_VarTargetLink4__" onchange="registra('VarTargetLink4')"/>                   
+		       	Link4 - Target: <input type="text" size="100" id="VarTargetLink4" value="__UP_VarTargetLink4__" onchange="registra('VarTargetLink4')"/>
 		    </td>
 		</tr>
 		<tr>       
@@ -394,23 +401,23 @@
 		</tr>
 	    <tr>
 	        <td>
-				Text4: 
+				Text4:
 				<textarea id="VarText4" style="height: 25px; width: 80%" onchange="registra('VarText4')" >__UP_VarText4__</textarea>
 			</td>
 	    </tr>
-	</table>	
+	</table>
 
-	<script type="text/javascript">           
+	<script type="text/javascript">
 	    // Get userprefs
-	    var prefs = new gadgets.Prefs();           
+	    var prefs = new gadgets.Prefs();
 
-	    function registra(variable) {	
+	    function registra(variable) {
 			prefs.set(variable,document.getElementById(variable).value);
-		} 
+		}
 		gadgets.window.adjustHeight();
-	</script>   	
-	 
- ]]>	
+	</script>
+
+ ]]>
  </Content>
-  
+
 </Module>

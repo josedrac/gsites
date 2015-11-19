@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  	<ModulePrefs title="NB-video.xml" height ="200">
+	    <Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+  	</ModulePrefs>
+	<UserPref name="urlVideo" display_name="video" required="true" />
+
+ <Content type="html">
+    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+		<style type="text/css">
+
+			iframe {
+				border:0px solid #AAA; 
+				width:300px; 
+				height:200px; 
+			}
+
+		</style>
+
+		<div id="video"></div>
+
+	   	<script type="text/javascript">
+	   		var html="";
+		 	var gadgetHelper = null;
+		 	var prefs = new gadgets.Prefs();
+		 	var urlVideo = prefs.getString("urlVideo");
+			
+			html += "<iframe src='" + urlVideo + "' allowfullscreen='true' allowScriptAccess='always'></iframe>";
+
+			document.getElementById('video').innerHTML += html;
+
+	   </script>
+
+    ]]>
+ </Content>
+
+  <Content type="html" view="configuration" preferred_height="400">
+
+<![CDATA[
+	<style type="text/css">
+	 	table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+	 </style>
+	 <table width="100%" border="0" id="tablaconfig">
+		<tr>
+	       <td>
+	           URL - Video: <input type="text" size="100" id="urlVideo" value="__UP_urlVideo__" onchange="register('urlVideo')"/>
+	       </td>
+	    </tr>
+	</table>
+
+	<script type="text/javascript">
+
+	    var prefs = new gadgets.Prefs();
+	    function register(variable) {
+	        prefs.set(variable, document.getElementById(variable).value);
+	    }
+
+		gadgets.window.adjustHeight();
+
+	</script>
+
+ ]]>
+ </Content>
+</Module>

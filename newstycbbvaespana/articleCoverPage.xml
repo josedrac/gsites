@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+
+	<ModulePrefs title="NB - articleCoverPage.xml">
+		<Require feature="idi"/>
+		<Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<UserPref name="articleHeader" display_name="Article header" required="true" />
+	<UserPref name="articleSubtitle" display_name="Article subtitle" required="true" />
+	<UserPref name="articleDate" display_name="Article date" required="true" />
+	<UserPref name="articleAuthor" display_name="Article author" required="true" />
+	<UserPref name="articleContent" display_name="Article content" required="true" />
+	<UserPref name="articleTextButton" display_name="Article text button" required="true" />
+	<UserPref name="articleURL" display_name="Article URL" required="true" />
+	<UserPref name="articleImageURL" display_name="Article image URL" required="true" />
+	<UserPref name="articleImageDescription" display_name="Article image description" required="true" />
+
+	<Content type="html">
+	    <![CDATA[
+			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+			<style type="text/css">
+
+				@font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				.article-cover-page {
+					display: inline-block;
+					width: 100%;
+					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-position: bottom;
+					background-repeat: repeat-x;
+				}
+
+				.article-content {
+					float: left;
+					width: 50%;
+				    height: 286px;
+				}
+
+				.article-content-wrapper {
+					padding-left: 20px;
+					width: 280px;
+				}
+
+				.article-content h2 {
+					font-family: BBVA Web Light, Arial;
+					font-size: 16px;
+					font-weight: normal;
+					text-transform: uppercase;
+	    			word-spacing: 2px;
+					color: #333;
+					margin-top: 10px;
+					margin-bottom: 5px;
+				}
+
+				.article-content h3 {
+		  			font-family: BBVA Web Book, Arial;
+		  			font-size: 18px;
+		  			font-weight: normal;
+					color: #0078D2;
+		  			text-decoration: none;
+		  			word-spacing: -2px;
+		  			margin: 0;
+				}
+
+				.article-content .author-signature {
+					font-family: arial;
+					font-size: 11px;
+					color: #71777F;
+					margin-top: 2px;
+		  			margin-bottom: 19px;
+				}
+
+				.article-content p {
+					font-family: arial;
+					font-size: 13px;
+					color: #434A58;
+				}
+
+				.article-content button {
+					background: #0079C1;
+					background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+					background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+					background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+					-webkit-border-radius: .3em;
+					-moz-border-radius: .3em;
+					border-radius: .3em;
+					font-size: 11px;
+					font-weight: bolder;
+					word-spacing: 2px;
+					height: 20px;
+					padding-left: .9em;
+					padding-right: .9em;
+					border: .1em solid #00559D;
+					color: white;
+					cursor: pointer;
+					margin-top: 25px;
+				}
+
+				.article-content button:hover {
+					background: #004C99;
+				}
+
+				.article-image {
+					width: 50%;
+				    height: 266px;
+					float: right;
+				}
+
+				.article-image img {
+					max-width: 100%;
+					max-height: 262px;
+					float: right;
+				}
+
+			</style>
+
+			<div id="articleCoverPage"></div>
+
+		   	<script type="text/javascript">
+
+			 	var gadgetHelper = null;
+
+				var prefs = new gadgets.Prefs();
+
+				var articleHeader = prefs.getString('articleHeader');
+				var articleSubtitle = prefs.getString('articleSubtitle');
+				var articleDate = prefs.getString('articleDate');
+				var articleAuthor = prefs.getString('articleAuthor');
+				var articleContent = prefs.getString('articleContent');
+				var articleTextButton = prefs.getString('articleTextButton');
+				var articleURL = prefs.getString('articleURL');
+				var articleImageURL = prefs.getString('articleImageURL');
+				var articleImageDescription = prefs.getString('articleImageDescription');
+
+			 	var articleCoverPage = '';
+
+			 	articleCoverPage += '<div class="article-cover-page">';
+			 	articleCoverPage += '<div class="article-content">';
+			 	articleCoverPage += '<div class="article-content-wrapper">';
+
+			 	articleCoverPage += '<h2>' + articleHeader + '</h2>';
+				articleCoverPage += '<h3>' + articleSubtitle + '</h3>';
+				articleCoverPage += '<p class="author-signature">';
+				articleCoverPage += '<span>' + articleDate + '</span>';
+				articleCoverPage += '<span>-</span>';
+				articleCoverPage += '<span>' + articleAuthor + '</span>';
+				articleCoverPage += '</p>';
+
+				articleCoverPage += '<p>' + articleContent + '</p>';
+				articleCoverPage += '<button type="button" onclick="javascript:Go(\'' + articleURL + '\')">' + articleTextButton + '</button>';
+
+			 	articleCoverPage += '</div>';
+			 	articleCoverPage += '</div>';
+
+				articleCoverPage += '<div class="article-image">';
+				articleCoverPage += '<img src="' + articleImageURL + '" alt="' + articleImageDescription + '" />';
+				articleCoverPage += '</div>';
+
+			 	articleCoverPage += '</div>';
+			 	
+			 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
+
+				function Go(destination){
+			    	window.parent.location.href = destination;
+			    	return false;
+				}
+
+		   </script>
+
+	    ]]>
+	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+			<style type="text/css">
+			 	table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+			 </style>
+			 <table width="100%" border="0" id="tablaconfig">
+				<tr>
+			       <td>
+			           Article header: <input type="text" size="100" id="articleHeader" value="__UP_articleHeader__"   onchange="register('articleHeader')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article subtitle: <input type="text" size="100" id="articleSubtitle" value="__UP_articleSubtitle__"   onchange="register('articleSubtitle')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article date: <input type="text" size="100" id="articleDate" value="__UP_articleDate__"   onchange="register('articleDate')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article author: <input type="text" size="100" id="articleAuthor" value="__UP_articleAuthor__"   onchange="register('articleAuthor')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article content: <input type="text" size="100" id="articleContent" value="__UP_articleContent__"   onchange="register('articleContent')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article text button: <input type="text" size="100" id="articleTextButton" value="__UP_articleTextButton__"   onchange="register('articleTextButton')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article URL: <input type="text" size="100" id="articleURL" value="__UP_articleURL__"   onchange="register('articleURL')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article image URL: <input type="text" size="100" id="articleImageURL" value="__UP_articleImageURL__"   onchange="register('articleImageURL')"/>
+			       </td>
+			    </tr>
+				<tr>
+			       <td>
+			           Article image description: <input type="text" size="100" id="articleImageDescription" value="__UP_articleImageDescription__"   onchange="register('articleImageDescription')"/>
+			       </td>
+			    </tr>
+			</table>
+
+			<script type="text/javascript">
+
+			    var prefs = new gadgets.Prefs();
+			    function register(variable) {
+			        prefs.set(variable, document.getElementById(variable).value);
+			    }
+
+				gadgets.window.adjustHeight();
+
+			</script>
+
+		]]>
+ 	</Content>
+
+</Module>
