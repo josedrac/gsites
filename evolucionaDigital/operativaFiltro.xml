@@ -298,10 +298,8 @@
         function getInputText() {
             var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
             if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
-                console.log(1);
                 return contentInput;
             } else {
-                console.log(2);
                 return '';
             }
         }
