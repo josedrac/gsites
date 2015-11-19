@@ -103,6 +103,10 @@
         .event:last-child{
             border-bottom: none;
         }
+        .title-container {
+            display: inline-block;
+            width: 100%;
+        }
         
         .title {
             color:#0072C9;
@@ -110,6 +114,8 @@
             font-weight: bold;
             font-family: BBVA Web Book, Arial;
             text-decoration:none;
+            vertical-align: middle;
+            display: inline-block;
         }
         .subtitle{
             color:#434A58;
@@ -117,9 +123,17 @@
             font-family: BBVA Web Book, Arial;
             margin-top:5px;
         }
+
+        .img-title {
+            vertical-align: middle;
+            float: left;
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+        }
+
         img {
             float: right;
-            padding-left: 10px;
         }         
     </style>
 
@@ -156,15 +170,18 @@
         
         if (VarLink1!="")
         {
-        	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\', \''+VarTargetLink1+'\')">';
-			html +="	<div class='title'>";
-			html +=			VarTextLink1;
-			html +="	</div>";  
-			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
-			html +="	<div class='subtitle'>";
-			html +=			VarText1;
-			html +="	</div>";
-			html +="</div>";        
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\')">';
+            html +="    <div class='title-container'>";
+            html +="        <img src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/rosetonEvoluciona.jpg' class='img-title'/>";
+            html +="        <div class='title'>";
+            html +=             VarTextLink1;
+            html +="        </div>"; 
+            html +="    </div>";
+            html +="    <img src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/arrow_right.png'>"; 
+            html +="    <div class='subtitle'>";
+            html +=         VarText1;
+            html +="    </div>";
+            html +="</div>";             
      	}
      	if (VarLink2!="")
         {
