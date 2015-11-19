@@ -190,6 +190,7 @@
                         querytosend = querytosend.concat(" AND (C like '%" + text + "%') ");
                     }
                     querytosend = querytosend.concat(" order by B");
+                    console.log(querytosend);
                     query.setQuery(querytosend);
                     query.send(handleQueryResponse);
                     return;
