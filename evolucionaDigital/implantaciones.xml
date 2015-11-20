@@ -296,10 +296,6 @@
 		}
 
 		function handleQueryResponse(response) {
-			if(response.isError()) {
-				alert('Error: ' + response.getMessage() + '' + response.getDetailedMessage());
-			}
-			alert('No Error: ' + response.getMessage() + '' + response.getDetailedMessage());
 			data = response.getDataTable();
 			var filas = data.getNumberOfRows();
 			var pagTotales = Math.ceil(filas/4);
