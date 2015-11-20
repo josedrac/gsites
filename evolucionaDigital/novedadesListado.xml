@@ -104,24 +104,28 @@
 		margin-top: 0px;
 	  }
 
-      #titleVideo,
-      #titleVideo2 {
-	  color:#0078D2;
-	  font-family:BBVA Web Book, Arial;
-	  font-size:18px;
-	  width:260px;
-	  margin: 0 0 20px 7px;
-	  font-weight: normal;
-	  }
-	  #titleVideo a,
-	  #titleVideo2 a{
-	  color:#0078D2;
-	  font-family:BBVA Web Book, Arial;
-	  font-size:18px;
-	  width:260px;
-	  font-weight: normal;
-	  text-decoration:none;
-	  }
+		#titleVideo,
+		#titleVideo2 {
+			color:#0078D2;
+			font-family:BBVA Web Book, Arial;
+			font-size:18px;
+			width:260px;
+			margin: 0 0 20px 7px;
+			font-weight: normal;
+		}
+		#titleVideo a,
+		#titleVideo2 a{
+			color:#0078D2;
+			font-family:BBVA Web Book, Arial;
+			font-size:18px;
+			width:260px;
+			font-weight: normal;
+			text-decoration:none;
+			text-overflow: ellipsis;
+			display: block;
+			max-height: 65px;
+			overflow: hidden;
+		}
 
 	  #textVideo,
 	  #textVideo2{
@@ -160,7 +164,7 @@
 			padding-left: .7em;
 			padding-bottom:2px;
 			float:left;
-			margin-left:10px;
+			margin-left: 27px;
 			width:90px;
 			margin-top:0px;
 			font-family: BBVA Web Medium, Arial;
