@@ -79,7 +79,7 @@
 				background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 				background-position: bottom;
 				background-repeat: repeat-x;
-				padding-bottom: 20px;
+				padding-bottom: 4px;
 			}
 
 			.article-content {

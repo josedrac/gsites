@@ -208,48 +208,8 @@
     <div class="banner">
     	<div id="titleCarousel"></div>
 	    <ul id="carousel"></ul>
-	    <div class="control">
-	    	<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>
-			<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png" alt=""></a>
-	    </div>
+	    <div id="carouselControls"></div>
 	</div>
-
-
-	<!-- <div class="banner">
-	    <ul>
-	        <li>
-	        	<div class="image">
-	        		<div class="background" style="background-image: url('https://drive.google.com/uc?id=0Bz5c4zIocZp3Ni1zSlZvandjQ00');"></div>
-	        	</div>
-	    		<div class="content">
-	    			<h2>100 x 100 Comunicación en Octubre</h2>
-	    			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget tortor nulla. Sed faucibus tempor mi ut tincidunt.</p>
-	    		</div>
-	    	</li>
-	        <li>
-	        	<div class="image">
-	        		<div class="background" style="background-image: url('https://drive.google.com/uc?id=0Bz5c4zIocZp3Ni1zSlZvandjQ00');"></div>
-	        	</div>
-	        	<div class="content">
-	    			<h2>100 x 100 Comunicación en Octubre</h2>
-	    			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget tortor nulla. Sed faucibus tempor mi ut tincidunt.</p>
-	    		</div>
-	        </li>
-	    	<li>
-	    		<div class="image">
-	        		<div class="background" style="background-image: url('https://drive.google.com/uc?id=0Bz5c4zIocZp3Ni1zSlZvandjQ00');"></div>
-	        	</div>
-	    		<div class="content">
-	    			<h2>100 x 100 Comunicación en Octubre</h2>
-	    			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget tortor nulla. Sed faucibus tempor mi ut tincidunt.</p>
-	    		</div>
-	    	</li>
-	    </ul>
-	    <div class="control">
-	    	<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>
-			<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png" alt=""></a>
-	    </div>
-	</div> -->
 
 	<script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
@@ -327,6 +287,17 @@
 
      	document.getElementById('carousel').innerHTML += html;
      	document.getElementById('titleCarousel').innerHTML += titleHtml;
+
+     	if(VarTitle2 != "" || VarTitle3 != "" || VarTitle4 != "") {
+
+     		var carouselControls = '';
+     		carouselControls += '<div class="control">';
+     		carouselControls += '<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>';
+     		carouselControls += '<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png"></a>';
+     		carouselControls += '</div>';
+     		document.getElementById('carouselControls').innerHTML += carouselControls;
+     		
+     	}
 
 		var unslider = $('.banner').unslider({
 			speed: 500,               
