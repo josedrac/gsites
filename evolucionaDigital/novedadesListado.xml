@@ -390,7 +390,6 @@
 	    			filter = " AND month(C) = "+ (month-1);
 	    		}
 	    	}
-	    	alert(filter);
     		return filter;
     	}
 
@@ -402,16 +401,11 @@
 			var querytosend = "select * where A <> 'IdNovedad' AND P <> 'x' ";
 			querytosend = querytosend.concat(getQueryParameters());
 			querytosend = querytosend.concat(" order by C desc");
-			alert(querytosend);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
 
         function handleQueryResponse(response) {
-        	if(response.isError()) {
-				alert('Error: ' + response.getMessage() + '' + response.getDetailedMessage());
-			}
-			alert('No Error: ' + response.getMessage() + '' + response.getDetailedMessage());
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
 			var pagTotales = Math.ceil(filas/4);
@@ -500,6 +494,7 @@
 
 
 				document.getElementById('listportales').innerHTML += html;
+				gadgets.window.adjustHeight();
 
 			}
 		 function continuacion(num)
