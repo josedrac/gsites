@@ -127,17 +127,20 @@
 			overflow: hidden;
 		}
 
-	  #textVideo,
-	  #textVideo2{
-		color:#434A58;
-		font-size:13px;
-		font-family:arial;
-		height:80px;
-		width:269px;
-		margin-top: 15px;
-		margin-left: 7px;
-		float:left;
-    line-height:18px;
+		#textVideo,
+		#textVideo2{
+			color:#434A58;
+			font-size:13px;
+			font-family:arial;
+			max-height: 54px;
+			width:269px;
+			margin-top: 15px;
+			margin-left: 7px;
+			float:left;
+	    	line-height:18px;
+	    	text-overflow: ellipsis;
+			display: block;
+			overflow: hidden;
 	    }
 
 		#infoVideo,
