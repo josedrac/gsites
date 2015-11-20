@@ -390,7 +390,7 @@
 	    			filter = " AND (C matches '.*\/"+ month +"\/.*')";
 	    		}
 	    	}
-	    	alert filter;
+	    	alert(filter);
     		return filter;
     	}
 
