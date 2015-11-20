@@ -436,8 +436,8 @@
 
             for(var i=0;i<filas;i++){
 
-               html += getIcons(data, i);
 			   html += "<div id='comboVideo'>";
+			   html += getIcons(data, i);
 			   html += "<div id='video-container'><div id='infoVideo'>";
 			   html += "<div id='urlVideo'>";
                if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
