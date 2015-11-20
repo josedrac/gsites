@@ -380,7 +380,7 @@
     		if (isSearchDone()) {
 	    		var year = getSelectedYear();
 	    		var month = getSelectedMonth();
-	    		if (year > 0 && month >= 0) {
+	    		if (year > 0 && month > 0) {
 	    			filter = " AND month(C) = "+(month-1)+" AND year(C) = "+ year;
 	    		}
 	    		else if (year > 0) {
