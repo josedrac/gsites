@@ -56,7 +56,7 @@
 
                function fif ( el ) {
                   var iframe = document.createElement("iframe"), doc;
-                  (iframe.frameElement || iframe).style.cssText = "width:" + widthGadget + "px; height:" + widthGadget * 0.8 + "px;";
+                  (iframe.frameElement || iframe).style.cssText = "width:" + widthGadget + "px; height:" + widthGadget * relacion + "px;";
                   iframe.frameBorder = 0;
                   iframe.scrolling = "no";
                   iframe.seamless = "seamless";
