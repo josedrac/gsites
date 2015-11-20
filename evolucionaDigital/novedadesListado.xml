@@ -381,13 +381,13 @@
 	    		var year = getSelectedYear();
 	    		var month = getSelectedMonth();
 	    		if (year > 0 && month > 0) {
-	    			filter = " AND C matches '.*\/"+ month +"\/"+ year +"'";
+	    			filter = " AND month(C) = '"+month+"' AND year(C) = '"+ year +"'";
 	    		}
 	    		else if (year > 0) {
-	    			filter = " AND C matches '.*\/"+ year +"'";
+	    			filter = " AND year(C) ='"+ year +"'";
 	    		}
 	    		else if (month > 0) {
-	    			filter = " AND C matches '.*\/"+ month +"\/.*'";
+	    			filter = " AND month(C) = '"+ month +"'";
 	    		}
 	    	}
 	    	alert(filter);
