@@ -6,6 +6,7 @@
       <Require feature="setprefs" />
    </ModulePrefs>
    <UserPref name="_presentarion_url" default_value="" display_name="Data source url" required="true" />
+   <UserPref name="_relacion" display_name="Relacion alto/ancho:" default_value="0.8" required="true"/>
    <Content view="canvas" preferred_height="20px">
       <![CDATA[
 
@@ -26,13 +27,14 @@
             // setup variables
             var prefs = new gadgets.Prefs();
             var urlPresentation = prefs.getString("_presentarion_url");
+            var relacion = prefs.getString("_relacion");
 
             /* Obtengo las dimensiones del GADGET en google sites */
             if (gadgets.window) {
                var viewport = gadgets.window.getViewportDimensions();
                if (viewport.width) {
                   var widthGadget = viewport.width;
-                  var heightGadget = viewport.width * 0.8 - 40;
+                  var heightGadget = viewport.width * relacion - 40;
                }
             }
 
