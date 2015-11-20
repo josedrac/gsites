@@ -303,7 +303,7 @@
     }
 
     .noIcons {
-    
+
     }
 
     .clearBoth {
@@ -614,7 +614,7 @@
 
             }
             if(countIcons == 0){
-            	html += <div class='noIcons'></div>
+            	html += "<div class='noIcons'></div>";
             }
 
             html += "</div>";
