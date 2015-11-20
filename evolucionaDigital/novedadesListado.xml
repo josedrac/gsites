@@ -354,23 +354,57 @@
         var titlecomboVideo = prefs.getString("titlecomboVideo");
         _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
-	 function loadVisualizationAPI()
-			{
-				google.load("visualization", "1", {"packages": ["table"]});
-				google.setOnLoadCallback(sendQuery);
-			}
+	 	function loadVisualizationAPI()
+		{
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
+
+		function isSearchDone() {
+        	if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            	return true;
+        	}
+        	return false;
+    	}
+
+		function getSelectedMonth() {
+        	return gadgets.util.getUrlParameters().parent.split("=")[2];
+	    }
+
+	    function getSelectedYear() {
+	        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+	    }
+
+    	function getQueryParameters() {
+    		var filter = "";
+    		if (isSearchDone()) {
+	    		var year = getSelectedYear();
+	    		var month = getSelectedMonth();
+	    		if (year > 0 && month > 0) {
+	    			filter = " AND month(C) = "+(month-1)+" AND year(C) = "+ year;
+	    		}
+	    		else if (year > 0) {
+	    			filter = " AND year(C) ="+ year;
+	    		}
+	    		else if (month > 0) {
+	    			filter = " AND month(C) = "+ (month-1);
+	    		}
+	    	}
+    		return filter;
+    	}
 
 		function sendQuery()
         {
-				gadgetHelper = new google.visualization.GadgetHelper();
-				var opts = {dataType:'jsonp'};
-				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A <> 'IdNovedad' and P <> 'x' order by C desc";
-				query.setQuery(querytosend);
-				query.send(handleQueryResponse);
+			gadgetHelper = new google.visualization.GadgetHelper();
+			var opts = {dataType:'jsonp'};
+			var query = new google.visualization.Query(urlTable, opts);
+			var querytosend = "select * where A <> 'IdNovedad' AND P <> 'x' ";
+			querytosend = querytosend.concat(getQueryParameters());
+			querytosend = querytosend.concat(" order by C desc");
+			query.setQuery(querytosend);
+			query.send(handleQueryResponse);
+		}
 
-
-			}
         function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
@@ -460,6 +494,7 @@
 
 
 				document.getElementById('listportales').innerHTML += html;
+				gadgets.window.adjustHeight();
 
 			}
 		 function continuacion(num)
