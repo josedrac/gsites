@@ -9,7 +9,6 @@
 	<Require feature="setprefs" />
   </ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<UserPref name="textInit" display_name="Text init" required="true" />
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -47,18 +46,6 @@
 			font-weight: normal;
 		}
 		/* @end */
-
-		#textInit {
-			font-size: 12px;
-    		padding: 0px 5px;
-		}
-
-		#textInit p {
-			margin: 0;
-			margin-bottom: 35px;
-			color: #666666;
-			line-height: 20px;
-		}
 
 		.implantation {
 			font-family: arial, sans-serif;
@@ -101,21 +88,21 @@
 
 		.destinatarios {
 		    color: #434A58;
-		    font-size: 12px;
+		    font-size: 13px;
 		    font-family: Arial;
 		    margin-top: 15px;
-		    line-height: 20px;
+		    line-height: 18px;
 		}
 
 		.ambito {
 		    color: #434A58;
-		    font-size: 12px;
+		    font-size: 13px;
 		    font-family: Arial;
-		    line-height: 12px;
+		    line-height: 18px;
 		}
 
 		.ambito span, .destinatarios span {
-		    font-size: 12px;
+		    font-size: 13px;
 		    font-family: Arial;
 		    color: #0078D2;
 		    line-height: 2px;
@@ -123,11 +110,12 @@
 
 		.description {
 		    color: #434A58;
-		    font-size: 12px;
+		    font-size: 13px;
 		    font-family: Arial;
 		    margin-top: 20px;
+		    line-height: 18px;
 		}
-	
+
 		hr{
 		    width:610px;
 			margin-bottom:20px;
@@ -259,7 +247,6 @@
 		var gadgetHelper = null;
 		var prefs = new _IG_Prefs();
 	 	var urlTable = prefs.getString("_table_query_url");
-	 	var textInit = prefs.getString("textInit");
 	 	_IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 	 	function loadVisualizationAPI() {
@@ -267,11 +254,43 @@
 			google.setOnLoadCallback(sendQuery);
 		}
 
+		function isSearchDone() {
+        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            return true;
+        }
+        return false;
+    }
+
+ 		function getSelectedMonth() {
+        return gadgets.util.getUrlParameters().parent.split("=")[2];
+    }
+    function getSelectedYear() {
+        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+    }
+
+    function getQueryParameters() {
+    		var filter = "";
+    		if (isSearchDone()){
+	    		var year = getSelectedYear();
+	    		if (year > 0) {
+	    			filter = " AND (G = "+year+")";
+	    		}
+	    		var month = getSelectedMonth();
+	    		if (month > 0) {
+	    			filter = filter.concat(" AND (F = "+month+")");
+	    		}
+	    	}
+    		return filter;
+    }
+
 		function sendQuery(){
 			gadgetHelper = new google.visualization.GadgetHelper();
 			var opts = {dataType:'jsonp'};
 			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where A <> 'IdImplantacion' order by G, F";
+			var querytosend = "select * where (A <> 'IdImplantacion')";
+			querytosend = querytosend.concat(getQueryParameters());
+			var orderQuery = " order by G desc, F desc"
+			querytosend = querytosend.concat(orderQuery);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
@@ -284,13 +303,12 @@
 			var html = "";
 
 			if(filas < 1) {
-    			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+    			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
             }
             else {
                 html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
-            }
 
-            html += "<div id='textInit'><p>"+textInit+"</p></div>";
+
 
             var month = new Array();
 			month[1] = "Ene";
@@ -308,13 +326,13 @@
 
 			for(var i=0; i < filas; i++) {
 			   	html += "<div class='implantation'>";
-			   	
+
 			   	//Fecha
 			   	html += "<div class='datesandtags'><div class='date'>";
 				html += "<div class='month' id='mes'>" + month[data.getValue(i,5)] + "</div>";
 				html += "<div class='year' id='anyo'>" + data.getValue(i,6) + "</div>";
 			    html += "</div></div>";
-				
+
 				//Contenido
 			   	html += "<div class='info'>";
 			   	html += "<div class='title'>" + data.getValue(i,1) + "</div>";
@@ -323,7 +341,7 @@
 			   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
 			    html += "<button type='button' class='btn' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
 			    html += "</div>";
-				
+
 				//Separación
 			    html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/></div>";
 
@@ -369,6 +387,7 @@
 							}
 						}
 						html += '</div>';
+					}
 				    }
                 }
 			}

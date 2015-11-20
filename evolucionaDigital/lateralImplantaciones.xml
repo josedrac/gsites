@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="ED-lateralImplantaciones.xml" height="275">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+
+		<head>
+			<link rel="stylesheet" type="text/css" href="https://sites.google.com/a/bbva.com/evolucionadigital/jqueryui-css/jquery-ui.min.css?attredirects=0&d=1" media="all">
+			<style type="text/css">
+		       /* @group fonts */
+        @font-face {
+            font-family: 'BBVA Web Light';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'BBVA Web Book';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        @font-face {
+            font-family: 'BBVA Web Medium';
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+        /* @end */
+        .container{
+            border: 1px solid #DDE3EA;
+            border-radius: 2px 2px 2px 2px;
+            clear: both;
+            margin-top: 15px;
+            width: 298px;
+        }
+        .title{
+            background: #ffffff; /* Old browsers */
+            background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* IE10+ */
+            background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 ); /* IE6-9 */
+            border-bottom: 1px solid #DDE3EA;
+            color: #333333;
+            font-family: BBVA Web Book,Arial;
+            font-size: 16px;
+            padding-bottom: 15px;
+            padding-left: 18px;
+            padding-top: 14px;
+        }
+        .subtitle {
+            color: #0078d2;
+            font-weight: bold;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 10px 0;
+            border-top: 1px solid #DDE3EA;
+        }
+
+        .btn:hover {
+            background: #004C99;
+        }
+
+        .btn {
+            background: #0079C1;
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+            background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+            -webkit-border-radius: .1em;
+            -moz-border-radius: .1em;
+            border-radius: .1em;
+            text-align: center;
+            font-size: 13px;
+            vertical-align: middle;
+            height: 1.75em;
+            padding-left: 2em;
+            padding-right: 2em;
+            padding-bottom: 2px;
+            border: .1em solid #00559D;
+            color: white;
+            cursor: pointer;
+            position: relative;
+            text-align: center;
+            vertical-align: middle;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+        select {
+            width:220px;
+        }
+        .ui-widget-content {
+            background: white;
+        }
+        .ui-selectmenu-button {
+            background: white;
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+            background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffffff), color-stop(200%, #d2e5eb));
+            background: -moz-linear-gradient(top, #ffffff 40%, #d2e5eb 200%);
+            background: -webkit-linear-gradient(top, #ffffff 40%, #d2e5eb 200%);
+            background: linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+            border-color: #d2e5eb;
+            border: 1px solid #d5e2ee;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            color: #0078d2;
+            font-size: 13px;
+            overflow: hidden;
+            padding: 6px;
+            padding-left: 10px;
+            padding-right: 40px;
+            position: relative;
+            text-align: left;
+            width: 100%;
+            line-height: 14px;
+            width: 190px;
+        }
+        .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
+            color: #0078d2;
+        }
+        .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus  {
+            background: #e2fafe none repeat scroll 0 0;
+            color: #003f8c;
+            border: 1px solid #e1e1e1;
+        }
+        .ui-widget-content {
+            border: 1px solid rgb(213, 226, 238);
+            color: rgb(34, 34, 34);
+        }
+        .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus {
+            background-image: none;
+        }
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+            background: white;
+        }
+        .ui-selectmenu-button span.ui-icon {
+            right: 0;
+        }
+        .ui-selectmenu-button.ui-corner-top .ui-icon {
+            background-position: 3px -9.2em;
+        }
+        .ui-state-default .ui-icon {
+            border: 0;
+            border-left: 1px solid #d2e5eb;
+            background: url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+            background-position: 3px 0px;
+            width: 35px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .ui-selectmenu-button span.ui-selectmenu-text {
+            padding: 0;
+        }
+        .ui-selectmenu-button span.ui-icon {
+            top: 25%;
+        }
+        .ui-selectmenu-menu .ui-menu {
+        		height: 115px;
+        }
+        .element-year {
+            padding-top: 20px;
+            padding-bottom: 5px
+        }
+        .element-month {
+            padding-top: 5px;
+            padding-bottom: 20px
+        }
+        .name {
+            color: #434a58;
+            float: left;
+            font-family: Arial;
+            font-size: 13px;
+            margin-left: 15px;
+            margin-right: 10px;
+            padding-top: 10px;
+            font-weight: bold;
+            display: inline-block;
+            width: 30px;
+        }
+        .ui-menu-item {
+            color: #003f8c;
+            height: 2.5em;
+            line-height: 2.5em;
+            padding: 0 0 0 1.25em;
+            border-top: 1px solid #e1e1e1;
+            font-size: 13px;
+            font-weight: normal;
+        }
+		    </style>
+		    <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+    		<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
+		</head>
+
+		<div class="container">
+        <div class="title">Histórico de Implantaciones</div>
+        <div class="form">
+            <div class="element-year">
+                <label class="name">Año: </label>
+                <select name="anyo" id="yearSelector">
+                    <option value="0">Todos</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                </select>
+            </div>
+            <div class="element-month">
+                <label class="name">Mes: </label>
+                <select id="monthSelector" name="mes">
+                    <option value="0">Cualquiera</option>
+                    <option value="1">Enero</option>
+                    <option value="2">Febrero</option>
+                    <option value="3">Marzo</option>
+                    <option value="4">Abril</option>
+                    <option value="5">Mayo</option>
+                    <option value="6">Junio</option>
+                    <option value="7">Julio</option>
+                    <option value="8">Agosto</option>
+                    <option value="9">Septiembre</option>
+                    <option value="10">Octubre</option>
+                    <option value="11">Noviembre</option>
+                    <option value="12">Diciembre</option>
+                </select>
+            </div>
+        </div>
+        <div class="subtitle">
+            <button onclick='javascript:Go();' class="btn">Ver</button>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+
+        function Go() {
+            var elementYearSelector = document.getElementById('yearSelector');
+            var elementMonthSelector = document.getElementById('monthSelector');
+            var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
+            var selectedMonth = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
+            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/implantaciones"+"?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
+            return false;
+        }
+
+        $( "#yearSelector" ).selectmenu({width: 190});
+
+        $( "#monthSelector" ).selectmenu({width: 190});
+
+    </script>
+
+		]]>
+	 </Content>
+</Module>

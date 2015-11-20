@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 	<ModulePrefs title="ED-lateralContentExclusive.xml" height ="105">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>   
-		<Require feature="setprefs" />   
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
 	</ModulePrefs>
 
 	<Content type="html">
 	    <![CDATA[
 		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-		
+
 		<head>
 			<style type="text/css">
 		        font-face {
@@ -51,8 +51,8 @@
 		            font-size: 19px;
 		            font-family: BBVA Web Light, Arial;
 		            color: #0078d2;
-		            padding-left: 20px;
-		            padding-right: : 20px;
+		            padding-left: 10px;
+		            padding-right: 0;
 		            padding-top: 14px;
 		            padding-bottom: 15px;
 		        }
@@ -72,7 +72,7 @@
 		<div id="exclusive" class="container">
 	        <div class="content">
 	            <div class="text">
-	                Acceso a contenidos exclusivos para CBC y Embajadores digitales
+	                Acceso a contenidos exclusivos para DCBC's y Embajadores digitales
 	            </div>
 	            <div class="icon">
 	                <img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/bbva.png" alt="">
@@ -87,7 +87,7 @@
 	        }
 
 	        function addURL() {
-	            document.getElementById("exclusive").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/cdc');};
+	            document.getElementById("exclusive").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/dcbc');};
 	        }
 
 	        addURL();
