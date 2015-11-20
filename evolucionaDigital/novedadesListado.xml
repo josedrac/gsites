@@ -304,13 +304,14 @@
 
     .icon {
         float:left;
+        height: 21px;
     }
     .iconMargin {
         float:left;
     }
 
     .noIcons {
-
+    	height: 21px;
     }
 
     .clearBoth {
