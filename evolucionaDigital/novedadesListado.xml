@@ -435,7 +435,7 @@
 			var pagActual = 1;
 			var html = "";
 
-			 if(filas<1)
+			if(filas<1)
     			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
             else
             	html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
@@ -476,8 +476,12 @@
 			html += '<div id="bloqueEnlaces1" style="display:none" class="bloqueAnterior"><a href="javascript:anterior();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 
 			for(var i=1; i < (pagTotales+1) ;i++){
-
-				html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+i+'"/></a></div>';
+				if(i==1){
+					html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+i+'"/></a></div>';
+				}
+				else{
+					html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+i+'"/></a></div>';
+				}
 			}
 
 			html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
@@ -498,25 +502,25 @@
 
 		function continuacion()
         {
-        	var pagAct = document.getElementById("pagActual").value;
+        	var pagAct = parseInt(document.getElementById("pagActual").value);
         	changePage(pagAct+1);
         }
 
     	function anterior(num)
         {
-        	var pagAct = document.getElementById("pagActual").value;
+        	var pagAct = parseInt(document.getElementById("pagActual").value);
         	changePage(pagAct-1);
         }
 
 		function changePage(pagAct){
 
-			var pagAnt = document.getElementById("pagActual").value;
-			var pagTotales = document.getElementById("pagTotales").value;
+			var pagAnt = parseInt(document.getElementById("pagActual").value);
+			var pagTotales = parseInt(document.getElementById("pagTotales").value);
 
 			document.getElementById("pagAnterior").value = pagAnt;
 			document.getElementById("pagActual").value = pagAct;
 
-			changeImage(num, pagAnt);
+			changeImage(pagAct, pagAnt);
 
 
 			if(pagAct == 1)
