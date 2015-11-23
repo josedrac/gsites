@@ -484,7 +484,11 @@
 				}
 			}
 
-			html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
+			var oculto = "";
+			if(pagTotales > 1)
+				oculto = "visibility:hidden";
+
+			html += '<div id="bloqueEnlaces" style="'+oculto+'" class="bloqueSiguiente"><a href="javascript:continuacion();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
             
             html += '</div>';
 
