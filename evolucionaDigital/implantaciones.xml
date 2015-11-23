@@ -300,7 +300,6 @@
 			querytosend = querytosend.concat(getQueryParameters());
 			var orderQuery = " order by G desc, F desc"
 			querytosend = querytosend.concat(orderQuery);
-			console.log(querytosend);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
