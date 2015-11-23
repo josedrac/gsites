@@ -399,6 +399,7 @@
 	    		var year = parseInt(getParam("anyo"));
 	    		var month = parseInt(getParam("mes"));
 	    		var channel = getParam("channel");
+	    		alert(year + " " + month);
 	    		if (channel == 'J')
 	    			filter += " AND J='x' OR K='x' OR L='x'";
 	    		else if (channel != '0')
