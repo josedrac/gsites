@@ -475,7 +475,7 @@
 			html += '<div>'
 			html += '<div id="bloqueEnlaces1" style="display:none" class="bloqueAnterior"><a href="javascript:anterior();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 
-			for(var i=1; i < ((filas % 4)+1) ;i++){
+			for(var i=1; i < (pagTotales+1) ;i++){
 
 				html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+i+'"/></a></div>';
 			}
