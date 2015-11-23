@@ -270,7 +270,7 @@
 	    }
 
 	    function getSelectedFirstParameter() {
-	        return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1]);
+	        return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1];
 	    }
 
 	    function getQueryParameters() {
