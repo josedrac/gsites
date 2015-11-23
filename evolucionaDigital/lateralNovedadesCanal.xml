@@ -186,21 +186,17 @@
         .ui-selectmenu-menu .ui-menu {
         		height: 115px;
         }
-        .element-year {
+        .element-channel {
             padding-top: 20px;
-            padding-bottom: 5px
-        }
-        .element-month {
-            padding-top: 5px;
-            padding-bottom: 20px
+            padding-bottom: 20px;
         }
         .name {
-            color: #434a58;
+            color: #434A58;
             float: left;
             font-family: Arial;
             font-size: 13px;
             margin-left: 15px;
-            margin-right: 10px;
+            margin-right: 20px;
             padding-top: 10px;
             font-weight: bold;
             display: inline-block;
