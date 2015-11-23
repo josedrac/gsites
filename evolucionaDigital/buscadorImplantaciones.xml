@@ -125,7 +125,7 @@
 
             function getInputText(){
                 var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1]).replace(/\+/g, ' ');
-                if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
+                if(gadgets.util.getUrlParameters().parent.split("=")[0] == "inputText" && contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
                     return contentInput;
                 } else {
                     return '';
