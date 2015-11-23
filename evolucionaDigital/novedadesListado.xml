@@ -251,14 +251,16 @@
 		}
 
 	.bloqueAnterior{
-       clear:both;
-       display:block;
-       margin-left:15px;
-       font-family: BBVA Web Book, Arial;
+		clear:both;
+		display:block;
+		margin-left:15px;
+		font-family: BBVA Web Book, Arial;
 		color:#0078D2;
 		float:left;
 		margin-top:-2px;
-      }
+		margin-left: 260px;
+		margin-right: 10px;
+    }
 
     .bloqueSiguiente{
             display:block;
@@ -273,12 +275,6 @@
 	p.text {
             font-size: 0.8em;
             color: #3B3B3B;
-        }
-
-	#bloqueEnlaces1 img{
-
-			margin-left:260px;
-			padding-right:10px;
         }
 
 	.checkpage{
