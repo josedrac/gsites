@@ -112,10 +112,10 @@
         <script type="text/javascript">
 
             function Go(){
+                var parameterInput = "";
                 var contentInput = document.getElementById('inputText').value;
                 var url = document.referrer;
                 url = document.referrer.split('?')[0];
-                console.log(url);
                 if(contentInput != "") {
                     var parameterInput = '?inputText=' + contentInput;
                 }
