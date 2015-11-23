@@ -436,15 +436,13 @@
 			var html = "";
 
 			 if(filas<1)
-            {
     			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
-            }
+            else
+            	html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
 
             for(var i=0;i<filas;i++){
 
-            	if(pagActual == 1)
-            		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
-            	else
+            	if(i==(4*pagActual)-3)
             		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: none;width: auto;height: 660px;">';
 
 				html += "<div id='comboVideo'>";
@@ -467,7 +465,6 @@
 				html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 
 			  	if (i==4*pagActual-1){
-
 				    html += '</div>';
 				    pagActual++;
 				}
