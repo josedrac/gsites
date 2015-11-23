@@ -189,7 +189,7 @@
               } else {
                   document.getElementById("cbc").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NGQ1ZWUwZWJiMzkyYjk0ZQ');};
                   document.getElementById("cbcplus").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6Nzg2MWE4OTg4ZGZjZDhlNA');};
-                  document.getElementById("profile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6ZjIyMWFjNDk0Y2VjNDI');};
+                  document.getElementById("profile").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3NzJmYUhrOGVmM2M/view');};
               }
 
           }
