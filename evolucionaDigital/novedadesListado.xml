@@ -396,8 +396,8 @@
     	function getQueryParameters() {
     		var filter = "";
     		if (isSearchDone()) {
-	    		var year = getParam("year");
-	    		var month = getParam("month");
+	    		var year = getParam("anyo");
+	    		var month = getParam("mes");
 	    		var channel = getParam("channel");
 	    		if (channel == 'J')
 	    			filter += " AND J='x' OR K='x' OR L='x'";

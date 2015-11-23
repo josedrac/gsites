@@ -224,7 +224,7 @@
                 <select name="channel" id="channelSelector">
                     <option value="0">Todos</option>
                     <option value="J">Smartphone</option>
-                    <option value="M">Ratón</option>
+                    <option value="M">PC</option>
                     <option value="N">Tablet</option>
                     <option value="O">Teléfono</option>
                 </select>
