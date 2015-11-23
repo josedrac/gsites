@@ -178,6 +178,10 @@
 			margin: 5px 0px 0px;
 		}
 
+		.oculto {
+			visibility: hidden;
+		}
+
 		button{
 			background: #0079C1;
 			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
@@ -422,7 +426,7 @@
 			query.send(handleQueryResponse);
 		}
 
-        function handleQueryResponse(response) {
+		function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
 			var pagTotales = Math.ceil(filas/4);
@@ -466,24 +470,7 @@
 				    var pagActualParaMostrar = pagActual+1;
                     var pagSiguiente = pagActualParaMostrar+1;
 
-                    if(i>2 && pagActual > 1){
-					 html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
-					}
 
-					for(var j=1;j<=pagTotales;j++){
-					if ((j==pagActual) && (j==1)){
-					   	html += '<div id="paginas1" class="checkpage1"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-
-					}
-					else if(j==pagActual){
-					    html += '<div id="paginas" class="checkpage"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-					  }else{
-					    html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActual +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
-
-					  }
-					}
-
-					html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /> </a></div>';
                     html += '</div>';
 
                     html += '<div id="pagina'+ pagActualParaMostrar +'" class="paginaNueva" style="display:none; width: auto;height: 660px;">';
@@ -491,96 +478,85 @@
 			        pagActual++;
 
 					}
-					else if(i==filas-1)
-                    {
-						var pagActualAux = pagActual;
-				        pagActual--;
-                            html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
-						for(var j=1;j<=pagTotales;j++){
-							if(j==pagActualAux){
-								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-							}else{
-								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
-							}
-						}
-						html += '</div>';
-				    }
+					
                 }
 
 			}
 
 			html += '<div>'
-			html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
+			html += '<div id="bloqueEnlaces1" style="display:none" class="bloqueAnterior"><a href="javascript:anterior();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 
-			for(var i=0;i < (filas % 4);i++){
+			for(var i=1; i < ((filas % 4)+1) ;i++){
 
-				html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+i+'"/></a></div>';
+				html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+i+'"/></a></div>';
 			}
 
-			html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
+			html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
             
             html += '</div>';
+
+            html += '<input type="text" id="pagActual" style="display:none" value="1"></input>';
+            html += '<input type="text" id="pagAnterior" style="display:none"></input>';
+            html += '<input type="text" id="pagTotales" style="display:none" value="'+pagTotales+'"></input>';
+
 
 
 			document.getElementById('listportales').innerHTML += html;
 			gadgets.window.adjustHeight();
 
 		}
-		
-		function continuacion(num)
+
+
+		function continuacion()
         {
-            var bloque = "pagina"+num;
-            var numInt = parseInt(num)-1;
-            var bloque_anterior = "pagina"+ numInt;
-            document.getElementById(bloque).style.display='block';
-            document.getElementById(bloque_anterior).style.display='none';
+        	var pagAct = document.getElementById("pagActual").value;
+        	changePage(pagAct+1);
         }
 
     	function anterior(num)
         {
-            var bloque = "pagina"+num;
-            var numInt = parseInt(num)-1;
-            var numInt2 = parseInt(num)-2;
-            if (numInt2 == 0)
-            {
-                numInt  = 2;
-                numInt2 = 1;
-            }
-            var bloque_actual = "pagina"+ numInt;
-            var bloque_anterior = "pagina"+ numInt2;
-            document.getElementById(bloque_actual).style.display='none';
-            document.getElementById(bloque_anterior).style.display='block';
-			document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-		    document.getElementById('pagination'+numInt2).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
+        	var pagAct = document.getElementById("pagActual").value;
+        	changePage(pagAct-1);
         }
 
-    	function anteriorUltima(num)
-        {
-            var bloque = "pagina"+num;
-            var numInt = parseInt(num)-1;
-            var bloque_anterior = "pagina"+ numInt;
-            document.getElementById(bloque).style.display='none';
-            document.getElementById(bloque_anterior).style.display='block';
-			document.getElementById('pagination'+num).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-		    document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
-    	}
-		function changePage(num,pag){
+		function changePage(pagAct){
 
-		    var bloque = "pagina"+pag;
-			//var numInt = parseInt(num)-1;
-			var bloque_anterior = "pagina"+ num;
+			var pagAnt = document.getElementById("pagActual").value;
+			var pagTotales = document.getElementById("pagTotales").value;
 
-		    document.getElementById(bloque).style.display='none';
-            document.getElementById(bloque_anterior).style.display='block';
+			document.getElementById("pagAnterior").value = pagAnt;
+			document.getElementById("pagActual").value = pagAct;
+
+			changeImage(num, pagAnt);
+
+
+			if(pagAct == 1)
+				document.getElementById("bloqueEnlaces1").style.visibility = 'hidden';
+			else
+				document.getElementById("bloqueEnlaces1").style.visibility = 'visible';
+
+			if(pagAct == pagTotales)
+				document.getElementById("bloqueEnlaces").style.visibility = 'hidden';
+			else
+				document.getElementById("bloqueEnlaces").style.visibility = 'visible';
+
+
+		    var bloque_anterior = "pagina"+pagAnt;
+			var bloque = "pagina"+ pagAct;
+
+		    document.getElementById(bloque_anterior).style.display='none';
+            document.getElementById(bloque).style.display='block';
 		}
-		function changeImage(pagina,old){
+
+		function changeImage(pagina, old){
 
 		    document.getElementById('pagination'+old).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
 		    document.getElementById('pagination'+pagina).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
 		}
+
 	    function Go(destination){
-	    window.parent.location.href = destination;
-	    return false;
+		    window.parent.location.href = destination;
+		    return false;
 		}
 
 		//delay loading
