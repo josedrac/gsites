@@ -281,7 +281,7 @@
 	    		if (firstParam == "anyo" && first > 0) {
 	    			filter = " AND (G = "+first+")";
 	    		} else {
-	    			filter = " AND (B = "+first+" OR C = "+first+" OR D = "+first+" OR E = "+first+")";
+	    			filter = " AND (B like '%"+first+"%' OR C like '%"+first+"%' OR D like '%"+first+"%' OR E like '%"+first+"%')";
 	    		}
 	    		var second = getSelectedSecondValue();
 	    		if (second > 0) {
@@ -299,6 +299,7 @@
 			querytosend = querytosend.concat(getQueryParameters());
 			var orderQuery = " order by G desc, F desc"
 			querytosend = querytosend.concat(orderQuery);
+			console.log(querytosend);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
