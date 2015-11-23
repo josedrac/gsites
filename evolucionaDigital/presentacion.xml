@@ -6,6 +6,7 @@
       <Require feature="setprefs" />
    </ModulePrefs>
    <UserPref name="_presentarion_url" default_value="" display_name="Data source url" required="true" />
+   <UserPref name="_relacion" display_name="Ratio:" default_value="0.8" required="true"/>
    <Content view="canvas" preferred_height="20px">
       <![CDATA[
 
@@ -26,13 +27,14 @@
             // setup variables
             var prefs = new gadgets.Prefs();
             var urlPresentation = prefs.getString("_presentarion_url");
+            var relacion = prefs.getString("_relacion");
 
             /* Obtengo las dimensiones del GADGET en google sites */
             if (gadgets.window) {
                var viewport = gadgets.window.getViewportDimensions();
                if (viewport.width) {
                   var widthGadget = viewport.width;
-                  var heightGadget = viewport.width * 0.8 - 40;
+                  var heightGadget = viewport.width * relacion - 40;
                }
             }
 
@@ -45,8 +47,8 @@
             /* Ocultamos los márgenes */
             var html = "";
             html += "<div style='position: absolute;top:0px;left:0px;font-size:14px;background-color:white;width:"+widthGadget+"px;height:14px'></div>";
-            html += "<div style='position: absolute;top:0px;left:0px;background-color:white;width:2px;height:"+heightGadget+"px'>&nbsp;</div>";
-            html += "<div style='position: absolute;top:0px;right:0px;background-color:white;width:2px;height:"+heightGadget+"px'>&nbsp;</div>";
+            html += "<div style='position: absolute;top:0px;left:0px;background-color:white;width:15px;height:"+heightGadget+"px'>&nbsp;</div>";
+            html += "<div style='position: absolute;top:0px;right:0px;background-color:white;width:15px;height:"+heightGadget+"px'>&nbsp;</div>";
 
             /* Función que genera el iframe */
             var iframe = (function () {
@@ -54,7 +56,7 @@
 
                function fif ( el ) {
                   var iframe = document.createElement("iframe"), doc;
-                  (iframe.frameElement || iframe).style.cssText = "width:" + widthGadget + "px; height:" + widthGadget * 0.8 + "px;";
+                  (iframe.frameElement || iframe).style.cssText = "width:" + widthGadget + "px; height:" + widthGadget * relacion + "px;";
                   iframe.frameBorder = 0;
                   iframe.scrolling = "no";
                   iframe.seamless = "seamless";
