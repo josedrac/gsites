@@ -125,8 +125,10 @@
 
             function getInputText(){
                 var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1]).replace(/\+/g, ' ');
-                console.log(decodeURI(gadgets.util.getUrlParameters().parent.split("=")[0]));
-                if(decodeURI(gadgets.util.getUrlParameters().parent.split("=")[0]) == "inputText" && contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
+                var url = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[0]);
+                var parameter = url.parent.split("?")[1];
+                console.log(parameter);
+                if(parameter == "inputText" && contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
                     return contentInput;
                 } else {
                     return '';
