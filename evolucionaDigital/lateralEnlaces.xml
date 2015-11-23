@@ -192,7 +192,7 @@
 
         if (VarLink1!="")
         {
-        	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\')">';
+        	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\', \''+VarTargetLink1+'\')">';
             html +="    <div class='title-container'>";
             if(VarImage1!=""){
             	html +="        <img src=\'"+VarImage1+"\' class='img-title'/>";
