@@ -255,33 +255,41 @@
 		}
 
 		function isSearchDone() {
-        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-            return true;
-        }
-        return false;
-    }
+	        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+	            return true;
+	        }
+	        return false;
+	    }
 
- 		function getSelectedMonth() {
-        return gadgets.util.getUrlParameters().parent.split("=")[2];
-    }
-    function getSelectedYear() {
-        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
-    }
+ 		function getSelectedSecondValue() {
+	        return gadgets.util.getUrlParameters().parent.split("=")[2];
+	    }
 
-    function getQueryParameters() {
+	    function getSelectedFirstValue() {
+	        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+	    }
+
+	    function getSelectedFirstParameter() {
+	        return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1]);
+	    }
+
+	    function getQueryParameters() {
     		var filter = "";
     		if (isSearchDone()){
-	    		var year = getSelectedYear();
-	    		if (year > 0) {
-	    			filter = " AND (G = "+year+")";
+    			var firstParam = getSelectedFirstParameter();
+	    		var first = getSelectedFirstValue();
+	    		if (firstParam == "anyo" && first > 0) {
+	    			filter = " AND (G = "+first+")";
+	    		} else {
+	    			filter = " AND (B = "+first+" OR C = "+first+" OR D = "+first+" OR E = "+first+")";
 	    		}
-	    		var month = getSelectedMonth();
-	    		if (month > 0) {
-	    			filter = filter.concat(" AND (F = "+month+")");
+	    		var second = getSelectedSecondValue();
+	    		if (second > 0) {
+	    			filter = filter.concat(" AND (F = "+second+")");
 	    		}
 	    	}
     		return filter;
-    }
+	    }
 
 		function sendQuery(){
 			gadgetHelper = new google.visualization.GadgetHelper();
@@ -307,7 +315,6 @@
             }
             else {
                 html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
-
 
 
             var month = new Array();
