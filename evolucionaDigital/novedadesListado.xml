@@ -174,6 +174,10 @@
 			font-size:12px;
 		}
 
+		.portales {
+			margin: 5px 0px 0px;
+		}
+
 		button{
 			background: #0079C1;
 			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
@@ -358,7 +362,7 @@
 	<![endif]-->
 
 
-<div id="listportales"></div>
+<div id="listportales" class="portales"></div>
 
    <script type="text/javascript">
         var gadgetHelper = null;
@@ -505,12 +509,25 @@
 
 			}
 
+			html += '<div>'
+			html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 
-				document.getElementById('listportales').innerHTML += html;
-				gadgets.window.adjustHeight();
+			for(var i=0;i < (filas % 4);i++){
 
+				html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+i+'"/></a></div>';
 			}
-		 function continuacion(num)
+
+			html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
+            
+            html += '</div>';
+
+
+			document.getElementById('listportales').innerHTML += html;
+			gadgets.window.adjustHeight();
+
+		}
+		
+		function continuacion(num)
         {
             var bloque = "pagina"+num;
             var numInt = parseInt(num)-1;
