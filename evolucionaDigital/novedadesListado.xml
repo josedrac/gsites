@@ -16,6 +16,7 @@
 
 	<style type="text/css">
 	  /* @group fonts */
+			  /* @group fonts */
 		@font-face {
 			font-family: 'BBVA Web Light';
 			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
@@ -103,36 +104,43 @@
 		margin-top: 0px;
 	  }
 
-      #titleVideo,
-      #titleVideo2 {
-	  color:#0078D2;
-	  font-family:BBVA Web Book, Arial;
-	  font-size:18px;
-	  width:260px;
-	  margin: 0 0 20px 7px;
-	  font-weight: normal;
-	  }
-	  #titleVideo a,
-	  #titleVideo2 a{
-	  color:#0078D2;
-	  font-family:BBVA Web Book, Arial;
-	  font-size:18px;
-	  width:260px;
-	  font-weight: normal;
-	  text-decoration:none;
-	  }
+		#titleVideo,
+		#titleVideo2 {
+			color:#0078D2;
+			font-family:BBVA Web Book, Arial;
+			font-size:18px;
+			width:260px;
+			margin: 0 0 20px 7px;
+			font-weight: normal;
+		}
+		#titleVideo a,
+		#titleVideo2 a{
+			color:#0078D2;
+			font-family:BBVA Web Book, Arial;
+			font-size:18px;
+			width:260px;
+			font-weight: normal;
+			text-decoration:none;
+			text-overflow: ellipsis;
+			display: block;
+			max-height: 65px;
+			overflow: hidden;
+		}
 
-	  #textVideo,
-	  #textVideo2{
-		color:#434A58;
-		font-size:13px;
-		font-family:arial;
-		height:80px;
-		width:269px;
-		margin-top: 15px;
-		margin-left: 7px;
-		float:left;
-    line-height:18px;
+		#textVideo,
+		#textVideo2{
+			color:#434A58;
+			font-size:13px;
+			font-family:arial;
+			max-height: 54px;
+			width:269px;
+			margin-top: 15px;
+			margin-left: 7px;
+			float:left;
+	    	line-height:18px;
+	    	text-overflow: ellipsis;
+			display: block;
+			overflow: hidden;
 	    }
 
 		#infoVideo,
@@ -159,92 +167,100 @@
 			padding-left: .7em;
 			padding-bottom:2px;
 			float:left;
-			margin-left:10px;
+			margin-left: 27px;
 			width:90px;
 			margin-top:0px;
 			font-family: BBVA Web Medium, Arial;
 			font-size:12px;
 		}
 
+		.portales {
+			margin: 2px 0px 0px;
+		}
 
+		.oculto {
+			visibility: hidden;
+		}
 
-	button{
-		background: #0079C1;
-		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-		background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
-		background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
-		-webkit-border-radius: .3em;
-		-moz-border-radius: .3em;
-		border-radius: .3em;
-		font-size: 10px;
-		text-align: center;
-		vertical-align: middle;
-		height: 2em;
-		padding-left: .9em;
-		padding-right: .9em;
-		border: .1em solid #00559D;
-		color: white;
-		cursor: pointer;
-		position: relative;
-		overflow: visible;
-	}
+		button{
+			background: #0079C1;
+			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+			background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+			background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			border-radius: .3em;
+			font-size: 10px;
+			text-align: center;
+			vertical-align: middle;
+			height: 2em;
+			padding-left: .9em;
+			padding-right: .9em;
+			border: .1em solid #00559D;
+			color: white;
+			cursor: pointer;
+			position: relative;
+			overflow: visible;
+		}
 
-	#allcontent:hover{
-		background: #004C99;
-	}
+		#allcontent:hover{
+			background: #004C99;
+		}
 
-	.linetitle{
-		display:block;
-		width:610px;
-		height:4px;
-		margin-bottom:20px;
-	}
+		.linetitle{
+			display:block;
+			width:610px;
+			height:4px;
+			margin-bottom:20px;
+		}
 
-	.linevideo{
-		width:610px;
-		height:4px;
-		display:block;
-		margin-bottom: 20px;
-		padding-top: 25px;
-	}
+		.linevideo{
+			width:610px;
+			height:4px;
+			display:block;
+			margin-bottom: 20px;
+			padding-top: 25px;
+		}
 
-	.sites-embed-align-left-wrapping-off{
-		display: block;
-		clear: both;
-		text-align: left;
-		margin: 5px auto 5px 0;
-		width: 650px;
-	}
+		.sites-embed-align-left-wrapping-off{
+			display: block;
+			clear: both;
+			text-align: left;
+			margin: 5px auto 5px 0;
+			width: 650px;
+		}
 
-	#dateVideo{
-		color:#71777F;
-		font-size:11px;
-		float:left;
-		margin-top:-15px;
-		margin-left:8px;
-	}
+		#dateVideo{
+			color:#71777F;
+			font-size:11px;
+			float:left;
+			margin-top:-15px;
+			margin-left:8px;
+		}
 
-	#userVideo{
-		color:#71777F;
-		font-size:11px;
-		float:left;
-		margin-left:72px;
-		margin-top:-15px;
-	}
+		#userVideo{
+			color:#71777F;
+			font-size:11px;
+			float:left;
+			margin-left:72px;
+			margin-top:-15px;
+		}
 
 	.bloqueAnterior{
-       clear:both;
-       display:block;
-       margin-left:15px;
-       font-family: BBVA Web Book, Arial;
+		clear:both;
+		display:block;
+		margin-left:15px;
+		font-family: BBVA Web Book, Arial;
 		color:#0078D2;
 		float:left;
 		margin-top:-2px;
-      }
+		margin-left: 260px;
+		margin-right: 10px;
+    }
 
     .bloqueSiguiente{
             display:block;
@@ -259,12 +275,6 @@
 	p.text {
             font-size: 0.8em;
             color: #3B3B3B;
-        }
-
-	#bloqueEnlaces1 img{
-
-			margin-left:260px;
-			padding-right:10px;
         }
 
 	.checkpage{
@@ -298,14 +308,21 @@
 
     .icon {
         float:left;
+        height: 21px;
     }
     .iconMargin {
         float:left;
     }
 
+    .noIcons {
+    	height: 21px;
+    }
+
     .clearBoth {
         clear:both;
     }
+
+
 
 	</style>
 
@@ -345,7 +362,7 @@
 	<![endif]-->
 
 
-<div id="listportales"></div>
+<div id="listportales" class="portales"></div>
 
    <script type="text/javascript">
         var gadgetHelper = null;
@@ -405,152 +422,130 @@
 			query.send(handleQueryResponse);
 		}
 
-        function handleQueryResponse(response) {
+		function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
+			if(filas > 16)
+				filas = 16;
 			var pagTotales = Math.ceil(filas/4);
 			var pagActual = 1;
 			var html = "";
 
-			 if(filas<1)
-            {
+			if(filas<1)
     			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
-            }
             else
-            {
-                html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
-            }
+            	html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
 
             for(var i=0;i<filas;i++){
 
-               html += getIcons(data, i);
-			   html += "<div id='comboVideo'>";
-			   html += "<div id='video-container'><div id='infoVideo'>";
-			   html += "<div id='urlVideo'>";
-               if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
-			        html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+            	if(i>3 && i==4*(pagActual-1) && i<filas-1)
+            		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: none;width: auto;height: 660px;">';
 
-               }else{
-			        html += "<img src='"+data.getValue(i,6)+"'></img></div>";
-               }
+				html += "<div id='comboVideo'>";
+				html += getIcons(data, i);
+				html += "<div id='video-container'><div id='infoVideo'>";
+				html += "<div id='urlVideo'>";
+				if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
+				    html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
 
-			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
-			   html += "<div id='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
-			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
-			   html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
-			   var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
-			   html += '<button type="button" id="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
-			   html +="</div></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
+				}else{
+				    html += "<img src='"+data.getValue(i,6)+"'></img></div>";
+				}
 
-			   if(pagTotales>1){
+				html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
+				html += "<div id='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
+				html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
+				html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
+				var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
+				html += '</div><button type="button" id="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
+				html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 
-				  if (i==4*pagActual-1){
-
-				    var pagActualParaMostrar = pagActual+1;
-                    var pagSiguiente = pagActualParaMostrar+1;
-
-                    if(i>2 && pagActual > 1){
-					 html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
-					}
-
-					for(var j=1;j<=pagTotales;j++){
-					if ((j==pagActual) && (j==1)){
-					   	html += '<div id="paginas1" class="checkpage1"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-
-					}
-					else if(j==pagActual){
-					    html += '<div id="paginas" class="checkpage"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-					  }else{
-					    html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActual +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
-
-					  }
-					}
-
-					html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /> </a></div>';
-                    html += '</div>';
-
-                    html += '<div id="pagina'+ pagActualParaMostrar +'" class="paginaNueva" style="display:none; width: auto;height: 660px;">';
-
-			        pagActual++;
-
-					}
-					else if(i==filas-1)
-                    {
-						var pagActualAux = pagActual;
-				        pagActual--;
-                            html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
-						for(var j=1;j<=pagTotales;j++){
-							if(j==pagActualAux){
-								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-							}else{
-								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
-							}
-						}
-						html += '</div>';
-				    }
-                }
-
+			  	if (i==4*pagActual-1){
+				    html += '</div>';
+				    pagActual++;
+				}
+				else if (i==filas-1)
+					html += '</div>';
 			}
 
+			html += '<div>'
+			html += '<div id="bloqueEnlaces1" style="visibility:hidden" class="bloqueAnterior"><a href="javascript:anterior();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 
-				document.getElementById('listportales').innerHTML += html;
-				gadgets.window.adjustHeight();
-
+			for(var i=1; i < (pagTotales+1) ;i++){
+				if(i==1){
+					html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+i+'"/></a></div>';
+				}
+				else{
+					html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+i+'"/></a></div>';
+				}
 			}
-		 function continuacion(num)
+
+			html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
+            
+            html += '</div>';
+
+            html += '<input type="text" id="pagActual" style="display:none" value="1"></input>';
+            html += '<input type="text" id="pagAnterior" style="display:none"></input>';
+            html += '<input type="text" id="pagTotales" style="display:none" value="'+pagTotales+'"></input>';
+
+
+
+			document.getElementById('listportales').innerHTML += html;
+			gadgets.window.adjustHeight();
+
+		}
+
+
+		function continuacion()
         {
-            var bloque = "pagina"+num;
-            var numInt = parseInt(num)-1;
-            var bloque_anterior = "pagina"+ numInt;
-            document.getElementById(bloque).style.display='block';
-            document.getElementById(bloque_anterior).style.display='none';
+        	var pagAct = parseInt(document.getElementById("pagActual").value);
+        	changePage(pagAct+1);
         }
 
     	function anterior(num)
         {
-            var bloque = "pagina"+num;
-            var numInt = parseInt(num)-1;
-            var numInt2 = parseInt(num)-2;
-            if (numInt2 == 0)
-            {
-                numInt  = 2;
-                numInt2 = 1;
-            }
-            var bloque_actual = "pagina"+ numInt;
-            var bloque_anterior = "pagina"+ numInt2;
-            document.getElementById(bloque_actual).style.display='none';
-            document.getElementById(bloque_anterior).style.display='block';
-			document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-		    document.getElementById('pagination'+numInt2).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
+        	var pagAct = parseInt(document.getElementById("pagActual").value);
+        	changePage(pagAct-1);
         }
 
-    	function anteriorUltima(num)
-        {
-            var bloque = "pagina"+num;
-            var numInt = parseInt(num)-1;
-            var bloque_anterior = "pagina"+ numInt;
-            document.getElementById(bloque).style.display='none';
-            document.getElementById(bloque_anterior).style.display='block';
-			document.getElementById('pagination'+num).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-		    document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
-    	}
-		function changePage(num,pag){
+		function changePage(pagAct){
 
-		    var bloque = "pagina"+pag;
-			//var numInt = parseInt(num)-1;
-			var bloque_anterior = "pagina"+ num;
+			var pagAnt = parseInt(document.getElementById("pagActual").value);
+			var pagTotales = parseInt(document.getElementById("pagTotales").value);
 
-		    document.getElementById(bloque).style.display='none';
-            document.getElementById(bloque_anterior).style.display='block';
+			document.getElementById("pagAnterior").value = pagAnt;
+			document.getElementById("pagActual").value = pagAct;
+
+			changeImage(pagAct, pagAnt);
+
+
+			if(pagAct == 1)
+				document.getElementById("bloqueEnlaces1").style.visibility = 'hidden';
+			else
+				document.getElementById("bloqueEnlaces1").style.visibility = 'visible';
+
+			if(pagAct == pagTotales)
+				document.getElementById("bloqueEnlaces").style.visibility = 'hidden';
+			else
+				document.getElementById("bloqueEnlaces").style.visibility = 'visible';
+
+
+		    var bloque_anterior = "pagina"+pagAnt;
+			var bloque = "pagina"+ pagAct;
+
+		    document.getElementById(bloque_anterior).style.display='none';
+            document.getElementById(bloque).style.display='block';
 		}
-		function changeImage(pagina,old){
+
+		function changeImage(pagina, old){
 
 		    document.getElementById('pagination'+old).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
 		    document.getElementById('pagination'+pagina).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
 		}
+
 	    function Go(destination){
-	    window.parent.location.href = destination;
-	    return false;
+		    window.parent.location.href = destination;
+		    return false;
 		}
 
 		//delay loading
@@ -608,6 +603,10 @@
                 countIcons++;
 
             }
+            if(countIcons == 0){
+            	html += "<div class='noIcons'></div>";
+            }
+
             html += "</div>";
             html += "<div class='clearBoth'></div>";
             return html;
