@@ -401,7 +401,7 @@
 	    		var channel = getParam("channel");
 
 	    		if (channel == 'J')
-	    			filter += " AND J='x' OR K='x' OR L='x'";
+	    			filter += " AND (J='x' OR K='x' OR L='x')";
 	    		else if (channel != '0' && channel != '')
 	    			filter += " AND "+channel+"='x'";
 
@@ -419,7 +419,7 @@
 			gadgetHelper = new google.visualization.GadgetHelper();
 			var opts = {dataType:'jsonp'};
 			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where A <> 'IdNovedad' OR P <> 'x' ";
+			var querytosend = "select * where A <> 'IdNovedad' AND P <> 'x' ";
 			querytosend = querytosend.concat(getQueryParameters());
 			querytosend = querytosend.concat(" order by C desc");
 			query.setQuery(querytosend);
