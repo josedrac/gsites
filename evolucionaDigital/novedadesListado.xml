@@ -384,29 +384,31 @@
         	return false;
     	}
 
-		function getSelectedMonth() {
-        	return gadgets.util.getUrlParameters().parent.split("=")[2];
-	    }
-
-	    function getSelectedYear() {
-	        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
-	    }
+    	function getParam(p){
+    		var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+    		for(var i=0; i<params.length; i++){
+    			if(params[i].split("=")[0] == p)
+    				return params[i].split("=")[1];
+    		}
+    		return "";
+    	}
 
     	function getQueryParameters() {
     		var filter = "";
-    		if (isSearchDone()) {
-	    		var year = getSelectedYear();
-	    		var month = getSelectedMonth();
-	    		if (year > 0 && month > 0) {
-	    			filter = " AND month(C) = "+(month-1)+" AND year(C) = "+ year;
-	    		}
-	    		else if (year > 0) {
-	    			filter = " AND year(C) ="+ year;
-	    		}
-	    		else if (month > 0) {
-	    			filter = " AND month(C) = "+ (month-1);
-	    		}
-	    	}
+    		var year = getParam("anyo");
+    		var month = getParam("mes");
+    		var channel = getParam("channel");
+
+    		if (channel == 'J')
+    			filter += " AND J='x' OR K='x' OR L='x'";
+    		else if (channel != '0' && channel != '')
+    			filter += " AND "+channel+"='x'";
+
+    		if (year > 0)
+    			filter += " AND year(C) ="+ year;
+    		if (month > 0)
+    			filter += " AND month(C) = "+ (month-1);
+
     		return filter;
     	}
 
@@ -480,7 +482,11 @@
 				}
 			}
 
-			html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
+			var oculto = "";
+			if(pagTotales < 2)
+				oculto = "visibility:hidden";
+
+			html += '<div id="bloqueEnlaces" style="'+oculto+'" class="bloqueSiguiente"><a href="javascript:continuacion();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
             
             html += '</div>';
 
