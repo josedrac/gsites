@@ -419,7 +419,7 @@
 			gadgetHelper = new google.visualization.GadgetHelper();
 			var opts = {dataType:'jsonp'};
 			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where A <> 'IdNovedad' AND P <> 'x' ";
+			var querytosend = "select * where A <> 'IdNovedad' OR P <> 'x' ";
 			querytosend = querytosend.concat(getQueryParameters());
 			querytosend = querytosend.concat(" order by C desc");
 			query.setQuery(querytosend);
