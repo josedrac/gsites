@@ -178,6 +178,7 @@
         }
         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
             background: white;
+            width: 165px!important;
         }
         .ui-selectmenu-button span.ui-icon {
             right: 0;
