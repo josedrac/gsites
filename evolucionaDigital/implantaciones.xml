@@ -88,6 +88,7 @@
 			text-overflow: ellipsis;
 			display: block;
 			height: 23px;
+			white-space: nowrap;
 		}
 
 		.destinatarios {
@@ -193,6 +194,8 @@
 			color:#0078D2;
 			float:left;
 			margin-top:-2px;
+			margin-left: 260px;
+			padding-right: 10px;
 	    }
 
 	    .bloqueSiguiente {
@@ -211,8 +214,7 @@
         }
 
 		#bloqueEnlaces1 img {
-			margin-left:260px;
-			padding-right:10px;
+			
         }
 
 		.checkpage{
