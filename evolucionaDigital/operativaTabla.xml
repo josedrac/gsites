@@ -111,9 +111,11 @@
         height: 85px;
         float: left;
         border-right: 1px solid #E5E5E5;
-        border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5; }
+        border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5; 
+    }
+
     .firstcol {
-        width: 550px !important;
+        width: 475px !important;
         border-left: 0;
     }
 
@@ -157,7 +159,7 @@
 
     <script type="text/javascript">
         var data;
-        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet'];
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch'];
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
         var titlecomboVideo = prefs.getString("titlecomboVideo");
@@ -178,6 +180,7 @@
             if (isSearchDone()) {
                 var channel = getSelectedChannel();
                 var product = getSelectedProduct();
+                
                 if (product == "Todos") {
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
                     if (channel != "Todos") {
@@ -189,20 +192,25 @@
                     return;
                 }
 
-                if (channel == channels[0]) {
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' order by B";
-                    query.setQuery(querytosend);
-                    query.send(handleQueryResponse);
-                    return;
+                var inputText = getInputText();
+                var querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '" + product + "'";
+
+                if (inputText != false) {
+                    querytosend += " AND (lower(C) like '%" + inputText + "%') ";
+                } 
+
+                if (channel != channels[0]) {
+                    querytosend += getChannelCondition(channel);
                 }
 
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '"+product+"' "+getChannelCondition(channel)+" order by B";
+                querytosend += " order by B";
             }
             else {
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Cuentas' order by B";
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
+            console.log(querytosend);
         }
 
         function getChannelCondition(channel) {
@@ -217,6 +225,10 @@
 
             if (channel == channels[3]) {
                 sql += " AND (J like 'x' OR K like 'x') ";
+            }
+
+            if (channel == channels[4]) {
+                sql += " AND (L like 'x' OR M like 'x') ";
             }
             return sql;
         }
@@ -235,14 +247,15 @@
         }
 
         function createHeader() {
-            var html = "<div id='tableHeader'>";
-                html +=         "<div class='colHeader firstcol'></div>";
-                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
-                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
-                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
-                html +=         "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
-                html +=         "<div class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></div>";
-                html +=     "</div>";
+            var html =  "<div id='tableHeader'>";
+                html +=     "<div class='colHeader firstcol'></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></div>";
+                html +=     "<div class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></div>";
+                html += "</div>";
             return html;
        }
 
@@ -266,14 +279,24 @@
                 html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 9, 10)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 11, 12)+"</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
             }
             return html;
        }
 
+       function getInputText() {
+            var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
+            if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
+                return contentInput.toLowerCase();
+            } else {
+                return false;
+            }
+        }
+
         function getSelectedChannel() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2]).replace(/\+/g, ' ');
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
         }
 
         function getSelectedProduct() {
@@ -310,8 +333,9 @@
                 7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
                 8: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
                 9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
-                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16]
-                };
+                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
+                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png', 10, 16]
+            };
 
             html += "<div class='colBodyIcon'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
             return html;
