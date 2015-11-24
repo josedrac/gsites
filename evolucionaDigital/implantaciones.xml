@@ -400,6 +400,7 @@
                 }
 			}
 			document.getElementById('listportales').innerHTML += html;
+			gadgets.window.adjustHeight();
 		}
 
 		function continuacion(num) {
