@@ -401,7 +401,7 @@
 	    		var channel = getParam("channel");
 
 	    		if (channel == 'J')
-	    			filter += " AND J='x' OR K='x' OR L='x'";
+	    			filter += " AND (J='x' OR K='x' OR L='x')";
 	    		else if (channel != '0' && channel != '')
 	    			filter += " AND "+channel+"='x'";
 
