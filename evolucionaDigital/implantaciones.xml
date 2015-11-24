@@ -320,7 +320,7 @@
     			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
             }
             else {
-                html += '<div id="pagina1" class="paginaNueva" style=" display: block;">';
+                html += '<div id="pagina'+pagActual+'" class="paginaNueva" style=" display: block;">';
 
 
 	            var month = new Array();
@@ -340,7 +340,7 @@
 				for(var i=0; i < filas; i++) {
 
 					if(i>3 && i==4*(pagActual-1) && i<filas-1)
-						html += '<div id="pagina1" class="paginaNueva" style=" display: block;">';
+						html += '<div id="pagina'+pagActual+'" class="paginaNueva" style=" display: none;">';
 
 				   	html += "<div class='implantation'>";
 
@@ -397,7 +397,7 @@
 	            html += '<input type="text" id="pagAnterior" style="display:none"></input>';
 	            html += '<input type="text" id="pagTotales" style="display:none" value="'+pagTotales+'"></input>';
 			}
-			
+
 			document.getElementById('listportales').innerHTML += html;
 			gadgets.window.adjustHeight();
 		}
