@@ -160,7 +160,7 @@
 
 		.paginaNueva {
 			width: auto;
-			height: 660px;
+			height: 900px;
 		}
 
 		.lineinfo {
