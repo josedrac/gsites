@@ -395,23 +395,20 @@
 
     	function getQueryParameters() {
     		var filter = "";
-    		//if (isSearchDone()) {
-	    		var year = getParam("anyo");
-	    		var month = getParam("mes");
-	    		var channel = getParam("channel");
-	    		alert(year + " " + month);
-	    		if (channel == 'J')
-	    			filter += " AND J='x' OR K='x' OR L='x'";
-	    		else if (channel != '0')
-	    			filter += " AND "+channel+"='x'";
+    		var year = getParam("anyo");
+    		var month = getParam("mes");
+    		var channel = getParam("channel");
 
-	    		if (year > 0)
-	    			filter += " AND year(C) ="+ year;
-	    		
-	    		if (month > 0)
-	    			filter += " AND month(C) = "+ (month-1);
-	    		
-	    	//}
+    		if (channel == 'J')
+    			filter += " AND J='x' OR K='x' OR L='x'";
+    		else if (channel != '0' && channel != '')
+    			filter += " AND "+channel+"='x'";
+
+    		if (year > 0)
+    			filter += " AND year(C) ="+ year;
+    		if (month > 0)
+    			filter += " AND month(C) = "+ (month-1);
+
     		return filter;
     	}
 
