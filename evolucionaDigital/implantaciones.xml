@@ -84,6 +84,10 @@
 		    font-family: BBVA Web Light, Arial;
 		    color: #0078D2;
 		    font-weight: bold;
+		    overflow: hidden;
+			text-overflow: ellipsis;
+			display: block;
+			height: 23px;
 		}
 
 		.destinatarios {
@@ -114,6 +118,10 @@
 		    font-family: Arial;
 		    margin-top: 20px;
 		    line-height: 18px;
+		    height: 54px;
+		    text-overflow: ellipsis;
+			display: block;
+			overflow: hidden;
 		}
 
 		hr{
@@ -160,7 +168,6 @@
 
 		.paginaNueva {
 			width: auto;
-			height: 900px;
 		}
 
 		.lineinfo {
