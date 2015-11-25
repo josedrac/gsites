@@ -210,7 +210,6 @@
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
-            console.log(querytosend);
         }
 
         function getChannelCondition(channel) {
