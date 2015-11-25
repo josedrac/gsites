@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="novedad.xml"
+  <ModulePrefs title="ED-novedad.xml"
     description=""
     author_affiliation="Sopra">
     <Require feature="idi"/>
