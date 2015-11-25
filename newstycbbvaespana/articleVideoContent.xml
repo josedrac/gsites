@@ -106,15 +106,26 @@
 
 			<script type="text/javascript">
 
-				var urlParameters = gadgets.util.getUrlParameters()["parent"],
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				function getUrlParameter(parameterName) {
+					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
+					debugger;
+
+					for (var i = 0; i < params.length; i++) {
+						var p = params[i].split('=');
+						if (p[0] == parameterName) {
+							return decodeURIComponent(p[1]);
+						}
+					}
+					return false;
+				}
+
+				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article video content'),
-					queryString = encodeURIComponent('SELECT * where A = "' + urlParameters["id"] + '"'),
+					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
 
 				function getSpreadsheet() {
 
-					console.log('urlParameters', urlParameters);
 					console.log('urlParameters[id]', urlParameters["id"]);
 					console.log('spreadsheetKey', spreadsheetKey);
 					console.log('sheetName', sheetName);
