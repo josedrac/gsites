@@ -7,7 +7,7 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
- 	<Content type="html">
+ 	<Content view="canvas">
     	<![CDATA[
 			
 			<style type="text/css">
@@ -175,6 +175,12 @@
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
+
+			</script>
+
+			<script type="text/javascript">
+
+				gadgets.window.adjustHeight();
 
 			</script>
    			
