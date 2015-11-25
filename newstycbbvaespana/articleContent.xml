@@ -34,6 +34,10 @@
 					font-weight: normal;
 				}
 
+				.article-content {
+					padding: 0 10px;
+				}				
+
 				h2 {
 					font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
 					font-size: 22px;
@@ -88,21 +92,25 @@
 
 			</script>
 
-			<h2 id="title"></h2>
+			<div class="article-content">
 
-			<h3 id="subtitle"></h3>
+				<h2 id="title"></h2>
 
-			<p class="author-signature">
-				<span id="date"></span>
-				<span>-</span>
-				<span id="author"></span>
-			</p>
+				<h3 id="subtitle"></h3>
 
-			<div id="sortDescription"></div>
+				<p class="author-signature">
+					<span id="date"></span>
+					<span>-</span>
+					<span id="author"></span>
+				</p>
 
-			<div id="media" class="media-wrapper"></div>
+				<div id="sortDescription"></div>
 
-			<div id="description"></div>
+				<div id="media" class="media-wrapper"></div>
+
+				<div id="description"></div>
+
+			</div>
 
 			<script type="text/javascript">
 
