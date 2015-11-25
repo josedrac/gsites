@@ -49,7 +49,7 @@
 		            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
 		            font-size: 13px;
 		            font-family: BBVA Web Light, Arial;
-		            padding-left: 10px;
+		            padding-left: 6px;
 		            padding-right: : 20px;
 		            padding-top: 14px;
 		            padding-bottom: 15px;
@@ -65,8 +65,7 @@
 		            font-size: 13px;
 		        }
 		        .content .icon {
-		            text-align: center;
-		            width: 75px;
+		            width: 68px;
 		            vertical-align: middle;
 		        }
 		    </style>
@@ -78,8 +77,8 @@
 	                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mailHelp.png" alt="">
 	            </div>
 	            <div class="text">
-	                <p>¿Alguna duda? Te ayudamos:</p>
-	                <a href="mailto:soportesdigitales.es@bbva.com">soportesdigitales.es@bbva.com</a>
+	                <p>¿Alguna duda? mándanos un e-mail</p>
+	                <a href="javascript:void(0)">soportesdigitales.es@bbva.com</a>
 	                <p>Te contestamos lo antes posible</p>
 	            </div>
 	        </div>
