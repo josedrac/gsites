@@ -107,7 +107,7 @@
 			<script type="text/javascript">
 
 				function getUrlParameter(parameterName) {
-					var params = window.location.search.substr(1).split('&');
+					var params = gadgets.util.getUrlParameters()["parent"].split("&");
 
 					for (var i = 0; i < params.length; i++) {
 						var p = params[i].split('=');
@@ -129,11 +129,11 @@
 
 				function handleQueryResponse(response) {
 					if (response.isError()) {
-						alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+						console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
 						return;
 					}
 					var dataTable = response.getDataTable();
-					dataTable.getNumberOfRows() ? printDataTable(dataTable) : alert('spreadsheet is empty');
+					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
 				}
 
 				function printDataTable(dataTable) {
