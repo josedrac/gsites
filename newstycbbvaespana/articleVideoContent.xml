@@ -108,6 +108,7 @@
 
 				function getUrlParameter(parameterName) {
 					var params = gadgets.util.getUrlParameters()["parent"].split("&");
+					console.log(params);
 
 					for (var i = 0; i < params.length; i++) {
 						var p = params[i].split('=');
