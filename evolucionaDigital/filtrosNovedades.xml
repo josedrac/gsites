@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="ED-lateralNovedades.xml" height="275">
+	<ModulePrefs title="ED-filtrosNovedades.xml" height="275">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
