@@ -65,7 +65,7 @@
 		            font-size: 13px;
 		        }
 		        .content .icon {
-		            width: 68px;
+		            width: 70px;
 		            vertical-align: middle;
 		        }
 		    </style>
