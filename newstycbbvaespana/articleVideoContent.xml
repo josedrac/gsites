@@ -106,7 +106,7 @@
 
 			<script type="text/javascript">
 
-				var urlParameters = gadgets.util.getUrlParameters(),
+				var urlParameters = gadgets.util.getUrlParameters()["parent"],
 					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article video content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + urlParameters["id"] + '"'),
