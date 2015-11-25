@@ -309,15 +309,15 @@
             return false;
         }
 
-        $( "#yearSelector" ).selectmenu({width: 190});
+        $( "#yearSelector" ).selectmenu({width: 100});
 
-        $( "#monthSelector" ).selectmenu({width: 190});
+        $( "#monthSelector" ).selectmenu({width: 100});
 
-        $( "#channelSelector" ).selectmenu({width: 190});
+        $( "#channelSelector" ).selectmenu({width: 100});
 
-        $( "#typeSelector" ).selectmenu({width: 190});
+        $( "#typeSelector" ).selectmenu({width: 100});
 
-        $( "#marcoSelector" ).selectmenu({width: 190});
+        $( "#marcoSelector" ).selectmenu({width: 100});
 
     </script>
 
