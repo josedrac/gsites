@@ -294,7 +294,7 @@
 	    		var first = getSelectedFirstValue();
 	    		if (firstParam == "anyo" && first > 0) {
 	    			filter = " AND (G = "+first+")";
-	    		} else {
+	    		} else if (firstParam == "inputText") {
 	    			first= first.toLowerCase();
 	    			filter = " AND (lower(B) like '%"+first+"%' OR lower(C) like '%"+first+"%' OR lower(D) like '%"+first+"%' OR lower(E) like '%"+first+"%')";
 	    		}
