@@ -106,22 +106,10 @@
 
 			<script type="text/javascript">
 
-				function getUrlParameter(parameterName) {
-					var params = gadgets.util.getUrlParameters()["parent"].split("&");
-					console.log(params);
-
-					for (var i = 0; i < params.length; i++) {
-						var p = params[i].split('=');
-						if (p[0] == parameterName) {
-							return decodeURIComponent(p[1]);
-						}
-					}
-					return false;
-				}
-
-				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				var urlParameters = gadgets.util.getUrlParameters(),
+					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article video content'),
-					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
+					queryString = encodeURIComponent('SELECT * where A = "' + urlParameters["id"] + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
 
 				function getSpreadsheet() {
