@@ -48,11 +48,9 @@
         }
         /* @end */
         .container{
-            border: 1px solid #DDE3EA;
             border-radius: 2px 2px 2px 2px;
             clear: both;
             margin-top: 15px;
-            //width: 298px;
             display: table;
         }
         .title{
@@ -73,12 +71,10 @@
             padding-top: 14px;
         }
         .subtitle {
-            color: #0078d2;
+            color: #0078D2;
             font-weight: bold;
-            text-align: center;
-            background-color: #f4f4f4;
-            padding: 10px 0;
-            border-top: 1px solid #DDE3EA;
+            padding: 5px 0px;
+            margin-left: 10px;
         }
 
         .btn:hover {
@@ -96,22 +92,21 @@
             background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
             -webkit-border-radius: .1em;
             -moz-border-radius: .1em;
-            border-radius: .1em;
-            text-align: center;
             font-size: 13px;
-            vertical-align: middle;
             height: 1.75em;
-            padding-left: 2em;
-            padding-right: 2em;
-            padding-bottom: 2px;
-            border: .1em solid #00559D;
-            color: white;
+            padding-left: 1em;
+            padding-right: 1em;
+            border: 0.1em solid #00559D;
+            color: #FFF;
             cursor: pointer;
-            position: relative;
-            text-align: center;
-            vertical-align: middle;
             margin-left: 0px;
             margin-right: 0px;
+            border-radius: 0.4em;
+            font-weight: bold;
+            vertical-align: top;
+            text-align: center;
+            position: relative;
+            padding-bottom: 2px;
         }
         select {
             width:220px;
@@ -141,7 +136,9 @@
             text-align: left;
             width: 100%;
             line-height: 14px;
-            width: 190px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
         .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
             color: #0078d2;
@@ -203,9 +200,10 @@
             margin-left: 15px;
             margin-right: 10px;
             padding-top: 10px;
-            font-weight: bold;
+            //font-weight: bold;
             display: table-cell;
-            //width: 30px;
+            margin-bottom: 10px;
+            width: 100%;
         }
         .ui-menu-item {
             color: #003f8c;
@@ -219,6 +217,7 @@
 
         .form {
             display: table-cell;
+            width: 25%;
         }
 
             </style>
@@ -236,6 +235,9 @@
                         <option value="S">Nuevo</option>
                         <option value="T">Histórico</option>
                     </select>
+                </div>
+                <div class="subtitle">
+                    <button onclick='javascript:Go();' class="btn">Ver resultados</button>
                 </div>
             </div>
             <div class="form">
@@ -257,7 +259,7 @@
                 </select>
             </div>
             <div class="form">
-                <label class="name">Fecha: </label>
+                <label class="name">Fecha</label>
                 <div class="element">
                     <select name="anyo" id="yearSelector">
                         <option value="0">Todos</option>
@@ -285,9 +287,7 @@
                     </select>
                 </div>
             </div>
-            <div class="subtitle">
-                <button onclick='javascript:Go();' class="btn">Ver</button>
-            </div>
+            
         </div>
 
         <script type="text/javascript">
@@ -310,15 +310,15 @@
             return false;
         }
 
-        $( "#yearSelector" ).selectmenu({width: 100});
+        $( "#yearSelector" ).selectmenu();
 
-        $( "#monthSelector" ).selectmenu({width: 100});
+        $( "#monthSelector" ).selectmenu();
 
-        $( "#channelSelector" ).selectmenu({width: 100});
+        $( "#channelSelector" ).selectmenu();
 
-        $( "#typeSelector" ).selectmenu({width: 100});
+        $( "#typeSelector" ).selectmenu();
 
-        $( "#marcoSelector" ).selectmenu({width: 100});
+        $( "#marcoSelector" ).selectmenu();
 
     </script>
 
