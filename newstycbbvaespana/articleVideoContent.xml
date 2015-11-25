@@ -119,7 +119,7 @@
 				}
 
 				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
-					sheetName = encodeURIComponent('article video content'),
+					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
 
