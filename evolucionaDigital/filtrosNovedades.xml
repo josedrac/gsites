@@ -52,7 +52,8 @@
             border-radius: 2px 2px 2px 2px;
             clear: both;
             margin-top: 15px;
-            width: 298px;
+            //width: 298px;
+            display: table;
         }
         .title{
             background: #ffffff; /* Old browsers */
@@ -217,7 +218,7 @@
         }
 
         .form {
-            display: table;
+            display: table-cell;
         }
 
             </style>
