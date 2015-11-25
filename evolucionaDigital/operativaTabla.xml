@@ -273,7 +273,15 @@
                 }
 
                 html +=  "<div class='row'>";
-                html +=     "<div class='colBody firstcol'>"+data.getValue(i,2)+"</div>";
+                html +=     "<div class='colBody firstcol'>";
+                if(data.getValue(i,13) == 'x') {
+                    html += "<a href='https://sites.google.com/a/bbva.com/evolucionadigital/novedades"+ data.getValue(i,14) +"'">";
+                }
+                html +=         data.getValue(i,2);
+                if(data.getValue(i,13) == 'x') {
+                    html += "</a>";
+                }
+                html +=     "</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 3, 4)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 6, 7)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
