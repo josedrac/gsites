@@ -178,6 +178,7 @@
         }
         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
             background: white;
+            width: 165px!important;
         }
         .ui-selectmenu-button span.ui-icon {
             right: 0;
@@ -235,7 +236,7 @@
     <script type="text/javascript">
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch'];
         var channelNames = ['Todos', 'Smartphone app BBVA', 'PC', 'Tablet', 'SmartWatch'];
-        var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras operaciones', 'Pago impuestos'];
+        var products = ['Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras consultas/operaciones', 'Pago impuestos'];
 
         renderPage();
         $( "#productsSelector" ).selectmenu({width: 200});

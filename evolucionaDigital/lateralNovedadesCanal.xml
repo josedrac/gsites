@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="ED-lateralImplantaciones.xml" height="275">
+	<ModulePrefs title="ED-lateralNovedadesCanal.xml" height="275">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -186,21 +186,17 @@
         .ui-selectmenu-menu .ui-menu {
         		height: 115px;
         }
-        .element-year {
+        .element-channel {
             padding-top: 20px;
-            padding-bottom: 5px
-        }
-        .element-month {
-            padding-top: 5px;
-            padding-bottom: 20px
+            padding-bottom: 20px;
         }
         .name {
-            color: #434a58;
+            color: #434A58;
             float: left;
             font-family: Arial;
             font-size: 13px;
             margin-left: 15px;
-            margin-right: 10px;
+            margin-right: 20px;
             padding-top: 10px;
             font-weight: bold;
             display: inline-block;
@@ -221,34 +217,16 @@
 		</head>
 
 		<div class="container">
-        <div class="title">Histórico de Implantaciones</div>
+        <div class="title">Canal de Novedades</div>
         <div class="form">
-            <div class="element-year">
-                <label class="name">Año: </label>
-                <select name="anyo" id="yearSelector">
+            <div class="element-channel">
+                <label class="name">Canal: </label>
+                <select name="channel" id="channelSelector">
                     <option value="0">Todos</option>
-                    <option value="2013">2013</option>
-                    <option value="2014">2014</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                </select>
-            </div>
-            <div class="element-month">
-                <label class="name">Mes: </label>
-                <select id="monthSelector" name="mes">
-                    <option value="0">Cualquiera</option>
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembre</option>
-                    <option value="12">Diciembre</option>
+                    <option value="J">Smartphone</option>
+                    <option value="M">PC</option>
+                    <option value="N">Tablet</option>
+                    <option value="O">Teléfono</option>
                 </select>
             </div>
         </div>
@@ -260,19 +238,15 @@
     <script type="text/javascript">
 
         function Go() {
-            var elementYearSelector = document.getElementById('yearSelector');
-            var elementMonthSelector = document.getElementById('monthSelector');
-            var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
-            var selectedMonth = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
+            var elementChannelSelector = document.getElementById('channelSelector');
+            var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].value;
             var url = document.referrer;
             url = document.referrer.split('?')[0];
-            window.open(url + "?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
+            window.open(url + "?channel="+selectedChannel, "_parent");
             return false;
         }
 
-        $( "#yearSelector" ).selectmenu({width: 190});
-
-        $( "#monthSelector" ).selectmenu({width: 190});
+        $( "#channelSelector" ).selectmenu({width: 190});
 
     </script>
 
