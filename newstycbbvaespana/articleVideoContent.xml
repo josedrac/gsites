@@ -113,6 +113,13 @@
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
 
 				function getSpreadsheet() {
+
+					console.log('urlParameters', urlParameters);
+					console.log('urlParameters[id]', urlParameters["id"]);
+					console.log('spreadsheetKey', spreadsheetKey);
+					console.log('sheetName', sheetName);
+					console.log('queryString', queryString);
+
 					query.send(handleQueryResponse);
 				}
 
