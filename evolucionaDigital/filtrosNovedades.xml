@@ -215,6 +215,11 @@
             font-size: 13px;
             font-weight: normal;
         }
+
+        .form {
+            display: table;
+        }
+
             </style>
             <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
             <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
@@ -252,7 +257,7 @@
             </div>
             <div class="form">
                 <label class="name">Fecha: </label>
-                <div class="element-year">
+                <div class="element">
                     <select name="anyo" id="yearSelector">
                         <option value="0">Todos</option>
                         <option value="2013">2013</option>
@@ -261,7 +266,7 @@
                         <option value="2016">2016</option>
                     </select>
                 </div>
-                <div class="element-month">
+                <div class="element">
                     <select id="monthSelector" name="mes">
                         <option value="0">Cualquiera</option>
                         <option value="1">Enero</option>
@@ -284,7 +289,7 @@
             </div>
         </div>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
 
         function Go() {
             var elementYearSelector = document.getElementById('yearSelector');
@@ -307,6 +312,12 @@
         $( "#yearSelector" ).selectmenu({width: 190});
 
         $( "#monthSelector" ).selectmenu({width: 190});
+
+        $( "#channelSelector" ).selectmenu({width: 190});
+
+        $( "#typeSelector" ).selectmenu({width: 190});
+
+        $( "#marcoSelector" ).selectmenu({width: 190});
 
     </script>
 
