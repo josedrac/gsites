@@ -108,7 +108,6 @@
 
 				function getUrlParameter(parameterName) {
 					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
-					debugger;
 
 					for (var i = 0; i < params.length; i++) {
 						var p = params[i].split('=');
@@ -126,7 +125,7 @@
 
 				function getSpreadsheet() {
 
-					console.log('urlParameters[id]', urlParameters["id"]);
+					console.log('id', getUrlParameter["id"]);
 					console.log('spreadsheetKey', spreadsheetKey);
 					console.log('sheetName', sheetName);
 					console.log('queryString', queryString);
