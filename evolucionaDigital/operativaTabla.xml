@@ -152,6 +152,10 @@
     .centerText {
         text-align:center;
     }
+    a {
+        color: #0078d2;
+        text-decoration: none;
+    }
     </style>
 
 
@@ -274,7 +278,7 @@
                 html +=  "<div class='row'>";
                 html +=     "<div class='colBody firstcol'>";
                 if(data.getValue(i,13) == 'x') {
-                    html += "<a href='https://sites.google.com/a/bbva.com/evolucionadigital/novedades"+ data.getValue(i,14) +"'>";
+                    html += "<a href='https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"'>";
                 }
                 html +=         data.getValue(i,2);
                 if(data.getValue(i,13) == 'x') {
