@@ -77,6 +77,14 @@
 			margin: 2px 0px 0px;
 		}
 
+		.lineSeparator {
+		    width: 610px;
+		    height: 4px;
+		    display: block;
+		    margin-bottom: 20px;
+		    padding-top: 25px;
+		}
+
 		.oculto {
 			visibility: hidden;
 		}
@@ -231,7 +239,7 @@
 				html += "<div class='container'>";
 				html += "cosas";
 				html += '<button type="button" id="allcontent" onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/evolucionaDigital/\')">Ver más</button>';
-				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
+				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
 
 			  	if (i==elemForPage*pagActual-1 || i == filas-1){
 				    html += '</div>';
