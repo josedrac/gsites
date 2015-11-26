@@ -244,10 +244,10 @@
 
 				html += "<div class='container'>";
 				html += getIcons(data, i);
-				html += "<div class='content'";
+				html += "<div class='content'>";
 				html += "	<div><a class='title'>" + data.getValue(i,1) + "</a></div>";
 				html += "	<span>" + data.getFormattedValue(i,2) + "</span>";
-				html += "<div>";
+				html += "</div>";
 				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
 
 			  	if (i==elemForPage*pagActual-1 || i == filas-1){
