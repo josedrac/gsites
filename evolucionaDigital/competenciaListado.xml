@@ -75,6 +75,14 @@
 		    overflow: hidden;
 		}
 
+		.dateVideo {
+		    color: #71777F;
+		    font-size: 11px;
+		    float: left;
+		    margin-top: -15px;
+		    margin-left: 8px;
+		}
+
 		#allcontent{
 			-webkit-border-radius: .2em;
 			-moz-border-radius: .2em;
@@ -227,7 +235,7 @@
 		function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
-			var elemForPage = 6;
+			var elemForPage = 5;
 			var pagTotales = Math.ceil(filas/elemForPage);
 			var pagActual = 1;
 			var html = "";
@@ -245,8 +253,8 @@
 				html += "<div class='container'>";
 				html += getIcons(data, i);
 				html += "<div class='content'>";
-				html += "	<div><a class='title'>" + data.getValue(i,1) + "</a></div>";
-				html += "	<span>" + data.getFormattedValue(i,2) + "</span>";
+				html += "	<div><a onclick='javascript:Go(\"" + data.getValue(i,3) + "\")' class='title'>" + data.getValue(i,1) + "</a></div>";
+				html += "	<span class='dateVideo'>" + data.getFormattedValue(i,2) + "</span>";
 				html += "</div>";
 				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
 
