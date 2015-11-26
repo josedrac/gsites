@@ -239,7 +239,7 @@
 				}
 			}
 
-			html += '</div><div>';
+			html += '<div>';
 			html += '<div id="bloqueEnlaces1" style="visibility:hidden" class="bloqueAnterior"><a href="javascript:anterior();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 
 			for(var i=1; i < (pagTotales+1) ;i++){
