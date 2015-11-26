@@ -399,7 +399,9 @@
 	    		var year = getParam("anyo");
 	    		var month = getParam("mes");
 	    		var channel = getParam("channel");
-
+	    		var type = getParam("type");
+	    		var marco = getParam("marco")
+	    		
 	    		if (channel == 'J')
 	    			filter += " AND (J='x' OR K='x' OR L='x')";
 	    		else if (channel != '0' && channel != '')
@@ -409,6 +411,12 @@
 	    			filter += " AND year(C) ="+ year;
 	    		if (month > 0)
 	    			filter += " AND month(C) = "+ (month-1);
+
+	    		if (type != '0' && type != '')
+	    			filter += " AND "+type+"<>''";
+
+	    		if (marco != '0' && marco != '')
+	    			filter += " AND "+marco+"='x'";
 			}
 
     		return filter;
@@ -422,7 +430,6 @@
 			var querytosend = "select * where A <> 'IdNovedad' AND P <> 'x' ";
 			querytosend = querytosend.concat(getQueryParameters());
 			querytosend = querytosend.concat(" order by C desc");
-			alert(querytosend);
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
