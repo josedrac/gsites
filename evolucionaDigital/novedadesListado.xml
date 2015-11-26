@@ -203,9 +203,9 @@
 		}
 
 		.tag {
-			padding: 0.1em 0.5em;
-			display: table;
 			margin-left: 5px;
+			padding: 0.1em;
+			display: table;
 		}
 
 		.tagFuture {
@@ -218,7 +218,6 @@
 		.dateVideo {
 			color:#71777F;
 			font-size:11px;
-			float:left;
 			margin-top:-15px;
 			margin-left:8px;
 			display: table-cell;
@@ -235,7 +234,6 @@
 		.userVideo {
 			color:#71777F;
 			font-size:11px;
-			float:left;
 			margin-left:72px;
 			margin-top:-15px;
 			display: table-cell;
