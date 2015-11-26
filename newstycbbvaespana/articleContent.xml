@@ -146,7 +146,6 @@
 
 				function printDataTable(dataTable) {
 					var data = {
-							id: dataTable.getValue(0, 0),
 							title: dataTable.getValue(0, 1),
 							subtitle: dataTable.getValue(0, 2),
 							date: dataTable.getValue(0, 3),
