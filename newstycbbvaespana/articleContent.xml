@@ -151,9 +151,8 @@
 							subtitle: dataTable.getValue(0, 2),
 							date: dataTable.getValue(0, 3),
 							author: dataTable.getValue(0, 4),
-							area: dataTable.getValue(0, 7),
-							sortDescription: dataTable.getValue(0, 8),
-							description: dataTable.getValue(0, 9)
+							sortDescription: dataTable.getValue(0, 7),
+							description: dataTable.getValue(0, 8)
 						},
 						image = dataTable.getValue(0, 5),
 						video = dataTable.getValue(0, 6);
