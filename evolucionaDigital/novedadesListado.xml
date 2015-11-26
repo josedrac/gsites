@@ -406,6 +406,7 @@
 	    		var channel = getParam("channel");
 	    		var type = getParam("type");
 	    		var marco = getParam("marco");
+	    		var operativa = getParam("idOperativa");
 
 	    		if (channel == 'J')
 	    			filter += " AND (J='x' OR K='x' OR L='x')";
@@ -422,6 +423,9 @@
 
 	    		if (marco != '0' && marco != '')
 	    			filter += " AND "+marco+"='x'";
+
+	    		if (operativa != '')
+	    			filter += " AND V="+operativa;
 			}
 
     		return filter;
