@@ -77,12 +77,12 @@
       }
 
 		.titleVideo {
-			color:#0078D2;
-			font-family:BBVA Web Book, Arial;
-			font-size:18px;
-			width:260px;
-			margin: 0 0 20px 7px;
+			color: #0078D2;
+			font-family: BBVA Web Book,Arial;
+			font-size: 18px;
+			width: 260px;
 			font-weight: normal;
+			margin: 0px 0px 3px 7px;
 		}
 		.titleVideo a{
 			color:#0078D2;
