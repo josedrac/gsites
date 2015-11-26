@@ -235,7 +235,7 @@
 		function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
-			var elemForPage = 6;
+			var elemForPage = 5;
 			var pagTotales = Math.ceil(filas/elemForPage);
 			var pagActual = 1;
 			var html = "";
