@@ -400,7 +400,7 @@
 	    		var month = getParam("mes");
 	    		var channel = getParam("channel");
 	    		var type = getParam("type");
-	    		var marco = getParam("marco")
+	    		var marco = getParam("marco");
 	    		
 	    		if (channel == 'J')
 	    			filter += " AND (J='x' OR K='x' OR L='x')";
