@@ -155,6 +155,7 @@
     span.click {
         color: #0078d2;
         text-decoration: none;
+        cursor: pointer;
     }
     </style>
 
@@ -278,7 +279,7 @@
                 html +=  "<div class='row'>";
                 html +=     "<div class='colBody firstcol'>";
                 if(data.getValue(i,13) == 'x') {
-                    html += "<span class='click' onclick=javascript:Go('href='https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"')>";
+                    html += "<span class='click' onclick=javascript:Go('https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"')>";
                 }
                 html +=         data.getValue(i,2);
                 if(data.getValue(i,13) == 'x') {
