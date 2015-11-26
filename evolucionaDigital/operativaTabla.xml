@@ -152,6 +152,11 @@
     .centerText {
         text-align:center;
     }
+    span.click {
+        color: #0078d2;
+        text-decoration: none;
+        cursor: pointer;
+    }
     </style>
 
 
@@ -210,7 +215,6 @@
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
-            console.log(querytosend);
         }
 
         function getChannelCondition(channel) {
@@ -273,7 +277,15 @@
                 }
 
                 html +=  "<div class='row'>";
-                html +=     "<div class='colBody firstcol'>"+data.getValue(i,2)+"</div>";
+                html +=     "<div class='colBody firstcol'>";
+                if(data.getValue(i,13) == 'x') {
+                    html += "<span class='click' onclick=javascript:Go('https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"')>";
+                }
+                html +=         data.getValue(i,2);
+                if(data.getValue(i,13) == 'x') {
+                    html += "</span>";
+                }
+                html +=     "</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 3, 4)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 6, 7)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
@@ -340,6 +352,11 @@
             html += "<div class='colBodyIcon'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
             return html;
 
+        }
+
+        function Go(destination){
+            window.open(destination,'_parent');
+            return false;
         }
 
   </script>
