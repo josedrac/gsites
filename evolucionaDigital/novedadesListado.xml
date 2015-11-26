@@ -202,6 +202,12 @@
 			width: 650px;
 		}
 
+		.tag {
+			padding: 0.1em 0.5em;
+			display: table;
+			margin-left: 5px;
+		}
+
 		.tagFuture {
 			background-color: #3EB6BA;
 			padding: 0.1em 0.5em;
@@ -215,6 +221,7 @@
 			float:left;
 			margin-top:-15px;
 			margin-left:8px;
+			display: table-cell;
 		}
 
 		.dateVideoFuture {
@@ -231,6 +238,7 @@
 			float:left;
 			margin-left:72px;
 			margin-top:-15px;
+			display: table-cell;
 		}
 
 		.userVideoFuture {
@@ -469,8 +477,10 @@
 					html += "</div>";
 				}
 				else{
+					html += "<div class='tag'>";
 					html += "<div class='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
 					html += "<div class='userVideo'> "+data.getValue(i,5)+"</div>";
+					html += "</div>"
 				}
 				html += "<div class='textVideo'>"+data.getValue(i,3)+"</div>";
 				var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
