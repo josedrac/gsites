@@ -223,7 +223,7 @@
 
 				html += "<div class='container'>";
 				html += getIcons(data, i);
-				html += "	<a class='title'>" + title + "</a>";
+				html += "	<a class='title'>" + data.getValue(i, 1) + "</a>";
 				html += "cosas";
 				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
 
