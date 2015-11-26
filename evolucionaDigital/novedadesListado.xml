@@ -143,7 +143,7 @@
 		}
 
 		.portales {
-			margin: 2px 0px 0px;
+			margin: 5px 0px 0px;
 		}
 
 		.oculto {
@@ -217,6 +217,12 @@
 			margin-left:72px;
 			margin-top:-15px;
 		}
+
+	.enlacesContainer {
+		height: auto;
+		width: 100%;
+		display: table;
+	}
 
 	.bloqueAnterior{
 		clear:both;
@@ -447,7 +453,7 @@
 
 			}
 
-			html += '<div>'
+			html += '<div class="enlacesContainer">'
 			html += '<div id="bloqueEnlaces1" style="visibility:hidden" class="bloqueAnterior"><a href="javascript:anterior();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 
 			for(var i=1; i < (pagTotales+1) ;i++){
