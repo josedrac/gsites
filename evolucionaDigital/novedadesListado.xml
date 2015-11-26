@@ -387,7 +387,7 @@
 	    			filter += " AND month(C) = "+ (month-1);
 
 	    		if (type != '0' && type != '')
-	    			filter += " AND "+type+" not like ''";
+	    			filter += " AND "+type+" is not null";
 
 	    		if (marco != '0' && marco != '')
 	    			filter += " AND "+marco+"='x'";
