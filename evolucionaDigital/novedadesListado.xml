@@ -425,7 +425,7 @@
 	    			filter += " AND "+marco+"='x'";
 
 	    		if (operativa != '')
-	    			filter += " AND V='"+operativa+"'";
+	    			filter += " AND V="+operativa;
 			}
 
     		return filter;
