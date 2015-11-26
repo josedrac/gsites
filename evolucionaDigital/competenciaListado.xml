@@ -54,6 +54,14 @@
 			float:left;
 		}
 
+		.content {
+			float: left;
+		    width: 600px;
+		    height: 160px;
+		    margin-left: 15px;
+		    margin-top: 5px;
+		}
+
 		#allcontent{
 			-webkit-border-radius: .2em;
 			-moz-border-radius: .2em;
@@ -223,9 +231,10 @@
 
 				html += "<div class='container'>";
 				html += getIcons(data, i);
-				html += "	<p><a class='title'>" + data.getValue(i, 1) + "</a></p>";
-				html += "	<span>" + data.getValue(i, 2) + "</span>";
-				html += "cosas";
+				html += "<div class='content'";
+				html += "	<div><a class='title'>" + data.getValue(i,1) + "</a></div>";
+				html += "	<span>" + data.getFormattedValue(i,2) + "</span>";
+				html += "<div>";
 				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
 
 			  	if (i==elemForPage*pagActual-1 || i == filas-1){
