@@ -330,7 +330,7 @@
             elementYearSelector.selectedIndex = getIndex(year, arrayYear);
             elementMonthSelector.selectedIndex = month;
             elementChannelSelector.selectedIndex = getIndex(channel, arrayChannel);
-            elementMarcoSelector.selectedIndex = getIndex(marco, arrayMarco);
+            elementMarcoTempSelector.selectedIndex = getIndex(marco, arrayMarco);
             elementTypeSelector.selectedIndex = getIndex(type, arrayType);
         }
 
