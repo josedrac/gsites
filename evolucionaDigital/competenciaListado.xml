@@ -232,12 +232,11 @@
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
 			var elemForPage = 5;
+			if(filas > 40) filas = 40;
 			var pagTotales = Math.ceil(filas/elemForPage);
 			var pagActual = 1;
 			var html = "";
-			
-			if(filas > 40)
-				filas = 40;
+
 
 			if (filas < 1)
     			html += '<p class="text">No hay ningún contenido.</p>';
