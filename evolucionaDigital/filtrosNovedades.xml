@@ -73,7 +73,7 @@
         .subtitle {
             color: #0078D2;
             font-weight: bold;
-            margin-top: 30px;
+            margin-top: 20px;
         }
 
         .btn:hover {
@@ -179,7 +179,7 @@
             top: 25%;
         }
         .ui-selectmenu-menu .ui-menu {
-                height: 75px;
+                height: 65px;
         }
         .element-year {
             padding-top: 20px;
@@ -202,8 +202,6 @@
         }
         .ui-menu-item {
             color: #003f8c;
-            height: 2.5em;
-            line-height: 2.5em;
             padding: 0 0 0 1.25em;
             border-top: 1px solid #e1e1e1;
             font-size: 13px;
@@ -251,8 +249,8 @@
                 <label class="name">Tipo de contenido</label>
                 <select name="type" id="typeSelector">
                     <option value="0">Todos</option>
-                    <option value="video">Vídeo</option>
-                    <option value="articulo">Artículo</option>
+                    <option value="H">Vídeo</option>
+                    <option value="G">Artículo</option>
                 </select>
             </div>
             <div class="form">
