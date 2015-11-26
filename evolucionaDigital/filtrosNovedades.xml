@@ -73,7 +73,7 @@
         .subtitle {
             color: #0078D2;
             font-weight: bold;
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .btn:hover {
