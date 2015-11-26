@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  	<ModulePrefs title="NB-articleVideoContent.xml">
+  	<ModulePrefs title="NB-articleContent.xml">
 	    <Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
