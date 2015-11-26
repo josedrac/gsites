@@ -152,7 +152,7 @@
     .centerText {
         text-align:center;
     }
-    a {
+    span.click {
         color: #0078d2;
         text-decoration: none;
     }
@@ -278,11 +278,11 @@
                 html +=  "<div class='row'>";
                 html +=     "<div class='colBody firstcol'>";
                 if(data.getValue(i,13) == 'x') {
-                    html += "<a href='https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"'>";
+                    html += "<span class='click' onclick=javascript:Go('href='https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"')>";
                 }
                 html +=         data.getValue(i,2);
                 if(data.getValue(i,13) == 'x') {
-                    html += "</a>";
+                    html += "</span>";
                 }
                 html +=     "</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 3, 4)+"</div>";
@@ -351,6 +351,11 @@
             html += "<div class='colBodyIcon'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
             return html;
 
+        }
+
+        function Go(destination){
+            window.open(destination,'_parent');
+            return false;
         }
 
   </script>
