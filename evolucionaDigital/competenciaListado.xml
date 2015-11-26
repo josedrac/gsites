@@ -328,8 +328,6 @@
 			}
         }
 
-        gadgets.window.adjustHeight();
-
   </script>
     ]]>
   </Content>
