@@ -52,33 +52,18 @@
 
 		/* @end */
 
-		#titlecomboVideo{
-		margin-top:-9px;
-		margin-left:-15px;
 
-		}
-		#titlecomboVideo h2{
-		float:left;
-		color:#0078D2;
-		font-family:BBVA Web Light, Arial;
-		font-size:22px;
-		margin:31px 0px 10px 35px;
-		font-weight: normal;
-		}
-
-		#comboVideo{
+		.comboVideo {
 		width:620px;
 		float:left;
 		}
-      #video-container,
-	  #video-container2 {
+      .video-container {
 	    float:left;
 		width:607px;
 		height:180px;
 	  }
 
-	  #urlVideo,
-	  #urlVideo2{
+	  .urlVideo {
 		float:right;
 	    width:313px;
 		height:201px;
@@ -86,35 +71,20 @@
 		margin-top:5px;
         }
 
-      #urlVideo img {
+      .urlVideo .imgArt {
         width: 300px;
         height: 150px;
       }
 
-	  #TagVideo{
-	   color:#000;
-	   margin-bottom:11px;
-	   margin-left:11px;
-	   margin-top:-7px;
-	  }
-	  #TagVideo2{
-	    color:#000;
-		margin-bottom:11px;
-		margin-left: 11px;
-		margin-top: 0px;
-	  }
-
-		#titleVideo,
-		#titleVideo2 {
-			color:#0078D2;
-			font-family:BBVA Web Book, Arial;
-			font-size:18px;
-			width:260px;
-			margin: 0 0 20px 7px;
+		.titleVideo {
+			color: #0078D2;
+			font-family: BBVA Web Book,Arial;
+			font-size: 18px;
+			width: 260px;
 			font-weight: normal;
+			margin: 0px 0px 3px 7px;
 		}
-		#titleVideo a,
-		#titleVideo2 a{
+		.titleVideo a{
 			color:#0078D2;
 			font-family:BBVA Web Book, Arial;
 			font-size:18px;
@@ -127,8 +97,7 @@
 			overflow: hidden;
 		}
 
-		#textVideo,
-		#textVideo2{
+		.textVideo{
 			color:#434A58;
 			font-size:13px;
 			font-family:arial;
@@ -143,8 +112,7 @@
 			overflow: hidden;
 	    }
 
-		#infoVideo,
-		#infoVideo2{
+		.infoVideo {
 			float:left;
 			width:600px;
 			height:160px;
@@ -159,7 +127,7 @@
 			color:#DCDCDC;
 		}
 
-		#allcontent{
+		.allcontent{
 			-webkit-border-radius: .2em;
 			-moz-border-radius: .2em;
 			border-radius: .2em;
@@ -175,7 +143,7 @@
 		}
 
 		.portales {
-			margin: 2px 0px 0px;
+			margin: 5px 0px 0px;
 		}
 
 		.oculto {
@@ -207,7 +175,7 @@
 			overflow: visible;
 		}
 
-		#allcontent:hover{
+		.allcontent:hover{
 			background: #004C99;
 		}
 
@@ -234,21 +202,58 @@
 			width: 650px;
 		}
 
-		#dateVideo{
-			color:#71777F;
-			font-size:11px;
-			float:left;
-			margin-top:-15px;
-			margin-left:8px;
+		.tag {
+			margin-left: 5px;
+			padding: 0.1em;
+			display: table;
 		}
 
-		#userVideo{
+		.tagFuture {
+			background-color: #3EB6BA;
+			padding: 0.1em 0.5em;
+			display: table;
+			margin-left: 5px;
+		}
+
+		.dateVideo {
 			color:#71777F;
 			font-size:11px;
-			float:left;
+			margin-top:-15px;
+			margin-left:8px;
+			display: table-cell;
+		}
+
+		.dateVideoFuture {
+			color: #FFF;
+			font-size: 11px;
+			margin-top: -15px;
+			margin-left: 8px;
+			display: table-cell;
+		}
+
+		.userVideo {
+			color:#71777F;
+			font-size:11px;
 			margin-left:72px;
 			margin-top:-15px;
+			display: table-cell;
+			padding-left: 3px;
 		}
+
+		.userVideoFuture {
+			color: #FFF;
+			font-size: 11px;
+			margin-left: 72px;
+			margin-top: -15px;
+			display: table-cell;
+			padding-left: 3px;
+		}
+
+	.enlacesContainer {
+		height: auto;
+		width: 100%;
+		display: table;
+	}
 
 	.bloqueAnterior{
 		clear:both;
@@ -399,6 +404,8 @@
 	    		var year = getParam("anyo");
 	    		var month = getParam("mes");
 	    		var channel = getParam("channel");
+	    		var type = getParam("type");
+	    		var marco = getParam("marco");
 
 	    		if (channel == 'J')
 	    			filter += " AND (J='x' OR K='x' OR L='x')";
@@ -409,6 +416,12 @@
 	    			filter += " AND year(C) ="+ year;
 	    		if (month > 0)
 	    			filter += " AND month(C) = "+ (month-1);
+
+	    		if (type != '0' && type != '')
+	    			filter += " AND "+type+" is not null";
+
+	    		if (marco != '0' && marco != '')
+	    			filter += " AND "+marco+"='x'";
 			}
 
     		return filter;
@@ -438,41 +451,50 @@
 			if(filas<1)
     			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
             else
-            	html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
+            	html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block;width: auto;">';
 
             for(var i=0;i<filas;i++){
 
-            	if(i>3 && i==4*(pagActual-1) && i<filas-1)
-            		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: none;width: auto;height: 660px;">';
+            	if(i>3 && i==4*(pagActual-1) && i<filas)
+            		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: none;width: auto;">';
 
-				html += "<div id='comboVideo'>";
+				html += "<div class='comboVideo'>";
 				html += getIcons(data, i);
-				html += "<div id='video-container'><div id='infoVideo'>";
-				html += "<div id='urlVideo'>";
+				html += "<div class='video-container'><div class='infoVideo'>";
+				html += "<div class='urlVideo'>";
 				if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
 				    html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
 
 				}else{
-				    html += "<img src='"+data.getValue(i,6)+"'></img></div>";
+				    html += "<img class='urlVideo imgArt' src='"+data.getValue(i,6)+"'></img></div>";
 				}
 
-				html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
-				html += "<div id='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
-				html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
-				html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
+				html += "<div class='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
+				if(data.getValue(i,17) != null && data.getValue(i,17) == 'x'){
+					html += "<div class='tagFuture'>";
+					html += "<div class='dateVideoFuture'>"+data.getValue(i,20)+" - </div>";
+					html += "<div class='userVideoFuture'> "+data.getValue(i,5)+"</div>";
+					html += "</div>";
+				}
+				else{
+					html += "<div class='tag'>";
+					html += "<div class='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
+					html += "<div class='userVideo'> "+data.getValue(i,5)+"</div>";
+					html += "</div>"
+				}
+				html += "<div class='textVideo'>"+data.getValue(i,3)+"</div>";
 				var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
-				html += '</div><button type="button" id="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
+				html += '</div><button type="button" class="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
 				html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 
-			  	if (i==4*pagActual-1){
+			  	if ((i==4*pagActual-1) || (i==filas-1)){
 				    html += '</div>';
 				    pagActual++;
 				}
-				else if (i==filas-1)
-					html += '</div>';
+
 			}
 
-			html += '<div>'
+			html += '<div class="enlacesContainer">'
 			html += '<div id="bloqueEnlaces1" style="visibility:hidden" class="bloqueAnterior"><a href="javascript:anterior();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
 
 			for(var i=1; i < (pagTotales+1) ;i++){
