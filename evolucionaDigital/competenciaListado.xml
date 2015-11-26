@@ -229,12 +229,12 @@
 			if (filas < 1)
     			html += '<p class="text">No hay ningún contenido.</p>';
             else
-            	html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block;">';
+            	html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block; overflow: hidden;">';
 
             for(var i=0;i<filas;i++) {
 
             	if(i > 3 && i == elemForPage*(pagActual-1) && i < filas-1)
-            		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style="display: none;">';
+            		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style="display: none; overflow: hidden;">';
 
 				html += "<div class='container'>";
 				html += "cosas";
