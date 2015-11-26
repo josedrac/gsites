@@ -58,14 +58,14 @@
 		        .content .text, .content .icon {
 		            display: table-cell;
 		        }
-		        .content .text a {
+		        .content .text span {
 		            color: #0078d2;
 		            text-decoration: none;
 		            font-weight: bold;
 		            font-size: 13px;
 		        }
 		        .content .icon {
-		            width: 68px;
+		            width: 67px;
 		            vertical-align: middle;
 		        }
 		    </style>
@@ -78,7 +78,7 @@
 	            </div>
 	            <div class="text">
 	                <p>¿Alguna duda? mándanos un e-mail</p>
-	                <a href="javascript:void(0)">soportesdigitales.es@bbva.com</a>
+	                <span>soportesdigitales.es@bbva.com</span>
 	                <p>Te contestamos lo antes posible</p>
 	            </div>
 	        </div>
