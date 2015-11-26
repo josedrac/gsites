@@ -204,6 +204,9 @@
 
 		.tagFuture {
 			background-color: #3EB6BA;
+			padding: 0.1em 0.5em;
+			display: table;
+			margin-left: 5px;
 		}
 
 		.dateVideo {
@@ -215,11 +218,11 @@
 		}
 
 		.dateVideoFuture {
-			color:#FFFFFF;
-			font-size:11px;
-			float:left;
-			margin-top:-15px;
-			margin-left:8px;
+			color: #FFF;
+			font-size: 11px;
+			margin-top: -15px;
+			margin-left: 8px;
+			display: table-cell;
 		}
 
 		.userVideo {
@@ -231,11 +234,11 @@
 		}
 
 		.userVideoFuture {
-			color:#FFFFFF;
-			font-size:11px;
-			float:left;
-			margin-left:72px;
-			margin-top:-15px;
+			color: #FFF;
+			font-size: 11px;
+			margin-left: 72px;
+			margin-top: -15px;
+			display: table-cell;
 		}
 
 	.enlacesContainer {
