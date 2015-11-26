@@ -205,7 +205,7 @@
 			gadgetHelper = new google.visualization.GadgetHelper();
 			var opts = {dataType:'jsonp'};
 			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where A <> 'IdNovedad'";
+			var querytosend = "select * where A <> 'ID'";
 			query.setQuery(querytosend);
 			query.send(handleQueryResponse);
 		}
@@ -213,7 +213,8 @@
 		function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
-			var pagTotales = Math.ceil(filas/4);
+			var elemForPage = 10;
+			var pagTotales = Math.ceil(filas/elemForPage);
 			var pagActual = 1;
 			var html = "";
 
@@ -224,7 +225,7 @@
 
             for(var i=0;i<filas;i++) {
 
-            	if(i > 3 && i == 4*(pagActual-1) && i < filas-1)
+            	if(i > 3 && i == elemForPage*(pagActual-1) && i < filas-1)
             		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style="display: none;">';
 
 				html += "<div class='container'>";
@@ -232,7 +233,7 @@
 				html += '<button type="button" id="allcontent" onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/evolucionaDigital/\')">Ver más</button>';
 				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 
-			  	if (i==4*pagActual-1 || i == filas-1){
+			  	if (i==elemForPage*pagActual-1 || i == filas-1){
 				    html += '</div>';
 				    pagActual++;
 				}
