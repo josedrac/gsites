@@ -237,6 +237,7 @@
 			margin-left:72px;
 			margin-top:-15px;
 			display: table-cell;
+			padding-left: 3px;
 		}
 
 		.userVideoFuture {
@@ -245,6 +246,7 @@
 			margin-left: 72px;
 			margin-top: -15px;
 			display: table-cell;
+			padding-left: 3px;
 		}
 
 	.enlacesContainer {
