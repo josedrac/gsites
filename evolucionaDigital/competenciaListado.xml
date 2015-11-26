@@ -186,9 +186,6 @@
 	    .iconMargin {
 	    	margin-left: 10px !important;
 	    }
-	    .noIcons {
-	    	height: 21px;
-	    }
 	    .clearBoth {
 	        clear:both;
 	    }
@@ -378,10 +375,6 @@
 
                 html += "<div class='icon "+iconMargin+"'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
                 countIcons++;
-
-            }
-            if(countIcons == 0){
-            	html += "<div class='noIcons'></div>";
             }
 
             html += "</div><div class='clearBoth'></div>";
