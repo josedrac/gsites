@@ -57,9 +57,22 @@
 		.content {
 			float: left;
 		    width: 600px;
-		    height: 160px;
+		    height: 50px;
 		    margin-left: 15px;
 		    margin-top: 5px;
+		}
+
+		a.title {
+			color: #0078D2;
+		    font-family: BBVA Web Book, Arial;
+		    font-size: 18px;
+		    width: 260px;
+		    font-weight: normal;
+		    text-decoration: none;
+		    text-overflow: ellipsis;
+		    display: block;
+		    max-height: 65px;
+		    overflow: hidden;
 		}
 
 		#allcontent{
