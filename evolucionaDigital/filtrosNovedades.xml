@@ -310,7 +310,7 @@
                     if(array[i] == value)
                         return i;
             }
-            return -1;
+            return 0;
         }
 
         function setDefaultSelectOption() {
@@ -323,7 +323,7 @@
             var year = getParam("anyo");
             var month = getParam("mes");
             if(month == '')
-                month = -1;
+                month = 0;
             var channel = getParam("channel");
             var type = getParam("type");
             var marco = getParam("marco");
