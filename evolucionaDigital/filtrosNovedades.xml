@@ -221,13 +221,13 @@
 
     <div class="container">
         <div class="form">
-            <label class="name">Marco temporal</label>
+            <label class="name">Novedades y Archivo</label>
             <div class="element-marcotemp">
                 <select name="marco" id="marcoSelector">
                     <option value="0">Todos</option>
-                    <option value="R">Futuro</option>
-                    <option value="S">Nuevo</option>
-                    <option value="T">Histórico</option>
+                    <option value="R">Disponible Próximamente</option>
+                    <option value="S">Novedades ya disponibles</option>
+                    <option value="T">Archivo</option>
                 </select>
             </div>
             <div class="subtitle">
