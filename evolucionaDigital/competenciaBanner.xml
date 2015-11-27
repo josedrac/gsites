@@ -33,6 +33,7 @@
 		            -khtml-border-radius: 2px;
 					padding: 3px;
 					width: 275px;
+					cursor: pointer;
 		        }
 
 		        .content{
