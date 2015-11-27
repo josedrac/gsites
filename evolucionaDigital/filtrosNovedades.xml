@@ -196,7 +196,16 @@
         padding-top: 10px;
         //font-weight: bold;
         display: table-cell;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    .subname {
+        color: #434a58;
+        float: left;
+        font-family: Arial;
+        font-size: 13px;
+        display: table-cell;
+        margin-bottom: 5px;
         width: 100%;
     }
     .ui-menu-item {
@@ -221,13 +230,13 @@
 
     <div class="container">
         <div class="form">
-            <label class="name">Marco temporal</label>
+            <label class="name">Novedades y Archivo</label>
             <div class="element-marcotemp">
                 <select name="marco" id="marcoSelector">
                     <option value="0">Todos</option>
-                    <option value="R">Futuro</option>
-                    <option value="S">Nuevo</option>
-                    <option value="T">Histórico</option>
+                    <option value="R">Disponible Próximamente</option>
+                    <option value="S">Novedades ya disponibles</option>
+                    <option value="T">Archivo</option>
                 </select>
             </div>
             <div class="subtitle">
@@ -253,8 +262,8 @@
             </select>
         </div>
         <div class="form">
-            <label class="name">Fecha</label>
             <div class="element">
+                <label class="subname">Año</label>
                 <select name="anyo" id="yearSelector">
                     <option value="0">Todos</option>
                     <option value="2013">2013</option>
@@ -264,6 +273,7 @@
                 </select>
             </div>
             <div class="element">
+                <label class="subname">Mes</label>
                 <select id="monthSelector" name="mes">
                     <option value="0">Cualquiera</option>
                     <option value="1">Enero</option>
