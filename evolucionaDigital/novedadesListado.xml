@@ -448,7 +448,7 @@
 			var filas = data.getNumberOfRows();
 			var elementsPage = 4;
 			console.log(getParam("marco"));
-			if(filas > 24 && getParam("marco") != 'T')
+			if(filas > 24)
 				filas = 24;
 			var pagTotales = Math.ceil(filas/elementsPage);
 			var pagActual = 1;
