@@ -446,9 +446,11 @@
 		function handleQueryResponse(response) {
             data = response.getDataTable();
 			var filas = data.getNumberOfRows();
-			if(filas > 16)
-				filas = 16;
-			var pagTotales = Math.ceil(filas/4);
+			var elementsPage = 4;
+			console.log(getParam("marco"));
+			if(filas > 24 && getParam("marco") != 'T')
+				filas = 24;
+			var pagTotales = Math.ceil(filas/elementsPage);
 			var pagActual = 1;
 			var html = "";
 
@@ -459,7 +461,7 @@
 
             for(var i=0;i<filas;i++){
 
-            	if(i>3 && i==4*(pagActual-1) && i<filas)
+            	if(i>3 && i==elementsPage*(pagActual-1) && i<filas)
             		html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: none;width: auto;">';
 
 				html += "<div class='comboVideo'>";
@@ -476,7 +478,7 @@
 				html += "<div class='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
 				if(data.getValue(i,17) != null && data.getValue(i,17) == 'x'){
 					html += "<div class='tagFuture'>";
-					html += "<div class='dateVideoFuture'>"+data.getValue(i,20)+" - </div>";
+					html += "<div class='dateVideoFuture'>Previsto "+data.getValue(i,20)+" - </div>";
 					html += "<div class='userVideoFuture'> "+data.getValue(i,5)+"</div>";
 					html += "</div>";
 				}
@@ -491,7 +493,7 @@
 				html += '</div><button type="button" class="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
 				html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 
-			  	if ((i==4*pagActual-1) || (i==filas-1)){
+			  	if ((i==elementsPage*pagActual-1) || (i==filas-1)){
 				    html += '</div>';
 				    pagActual++;
 				}
