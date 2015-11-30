@@ -372,7 +372,7 @@
             html += "</div>";
             html += "<div class='colBodyIcon'>";
             if(typeof columnb != "undefined" && data.getValue(row, columnb) == 'x')
-                html += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
+                html += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
             html += "</div>";
             return html;
 
