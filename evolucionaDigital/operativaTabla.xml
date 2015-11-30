@@ -134,6 +134,11 @@
         width: 50%;
         display: table-cell;
     }
+
+    .colBodyIcon .center {
+        width: 100%;
+    }
+
     .row {
         clear: both;
         font-size: 12px;
@@ -327,19 +332,7 @@
         }
 
         function getIcon(data, row, column, columnb) {
-            var html="";
-            if (typeof columnb == "undefined") {
-                if (data.getValue(row, column) != 'x') {
-                    html = "<div class='centerText'>-</div>";
-                    return html;
-                }
-            }
-            else {
-                if (data.getValue(row, column) != 'x' && data.getValue(row,columnb) != 'x') {
-                    html = "<div class='centerText'>-</div>";
-                    return html;
-                }
-            }
+            var html=""; 
 
             var iconCols = {
                 3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 10, 16],
@@ -353,6 +346,23 @@
                 11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 10, 16],
                 12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 10, 16]
             };
+
+
+            if (typeof columnb == "undefined") {
+                if (data.getValue(row, column) != 'x') {
+                    html = "<div class='centerText'>-</div>";
+                    return html;
+                }
+                else
+                    html += "<div class='.colBodyIcon .center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+            }
+            else {
+                if (data.getValue(row, column) != 'x' && data.getValue(row,columnb) != 'x') {
+                    html = "<div class='centerText'>-</div>";
+                    return html;
+                }
+            }
+
 
             html += "<div class='colBodyIcon'>";
             if(typeof column != "undefined" && data.getValue(row, column) == 'x')
