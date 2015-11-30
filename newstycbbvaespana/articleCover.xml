@@ -202,9 +202,10 @@
 
 				var prefs = new gadgets.Prefs(),
 					sectionId = prefs.getString('sectionId'),
+					date = getUrlParameter("date"),
 					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article content'),
-					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + getUrlParameter("date") + '"'),
+					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
@@ -247,7 +248,8 @@
 				}
 
 				function goArticle() {
-					console.log('go article');
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '';
+					return false;
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
