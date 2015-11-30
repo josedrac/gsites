@@ -171,23 +171,23 @@ margin-top:-19px;
 
 .cabeceramenu ul li.opcion1
  {
-	width: 190px;
+	width: 180px;
 }
 .cabeceramenu ul li.opcion2
  {
-	width: 110px;
+	width: 100px;
 }
 .cabeceramenu ul li.opcion3
  {
-	width: 120px;
+	width: 170px;
 }
 .cabeceramenu ul li.opcion4
  {
-	width: 165px;
+	width: 155px;
 }
 .cabeceramenu ul li.opcion5
  {
-	width: 165px;
+	width: 150px;
 }
 .cabeceramenu ul li.opcion6
  {
@@ -200,7 +200,7 @@ border-bottom-right-radius: 5px;
 border-top-right-radius: 5px;
 }
 .cabeceramenu  ul li.homefirst {
-	width: 81px;
+	width: 75px;
 	border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
