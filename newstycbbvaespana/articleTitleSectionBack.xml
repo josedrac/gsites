@@ -118,7 +118,7 @@
 				}
 
 				function goBack() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/';
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/?date=' + getUrlParameter("date") + '';
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
