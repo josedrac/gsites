@@ -131,12 +131,19 @@
 
     .colBodyIcon {
         height: 25px;
-        width: 50%;
         display: table-cell;
     }
 
     .colBodyIcon .center {
         width: 100%;
+    }
+
+    .colBodyIcon .left {
+        padding-left: 20%;
+    }
+
+    .colBodyIcon .right {
+        padding-right: 20%;
     }
 
     .row {
@@ -365,12 +372,24 @@
                 }
             }
 
+            var s = 0;
+            if(typeof column != "undefined")
+                s++;
+            if(typeof columnb != "undefined")
+                s++;
 
-            html += "<div class='colBodyIcon'>";
+            if(s<2)
+                html += "<div class='colBodyIcon'>";
+            else
+                html += "<div class='colBodyIcon left'>";
             if(typeof column != "undefined" && data.getValue(row, column) == 'x')
                 html += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
             html += "</div>";
-            html += "<div class='colBodyIcon'>";
+            
+            if(s<2)
+                html += "<div class='colBodyIcon'>";
+            else
+                html += "<div class='colBodyIcon right'>";
             if(typeof columnb != "undefined" && data.getValue(row, columnb) == 'x')
                 html += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
             html += "</div>";
