@@ -202,7 +202,7 @@
 
 				var prefs = new gadgets.Prefs(),
 					sectionId = prefs.getString('sectionId'),
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
+					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -271,65 +271,21 @@
 
 			</style>
 
-			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-			<script type="text/javascript">
-
-				google.load('visualization', '1', {packages: ['table']});
-
-			</script>
-
 
 			<table width="100%" border="0" id="tablaconfig">
 				<tr>
 					<td>
-						<div id="input"></div>
+						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
 					</td>
 				</tr>
 			</table>
 
 			<script type="text/javascript">
 
-				var prefs = new gadgets.Prefs();
-
+			var prefs = new gadgets.Prefs();
 				function register(variable) {
-					prefs.set(variable, document.getElementById(variable).value);
-				}
-
-				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
-					sheetName = encodeURIComponent('sections'),
-					queryString = encodeURIComponent('SELECT * offset 1'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-
-				function getSpreadsheet() {
-					query.send(handleQueryResponse);
-				}
-
-				function handleQueryResponse(response) {
-					if (response.isError()) {
-						console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-						return;
-					}
-					var dataTable = response.getDataTable();
-					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
-				}
-
-				function printDataTable(dataTable) {
-
-					var rows = dataTable.getNumberOfRows(),
-						input = '<select name="__UP_sectionId__" id="sectionId" onchange="register("sectionId")>';
-
-					for (i = 0; i < rows; i++) {
-						input += '<option value="' + dataTable.getValue(i, 0) + '">' + dataTable.getValue(i, 1) + '</option>';
-					}
-
-					input += '</select>';
-
-					document.getElementById("input").innerHTML = input;
-					
-				}
-
-				google.setOnLoadCallback(getSpreadsheet);
+				prefs.set(variable, document.getElementById(variable).value);
+			}
 
 			</script>
 
