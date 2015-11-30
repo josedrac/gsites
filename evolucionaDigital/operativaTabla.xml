@@ -353,8 +353,10 @@
                     html = "<div class='centerText'>-</div>";
                     return html;
                 }
-                else
+                else{
                     html += "<div class='.colBodyIcon .center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                    return html;
+                }
             }
             else {
                 if (data.getValue(row, column) != 'x' && data.getValue(row,columnb) != 'x') {
