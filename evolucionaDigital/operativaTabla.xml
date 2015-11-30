@@ -136,6 +136,8 @@
     }
 
     .colBodyIcon .center {
+        height: 25px;
+        display: table-cell;
         width: 100%;
     }
 
