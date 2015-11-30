@@ -445,11 +445,12 @@
 
 		function handleQueryResponse(response) {
             data = response.getDataTable();
+            filas = data.getNumberOfRows();
 			var elementsPage = 4;
 
 			if(isSearchDone() && getParam("marco") == 'T')
-				filas = data.getNumberOfRows();
-			else if(data.getNumberOfRows() > 24)
+				filas = filas;
+			else if(filas > 24)
 				filas = 24;
 
 			var pagTotales = Math.ceil(filas/elementsPage);
