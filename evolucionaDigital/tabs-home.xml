@@ -52,7 +52,7 @@
             cursor: pointer;
             position: relative;
             overflow: visible;
-            width: 110px;
+            width: 130px;
             font-size: 11px;
             height: 20px;
             font-weight: bold;
@@ -131,13 +131,15 @@
             text-decoration: none;
         }
         .block-linkHelp p {
-            fheight: 45px;
+            height: 55px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    display: block;
 		    display: -webkit-box;
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 3;
+            line-height: 18px;
+            color: #434a58;
         }
 		.block-linkHelp h2 {
 		    text-overflow: ellipsis;
@@ -165,7 +167,7 @@
     		vertical-align: bottom;
         }
         .block-newMobile .img img {
-            max-width: 100%;
+            max-width: 110px;
 		    width: auto;
 		    float: right;
         }
@@ -173,28 +175,30 @@
             font-size: 18px;
             color: #0078d2;
             font-weight: normal;
-    		
+
         }
         .block-newMobile .text h2 {
-            min-height: 60px;
-            max-height: 60px;
+            min-height: 63px;
+            max-height: 63px;
             overflow: hidden;
             display: block;
     		display: -webkit-box;
-		    height: 60px;
+		    height: 63px;
 		    overflow: hidden;
 		    -webkit-line-clamp: 3;
 		    -webkit-box-orient: vertical;
 		    text-overflow: ellipsis;
         }
         .block-newMobile .text p {
-		    height: 75px;
+		    height: 90px;
 		    overflow: hidden;
 		    text-overflow: ellipsis;
 		    display: block;
 		    display: -webkit-box;
 		    -webkit-box-orient: vertical;
 		    -webkit-line-clamp: 5;
+            line-height: 18px;
+            color: #434a58;
 		}
 		iframe {
 			width: 100%;
@@ -205,16 +209,17 @@
 	<div class="content">
         <div id="tabs">
             <ul>
-                <li><a href="#tabs-1">Enlaces y ayuda</a></li>
-                <li><a href="#tabs-2">Nuevo en el móvil</a></li>
+                <li><a href="#tabs-1">Nuevo en el móvil</a></li>
+                <li><a href="#tabs-2">Enlaces y ayuda</a></li>
                 <div class="border"></div>
             </ul>
             <div id="tabs-1">
-            	<div id="listLinksHelpers"></div>
+                <div id="listNewMobile"></div>
             </div>
             <div id="tabs-2">
-            	<div id="listNewMobile"></div>
+            	<div id="listLinksHelpers"></div>
             </div>
+
         </div>
 	</div>
 
@@ -256,7 +261,7 @@
 			   	html += "<div class='block-linkHelp'>";
 			   	html += "<h2>" + data.getValue(i,1) + "</h2>";
 			   	html += "<p>" + data.getValue(i,2) + "</p>";
-			   	html += "<a href='" + data.getValue(i,3) + "' target='_parent'>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
+			   	html += "<a href='" + data.getValue(i,3) + "' target='_blank'>Acceder <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'></a>";
 			    html += "</div>";
 			}
 			document.getElementById('listLinksHelpers').innerHTML += html;
@@ -281,17 +286,15 @@
             }
 
 			for(var i=0; i < filas && i < 4; i++) {
+				var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data2.getValue(i,0);
 			   	html += "<div class='block-newMobile'>";
 			   	html += "<div class='text'>";
 			   	html += "<h2>" + data2.getValue(i,1) + "</h2>";
 			   	html += "<p>" + data2.getValue(i,3) + "</p>";
-			   	html += "<button onclick=javascript:Go('" + data2.getValue(i,8) + "')>Más información</button>";
+			   	html += "<button onclick=javascript:Go('" + url + "')>Más información</button>";
 			   	html += "</div>";
 			   	html += "<div class='img'>";
-			   	if(data2.getValue(i,7) != null && typeof data2.getValue(i,7) != 'undefined' && data2.getValue(i,7) !== undefined && data2.getValue(i,7) != ""){
-			        html += "<iframe src='"+data2.getValue(i,7)+"' allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe>";
-
-               	} else if(data2.getValue(i,6) != null && typeof data2.getValue(i,6) != 'undefined' && data2.getValue(i,6) !== undefined && data2.getValue(i,6) != "") {
+			   	if(data2.getValue(i,6) != null && typeof data2.getValue(i,6) != 'undefined' && data2.getValue(i,6) !== undefined && data2.getValue(i,6) != "") {
 			        html += "<img src='" + data2.getValue(i,6) + "'>";
                	}
 			   	html += "</div></div>";

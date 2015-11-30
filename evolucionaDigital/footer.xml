@@ -17,7 +17,6 @@
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 	<head>
 		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/reset.css" media="all">
-		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/styles-personas.css" media="all">
 		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/buttons.css" media="all">
 		<style type="text/css">
 		  /* @group fonts */
@@ -157,6 +156,7 @@
                 font-size: 0.7em;
                 background: #F9FAF9;
                 color: #8C9299;
+                margin-top:20px;
             }
 
             .footer-bottom ul{
@@ -223,11 +223,11 @@
 				<h2>EVOLUCIONA DIGITAL</h2>
 				<ul>
 					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital">Inicio</a></li>
-					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/ayuda-a-digitalizar">Ayuda a digitalizar</a></li>
+					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar">Digitalizar y remotizar</a></li>
 					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo">Decálogo</a></li>
           <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades">Novedades</a></li>
           <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal">Operativa por canal</a></li>
-          <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes">!Pruébalo antes!</a></li>
+          <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes">¡Pruébalo antes!</a></li>
           <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion">Tu opinión</a></li>
 				</ul>
 			</li>
@@ -235,7 +235,7 @@
 				<h2>ENLACES DE INTERÉS</h2>
 				<ul>
 					<li><a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/">Evoluciona</a></li>
-          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital/cdc">DCBC´s y Embajadores</a></li>
+          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital/dcbc">DCBC´s y Embajadores</a></li>
           <li><a target="_blank" href="https://sites.google.com/a/bbva.com/somos-bbva-contigo">BBVA Contigo</a></li>
           <li><a target="_blank" href="https://www.bbvaopenmind.com/">BBVA OpenMind</a></li>
 				</ul>
@@ -254,11 +254,9 @@
 		</ul>
 	</div>
 	<div class="footer-bottom">
-      <span>Aviso Legal</span>
       <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
   </div>
 </div>
-
     ]]>
   </Content>
 

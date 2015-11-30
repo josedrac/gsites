@@ -63,15 +63,20 @@
 
 				// Segundo nivel
 				if(link[0] != "") {
+					linkQuery = link[0].toLowerCase().split('?');
 					breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
-					breadcrumb += " <a href='" + baseLink + "/" + link[0] + "' target='_parent'>" + link[0] + "</a>";
+					breadcrumb += " <a href='" + baseLink + "/" + linkQuery[0] + "' target='_parent'>" + linkQuery[0] + "</a>";
 				} 
 
 				// Tercer nivel
 				if(link[1] != undefined) {
 					linkExtend = link[1].toLowerCase().split('=');
 					breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
-					breadcrumb += " <a href='" + baseLink + "/" + link[0] + "/" + linkExtend[0] + "=" + linkExtend[0] + "' target='_parent'>" + linkExtend[1] + "</a>";
+					if (linkExtend.length == 1) {
+						breadcrumb += " <a href='" + baseLink + "/" + link[0] + "/" + linkExtend + "' target='_parent'>" + linkExtend + "</a>";
+					} else {
+						breadcrumb += " <a href='" + baseLink + "/" + link[0] + "/" + linkExtend[0] + "=" + linkExtend[0] + "' target='_parent'>" + linkExtend[1] + "</a>";
+					}
 				} 
 
 				breadcrumb += "</div>"

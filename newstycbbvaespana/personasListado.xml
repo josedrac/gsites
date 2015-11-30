@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  	<ModulePrefs title="NB-personas-listado.xml" author_affiliation="sopraux" >
+	    <Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+  	</ModulePrefs>
+	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+	<UserPref name="VarRegion" display_name="VarRegion" default_value="L" datatype="enum" required="true" >
+		<EnumValue value="L" display_value="Canarias"/>
+    	<EnumValue value="M" display_value="Cataluña"/>
+    	<EnumValue value="N" display_value="Centro"/>
+    	<EnumValue value="O" display_value="Este"/>
+    	<EnumValue value="P" display_value="Noroeste"/>
+    	<EnumValue value="Q" display_value="Norte"/>
+    	<EnumValue value="R" display_value="Portugal"/>
+    	<EnumValue value="S" display_value="Seguros"/>
+    	<EnumValue value="T" display_value="Servicios Centrales"/>
+    	<EnumValue value="U" display_value="Sur"/>
+  	</UserPref> 
+ 
+ 	<Content type="html">
+	    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+		<style type="text/css">
+		  	/* @group fonts */
+			@font-face {
+				font-family: 'BBVA Web Light';
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+
+			@font-face {
+				font-family: 'BBVA Web Book';
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+			/* @end */
+
+			.article-content button {
+				background: #0079C1;
+				background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+				background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+				background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+				-webkit-border-radius: .3em;
+				-moz-border-radius: .3em;
+				border-radius: .3em;
+				font-size: 11px;
+				font-weight: bolder;
+				word-spacing: 2px;
+				height: 20px;
+				padding-left: .9em;
+				padding-right: .9em;
+				border: .1em solid #00559D;
+				color: white;
+				cursor: pointer;
+				margin-top: 25px;
+			}
+
+			.article-cover-page {
+				display: table;
+				width: 620px;
+				background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
+				background-position: bottom;
+				background-repeat: repeat-x;
+				padding-bottom: 20px;
+			}
+
+			.article-content {
+				display: table-cell;
+				vertical-align: top;
+				width: 50%;
+			    height: 100%;
+			}
+
+			.article-content-wrapper {
+				padding: 0 20px;
+				width: 280px;
+			}
+
+			.article-content h2 {
+				font-family: BBVA Web Light, Arial;
+				font-size: 16px;
+				font-weight: normal;
+				text-transform: uppercase;
+				word-spacing: 2px;
+				color: #333;
+				margin-top: 10px;
+				margin-bottom: 5px;
+			}
+
+			.article-content h3 {
+	  			font-family: BBVA Web Book, Arial;
+	  			font-size: 18px;
+	  			font-weight: normal;
+				color: #0078D2;
+	  			text-decoration: none;
+	  			word-spacing: -2px;
+	  			margin: 0;
+			}
+
+			.article-content .author-signature {
+				font-family: arial;
+				font-size: 11px;
+				color: #71777F;
+				margin-top: 2px;
+	  			margin-bottom: 19px;
+			}
+
+			.article-content p {
+				font-family: arial;
+				font-size: 13px;
+				color: #434A58;
+			}
+
+			.article-content button:hover {
+				background: #004C99;
+			}
+
+			.article-image {
+				width: 50%;
+			    height: 100%;
+				display: table-cell;
+				vertical-align: bottom;
+			}
+
+			.article-image img {
+				max-width: 100%;
+				max-height: 262px;
+				float: right;
+			}
+
+			.article-image iframe {
+				border:0px solid #AAA; 
+				width:300px; 
+				height:200px; 
+			}
+		</style>
+
+		<!--[if IE]>
+
+			<style type="text/css">
+
+				.checkpage img,
+				.checkpage1 img,
+				.bloqueAnterior img,
+				.bloqueSiguiente img{
+					border: 0;
+				}
+				button{
+					background: #0079C1;
+				}
+
+			</style>
+
+		<![endif]-->
+
+
+		<div id="noticia"></div>
+
+	   	<script type="text/javascript">
+	        var gadgetHelper = null;
+	        var prefs = new _IG_Prefs();
+	        var urlTable = prefs.getString("_table_query_url");
+	        var VarRegion = prefs.getString("VarRegion");
+	        _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+		 	function loadVisualizationAPI(){
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+
+			function sendQuery() {
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};
+				var query = new google.visualization.Query(urlTable, opts);
+				var querytosend = "select * where A <> 'IdNoticia' and " + VarRegion + " = 'x' order by F desc, E desc, D desc limit 1";
+				query.setQuery(querytosend);
+				query.send(handleQueryResponse);
+			}
+
+	        function handleQueryResponse(response) {
+	            data = response.getDataTable();
+				var filas = data.getNumberOfRows();
+				var html = "";
+				
+				if(filas < 1) {
+    				html += '<p class="text">No hay ningún contenido.</p>';
+            	}
+            	else {
+            		var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/personas?noticia="+data.getValue(0,0);
+
+			   		html += "<div class='article-cover-page'>";
+			   		html += "	<div class='article-content'>";
+			   		html += "		<div class='article-content-wrapper'>";
+			   		if(data.getValue(0,1) != null && typeof data.getValue(0,1) != 'undefined' && data.getValue(0,1) !== undefined && data.getValue(0,1) != ""){
+			   			html += "<h2>" + data.getValue(0,1) + "</h2>";
+			   		}
+			   		html += "			<h3>" + data.getValue(0,2) + "</h3>";
+			   		html += "			<p class='author-signature'>";
+			   		html += "				<span>" + data.getValue(0,3) + "/" + data.getValue(0,4) + "/" + data.getValue(0,5) +"</span>";
+			   		html += "				<span>-</span>";
+			   		html += "				<span>" + data.getValue(0,6) + "</span>";
+					html += "			</p>";
+					html += "			<p>" + data.getValue(0,7) + "</p>";
+					html += '			<button type="button" onclick="javascript:Go(\''+url+'\')">Saber más</button>';
+					html += "		</div>";
+					html += "	</div>";
+					html += "	<div class='article-image'>";
+
+					if(data.getValue(0,9) != null && typeof data.getValue(0,9) != 'undefined' && data.getValue(0,9) !== undefined && data.getValue(0,9) != ""){
+						html += "<img src='" + data.getValue(0,9) + "'/>";
+               		}else{
+			        	html += "<iframe src='"+data.getValue(0,10)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe>";
+               		}
+
+					html += "	</div>";
+					html += "</div>";
+				}
+
+				document.getElementById('noticia').innerHTML += html;
+			}
+
+
+		    function Go(destination) {
+		    	window.parent.location.href = destination;
+		    	return false;
+			}
+
+			//delay loading
+			delayRender();
+		    function delayRender(){
+		    	window.setTimeout('showIframes()',2000);
+		    }
+		 	function showIframes() {
+			 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+
+			 	for (var i=0;i<iframes;i++)
+				{
+				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+				}
+	        }
+
+
+	  	</script>
+    	]]>
+	</Content>
+</Module>
