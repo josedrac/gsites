@@ -202,7 +202,7 @@
 
 				var prefs = new gadgets.Prefs(),
 					sectionId = prefs.getString('sectionId'),
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -291,12 +291,13 @@
 			<script type="text/javascript">
 
 				var prefs = new gadgets.Prefs();
-				
+
 				function register(variable) {
 					prefs.set(variable, document.getElementById(variable).value);
 				}
 
-				var sheetName = encodeURIComponent('sections'),
+				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
+					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * offset 1'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
