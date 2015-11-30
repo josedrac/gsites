@@ -125,11 +125,14 @@
         border-bottom: 1px solid #E5E5E5;
         line-height: 35px;
         color: #434a58;
-        }
+        display: table;
+        height: 36px;
+    }
 
     .colBodyIcon {
         height: 25px;
         width: 50%;
+        display: table-cell;
     }
     .row {
         clear: both;
