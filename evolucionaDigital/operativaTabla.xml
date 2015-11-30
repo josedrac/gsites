@@ -339,23 +339,24 @@
             }
 
             var iconCols = {
-                3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 10, 16],
+                4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 10, 16],
                 5: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 10, 16],
+                7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 10, 16],
                 8: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
-                9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
-                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
-                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png', 10, 16]
+                9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 13, 16],
+                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
+                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 10, 16]
+                12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 10, 16]
             };
 
             html += "<div class='colBodyIcon'>";
-            if(data.getValue(row, column) == 'x')
+            if(typeof column != "undefined" && data.getValue(row, column) == 'x')
                 html += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
             html += "</div>";
             html += "<div class='colBodyIcon'>";
-            if(data.getValue(row, columnb) == 'x')
+            if(typeof columnb != "undefined" && data.getValue(row, columnb) == 'x')
                 html += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
             html += "</div>";
             return html;
