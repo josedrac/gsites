@@ -185,8 +185,9 @@
 			<script type="text/javascript">
 
 				function getUrlParameter(parameterName) {
+
+					console.log(gadgets.util.getUrlParameters()["parent"]);
 					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
-					debugger;
 
 					for (var i = 0; i < params.length; i++) {
 						var p = params[i].split('=');
