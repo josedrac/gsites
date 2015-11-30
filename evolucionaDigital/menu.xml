@@ -304,7 +304,7 @@ border-top-right-radius: 5px;
 
 	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo"  target="_parent">Decálogo</a></span></span></li>
 
-	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades"  target="_parent" >Novedades y Archivo</a></span></span></li>
+	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades"  target="_parent" >Novedades</a></span></span></li>
 
  	<li id="opcion4" class="opcion4"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal"  target="_parent">Operativa por canal</a></span></span></li>
 
