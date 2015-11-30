@@ -8,6 +8,8 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
+	<UserPref name="sectionId" display_name="Section ID" required="true" />
+
 	<Content type="html">
 	    <![CDATA[
 
@@ -197,9 +199,11 @@
 					return false;
 				}
 
-				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				var prefs = new gadgets.Prefs(),
+					sectionId = prefs.getString('sectionId'),
+					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article content'),
-					queryString = encodeURIComponent('SELECT * where A = "INF" and D ends with "' + getUrlParameter("date") + '"'),
+					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
@@ -242,6 +246,42 @@
 			</script>
 
 	    ]]>
+	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+
+			<style type="text/css">
+
+				table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+			}
+
+			</style>
+
+
+			<table width="100%" border="0" id="tablaconfig">
+				<tr>
+					<td>
+						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
+					</td>
+				</tr>
+			</table>
+
+			<script type="text/javascript">
+
+			var prefs = new gadgets.Prefs();
+				function register(variable) {
+				prefs.set(variable, document.getElementById(variable).value);
+			}
+
+			</script>
+
+		]]>
+
 	</Content>
 
 </Module>
