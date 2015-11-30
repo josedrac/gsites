@@ -136,8 +136,6 @@
     }
 
     .colBodyIcon .center {
-        height: 25px;
-        display: table-cell;
         width: 100%;
     }
 
@@ -356,7 +354,7 @@
                     return html;
                 }
                 else{
-                    html += "<div class='.colBodyIcon .center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                    html += "<div class='colBodyIcon center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
                     return html;
                 }
             }
