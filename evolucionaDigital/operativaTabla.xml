@@ -107,7 +107,7 @@
     }
 
     .colHeader {
-        width: 75px;
+        width: 74px;
         height: 85px;
         float: left;
         border-right: 1px solid #E5E5E5;
