@@ -82,6 +82,28 @@
 					padding: 0 10px;
 				}
 
+
+				dl {
+				    margin-top: 14px;
+				    margin-bottom: 16px;
+				    padding: 0 10px;
+					font-family: arial;
+					font-size: 13px;
+					color: #434A58;
+				}
+
+				dt {
+					float: left;
+				}
+				dt:after {
+					content: "\003A";
+					margin-right: 3px;
+				}
+				dd {
+					color: #0078D2;
+				    margin-bottom: 4px;
+				}
+
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 
-	<ModulePrefs title="NB - articleCover.xml">
+	<ModulePrefs title="NB - simpleArticleCover.xml">
 		<Require feature="idi"/>
 		<Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -37,34 +37,6 @@
 					font-weight: normal;
 				}
 
-				.article-cover {
-					display: table;
-					width: 100%;
-				}
-
-
-				.article-cover.bordered-button {
-					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
-					background-position: bottom;
-					background-repeat: repeat-x;
-				}
-
-				.article-cover .article-cover-wrapper {
-				    margin-right: 20px;
-					padding-left: 20px;
-					width: 280px;
-				}
-
-				.article-cover .content-wrapper {
-					display: table-cell;
-					vertical-align: top;
-				}
-
-				.article-cover .media-wrapper {
-					display: table-cell;
-					vertical-align: middle;
-				}
-
 				h2 {
 					font-family: BBVA Web Light, Arial;
 					font-size: 16px;
@@ -84,14 +56,6 @@
 		  			text-decoration: none;
 		  			word-spacing: -2px;
 		  			margin: 0;
-				}
-
-				.author-signature {
-					font-family: arial;
-					font-size: 11px;
-					color: #71777F;
-					margin-top: 2px;
-		  			margin-bottom: 19px;
 				}
 
 				p,
@@ -129,29 +93,6 @@
 					background: #004C99;
 				}
 
-				.cover-media {
-				    text-align: right;  /* align the inline(-block) elements horizontally */
-				    font: 0/0 a;         /* remove the gap between inline(-block) elements */
-				}
-
-				.cover-media:before {    /* create a full-height inline block pseudo=element */
-				    content: ' ';
-				    display: inline-block;
-				    vertical-align: middle;  /* vertical alignment of the inline element */
-				    height: 100%;
-				}
-
-				.cover-media img,
-				.cover-media iframe {
-				    display: inline-block;
-				    vertical-align: middle;  /* vertical alignment of the inline element */
-				    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
-			        max-height: 100%;
-	    			max-width: 100%;
-	    			position: relative;
-	    			bottom: 5px;
-				}
-
 				dl {
 				    margin-top: 14px;
 				    margin-bottom: 16px;
@@ -168,7 +109,7 @@
 					color: #0078D2;
 				    margin-bottom: 4px;
 				}
-
+				
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -179,28 +120,13 @@
 
 			</script>
 
-		 	<div class="article-cover bordered-button">
-		 		<div class="content-wrapper">
-					<div class="article-cover-wrapper">
+		 	<div>
 
-			 			<h2 id="title"></h2>
-						<h3 id="subtitle"></h3>
-						<p class="author-signature">
-							<span id="date"></span>
-							<span>-</span>
-							<span id="author"></span>
-						</p>
+				<h3 id="subtitle"></h3>	
 
-						<div id="sortDescription"></div>
-						<button type="button" onclick="javascript:goArticle()">Saber más</button>
+				<div id="sortDescription"></div>
+				<button type="button" onclick="javascript:goArticle()">Saber más</button>
 
-					</div>
-		 		</div>
-		 		<div class="media-wrapper">
-
-		 			<div id="coverMedia" class="cover-media"></div>
-		 			
-		 		</div>
 		 	</div>
 
 			<script type="text/javascript">
@@ -241,28 +167,12 @@
 
 				function printDataTable(dataTable) {
 					var data = {
-							title: dataTable.getValue(0, 1),
 							subtitle: dataTable.getValue(0, 2),
-							date: dataTable.getValue(0, 3),
-							author: dataTable.getValue(0, 4),
 							sortDescription: dataTable.getValue(0, 7)
-						},
-						coverImage = dataTable.getValue(0, 9),
-						coverVideo = dataTable.getValue(0, 10);
+						};
 
-
-					if(coverImage != null && coverImage != undefined) {
-						data.coverMedia = '<img src="' + coverImage + '" alt="image"/>';;
-					} else if(coverVideo != null && coverVideo != undefined) {
-						data.coverMedia = coverVideo;
-					}
-
-					document.getElementById("title").innerHTML = data.title; 				
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
-					document.getElementById("date").innerHTML = data.date;
-					document.getElementById("author").innerHTML = data.author; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
-					document.getElementById("coverMedia").innerHTML = data.coverMedia;
 				}
 
 				function goArticle() {
