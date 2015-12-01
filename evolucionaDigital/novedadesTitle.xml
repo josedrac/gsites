@@ -83,7 +83,7 @@
 					title = "Novedades y Archivo";
 			}
 		} else {
-			title = "Disponible Próximamente";
+			title = "Novedades ya disponibles";
 		}
 
 		html += "<h1>" + title + "</h1>";
