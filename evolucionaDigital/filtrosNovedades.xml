@@ -337,6 +337,8 @@
             var channel = getParam("channel");
             var type = getParam("type");
             var marco = getParam("marco");
+            if(marco == '')
+                marco = 'S';
 
             elementYearSelector.selectedIndex = getIndex(year, arrayYear);
             elementMonthSelector.selectedIndex = month;
