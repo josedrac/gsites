@@ -259,8 +259,7 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
-                                if ((isSearchDone() && products[product] == getSelectedProduct()) ||
-                                (!isSearchDone() && products[product] == "Todos")) {
+                                if ((isSearchDone() && products[product] == getSelectedProduct()) || (!isSearchDone() && products[product] == "Todos")) {
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
                                     continue;
                                 }

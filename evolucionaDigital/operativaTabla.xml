@@ -231,7 +231,7 @@
                 querytosend += " order by B";
             }
             else {
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Cuentas' order by B";
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
