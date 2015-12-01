@@ -94,7 +94,8 @@
 		  			margin-bottom: 19px;
 				}
 
-				p {
+				p,
+				dl {
 					font-family: arial;
 					font-size: 13px;
 					color: #434A58;
@@ -149,6 +150,23 @@
 	    			max-width: 100%;
 	    			position: relative;
 	    			bottom: 5px;
+				}
+
+				dl {
+				    margin-top: 14px;
+				    margin-bottom: 16px;
+				}
+
+				dt {
+					float: left;
+				}
+				dt:after {
+					content: "\003A";
+					margin-right: 3px;
+				}
+				dd {
+					color: #0078D2;
+				    margin-bottom: 4px;
 				}
 
 			</style>
