@@ -7,6 +7,8 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
+  	<UserPref name="sectionName" display_name="Section name" required="true" />
+
  	<Content type="html">
     	<![CDATA[
 			
@@ -92,7 +94,9 @@
 					return false;
 				}
 
-				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				var prefs = new gadgets.Prefs(),
+					sectionName = prefs.getString('sectionName'),
+					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
@@ -112,8 +116,7 @@
 
 				function printDataTable(dataTable) {
 				
-					var sectionName = dataTable.getValue(0, 1);
-					document.getElementById("sectionName").innerHTML = sectionName; 	
+					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);	
 
 				}
 
@@ -121,11 +124,51 @@
 					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/?date=' + getUrlParameter("date") + '';
 				}
 
-				google.setOnLoadCallback(getSpreadsheet);
+				if(sectionName != null && sectionName != undefined && sectionName != '') {
+					document.getElementById("sectionName").innerHTML = sectionName; 						
+				}
+				else {
+					google.setOnLoadCallback(getSpreadsheet);
+				}
 
 			</script>
    			
    		]]>
   	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+
+			<style type="text/css">
+
+				table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+			}
+
+			</style>
+
+			<table width="100%" border="0" id="tablaconfig">
+				<tr>
+					<td>
+						Section Name: <input type="text" id="sectionName" value="__UP_sectionName__"   onchange="register('sectionName')"/>
+					</td>
+				</tr>
+			</table>
+
+			<script type="text/javascript">
+
+			var prefs = new gadgets.Prefs();
+				function register(variable) {
+				prefs.set(variable, document.getElementById(variable).value);
+			}
+
+			</script>
+
+		]]>
+
+	</Content>
 
 </Module>
