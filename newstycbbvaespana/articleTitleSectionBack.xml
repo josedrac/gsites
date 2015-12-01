@@ -94,8 +94,7 @@
 					return false;
 				}
 
-				var prefs = new gadgets.Prefs(),
-					sectionName = prefs.getString('sectionName'),
+				var sectionName = prefs.getString('sectionName'),
 					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
@@ -124,13 +123,8 @@
 					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/?date=' + getUrlParameter("date") + '';
 				}
 
-				if(sectionName != null && sectionName != undefined && sectionName != '') {
-					document.getElementById("sectionName").innerHTML = sectionName; 						
-				}
-				else {
-					google.setOnLoadCallback(getSpreadsheet);
-				}
-
+				google.setOnLoadCallback(getSpreadsheet);
+				
 			</script>
    			
    		]]>
