@@ -423,7 +423,7 @@
 
 	    		if (marco != '0' && marco != '')
 	    			filter += " AND "+marco+"='x'";
-	    		else if (marco == '' && (operativa == '' || operativa is null))
+	    		else if (marco == '' && operativa == '')
 	    			filter += " AND S='x'";
 
 	    		if (operativa != '') {
