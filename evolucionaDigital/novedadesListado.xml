@@ -423,11 +423,12 @@
 
 	    		if (marco != '0' && marco != '')
 	    			filter += " AND "+marco+"='x'";
-	    		else if (marco == '')
+	    		else if (marco == '' && (operativa == '' || operativa is null))
 	    			filter += " AND S='x'";
 
-	    		if (operativa != '')
+	    		if (operativa != '') {
 	    			filter += " AND V="+operativa;
+	    		}
 			} else {
 				filter += " AND S='x'";
 			}
