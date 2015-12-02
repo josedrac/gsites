@@ -337,7 +337,7 @@
             var channel = getParam("channel");
             var type = getParam("type");
             var marco = getParam("marco");
-            var marco = getParam("idOperativa");
+            var idOperativa = getParam("idOperativa");
             if(marco == '' && idOperativa == "")
                 marco = 'S';
 
