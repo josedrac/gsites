@@ -6,7 +6,7 @@
 	<Require feature="dynamic-height"/>
 	<Require feature="setprefs" />
   </ModulePrefs>
-<UserPref name="titleSection" display_name="Title of section" required="true" />
+<UserPref name="idSection" display_name="Title of section" required="true" />
 
  <Content type="html">
     <![CDATA[
