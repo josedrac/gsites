@@ -12,6 +12,35 @@
     <![CDATA[
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
+		<style type="text/css">
+
+			@font-face {
+		        font-family: 'BBVA Web Light';
+		        src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+		        src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		            url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+		            url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+		            url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+		        font-style: normal;
+		        font-weight: normal;
+		    }
+
+			#sectionId {
+				border-bottom: 1px solid #DCDCDC;
+			}
+
+			h2, img {
+		  		font-family:"BBVA Web Light",arial,sans-serif;
+		  		font-weight: lighter;
+		  		
+		  		color: #0078D2;
+		  		font-size: 22px;
+		  		padding-bottom: 9px;
+				margin: 0;
+			}
+
+		</style>
+
 		<script type="text/javascript">
 
 			google.load('visualization', '1', {packages: ['table']});
