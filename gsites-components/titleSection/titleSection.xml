@@ -40,7 +40,6 @@
 			}
 
 		</style>
-
 		<script type="text/javascript">
 
 			google.load('visualization', '1', {packages: ['table']});
@@ -90,6 +89,7 @@
 		</script>
 
 		<div id="sectionId"></div>
+
 
     ]]>
   </Content>
