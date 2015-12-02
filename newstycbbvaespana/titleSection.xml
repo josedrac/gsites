@@ -6,7 +6,7 @@
 	<Require feature="dynamic-height"/>
 	<Require feature="setprefs" />
   </ModulePrefs>
-<UserPref name="idSection" display_name="Title of section" required="true" />
+<UserPref name="sectionId" display_name="Section ID" required="true" />
 
  <Content type="html">
     <![CDATA[
@@ -21,10 +21,10 @@
 		<script type="text/javascript">
 
 			var prefs = new gadgets.Prefs(),
-				idSection = prefs.getString('idSection'),
+				sectionId = prefs.getString('sectionId'),
 				spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
 				sheetName = encodeURIComponent('sections'),
-				queryString = encodeURIComponent('SELECT * where A = "'+idSection+'"'),
+				queryString = encodeURIComponent('SELECT * where A = "'+sectionId+'"'),
 				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 			function getSpreadsheet() {
@@ -53,7 +53,7 @@
 					html += '<h2>'+ name +'</h2>';
 				}
 
-				document.getElementById("idSection").innerHTML = html;
+				document.getElementById("sectionId").innerHTML = html;
 			}
 
 			google.setOnLoadCallback(getSpreadsheet);
@@ -75,7 +75,7 @@
 	 <table width="100%" border="0" id="tablaconfig">
 		<tr>
 	       <td>
-	           Id -Page: <input type="text" size="100" id="idSection" value="__UP_idSection__"   onchange="register('idSection')"/>
+	           Id -Page: <input type="text" size="100" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
 	       </td>
 	    </tr>
 	</table>
