@@ -88,7 +88,7 @@
 					return false;
 				}
 
-				function goBack() {
+				function goAppointments() {
 					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/appointments/?date=' + getUrlParameter("date") + '';
 				}
 
