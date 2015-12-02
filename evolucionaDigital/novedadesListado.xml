@@ -482,7 +482,8 @@
 			html += "<div id='pagination' style='margin: auto;'></div>";
 
 			document.getElementById('listportales').innerHTML += html;
-			pagination(filas);
+			if(filas > 0)
+				pagination(filas);
 			gadgets.window.adjustHeight();
 		}
 
