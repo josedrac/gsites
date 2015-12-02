@@ -82,6 +82,7 @@
 				}
 
 				document.getElementById("sectionId").innerHTML = html;
+				gadgets.window.adjustHeight();
 			}
 
 			google.setOnLoadCallback(getSpreadsheet);
@@ -89,6 +90,7 @@
 		</script>
 
 		<div id="sectionId"></div>
+
 
 
     ]]>

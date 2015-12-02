@@ -173,6 +173,7 @@
 
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
+					gadgets.window.adjustHeight();
 				}
 
 				function goArticle() {
