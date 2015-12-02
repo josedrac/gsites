@@ -51,6 +51,9 @@
 		}
 		/* @end */
 
+		.novedades {
+			max-width: 620px;
+		}
 		.comboVideo {
 			width:620px;
 			float:left;
@@ -344,7 +347,7 @@
 	<![endif]-->
 
 
-<div id="listportales" class="portales"></div>
+<div id="listportales" class="novedades"></div>
 
    <script type="text/javascript">
         var gadgetHelper = null;
