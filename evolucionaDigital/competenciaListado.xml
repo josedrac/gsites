@@ -294,7 +294,7 @@
 		        recordsperpage: 4, 
 		        length: 4, 
 		        datacontainer: 'paginas', 
-		        dataelement: 'div.comboVideo', 
+		        dataelement: 'div.container', 
 		        initval: 0,
 	        });
 	    }
@@ -307,7 +307,7 @@
 			if (filas < 1)
     			html += '<p class="text">No hay ningún contenido.</p>';
             else
-            	html += '<div id="pagina" class="paginaNueva" style=" display: block; overflow: hidden;">';
+            	html += '<div id="paginas" class="paginaNueva" style=" display: block; overflow: hidden;">';
 
             for(var i=0; i<filas; i++) {
 				html += "<div class='container'>";
