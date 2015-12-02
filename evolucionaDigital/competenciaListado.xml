@@ -130,52 +130,13 @@
 			width: 650px;
 		}
 
-        .bloqueAnterior {
-	       	clear:both;
-	       	display:block;
-	       	margin-left:15px;
-	       	font-family: BBVA Web Book, Arial;
-			color:#0078D2;
-			float:left;
-			margin-top:-2px;
-			margin-left: 260px;
-			padding-right: 10px;
-	    }
-
-	    .bloqueSiguiente {
-	       	display:block;
-	        font-family: BBVA Web Book, Arial;
-	        float:left;
-	        margin-top:-2px;
-			padding-left:10px;
-	        color:#0078D2;
-			width:64px;
-	     }
-
 		p.text {
             font-size: 0.8em;
             color: #3B3B3B;
         }
 
-		.checkpage{
-    		margin-top:-5px;
-		}
-
-		.checkpage1{
-		    margin-top:-5px;
-			margin-left:260px;
-		}
 		.youtubeIframe{
 			display:none;
-		}
-
-		.checkpage a,
-		.checkpage1 a{
-			height:9px;
-			float:left;
-			padding-top:4px;
-			padding-left:2px;
-			padding-right:2px;
 		}
 
 		.icons {
@@ -252,12 +213,6 @@
 
 	<!--[if IE]>
 		<style type="text/css">
-			.checkpage img,
-			.checkpage1 img,
-			.bloqueAnterior img,
-			.bloqueSiguiente img{
-				border: 0;
-			}
 			button{
 				background: #0079C1;
 			}
@@ -313,7 +268,7 @@
 				html += "<div class='container'>";
 				html += getIcons(data, i);
 				html += "<div class='content'>";
-				html += '	<div><a href="javascript:void(0)" onclick="javascript:Go(\'' + data.getValue(i,3) + '\')" class="title">' + data.getValue(i,1) + '</a></div>';
+				html += '	<div><a href="#" onclick="javascript:Go(\'' + data.getValue(i,3) + '\')" class="title">' + data.getValue(i,1) + '</a></div>';
 				html += "	<span class='dateVideo'>" + data.getFormattedValue(i,2) + "</span>";
 				html += "</div>";
 				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
@@ -326,7 +281,6 @@
 			if(filas > 0)
 				pagination(filas);
 			gadgets.window.adjustHeight();
-			
 		}
 
 		function continuacion() {
