@@ -14,75 +14,75 @@
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
-	<style type="text/css">
-	  /* @group fonts */
-		@font-face {
-			font-family: 'BBVA Web Light';
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
+    <style type="text/css">
+      /* @group fonts */
+        @font-face {
+            font-family: 'BBVA Web Light';
+            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
 
-		@font-face {
-			font-family: 'BBVA Web Book';
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
+        @font-face {
+            font-family: 'BBVA Web Book';
+            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
 
-		@font-face {
-			font-family: 'BBVA Web Medium';
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
+        @font-face {
+            font-family: 'BBVA Web Medium';
+            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
+            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
 
-		/* @end */
+        /* @end */
     #listportales {
     }
 
     button{
-		background: #0079C1;
-		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-		background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
-		background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
-		-webkit-border-radius: .3em;
-		-moz-border-radius: .3em;
-		border-radius: .3em;
-		font-size: 10px;
-		text-align: center;
-		vertical-align: middle;
-		height: 2em;
-		padding-left: .9em;
-		padding-right: .9em;
-		border: .1em solid #00559D;
-		color: white;
-		cursor: pointer;
-		position: relative;
-		overflow: visible;
+        background: #0079C1;
+        background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+        background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+        background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+        -webkit-border-radius: .3em;
+        -moz-border-radius: .3em;
+        border-radius: .3em;
+        font-size: 10px;
+        text-align: center;
+        vertical-align: middle;
+        height: 2em;
+        padding-left: .9em;
+        padding-right: .9em;
+        border: .1em solid #00559D;
+        color: white;
+        cursor: pointer;
+        position: relative;
+        overflow: visible;
     }
 
     .clearBoth {
         clear: both;
     }
 
-	p.text {
+    p.text {
         font-size: 0.8em;
         color: #3B3B3B;
     }
@@ -107,7 +107,7 @@
     }
 
     .colHeader {
-        width: 75px;
+        width: 74px;
         height: 85px;
         float: left;
         border-right: 1px solid #E5E5E5;
@@ -119,17 +119,37 @@
         border-left: 0;
     }
 
-    .colBody{
+    .colBody {
         width: 75px;
         float:left;
         border-bottom: 1px solid #E5E5E5;
         line-height: 35px;
         color: #434a58;
-        }
+        display: table;
+        height: 36px;
+    }
 
     .colBodyIcon {
         height: 25px;
+        display: table-cell;
     }
+
+    .colBodyIcon .center {
+        width: 100%;
+    }
+
+    .colBodyIconLeft {
+        height: 25px;
+        display: table-cell;
+        padding-left: 20%;
+    }
+
+    .colBodyIconRight {
+        height: 25px;
+        display: table-cell;
+        padding-right: 20%;
+    }
+
     .row {
         clear: both;
         font-size: 12px;
@@ -170,48 +190,41 @@
         var titlecomboVideo = prefs.getString("titlecomboVideo");
         _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
-	    function loadVisualizationAPI()
+        function loadVisualizationAPI()
         {
             google.load("visualization", "1", {"packages": ["table"]});
             google.setOnLoadCallback(sendQuery);
-		}
+        }
 
-		function sendQuery()
+        function sendQuery()
         {
             gadgetHelper = new google.visualization.GadgetHelper();
             var opts = {dataType:'jsonp'};
             var query = new google.visualization.Query(urlTable, opts);
             var querytosend;
             if (isSearchDone()) {
-                var channel = getSelectedChannel();
                 var product = getSelectedProduct();
-                
-                if (product == "Todos") {
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
-                    if (channel != "Todos") {
-                        querytosend = querytosend.concat(getChannelCondition(channel));
-                    }
-                    querytosend = querytosend.concat(" order by B");
-                    query.setQuery(querytosend);
-                    query.send(handleQueryResponse);
-                    return;
-                }
-
+                var channel = getSelectedChannel();
                 var inputText = getInputText();
-                var querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like '" + product + "'";
 
-                if (inputText != false) {
-                    querytosend += " AND (lower(C) like '%" + inputText + "%') ";
-                } 
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
+                
+                if (product != "Todos") {
+                    querytosend = querytosend.concat(" AND A like '" + product + "' ");
+                }   
 
                 if (channel != channels[0]) {
                     querytosend += getChannelCondition(channel);
                 }
 
-                querytosend += " order by B";
+                if (inputText != false) {
+                   querytosend = querytosend.concat(" AND (lower(C) like '%" + inputText + "%') ");
+                } 
+
+               querytosend = querytosend.concat(" order by B");
             }
             else {
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' and A like 'Cuentas' order by B";
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
@@ -242,12 +255,11 @@
             renderPage();
         }
 
-
         function renderPage() {
             var html = "";
             html += createHeader();
             html += createBody();
-		    document.getElementById('listportales').innerHTML += html;
+            document.getElementById('listportales').innerHTML += html;
         }
 
         function createHeader() {
@@ -323,10 +335,29 @@
         }
 
         function getIcon(data, row, column, columnb) {
-            var html="";
+            var html=""; 
+
+            var iconCols = {
+                3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
+                4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
+                5: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
+                7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
+                8: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
+                9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
+                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
+                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
+                12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16]
+            };
+
+
             if (typeof columnb == "undefined") {
                 if (data.getValue(row, column) != 'x') {
                     html = "<div class='centerText'>-</div>";
+                    return html;
+                }
+                else{
+                    html += "<div class='colBodyIcon center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
                     return html;
                 }
             }
@@ -337,19 +368,27 @@
                 }
             }
 
-            var iconCols = {
-                3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                5: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                8: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
-                9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
-                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
-                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png', 10, 16]
-            };
+            var s = 0;
+            if(data.getValue(row, column) == 'x')
+                s++;
+            if(data.getValue(row, columnb) == 'x')
+                s++;
 
-            html += "<div class='colBodyIcon'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+            if(s<2)
+                html += "<div class='colBodyIcon'>";
+            else
+                html += "<div class='colBodyIconLeft'>";
+            if(typeof column != "undefined" && data.getValue(row, column) == 'x')
+                html += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
+            html += "</div>";
+            
+            if(s<2)
+                html += "<div class='colBodyIcon'>";
+            else
+                html += "<div class='colBodyIconRight'>";
+            if(typeof columnb != "undefined" && data.getValue(row, columnb) == 'x')
+                html += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
+            html += "</div>";
             return html;
 
         }

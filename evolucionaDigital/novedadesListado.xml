@@ -423,9 +423,14 @@
 
 	    		if (marco != '0' && marco != '')
 	    			filter += " AND "+marco+"='x'";
+	    		else if (marco == '' && operativa == '')
+	    			filter += " AND S='x'";
 
-	    		if (operativa != '')
+	    		if (operativa != '') {
 	    			filter += " AND V="+operativa;
+	    		}
+			} else {
+				filter += " AND S='x'";
 			}
 
     		return filter;
@@ -458,7 +463,7 @@
 			var html = "";
 
 			if(filas<1)
-    			html += '<p class="text">No hay ningún contenido referente a Portales.</p>';
+    			html += '<p class="text">No hay ningún contenido disponible.</p>';
             else
             	html += '<div id="pagina'+ pagActual +'" class="paginaNueva" style=" display: block;width: auto;">';
 
