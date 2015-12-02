@@ -264,7 +264,9 @@
             var elementMonthSelector = document.getElementById('monthSelector');
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
             var selectedMonth = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
-            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/implantaciones"+"?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
+            var url = document.referrer;
+            url = document.referrer.split('?')[0];
+            window.open(url + "?anyo="+selectedYear+"&mes="+selectedMonth,"_parent");
             return false;
         }
 

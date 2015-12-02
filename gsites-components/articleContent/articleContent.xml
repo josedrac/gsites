@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  	<ModulePrefs title="NB-articleContent.xml">
+	    <Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+  	</ModulePrefs>
+
+ 	<Content type="html">
+    	<![CDATA[
+			
+			<style type="text/css">
+
+				@font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				.article-content {
+					padding: 0 10px;
+				}				
+
+				h2 {
+					font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+					font-size: 22px;
+	    			font-weight: normal;
+	    			word-spacing: -1px;
+	    			color: #0078D2;
+	    			padding: 0 10px 6px;
+				    border-bottom: 1px solid #DCDCDC;
+				    margin-top: 0;
+				    margin-bottom: 25px;
+
+				}
+
+				h3 {
+				    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+				    font-size: 16.25px;
+				    font-weight: normal;
+				    text-transform: uppercase;
+				    color: #333;
+				    margin: 0;
+				    padding: 0 10px;
+				}
+
+				p.author-signature {
+					font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+					font-size: 11px;
+					color: #71777F;
+					margin-top: 1px;
+				}
+
+				p {
+					font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+					font-size: 12px;
+					color: #71777F;
+				    line-height: 19px;
+				    padding: 0 10px;
+				}
+
+				.media-wrapper {
+					margin: 20px 0;
+					text-align: center;
+					padding: 0 10px;
+				}
+
+				dl {
+				    margin-top: 14px;
+				    margin-bottom: 16px;
+				    padding: 0 10px;
+					font-family: arial;
+					font-size: 13px;
+					color: #434A58;
+				}
+
+				dt {
+					float: left;
+				}
+				dt:after {
+					content: "\003A";
+					margin-right: 3px;
+				}
+				dd {
+					color: #0078D2;
+				    margin-bottom: 4px;
+				}
+
+			</style>
+
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+			<script type="text/javascript">
+
+				google.load('visualization', '1', {packages: ['table']});
+
+			</script>
+
+			<div class="article-content">
+
+				<h2 id="title"></h2>
+
+				<h3 id="subtitle"></h3>
+
+				<p class="author-signature">
+					<span id="date"></span>
+					<span>-</span>
+					<span id="author"></span>
+				</p>
+
+				<div id="sortDescription"></div>
+
+				<div id="media" class="media-wrapper"></div>
+
+				<div id="description"></div>
+
+			</div>
+
+			<script type="text/javascript">
+
+				function getUrlParameter(parameterName) {
+					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
+
+					for (var i = 0; i < params.length; i++) {
+						var p = params[i].split('=');
+						if (p[0] == parameterName) {
+							return decodeURIComponent(p[1]);
+						}
+					}
+					return false;
+				}
+
+				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+					sheetName = encodeURIComponent('article content'),
+					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '" and D ends with "' + getUrlParameter("date") + '"'),
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+
+				function getSpreadsheet() {
+					query.send(handleQueryResponse);
+				}
+
+				function handleQueryResponse(response) {
+					if (response.isError()) {
+						console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+						return;
+					}
+					var dataTable = response.getDataTable();
+					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+				}
+
+				function printDataTable(dataTable) {
+					var data = {
+							title: dataTable.getValue(0, 1),
+							subtitle: dataTable.getValue(0, 2),
+							date: dataTable.getValue(0, 3),
+							author: dataTable.getValue(0, 4),
+							sortDescription: dataTable.getValue(0, 7),
+							description: dataTable.getValue(0, 8)
+						},
+						image = dataTable.getValue(0, 5),
+						video = dataTable.getValue(0, 6);
+
+					if(image != null && image != undefined) {
+						data.media = image;
+					} else if(video != null && video != undefined) {
+						data.media = video;
+					}
+
+					document.getElementById("title").innerHTML = data.title; 				
+					document.getElementById("subtitle").innerHTML = data.subtitle; 	
+					document.getElementById("date").innerHTML = data.date;
+					document.getElementById("author").innerHTML = data.author; 	
+					document.getElementById("sortDescription").innerHTML = data.sortDescription; 	
+					document.getElementById("media").innerHTML = data.media; 	
+					document.getElementById("description").innerHTML = data.description; 	
+
+				}
+
+				google.setOnLoadCallback(getSpreadsheet);
+
+			</script>
+   			
+   		]]>
+  	</Content>
+
+</Module>

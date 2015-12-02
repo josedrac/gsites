@@ -11,29 +11,38 @@
 <UserPref name="VarTextLink1" default_value="" display_name="VarTextLink1" required="true" />
 <UserPref name="VarLink1" default_value="" display_name="VarLink1" required="true" />
 <UserPref name="VarTargetLink1" default_value="" display_name="VarTargetLink1" required="true" />
+<UserPref name="VarImage1" default_value="" display_name="VarImage1" required="true" />
 <UserPref name="VarText1" default_value="" display_name="VarText1" required="true" />
 
 <UserPref name="VarTextLink2" default_value="" display_name="VarTextLink2" required="true" />
 <UserPref name="VarLink2" default_value="" display_name="VarLink2" required="true" />
 <UserPref name="VarTargetLink2" default_value="" display_name="VarTargetLink2" required="true" />
+<UserPref name="VarImage2" default_value="" display_name="VarImage2" required="true" />
 <UserPref name="VarText2" default_value="" display_name="VarText2" required="true" />
+
 
 <UserPref name="VarTextLink3" default_value="" display_name="VarTextLink3" required="true" />
 <UserPref name="VarLink3" default_value="" display_name="VarLink3" required="true" />
 <UserPref name="VarTargetLink3" default_value="" display_name="VarTargetLink3" required="true" />
+<UserPref name="VarImage3" default_value="" display_name="VarImage3" required="true" />
 <UserPref name="VarText3" default_value="" display_name="VarText3" required="true" />
+
 
 <UserPref name="VarTextLink4" default_value="" display_name="VarTextLink4" required="true" />
 <UserPref name="VarLink4" default_value="" display_name="VarLink4" required="true" />
 <UserPref name="VarTargetLink4" default_value="" display_name="VarTargetLink4" required="true" />
+<UserPref name="VarImage4" default_value="" display_name="VarImage4" required="true" />
 <UserPref name="VarText4" default_value="" display_name="VarText4" required="true" />
 
 
- <Content type="html" charset="UTF-8">
+
+
+ <Content view="canvas" preferred_height="20px"> 
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+		<style type="text/css">
 
-	<style type="text/css">
         /* @group fonts */
         @font-face {
             font-family: 'BBVA Web Light';
@@ -104,13 +113,21 @@
             border-bottom: none;
         }
 
+        .title-container {
+            display: table-row;
+            width: 100%;
+        }
+        
         .title {
             color:#0072C9;
             font-size:13px;
             font-weight: bold;
             font-family: BBVA Web Book, Arial;
             text-decoration:none;
+            vertical-align: middle;
+            display: table-cell;
             line-height: 18px;
+
         }
         .subtitle{
             color:#434A58;
@@ -119,10 +136,20 @@
             margin-top:5px;
             line-height: 18px;
         }
-        img {
+
+        .img-title {
+            vertical-align: middle;
+            float: left;
+            width: 24px;
+            height: 24px;
+            margin-right: 5px;
+        }
+
+        .img-arrow {
             float: right;
             padding-left: 10px;
         }
+
     </style>
 
 
@@ -140,18 +167,25 @@
 		var VarTextLink1 = prefs.getString("VarTextLink1");
         var VarLink1 = prefs.getString("VarLink1");
         var VarTargetLink1 = prefs.getString("VarTargetLink1");
+        var VarImage1 = prefs.getString("VarImage1")
         var VarText1 = prefs.getString("VarText1");
+
         var VarTextLink2 = prefs.getString("VarTextLink2");
         var VarLink2 = prefs.getString("VarLink2");
         var VarTargetLink2 = prefs.getString("VarTargetLink2");
+        var VarImage2 = prefs.getString("VarImage2")
         var VarText2 = prefs.getString("VarText2");
+
         var VarTextLink3 = prefs.getString("VarTextLink3");
         var VarLink3 = prefs.getString("VarLink3");
         var VarTargetLink3 = prefs.getString("VarTargetLink3");
+        var VarImage3 = prefs.getString("VarImage3")
         var VarText3 = prefs.getString("VarText3");
-         var VarTextLink4 = prefs.getString("VarTextLink4");
+
+        var VarTextLink4 = prefs.getString("VarTextLink4");
         var VarLink4 = prefs.getString("VarLink4");
         var VarTargetLink4 = prefs.getString("VarTargetLink4");
+        var VarImage4 = prefs.getString("VarImage4")
         var VarText4 = prefs.getString("VarText4");
 
         document.getElementById("nivel").innerHTML = VarTitleModule;
@@ -159,22 +193,32 @@
         if (VarLink1!="")
         {
         	html +='<div class="event" onclick="javascript:Go(\''+VarLink1+'\', \''+VarTargetLink1+'\')">';
-			html +="	<div class='title'>";
-			html +=			VarTextLink1;
-			html +="	</div>";
-			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
-			html +="	<div class='subtitle'>";
-			html +=			VarText1;
-			html +="	</div>";
-			html +="</div>";
+            html +="    <div class='title-container'>";
+            if(VarImage1!=""){
+            	html +="        <img src=\'"+VarImage1+"\' class='img-title'/>";
+            }
+            html +="        <div class='title'>";
+            html +=             VarTextLink1;
+            html +="        </div>"; 
+            html +="    </div>";
+            html +="    <img class='img-arrow' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/arrow_right.png'>"; 
+            html +="    <div class='subtitle'>";
+            html +=         VarText1;
+            html +="    </div>";
+            html +="</div>";             
      	}
      	if (VarLink2!="")
         {
         	html +='<div class="event" onclick="javascript:Go(\''+VarLink2+'\', \''+VarTargetLink2+'\')">';
-			html +="	<div class='title'>";
-			html +=			VarTextLink2;
-			html +="	</div>";
-			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
+			html +="    <div class='title-container'>";
+            if(VarImage2!=""){
+            	html +="        <img src=\'"+VarImage2+"\' class='img-title'/>";
+            }
+            html +="        <div class='title'>";
+            html +=             VarTextLink2;
+            html +="        </div>"; 
+            html +="    </div>"; 
+			html +="    <img class='img-arrow' src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText2;
 			html +="	</div>";
@@ -183,10 +227,15 @@
      	if (VarLink3!="")
         {
         	html +='<div class="event" onclick="javascript:Go(\''+VarLink3+'\', \''+VarTargetLink3+'\')">';
-			html +="	<div class='title'>";
-			html +=			VarTextLink3;
-			html +="	</div>";
-			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
+			html +="    <div class='title-container'>";
+            if(VarImage3!=""){
+            	html +="        <img src=\'"+VarImage3+"\' class='img-title'/>";
+            }
+            html +="        <div class='title'>";
+            html +=             VarTextLink3;
+            html +="        </div>"; 
+            html +="    </div>"; 
+			html +="    <img class='img-arrow' src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText3;
 			html +="	</div>";
@@ -195,10 +244,15 @@
      	if (VarLink4!="")
         {
         	html +='<div class="event" onclick="javascript:Go(\''+VarLink4+'\', \''+VarTargetLink4+'\')">';
-			html +="	<div class='title'>";
-			html +=			VarTextLink4;
-			html +="	</div>";
-			html +="    <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
+			html +="    <div class='title-container'>";
+            if(VarImage4!=""){
+            	html +="        <img src=\'"+VarImage4+"\' class='img-title'/>";
+            }
+            html +="        <div class='title'>";
+            html +=             VarTextLink4;
+            html +="        </div>"; 
+            html +="    </div>";  
+			html +="    <img class='img-arrow' src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/arrow_right.png'>";
 			html +="	<div class='subtitle'>";
 			html +=			VarText4;
 			html +="	</div>";
@@ -206,6 +260,7 @@
      	}
 
      	document.getElementById('events').innerHTML += html;
+		gadgets.window.adjustHeight();
 
 
 		function Go(destination, target)
@@ -259,10 +314,15 @@
 		       	Link1 - URL: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
 		    </td>
 		</tr>
+		<tr>       
+		   	<td>
+		       	Link1 - URL_IMAGE: <input type="text" size="100" id="VarImage1" value="__UP_VarImage1__" onchange="registra('VarImage1')"/>                   
+		    </td>
+		</tr>
 	    <tr>
 	        <td>
-				Text1:
-				<textarea id="VarText1" style="height: 25px; width: 80%" onchange="registra('VarText1')" >__UP_VarText1__</textarea>
+				Text1: 
+				<textarea id="VarText1" style="height: 25px; width: 80%" onchange="registra('VarText1')" >__UP_VarText1__</textarea><hr>
 			</td>
 	    </tr>
 
@@ -281,14 +341,18 @@
 		       	Link2 - Target: <input type="text" size="100" id="VarTargetLink2" value="__UP_VarTargetLink2__" onchange="registra('VarTargetLink2')"/>
 		    </td>
 		</tr>
+		<tr>       
+		   	<td>
+		       	Link2 - URL_IMAGE: <input type="text" size="100" id="VarImage2" value="__UP_VarImage2__" onchange="registra('VarImage2')"/>                   
+		    </td>
+		</tr>
 	    <tr>
 	        <td>
-				Text2:
-				<textarea id="VarText2" style="height: 25px; width: 80%" onchange="registra('VarText2')" >__UP_VarText2__</textarea>
+				Text2: 
+				<textarea id="VarText2" style="height: 25px; width: 80%" onchange="registra('VarText2')" >__UP_VarText2__</textarea><hr>
 			</td>
 	    </tr>
-
-	      <tr>
+	    <tr>       
 		    <td>
 		       	Link3 - Text: <input type="text" size="100" id="VarTextLink3" value="__UP_VarTextLink3__"   onchange="registra('VarTextLink3')"/>
 		    </td>
@@ -303,10 +367,15 @@
 		       	Link3 - Target: <input type="text" size="100" id="VarTargetLink3" value="__UP_VarTargetLink3__" onchange="registra('VarTargetLink3')"/>
 		    </td>
 		</tr>
+		<tr>       
+		   	<td>
+		       	Link3 - URL_IMAGE: <input type="text" size="100" id="VarImage3" value="__UP_VarImage3__" onchange="registra('VarImage3')"/>                   
+		    </td>
+		</tr>
 	    <tr>
 	        <td>
-				Text3:
-				<textarea id="VarText4" style="height: 25px; width: 80%" onchange="registra('VarText4')" >__UP_VarText4__</textarea>
+				Text3: 
+				<textarea id="VarText4" style="height: 25px; width: 80%" onchange="registra('VarText4')" >__UP_VarText4__</textarea><hr>
 			</td>
 	    </tr>
 
@@ -323,6 +392,11 @@
 		<tr>
 		   	<td>
 		       	Link4 - Target: <input type="text" size="100" id="VarTargetLink4" value="__UP_VarTargetLink4__" onchange="registra('VarTargetLink4')"/>
+		    </td>
+		</tr>
+		<tr>       
+		   	<td>
+		       	Link4 - URL_IMAGE: <input type="text" size="100" id="VarImage4" value="__UP_VarImage4__" onchange="registra('VarImage4')"/>                   
 		    </td>
 		</tr>
 	    <tr>

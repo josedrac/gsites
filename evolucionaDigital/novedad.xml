@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="novedad.xml"
+  <ModulePrefs title="ED-novedad.xml"
     description=""
     author_affiliation="Sopra">
     <Require feature="idi"/>
@@ -388,7 +388,7 @@
 				gadgetHelper = new google.visualization.GadgetHelper();
 				var opts = {dataType:'jsonp'};
 				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A like '%"+portalContenido[1]+"%' ";
+				var querytosend = "select * where A like '"+portalContenido[1]+"' ";
 				query.setQuery(querytosend);
 				query.send(handleQueryResponse);
 

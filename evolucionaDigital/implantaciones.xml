@@ -84,6 +84,11 @@
 		    font-family: BBVA Web Light, Arial;
 		    color: #0078D2;
 		    font-weight: bold;
+		    overflow: hidden;
+			text-overflow: ellipsis;
+			display: block;
+			height: 23px;
+			white-space: nowrap;
 		}
 
 		.destinatarios {
@@ -114,6 +119,10 @@
 		    font-family: Arial;
 		    margin-top: 20px;
 		    line-height: 18px;
+		    height: 54px;
+		    text-overflow: ellipsis;
+			display: block;
+			overflow: hidden;
 		}
 
 		hr{
@@ -158,6 +167,10 @@
 		    margin-left: 0px;
 		}
 
+		.paginaNueva {
+			width: auto;
+		}
+
 		.lineinfo {
 			width:610px;
 			height:4px;
@@ -181,6 +194,8 @@
 			color:#0078D2;
 			float:left;
 			margin-top:-2px;
+			margin-left: 260px;
+			padding-right: 10px;
 	    }
 
 	    .bloqueSiguiente {
@@ -199,8 +214,7 @@
         }
 
 		#bloqueEnlaces1 img {
-			margin-left:260px;
-			padding-right:10px;
+			
         }
 
 		.checkpage{
@@ -255,39 +269,48 @@
 		}
 
 		function isSearchDone() {
-        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-            return true;
-        }
-        return false;
-    }
+	        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+	            return true;
+	        }
+	        return false;
+	    }
 
- 		function getSelectedMonth() {
-        return gadgets.util.getUrlParameters().parent.split("=")[2];
-    }
-    function getSelectedYear() {
-        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
-    }
+ 		function getSelectedSecondValue() {
+	        return gadgets.util.getUrlParameters().parent.split("=")[2];
+	    }
 
-    function getQueryParameters() {
+	    function getSelectedFirstValue() {
+	        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+	    }
+
+	    function getSelectedFirstParameter() {
+	        return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1];
+	    }
+
+	    function getQueryParameters() {
     		var filter = "";
     		if (isSearchDone()){
-	    		var year = getSelectedYear();
-	    		if (year > 0) {
-	    			filter = " AND (G = "+year+")";
+    			var firstParam = getSelectedFirstParameter();
+	    		var first = getSelectedFirstValue();
+	    		if (firstParam == "anyo" && first > 0) {
+	    			filter = " AND (G = "+first+")";
+	    		} else if (firstParam == "inputText") {
+	    			first= first.toLowerCase();
+	    			filter = " AND (lower(B) like '%"+first+"%' OR lower(C) like '%"+first+"%' OR lower(D) like '%"+first+"%' OR lower(E) like '%"+first+"%')";
 	    		}
-	    		var month = getSelectedMonth();
-	    		if (month > 0) {
-	    			filter = filter.concat(" AND (F = "+month+")");
+	    		var second = getSelectedSecondValue();
+	    		if (second > 0) {
+	    			filter = filter.concat(" AND (F = "+second+")");
 	    		}
 	    	}
     		return filter;
-    }
+	    }
 
 		function sendQuery(){
 			gadgetHelper = new google.visualization.GadgetHelper();
 			var opts = {dataType:'jsonp'};
 			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where (A <> 'IdImplantacion')";
+			var querytosend = "select * where A <> 'IdImplantacion'";
 			querytosend = querytosend.concat(getQueryParameters());
 			var orderQuery = " order by G desc, F desc"
 			querytosend = querytosend.concat(orderQuery);
@@ -306,117 +329,135 @@
     			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
             }
             else {
-                html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
+                html += '<div id="pagina'+pagActual+'" class="paginaNueva" style=" display: block;">';
 
 
+	            var month = new Array();
+				month[1] = "Ene";
+				month[2] = "Feb";
+				month[3] = "Mar";
+				month[4] = "Abr";
+				month[5] = "May";
+				month[6] = "Jun";
+				month[7] = "Jul";
+				month[8] = "Agt";
+				month[9] = "Sep";
+				month[10] = "Oct";
+				month[11] = "Nov";
+				month[12] = "Dic";
 
-            var month = new Array();
-			month[1] = "Ene";
-			month[2] = "Feb";
-			month[3] = "Mar";
-			month[4] = "Abr";
-			month[5] = "May";
-			month[6] = "Jun";
-			month[7] = "Jul";
-			month[8] = "Agt";
-			month[9] = "Sep";
-			month[10] = "Oct";
-			month[11] = "Nov";
-			month[12] = "Dic";
+				for(var i=0; i < filas; i++) {
 
-			for(var i=0; i < filas; i++) {
-			   	html += "<div class='implantation'>";
+					if(i>3 && i==4*(pagActual-1) && i<filas-1)
+						html += '<div id="pagina'+pagActual+'" class="paginaNueva" style=" display: none;">';
 
-			   	//Fecha
-			   	html += "<div class='datesandtags'><div class='date'>";
-				html += "<div class='month' id='mes'>" + month[data.getValue(i,5)] + "</div>";
-				html += "<div class='year' id='anyo'>" + data.getValue(i,6) + "</div>";
-			    html += "</div></div>";
+				   	html += "<div class='implantation'>";
 
-				//Contenido
-			   	html += "<div class='info'>";
-			   	html += "<div class='title'>" + data.getValue(i,1) + "</div>";
-			   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,2) + "</span></div>";
-			   	html += "<div class='ambito'>Ámbito: <span>" + data.getValue(i,3) + "</span></div>";
-			   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
-			    html += "<button type='button' class='btn' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
-			    html += "</div>";
+				   	//Fecha
+				   	html += "<div class='datesandtags'><div class='date'>";
+					html += "<div class='month' id='mes'>" + month[data.getValue(i,5)] + "</div>";
+					html += "<div class='year' id='anyo'>" + data.getValue(i,6) + "</div>";
+				    html += "</div></div>";
 
-				//Separación
-			    html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/></div>";
+					//Contenido
+				   	html += "<div class='info'>";
+				   	html += "<div class='title'>" + data.getValue(i,1) + "</div>";
+				   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,2) + "</span></div>";
+				   	html += "<div class='ambito'>Ámbito: <span>" + data.getValue(i,3) + "</span></div>";
+				   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
+				    html += "<button type='button' class='btn' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
+				    html += "</div>";
 
-			    if(pagTotales>1){
+					//Separación
+				    html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/></div>";
 
-				  	if (i==4 * pagActual-1) {
+				    if(pagTotales>1) {
 
-					    var pagActualParaMostrar = pagActual+1;
-	                    var pagSiguiente = pagActualParaMostrar+1;
-
-						if(i>2 && pagActual > 1){
-						 	html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
+						if (i==4*pagActual-1) {
+						    html += '</div>';
+						    pagActual++;
 						}
-
-						for(var j=1;j<=pagTotales;j++) {
-							if ((j==pagActual) && (j==1)){
-							   	html += '<div id="paginas1" class="checkpage1"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-							} else if(j==pagActual) {
-						    	html += '<div id="paginas" class="checkpage"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-						  	} else {
-						    	html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActual +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
-						  	}
-						}
-
-						html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /> </a></div>';
-	                    html += '</div>';
-
-	                    html += '<div id="pagina'+ pagActualParaMostrar +'" class="paginaNueva" style="display:none; width: auto;height: 660px; margin-top:40px">';
-
-				        pagActual++;
-					}
-					else if(i==filas-1) {
-				        ////console.debug('ANTERIOR>');
-						var pagActualAux = pagActual;
-				        pagActual--;
-
-					    html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
-						for(var j=1;j<=pagTotales;j++) {
-							if(j==pagActualAux) {
-								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
-							} else {
-								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+j+'"/></a></div>';
-							}
-						}
-						html += '</div>';
-					}
+						else if (i==filas-1) 
+							html += '</div>';
 				    }
-                }
+	            }
+
+	            html += '<div>'
+				html += '<div id="bloqueEnlaces1" style="visibility:hidden" class="bloqueAnterior"><a href="javascript:anterior();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/anterior.png" /></a></div>';
+
+				for(var i=1; i < (pagTotales+1) ;i++){
+					if(i==1){
+						html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png" id="pagination'+i+'"/></a></div>';
+					}
+					else{
+						html += '<div id="paginas'+i+'" class="checkpage1"><a href="javascript:changePage(\''+ i +'\');"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png" id="pagination'+i+'"/></a></div>';
+					}
+				}
+
+				var oculto = "";
+				if(pagTotales < 2)
+					oculto = "visibility:hidden";
+
+				html += '<div id="bloqueEnlaces" style="'+oculto+'" class="bloqueSiguiente"><a href="javascript:continuacion();"><img src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/siguiente.png" /></a></div>';
+	            
+	            html += '</div>';
+
+	            html += '<input type="text" id="pagActual" style="display:none" value="1"></input>';
+	            html += '<input type="text" id="pagAnterior" style="display:none"></input>';
+	            html += '<input type="text" id="pagTotales" style="display:none" value="'+pagTotales+'"></input>';
 			}
+
 			document.getElementById('listportales').innerHTML += html;
+			gadgets.window.adjustHeight();
 		}
 
-		function continuacion(num) {
-            var bloque = "pagina"+num;
-            var numInt = parseInt(num)-1;
-            var bloque_anterior = "pagina"+ numInt;
-            document.getElementById(bloque).style.display='block';
-            document.getElementById(bloque_anterior).style.display='none';
+
+		function continuacion()
+        {
+        	var pagAct = parseInt(document.getElementById("pagActual").value);
+        	changePage(pagAct+1);
         }
 
-    	function anterior(num) {
-            var bloque = "pagina"+num;
-            var numInt = parseInt(num)-1;
-            var numInt2 = parseInt(num)-2;
-            if (numInt2 == 0) {
-                numInt  = 2;
-                numInt2 = 1;
-            }
-            var bloque_actual = "pagina"+ numInt;
-            var bloque_anterior = "pagina"+ numInt2;
-            document.getElementById(bloque_actual).style.display='none';
-            document.getElementById(bloque_anterior).style.display='block';
-			document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-		    document.getElementById('pagination'+numInt2).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
+    	function anterior(num)
+        {
+        	var pagAct = parseInt(document.getElementById("pagActual").value);
+        	changePage(pagAct-1);
         }
+
+		function changePage(pagAct){
+
+			var pagAnt = parseInt(document.getElementById("pagActual").value);
+			var pagTotales = parseInt(document.getElementById("pagTotales").value);
+
+			document.getElementById("pagAnterior").value = pagAnt;
+			document.getElementById("pagActual").value = pagAct;
+
+			changeImage(pagAct, pagAnt);
+
+
+			if(pagAct == 1)
+				document.getElementById("bloqueEnlaces1").style.visibility = 'hidden';
+			else
+				document.getElementById("bloqueEnlaces1").style.visibility = 'visible';
+
+			if(pagAct == pagTotales)
+				document.getElementById("bloqueEnlaces").style.visibility = 'hidden';
+			else
+				document.getElementById("bloqueEnlaces").style.visibility = 'visible';
+
+
+		    var bloque_anterior = "pagina"+pagAnt;
+			var bloque = "pagina"+ pagAct;
+
+		    document.getElementById(bloque_anterior).style.display='none';
+            document.getElementById(bloque).style.display='block';
+		}
+
+		function changeImage(pagina, old){
+
+		    document.getElementById('pagination'+old).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
+		    document.getElementById('pagination'+pagina).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
+		}
 
     	function anteriorUltima(num) {
             var bloque = "pagina"+num;
@@ -427,19 +468,6 @@
 			document.getElementById('pagination'+num).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
 		    document.getElementById('pagination'+numInt).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
     	}
-
-		function changePage(num,pag){
-		    var bloque = "pagina"+pag;
-			var bloque_anterior = "pagina"+ num;
-
-		    document.getElementById(bloque).style.display='none';
-            document.getElementById(bloque_anterior).style.display='block';
-		}
-
-		function changeImage(pagina,old){
-		    document.getElementById('pagination'+old).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-		    document.getElementById('pagination'+pagina).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
-		}
 
 	    function Go(destination){
 	    	window.open(destination,'_blank');
