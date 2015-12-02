@@ -82,7 +82,7 @@
 				}
 
 				document.getElementById("sectionId").innerHTML = html;
-				gadgets.window.adjustHeight();
+				gadgets.window.adjustHeight(document.getElementById("sectionId").offsetHeight);
 			}
 
 			google.setOnLoadCallback(getSpreadsheet);
