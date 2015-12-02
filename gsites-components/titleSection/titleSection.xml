@@ -60,6 +60,8 @@
 
 		</script>
 
+		<div id="sectionId"></div>
+
     ]]>
   </Content>
   <Content type="html" view="configuration">
