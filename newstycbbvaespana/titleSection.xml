@@ -84,9 +84,30 @@
 					}
 
 					document.getElementById("sectionId").innerHTML = html;
-					window.onload = function() {
 
-										var D = document;
+				}
+
+
+				google.setOnLoadCallback(getSpreadsheet);
+
+				function onElementHeightChange(elm, callback){
+				    var lastHeight = elm.clientHeight, newHeight;
+				    (function run(){
+				        newHeight = elm.clientHeight;
+				        if( lastHeight != newHeight )
+				            callback();
+				        lastHeight = newHeight;
+
+				        if( elm.onElementHeightChangeTimer )
+				            clearTimeout(elm.onElementHeightChangeTimer);
+
+				        elm.onElementHeightChangeTimer = setTimeout(run, 200);
+				    })();
+				}
+
+
+				onElementHeightChange(document.body, function(){
+				    					var D = document;
 										alert("sectionId: "+document.getElementById("sectionId").offsetHeight);
 									    var height = Math.max(
 									    	document.getElementById("sectionId").offsetHeight,
@@ -97,12 +118,7 @@
 
     									alert(height);
 										gadgets.window.adjustHeight(Math.ceil(height));
-									}
-
-				}
-
-
-				google.setOnLoadCallback(getSpreadsheet);
+									});
 
 			</script>
 
