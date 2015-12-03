@@ -86,12 +86,12 @@
 				
 			}
 
-			google.setOnLoadCallback(getSpreadsheet);
-
 		</script>
 
 		<body onload="adjustGadgetHeight('sectionId')">
 			<div id="sectionId"></div>
+
+			<script type="text/javascript">google.setOnLoadCallback(getSpreadsheet);</script>
 		</body>
 
 
