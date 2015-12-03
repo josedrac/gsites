@@ -81,6 +81,7 @@
 		}
 		p.title {
 			color: #434a58;
+			margin: 0;
 		}
 
 		.dateVideo {
