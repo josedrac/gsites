@@ -178,7 +178,7 @@
 				}
 
 				function goArticle() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '//articlecontent?id=' + sectionId + '&date=' + date + '';
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/articlecontent?id=' + sectionId + '&date=' + date + '';
 					return false;
 				}
 
