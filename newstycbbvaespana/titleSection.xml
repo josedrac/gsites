@@ -92,7 +92,7 @@
 
 		</script>
 
-		<div id="sectionId" onload="adjustGadgetHeight("sectionId")"></div>
+		<div id="sectionId" onload="adjustGadgetHeight('sectionId')"></div>
 
 
 
