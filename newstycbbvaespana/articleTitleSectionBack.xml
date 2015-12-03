@@ -68,6 +68,8 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script type="text/javascript" src="https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
+
 
 			<script type="text/javascript">
 
@@ -75,7 +77,7 @@
 
 			</script>
 
-			<div>
+			<div id="container">
 				<button type="button" onclick="javascript:goBack();">Volver</button>
 				<h2 id="sectionName"></h2>
 			</div>
@@ -116,7 +118,8 @@
 
 				function printDataTable(dataTable) {
 				
-					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);	
+					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);
+					adjustGadgetHeight("container");
 
 				}
 
