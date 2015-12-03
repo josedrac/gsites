@@ -116,7 +116,7 @@
 				<script>
 				onElementHeightChange(document.body, function(){
     					var D = document;
-						alert("sectionId: "+document.getElementById("sectionId").offsetHeight);
+						//alert("sectionId: "+document.getElementById("sectionId").offsetHeight);
 					    var height = Math.max(
 					    	document.getElementById("sectionId").offsetHeight,
 					        D.body.scrollHeight, D.documentElement.scrollHeight,
@@ -124,7 +124,7 @@
 					        D.body.clientHeight, D.documentElement.clientHeight
 						);
 
-						alert(height);
+						//alert(height);
 						gadgets.window.adjustHeight(Math.ceil(height));
 									});
 				</script>
