@@ -18,25 +18,7 @@
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-			<script type="text/javascript">
-				
-				$.ajax({
-					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-						success: function(result){
-							//document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
-							var e = document.getElementById('functionsContainer');
-				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
-				            eval(document.getElementById('sc1').innerHTML);
-						}
-					});
-				//new Ajax.Updater(
-				//	'functionsContainer',
-				// 	'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-				//	{
-				//	    parameters: { evalJS: true}
-				//	});
-
-			</script>
+			
 
 			<style type="text/css">
 
@@ -118,6 +100,26 @@
 			<div id="sectionId"></div>
 
 			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							//document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+				//new Ajax.Updater(
+				//	'functionsContainer',
+				// 	'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+				//	{
+				//	    parameters: { evalJS: true}
+				//	});
+
+			</script>
 
 		]]>
 	</Content>
