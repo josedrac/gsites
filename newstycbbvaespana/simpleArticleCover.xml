@@ -114,8 +114,7 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-			<script type="text/javascript" src="https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
-
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 			<script type="text/javascript">
 
@@ -131,6 +130,22 @@
 				<button type="button" onclick="javascript:goArticle()">Saber más</button>
 
 		 	</div>
+
+		 	<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							//document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -176,7 +191,7 @@
 
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
-					adjustGadgetHeight("sectionId");
+
 				}
 
 				function goArticle() {

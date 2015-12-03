@@ -112,12 +112,6 @@
 				            eval(document.getElementById('sc1').innerHTML);
 						}
 					});
-				//new Ajax.Updater(
-				//	'functionsContainer',
-				// 	'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-				//	{
-				//	    parameters: { evalJS: true}
-				//	});
 
 			</script>
 

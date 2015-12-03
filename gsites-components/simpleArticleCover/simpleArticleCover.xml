@@ -8,6 +8,7 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
+	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
 	<UserPref name="sectionId" display_name="Section ID" required="true" />
 
 	<Content type="html">
@@ -113,8 +114,7 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-			<script type="text/javascript" src="https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
-
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 			<script type="text/javascript">
 
@@ -130,6 +130,22 @@
 				<button type="button" onclick="javascript:goArticle()">Saber más</button>
 
 		 	</div>
+
+		 	<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							//document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -147,9 +163,9 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
 					sectionId = prefs.getString('sectionId'),
 					date = getUrlParameter("date"),
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -175,7 +191,7 @@
 
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
-					adjustGadgetHeight("sectionId");
+
 				}
 
 				function goArticle() {
@@ -206,6 +222,11 @@
 
 
 			<table width="100%" border="0" id="tablaconfig">
+				<tr>
+					<td>
+						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
 				<tr>
 					<td>
 						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
