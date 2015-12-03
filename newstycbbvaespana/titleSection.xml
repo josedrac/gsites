@@ -107,7 +107,7 @@
 				    var lastHeight = elm.clientHeight, newHeight;
 				    (function run(){
 				        newHeight = elm.clientHeight;
-				        if( lastHeight != newHeight )
+				        //if( lastHeight != newHeight )
 				            callback();
 				        lastHeight = newHeight;
 
