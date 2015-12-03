@@ -23,7 +23,7 @@
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
-							document.write('<script>'+result+'</script>');
+							document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
 						}
 					});
 
