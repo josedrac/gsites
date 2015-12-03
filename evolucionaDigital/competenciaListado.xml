@@ -69,6 +69,7 @@
 		}
 
 		a.title, p.title {
+			height: 40px;
 			color: #0078D2;
 		    font-family: BBVA Web Book, Arial;
 		    font-size: 18px;
