@@ -93,13 +93,11 @@
 
 				function onElementHeightChange(elm, callback){
 				    var lastHeight = elm.clientHeight;
-				    var first = 1;
 				    (function run(){
 				        newHeight = elm.clientHeight;
-				        if( lastHeight != newHeight || first){
+				        if( lastHeight != newHeight)
 				            callback();
-				            first = 0;
-				        }
+
 				        lastHeight = newHeight;
 
 				        if( elm.onElementHeightChangeTimer )
@@ -107,6 +105,22 @@
 
 				        elm.onElementHeightChangeTimer = setTimeout(run, 200);
 				    })();
+				}
+
+				function adjustGadHeight(div) {
+					onElementHeightChange(document.getElementById(div), function(){
+    					var D = document;
+						//alert("sectionId: "+document.getElementById(div).offsetHeight);
+					    var height = Math.max(
+					    	document.getElementById(div).offsetHeight,
+					        D.body.scrollHeight, D.documentElement.scrollHeight,
+					        D.body.offsetHeight, D.documentElement.offsetHeight,
+					        D.body.clientHeight, D.documentElement.clientHeight
+						);
+
+						//alert(height);
+						gadgets.window.adjustHeight(Math.ceil(height));
+									});
 				}
 
 
@@ -117,19 +131,7 @@
 				<div id="sectionId"></div>
 
 				<script>
-				onElementHeightChange(document.body, function(){
-    					var D = document;
-						//alert("sectionId: "+document.getElementById("sectionId").offsetHeight);
-					    var height = Math.max(
-					    	document.getElementById("sectionId").offsetHeight,
-					        D.body.scrollHeight, D.documentElement.scrollHeight,
-					        D.body.offsetHeight, D.documentElement.offsetHeight,
-					        D.body.clientHeight, D.documentElement.clientHeight
-						);
-
-						//alert(height);
-						gadgets.window.adjustHeight(Math.ceil(height));
-									});
+					adjustGadHeight("div");
 				</script>
 
 		]]>
