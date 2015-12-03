@@ -20,18 +20,21 @@
 
 			<script type="text/javascript">
 				
-				//$.ajax({
-				//	  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-				//		success: function(result){
-				//			document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
-				//		}
-				//	});
-				new Ajax.Updater(
-					'functionsContainer',
-				 	'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-					{
-					    parameters: { evalJS: true}
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							//document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
 					});
+				//new Ajax.Updater(
+				//	'functionsContainer',
+				// 	'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+				//	{
+				//	    parameters: { evalJS: true}
+				//	});
 
 			</script>
 
