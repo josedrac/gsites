@@ -84,7 +84,21 @@
 					}
 
 					document.getElementById("sectionId").innerHTML = html;
-					window.onload = adjustGadgetHeight();
+					window.onload = function adjustGadgetHeight() {
+
+										var D = document;
+										alert("sectionId: "+document.getElementById("sectionId").offsetHeight);
+									    var height = Math.max(
+									    	document.getElementById("sectionId").offsetHeight,
+									        D.body.scrollHeight, D.documentElement.scrollHeight,
+									        D.body.offsetHeight, D.documentElement.offsetHeight,
+									        D.body.clientHeight, D.documentElement.clientHeight
+    									);
+
+    									alert(height);
+										gadgets.window.adjustHeight(Math.ceil(height));
+									}
+
 				}
 
 
