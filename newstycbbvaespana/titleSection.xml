@@ -91,48 +91,13 @@
 
 				google.setOnLoadCallback(getSpreadsheet);
 
-				function onElementHeightChange(elm, callback){
-				    var lastHeight = elm.clientHeight, newHeight;
-				    (function run(){
-				        newHeight = elm.clientHeight;
-				        if( lastHeight != newHeight)
-				            callback();
-
-				        lastHeight = newHeight;
-
-				        if( elm.onElementHeightChangeTimer )
-				            clearTimeout(elm.onElementHeightChangeTimer);
-
-				        elm.onElementHeightChangeTimer = setTimeout(run, 200);
-				    })();
-				}
-
-				function adjustGadHeight(div) {
-					onElementHeightChange(document.getElementById(div), function(){
-    					var D = document;
-						//alert("sectionId: "+document.getElementById(div).offsetHeight);
-					    var height = Math.max(
-					    	document.getElementById(div).offsetHeight,
-					        D.body.scrollHeight, D.documentElement.scrollHeight,
-					        D.body.offsetHeight, D.documentElement.offsetHeight,
-					        D.body.clientHeight, D.documentElement.clientHeight
-						);
-
-						//alert(height);
-						gadgets.window.adjustHeight(Math.ceil(height));
-									});
-				}
-
-
-				
-
 			</script>
 
-				<div id="sectionId"></div>
+			<div id="sectionId"></div>
 
-				<script>
-					adjustGadHeight("sectionId");
-				</script>
+			<script>
+				adjustGadgetHeight("sectionId");
+			</script>
 
 		]]>
 	</Content>
