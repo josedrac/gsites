@@ -7,6 +7,8 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
+	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+
  	<Content type="html">
     	<![CDATA[
 			
@@ -151,7 +153,8 @@
 					return false;
 				}
 
-				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey');
 					sheetName = encodeURIComponent('appointments'),
 					queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
@@ -196,5 +199,40 @@
    			
    		]]>
   	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+
+			<style type="text/css">
+
+				table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+
+			</style>
+
+			<table width="100%" border="0">
+				<tr>
+					<td>
+						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+			</table>
+
+			<script type="text/javascript">
+
+				var prefs = new gadgets.Prefs();
+					function register(variable) {
+					prefs.set(variable, document.getElementById(variable).value);
+				}
+
+			</script>
+
+		]]>
+
+	</Content>
 
 </Module>
