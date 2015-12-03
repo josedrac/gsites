@@ -20,11 +20,17 @@
 
 			<script type="text/javascript">
 				
-				$.ajax({
-					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-						success: function(result){
-							document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
-						}
+				//$.ajax({
+				//	  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+				//		success: function(result){
+				//			document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
+				//		}
+				//	});
+				new Ajax.Updater(
+					'functionsContainer',
+				 	'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+					{
+					    parameters: { evalJS: true}
 					});
 
 			</script>
@@ -105,6 +111,7 @@
 
 			</script>
 
+			<div id="functionsContainer"></div>
 			<div id="sectionId"></div>
 
 			<script>
