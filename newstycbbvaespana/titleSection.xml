@@ -84,6 +84,7 @@
 					}
 
 					document.getElementById("sectionId").innerHTML = html;
+					window.onload = adjustGadgetHeight();
 				}
 
 
@@ -91,9 +92,7 @@
 
 			</script>
 
-			<body onload="adjustGadgetHeight()">
 				<div id="sectionId"></div>
-			</body>
 
 		]]>
 	</Content>
