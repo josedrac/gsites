@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="ED-competenciaBanner.xml" height ="105">
+	<ModulePrefs title="ED-competenciaBanner.xml" height ="125">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -32,7 +32,7 @@
 		            -webkit-border-radius: 2px;
 		            -khtml-border-radius: 2px;
 					padding: 3px;
-					width: 275px;
+					width: 290px;
 					cursor: pointer;
 		        }
 
@@ -75,7 +75,7 @@
 	                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/competencias.png" alt="">
 	            </div>
 	            <div class="text">
-	                <span>Área de información sobre el mercado y la competencia</span>
+	                <span>Noticias breves de BBVA, mercado y competencia</span>
 	            </div>
 	        </div>
 	    </div>
