@@ -11,6 +11,8 @@
 	<Content type="html">
 	    <![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+			<script type="text/javascript" src="https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
+
 
 			<style type="text/css">
 
@@ -69,7 +71,7 @@
 
 			</style>
 
-			<div class="appoinments" onclick="javascript:goAppointments()">
+			<div id="appoinments" class="appoinments" onclick="javascript:goAppointments()">
 				<h2>Nombramientos en DT Sur</h2>
 				<p>Descubre las últimas novedades de tu territorio</p>
 			</div>
@@ -91,6 +93,8 @@
 				function goAppointments() {
 					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/appointments/?date=' + getUrlParameter("date") + '';
 				}
+
+				adjustGadgetHeight("appoinments");
 
 			</script>
 

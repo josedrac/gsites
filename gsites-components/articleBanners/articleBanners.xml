@@ -26,6 +26,7 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script type="text/javascript" src="https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
 
 			<script type="text/javascript">
 
@@ -89,6 +90,7 @@
 					}
 						
 					document.getElementById("articleBanners").innerHTML = template; 
+					adjustGadgetHeight("articleBanners");
 
 				}
 

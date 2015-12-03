@@ -116,6 +116,7 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script type="text/javascript" src="https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
 
 			<script type="text/javascript">
 
@@ -123,19 +124,21 @@
 
 			</script>
 
-			<p>¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
+			<div id="container">
+				<p>¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
 
-			<table>
-				<thead>
-					<tr>
-						<th class="col-1">Felicitaciones a</th>
-						<th class="col-2">Unidad</th>
-						<th class="col-3">Cargo anterior</th>
-						<th class="col-4" colspan="2">Cargo actual</th>
-					</tr>
-				</thead>
-				<tbody id="tableBody"></tbody>
-			</table>			
+				<table>
+					<thead>
+						<tr>
+							<th class="col-1">Felicitaciones a</th>
+							<th class="col-2">Unidad</th>
+							<th class="col-3">Cargo anterior</th>
+							<th class="col-4" colspan="2">Cargo actual</th>
+						</tr>
+					</thead>
+					<tbody id="tableBody"></tbody>
+				</table>		
+			</div>	
 
 			<script type="text/javascript">
 
@@ -188,6 +191,7 @@
 					}
 					
 					document.getElementById("tableBody").innerHTML = template; 
+					adjustGadgetHeight("container");
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
