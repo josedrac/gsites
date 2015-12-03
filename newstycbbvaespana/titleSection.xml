@@ -25,7 +25,7 @@
 						success: function(result){
 							//document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
 							var e = document.getElementById('functionsContainer');
-				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'</sc'+'ript>';
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
 				            eval(document.getElementById('sc1').innerHTML);
 						}
 					});
@@ -114,12 +114,10 @@
 
 			</script>
 
-			<div id="functionsContainer"></div>
+			
 			<div id="sectionId"></div>
 
-			<script>
-				adjustGadgetHeight("sectionId");
-			</script>
+			<div id="functionsContainer"></div>
 
 		]]>
 	</Content>
