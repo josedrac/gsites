@@ -113,6 +113,8 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script type="text/javascript" src="https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
+
 
 			<script type="text/javascript">
 
@@ -120,7 +122,7 @@
 
 			</script>
 
-		 	<div>
+		 	<div id="sectionId">
 
 				<h3 id="subtitle"></h3>	
 
@@ -173,6 +175,7 @@
 
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
+					adjustGadgetHeight("sectionId");
 				}
 
 				function goArticle() {
