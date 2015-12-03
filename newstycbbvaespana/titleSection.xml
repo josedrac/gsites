@@ -85,14 +85,14 @@
 				document.getElementById("sectionId").innerHTML = html;
 				alert(Math.ceil(document.getElementById("sectionId").offsetHeight));
 				alert(document.getElementById("sectionId").offsetHeight);
-				adjustGadgetHeight("sectionId");
+				
 			}
 
 			google.setOnLoadCallback(getSpreadsheet);
 
 		</script>
 
-		<div id="sectionId"></div>
+		<div id="sectionId" onload="adjustGadgetHeight("sectionId")"></div>
 
 
 
