@@ -154,7 +154,7 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
-					spreadsheetKey = prefs.getString('spreadsheetKey');
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
 					sheetName = encodeURIComponent('appointments'),
 					queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
