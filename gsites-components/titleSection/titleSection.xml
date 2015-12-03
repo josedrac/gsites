@@ -83,8 +83,8 @@
 				}
 
 				document.getElementById("sectionId").innerHTML = html;
-				alert(Math.ceil(document.getElementById(div).offsetHeight));
-				alert(document.getElementById(div).offsetHeight);
+				alert(Math.ceil(document.getElementById("sectionId").offsetHeight));
+				alert(document.getElementById("sectionId").offsetHeight);
 				adjustGadgetHeight("sectionId");
 			}
 
