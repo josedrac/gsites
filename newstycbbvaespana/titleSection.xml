@@ -92,7 +92,7 @@
 				google.setOnLoadCallback(getSpreadsheet);
 
 				function onElementHeightChange(elm, callback){
-				    var lastHeight = elm.clientHeight;
+				    var lastHeight = elm.clientHeight, newHeight;
 				    (function run(){
 				        newHeight = elm.clientHeight;
 				        if( lastHeight != newHeight)
@@ -131,7 +131,7 @@
 				<div id="sectionId"></div>
 
 				<script>
-					adjustGadHeight("div");
+					adjustGadHeight("sectionId");
 				</script>
 
 		]]>
