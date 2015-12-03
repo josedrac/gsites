@@ -83,8 +83,6 @@
 				}
 
 				document.getElementById("sectionId").innerHTML = html;
-				alert(Math.ceil(document.getElementById("sectionId").offsetHeight));
-				alert(document.getElementById("sectionId").offsetHeight);
 				
 			}
 
@@ -92,8 +90,9 @@
 
 		</script>
 
-		<div id="sectionId" onload="adjustGadgetHeight('sectionId')"></div>
-
+		<body onload="adjustGadgetHeight('sectionId')">
+			<div id="sectionId"></div>
+		</body>
 
 
     ]]>
