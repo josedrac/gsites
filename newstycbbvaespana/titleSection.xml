@@ -92,11 +92,14 @@
 				google.setOnLoadCallback(getSpreadsheet);
 
 				function onElementHeightChange(elm, callback){
-				    var lastHeight = elm.clientHeight, newHeight;
+				    var lastHeight = elm.clientHeight;
+				    var first = 1;
 				    (function run(){
 				        newHeight = elm.clientHeight;
-				        //if( lastHeight != newHeight )
+				        if( lastHeight != newHeight || first){
 				            callback();
+				            first = 0;
+				        }
 				        lastHeight = newHeight;
 
 				        if( elm.onElementHeightChangeTimer )
