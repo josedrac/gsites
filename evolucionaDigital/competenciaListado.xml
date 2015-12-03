@@ -68,7 +68,7 @@
 		    margin-top: 5px;
 		}
 
-		a.title {
+		a.title, p.title {
 			color: #0078D2;
 		    font-family: BBVA Web Book, Arial;
 		    font-size: 18px;
@@ -78,6 +78,9 @@
 		    text-overflow: ellipsis;
 		    display: block;
 		    overflow: hidden;
+		}
+		p.title {
+			color: #434a58;
 		}
 
 		.dateVideo {
@@ -268,7 +271,11 @@
 				html += "<div class='container'>";
 				html += getIcons(data, i);
 				html += "<div class='content'>";
-				html += '	<div><a href="javascript:void(0)" onclick="javascript:Go(\'' + data.getValue(i,3) + '\')" class="title">' + data.getValue(i,1) + '</a></div>';
+				if(data.getValue(i,3) != null && typeof data.getValue(i,3) != 'undefined' && data.getValue(i,3) !== undefined && data.getValue(i,3) != "") {
+					html += '<div><a href="javascript:void(0)" onclick="javascript:Go(\''+data.getValue(i,3)+'\')" class="title">'+data.getValue(i,1)+'</a></div>';
+				} else {
+					html += "<div><p class='title'>" + data.getValue(i,1) + "</p></div>";
+				}
 				html += "	<span class='dateVideo'>" + data.getFormattedValue(i,2) + "</span>";
 				html += "</div>";
 				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
