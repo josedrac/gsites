@@ -89,9 +89,8 @@
 
 				onElementHeightChange(document.body, function(){
 				    					var D = document;
-										alert("sectionId: "+document.getElementById("sectionId").offsetHeight);
+										alert("sectionId: "+D.body.offsetHeight);
 									    var height = Math.max(
-									    	document.getElementById("sectionId").offsetHeight,
 									        D.body.scrollHeight, D.documentElement.scrollHeight,
 									        D.body.offsetHeight, D.documentElement.offsetHeight,
 									        D.body.clientHeight, D.documentElement.clientHeight
