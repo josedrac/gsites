@@ -91,7 +91,9 @@
 
 			</script>
 
-			<div id="sectionId"></div>
+			<body onload="adjustGadgetHeight()">
+				<div id="sectionId"></div>
+			</body>
 
 		]]>
 	</Content>
