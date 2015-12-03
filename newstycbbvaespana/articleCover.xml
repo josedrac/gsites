@@ -94,8 +94,7 @@
 		  			margin-bottom: 19px;
 				}
 
-				p,
-				dl {
+				p {
 					font-family: arial;
 					font-size: 13px;
 					color: #434A58;
@@ -152,26 +151,11 @@
 	    			bottom: 5px;
 				}
 
-				dl {
-				    margin-top: 14px;
-				    margin-bottom: 16px;
-				}
-
-				dt {
-					float: left;
-				}
-				dt:after {
-					content: "\003A";
-					margin-right: 3px;
-				}
-				dd {
-					color: #0078D2;
-				    margin-bottom: 4px;
-				}
-
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script type="text/javascript" src="https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
+
 
 			<script type="text/javascript">
 
@@ -179,7 +163,7 @@
 
 			</script>
 
-		 	<div class="article-cover bordered-button">
+		 	<div id="container" class="article-cover bordered-button">
 		 		<div class="content-wrapper">
 					<div class="article-cover-wrapper">
 
@@ -263,7 +247,8 @@
 					document.getElementById("author").innerHTML = data.author; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
 					document.getElementById("coverMedia").innerHTML = data.coverMedia;
-					gadgets.window.adjustHeight();
+					adjustGadgetHeight("container");
+
 				}
 
 				function goArticle() {
