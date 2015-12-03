@@ -78,7 +78,10 @@
 		    text-decoration: none;
 		    text-overflow: ellipsis;
 		    display: block;
+		    display: -webkit-box;
 		    overflow: hidden;
+		    -webkit-line-clamp: 2;
+		    -webkit-box-orient: vertical;
 		}
 		p.title {
 			color: #434a58;
