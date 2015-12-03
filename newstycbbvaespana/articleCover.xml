@@ -222,7 +222,7 @@
 
 				var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
-					siteName = prefs.getString('siteName')
+					siteName = prefs.getString('siteName'),
 					sectionId = prefs.getString('sectionId'),
 					date = getUrlParameter("date"),
 					sheetName = encodeURIComponent('article content'),
