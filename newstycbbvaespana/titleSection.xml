@@ -84,7 +84,7 @@
 					}
 
 					document.getElementById("sectionId").innerHTML = html;
-					window.onload = function adjustGadgetHeight() {
+					window.onload = function() {
 
 										var D = document;
 										alert("sectionId: "+document.getElementById("sectionId").offsetHeight);
