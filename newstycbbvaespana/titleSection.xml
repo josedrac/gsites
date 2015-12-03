@@ -11,7 +11,7 @@
  <Content type="html">
     <![CDATA[
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-		<script type="text/javascript" src="http://cdn.rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
+		<script type="text/javascript" src="https://cdn.rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"></script>
 
 		<style type="text/css">
 
