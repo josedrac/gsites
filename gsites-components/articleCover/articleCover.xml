@@ -9,6 +9,7 @@
 	</ModulePrefs>
 
 	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+	<UserPref name="siteName" display_name="Site name" required="true" />
 	<UserPref name="sectionId" display_name="Section ID" required="true" />
 
 	<Content type="html">
@@ -221,6 +222,7 @@
 
 				var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
+					siteName = prefs.getString('siteName'),
 					sectionId = prefs.getString('sectionId'),
 					date = getUrlParameter("date"),
 					sheetName = encodeURIComponent('article content'),
@@ -267,7 +269,7 @@
 				}
 
 				function goArticle() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '';
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/articlecontent?id=' + sectionId + '&date=' + date + '';
 					return false;
 				}
 
@@ -297,6 +299,11 @@
 				<tr>
 					<td>
 						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
 					</td>
 				</tr>
 				<tr>
