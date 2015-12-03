@@ -1,7 +1,6 @@
 
 
 
-
 function adjustGadgetHeight() {
 
 	var D = document;
@@ -12,6 +11,5 @@ function adjustGadgetHeight() {
     );
 
 	gadgets.window.adjustHeight(Math.ceil(height));
-
 
 }

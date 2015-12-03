@@ -8,6 +8,7 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
+	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
 	<UserPref name="sectionId" display_name="Section ID" required="true" />
 
 	<Content type="html">
@@ -203,9 +204,9 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
 					sectionId = prefs.getString('sectionId'),
 					date = getUrlParameter("date"),
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -279,6 +280,11 @@
 
 
 			<table width="100%" border="0" id="tablaconfig">
+				<tr>
+					<td>
+						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
 				<tr>
 					<td>
 						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
