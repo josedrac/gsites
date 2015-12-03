@@ -34,7 +34,9 @@
 
 			</script>
 
-			<ul id="articleBanners"></ul>
+			<div id="container">
+				<ul id="articleBanners"></ul>
+			</div>
 
 			<script type="text/javascript">
 
@@ -90,7 +92,7 @@
 					}
 						
 					document.getElementById("articleBanners").innerHTML = template; 
-					adjustGadgetHeight("articleBanners");
+					adjustGadgetHeight("container");
 
 				}
 
