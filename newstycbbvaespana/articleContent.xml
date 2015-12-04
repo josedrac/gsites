@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  	<ModulePrefs title="NB-articleContent.xml">
-	    <Require feature="idi"/>
-	    <Require feature="locked-domain" />
+
+	<ModulePrefs title="NB - articleCover.xml">
+		<Require feature="idi"/>
+		<Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
 		<Require feature="setprefs" />
-  	</ModulePrefs>
+	</ModulePrefs>
 
-  	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+	<UserPref name="sectionId" display_name="Section ID" required="true" />
 
- 	<Content type="html">
-    	<![CDATA[
-			
+	<Content type="html">
+	    <![CDATA[
+
 			<style type="text/css">
 
 				@font-face {
@@ -36,61 +38,124 @@
 					font-weight: normal;
 				}
 
-				.article-content {
-					padding: 0 10px;
-				}				
+				.article-cover {
+					display: table;
+					width: 100%;
+				}
+
+
+				.article-cover.bordered-button {
+					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-position: bottom;
+					background-repeat: repeat-x;
+				}
+
+				.article-cover .article-cover-wrapper {
+				    margin-right: 20px;
+					padding-left: 20px;
+					width: 280px;
+				}
+
+				.article-cover .content-wrapper {
+					display: table-cell;
+					vertical-align: top;
+				}
+
+				.article-cover .media-wrapper {
+					display: table-cell;
+					vertical-align: middle;
+				}
 
 				h2 {
-					font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-					font-size: 22px;
-	    			font-weight: normal;
-	    			word-spacing: -1px;
-	    			color: #0078D2;
-	    			padding: 0 10px 6px;
-				    border-bottom: 1px solid #DCDCDC;
-				    margin-top: 0;
-				    margin-bottom: 25px;
-
+					font-family: BBVA Web Light, Arial;
+					font-size: 16px;
+					font-weight: normal;
+					text-transform: uppercase;
+	    			word-spacing: 2px;
+					color: #333;
+					margin-top: 0;
+					margin-bottom: 5px;
 				}
 
 				h3 {
-				    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-				    font-size: 16.25px;
-				    font-weight: normal;
-				    text-transform: uppercase;
-				    color: #333;
-				    margin: 0;
-				    padding: 0 10px;
+		  			font-family: BBVA Web Book, Arial;
+		  			font-size: 18px;
+		  			font-weight: normal;
+					color: #0078D2;
+		  			text-decoration: none;
+		  			word-spacing: -2px;
+		  			margin: 0;
 				}
 
-				p.author-signature {
-					font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+				.author-signature {
+					font-family: arial;
 					font-size: 11px;
 					color: #71777F;
-					margin-top: 1px;
+					margin-top: 2px;
+		  			margin-bottom: 19px;
 				}
 
-				p {
-					font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-					font-size: 12px;
-					color: #71777F;
-				    line-height: 19px;
-				    padding: 0 10px;
+				p,
+				dl {
+					font-family: arial;
+					font-size: 13px;
+					color: #434A58;
 				}
 
-				.media-wrapper {
+				button {
+					background: #0079C1;
+					background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+					background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+					background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+					-webkit-border-radius: .3em;
+					-moz-border-radius: .3em;
+					border-radius: .3em;
+					font-size: 11px;
+					font-weight: bolder;
+					word-spacing: 2px;
+					height: 20px;
+					padding-left: .9em;
+					padding-right: .9em;
+					border: .1em solid #00559D;
+					color: white;
+					cursor: pointer;
 					margin: 20px 0;
-					text-align: center;
-					padding: 0 10px;
+				}
+
+				button:hover {
+					background: #004C99;
+				}
+
+				.cover-media {
+				    text-align: right;  /* align the inline(-block) elements horizontally */
+				    font: 0/0 a;         /* remove the gap between inline(-block) elements */
+				}
+
+				.cover-media:before {    /* create a full-height inline block pseudo=element */
+				    content: ' ';
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    height: 100%;
+				}
+
+				.cover-media img,
+				.cover-media iframe {
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+			        max-height: 100%;
+	    			max-width: 100%;
+	    			position: relative;
+	    			bottom: 5px;
 				}
 
 				dl {
 				    margin-top: 14px;
 				    margin-bottom: 16px;
-				    padding: 0 10px;
-					font-family: arial;
-					font-size: 13px;
-					color: #434A58;
 				}
 
 				dt {
@@ -116,29 +181,50 @@
 
 			</script>
 
-			<div id="container" class="article-content">
 
-				<h2 id="title"></h2>
+		 	<div id="container" class="article-cover bordered-button">
+		 		<div class="content-wrapper">
+					<div class="article-cover-wrapper">
 
-				<h3 id="subtitle"></h3>
+			 			<h2 id="title"></h2>
+						<h3 id="subtitle"></h3>
+						<p class="author-signature">
+							<span id="date"></span>
+							<span>-</span>
+							<span id="author"></span>
+						</p>
 
-				<p class="author-signature">
-					<span id="date"></span>
-					<span>-</span>
-					<span id="author"></span>
-				</p>
+						<div id="sortDescription"></div>
+						<button type="button" onclick="javascript:goArticle()">Saber más</button>
 
-				<div id="sortDescription"></div>
+					</div>
+		 		</div>
+		 		<div class="media-wrapper">
 
-				<div id="media" class="media-wrapper"></div>
+		 			<div id="coverMedia" class="cover-media"></div>
+		 			
+		 		</div>
+		 	</div>
 
-				<div id="description"></div>
+		 	<div id="functionsContainer"></div>
 
-			</div>
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
 				function getUrlParameter(parameterName) {
+
 					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
 
 					for (var i = 0; i < params.length; i++) {
@@ -152,9 +238,11 @@
 
 				var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
+					sectionId = prefs.getString('sectionId'),
+					date = getUrlParameter("date"),
 					sheetName = encodeURIComponent('article content'),
-					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '" and D ends with "' + getUrlParameter("date") + '"'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
 					query.send(handleQueryResponse);
@@ -175,34 +263,39 @@
 							subtitle: dataTable.getValue(0, 2),
 							date: dataTable.getValue(0, 3),
 							author: dataTable.getValue(0, 4),
-							sortDescription: dataTable.getValue(0, 7),
-							description: dataTable.getValue(0, 8)
+							sortDescription: dataTable.getValue(0, 7)
 						},
-						image = dataTable.getValue(0, 5),
-						video = dataTable.getValue(0, 6);
+						coverImage = dataTable.getValue(0, 9),
+						coverVideo = dataTable.getValue(0, 10);
 
-					if(image != null && image != undefined) {
-						data.media = image;
-					} else if(video != null && video != undefined) {
-						data.media = video;
+
+					if(coverImage != null && coverImage != undefined) {
+						data.coverMedia = '<img src="' + coverImage + '" alt="image"/>';;
+					} else if(coverVideo != null && coverVideo != undefined) {
+						data.coverMedia = coverVideo;
 					}
 
 					document.getElementById("title").innerHTML = data.title; 				
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
 					document.getElementById("date").innerHTML = data.date;
 					document.getElementById("author").innerHTML = data.author; 	
-					document.getElementById("sortDescription").innerHTML = data.sortDescription; 	
-					document.getElementById("media").innerHTML = data.media; 	
-					document.getElementById("description").innerHTML = data.description; 	
-					adjustGadgetHeight("container");
+
+					document.getElementById("sortDescription").innerHTML = data.sortDescription;
+					document.getElementById("coverMedia").innerHTML = data.coverMedia;
+				}
+
+				function goArticle() {
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '';
+					return false;
+
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
 
 			</script>
-   			
-   		]]>
-  	</Content>
+
+	    ]]>
+	</Content>
 
 	<Content type="html" view="configuration">
 
@@ -214,24 +307,30 @@
 					color: #000;
 					font-size: 11px;
 					font-weight: bold;
-				}
+			}
 
 			</style>
 
-			<table width="100%" border="0">
+
+			<table width="100%" border="0" id="tablaconfig">
 				<tr>
 					<td>
 						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
 					</td>
 				</tr>
 			</table>
 
 			<script type="text/javascript">
 
-				var prefs = new gadgets.Prefs();
-					function register(variable) {
-					prefs.set(variable, document.getElementById(variable).value);
-				}
+			var prefs = new gadgets.Prefs();
+				function register(variable) {
+				prefs.set(variable, document.getElementById(variable).value);
+			}
 
 			</script>
 

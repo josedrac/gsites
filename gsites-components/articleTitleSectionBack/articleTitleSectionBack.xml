@@ -8,10 +8,9 @@
   	</ModulePrefs>
 
 	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
-<<<<<<< HEAD
-=======
+
 	<UserPref name="siteName" display_name="Site name" required="true" />
->>>>>>> master
+
   	<UserPref name="sectionName" display_name="Section name" required="true" />
 
  	<Content type="html">
@@ -118,10 +117,9 @@
 
 				var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
-<<<<<<< HEAD
-=======
+
 					siteName = prefs.getString('siteName'),
->>>>>>> master
+
 					sectionName = prefs.getString('sectionName'),
 					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
@@ -185,14 +183,13 @@
 				</tr>
 				<tr>
 					<td>
-<<<<<<< HEAD
-=======
+
 						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
->>>>>>> master
+
 						Section Name: <input type="text" id="sectionName" value="__UP_sectionName__"   onchange="register('sectionName')"/>
 					</td>
 				</tr>
