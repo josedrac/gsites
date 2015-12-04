@@ -110,7 +110,6 @@
 					}
 						
 					document.getElementById("articleBanners").innerHTML = template; 
-					adjustGadgetHeight("container");
 
 				}
 
