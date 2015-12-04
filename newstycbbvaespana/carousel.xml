@@ -353,17 +353,17 @@
 		       	Button Link1: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
 		    </td>
 		</tr>
+		<tr>
+		   	<td>
+		       	Button Label1: <input type="text" size="100" id="VarButtonLabel1" value="__UP_VarButtonLabel1__" onchange="registra('VarButtonLabel1')"/>
+		    </td>
+		</tr>
 	    <tr>
 	        <td>
 				URL Image1: <input type="text" size="100" id="VarImage1" value="__UP_VarImage1__" onchange="registra('VarImage1')"/><hr>
 			</td>
 	    </tr>
-	    <tr>
-		   	<td>
-		       	Button Label1: <input type="text" size="100" id="VarButtonLabel1" value="__UP_VarButtonLabel1__" onchange="registra('VarButtonLabel1')"/>
-		    </td>
-		</tr>
-
+	    
 	     <tr>
 		    <td>
 		       	Title2: <input type="text" size="100" id="VarTitle2" value="__UP_VarTitle2__"   onchange="registra('VarTitle2')"/>
