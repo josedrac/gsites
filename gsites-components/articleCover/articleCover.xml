@@ -179,7 +179,7 @@
 						</p>
 
 						<div id="sortDescription"></div>
-						<button id="buttonArticle" type="button" onclick="javascript:goArticle()">Saber más</button>
+						<button id="buttonArticle" type="button" onclick="javascript:goArticle()"></button>
 
 					</div>
 		 		</div>
