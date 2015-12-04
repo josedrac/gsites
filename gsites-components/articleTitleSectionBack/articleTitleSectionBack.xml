@@ -159,7 +159,7 @@
 				}
 
 				var buttonLabel = prefs.getString('buttonLabel');
-				document.getElementById('buttonArticle').innerHTML = buttonLabel;
+				document.getElementById('buttonLabel').innerHTML = buttonLabel;
 
 			</script>
    			
