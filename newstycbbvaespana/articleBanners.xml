@@ -40,6 +40,21 @@
 				<ul id="articleBanners"></ul>
 			</div>
 
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
+
 			<script type="text/javascript">
 
 				function getUrlParameter(parameterName) {
