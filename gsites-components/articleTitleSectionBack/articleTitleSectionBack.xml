@@ -120,6 +120,7 @@
 				        elm.onElementHeightChangeTimer = setTimeout(run, 200);
 				    })();
 				}
+				adjustGadgetHeight("container");
 
 			</script>
 
