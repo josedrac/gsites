@@ -14,6 +14,8 @@
 
 	<UserPref name="sectionId" display_name="Section ID" required="true" />
 
+	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
+
 	<Content type="html">
 	    <![CDATA[
 
@@ -130,7 +132,7 @@
 				<h3 id="subtitle"></h3>	
 
 				<div id="sortDescription"></div>
-				<button type="button" onclick="javascript:goArticle()">Saber más</button>
+				<button id="buttonArticle" type="button" onclick="javascript:goArticle()"></button>
 
 		 	</div>
 
@@ -146,6 +148,9 @@
 				            eval(document.getElementById('sc1').innerHTML);
 						}
 					});
+
+				var buttonLabel = prefs.getString('buttonLabel');
+				document.getElementById('buttonArticle').innerHTML = buttonLabel;
 
 			</script>
 
@@ -170,6 +175,7 @@
 					siteName = prefs.getString('siteName'),
 
 					sectionId = prefs.getString('sectionId'),
+
 					date = getUrlParameter("date"),
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
@@ -243,6 +249,11 @@
 
 						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
 					</td>
+				</tr>
+				<tr>
+				   	<td>
+				       	Button Label: <input type="text" size="100" id="buttonLabel" value="__UP_buttonLabel__" onchange="registra('buttonLabel')"/>
+				    </td>
 				</tr>
 			</table>
 
