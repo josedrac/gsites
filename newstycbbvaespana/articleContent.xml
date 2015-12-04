@@ -117,7 +117,7 @@
 
 			</script>
 
-			<div class="article-content">
+			<div id="article-content" class="article-content">
 
 				<h2 id="title"></h2>
 
