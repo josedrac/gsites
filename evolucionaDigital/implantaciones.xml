@@ -134,11 +134,11 @@
 			color:#DCDCDC;
 		}
 
-		.btn:hover {
+		button:hover {
     		background: #004C99;
 		}
 
-		.btn {
+		button {
 		    background: #0079C1;
 		    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
 		    background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
@@ -382,7 +382,7 @@
 				   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,2) + "</span></div>";
 				   	html += "<div class='ambito'>Ámbito: <span>" + data.getValue(i,3) + "</span></div>";
 				   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
-				    html += "<button type='button' class='btn' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
+				    html += "<button type='button' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
 				    html += "</div>";
 
 					//Separación
