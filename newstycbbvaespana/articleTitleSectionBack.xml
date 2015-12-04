@@ -13,6 +13,8 @@
 
   	<UserPref name="sectionName" display_name="Section name" required="true" />
 
+  	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
+
  	<Content type="html">
     	<![CDATA[
 			
@@ -82,7 +84,7 @@
 			</script>
 
 			<div id="container" class="container">
-				<button type="button" onclick="javascript:goBack();">Volver</button>
+				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
 			</div>
 
@@ -156,6 +158,9 @@
 					google.setOnLoadCallback(getSpreadsheet);
 				}
 
+				var buttonLabel = prefs.getString('buttonLabel');
+				document.getElementById('buttonArticle').innerHTML = buttonLabel;
+
 			</script>
    			
    		]]>
@@ -192,6 +197,11 @@
 
 						Section Name: <input type="text" id="sectionName" value="__UP_sectionName__"   onchange="register('sectionName')"/>
 					</td>
+				</tr>
+				<tr>
+				   	<td>
+				       	Button Label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__" onchange="register('buttonLabel')"/>
+				    </td>
 				</tr>
 			</table>
 
