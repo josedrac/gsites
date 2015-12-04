@@ -265,7 +265,6 @@
 					document.getElementById("author").innerHTML = data.author; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
 					document.getElementById("coverMedia").innerHTML = data.coverMedia;
-					adjustGadgetHeight("container");
 
 				}
 
