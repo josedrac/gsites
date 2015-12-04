@@ -13,7 +13,7 @@
   <Content view="canvas" preferred_height="20px">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
 	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
 
 	<style type="text/css">
@@ -228,6 +228,19 @@
 	<![endif]-->
 
 	<div id="listNovedades" class="competencia"></div>
+	<div id="functionsContainer"></div>
+
+	<script type="text/javascript">
+		
+		$.ajax({
+			  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+				success: function(result){
+					var e = document.getElementById('functionsContainer');
+		            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("listNovedades");</sc'+'ript>';
+		            eval(document.getElementById('sc1').innerHTML);
+				}
+			});
+	</script>
 
    	<script type="text/javascript">
 
@@ -261,6 +274,8 @@
 		        initval: 0,
 	        });
 	    }
+
+
 
 		function handleQueryResponse(response) {
             data = response.getDataTable();
