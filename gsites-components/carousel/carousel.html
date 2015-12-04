@@ -1,35 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Module>
- 	<ModulePrefs title="NB-GalleryCarousel.xml" height ="380">
-    	<Require feature="idi"/>
-	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>
-		<Require feature="setprefs" />
-  	</ModulePrefs>
-
-  	<UserPref name="TitleCarousel" default_value="" display_name="TitleCarousel" required="true" />
-
-	<UserPref name="VarTitle1" default_value="" display_name="VarTitle1" required="true" />
-	<UserPref name="VarSubTitle1" default_value="" display_name="VarSubTitle1" required="true" />
-	<UserPref name="VarImage1" default_value="" display_name="VarImage1" required="true" />
-
-	<UserPref name="VarTitle2" default_value="" display_name="VarTitle2" required="true" />
-	<UserPref name="VarSubTitle2" default_value="" display_name="VarSubTitle2" required="true" />
-	<UserPref name="VarImage2" default_value="" display_name="VarImage2" required="true" />
-
-	<UserPref name="VarTitle3" default_value="" display_name="VarTitle3" required="true" />
-	<UserPref name="VarSubTitle3" default_value="" display_name="VarSubTitle3" required="true" />
-	<UserPref name="VarImage3" default_value="" display_name="VarImage3" required="true" />
-
-	<UserPref name="VarTitle4" default_value="" display_name="VarTitle4" required="true" />
-	<UserPref name="VarSubTitle4" default_value="" display_name="VarSubTitle4" required="true" />
-	<UserPref name="VarImage4" default_value="" display_name="VarImage4" required="true" />
-
-
- <Content type="html" charset="UTF-8">
-    <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 	<style type="text/css">
         /* @group fonts */
@@ -98,25 +67,15 @@
 
 		.banner {
 		  position: relative;
+		  overflow: hidden;
 		  margin: 0 auto;
 		  border-radius: 1px;
-		  max-width: 960px!important;
-		  width: auto!important;
-		  min-height: 378px!important;
-		  border: 1px solid #D1D1D1;
-		}
-
-		.banner #titleCarousel {
-			font-size: 20px;
-			padding: 20px 15px;
-			color: #0072c9;
-			font-family: 'BBVA Web Light';
+		  width: 960px;
 		}
 
 		.banner ul {
 		  margin: 0;
 		  padding: 0;
-		  min-height: 378px!important;
 		}
 
 		.banner ul li {
@@ -124,52 +83,40 @@
 		  display: block;
 		  float: left;
 		  margin: 0;
+		  padding: 0;
+		  height: 295px;
 		  background-size: cover;
 		  background-position: center;
-		}
-
-		.banner ul li .image {
-			width: 100%;
-			max-width: 650px;
-    		margin: 0 auto;
-			
-		}
-
-		.banner ul li .image .background {
-			margin: 0 15px;
-			height: 185px;
-			background-size: cover;
-    		background-position: center;
+		  border-top: 10px solid #0091E5;
 		}
 
 		.banner ul li .content {
+			width: 273px;
+			height: 195px;
+			background-color: white;
+			margin-left: 80px;
+			margin-top: 20px;
+			padding: 15px;
 			overflow: hidden;
-			margin-bottom: 50px;
-			max-width: 650px;
-    		margin: 0 auto;
+			color: #0072c9;
 		}
 
 		.banner ul li .content h2 {
 			margin: 0;
-			font-size: 13px;
+			font-size: 30px;
 			font-family: BBVA Web Book;
 			font-weight: normal;
-			color: #0072c9;
-			padding: 15px 15px 0;
 		}
 
 		.banner ul li .content p {
-			font-size: 13px;
-			margin: 13px 0 15px;
+			font-size: 18px;
+			margin: 15px 0;
 			font-family: BBVA Web Light;
-			padding: 0 15px;
 		}
 
 		.banner .dots {
 			display: inline-block;
     		padding: 0;
-    		margin-bottom: 10px;
-    		padding-top: 3px;
 		}
 
 		.banner .dots li {
@@ -193,8 +140,6 @@
 		    width: 100%;
 		    text-align: center;
 		    bottom: 0;
-		    border-top: 1px solid #E6EEF5;
-		    margin-bottom: 8px;
 		}
 
 		.control .prev {
@@ -206,103 +151,80 @@
 
     </style>
 
-    <div id="banner" class="banner">
-    	<div id="titleCarousel"></div>
+
+	<div class="banner">
 	    <ul id="carousel"></ul>
 	    <div id="carouselControls"></div>
 	</div>
-
-	<div id="functionsContainer"></div>
-
-	<script type="text/javascript">
-		
-		$.ajax({
-			  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-				success: function(result){
-					var e = document.getElementById('functionsContainer');
-		            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("banner");</sc'+'ript>';
-		            eval(document.getElementById('sc1').innerHTML);
-				}
-			});
-
-	</script>
 
 	<script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
 
    <script type="text/javascript">
-   		var titleHtml="";
 	   	var html="";
 	   	var gadgetHelper = null;
 	   	var prefs = new gadgets.Prefs();
 
-		var TitleCarousel = prefs.getString("TitleCarousel");
 		var VarTitle1 = prefs.getString("VarTitle1");
         var VarSubTitle1 = prefs.getString("VarSubTitle1");
+        var VarLink1 = prefs.getString("VarLink1");
         var VarImage1 = prefs.getString("VarImage1");
         var VarTitle2 = prefs.getString("VarTitle2");
         var VarSubTitle2 = prefs.getString("VarSubTitle2");
+        var VarLink2 = prefs.getString("VarLink2");
         var VarImage2 = prefs.getString("VarImage2");
         var VarTitle3 = prefs.getString("VarTitle3");
         var VarSubTitle3 = prefs.getString("VarSubTitle3");
+        var VarLink3 = prefs.getString("VarLink3");
         var VarImage3 = prefs.getString("VarImage3");
-        var VarTitle4 = prefs.getString("VarTitle4");
+         var VarTitle4 = prefs.getString("VarTitle4");
         var VarSubTitle4 = prefs.getString("VarSubTitle4");
+        var VarLink4 = prefs.getString("VarLink4");
         var VarImage4 = prefs.getString("VarImage4");
 
-		titleHtml = TitleCarousel;
 
         if (VarTitle1!="")
         {
-        	html += "<li>";
-        	html += "	<div class='image'>"
-	        html += "		<div class='background' style='background-image: url(\"" + VarImage1 + "\");'></div>";	
-	        html += "	</div>";
-			html += "	<div class='content'>";
-			html += "		<h2>" + VarTitle1 + "</h2>";
-			html += "    	<p>" + VarSubTitle1 + "</p>";
-			html += "	</div>";
-			html += "</li>";
+        	html +="<li style='background-image: url(\"" + VarImage1 + "\");'>";
+			html +="	<div class='content'>";
+			html +="		<h2>" + VarTitle1 + "</h2>";
+			html +="    	<p>" + VarSubTitle1 + "</p>";
+			html +="		<button onclick=javascript:Go('" + VarLink1 + "')>Más info</button>";
+			html +="	</div>";
+			html +="</li>";
      	}
      	if (VarTitle2!="")
         {
-        	html += "<li>";
-        	html += "	<div class='image'>"
-	        html += "		<div class='background' style='background-image: url(\"" + VarImage2 + "\");'></div>";	
-	        html += "	</div>";
-			html += "	<div class='content'>";
-			html += "		<h2>" + VarTitle2 + "</h2>";
-			html += "    	<p>" + VarSubTitle2 + "</p>";
-			html += "	</div>";
-			html += "</li>";
+        	html +="<li style='background-image: url(\"" + VarImage2 + "\");'>";
+			html +="	<div class='content'>";
+			html +="		<h2>" + VarTitle2 + "</h2>";
+			html +="    	<p>" + VarSubTitle2 + "</p>";
+			html +="		<button onclick=javascript:Go('" + VarLink2 + "')>Más info</button>";
+			html +="	</div>";
+			html +="</li>";
      	}
      	if (VarTitle3!="")
         {
-        	html += "<li>";
-        	html += "	<div class='image'>"
-	        html += "		<div class='background' style='background-image: url(\"" + VarImage3 + "\");'></div>";	
-	        html += "	</div>";
-			html += "	<div class='content'>";
-			html += "		<h2>" + VarTitle3 + "</h2>";
-			html += "    	<p>" + VarSubTitle3 + "</p>";
-			html += "	</div>";
-			html += "</li>";
+        	html +="<li style='background-image: url(\"" + VarImage3 + "\");'>";
+			html +="	<div class='content'>";
+			html +="		<h2>" + VarTitle3 + "</h2>";
+			html +="    	<p>" + VarSubTitle3 + "</p>";
+			html +="		<button onclick=javascript:Go('" + VarLink3 + "')>Más info</button>";
+			html +="	</div>";
+			html +="</li>";
      	}
      	if (VarTitle4!="")
         {
-        	html += "<li>";
-        	html += "	<div class='image'>"
-	        html += "		<div class='background' style='background-image: url(\"" + VarImage4 + "\");'></div>";	
-	        html += "	</div>";
-			html += "	<div class='content'>";
-			html += "		<h2>" + VarTitle4 + "</h2>";
-			html += "    	<p>" + VarSubTitle4 + "</p>";
-			html += "	</div>";
-			html += "</li>";
+        	html +="<li style='background-image: url(\"" + VarImage4 + "\");'>";
+			html +="	<div class='content'>";
+			html +="		<h2>" + VarTitle4 + "</h2>";
+			html +="    	<p>" + VarSubTitle4 + "</p>";
+			html +="		<button onclick=javascript:Go('" + VarLink4 + "')>Más info</button>";
+			html +="	</div>";
+			html +="</li>";
      	}
 
      	document.getElementById('carousel').innerHTML += html;
-     	document.getElementById('titleCarousel').innerHTML += titleHtml;
 
      	if(VarTitle2 != "" || VarTitle3 != "" || VarTitle4 != "") {
 
@@ -314,6 +236,13 @@
      		document.getElementById('carouselControls').innerHTML += carouselControls;
      		
      	}
+
+
+
+		function Go(destination){
+        	window.open(destination,'_parent');
+        	return false;
+    	}
 
 		var unslider = $('.banner').unslider({
 			speed: 500,               
@@ -330,110 +259,4 @@
 
 	</script>
 
-    ]]>
-  	</Content>
 
-  	<Content type="html" view="configuration" preferred_height="550">
-
-	<![CDATA[
-	<style type="text/css">
-
-		table td {
-			color: #000;
-			font-size: 11px;
-			font-weight: bold;
-		}
-
-		table td input,
-		textarea {
-			color: #000;
-			font-size: 11px;
-		}
-
-	</style>
-
-	<table width="100%" border="0" id="tablaconfig">
-		<tr>
-		   	<td>
-		       	Title carousel: <input type="text" size="100" id="TitleCarousel" value="__UP_TitleCarousel__" onchange="registra('TitleCarousel')"/><hr>
-		    </td>
-		</tr>
-	    <tr>
-		    <td>
-		       	Title1: <input type="text" size="100" id="VarTitle1" value="__UP_VarTitle1__"   onchange="registra('VarTitle1')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	SubTitle1: <input type="text" size="100" id="VarSubTitle1" value="__UP_VarSubTitle1__" onchange="registra('VarSubTitle1')"/>
-		    </td>
-		</tr>
-	    <tr>
-	        <td>
-				URL Image1: <input type="text" size="100" id="VarImage1" value="__UP_VarImage1__" onchange="registra('VarImage1')"/><hr>
-			</td>
-	    </tr>
-
-	     <tr>
-		    <td>
-		       	Title2: <input type="text" size="100" id="VarTitle2" value="__UP_VarTitle2__"   onchange="registra('VarTitle2')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	SubTitle2: <input type="text" size="100" id="VarSubTitle2" value="__UP_VarSubTitle2__" onchange="registra('VarSubTitle2')"/>
-		    </td>
-		</tr>
-	    <tr>
-	        <td>
-				URL Image2: <input type="text" size="100" id="VarImage2" value="__UP_VarImage2__" onchange="registra('VarImage2')"/><hr>
-			</td>
-	    </tr>
-
-	      <tr>
-		    <td>
-		       	Title3: <input type="text" size="100" id="VarTitle3" value="__UP_VarTitle3__"   onchange="registra('VarTitle3')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	SubTitle3: <input type="text" size="100" id="VarSubTitle3" value="__UP_VarSubTitle3__" onchange="registra('VarSubTitle3')"/>
-		    </td>
-		</tr>
-	    <tr>
-	        <td>
-				URL Image3: <input type="text" size="100" id="VarImage3" value="__UP_VarImage3__" onchange="registra('VarImage3')"/><hr>
-			</td>
-	    </tr>
-
-	      <tr>
-		    <td>
-		       	Title4: <input type="text" size="100" id="VarTitle4" value="__UP_VarTitle4__"   onchange="registra('VarTitle4')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	SubTitle4: <input type="text" size="100" id="VarSubTitle4" value="__UP_VarSubTitle4__" onchange="registra('VarSubTitle4')"/>
-		    </td>
-		</tr>
-	    <tr>
-	        <td>
-				URL Image4: <input type="text" size="100" id="VarImage4" value="__UP_VarImage4__" onchange="registra('VarImage4')"/>
-			</td>
-	    </tr>
-	</table>
-
-	<script type="text/javascript">
-	    // Get userprefs
-	    var prefs = new gadgets.Prefs();
-
-	    function registra(variable) {
-			prefs.set(variable,document.getElementById(variable).value);
-		}
-		gadgets.window.adjustHeight();
-	</script>
-
- ]]>
- </Content>
-
-</Module>
