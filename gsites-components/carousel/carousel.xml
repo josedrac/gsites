@@ -11,21 +11,25 @@
 	<UserPref name="VarSubTitle1" default_value="" display_name="VarSubTitle1" required="true" />
 	<UserPref name="VarLink1" default_value="" display_name="VarLink1" required="true" />
 	<UserPref name="VarImage1" default_value="" display_name="VarImage1" required="true" />
+	<UserPref name="VarButtonLabel1" default_value="" display_name="VarButtonLabel1" required="true" />
 
 	<UserPref name="VarTitle2" default_value="" display_name="VarTitle2" required="true" />
 	<UserPref name="VarSubTitle2" default_value="" display_name="VarSubTitle2" required="true" />
 	<UserPref name="VarLink2" default_value="" display_name="VarLink2" required="true" />
 	<UserPref name="VarImage2" default_value="" display_name="VarImage2" required="true" />
+	<UserPref name="VarButtonLabel12" default_value="" display_name="VarButtonLabel2" required="true" />
 
 	<UserPref name="VarTitle3" default_value="" display_name="VarTitle3" required="true" />
 	<UserPref name="VarSubTitle3" default_value="" display_name="VarSubTitle3" required="true" />
 	<UserPref name="VarLink3" default_value="" display_name="VarLink3" required="true" />
 	<UserPref name="VarImage3" default_value="" display_name="VarImage3" required="true" />
+	<UserPref name="VarButtonLabel3" default_value="" display_name="VarButtonLabel3" required="true" />
 
 	<UserPref name="VarTitle4" default_value="" display_name="VarTitle4" required="true" />
 	<UserPref name="VarSubTitle4" default_value="" display_name="VarSubTitle4" required="true" />
 	<UserPref name="VarLink4" default_value="" display_name="VarLink4" required="true" />
 	<UserPref name="VarImage4" default_value="" display_name="VarImage4" required="true" />
+	<UserPref name="VarButtonLabel4" default_value="" display_name="VarButtonLabel4" required="true" />
 
 
  <Content type="html" charset="UTF-8">
@@ -217,18 +221,22 @@
         var VarSubTitle1 = prefs.getString("VarSubTitle1");
         var VarLink1 = prefs.getString("VarLink1");
         var VarImage1 = prefs.getString("VarImage1");
+        var VarButtonLabel1 = prefs.getString("VarButtonLabel1");
         var VarTitle2 = prefs.getString("VarTitle2");
         var VarSubTitle2 = prefs.getString("VarSubTitle2");
         var VarLink2 = prefs.getString("VarLink2");
         var VarImage2 = prefs.getString("VarImage2");
+        var VarButtonLabel2 = prefs.getString("VarButtonLabel2");
         var VarTitle3 = prefs.getString("VarTitle3");
         var VarSubTitle3 = prefs.getString("VarSubTitle3");
         var VarLink3 = prefs.getString("VarLink3");
         var VarImage3 = prefs.getString("VarImage3");
-         var VarTitle4 = prefs.getString("VarTitle4");
+        var VarButtonLabel3 = prefs.getString("VarButtonLabel3");
+        var VarTitle4 = prefs.getString("VarTitle4");
         var VarSubTitle4 = prefs.getString("VarSubTitle4");
         var VarLink4 = prefs.getString("VarLink4");
         var VarImage4 = prefs.getString("VarImage4");
+        var VarButtonLabel4 = prefs.getString("VarButtonLabel4");
 
 
         if (VarTitle1!="")
@@ -237,7 +245,7 @@
 			html +="	<div class='content'>";
 			html +="		<h2>" + VarTitle1 + "</h2>";
 			html +="    	<p>" + VarSubTitle1 + "</p>";
-			html +="		<button onclick=javascript:Go('" + VarLink1 + "')>Más info</button>";
+			html +="		<button onclick=javascript:Go('" + VarLink1 + "')>"+VarButtonLabel1+"</button>";
 			html +="	</div>";
 			html +="</li>";
      	}
@@ -247,7 +255,7 @@
 			html +="	<div class='content'>";
 			html +="		<h2>" + VarTitle2 + "</h2>";
 			html +="    	<p>" + VarSubTitle2 + "</p>";
-			html +="		<button onclick=javascript:Go('" + VarLink2 + "')>Más info</button>";
+			html +="		<button onclick=javascript:Go('" + VarLink2 + "')>"+VarButtonLabel2+"</button>";
 			html +="	</div>";
 			html +="</li>";
      	}
@@ -257,7 +265,7 @@
 			html +="	<div class='content'>";
 			html +="		<h2>" + VarTitle3 + "</h2>";
 			html +="    	<p>" + VarSubTitle3 + "</p>";
-			html +="		<button onclick=javascript:Go('" + VarLink3 + "')>Más info</button>";
+			html +="		<button onclick=javascript:Go('" + VarLink3 + "')>"+VarButtonLabel3+"</button>";
 			html +="	</div>";
 			html +="</li>";
      	}
@@ -267,7 +275,7 @@
 			html +="	<div class='content'>";
 			html +="		<h2>" + VarTitle4 + "</h2>";
 			html +="    	<p>" + VarSubTitle4 + "</p>";
-			html +="		<button onclick=javascript:Go('" + VarLink4 + "')>Más info</button>";
+			html +="		<button onclick=javascript:Go('" + VarLink4 + "')>"+VarButtonLabel4+"</button>";
 			html +="	</div>";
 			html +="</li>";
      	}
@@ -350,6 +358,11 @@
 				URL Image1: <input type="text" size="100" id="VarImage1" value="__UP_VarImage1__" onchange="registra('VarImage1')"/><hr>
 			</td>
 	    </tr>
+	    <tr>
+		   	<td>
+		       	Button Label1: <input type="text" size="100" id="VarButtonLabel1" value="__UP_VarButtonLabel1__" onchange="registra('VarButtonLabel1')"/>
+		    </td>
+		</tr>
 
 	     <tr>
 		    <td>
@@ -364,6 +377,11 @@
 		<tr>
 		   	<td>
 		       	Button Link2: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	Button Label2: <input type="text" size="100" id="VarButtonLabel2" value="__UP_VarButtonLabel2__" onchange="registra('VarButtonLabel2')"/>
 		    </td>
 		</tr>
 	    <tr>
@@ -387,6 +405,11 @@
 		       	Button Link3: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>
 		    </td>
 		</tr>
+		<tr>
+		   	<td>
+		       	Button Label3: <input type="text" size="100" id="VarButtonLabel3" value="__UP_VarButtonLabel3__" onchange="registra('VarButtonLabel3')"/>
+		    </td>
+		</tr>
 	    <tr>
 	        <td>
 				URL Image3: <input type="text" size="100" id="VarImage3" value="__UP_VarImage3__" onchange="registra('VarImage3')"/><hr>
@@ -406,6 +429,11 @@
 		<tr>
 		   	<td>
 		       	Button Link4: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>
+		    </td>
+		</tr>
+		<tr>
+		   	<td>
+		       	Button Label4: <input type="text" size="100" id="VarButtonLabel4" value="__UP_VarButtonLabel4__" onchange="registra('VarButtonLabel4')"/>
 		    </td>
 		</tr>
 	    <tr>
