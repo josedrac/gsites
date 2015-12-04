@@ -69,6 +69,7 @@
 		}
 
 		a.title, p.title {
+			height: 42px;
 			color: #0078D2;
 		    font-family: BBVA Web Book, Arial;
 		    font-size: 18px;
@@ -77,7 +78,10 @@
 		    text-decoration: none;
 		    text-overflow: ellipsis;
 		    display: block;
+		    display: -webkit-box;
 		    overflow: hidden;
+		    -webkit-line-clamp: 2;
+		    -webkit-box-orient: vertical;
 		}
 		p.title {
 			color: #434a58;

@@ -9,6 +9,9 @@
 	</ModulePrefs>
 
 	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+
+	<UserPref name="siteName" display_name="Site name" required="true" />
+
 	<UserPref name="sectionId" display_name="Section ID" required="true" />
 
 	<Content type="html">
@@ -138,7 +141,6 @@
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
-							//document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
 							var e = document.getElementById('functionsContainer');
 				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
 				            eval(document.getElementById('sc1').innerHTML);
@@ -164,6 +166,9 @@
 
 				var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
+
+					siteName = prefs.getString('siteName'),
+
 					sectionId = prefs.getString('sectionId'),
 					date = getUrlParameter("date"),
 					sheetName = encodeURIComponent('article content'),
@@ -195,7 +200,7 @@
 				}
 
 				function goArticle() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '';
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/articlecontent?id=' + sectionId + '&date=' + date + '';
 					return false;
 				}
 
@@ -229,6 +234,13 @@
 				</tr>
 				<tr>
 					<td>
+
+						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
 						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
 					</td>
 				</tr>

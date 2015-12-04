@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 
-
 	<ModulePrefs title="NB - titleSection.xml">
 		<Require feature="idi"/>
 		<Require feature="locked-domain" />
@@ -18,7 +17,6 @@
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-			
 
 			<style type="text/css">
 
@@ -87,10 +85,7 @@
 					}
 
 					document.getElementById("sectionId").innerHTML = html;
-
 				}
-
-				
 
 				google.setOnLoadCallback(getSpreadsheet);
 
@@ -106,7 +101,6 @@
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
-							//document.write('<scr'+'ipt>'+result+'</sc'+'ript>');
 							var e = document.getElementById('functionsContainer');
 				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
 				            eval(document.getElementById('sc1').innerHTML);
@@ -117,7 +111,6 @@
 
 		]]>
 	</Content>
-
 
 	<Content type="html" view="configuration">
 
