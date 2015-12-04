@@ -150,6 +150,7 @@
 					});
 
 				var buttonLabel = prefs.getString('buttonLabel');
+				alert(buttonLabel);
 				document.getElementById('buttonArticle').innerHTML = buttonLabel;
 
 			</script>
