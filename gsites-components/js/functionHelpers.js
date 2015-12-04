@@ -4,15 +4,10 @@
 function adjustGadgetHeight(div) {
 	onElementHeightChange(document.getElementById(div),
 	 	function(){
-			var D = document;
-		    var height = Math.max(
-		    	document.getElementById(div).offsetHeight,
-		        D.body.scrollHeight, D.documentElement.scrollHeight,
-		        D.body.offsetHeight, D.documentElement.offsetHeight,
-		        D.body.clientHeight, D.documentElement.clientHeight
-			);
 
+		    var height = document.getElementById(div).offsetHeight;
 			gadgets.window.adjustHeight(Math.ceil(height));
+			
 		});
 }
 
