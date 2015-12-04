@@ -209,7 +209,6 @@
 					}
 					
 					document.getElementById("tableBody").innerHTML = template; 
-					adjustGadgetHeight("container");
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);

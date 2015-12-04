@@ -114,8 +114,6 @@
 					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/appointments/?date=' + getUrlParameter("date") + '';
 				}
 
-				adjustGadgetHeight("appoinments");
-
 			</script>
 
 	    ]]>
