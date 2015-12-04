@@ -253,7 +253,7 @@
 				</tr>
 				<tr>
 				   	<td>
-				       	Button Label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__" onchange="registra('buttonLabel')"/>
+				       	Button Label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__" onchange="register('buttonLabel')"/>
 				    </td>
 				</tr>
 			</table>
