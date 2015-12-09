@@ -178,7 +178,7 @@
 			  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 				success: function(result){
 					var e = document.getElementById('functionsContainer');
-		            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("banner");</sc'+'ript>';
+		            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("carousel");</sc'+'ript>';
 		            eval(document.getElementById('sc1').innerHTML);
 				}
 			});
@@ -247,6 +247,20 @@
 	     	}
 
 			document.getElementById('carousel').innerHTML += html;
+
+			//Aplicar las funciones despues de renderizar los elementos para que la altura no sea nula.
+			var unslider = $('.banner').unslider({
+				speed: 500,               
+				delay: 5000,
+				dots: true,                                          
+			});
+		 
+		    $('.unslider-arrow').click(function() {
+		        var fn = this.className.split(' ')[1];
+		        unslider.data('unslider')[fn]();
+		    });
+
+		    $('.prev').after($('.dots'));
 		}
 
 		google.setOnLoadCallback(getSpreadsheet);
@@ -257,18 +271,7 @@
         	return false;
     	}
 
-		var unslider = $('.banner').unslider({
-			speed: 500,               
-			delay: 5000,
-			dots: true,                                          
-		});
-	 
-	    $('.unslider-arrow').click(function() {
-	        var fn = this.className.split(' ')[1];
-	        unslider.data('unslider')[fn]();
-	    });
-
-	    $('.prev').after($('.dots'));
+		
 
 	</script>
 
