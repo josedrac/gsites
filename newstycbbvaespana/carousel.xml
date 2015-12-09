@@ -166,7 +166,7 @@
     </style>
 
 
-	<div id="banner" class="banner">
+	<div class="banner">
 	    <ul id="carousel"></ul>
 	    <div id="carouselControls"></div>
 	</div>
@@ -178,7 +178,7 @@
 			  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 				success: function(result){
 					var e = document.getElementById('functionsContainer');
-		            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("banner");</sc'+'ript>';
+		            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("carousel");</sc'+'ript>';
 		            eval(document.getElementById('sc1').innerHTML);
 				}
 			});
@@ -199,7 +199,6 @@
 					queryString = encodeURIComponent('SELECT * where A <> "title"'),
 					sheetName = encodeURIComponent('carousel'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-					alert(query);
 
 		function getSpreadsheet() {
 			query.send(handleQueryResponse);
