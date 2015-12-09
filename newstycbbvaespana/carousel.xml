@@ -305,7 +305,7 @@
 		    // Get userprefs
 		    var prefs = new gadgets.Prefs();
 
-		    function registra(variable) {
+		    function register(variable) {
 				prefs.set(variable,document.getElementById(variable).value);
 			}
 			gadgets.window.adjustHeight();
