@@ -196,8 +196,9 @@
 
 	   	var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
+					queryString = encodeURIComponent('SELECT * where A <> "title"'),
 					sheetName = encodeURIComponent('carousel'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName);
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 		function getSpreadsheet() {
 			query.send(handleQueryResponse);
@@ -216,7 +217,7 @@
 
 			var title, subtitle, link, image, buttonLabel, html = "";
 
-			for(var i=0; i<dataTable.length ;i++){
+			for(var i=0; i<dataTable.getNumberOfRows() ;i++){
 
 				title = dataTable.getValue(i, 0);
 				subtitle = dataTable.getValue(i, 1);
@@ -234,7 +235,7 @@
 
 			}
 
-			if(dataTable.length > 1) {
+			if(dataTable.getNumberOfRows() > 1) {
 
 	     		var carouselControls = '';
 	     		carouselControls += '<div class="control">';
