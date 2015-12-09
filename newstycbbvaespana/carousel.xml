@@ -7,30 +7,7 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
-	<UserPref name="VarTitle1" default_value="" display_name="VarTitle1" required="true" />
-	<UserPref name="VarSubTitle1" default_value="" display_name="VarSubTitle1" required="true" />
-	<UserPref name="VarLink1" default_value="" display_name="VarLink1" required="true" />
-	<UserPref name="VarImage1" default_value="" display_name="VarImage1" required="true" />
-	<UserPref name="VarButtonLabel1" default_value="" display_name="VarButtonLabel1" required="true" />
-
-	<UserPref name="VarTitle2" default_value="" display_name="VarTitle2" required="true" />
-	<UserPref name="VarSubTitle2" default_value="" display_name="VarSubTitle2" required="true" />
-	<UserPref name="VarLink2" default_value="" display_name="VarLink2" required="true" />
-	<UserPref name="VarImage2" default_value="" display_name="VarImage2" required="true" />
-	<UserPref name="VarButtonLabel12" default_value="" display_name="VarButtonLabel2" required="true" />
-
-	<UserPref name="VarTitle3" default_value="" display_name="VarTitle3" required="true" />
-	<UserPref name="VarSubTitle3" default_value="" display_name="VarSubTitle3" required="true" />
-	<UserPref name="VarLink3" default_value="" display_name="VarLink3" required="true" />
-	<UserPref name="VarImage3" default_value="" display_name="VarImage3" required="true" />
-	<UserPref name="VarButtonLabel3" default_value="" display_name="VarButtonLabel3" required="true" />
-
-	<UserPref name="VarTitle4" default_value="" display_name="VarTitle4" required="true" />
-	<UserPref name="VarSubTitle4" default_value="" display_name="VarSubTitle4" required="true" />
-	<UserPref name="VarLink4" default_value="" display_name="VarLink4" required="true" />
-	<UserPref name="VarImage4" default_value="" display_name="VarImage4" required="true" />
-	<UserPref name="VarButtonLabel4" default_value="" display_name="VarButtonLabel4" required="true" />
-
+  	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
 
  <Content type="html" charset="UTF-8">
     <![CDATA[
@@ -196,8 +173,7 @@
 
 	<div id="functionsContainer"></div>
 
-	<script type="text/javascript">
-		
+	<script type="text/javascript">	
 		$.ajax({
 			  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 				success: function(result){
@@ -206,7 +182,6 @@
 		            eval(document.getElementById('sc1').innerHTML);
 				}
 			});
-
 	</script>
 
 	<script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
@@ -215,84 +190,62 @@
    <script type="text/javascript">
 	   	var html="";
 	   	var gadgetHelper = null;
-	   	var prefs = new gadgets.Prefs();
 
-		var VarTitle1 = prefs.getString("VarTitle1");
-        var VarSubTitle1 = prefs.getString("VarSubTitle1");
-        var VarLink1 = prefs.getString("VarLink1");
-        var VarImage1 = prefs.getString("VarImage1");
-        var VarButtonLabel1 = prefs.getString("VarButtonLabel1");
-        var VarTitle2 = prefs.getString("VarTitle2");
-        var VarSubTitle2 = prefs.getString("VarSubTitle2");
-        var VarLink2 = prefs.getString("VarLink2");
-        var VarImage2 = prefs.getString("VarImage2");
-        var VarButtonLabel2 = prefs.getString("VarButtonLabel2");
-        var VarTitle3 = prefs.getString("VarTitle3");
-        var VarSubTitle3 = prefs.getString("VarSubTitle3");
-        var VarLink3 = prefs.getString("VarLink3");
-        var VarImage3 = prefs.getString("VarImage3");
-        var VarButtonLabel3 = prefs.getString("VarButtonLabel3");
-        var VarTitle4 = prefs.getString("VarTitle4");
-        var VarSubTitle4 = prefs.getString("VarSubTitle4");
-        var VarLink4 = prefs.getString("VarLink4");
-        var VarImage4 = prefs.getString("VarImage4");
-        var VarButtonLabel4 = prefs.getString("VarButtonLabel4");
+	   	var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
+					sheetName = encodeURIComponent('carousel'),
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName);
 
+		function getSpreadsheet() {
+			query.send(handleQueryResponse);
+		}
 
-        if (VarTitle1!="")
-        {
-        	html +="<li style='background-image: url(\"" + VarImage1 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle1 + "</h2>";
-			html +="    	<p>" + VarSubTitle1 + "</p>";
-			html +="		<button onclick=javascript:Go('" + VarLink1 + "')>"+VarButtonLabel1+"</button>";
-			html +="	</div>";
-			html +="</li>";
-     	}
-     	if (VarTitle2!="")
-        {
-        	html +="<li style='background-image: url(\"" + VarImage2 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle2 + "</h2>";
-			html +="    	<p>" + VarSubTitle2 + "</p>";
-			html +="		<button onclick=javascript:Go('" + VarLink2 + "')>"+VarButtonLabel2+"</button>";
-			html +="	</div>";
-			html +="</li>";
-     	}
-     	if (VarTitle3!="")
-        {
-        	html +="<li style='background-image: url(\"" + VarImage3 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle3 + "</h2>";
-			html +="    	<p>" + VarSubTitle3 + "</p>";
-			html +="		<button onclick=javascript:Go('" + VarLink3 + "')>"+VarButtonLabel3+"</button>";
-			html +="	</div>";
-			html +="</li>";
-     	}
-     	if (VarTitle4!="")
-        {
-        	html +="<li style='background-image: url(\"" + VarImage4 + "\");'>";
-			html +="	<div class='content'>";
-			html +="		<h2>" + VarTitle4 + "</h2>";
-			html +="    	<p>" + VarSubTitle4 + "</p>";
-			html +="		<button onclick=javascript:Go('" + VarLink4 + "')>"+VarButtonLabel4+"</button>";
-			html +="	</div>";
-			html +="</li>";
-     	}
+		function handleQueryResponse(response) {
+			if (response.isError()) {
+				console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+				return;
+			}
+			var dataTable = response.getDataTable();
+			dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+		}
 
-     	document.getElementById('carousel').innerHTML += html;
+		function printDataTable(dataTable) {
 
-     	if(VarTitle2 != "" || VarTitle3 != "" || VarTitle4 != "") {
+			var title, subtitle, link, image, buttonLabel, html = "";
 
-     		var carouselControls = '';
-     		carouselControls += '<div class="control">';
-     		carouselControls += '<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>';
-     		carouselControls += '<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png"></a>';
-     		carouselControls += '</div>';
-     		document.getElementById('carouselControls').innerHTML += carouselControls;
-     		
-     	}
+			for(var i=0; i<dataTable.length ;i++){
 
+				title = dataTable.getValue(i, 0);
+				subtitle = dataTable.getValue(i, 1);
+				link = dataTable.getValue(i, 2);
+				image = dataTable.getValue(i, 3);
+				//buttonLabel = dataTable.getValue(i, 4);
+
+				html +="<li style='background-image: url(\"" + image + "\");'>";
+				html +="	<div class='content'>";
+				html +="		<h2>" + title + "</h2>";
+				html +="    	<p>" + subtitle + "</p>";
+				html +="		<button onclick=javascript:Go('" + link + "')>"+Más info+"</button>";
+				html +="	</div>";
+				html +="</li>";
+
+			}
+
+			if(dataTable.length > 1) {
+
+	     		var carouselControls = '';
+	     		carouselControls += '<div class="control">';
+	     		carouselControls += '<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>';
+	     		carouselControls += '<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png"></a>';
+	     		carouselControls += '</div>';
+	     		document.getElementById('carouselControls').innerHTML += carouselControls;
+	     		
+	     	}
+
+			document.getElementById('carousel').innerHTML += html;
+		}
+
+		google.setOnLoadCallback(getSpreadsheet);
 
 
 		function Go(destination){
@@ -321,137 +274,39 @@
   	<Content type="html" view="configuration" preferred_height="550">
 
 	<![CDATA[
-	<style type="text/css">
+		<style type="text/css">
 
-		table td {
-			color: #000;
-			font-size: 11px;
-			font-weight: bold;
-		}
+			table td {
+				color: #000;
+				font-size: 11px;
+				font-weight: bold;
+			}
 
-		table td input,
-		textarea {
-			color: #000;
-			font-size: 11px;
-		}
+			table td input,
+			textarea {
+				color: #000;
+				font-size: 11px;
+			}
 
-	</style>
+		</style>
 
-	<table width="100%" border="0" id="tablaconfig">
-	    <tr>
-		    <td>
-		       	Title1: <input type="text" size="100" id="VarTitle1" value="__UP_VarTitle1__"   onchange="registra('VarTitle1')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	SubTitle1: <input type="text" size="100" id="VarSubTitle1" value="__UP_VarSubTitle1__" onchange="registra('VarSubTitle1')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	Button Link1: <input type="text" size="100" id="VarLink1" value="__UP_VarLink1__" onchange="registra('VarLink1')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	Button Label1: <input type="text" size="100" id="VarButtonLabel1" value="__UP_VarButtonLabel1__" onchange="registra('VarButtonLabel1')"/>
-		    </td>
-		</tr>
-	    <tr>
-	        <td>
-				URL Image1: <input type="text" size="100" id="VarImage1" value="__UP_VarImage1__" onchange="registra('VarImage1')"/><hr>
-			</td>
-	    </tr>
-	    
-	     <tr>
-		    <td>
-		       	Title2: <input type="text" size="100" id="VarTitle2" value="__UP_VarTitle2__"   onchange="registra('VarTitle2')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	SubTitle2: <input type="text" size="100" id="VarSubTitle2" value="__UP_VarSubTitle2__" onchange="registra('VarSubTitle2')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	Button Link2: <input type="text" size="100" id="VarLink2" value="__UP_VarLink2__" onchange="registra('VarLink2')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	Button Label2: <input type="text" size="100" id="VarButtonLabel2" value="__UP_VarButtonLabel2__" onchange="registra('VarButtonLabel2')"/>
-		    </td>
-		</tr>
-	    <tr>
-	        <td>
-				URL Image2: <input type="text" size="100" id="VarImage2" value="__UP_VarImage2__" onchange="registra('VarImage2')"/><hr>
-			</td>
-	    </tr>
+		<table width="100%" border="0" id="tablaconfig">
+			<tr>
+				<td>
+					Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+				</td>
+			</tr>				
+		</table>
 
-	      <tr>
-		    <td>
-		       	Title3: <input type="text" size="100" id="VarTitle3" value="__UP_VarTitle3__"   onchange="registra('VarTitle3')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	SubTitle3: <input type="text" size="100" id="VarSubTitle3" value="__UP_VarSubTitle3__" onchange="registra('VarSubTitle3')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	Button Link3: <input type="text" size="100" id="VarLink3" value="__UP_VarLink3__" onchange="registra('VarLink3')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	Button Label3: <input type="text" size="100" id="VarButtonLabel3" value="__UP_VarButtonLabel3__" onchange="registra('VarButtonLabel3')"/>
-		    </td>
-		</tr>
-	    <tr>
-	        <td>
-				URL Image3: <input type="text" size="100" id="VarImage3" value="__UP_VarImage3__" onchange="registra('VarImage3')"/><hr>
-			</td>
-	    </tr>
+		<script type="text/javascript">
+		    // Get userprefs
+		    var prefs = new gadgets.Prefs();
 
-	      <tr>
-		    <td>
-		       	Title4: <input type="text" size="100" id="VarTitle4" value="__UP_VarTitle4__"   onchange="registra('VarTitle4')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	SubTitle4: <input type="text" size="100" id="VarSubTitle4" value="__UP_VarSubTitle4__" onchange="registra('VarSubTitle4')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	Button Link4: <input type="text" size="100" id="VarLink4" value="__UP_VarLink4__" onchange="registra('VarLink4')"/>
-		    </td>
-		</tr>
-		<tr>
-		   	<td>
-		       	Button Label4: <input type="text" size="100" id="VarButtonLabel4" value="__UP_VarButtonLabel4__" onchange="registra('VarButtonLabel4')"/>
-		    </td>
-		</tr>
-	    <tr>
-	        <td>
-				URL Image4: <input type="text" size="100" id="VarImage4" value="__UP_VarImage4__" onchange="registra('VarImage4')"/>
-			</td>
-	    </tr>
-	</table>
-
-	<script type="text/javascript">
-	    // Get userprefs
-	    var prefs = new gadgets.Prefs();
-
-	    function registra(variable) {
-			prefs.set(variable,document.getElementById(variable).value);
-		}
-		gadgets.window.adjustHeight();
-	</script>
+		    function registra(variable) {
+				prefs.set(variable,document.getElementById(variable).value);
+			}
+			gadgets.window.adjustHeight();
+		</script>
 
  ]]>
  </Content>
