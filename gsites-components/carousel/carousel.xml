@@ -166,7 +166,7 @@
     </style>
 
 
-	<div class="banner">
+	<div id="banner" class="banner">
 	    <ul id="carousel"></ul>
 	    <div id="carouselControls"></div>
 	</div>
