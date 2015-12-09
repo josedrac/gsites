@@ -199,6 +199,7 @@
 					queryString = encodeURIComponent('SELECT * where A <> "title"'),
 					sheetName = encodeURIComponent('carousel'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+					alert(query);
 
 		function getSpreadsheet() {
 			query.send(handleQueryResponse);
