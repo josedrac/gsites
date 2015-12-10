@@ -295,6 +295,7 @@
 		    text-align: center;
 		    display: table-cell;
 		    vertical-align: middle;
+		    cursor: pointer;
 		}
 		.pager .disabled {
 		    color: #A0A0A0 !important;
