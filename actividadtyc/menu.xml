@@ -9,7 +9,7 @@
 
 	<Content type="html">
 	    <![CDATA[
-		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+				<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 		<head>
@@ -47,6 +47,7 @@
 
 		        .container {
 		        	width: 900px;
+		        	float: left;
 		        }
 
 		        .card-container {
@@ -129,7 +130,7 @@
 		    </style>
 		</head>
 
-		<div class="container">
+		<div id="container" class="container">
 			<div class="image-container">
 				<img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/logo.png" />
 			</div>
