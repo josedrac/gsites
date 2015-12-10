@@ -53,6 +53,7 @@
 
 		.novedades {
 			max-width: 620px;
+			overflow: hidden;
 		}
 		.comboVideo {
 			width:620px;
