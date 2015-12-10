@@ -10,6 +10,7 @@
 	<Content type="html">
 	    <![CDATA[
 		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 		<head>
 			<style type="text/css">
@@ -197,7 +198,20 @@
 			        </div>
 		        </a>
 		    </div>
-	    </div>
+		</div>
+
+		<div id="functionsContainer"></div>
+		<script type="text/javascript">
+			
+			$.ajax({
+				  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+					success: function(result){
+						var e = document.getElementById('functionsContainer');
+			            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+			            eval(document.getElementById('sc1').innerHTML);
+					}
+				});
+		</script>
 
 		]]>
 	 </Content>
