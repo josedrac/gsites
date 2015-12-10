@@ -10,6 +10,7 @@
 	<Content type="html">
 	    <![CDATA[
 				<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+				<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 		<head>
@@ -46,40 +47,49 @@
 		        }
 
 		        .container {
-		        	width: 900px;
+		        	max-width: 900px;
+		        	width: 100%;
 		        	float: left;
 		        }
 
 		        .card-container {
-		            border: 1px solid #DDE3EA;
+		            height: 150px;
+					float: left;
+					margin: 1%;
+					border-radius: 2px;
 		            border-radius: 2px;
 		            -ms-border-radius: 2px;
 		            -moz-border-radius: 2px;
 		            -webkit-border-radius: 2px;
 		            -khtml-border-radius: 2px;
-		            height: 150px;
-		            padding: 3px;
-		            float: left;
-		            margin: 7px;
 		        }
 
 		        .image-container {
 		        	float: left;
-					margin: 10px;
-					width: 16%;
+					margin-top: 1%;
+					margin-left: 1%;
+					display: table;
+					width: 18%;
+					min-width: 120px;
+					max-height: 150px;
+					margin-right: 5%;
 		        }
 
 		        .image-container img {
-		        	width: 100%;
+		        	float: left;
+					display: table-cell;
+					width: 100%;
+					height: 100%;
+					max-height: 150px;
+					max-width: 143px;
 		        }
 
 		        .large {
-		        	width: 37%;
-		        	float: right;
+		        	width: 36%;
 		        }
 
 		        .short {
-		        	width: 30.8%;
+		        	width: 31.3%;
 		        }
 
 		        .content{
@@ -125,6 +135,30 @@
 
 		        .contact {
 		        	margin-top: 10px;
+		        }
+
+		        @media (max-width: 909px){
+		        	.text .big {
+		        		font-size: 20px;
+		        		margin-top: 15px;
+		        	}
+
+		        	.card-container {
+		        		height: 180px;
+		        	}
+
+		        }
+
+		        @media (max-width: 680px){
+		        	
+		        	.large {
+		        		width: 48%;
+		        	}
+
+		        	.short {
+		        		width: 48%;
+		        	}
+
 		        }
 
 		    </style>
