@@ -205,7 +205,7 @@
         	</li>
         </ul>
         <div class="buttonContainer">
-        	<button onclick="javascript:Go('');">No quiero ser Beta Tester</button>
+        	<button onclick="javascript:void(0);">No quiero ser Beta Tester</button>
     	</div>
     </div>
 
