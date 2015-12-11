@@ -78,6 +78,8 @@
             margin-right: 5px;
             color: #A9AAAE;
             font-size: 14px;
+            text-align: right;
+            width: 18px;
         }
 
         .icon {
@@ -311,6 +313,7 @@
         function handleQueryResponse(response) {
             data = response.getDataTable();
             var filas = data.getNumberOfRows();
+            var pages = Math.ceil(filas / 8); 
             var html = "";
             var page = 0;
             var display = '';
@@ -367,7 +370,7 @@
             document.getElementById('pages').innerHTML = html;
 
             if(filas > 0)
-                pagination(filas);
+                pagination(pages);
             gadgets.window.adjustHeight();
 
         }

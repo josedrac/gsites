@@ -3,13 +3,13 @@
   <ModulePrefs title="AC-externalReleases.xml">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
-	<Require feature="dynamic-height"/>
-	<Require feature="setprefs" />
+    <Require feature="dynamic-height"/>
+    <Require feature="setprefs" />
   </ModulePrefs>
-	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+    <UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
  <Content type="html">
     <![CDATA[
-	    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
@@ -89,6 +89,8 @@
             margin-right: 5px;
             color: #A9AAAE;
             font-size: 14px;
+            text-align: right;
+            width: 18px;
         }
 
         .icon {
@@ -321,6 +323,7 @@
         function handleQueryResponse(response) {
             data = response.getDataTable();
             var filas = data.getNumberOfRows();
+            var pages = Math.ceil(filas / 8); 
             var html = "";
             var page = 0;
             var display = '';
@@ -377,7 +380,7 @@
             document.getElementById('pages').innerHTML = html;
 
             if(filas > 0)
-                pagination(filas);
+                pagination(pages);
             gadgets.window.adjustHeight();
 
         }
