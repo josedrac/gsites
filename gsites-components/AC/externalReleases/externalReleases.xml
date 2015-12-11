@@ -137,6 +137,7 @@
         .container {
             font-family: BBVA Web Book,Arial;
             float: left;
+            width: 100%;
         }
 
         .paginationContainer{
