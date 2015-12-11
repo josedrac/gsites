@@ -310,7 +310,7 @@
             var display = '';
             var classBorder = '';
 
-            var mes = prefs.getString('slider');
+            var mes = "mes" + prefs.getString('slider');
             var month = getMonth(getParam(mes));
             var year = getParam("anyo");
             document.getElementById('title').innerHTML = month+' '+year;
