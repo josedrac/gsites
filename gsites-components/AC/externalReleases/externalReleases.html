@@ -87,19 +87,24 @@
         }
 
         .text {
-            display: table;
             float: left;
+            height: 100%;
+            width: 90%;
         }
 
         .subtitle {
             color: #2871AB;
             float: left;
-            display: table-row;
             font-weight: bold;
+            display: inline-block;
+            width: 100%;
+            max-height: 42px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .date {
-            display: table-row;
+            display: inline-block;
             color: #A9AAAE;
             margin-left: 5px;
             font-size: 14px;
@@ -111,11 +116,11 @@
         }
 
         .column .content {
-            display: table;
             border-bottom: 2px solid #F2F2F2;
             padding-bottom: 15px;
-            margin-top: 8px; 
+            margin-top: 8px;
             height: 60px;
+            display: inline-block;
             width: 100%;
         }
 
