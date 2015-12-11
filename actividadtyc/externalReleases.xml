@@ -7,6 +7,7 @@
     <Require feature="setprefs" />
   </ModulePrefs>
     <UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+    <UserPref name="slider" display_name="slider" required="true" />
  <Content type="html">
     <![CDATA[
         <script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -222,7 +223,7 @@
 <div id="container" class="container">
     
     <div class="title-container">
-        <span class="title">Marzo 2013</span>
+        <span class="title"></span>
     </div>
     <hr class="line" />
     
@@ -243,6 +244,7 @@
         adjustGadgetHeight('container');
         google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
+        var prefs = new gadgets.Prefs();
 
 
         function isSearchDone() {
@@ -274,47 +276,26 @@
 
         function getQueryParameters() {
             var filter = "";
+            var mes = "mes" + prefs.getString('slider');
             if(isSearchDone()){
                 var year = getParam("anyo");
-                var month = getParam("mes");
-                var channel = getParam("channel");
-                var type = getParam("type");
-                var marco = getParam("marco");
-                var operativa = getParam("idOperativa");
-
-                if (channel == 'J')
-                    filter += " AND (J='x' OR K='x' OR L='x')";
-                else if (channel != '0' && channel != '')
-                    filter += " AND "+channel+"='x'";
-
+                
+                var month = getParam(mes);
+            
                 if (year > 0)
-                    filter += " AND year(C) ="+ year;
+                    filter += " AND year(B) ="+ year;
                 if (month > 0)
-                    filter += " AND month(C) = "+ (month-1);
+                    filter += " AND month(B) = "+ (month-1);
 
-                if (type != '0' && type != '')
-                    filter += " AND "+type+" is not null";
-
-                if (marco != '0' && marco != '')
-                    filter += " AND "+marco+"='x'";
-                else if (marco == '' && operativa == '')
-                    filter += " AND S='x'";
-
-                if (operativa != '') {
-                    filter += " AND V="+operativa;
-                }
-            } else {
-                filter += " AND S='x'";
-            }
+            } 
 
             return filter;
         }
 
         function sendQuery() {
-            var prefs = new gadgets.Prefs(),
-                spreadsheetKey = prefs.getString('spreadsheetKey'),
+            var spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sheetName = encodeURIComponent('External Releases'),
-                queryString = encodeURIComponent('SELECT * where A <> "title"'),
+                queryString = encodeURIComponent('SELECT * where A <> "title"' + getQueryParameters()),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(handleQueryResponse);
         }
@@ -328,6 +309,11 @@
             var page = 0;
             var display = '';
             var classBorder = '';
+
+            var mes = prefs.getString('slider');
+            var month = getMonth(getParam(mes));
+            var year = getParam("anyo");
+            document.getElementById('title').innerHTML = month+' '+year;
 
             if(filas<1)
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
@@ -407,6 +393,37 @@
             return html;
         }
 
+        function getMonth(index) {
+            var month = '';
+            switch(parseInt(index)) {
+                case 1: month = 'Enero';
+                        break;
+                case 2: month = 'Febrero';
+                        break;
+                case 3: month = 'Marzo';
+                        break;
+                case 4: month = 'Abril';
+                        break;
+                case 5: month = 'Mayo';
+                        break;
+                case 6: month = 'Junio';
+                        break;
+                case 7: month = 'Julio';
+                        break;
+                case 8: month = 'Agosto';
+                        break;
+                case 9: month = 'Septiembre';
+                        break;
+                case 10: month = 'Octubre';
+                        break;
+                case 11: month = 'Noviembre';
+                        break;
+                case 12: month = 'Diciembre';
+                        break;
+            }
+            return month;
+        }
+
        
     </script>
 
@@ -432,7 +449,12 @@
           <td>
             Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
           </td>
-        </tr>       
+        </tr>  
+        <tr>
+          <td>
+            Slider (number 1-3): <input type="text" id="slider" value="__UP_slider__"   onchange="register('slider')"/>
+          </td>
+        </tr>     
       </table>
 
       <script type="text/javascript">
