@@ -311,7 +311,6 @@
             var classBorder = '';
 
             var mes = "mes" + prefs.getString('slider');
-            //alert(mes);
             var month = getMonth(getParam(mes));
             var year = getParam("anyo");
             document.getElementById('title').innerHTML = month+' '+year;
@@ -338,7 +337,7 @@
                 }
 
                 if(i % 8 < 4)
-                    html += getElement(i+1, data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), classBorder);
+                    html += getElement(i+1, data.getValue(i, 0), data.getFormattedValue(i, 1), data.getValue(i, 2), classBorder);
 
 
                 if(filas < 4 && i == filas-1)
@@ -353,7 +352,7 @@
                 }
 
                 if(i % 8 > 3)
-                    html += getElement(i+1, data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), classBorder);
+                    html += getElement(i+1, data.getValue(i, 0), data.getFormattedValue(i, 1), data.getValue(i, 2), classBorder);
 
 
                 if((filas < 8 && i == filas-1) || (i % 8 == 7))
