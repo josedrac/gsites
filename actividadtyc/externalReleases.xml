@@ -98,19 +98,24 @@
         }
 
         .text {
-            display: table;
             float: left;
+            height: 100%;
+            width: 85%;
         }
 
         .subtitle {
             color: #2871AB;
             float: left;
-            display: table-row;
             font-weight: bold;
+            display: inline-block;
+            width: 100%;
+            max-height: 39px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .date {
-            display: table-row;
+            display: inline-block;
             color: #A9AAAE;
             margin-left: 5px;
             font-size: 14px;
@@ -122,11 +127,11 @@
         }
 
         .column .content {
-            display: table;
             border-bottom: 2px solid #F2F2F2;
             padding-bottom: 15px;
-            margin-top: 8px; 
+            margin-top: 8px;
             height: 60px;
+            display: inline-block;
             width: 100%;
         }
 
@@ -388,7 +393,7 @@
             html += '<li class="'+clase+'">';
             html += '   <a href="'+link+'">'
             html += '       <span class="number">'+number+'.</span>';
-            html += '       <img class="icon" />';
+            html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
             html += '       <div class="text">';
             html += '           <span class="subtitle">'+text+'</span>';
             html += '           <span class="date">'+date+'</span>';
