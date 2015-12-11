@@ -223,7 +223,7 @@
 <div id="container" class="container">
     
     <div class="title-container">
-        <span class="title"></span>
+        <span id="title" class="title"></span>
     </div>
     <hr class="line" />
     
@@ -311,6 +311,7 @@
             var classBorder = '';
 
             var mes = "mes" + prefs.getString('slider');
+            //alert(mes);
             var month = getMonth(getParam(mes));
             var year = getParam("anyo");
             document.getElementById('title').innerHTML = month+' '+year;
