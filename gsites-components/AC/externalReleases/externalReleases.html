@@ -264,17 +264,17 @@
 
         function getQueryParameters() {
             var filter = "";
-            if(isSearchDone()){
-                var year = getParam("anyo");
-                var mes = "mes1";
-                var month = getParam(mes);
-            
-                if (year > 0)
-                    filter += " AND year(B) ="+ year;
-                if (month > 0)
-                    filter += " AND month(B) = "+ (month-1);
 
-            } 
+            var date = getMonthAndYear(1);
+
+            var month = date.split(" ")[0];
+            var year = date.split(" ")[1];
+        
+            if (year > 0)
+                filter += " AND year(B) ="+ year;
+            if (month > 0)
+                filter += " AND month(B) = "+ (month-1);
+
 
             return filter;
         }
@@ -298,10 +298,14 @@
             var display = '';
             var classBorder = '';
 
-            var mes = "mes1";
-            var month = getMonth(getParam(mes));
-            var year = getParam("anyo");
-            document.getElementById('title').innerHTML = month+' '+year;
+            var date = getMonthAndYear(1);
+
+            var mes = date.split(" ")[0];
+            var month = getMonth(mes);
+            var year = date.split(" ")[1];
+            
+
+            document.getElementById('title').innerHTML = month +" "+ year;
 
 
             if(filas<1)
@@ -411,6 +415,37 @@
                         break;
             }
             return month;
+        }
+
+        function getMonthAndYear(slider) {
+            var dateObj = new Date();
+            var month = dateObj.getUTCMonth() + 1; //months from 1-12
+            var year = dateObj.getUTCFullYear();
+
+            switch(parseInt(slider)) {
+                case 2:
+                    if(month == 1){
+                        month = 12;
+                        year--;
+                    }
+                    else{
+                        month--;
+                    }
+                    break;
+                case 3:
+                    if(month == 1){
+                        month = 11;
+                        year--;
+                    }
+                    else if(month == 2){
+                        month = 12;
+                        year--;
+                    }
+                    else{
+                        month = month-2;
+                    }
+            }
+            return month +' '+ year;
         }
 
        
