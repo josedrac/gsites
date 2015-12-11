@@ -203,9 +203,9 @@
         		<span class="tablet">NO REGISTRADO</span>
         	</li>
         </ul>
-        <div class="buttonContainer">
+        <!-- <div class="buttonContainer">
         	<button onclick="javascript:void(0);">No quiero ser Beta Tester</button>
-    	</div>
+    	</div> -->
     </div>
 
 	<script type="text/javascript">
