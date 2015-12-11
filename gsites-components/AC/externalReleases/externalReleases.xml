@@ -280,8 +280,7 @@
             var slider = prefs.getString('slider');
             var date = getMonthAndYear(slider);
 
-            var mes = date.split(" ")[0];
-            var month = getMonth(mes);
+            var month = date.split(" ")[0];
             var year = date.split(" ")[1];
             
             if (year > 0)
