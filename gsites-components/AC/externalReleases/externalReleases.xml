@@ -285,7 +285,7 @@
             var year = getParam("anyo");
 
             if( !(slider == "1" && month != "" && year != "") ) {
-                var date = getMonthAndYear(1);
+                var date = getMonthAndYear(slider);
 
                 month = date.split(" ")[0];
                 year = date.split(" ")[1];
@@ -325,7 +325,7 @@
 
             if( !(slider == "1" && month != "" && year != "") ) {
 
-                var date = getMonthAndYear(1);
+                var date = getMonthAndYear(slider);
 
                 mes = date.split(" ")[0];
                 month = getMonth(mes);
