@@ -223,13 +223,13 @@
 				subtitle = dataTable.getValue(i, 1);
 				link = dataTable.getValue(i, 2);
 				image = dataTable.getValue(i, 3);
-				//buttonLabel = dataTable.getValue(i, 4);
+				buttonLabel = dataTable.getValue(i, 4);
 
 				html +="<li style='background-image: url(\"" + image + "\");'>";
 				html +="	<div class='content'>";
 				html +="		<h2>" + title + "</h2>";
 				html +="    	<p>" + subtitle + "</p>";
-				html +="		<button onclick=javascript:Go('" + link + "')>Más info</button>";
+				html +="		<button onclick=javascript:Go('" + link + "')>" + buttonLabel + "</button>";
 				html +="	</div>";
 				html +="</li>";
 
