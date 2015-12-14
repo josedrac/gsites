@@ -255,10 +255,13 @@
         }
 
         function getParam(p){
-            var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-            for(var i=0; i<params.length; i++){
-                if(params[i].split("=")[0] == p)
-                    return params[i].split("=")[1];
+            var params;
+            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                for(var i=0; i<params.length; i++){
+                    if(params[i].split("=")[0] == p)
+                        return params[i].split("=")[1];
+                }
             }
             return "";
         }
