@@ -1,4 +1,8 @@
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"</script>
+    <script type="text/javascript">
+		google.load('visualization', '1', {packages: ['table']});
+	</script>
 
 <style type="text/css">
 
@@ -69,33 +73,73 @@
 
 </style>
 
-<div id="newsTAndCFooter"></div>
-
-	<script type="text/javascript">
+<div id="newsTAndCFooter">
 	
- 	var newsTAndCFooter = '';
+	<div class="footer">
 
- 	newsTAndCFooter += '<div class="footer">';
+	 	<img src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>
+	 	<div>
+		 	<h2 id="title"></h2>
+		 	<ul id="list">
+			</ul>
+	 	</div>
+	</div>
+</div>
 
- 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
- 	newsTAndCFooter += '<div>';
- 	newsTAndCFooter += '<h2>News T&C BBVA España</h2>';
- 	newsTAndCFooter += '<ul>';
- 	newsTAndCFooter += '<li><a href="#">Canarias</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Catalunya</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Centro</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Este</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Noroeste</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Norte</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Portugal</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Seguros</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Servicios Centrales</a></li>';
- 	newsTAndCFooter += '<li><a href="#">Sur</a></li>';
- 	newsTAndCFooter += '</ul>';
- 	newsTAndCFooter += '</div>';
- 	newsTAndCFooter += '</div>';
- 	
- 	document.getElementById("newsTAndCFooter").innerHTML = newsTAndCFooter;
+<script type="text/javascript">adjustGadgetHeight('newsTAndCFooter');</script>
+
+<script type="text/javascript">
+	
+   	var gadgetHelper = null;
+   	//var prefs = new gadgets.Prefs();
+
+	//var TitleFooter = prefs.getString("TitleFooter");
+	var TitleFooter = "News T&C BBVA España";
+
+   	
+
+	function getSpreadsheet() {
+		var spreadsheetKey = '1GgolxvASZkQt6RDB-lH_2WhPE7GtNM0VUFbkrY0eZWo',
+   		//var spreadsheetKey = prefs.getString("spreadsheetKey"),
+   		queryString = encodeURIComponent('SELECT * where A <> "name"'),
+		sheetName = encodeURIComponent('territoriales'),
+		query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+		query.send(handleQueryResponse);
+	}
+
+	function handleQueryResponse(response) {
+		//alert(response.getDetailedMessage());
+		if (response.isError()) {
+			console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+			return;
+		}
+		var dataTable = response.getDataTable();
+		dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+	}
+
+	function printDataTable(dataTable) {
+
+		var name, link, html = "";
+
+		for(var i=0; i<dataTable.getNumberOfRows() ;i++) {
+
+			name = dataTable.getValue(i, 0);
+			link = dataTable.getValue(i, 1);
+
+			html += '<li><a href="#" onclick=javascript:Go("'+ link +'")>'+ name +'</a></li>';
+		}
+
+		document.getElementById("title").innerHTML = TitleFooter;
+ 		document.getElementById("list").innerHTML = html;
+ 	}
+
+	google.setOnLoadCallback(getSpreadsheet);
+
+
+ 	function Go(destination){
+    	window.open(destination,'_parent');
+    	return false;
+    }
 
 </script>
 
