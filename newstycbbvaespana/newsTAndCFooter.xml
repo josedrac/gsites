@@ -8,125 +8,202 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
+	<UserPref name="TitleFooter" default_value="" display_name="TitleFooter" required="true" />
+  	<UserPref name="spreadsheetKey" default_value="" display_name="spreadsheetKey" required="true" />
+
 	<Content type="html">
 	    <![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"</script>
+    <script type="text/javascript">
+		google.load('visualization', '1', {packages: ['table']});
+	</script>
 
-			<style type="text/css">
+<style type="text/css">
 
-				@font-face {
-					font-family: 'BBVA Web Light';
-					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
-					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-					font-style: normal;
-					font-weight: normal;
-				}
+	@font-face {
+		font-family: 'BBVA Web Light';
+		src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+		src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
 
-				@font-face {
-					font-family: 'BBVA Web Book';
-					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
-					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-					font-style: normal;
-					font-weight: normal;
-				}
+	@font-face {
+		font-family: 'BBVA Web Book';
+		src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+		src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
 
-				.footer {
-					background-color: #36b6bc;
-					display: inline-block;
-					width: 100%;
-					color: #fff;
-				}
+	.footer {
+		background-color: #36b6bc;
+		display: inline-block;
+		width: 100%;
+		color: #fff;
+	}
 
-				.footer img, .footer div {
-					float: left;
-				}
+	.footer img, .footer div {
+		float: left;
+	}
 
-				.footer img {
-				    margin-top: 6px;
-			        margin-right: 30px;
-	    			margin-left: 16px;
-				}
+	.footer img {
+	    margin-top: 6px;
+        margin-right: 30px;
+		margin-left: 16px;
+	}
 
-				.footer div h2 {
-					font-family: 'BBVA Web Book';
-					font-size: 42.25px;
-					text-transform: uppercase;
-					margin-bottom: 20px;
-				}
+	.footer div h2 {
+		font-family: 'BBVA Web Book';
+		font-size: 42.25px;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
 
-				.footer div ul {
-					list-style-type: none;
-					columns: 3;
-					-webkit-columns: 3;
-					-moz-columns: 3;
-					padding: 0;
-					font-family: 'BBVA Web Light';
-				}
+	.footer div ul {
+		list-style-type: none;
+		columns: 3;
+		-webkit-columns: 3;
+		-moz-columns: 3;
+		padding: 0;
+		font-family: 'BBVA Web Light';
+	}
 
-				.footer div ul li {
-					line-height: 30px;
-				}
+	.footer div ul li {
+		line-height: 30px;
+	}
 
-				.footer div ul li a {
-					text-decoration: none;
-					color: inherit;
-				}
+	.footer div ul li a {
+		text-decoration: none;
+		color: inherit;
+	}
 
 
-			</style>
+</style>
 
-			<div id="newsTAndCFooter"></div>
+<div id="newsTAndCFooter">
+	
+	<div class="footer">
 
-		   	<script type="text/javascript">
-				
-			 	var newsTAndCFooter = '';
+	 	<img src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>
+	 	<div>
+		 	<h2 id="title"></h2>
+		 	<ul id="list">
+			</ul>
+	 	</div>
+	</div>
+</div>
 
-			 	newsTAndCFooter += '<div class="footer">';
+<script type="text/javascript">adjustGadgetHeight('newsTAndCFooter');</script>
 
-			 	newsTAndCFooter += '<img src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>';
-			 	newsTAndCFooter += '<div>';
-			 	newsTAndCFooter += '<h2>News T&C BBVA España</h2>';
-			 	newsTAndCFooter += '<ul>';
-			 	newsTAndCFooter += '<li><a href="#">Canarias</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Catalunya</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Centro</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Este</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Noroeste</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Norte</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Portugal</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Seguros</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Servicios Centrales</a></li>';
-			 	newsTAndCFooter += '<li><a href="#">Sur</a></li>';
-			 	newsTAndCFooter += '</ul>';
-			 	newsTAndCFooter += '</div>';
-			 	newsTAndCFooter += '</div>';
-			 	
-			 	document.getElementById("newsTAndCFooter").innerHTML = newsTAndCFooter;
+<script type="text/javascript">
+	
+   	var gadgetHelper = null;
+   	var prefs = new gadgets.Prefs();
 
-		   </script>
+	var TitleFooter = prefs.getString("TitleFooter");
+   	
 
-		   <div id="functionsContainer"></div>
+	function getSpreadsheet() {
+   		var spreadsheetKey = prefs.getString("spreadsheetKey"),
+   		queryString = encodeURIComponent('SELECT * where A <> "name"'),
+		sheetName = encodeURIComponent('territoriales'),
+		query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+		query.send(handleQueryResponse);
+	}
 
-			<script type="text/javascript">
-				
-				$.ajax({
-					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-						success: function(result){
-							var e = document.getElementById('functionsContainer');
-				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("newsTAndCFooter");</sc'+'ript>';
-				            eval(document.getElementById('sc1').innerHTML);
-						}
-					});
+	function handleQueryResponse(response) {
+		//alert(response.getDetailedMessage());
+		if (response.isError()) {
+			console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+			return;
+		}
+		var dataTable = response.getDataTable();
+		dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+	}
 
-			</script>
+	function printDataTable(dataTable) {
+
+		var name, link, html = "";
+
+		for(var i=0; i<dataTable.getNumberOfRows() ;i++) {
+
+			name = dataTable.getValue(i, 0);
+			link = dataTable.getValue(i, 1);
+
+			html += '<li><a href="#" onclick=javascript:Go("'+ link +'")>'+ name +'</a></li>';
+		}
+
+		document.getElementById("title").innerHTML = TitleFooter;
+ 		document.getElementById("list").innerHTML = html;
+ 	}
+
+	google.setOnLoadCallback(getSpreadsheet);
+
+
+ 	function Go(destination){
+    	window.open(destination,'_parent');
+    	return false;
+    }
+
+</script>
+
+
 
 	    ]]>
 	</Content>
+
+<Content type="html" view="configuration" preferred_height="550">
+
+	<![CDATA[
+	<style type="text/css">
+
+		table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+
+		table td input,
+		textarea {
+			color: #000;
+			font-size: 11px;
+		}
+
+	</style>
+
+	<table width="100%" border="0" id="tablaconfig">
+		<tr>
+		   	<td>
+		       	Title footer: <input type="text" size="100" id="TitleFooter" value="__UP_TitleFooter__" onchange="registra('TitleFooter')"/><hr>
+		    </td>
+		</tr>
+	    <tr>
+		    <td>
+		       	Spreadsheet key: <input type="text" size="100" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="registra('spreadsheetKey')"/>
+		    </td>
+		</tr>
+		
+	</table>
+
+	<script type="text/javascript">
+	    // Get userprefs
+	    var prefs = new gadgets.Prefs();
+
+	    function registra(variable) {
+			prefs.set(variable,document.getElementById(variable).value);
+		}
+		gadgets.window.adjustHeight();
+	</script>
+
+ ]]>
+ </Content>
+
 </Module>
