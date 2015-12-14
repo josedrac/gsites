@@ -166,10 +166,11 @@
 			* como la etiqueta del evento.
 			*/
 			var trackOutboundLink = function(url) {
-			   ga('send', 'event', 'externo', 'click', url, {'hitCallback':
-			     function () {
-			     document.location = url;
-			     }
+				console.log('entra');
+			   	ga('send', 'event', 'externo', 'click', url, {'hitCallback': 
+			   		function () {
+			    		document.location = url;
+			    	}
 			   });
 			}
 		</script>
