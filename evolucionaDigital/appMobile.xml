@@ -149,11 +149,11 @@
 	        }
 
 	        function addURL() {
-	            document.getElementById("imgMobile").onclick = function(){ trackOutboundLink('http://www.example.com'); openMobile('https://movil.bbva.es');};
-	            document.getElementById("buttonDemo").onclick = function(){ trackOutboundLink('http://www.example.com'); openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
-	            document.getElementById("buttonTour").onclick = function(){ trackOutboundLink('http://www.example.com'); openMobile('https://movil.bbva.es/#/tour');};
-	            document.getElementById("buttonMovil").onclick = function(){ trackOutboundLink('http://www.example.com'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
-                document.getElementById("buttonMail").onclick = function(){ trackOutboundLink('http://www.example.com'); Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
+	            document.getElementById("imgMobile").onclick = function(){ trackOutboundLink('https://movil.bbva.es'); openMobile('https://movil.bbva.es');};
+	            document.getElementById("buttonDemo").onclick = function(){ trackOutboundLink('https://demo.movil.bbva.es/apps/buzz/index.html'); openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
+	            document.getElementById("buttonTour").onclick = function(){ trackOutboundLink('https://movil.bbva.es/#/tour'); openMobile('https://movil.bbva.es/#/tour');};
+	            document.getElementById("buttonMovil").onclick = function(){ trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
+                document.getElementById("buttonMail").onclick = function(){ trackOutboundLink('https://www.bbva.es/estaticos/micros/wallet/index.html'); Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
 	        }
 
 	        addURL();
