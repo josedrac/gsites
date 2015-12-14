@@ -243,10 +243,13 @@
         }
 
         function getParam(p){
-            var params = window.location.href.split("?")[1].split("&");
-            for(var i=0; i<params.length; i++){
-                if(params[i].split("=")[0] == p)
-                    return params[i].split("=")[1];
+            var params;
+            if(window.location.href.split("?").length > 1){
+                params = window.location.href.split("?")[1].split("&");
+                for(var i=0; i<params.length; i++){
+                    if(params[i].split("=")[0] == p)
+                        return params[i].split("=")[1];
+                }
             }
             return "";
         }
@@ -265,11 +268,17 @@
         function getQueryParameters() {
             var filter = "";
 
-            var date = getMonthAndYear(1);
+            var slider = "1";
+            var month = getParam("mes");
+            var year = getParam("anyo");
 
-            var month = date.split(" ")[0];
-            var year = date.split(" ")[1];
-        
+            if( !(slider == "1" && month != "" && year != "") ) {
+                var date = getMonthAndYear(1);
+
+                month = date.split(" ")[0];
+                year = date.split(" ")[1];
+            }
+
             if (year > 0)
                 filter += " AND year(B) ="+ year;
             if (month > 0)
@@ -298,12 +307,29 @@
             var display = '';
             var classBorder = '';
 
-            var date = getMonthAndYear(1);
+            var slider = "1";
+            var mes = "";
+            var month = getParam("mes");
+            var year = getParam("anyo");
 
-            var mes = date.split(" ")[0];
-            var month = getMonth(mes);
-            var year = date.split(" ")[1];
-            
+            if( !(slider == "1" && month != "" && year != "") ) {
+
+                var date = getMonthAndYear(1);
+
+                mes = date.split(" ")[0];
+                month = getMonth(mes);
+                year = date.split(" ")[1];
+            }
+            else{
+
+                if(month > 0)
+                    month = getMonth(mes);
+                else
+                    month = "Todos los meses";
+
+                if(year == 0)
+                    year = "Todos los años"; 
+            }
 
             document.getElementById('title').innerHTML = month +" "+ year;
 
