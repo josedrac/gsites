@@ -221,7 +221,7 @@
 		</head>
 
 		<div class="container">
-        <div class="title">Histórico de Implantaciones</div>
+        <div class="title">Histórico de Publicaciones</div>
         <div class="form">
             <div class="element-year">
                 <label class="name">Año: </label>
