@@ -11,6 +11,7 @@
 	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
 	<UserPref name="siteName" display_name="Site name" required="true" />
 	<UserPref name="sectionId" display_name="Section ID" required="true" />
+	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -178,7 +179,7 @@
 						</p>
 
 						<div id="sortDescription"></div>
-						<button type="button" onclick="javascript:goArticle()">Saber más</button>
+						<button id="buttonArticle" type="button" onclick="javascript:goArticle()"></button>
 
 					</div>
 		 		</div>
@@ -265,7 +266,6 @@
 					document.getElementById("author").innerHTML = data.author; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
 					document.getElementById("coverMedia").innerHTML = data.coverMedia;
-					adjustGadgetHeight("container");
 
 				}
 
@@ -275,6 +275,9 @@
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
+
+				var buttonLabel = prefs.getString('buttonLabel');
+				document.getElementById('buttonArticle').innerHTML = buttonLabel;
 
 			</script>
 
@@ -311,6 +314,11 @@
 					<td>
 						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
 					</td>
+				</tr>
+				<tr>
+				   	<td>
+				       	Button Label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__" onchange="register('buttonLabel')"/>
+				    </td>
 				</tr>
 			</table>
 
