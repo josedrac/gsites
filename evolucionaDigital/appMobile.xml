@@ -148,15 +148,30 @@
 	        }
 
 	        function addURL() {
-	            document.getElementById("imgMobile").onclick = function(){ openMobile('https://movil.bbva.es');};
-	            document.getElementById("buttonDemo").onclick = function(){ openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
-	            document.getElementById("buttonTour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
-	            document.getElementById("buttonMovil").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
-                document.getElementById("buttonMail").onclick = function(){ Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
+	            document.getElementById("imgMobile").onclick = function(){ trackOutboundLink('http://www.example.com'); openMobile('https://movil.bbva.es');};
+	            document.getElementById("buttonDemo").onclick = function(){ trackOutboundLink('http://www.example.com'); openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
+	            document.getElementById("buttonTour").onclick = function(){ trackOutboundLink('http://www.example.com'); openMobile('https://movil.bbva.es/#/tour');};
+	            document.getElementById("buttonMovil").onclick = function(){ trackOutboundLink('http://www.example.com'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
+                document.getElementById("buttonMail").onclick = function(){ trackOutboundLink('http://www.example.com'); Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
 	        }
 
 	        addURL();
 	    </script>
+
+	    <script>
+			/**
+			* Función de Google Analytics que realiza un seguimiento de un clic en un enlace externo.
+			* Esta función toma una cadena de URL válida como argumento y la utiliza
+			* como la etiqueta del evento.
+			*/
+			var trackOutboundLink = function(url) {
+			   ga('send', 'event', 'externo', 'click', url, {'hitCallback':
+			     function () {
+			     document.location = url;
+			     }
+			   });
+			}
+		</script>
 
 		]]>
 	 </Content>
