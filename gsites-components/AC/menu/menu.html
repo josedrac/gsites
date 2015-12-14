@@ -1,4 +1,4 @@
-		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 		<head>
@@ -77,6 +77,7 @@
 		            font-size: 13px;
 		            font-family: BBVA Web Light, Arial;
 		            padding: 14px 14px 15px;
+		            cursor: pointer;
 		        }
 
 		        .title {
@@ -116,6 +117,8 @@
 		        	margin-top: 10px;
 		        }
 
+
+
 		    </style>
 		</head>
 
@@ -124,7 +127,7 @@
 				<img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/logo.png" />
 			</div>
 			<div class="card-container blue-green large">
-				<a href="">
+				<a onclick="javascript:Go('')">
 			        <div class="content">
 			            <div class="icon">
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Presentaciones.png" alt="">
@@ -137,7 +140,7 @@
 		        </a>
 		    </div>
 			<div class="card-container blue large">
-				<a href="">
+				<a onclick="javascript:Go('')">
 			        <div class="content">
 			            <div class="icon">
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Eventos.png" alt="">
@@ -150,7 +153,7 @@
 		        </a>
 		    </div>
 		    <div class="card-container pink short">
-		    	<a href="">
+		    	<a onclick="javascript:Go('')">
 			        <div class="content">
 			            <div class="icon">
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/guias.png" alt="">
@@ -163,7 +166,7 @@
 		        </a>
 		    </div>
 		    <div class="card-container green short">
-		    	<a href="https://sites.google.com/a/bbva.com/actividadtyc/publicaciones">
+		    	<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/publicaciones')">
 			        <div class="content">
 			            <div class="icon">
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Publicaciones.png" alt="">
@@ -173,10 +176,10 @@
 			                <span class="subtitle">Un espacio para la divulgación</span>
 			            </div>
 			        </div>
-			    </a>
+		        </a>
 		    </div>
 		    <div class="card-container yellow short">
-		    	<a href="">
+		    	<a onclick="javascript:Go('')">
 			        <div class="content">
 			            <div class="icon">
 			                <img class="contact" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Contactos.png" alt="">
@@ -186,10 +189,10 @@
 			                <span class="subtitle">Un espacio para los usuarios</span>
 			            </div>
 			        </div>
-		        </a>
+			    </a>
 		    </div>
 		</div>
-
+		
 		<div id="functionsContainer"></div>
 		<script type="text/javascript">
 			
@@ -201,4 +204,12 @@
 			            eval(document.getElementById('sc1').innerHTML);
 					}
 				});
+
+
+
+			function Go(destination){
+			    window.parent.location.href = destination;
+			    return false;
+			}
+
 		</script>
