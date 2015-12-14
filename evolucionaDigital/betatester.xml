@@ -203,9 +203,9 @@
         		<span class="tablet">NO REGISTRADO</span>
         	</li>
         </ul>
-        <!-- <div class="buttonContainer">
+        <div class="buttonContainer">
         	<button onclick="javascript:void(0);">No quiero ser Beta Tester</button>
-    	</div> -->
+    	</div>
     </div>
 
 	<script type="text/javascript">
@@ -236,7 +236,10 @@
 		function appBetaTester(data) {
 			rows = data.getNumberOfRows();
 			for (var i = 0; i < rows; i++) {
-				if(data.getValue(i,2) != null && typeof data.getValue(i,2) != 'undefined' && data.getValue(i,2) !== undefined && data.getValue(i,2) != "") {
+				if(data.getValue(i,6) != null && typeof data.getValue(i,6) != 'undefined' && data.getValue(i,6) !== undefined && data.getValue(i,6) != "") {
+					appActivesAndroid = [];
+				}
+				else if(data.getValue(i,2) != null && typeof data.getValue(i,2) != 'undefined' && data.getValue(i,2) !== undefined && data.getValue(i,2) != "") {
 					var apps = data.getValue(i,2).split(",");
 					for (var j = 0; j < apps.length; j++) {
 						if($.inArray(apps[j].split("-")[0].trim(), appsAndroid) >= 0) {
@@ -244,7 +247,10 @@
 						}
 					}
 				}
-				if(data.getValue(i,4) != null && typeof data.getValue(i,4) != 'undefined' && data.getValue(i,4) !== undefined && data.getValue(i,4) != "") {
+				if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != "") {
+					appActivesIOS = [];
+				}
+				else if(data.getValue(i,4) != null && typeof data.getValue(i,4) != 'undefined' && data.getValue(i,4) !== undefined && data.getValue(i,4) != "") {
 					var apps = data.getValue(i,4).split(",");
 					for (var j = 0; j < apps.length; j++) {
 						if($.inArray(apps[j].split("-")[0].trim(), appsIOS) >= 0) {
@@ -283,9 +289,8 @@
 	            dataType	: 'jsonp',
 				jsonpCallback: "on_result",
 				success: function(data) {
-				  	spreadsheetKey = '1lLVokVHRXbm637qWOyXxOn553eBhRg0jFeqb1-L5THQ'; //Original
-				  	//spreadsheetKey = '1Bj0XNU2cDio37yyx38Q7kzoFwQHWnrsPOV7v8jYMuoY'; //Copia
-					queryString = encodeURIComponent('SELECT * WHERE B LIKE "' + data + '" ORDER BY A DESC');
+				  	spreadsheetKey = '1lLVokVHRXbm637qWOyXxOn553eBhRg0jFeqb1-L5THQ';
+					queryString = encodeURIComponent('SELECT * WHERE B LIKE "' + data + '" ORDER BY A ASC');
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString);
 				  	google.setOnLoadCallback(getSpreadsheet());
 				}
