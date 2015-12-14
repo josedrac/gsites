@@ -1,4 +1,5 @@
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 	<style type="text/css">
         /* @group fonts */
@@ -175,112 +176,117 @@
 
     </style>
 
+	<script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
+    <script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"</script>
+    <script type="text/javascript">
+		google.load('visualization', '1', {packages: ['table']});
+
+	</script>
+
+
     <div class="banner">
     	<div id="titleCarousel"></div>
 	    <ul id="carousel"></ul>
 	    <div id="carouselControls"></div>
 	</div>
 
-	<script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
-    <script src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">adjustGadgetHeight("carousel");</script>
+
+
 
    <script type="text/javascript">
    		var titleHtml="";
 	   	var html="";
 	   	var gadgetHelper = null;
-	   	var prefs = new gadgets.Prefs();
+	   	//var prefs = new gadgets.Prefs();
 
-		var TitleCarousel = prefs.getString("TitleCarousel");
-		var VarTitle1 = prefs.getString("VarTitle1");
-        var VarSubTitle1 = prefs.getString("VarSubTitle1");
-        var VarImage1 = prefs.getString("VarImage1");
-        var VarTitle2 = prefs.getString("VarTitle2");
-        var VarSubTitle2 = prefs.getString("VarSubTitle2");
-        var VarImage2 = prefs.getString("VarImage2");
-        var VarTitle3 = prefs.getString("VarTitle3");
-        var VarSubTitle3 = prefs.getString("VarSubTitle3");
-        var VarImage3 = prefs.getString("VarImage3");
-        var VarTitle4 = prefs.getString("VarTitle4");
-        var VarSubTitle4 = prefs.getString("VarSubTitle4");
-        var VarImage4 = prefs.getString("VarImage4");
+		//var TitleCarousel = prefs.getString("TitleCarousel");
+		var TitleCarousel = "title";
 
-		titleHtml = TitleCarousel;
+        var html="";
+	   	var gadgetHelper = null;
 
-        if (VarTitle1!="")
-        {
-        	html += "<li>";
-        	html += "	<div class='image'>"
-	        html += "		<div class='background' style='background-image: url(\"" + VarImage1 + "\");'></div>";	
-	        html += "	</div>";
-			html += "	<div class='content'>";
-			html += "		<h2>" + VarTitle1 + "</h2>";
-			html += "    	<p>" + VarSubTitle1 + "</p>";
-			html += "	</div>";
-			html += "</li>";
-     	}
-     	if (VarTitle2!="")
-        {
-        	html += "<li>";
-        	html += "	<div class='image'>"
-	        html += "		<div class='background' style='background-image: url(\"" + VarImage2 + "\");'></div>";	
-	        html += "	</div>";
-			html += "	<div class='content'>";
-			html += "		<h2>" + VarTitle2 + "</h2>";
-			html += "    	<p>" + VarSubTitle2 + "</p>";
-			html += "	</div>";
-			html += "</li>";
-     	}
-     	if (VarTitle3!="")
-        {
-        	html += "<li>";
-        	html += "	<div class='image'>"
-	        html += "		<div class='background' style='background-image: url(\"" + VarImage3 + "\");'></div>";	
-	        html += "	</div>";
-			html += "	<div class='content'>";
-			html += "		<h2>" + VarTitle3 + "</h2>";
-			html += "    	<p>" + VarSubTitle3 + "</p>";
-			html += "	</div>";
-			html += "</li>";
-     	}
-     	if (VarTitle4!="")
-        {
-        	html += "<li>";
-        	html += "	<div class='image'>"
-	        html += "		<div class='background' style='background-image: url(\"" + VarImage4 + "\");'></div>";	
-	        html += "	</div>";
-			html += "	<div class='content'>";
-			html += "		<h2>" + VarTitle4 + "</h2>";
-			html += "    	<p>" + VarSubTitle4 + "</p>";
-			html += "	</div>";
-			html += "</li>";
-     	}
+		google.setOnLoadCallback(getSpreadsheet);
 
-     	document.getElementById('carousel').innerHTML += html;
-     	document.getElementById('titleCarousel').innerHTML += titleHtml;
 
-     	if(VarTitle2 != "" || VarTitle3 != "" || VarTitle4 != "") {
+		function getSpreadsheet() {
+			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
+	   		queryString = encodeURIComponent('SELECT * where A <> "title"'),
+			sheetName = encodeURIComponent('carousel territorial'),
+			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+			query.send(handleQueryResponse);
+		}
 
-     		var carouselControls = '';
-     		carouselControls += '<div class="control">';
-     		carouselControls += '<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>';
-     		carouselControls += '<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png"></a>';
-     		carouselControls += '</div>';
-     		document.getElementById('carouselControls').innerHTML += carouselControls;
-     		
-     	}
+		function handleQueryResponse(response) {
+			//alert(response.getDetailedMessage());
+			if (response.isError()) {
+				console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+				return;
+			}
+			var dataTable = response.getDataTable();
+			dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+		}
 
-		var unslider = $('.banner').unslider({
-			speed: 500,               
-			delay: 5000,
-			dots: true,                                          
-		});
-	 
-	    $('.unslider-arrow').click(function() {
-	        var fn = this.className.split(' ')[1];
-	        unslider.data('unslider')[fn]();
-	    });
+		function printDataTable(dataTable) {
 
-	    $('.prev').after($('.dots'));
+			var title, subtitle, image, html = "";
+
+			for(var i=0; i<dataTable.getNumberOfRows() ;i++) {
+
+				title = dataTable.getValue(i, 0);
+				subtitle = dataTable.getValue(i, 1);
+				image = dataTable.getValue(i, 2);
+
+
+				html += "<li>";
+	        	html += "	<div class='image'>"
+		        html += "		<div class='background' style='background-image: url(\"" + image + "\");'></div>";	
+		        html += "	</div>";
+				html += "	<div class='content'>";
+				html += "		<h2>" + title + "</h2>";
+				html += "    	<p>" + subtitle + "</p>";
+				html += "	</div>";
+				html += "</li>";
+
+			}
+
+			if(dataTable.getNumberOfRows() > 1) {
+
+	     		var carouselControls = '';
+	     		carouselControls += '<div class="control">';
+	     		carouselControls += '<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>';
+	     		carouselControls += '<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png"></a>';
+	     		carouselControls += '</div>';
+	     		document.getElementById('carouselControls').innerHTML += carouselControls;
+	     		
+	     	}
+
+			document.getElementById('carousel').innerHTML += html;
+     		document.getElementById('titleCarousel').innerHTML += TitleCarousel;
+
+			var unslider = $('.banner').unslider({
+				speed: 500,               
+				delay: 5000,
+				dots: true,                                          
+			});
+		 
+		    $('.unslider-arrow').click(function() {
+		        var fn = this.className.split(' ')[1];
+		        unslider.data('unslider')[fn]();
+		    });
+
+		    $('.prev').after($('.dots'));
+			
+		}
+
+
+
+		function Go(destination){
+        	window.open(destination,'_parent');
+        	return false;
+    	}	
 
 	</script>
 
