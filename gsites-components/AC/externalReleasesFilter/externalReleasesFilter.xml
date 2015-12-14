@@ -263,10 +263,10 @@
             var elementYearSelector = document.getElementById('yearSelector');
             var elementMonthSelector = document.getElementById('monthSelector');
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
-            var month1 = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
+            var month = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
            
-            var url = https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados;
-            window.open(url + "?anyo="+selectedYear+"&mes="+month+"_parent");
+            var url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
+            window.open(url + "?anyo="+selectedYear+"&mes="+month, "_parent");
             return false;
         }
 
