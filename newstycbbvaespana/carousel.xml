@@ -194,17 +194,17 @@
 	   	var html="";
 	   	var gadgetHelper = null;
 
-	   	var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
-	   		queryString = encodeURIComponent('SELECT * where A <> "title"'),
-			sheetName = encodeURIComponent('carousel'),
-			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+	   	var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
+					queryString = encodeURIComponent('SELECT * where A <> "title"'),
+					sheetName = encodeURIComponent('carousel'),
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 		function getSpreadsheet() {
 			query.send(handleQueryResponse);
 		}
 
 		function handleQueryResponse(response) {
-			//alert(response.getDetailedMessage());
 			if (response.isError()) {
 				console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
 				return;
@@ -248,6 +248,7 @@
 
 			document.getElementById('carousel').innerHTML += html;
 
+			//Aplicar las funciones despues de renderizar los elementos para que la altura no sea nula.
 			var unslider = $('.banner').unslider({
 				speed: 500,               
 				delay: 5000,
@@ -260,7 +261,6 @@
 		    });
 
 		    $('.prev').after($('.dots'));
-			
 		}
 
 		google.setOnLoadCallback(getSpreadsheet);
