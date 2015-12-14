@@ -204,7 +204,7 @@
         	</li>
         </ul>
         <div class="buttonContainer">
-        	<button onclick="javascript:void(0);">No quiero ser Beta Tester</button>
+        	<button onclick="javascript:Go('https://docs.google.com/a/bbva.com/forms/d/1vGp1RkLZMFGzzV2ZdQI04hQ3H2u09t56fYINr4nTejA/viewform')">No quiero ser Beta Tester</button>
     	</div>
     </div>
 
