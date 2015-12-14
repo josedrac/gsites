@@ -118,6 +118,7 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 			<script type="text/javascript">
 
@@ -125,19 +126,36 @@
 
 			</script>
 
-			<p>¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
+			<div id="container">
+				<p>¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
 
-			<table>
-				<thead>
-					<tr>
-						<th class="col-1">Felicitaciones a</th>
-						<th class="col-2">Unidad</th>
-						<th class="col-3">Cargo anterior</th>
-						<th class="col-4" colspan="2">Cargo actual</th>
-					</tr>
-				</thead>
-				<tbody id="tableBody"></tbody>
-			</table>			
+				<table>
+					<thead>
+						<tr>
+							<th class="col-1">Felicitaciones a</th>
+							<th class="col-2">Unidad</th>
+							<th class="col-3">Cargo anterior</th>
+							<th class="col-4" colspan="2">Cargo actual</th>
+						</tr>
+					</thead>
+					<tbody id="tableBody"></tbody>
+				</table>		
+			</div>	
+
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -154,7 +172,7 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
-					spreadsheetKey = prefs.getString('spreadsheetKey'),
+					spreadsheetKey = prefs.getString('spreadsheetKey');
 					sheetName = encodeURIComponent('appointments'),
 					queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      

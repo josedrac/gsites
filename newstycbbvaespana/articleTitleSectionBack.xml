@@ -8,7 +8,9 @@
   	</ModulePrefs>
 
 	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+
 	<UserPref name="siteName" display_name="Site name" required="true" />
+
   	<UserPref name="sectionName" display_name="Section name" required="true" />
 
  	<Content type="html">
@@ -35,19 +37,19 @@
 					margin: 0;
 				}
 
-				div {
+				.container {
 					padding-bottom: 14px;
 					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 					background-position: bottom;
 					background-repeat: repeat-x;
 				}
 
-				div h2 {
+				.container h2 {
 					display: inline-block;
 					vertical-align: sub;
 				}
 
-				div button {
+				.container button {
 					vertical-align: middle;
 			        margin-right: 12px;
 				}
@@ -70,6 +72,8 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
 
 			<script type="text/javascript">
 
@@ -77,10 +81,25 @@
 
 			</script>
 
-			<div>
+			<div id="container" class="container">
 				<button type="button" onclick="javascript:goBack();">Volver</button>
 				<h2 id="sectionName"></h2>
 			</div>
+
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -98,7 +117,9 @@
 
 				var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
+
 					siteName = prefs.getString('siteName'),
+
 					sectionName = prefs.getString('sectionName'),
 					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
@@ -119,7 +140,8 @@
 
 				function printDataTable(dataTable) {
 				
-					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);	
+					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);
+					adjustGadgetHeight("container");
 
 				}
 
@@ -161,11 +183,13 @@
 				</tr>
 				<tr>
 					<td>
+
 						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
 					</td>
 				</tr>
 				<tr>
 					<td>
+
 						Section Name: <input type="text" id="sectionName" value="__UP_sectionName__"   onchange="register('sectionName')"/>
 					</td>
 				</tr>
