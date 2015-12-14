@@ -190,7 +190,7 @@
 
     </style>
 
-    <div class="banner">
+    <div id="banner" class="banner">
     	<div id="titleCarousel"></div>
 	    <ul id="carousel"></ul>
 	    <div id="carouselControls"></div>
