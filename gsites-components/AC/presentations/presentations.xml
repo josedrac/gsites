@@ -7,6 +7,7 @@
     <Require feature="setprefs" />
   </ModulePrefs>
     <UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+    <UserPref name="tab" display_name="tab" required="true" />
  <Content type="html">
     <![CDATA[
          <script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -146,7 +147,8 @@
 
         function sendQuery() {
             var spreadsheetKey = prefs.getString('spreadsheetKey'),
-                sheetName = encodeURIComponent('Presentations'),
+                tab = prefs.getString('tab'),
+                sheetName = encodeURIComponent(tab),
                 queryString = encodeURIComponent('SELECT * where A <> "title"'),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(handleQueryResponse);
@@ -223,7 +225,12 @@
           <td>
             Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
           </td>
-        </tr>     
+        </tr>
+        <tr>
+          <td>
+            Tab: <input type="text" id="tab" value="__UP_tab__"   onchange="register('tab')"/>
+          </td>
+        </tr>   
       </table>
 
       <script type="text/javascript">
