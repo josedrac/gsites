@@ -298,7 +298,7 @@
             if (month > 0)
                 filter += " AND month(B) = "+ (month-1);
             if(inputText != "")
-                filter += " AND lower(A) like '%"+inputText+"%'";
+                filter += " AND lower(A) like '%"+inputText.toLowerCase()+"%'";
 
 
             return filter;
