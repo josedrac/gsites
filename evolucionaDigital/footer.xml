@@ -15,6 +15,7 @@
 
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://www.google-analytics.com/analytics.js" type="text/javascript"></script>
 	<head>
 		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/reset.css" media="all">
 		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/buttons.css" media="all">
@@ -216,47 +217,64 @@
 
 	</head>
 
-<div class="grid_20 footer">
-	<div class="footer">
-		<ul class="footer-container">
-			<li class="first op1">
-				<h2>EVOLUCIONA DIGITAL</h2>
-				<ul>
-					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital">Inicio</a></li>
-					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar">Digitalizar y remotizar</a></li>
-					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo">Decálogo</a></li>
-          <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades">Novedades</a></li>
-          <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal">Operativa por canal</a></li>
-          <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes">¡Pruébalo antes!</a></li>
-          <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion">Tu opinión</a></li>
-				</ul>
-			</li>
-			<li class="op2">
-				<h2>ENLACES DE INTERÉS</h2>
-				<ul>
-					<li><a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/">Evoluciona</a></li>
-          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital/dcbc">DCBC´s y Embajadores</a></li>
-          <li><a target="_blank" href="https://sites.google.com/a/bbva.com/somos-bbva-contigo">BBVA Contigo</a></li>
-          <li><a target="_blank" href="https://www.bbvaopenmind.com/">BBVA OpenMind</a></li>
-				</ul>
-			</li>
-			<li class="last op3">
-				<h2>BBVA EN REDES SOCIALES</h2>
-				<ul class="redes-sociales">
-					<li><a target="_blank" href="https://www.facebook.com/BBVAespana" class="face">Facebook</a></li>
-					<li><a target="_blank" href="https://twitter.com/BBVA_esp" class="tw">Twitter</a></li>
-          <li><a target="_blank" href="https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed" class="you">Youtube</a></li>
-					<li><a target="_blank" href="https://plus.google.com/+BbvaEs" class="gplus">Google+</a></li>
-          <li><a target="_blank" href="https://www.blogbbva.es" class="rss">Blog BBVA</a></li>
-					<li><a target="_blank" href="http://www.linkedin.com/company/bbvaespana" class="link">Linkedin</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-	<div class="footer-bottom">
-      <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
-  </div>
-</div>
+    <div class="grid_20 footer">
+    	<div class="footer">
+    		<ul class="footer-container">
+    			<li class="first op1">
+    				<h2>EVOLUCIONA DIGITAL</h2>
+    				<ul>
+    					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital">Inicio</a></li>
+    					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar">Digitalizar y remotizar</a></li>
+    					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo">Decálogo</a></li>
+                        <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades">Novedades</a></li>
+                        <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal">Operativa por canal</a></li>
+                        <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes">¡Pruébalo antes!</a></li>
+                        <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion">Tu opinión</a></li>
+    				</ul>
+    			</li>
+    			<li class="op2">
+    				<h2>ENLACES DE INTERÉS</h2>
+    				<ul>
+    					<li><a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/transforma-t/'); return false;">Evoluciona</a></li>
+                        <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital/dcbc" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/dcbc'); return false;">DCBC´s y Embajadores</a></li>
+                        <li><a target="_blank" href="https://sites.google.com/a/bbva.com/somos-bbva-contigo">BBVA Contigo</a></li>
+                        <li><a target="_blank" href="https://www.bbvaopenmind.com/" onclick="trackOutboundLink('https://www.bbvaopenmind.com/'); return false;">BBVA OpenMind</a></li>
+    				</ul>
+    			</li>
+    			<li class="last op3">
+    				<h2>BBVA EN REDES SOCIALES</h2>
+    				<ul class="redes-sociales">
+    					<li><a target="_blank" href="https://www.facebook.com/BBVAespana" class="face" onclick="trackOutboundLink('https://www.facebook.com/BBVAespana'); return false;">Facebook</a></li>
+    					<li><a target="_blank" href="https://twitter.com/BBVA_esp" class="tw" onclick="trackOutboundLink('https://twitter.com/BBVA_esp'); return false;">Twitter</a></li>
+                        <li><a target="_blank" href="https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed" class="you" onclick="trackOutboundLink('https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed'); return false;">Youtube</a></li>
+    					<li><a target="_blank" href="https://plus.google.com/+BbvaEs" class="gplus" onclick="trackOutboundLink('https://plus.google.com/+BbvaEs'); return false;">Google+</a></li>
+                        <li><a target="_blank" href="https://www.blogbbva.es" class="rss" onclick="trackOutboundLink('https://www.blogbbva.es'); return false;">Blog BBVA</a></li>
+    					<li><a target="_blank" href="http://www.linkedin.com/company/bbvaespana" class="link" onclick="trackOutboundLink('http://www.linkedin.com/company/bbvaespana'); return false;">Linkedin</a></li>
+    				</ul>
+    			</li>
+    		</ul>
+    	</div>
+    	<div class="footer-bottom">
+          <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
+        </div>
+    </div>
+
+    <script>
+        /**
+        * Función de Google Analytics que realiza un seguimiento de un clic en un enlace externo.
+        * Esta función toma una cadena de URL válida como argumento y la utiliza
+        * como la etiqueta del evento.
+        */
+        var trackOutboundLink = function(url) {
+            console.log('entra');
+            ga('send', 'event', 'externo', 'click', url, {'hitCallback': 
+                function () {
+                    document.location = url;
+                }
+           });
+        }
+    </script>
+
     ]]>
   </Content>
 
