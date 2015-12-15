@@ -105,6 +105,18 @@
 
         <script type="text/javascript">
 
+            function getParam(p){
+                var params;
+                if(location.href.split("?").length > 1) {
+                    params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                    for(var i=0; i<params.length; i++){
+                        if(params[i].split("=")[0] == p)
+                            return params[i].split("=")[1];
+                    }
+                }
+                return "";
+            }
+
             function Go(){
                 var parameterInput = "";
                 var contentInput = document.getElementById('inputText').value;
@@ -117,9 +129,8 @@
             }
 
             function getInputText(){
-                var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1]).replace(/\+/g, ' ');
-                var parameter = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1]);
-                if(parameter == "inputText" && contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
+                var contentInput = getParam('inputText');
+                if(contentInput != 'undefined' && contentInput != "") {
                     return contentInput;
                 } else {
                     return '';
