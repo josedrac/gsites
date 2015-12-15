@@ -104,7 +104,7 @@
             float: left;
             display: table-cell;
             margin-right: 15px;
-            width: 80px;
+            max-width: 80px;
         }
 
         .innerText {
