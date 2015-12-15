@@ -280,13 +280,15 @@
         function getQueryParameters() {
             var filter = "";
 
-            var slider = prefs.getString('slider');
+            var slider = "1";
             var month = getParam("mes");
             var year = getParam("anyo");
+            var inputText = getParam("inputText");
 
-            if( !(slider == "1" && month != "" && year != "") ) {
-                var date = getMonthAndYear(slider);
+            if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
+                var date = getMonthAndYear(1);
 
+                inputText = "";
                 month = date.split(" ")[0];
                 year = date.split(" ")[1];
             }
@@ -295,6 +297,8 @@
                 filter += " AND year(B) ="+ year;
             if (month > 0)
                 filter += " AND month(B) = "+ (month-1);
+            if(inputText != "")
+                filter += " AND lower(A) like '%"+inputText+"%'";
 
 
             return filter;
@@ -318,15 +322,17 @@
             var display = '';
             var classBorder = '';
 
-            var slider = prefs.getString('slider');
+            var slider = "1";
             var mes = "";
             var month = getParam("mes");
             var year = getParam("anyo");
+            var inputText = getParam("inputText");
 
-            if( !(slider == "1" && month != "" && year != "") ) {
+            if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
 
-                var date = getMonthAndYear(slider);
+                var date = getMonthAndYear(1);
 
+                inputText = "";
                 mes = date.split(" ")[0];
                 month = getMonth(mes);
                 year = date.split(" ")[1];
@@ -340,9 +346,15 @@
 
                 if(year == 0)
                     year = "Todos los años"; 
+                
             }
-            
-            document.getElementById('title').innerHTML = month+' '+year;
+
+            if(inputText == "")
+                document.getElementById('title').innerHTML = month +" "+ year;
+            else {
+                document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
+            }
+
 
             if(filas<1)
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
