@@ -106,7 +106,7 @@
 
         </head>
 
-        <div class="container">
+        <div id="container" class="container">
             <div class="title">Búsqueda por texto</div>
             <div id="inputContainer"></div>
             <div class="subtitle">
