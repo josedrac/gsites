@@ -78,11 +78,19 @@
 	            </div>
 	            <div class="text">
 	                <p>¿Alguna duda? mándanos un e-mail</p>
-	                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=soportesdigitales.es@bbva.com">soportesdigitales.es@bbva.com</a>
+	                <a onclick="javascript:Go('https://mail.google.com/mail/?view=cm&fs=1&to=soportesdigitales.es@bbva.com')">soportesdigitales.es@bbva.com</a>
 	                <p>Te contestamos lo antes posible</p>
 	            </div>
 	        </div>
 	    </div>
+
+		</script>
+		    function Go(destination)
+			{
+				window.open(destination, "_blank");
+				return false;
+			}
+		</script>
 
 		]]>
 	 </Content>
