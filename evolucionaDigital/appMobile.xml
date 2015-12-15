@@ -10,6 +10,7 @@
 	<Content type="html">
 	    <![CDATA[
 		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+		<script src="https://www.google-analytics.com/analytics.js" type="text/javascript"></script>
 
 		<head>
 			<style type="text/css">
@@ -148,15 +149,31 @@
 	        }
 
 	        function addURL() {
-	            document.getElementById("imgMobile").onclick = function(){ openMobile('https://movil.bbva.es');};
-	            document.getElementById("buttonDemo").onclick = function(){ openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
-	            document.getElementById("buttonTour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
-	            document.getElementById("buttonMovil").onclick = function(){ Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
-                document.getElementById("buttonMail").onclick = function(){ Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
+	            document.getElementById("imgMobile").onclick = function(){ trackOutboundLink('https://movil.bbva.es'); openMobile('https://movil.bbva.es');};
+	            document.getElementById("buttonDemo").onclick = function(){ trackOutboundLink('https://demo.movil.bbva.es/apps/buzz/index.html'); openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
+	            document.getElementById("buttonTour").onclick = function(){ trackOutboundLink('https://movil.bbva.es/#/tour'); openMobile('https://movil.bbva.es/#/tour');};
+	            document.getElementById("buttonMovil").onclick = function(){ trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
+                document.getElementById("buttonMail").onclick = function(){ trackOutboundLink('https://www.bbva.es/estaticos/micros/wallet/index.html'); Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
 	        }
 
 	        addURL();
 	    </script>
+
+	    <script>
+			/**
+			* Función de Google Analytics que realiza un seguimiento de un clic en un enlace externo.
+			* Esta función toma una cadena de URL válida como argumento y la utiliza
+			* como la etiqueta del evento.
+			*/
+			var trackOutboundLink = function(url) {
+				console.log('entra');
+			   	ga('send', 'event', 'externo', 'click', url, {'hitCallback': 
+			   		function () {
+			    		document.location = url;
+			    	}
+			   });
+			}
+		</script>
 
 		]]>
 	 </Content>
