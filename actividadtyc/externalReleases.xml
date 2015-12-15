@@ -280,13 +280,13 @@
         function getQueryParameters() {
             var filter = "";
 
-            var slider = "1";
+            var slider = getParam("slider");
             var month = getParam("mes");
             var year = getParam("anyo");
             var inputText = getParam("inputText");
 
             if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
-                var date = getMonthAndYear(1);
+                var date = getMonthAndYear(slider);
 
                 inputText = "";
                 month = date.split(" ")[0];
@@ -322,7 +322,7 @@
             var display = '';
             var classBorder = '';
 
-            var slider = "1";
+            var slider = getParam("slider");
             var mes = "";
             var month = getParam("mes");
             var year = getParam("anyo");
@@ -330,7 +330,7 @@
 
             if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
 
-                var date = getMonthAndYear(1);
+                var date = getMonthAndYear(slider);
 
                 inputText = "";
                 mes = date.split(" ")[0];
