@@ -105,6 +105,12 @@
 					color: #0078D2;
 				    margin-bottom: 4px;
 				}
+				li {
+					font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+				    font-size: 12px;
+				    color: #71777F;
+				    line-height: 19px;
+				}
 
 			</style>
 
