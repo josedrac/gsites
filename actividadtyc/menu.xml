@@ -138,7 +138,7 @@
 				<img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/logo.png" />
 			</div>
 			<div class="card-container blue-green large">
-				<a onclick="javascript:Go('')">
+				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/presentaciones')">
 			        <div class="content">
 			            <div class="icon">
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Presentaciones.png" alt="">
@@ -164,7 +164,7 @@
 		        </a>
 		    </div>
 		    <div class="card-container pink short">
-		    	<a onclick="javascript:Go('')">
+		    	<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/guias')">
 			        <div class="content">
 			            <div class="icon">
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/guias.png" alt="">
