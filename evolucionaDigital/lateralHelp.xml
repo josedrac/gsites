@@ -84,7 +84,7 @@
 	        </div>
 	    </div>
 
-		</script>
+		<script>
 		    function Go(destination)
 			{
 				window.open(destination, "_blank");
