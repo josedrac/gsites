@@ -8,6 +8,7 @@
   	</ModulePrefs>
 
 	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+	<UserPref name="headerText" display_name="headerText" required="true" />
 
  	<Content type="html">
     	<![CDATA[
@@ -127,7 +128,7 @@
 			</script>
 
 			<div id="container">
-				<p>¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
+				<p id="headerText">¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
 
 				<table>
 					<thead>
@@ -207,8 +208,12 @@
 						}
 						template += '</tr>'	
 					}
-					
+
 					document.getElementById("tableBody").innerHTML = template; 
+					
+					var prefs = new gadgets.Prefs(),
+						headerText = prefs.getString('headerText');
+					document.getElementById("headerText").innerHTML = headerText; 
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
@@ -236,6 +241,11 @@
 				<tr>
 					<td>
 						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Header text: <input type="text" id="headerText" value="__UP_headerText__"   onchange="register('headerText')"/>
 					</td>
 				</tr>
 			</table>
