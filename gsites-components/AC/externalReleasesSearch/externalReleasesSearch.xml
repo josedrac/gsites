@@ -117,6 +117,8 @@
 
         <script type="text/javascript">
 
+            adjustGadgetHeight('container');
+
             function Go(){
                 var parameterInput = "";
                 var contentInput = document.getElementById('inputText').value;
