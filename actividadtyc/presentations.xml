@@ -122,7 +122,7 @@
         .text {
             float: left;
             height: 100%;
-            font-size: 12px;
+            font-size: 13px;
             color: #434a48;
             text-align: justify;
         }
