@@ -79,9 +79,31 @@
 				}
 
 				.media-wrapper {
-					margin: 20px 0;
-					text-align: center;
-					padding: 0 10px;
+					height: 315px;
+					display: table;
+					width: 100%;
+				}
+
+				.media-content {
+				    display: table-cell;
+				    vertical-align: middle;
+				    text-align: center;				
+				}
+
+				.media-content:before {
+					content: ' ';
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    height: 100%;
+				}
+
+				.media-content img,
+				.media-content iframe {
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+			        max-height: 100%;
+	    			max-width: 100%;
 				}
 
 
@@ -105,12 +127,13 @@
 					color: #0078D2;
 				    margin-bottom: 4px;
 				}
+
 				li {
 					font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
 				    font-size: 12px;
 				    color: #71777F;
 				    line-height: 19px;
-				}
+				}				
 
 			</style>
 
@@ -137,7 +160,9 @@
 
 				<div id="sortDescription"></div>
 
-				<div id="media" class="media-wrapper"></div>
+				<div class="media-wrapper">
+					<div id="media" class="media-content"></div>
+				</div>
 
 				<div id="description"></div>
 
@@ -204,7 +229,7 @@
 						video = dataTable.getValue(0, 6);
 
 					if(image != null && image != undefined) {
-						data.media = image;
+						data.media = '<img src="' + image + '" alt="image"/>';
 					} else if(video != null && video != undefined) {
 						data.media = video;
 					}
