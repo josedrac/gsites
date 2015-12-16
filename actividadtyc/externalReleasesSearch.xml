@@ -20,6 +20,7 @@
                 .container{
                     clear: both;
                     width: 298px;
+                    overflow: hidden;
                 }
 
                 .btn:hover {
