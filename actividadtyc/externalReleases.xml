@@ -115,6 +115,7 @@
             max-height: 39px;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-size: 13px;
         }
 
         .date {
