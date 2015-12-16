@@ -355,7 +355,7 @@
 
             for(var i=0;i<filas;i++) {
 
-                if(i % 8 == 3 || i % 8 == 7)
+                if(i % 8 == 3 || i % 8 == 7 || i == filas-1)
                     classBorder = 'content last';
                 else
                     classBorder = 'content';
