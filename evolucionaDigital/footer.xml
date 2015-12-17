@@ -235,21 +235,21 @@
     			<li class="op2">
     				<h2>ENLACES DE INTERÉS</h2>
     				<ul>
-    					<li><a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/transforma-t/'); return false;">Evoluciona</a></li>
-                        <li><a target="_blank" href="https://sites.google.com/a/bbva.com/evolucionadigital/dcbc" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/dcbc'); return false;">DCBC´s y Embajadores</a></li>
-                        <li><a target="_blank" href="https://sites.google.com/a/bbva.com/somos-bbva-contigo">BBVA Contigo</a></li>
-                        <li><a target="_blank" href="https://www.bbvaopenmind.com/" onclick="trackOutboundLink('https://www.bbvaopenmind.com/'); return false;">BBVA OpenMind</a></li>
+    					<li><a href="https://sites.google.com/a/bbva.com/transforma-t/" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/transforma-t/'); Go('https://sites.google.com/a/bbva.com/transforma-t/');">Evoluciona</a></li>
+                        <li><a href="https://sites.google.com/a/bbva.com/evolucionadigital/dcbc" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/dcbc'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/dcbc');">DCBC´s y Embajadores</a></li>
+                        <li><a href="https://sites.google.com/a/bbva.com/somos-bbva-contigo" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/somos-bbva-contigo'); Go('https://sites.google.com/a/bbva.com/somos-bbva-contigo');">BBVA Contigo</a></li>
+                        <li><a href="https://www.bbvaopenmind.com/" onclick="trackOutboundLink('https://www.bbvaopenmind.com/'); Go('https://www.bbvaopenmind.com/');">BBVA OpenMind</a></li>
     				</ul>
     			</li>
     			<li class="last op3">
     				<h2>BBVA EN REDES SOCIALES</h2>
     				<ul class="redes-sociales">
-    					<li><a target="_blank" href="https://www.facebook.com/BBVAespana" class="face" onclick="trackOutboundLink('https://www.facebook.com/BBVAespana'); return false;">Facebook</a></li>
-    					<li><a target="_blank" href="https://twitter.com/BBVA_esp" class="tw" onclick="trackOutboundLink('https://twitter.com/BBVA_esp'); return false;">Twitter</a></li>
-                        <li><a target="_blank" href="https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed" class="you" onclick="trackOutboundLink('https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed'); return false;">Youtube</a></li>
-    					<li><a target="_blank" href="https://plus.google.com/+BbvaEs" class="gplus" onclick="trackOutboundLink('https://plus.google.com/+BbvaEs'); return false;">Google+</a></li>
-                        <li><a target="_blank" href="https://www.blogbbva.es" class="rss" onclick="trackOutboundLink('https://www.blogbbva.es'); return false;">Blog BBVA</a></li>
-    					<li><a target="_blank" href="http://www.linkedin.com/company/bbvaespana" class="link" onclick="trackOutboundLink('http://www.linkedin.com/company/bbvaespana'); return false;">Linkedin</a></li>
+    					<li><a href="https://www.facebook.com/BBVAespana" class="face" onclick="trackOutboundLink('https://www.facebook.com/BBVAespana'); Go('https://www.facebook.com/BBVAespana');">Facebook</a></li>
+    					<li><a href="https://twitter.com/BBVA_esp" class="tw" onclick="trackOutboundLink('https://twitter.com/BBVA_esp'); Go('https://twitter.com/BBVA_esp');">Twitter</a></li>
+                        <li><a href="https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed" class="you" onclick="trackOutboundLink('https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed'); Go('https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed');">Youtube</a></li>
+    					<li><a href="https://plus.google.com/+BbvaEs" class="gplus" onclick="trackOutboundLink('https://plus.google.com/+BbvaEs'); Go('https://plus.google.com/+BbvaEs');">Google+</a></li>
+                        <li><a  href="https://www.blogbbva.es" class="rss" onclick="trackOutboundLink('https://www.blogbbva.es'); Go('https://www.blogbbva.es');">Blog BBVA</a></li>
+    					<li><a href="http://www.linkedin.com/company/bbvaespana" class="link" onclick="trackOutboundLink('http://www.linkedin.com/company/bbvaespana'); Go('http://www.linkedin.com/company/bbvaespana');">Linkedin</a></li>
     				</ul>
     			</li>
     		</ul>
@@ -271,6 +271,11 @@
                     document.location = url;
                 }
            });
+        }
+
+        function Go(destination){
+            window.open(destination,'_blank');
+            return false;
         }
     </script>
 
