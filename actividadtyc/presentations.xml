@@ -95,9 +95,10 @@
             float: left;
             list-style: outside none none;
             background-color: #FFF;
-            margin: 3.5%;
+            margin: 1%;
+            padding: 10px 2.5%;
             width: 43%;
-            height: 140px;
+            height: 125px;
         }
 
         .icon {
