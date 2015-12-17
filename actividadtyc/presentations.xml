@@ -96,7 +96,7 @@
             list-style: outside none none;
             background-color: #FFF;
             margin: 1%;
-            padding: 10px 2.5%;
+            padding: 20px 2.5% 10px;
             width: 43%;
             height: 125px;
         }
