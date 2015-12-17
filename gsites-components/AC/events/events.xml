@@ -135,7 +135,7 @@
 		.place span {
 		    font-size: 13px;
 		    font-family: Arial;
-		    color: #0078D2;
+		    color: #0065B7;
 		    line-height: 2px;
 		}
 
@@ -284,12 +284,13 @@
 	</div>
 
    	<script type="text/javascript">
-
    		adjustGadgetHeight('container');
 		var gadgetHelper = null;
 		google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
         var prefs = new gadgets.Prefs();
+
+        var dataGlobal;
 
         var month = new Array();
 			month[1] = "Ene";
@@ -310,12 +311,6 @@
 			google.setOnLoadCallback(sendQuery);
 		}
 
-		function isSearchDone() {
-	        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-	            return true;
-	        }
-	        return false;
-	    }
 
 		function sendQuery(){
 			var spreadsheetKey = prefs.getString('spreadsheetKey'),
@@ -323,7 +318,20 @@
                 sheetName = encodeURIComponent('events'),
                 queryString = encodeURIComponent('SELECT * where B <> "title"'),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-                query.send(handleQueryResponse);
+                query.send(function (response) {
+                	handleQueryResponse(response, 0);
+            	});
+		}
+
+		function sendQueryAssistants(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey = '1CKb_vRSHUdZfU11-HxpLTCdbiPPu1kLdLZTGwEwRtOs',
+                sheetName = encodeURIComponent('eventos usuarios'),
+                queryString = encodeURIComponent('SELECT * where B <> "email" AND D="x"'),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 1);
+            	});
 		}
 
 		function pagination(elements) {
@@ -337,34 +345,39 @@
 	        });
 	    }
 
-		function handleQueryResponse(response) {
-			data = response.getDataTable();
-			var filas = data.getNumberOfRows();
-			var html = "";
+		function handleQueryResponse(response, index) {
 
-			
+			if(index == 0){
+				dataGlobal = response.getDataTable();
+				sendQueryAssistants();
+			}
+			else{
+				var data = response.getDataTable();
+				var filas = dataGlobal.getNumberOfRows();
+				var html = "";
 
-			if(filas < 1) 
-    			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
-            else {
-                html += '<div id="paginas" class="paginaNueva" style=" display: block;">'; 
+				if(filas < 1) 
+	    			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
+	            else {
+	                html += '<div id="paginas" class="paginaNueva" style=" display: block;">'; 
 
-				for(var i=0; i < filas; i++) {
+					for(var i=0; i < filas; i++) {
 
-					html += getEvent(data, i);
-	            }
+						html += getEvent(dataGlobal, data, i);
+		            }
 
-	            html += '</div>';
-	        }
-			html += "<div id='pagination' style='margin: auto;'></div>";
+		            html += '</div>';
+		        }
+				html += "<div id='pagination' style='margin: auto;'></div>";
 
-			document.getElementById('container').innerHTML += html;
-			if(filas > 0)
-				pagination(filas);
-			gadgets.window.adjustHeight();
+				document.getElementById('container').innerHTML += html;
+				if(filas > 0)
+					pagination(filas);
+				gadgets.window.adjustHeight();
+			}
 		}
 
-		function getEvent(data, i) {
+		function getEvent(data, dataAss, i) {
 			var html = "";
 
 			var date = data.getFormattedValue(i, 4).split('/');
@@ -388,17 +401,22 @@
 		   	html += "	<div class='datesandtags'>";
 		   	//Fecha inicio
 		   	html += "		<div class='start'>";
-		   	html += "			<div class='day' id='mes'>" + day + "</div>";
-			html += "			<div class='month' id='mes'>" + mon + "</div>";
-			html += "			<div class='year' id='anyo'>" + year + "</div>";
+		   	html += "			<div class='day'>" + day + "</div>";
+			html += "			<div class='month'>" + mon + "</div>";
+			html += "			<div class='year'>" + year + "</div>";
 		    html += "		</div>";
 
-		    //Fecha fin
-		    html += "		<div class='end'>";
-		   	html += "			<div class='day' id='mes'>" + day2 + "</div>";
-			html += "			<div class='month' id='mes'>" + mon2 + "</div>";
-			html += "			<div class='year' id='anyo'>" + year2 + "</div>";
-		    html += "		</div>";
+		    if(date2 != "" && date2 != 'undefined' && date2 != null){
+
+		    	html += '		<img class="iconArrow" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/arrow.png"/>';
+
+			    //Fecha fin
+			    html += "		<div class='end'>";
+			   	html += "			<div class='day'>" + day2 + "</div>";
+				html += "			<div class='month'>" + mon2 + "</div>";
+				html += "			<div class='year'>" + year2 + "</div>";
+			    html += "		</div>";
+			}
 
 		    //etiqueta asistencia
 		    html += "		<div class='confirmation'>"+ tagConfirm +"</div>"
@@ -413,7 +431,9 @@
 			//Contenido
 		   	html += "	<div class='info'>";
 		   	html += "		<div class='title'>" + data.getValue(i, 1) + "</div>";
-		   	html += "		<div class='assistants'>" + "pedro mar" + "</div>";
+		   	html += "		<div class='assistants'>";
+		   	html += 			getAssistants(data, dataAss, i);
+		   	html += "		</div>";
 		   	html += "		<div class='place'>Lugar: <span>" + data.getValue(i, 3) + "</span></div>";
 		   	html += "		<div class='description'>" + data.getValue(i, 2) + "</div>";
 		    html += "		<button type='button' onclick=javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/eventos/detalles?id="+ data.getValue(i, 0) +"')>Saber más</button>";
@@ -424,6 +444,20 @@
 		    html += "</div>";			
 		    return html;
 
+		}
+
+		function getAssistants(data, dataAss, index){
+			var id = data.getValue(index, 0);
+			var html = "";
+			var count = 0;
+			for(var i=0; i<dataAss.getNumberOfRows(); i++){
+				if(id == dataAss.getValue(i, 0)){
+					html += "			<span class='assistant'>"+dataAss.getFormattedValue(i, 6)+" - "+ dataAss.getValue(i, 1) + "</span>";
+					count++;
+					if(count > 1) break;
+				}
+			}
+			return html;
 		}
 
 	    function Go(destination){
@@ -446,7 +480,6 @@
 	 	}
 
   	</script>
-
     ]]>
   </Content>
 
