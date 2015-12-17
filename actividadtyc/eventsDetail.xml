@@ -71,10 +71,6 @@
 			font-size: 30px;
 		}
 
-		.confirmationTag {
-
-		}
-
 		.line {
 		    width:610px;
 			margin-bottom:20px;
@@ -366,8 +362,8 @@
 				html = "";
 				for(var i=0; i<filas; i++) {
 
-					var date = data.getFormattedValue(i, 6);
-					var name = data.getValue(i, 2);
+					var date = data.getFormattedValue(i, 3);
+					var name = data.getValue(i, 1);
 					html += "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
 				}
 				
