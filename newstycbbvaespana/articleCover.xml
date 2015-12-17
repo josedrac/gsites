@@ -172,11 +172,8 @@
 
 			 			<h2 id="title"></h2>
 						<h3 id="subtitle"></h3>
-						<p class="author-signature">
-							<span id="date"></span>
-							<span>-</span>
-							<span id="author"></span>
-						</p>
+						
+						<div id="authorSignature"></div>
 
 						<div id="sortDescription"></div>
 						<button id="buttonArticle" type="button" onclick="javascript:goArticle()"></button>
@@ -262,8 +259,15 @@
 
 					document.getElementById("title").innerHTML = data.title; 				
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
-					document.getElementById("date").innerHTML = data.date;
-					document.getElementById("author").innerHTML = data.author; 	
+
+					if(data.author != null && data.author != undefined) {
+						var authorSignature = '';
+						authorSignature += '<p class="author-signature">';
+						authorSignature += data.date + ' - ' + data.author;
+						authorSignature += '</p>';
+						document.getElementById("authorSignature").innerHTML = authorSignature;
+					}
+
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
 					document.getElementById("coverMedia").innerHTML = data.coverMedia;
 

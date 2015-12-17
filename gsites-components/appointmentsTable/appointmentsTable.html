@@ -83,21 +83,16 @@
 				text-align: right;;
 			}
 
-			table tbody tr td a {
+			table tbody tr td .sign-up {
 				font-family: BBVA Web Light, Arial;
 				font-size: 18px;
 				color: #0078D2;
-				text-decoration: none;
 				position: relative;
 			    top: -4px;
-			    outline: none;
+		        cursor: default
 			}
 
-			table tbody tr td a:visited {
-				color: #0078D2;
-			}
-
-			table tbody tr td a span {
+			table tbody tr td .sign-up span {
 				position: relative;
 			    top: -4px;
 			    font-weight: bold;
@@ -168,7 +163,7 @@
 					template += '<td>' + dataTable.getValue(i, 3) + '</td>';
 					url = dataTable.getValue(i, 4);
 					if(url != null && url != undefined && url != '') {
-						template += '<td class="text-right"><a href="' + dataTable.getValue(i, 4) + '" target="_blank">apuntate<span>+</span></a></td>';
+						template += '<td class="text-right"><span class="sign-up">apuntate<span>+</span></span></td>';
 					}
 					template += '</tr>'	
 				}

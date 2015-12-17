@@ -143,7 +143,6 @@
 				function printDataTable(dataTable) {
 				
 					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);
-					adjustGadgetHeight("container");
 
 				}
 

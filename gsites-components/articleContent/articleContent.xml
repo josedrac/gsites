@@ -79,9 +79,31 @@
 				}
 
 				.media-wrapper {
-					margin: 20px 0;
-					text-align: center;
-					padding: 0 10px;
+					height: 315px;
+					display: table;
+					width: 100%;
+				}
+
+				.media-content {
+				    display: table-cell;
+				    vertical-align: middle;
+				    text-align: center;				
+				}
+
+				.media-content:before {
+					content: ' ';
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    height: 100%;
+				}
+
+				.media-content img,
+				.media-content iframe {
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+			        max-height: 100%;
+	    			max-width: 100%;
 				}
 
 
@@ -130,15 +152,13 @@
 
 				<h3 id="subtitle"></h3>
 
-				<p class="author-signature">
-					<span id="date"></span>
-					<span>-</span>
-					<span id="author"></span>
-				</p>
+				<div id="authorSignature"></div>
 
 				<div id="sortDescription"></div>
 
-				<div id="media" class="media-wrapper"></div>
+				<div class="media-wrapper">
+					<div id="media" class="media-content"></div>
+				</div>
 
 				<div id="description"></div>
 
@@ -205,15 +225,22 @@
 						video = dataTable.getValue(0, 6);
 
 					if(image != null && image != undefined) {
-						data.media = image;
+						data.media = '<img src="' + image + '" alt="image"/>';
 					} else if(video != null && video != undefined) {
 						data.media = video;
 					}
 
 					document.getElementById("title").innerHTML = data.title; 				
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
-					document.getElementById("date").innerHTML = data.date;
-					document.getElementById("author").innerHTML = data.author; 	
+					
+					if(data.author != null && data.author != undefined) {
+						var authorSignature = '';
+						authorSignature += '<p class="author-signature">';
+						authorSignature += data.date + ' - ' + data.author;
+						authorSignature += '</p>';
+						document.getElementById("authorSignature").innerHTML = authorSignature;
+					}
+					
 					document.getElementById("sortDescription").innerHTML = data.sortDescription; 	
 					document.getElementById("media").innerHTML = data.media; 	
 					document.getElementById("description").innerHTML = data.description; 	
