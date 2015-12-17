@@ -416,7 +416,7 @@
 		   	html += "		<div class='assistants'>" + "pedro mar" + "</div>";
 		   	html += "		<div class='place'>Lugar: <span>" + data.getValue(i, 3) + "</span></div>";
 		   	html += "		<div class='description'>" + data.getValue(i, 2) + "</div>";
-		    html += "		<button type='button' onclick=javascript:Go('')>Saber más</button>";
+		    html += "		<button type='button' onclick=javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/eventos/detalles?id="+ data.getValue(i, 0) +"')>Saber más</button>";
 		    html += "	</div>";
 
 			//Separación
