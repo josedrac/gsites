@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="AC-eventsDetail.xml"
+    description="">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+	<UserPref name="spreadsheetKey" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYE...)" required="true" />
+ <Content view="canvas" preferred_height="20px">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
+	<style type="text/css">
+	  	/* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+
+		.container {
+			font-family: arial, sans-serif;
+		    font-size: 12px;
+		    margin-bottom: 16px;
+		    position: relative;
+		    width: 610px;
+		}
+
+		.titleContainer {
+
+		}
+
+		.icon {
+			display: inline-block;
+			float: left;
+		}
+
+		.title {
+			color: #0078D2;
+			font-size: 30px;
+		}
+
+		.confirmationTag {
+
+		}
+
+		.line {
+		    width:610px;
+			margin-bottom:20px;
+			margin-left:-1px;
+			color:#DCDCDC;
+		}
+
+		.data {
+			width: auto;
+			background-color: #F5F5F5;
+			float: left;
+			border-radius: 3px;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-color: #DFE0DE;
+			border-style: solid;
+			border-width: 1px;
+		}
+
+		.header {
+			margin-bottom: 10px;
+			float: left;
+			display: inline-block;
+			font-size: 18px;
+			width: 100%;
+		}
+
+		.row {
+			margin-bottom: 10px;
+			display: inline-block;
+			float: left;
+			font-size: 12px;
+			width: 100%;
+		}
+
+		.row.last {
+			margin-bottom: 0px;
+		}
+
+		.row .field {
+			color: #666666;
+			font-size: 12px;
+			font-weight: bold;
+			width: 125px;
+			display: inline-block;	
+		}
+
+		.row .text.url, .row .text.email  {
+			color: #0065B7;
+		}
+
+		.row .text.url {
+			font-weight: bold;
+		}
+
+		.info {
+			margin-left: 10px;
+			display: inline-block;
+			width: 420px;
+		}
+
+		.assistantsContainer {
+		    font-size: 13px;
+		    font-family: Arial;
+			margin-bottom: 15px;
+		    line-height: 18px;
+		}
+
+		.assistantHeader {
+			float: left;
+		}
+
+		.assistantsColumn {
+			font-size: 11px;
+			color: #434A58;
+			display: inline-block;
+			width: 80%;
+			margin-left: 10px;
+		}
+
+		.assistant {
+			display: inline-block;
+			width: 100%;
+		}
+
+		.place {
+		    color: #434A58;
+		    font-size: 13px;
+		    font-family: Arial;
+		    line-height: 18px;
+		}
+
+		.place span {
+		    font-size: 13px;
+		    font-family: Arial;
+		    color: #0078D2;
+		    line-height: 2px;
+		}
+
+		.descriptionContainer {
+			margin-left: 20px;
+		}
+
+		.descriptionTitle {
+			font-size: 18px;
+		}
+
+		.description {
+		    color: #434A58;
+		    font-size: 12px;
+		    font-family: Arial;
+		    line-height: 18px;
+		    height: 36px;
+		    text-overflow: ellipsis;
+			display: inline-block;
+			overflow: hidden;
+			margin-bottom: 20px;
+		}
+
+		.docsContainer {
+			display: inline-block;
+			width: 100%;
+		}
+
+		.docContent {
+			width: 100%;
+			position: relative;
+			height: 24px;
+			float: left;
+			display: table;
+		}
+
+		.icon {
+			float: left;
+			vertical-align: middle;
+			position: relative;
+			height: 100%;
+			display: table-cell;
+			width: 24px;
+			margin-right: 10px
+		}
+
+		.docLink {
+		    font-size: 12px;
+			display: table-cell;
+			text-decoration: none;
+			position: relative;
+			vertical-align: middle;
+			width: inherit;
+			color: #0065B7;
+		}
+
+	</style>
+
+
+	<div class="container" id="container">
+		<div class="titleContainer">
+			<span id="title" class="title">Evento</span>
+			<span id="confirmationTag" class="tag"></span>
+		</div>
+		<hr class="line"/>
+		<div class="data">
+			<span class="header">Datos</span>
+			<div class="row">
+				<span class="field">Dirección:</span>
+				<span id="place" class="text"></span>
+			</div>
+			<div class="row">
+				<span class="field">Persona de contacto:</span>
+				<span id="contactName" class="text"></span>
+				<span id="contactEmail" class="text email"></span>
+			</div>
+			<div class="row">
+				<span class="field">Horario:</span>
+				<span id="schedule" class="text"></span>
+			</div>
+			<div class="row">
+				<span class="field">Transporte:</span>
+				<span id="transport" class="text"></span>
+			</div>
+			<div class="row last">
+				<span class="field">Web:</span>
+				<a id="web" class="text url"></a>
+			</div>
+		</div>
+		<div class="imageContainer">
+			<img src=""/>
+		</div>
+		<div class="mapContainer">
+		</div>
+		<div class="descriptionContainer">
+			<div class="header">Descripción</div>
+			<div id="description" class="description"></div>
+			<div class="assistantsContainer">
+				<span class="assistantHeader">Asistentes:</span>
+				<div id="assistants" class="assistantsColumn">
+
+				</div>
+			</div>
+			<div id="docsContainer" class="docsContainer">
+				
+				
+			</div>
+		</div>
+	</div>
+
+   	<script type="text/javascript">
+   		
+   		adjustGadgetHeight('container');
+		var gadgetHelper = null;
+		google.load('visualization', '1', {packages: ['table']});
+        google.setOnLoadCallback(sendQuery);
+        google.setOnLoadCallback(sendQueryUsers);
+        google.setOnLoadCallback(sendQueryDocs);
+        var prefs = new gadgets.Prefs();
+
+
+	 	function loadVisualizationAPI() {
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
+
+	    function getParam(p){
+            var params;
+            if(location.href.split("?").length > 1){
+            //if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                //params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                params = location.href.split("?")[1].split("&");
+                for(var i=0; i<params.length; i++){
+                    if(params[i].split("=")[0] == p)
+                        return params[i].split("=")[1];
+                }
+            }
+            return "";
+        }
+
+        function getQueryParameters() {
+            var filter = "";
+
+            var id = getParam('id');
+
+            if(id != "" && id > 0)
+            	filter += " AND A ="+ id;
+
+            return filter;
+        }
+
+		function sendQuery(){
+			var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			//var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+                sheetName = encodeURIComponent('events'),
+                queryString = encodeURIComponent('SELECT * where B <> "title"' + getQueryParameters()),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 0);
+            	});
+		}
+
+
+		function handleQueryResponse(response, index) {
+			data = response.getDataTable();
+			
+			if(index == 0){
+				var title = data.getValue(0, 1);
+				var address = data.getValue(0, 7);
+				var contact = data.getValue(0, 8);
+				var contactEmail = data.getValue(0, 9);
+				var schedule = data.getValue(0, 10);
+				var transport = data.getValue(0, 11);
+				var web = data.getValue(0, 12);
+
+				var description = data.getValue(0, 2);
+
+				var tagConfirm = "";
+					
+				document.getElementById('title').innerHTML = title;
+				document.getElementById('place').innerHTML = address;
+				document.getElementById('contactName').innerHTML = contact;
+				document.getElementById('contactEmail').innerHTML = contactEmail;
+				document.getElementById('schedule').innerHTML = schedule;
+				document.getElementById('transport').innerHTML = transport;
+				document.getElementById('web').innerHTML = web;
+				document.getElementById('description').innerHTML = description;
+
+				
+			}
+			else if(index == 1){
+				var filas = data.getNumberOfRows();
+				html = "";
+				for(var i=0; i<filas; i++) {
+
+					var date = data.getFormattedValue(i, 6);
+					var name = data.getValue(i, 2);
+					html += "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
+				}
+				
+				document.getElementById('assistants').innerHTML = html;
+			}
+			else {
+				var filas = data.getNumberOfRows();
+				html = "";
+				html += '<span class="header">Documentación:</span>';
+				for(var i=0; i<filas; i++){
+					html += '<div class="docContent">';
+					html += '	<img class="icon" src=""/>';
+					html += '	<a class="docLink" href="'+data.getValue(i, 2)+'">'+data.getValue(i, 1)+'</a>';
+					html += '</div>';
+				}
+				document.getElementById('docsContainer').innerHTML = html;
+			}
+
+		}
+
+		function getQueryParametersUsers() {
+            var filter = "";
+
+            var id = getParam('id');
+
+            if(id != "" && id > 0)
+            	filter += " AND A ="+ id;
+
+            filter += " AND D ='x'";
+
+            return filter;
+        }
+
+		function sendQueryUsers(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey = '1CKb_vRSHUdZfU11-HxpLTCdbiPPu1kLdLZTGwEwRtOs',
+                sheetName = encodeURIComponent('eventos usuarios'),
+                queryString = encodeURIComponent('SELECT * where B <> "email"' + getQueryParametersUsers()),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 1);
+            	});
+		}
+
+		function getQueryParametersDocs() {
+            var filter = "";
+
+            var id = getParam('id');
+
+            if(id != "" && id > 0)
+            	filter += " AND A ="+ id;
+
+            return filter;
+        }
+
+		function sendQueryDocs(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey = '1CKb_vRSHUdZfU11-HxpLTCdbiPPu1kLdLZTGwEwRtOs',
+                sheetName = encodeURIComponent('eventos documentos'),
+                queryString = encodeURIComponent('SELECT * where B <> "name"' + getQueryParametersDocs()),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 2);
+            	});
+		}
+
+
+	    function Go(destination){
+	    	window.open(destination,'_blank');
+		    //window.parent.location.href = destination;
+		    return false;
+		}
+
+		//delay loading
+		delayRender();
+	    function delayRender(){
+	    	window.setTimeout('showIframes()', 2000);
+	    }
+
+	 	function showIframes() {
+		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+		 	for (var i=0;i<iframes;i++) {
+				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+			}
+	 	}
+
+  	</script>
+
+    ]]>
+  </Content>
+
+  <Content type="html" view="configuration">
+
+    <![CDATA[
+
+      <style type="text/css">
+
+        table td {
+          color: #000;
+          font-size: 11px;
+          font-weight: bold;
+        }
+
+      </style>
+
+      <table width="100%" border="0" id="tablaconfig">
+        <tr>
+          <td>
+            Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+          </td>
+        </tr>
+      </table>
+
+      <script type="text/javascript">
+
+        var prefs = new gadgets.Prefs();
+        function register(variable) {
+          prefs.set(variable, document.getElementById(variable).value);
+        }
+
+        gadgets.window.adjustHeight();
+
+      </script>
+
+    ]]>
+  </Content>
+
+</Module>
