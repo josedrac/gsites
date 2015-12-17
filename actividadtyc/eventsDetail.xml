@@ -66,6 +66,7 @@
 		}
 
 		.title {
+			font-family: 'BBVA Web Light';
 			color: #0078D2;
 			font-size: 30px;
 		}
