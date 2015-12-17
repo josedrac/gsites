@@ -26,7 +26,7 @@
             font-style: normal;
             font-weight: normal;
         }
-        
+
 		@font-face {
 			font-family: 'BBVA Web Book';
 			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
@@ -393,7 +393,7 @@
             if(id != "" && id > 0)
             	filter += " AND A ="+ id;
 
-            filter += " AND D ='x'";
+            filter += " AND C ='x'";
 
             return filter;
         }
