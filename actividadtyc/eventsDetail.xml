@@ -17,15 +17,16 @@
 	<style type="text/css">
 	  	/* @group fonts */
 		@font-face {
-			font-family: 'BBVA Web Light';
-			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
-			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
+            font-family: 'BBVA Web Light';
+                    src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+                    src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                    url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+                    url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+                    url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
 		@font-face {
 			font-family: 'BBVA Web Book';
 			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
@@ -66,12 +67,9 @@
 		}
 
 		.title {
+			font-family: BBVA Web Light, Arial;
 			color: #0078D2;
 			font-size: 30px;
-		}
-
-		.confirmationTag {
-
 		}
 
 		.line {
@@ -298,10 +296,10 @@
 
 	    function getParam(p){
             var params;
-            if(location.href.split("?").length > 1){
-            //if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
-                //params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-                params = location.href.split("?")[1].split("&");
+            //if(location.href.split("?").length > 1){
+            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                //params = location.href.split("?")[1].split("&");
                 for(var i=0; i<params.length; i++){
                     if(params[i].split("=")[0] == p)
                         return params[i].split("=")[1];
@@ -367,8 +365,8 @@
 				html = "";
 				for(var i=0; i<filas; i++) {
 
-					var date = data.getFormattedValue(i, 6);
-					var name = data.getValue(i, 2);
+					var date = data.getFormattedValue(i, 3);
+					var name = data.getValue(i, 1);
 					html += "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
 				}
 				
@@ -397,7 +395,7 @@
             if(id != "" && id > 0)
             	filter += " AND A ="+ id;
 
-            filter += " AND D ='x'";
+            filter += " AND C ='x'";
 
             return filter;
         }
