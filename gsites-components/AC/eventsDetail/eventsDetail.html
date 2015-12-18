@@ -45,7 +45,8 @@
 		}
 
 		.titleContainer {
-
+			float: left;
+			display: table;
 		}
 
 		.icon {
@@ -56,10 +57,16 @@
 		.title {
 			color: #0078D2;
 			font-size: 30px;
+			float: left;
+			display: table-cell;
+			margin-right: 10px;
 		}
 
-		.confirmationTag {
-
+		.tag {
+			display: table-cell;
+			vertical-align: bottom;
+			padding-bottom: 5px;
+			font-weight: bold;
 		}
 
 		.line {
@@ -67,6 +74,7 @@
 			margin-bottom:20px;
 			margin-left:-1px;
 			color:#DCDCDC;
+			float: left;
 		}
 
 		.data {
@@ -115,6 +123,10 @@
 
 		.row .text.url {
 			font-weight: bold;
+		}
+
+		.imageContainer {
+			float: left;
 		}
 
 		.info {
@@ -198,20 +210,19 @@
 			float: left;
 			vertical-align: middle;
 			position: relative;
-			height: 100%;
 			display: table-cell;
-			width: 24px;
+			width: 12px;
 			margin-right: 10px
 		}
 
 		.docLink {
-		    font-size: 12px;
-			display: table-cell;
-			text-decoration: none;
-			position: relative;
-			vertical-align: middle;
-			width: inherit;
-			color: #0065B7;
+		        font-size: 12px;
+			    display: table-cell;
+			    text-decoration: none;
+			    position: relative;
+			    vertical-align: middle;
+			    color: #0065B7;
+			    display: inline-block;
 		}
 
 	</style>
@@ -219,7 +230,7 @@
 
 	<div class="container" id="container">
 		<div class="titleContainer">
-			<span id="title" class="title">Evento</span>
+			<span id="title" class="title"></span>
 			<span id="confirmationTag" class="tag"></span>
 		</div>
 		<hr class="line"/>
@@ -262,8 +273,8 @@
 				</div>
 			</div>
 			<div id="docsContainer" class="docsContainer">
-				
-				
+			</div>
+			<div id="assistButtonContainer" class="assistButtonContainer">
 			</div>
 		</div>
 	</div>
@@ -272,6 +283,8 @@
    		
    		//adjustGadgetHeight('container');
 		var gadgetHelper = null;
+		var dataUser;
+		var eventDate;
 		google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
         google.setOnLoadCallback(sendQueryUsers);
@@ -325,6 +338,10 @@
 			data = response.getDataTable();
 			
 			if(index == 0){
+				eventDate = data.getFormattedValue(0, 5);
+				if(eventDate == 'undefined' || eventDate == null || eventDate == '')
+					eventDate = data.getFormattedValue(0, 4);
+
 				var title = data.getValue(0, 1);
 				var address = data.getValue(0, 7);
 				var contact = data.getValue(0, 8);
@@ -349,12 +366,14 @@
 				
 			}
 			else if(index == 1){
+				dataUser = data;
+				isAssistant(dataUser);
 				var filas = data.getNumberOfRows();
 				html = "";
 				for(var i=0; i<filas; i++) {
 
-					var date = data.getFormattedValue(i, 6);
-					var name = data.getValue(i, 2);
+					var date = data.getFormattedValue(i, 3);
+					var name = data.getValue(i, 1);
 					html += "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
 				}
 				
@@ -366,7 +385,7 @@
 				html += '<span class="header">Documentación:</span>';
 				for(var i=0; i<filas; i++){
 					html += '<div class="docContent">';
-					html += '	<img class="icon" src=""/>';
+					html += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
 					html += '	<a class="docLink" href="'+data.getValue(i, 2)+'">'+data.getValue(i, 1)+'</a>';
 					html += '</div>';
 				}
@@ -383,7 +402,7 @@
             if(id != "" && id > 0)
             	filter += " AND A ="+ id;
 
-            filter += " AND D ='x'";
+            filter += " AND C ='x'";
 
             return filter;
         }
@@ -440,5 +459,86 @@
 				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
 			}
 	 	}
+
+
+	 	function isAssistant(dataUser) {
+  			$.ajax({
+	            type      	: 'GET', 
+	            //url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec', 
+	            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyfNDxo9Pli9r5j23r2rpO9CBV08hK5PCa2tMYm7cBzJ9oauBDF/exec',
+	            dataType	: 'jsonp',
+				jsonpCallback: "on_result",
+				success: function(data) {
+					var user = JSON.parse(data);
+					var html = "";
+					var style = "";
+					console.log(user.email);
+
+					while(eventDate == null);
+
+
+					for(var i=0; i<dataUser.getNumberOfRows(); i++){
+						if(dataUser.getValue(i, 1) == user.email){
+							if(!pastDate(eventDate)){
+								html = "Confirmado";
+								style = "color: #46B1B6";
+							}
+							else{
+								html = "Asistido";
+								style = "color: #C7D151";
+							}
+							document.getElementById('confirmationTag').style = style;
+							document.getElementById('confirmationTag').innerHTML = html;
+							return;
+						}
+					}
+					if(!pastDate(eventDate)){
+						var id = getParam('id');
+						html = "<button id='assistButton' onclick='javascript:assistEvent("+id+")' class='assistButton'>Confirmar asistencia</button>";
+						document.getElementById('assistButtonContainer').innerHTML = html;
+					}
+					
+				}
+			});
+  		}
+
+  		function assistEvent(id) {
+  			$.ajax({
+	            type      	: 'GET', 
+	            //url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec', 
+	            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyd_YHHIqsZf9hn_CnrrTHTvW7ZB3ABLs6UQFhgva7HqsNwTCc/exec?id='+id,
+	            dataType	: 'jsonp',
+				jsonpCallback: "on_result",
+				success: function(data) {
+					var result = JSON.parse(data);
+					console.log(result);
+					var date = result[3];
+					var name = result[1];
+					var html = "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
+					var inner = document.getElementById('assistants').innerHTML;
+					document.getElementById('assistants').innerHTML = inner + html;
+					document.getElementById('assistButtonContainer').innerHTML = "";
+					
+					//Actualizar etiqueta de asistencia					
+					document.getElementById('confirmationTag').style = "color: #46B1B6";
+					document.getElementById('confirmationTag').innerHTML = "Confirmado";
+				}
+			});
+  		}
+
+  		function pastDate(eventDate){
+  			var ed = eventDate.split('/');
+  			
+  			var eDate = Date.UTC(ed[2], ed[1], ed[0]);
+  			var dateObj = new Date();
+			var actDate = dateObj.getTime();
+
+  			if(actDate > eDate)
+  				return true;
+  			else
+  				return false;
+  		}
+
+
 
   	</script>
