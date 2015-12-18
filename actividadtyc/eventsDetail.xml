@@ -361,6 +361,8 @@
 				
 			}
 			else if(index == 1){
+				dataUser = data;
+				isAssistant(dataUser);
 				var filas = data.getNumberOfRows();
 				html = "";
 				for(var i=0; i<filas; i++) {
@@ -452,6 +454,27 @@
 				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
 			}
 	 	}
+
+	 	function isAssistant(dataUser) {
+      			$.ajax({
+		            type      	: 'GET', 
+		            //url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec', 
+		            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyfNDxo9Pli9r5j23r2rpO9CBV08hK5PCa2tMYm7cBzJ9oauBDF/exec',
+		            dataType	: 'jsonp',
+					jsonpCallback: "on_result",
+					success: function(data) {
+						var user = JSON.parse(data);
+
+						for(var i=0; i<dataUser.getNumberOfRows(); i++){
+							if(dataUser.getValue(i, 1) == user.email)
+								return;
+						}
+						var html = "<button id='assistButton' onclick='' class='assistButton'>Confirmar asistencia</button>";
+						document.getElementById('assistButtonContainer').innerHTML = html;
+
+					}
+				});
+      		}
 
   	</script>
 
