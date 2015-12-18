@@ -129,6 +129,10 @@
 			float: left;
 		}
 
+		.mapContainer {
+			
+		}
+
 		.info {
 			margin-left: 10px;
 			display: inline-block;
@@ -140,6 +144,8 @@
 		    font-family: Arial;
 			margin-bottom: 15px;
 		    line-height: 18px;
+		    float: left;
+		    width: 100%;
 		}
 
 		.assistantHeader {
@@ -476,12 +482,14 @@
 
 					while(eventDate == null);
 
+					var id = getParam('id');
 
 					for(var i=0; i<dataUser.getNumberOfRows(); i++){
 						if(dataUser.getValue(i, 1) == user.email){
 							if(!pastDate(eventDate)){
 								html = "Confirmado";
 								style = "color: #46B1B6";
+								activeDesAssistButton();
 							}
 							else{
 								html = "Asistido";
@@ -493,9 +501,7 @@
 						}
 					}
 					if(!pastDate(eventDate)){
-						var id = getParam('id');
-						html = "<button id='assistButton' onclick='javascript:assistEvent("+id+")' class='assistButton'>Confirmar asistencia</button>";
-						document.getElementById('assistButtonContainer').innerHTML = html;
+						activeAssistButton();
 					}
 					
 				}
@@ -506,7 +512,7 @@
   			$.ajax({
 	            type      	: 'GET', 
 	            //url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec', 
-	            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyd_YHHIqsZf9hn_CnrrTHTvW7ZB3ABLs6UQFhgva7HqsNwTCc/exec?id='+id,
+	            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyd_YHHIqsZf9hn_CnrrTHTvW7ZB3ABLs6UQFhgva7HqsNwTCc/exec?id='+id+'&func=asistir',
 	            dataType	: 'jsonp',
 				jsonpCallback: "on_result",
 				success: function(data) {
@@ -517,11 +523,43 @@
 					var html = "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
 					var inner = document.getElementById('assistants').innerHTML;
 					document.getElementById('assistants').innerHTML = inner + html;
-					document.getElementById('assistButtonContainer').innerHTML = "";
+
+					activeDesAssistButton();
 					
 					//Actualizar etiqueta de asistencia					
 					document.getElementById('confirmationTag').style = "color: #46B1B6";
 					document.getElementById('confirmationTag').innerHTML = "Confirmado";
+				}
+			});
+  		}
+
+  		function desAssistEvent(id) {
+  			$.ajax({
+	            type      	: 'GET', 
+	            //url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec', 
+	            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyd_YHHIqsZf9hn_CnrrTHTvW7ZB3ABLs6UQFhgva7HqsNwTCc/exec?id='+id+'&func=desasistir',
+	            dataType	: 'jsonp',
+				jsonpCallback: "on_result",
+				success: function(data) {
+					var result = JSON.parse(data);
+					console.log(result);
+					var email = result;
+
+					var assistantsContainer = document.getElementById('assistants');
+
+					var assistants = assistantsContainer.childNodes;
+
+					for(var i=0; i<assistants.length; i++){
+						var aux = assistants[i].innerHTML.split(" ");
+						if(email == aux[aux.length-1])
+							assistantsContainer.removeChild(assistants[i]);
+					}
+
+					activeAssistButton();
+					
+					//Actualizar etiqueta de asistencia					
+					document.getElementById('confirmationTag').style = "";
+					document.getElementById('confirmationTag').innerHTML = "";
 				}
 			});
   		}
@@ -537,6 +575,18 @@
   				return true;
   			else
   				return false;
+  		}
+
+  		function activeDesAssistButton(){
+  			var id = getParam('id');
+			var html = "<button id='assistButton' onclick='javascript:desAssistEvent("+id+")' class='assistButton'>Desconfirmar asistencia</button>";
+			document.getElementById('assistButtonContainer').innerHTML = html;
+  		}
+
+  		function activeAssistButton(){
+  			var id = getParam('id');
+  			html = "<button id='assistButton' onclick='javascript:assistEvent("+id+")' class='assistButton'>Confirmar asistencia</button>";
+			document.getElementById('assistButtonContainer').innerHTML = html;
   		}
 
 
