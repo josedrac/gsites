@@ -45,7 +45,8 @@
 		}
 
 		.titleContainer {
-
+			float: left;
+			display: table;
 		}
 
 		.icon {
@@ -56,10 +57,16 @@
 		.title {
 			color: #0078D2;
 			font-size: 30px;
+			float: left;
+			display: table-cell;
+			margin-right: 10px;
 		}
 
 		.tag {
-			float: left;
+			display: table-cell;
+			vertical-align: bottom;
+			padding-bottom: 5px;
+			font-weight: bold;
 		}
 
 		.line {
@@ -67,6 +74,7 @@
 			margin-bottom:20px;
 			margin-left:-1px;
 			color:#DCDCDC;
+			float: left;
 		}
 
 		.data {
@@ -115,6 +123,10 @@
 
 		.row .text.url {
 			font-weight: bold;
+		}
+
+		.imageContainer {
+			float: left;
 		}
 
 		.info {
@@ -198,9 +210,8 @@
 			float: left;
 			vertical-align: middle;
 			position: relative;
-			height: 100%;
 			display: table-cell;
-			width: 24px;
+			width: 12px;
 			margin-right: 10px
 		}
 
@@ -212,7 +223,6 @@
 			    vertical-align: middle;
 			    color: #0065B7;
 			    display: inline-block;
-			    margin-top: 4px;
 		}
 
 	</style>
@@ -220,7 +230,7 @@
 
 	<div class="container" id="container">
 		<div class="titleContainer">
-			<span id="title" class="title">Evento</span>
+			<span id="title" class="title"></span>
 			<span id="confirmationTag" class="tag"></span>
 		</div>
 		<hr class="line"/>
@@ -274,6 +284,7 @@
    		//adjustGadgetHeight('container');
 		var gadgetHelper = null;
 		var dataUser;
+		var eventDate;
 		google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
         google.setOnLoadCallback(sendQueryUsers);
@@ -327,6 +338,10 @@
 			data = response.getDataTable();
 			
 			if(index == 0){
+				eventDate = data.getFormattedValue(0, 5);
+				if(eventDate == 'undefined' || eventDate == null || eventDate == '')
+					eventDate = data.getFormattedValue(0, 4);
+
 				var title = data.getValue(0, 1);
 				var address = data.getValue(0, 7);
 				var contact = data.getValue(0, 8);
@@ -370,7 +385,7 @@
 				html += '<span class="header">Documentación:</span>';
 				for(var i=0; i<filas; i++){
 					html += '<div class="docContent">';
-					html += '	<img class="icon" src=""/>';
+					html += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
 					html += '	<a class="docLink" href="'+data.getValue(i, 2)+'">'+data.getValue(i, 1)+'</a>';
 					html += '</div>';
 				}
@@ -455,16 +470,34 @@
 				jsonpCallback: "on_result",
 				success: function(data) {
 					var user = JSON.parse(data);
+					var html = "";
+					var style = "";
 					console.log(user.email);
 
-					for(var i=0; i<dataUser.getNumberOfRows(); i++){
-						if(dataUser.getValue(i, 1) == user.email)
-							return;
-					}
-					var id = getParam('id');
-					var html = "<button id='assistButton' onclick='javascript:assistEvent("+id+")' class='assistButton'>Confirmar asistencia</button>";
-					document.getElementById('assistButtonContainer').innerHTML = html;
+					while(eventDate == null);
 
+
+					for(var i=0; i<dataUser.getNumberOfRows(); i++){
+						if(dataUser.getValue(i, 1) == user.email){
+							if(!pastDate(eventDate)){
+								html = "Confirmado";
+								style = "color: #46B1B6";
+							}
+							else{
+								html = "Asistido";
+								style = "color: #C7D151";
+							}
+							document.getElementById('confirmationTag').style = style;
+							document.getElementById('confirmationTag').innerHTML = html;
+							return;
+						}
+					}
+					if(!pastDate(eventDate)){
+						var id = getParam('id');
+						html = "<button id='assistButton' onclick='javascript:assistEvent("+id+")' class='assistButton'>Confirmar asistencia</button>";
+						document.getElementById('assistButtonContainer').innerHTML = html;
+					}
+					
 				}
 			});
   		}
@@ -485,9 +518,25 @@
 					var inner = document.getElementById('assistants').innerHTML;
 					document.getElementById('assistants').innerHTML = inner + html;
 					document.getElementById('assistButtonContainer').innerHTML = "";
-
+					
+					//Actualizar etiqueta de asistencia					
+					document.getElementById('confirmationTag').style = "color: #46B1B6";
+					document.getElementById('confirmationTag').innerHTML = "Confirmado";
 				}
 			});
+  		}
+
+  		function pastDate(eventDate){
+  			var ed = eventDate.split('/');
+  			
+  			var eDate = Date.UTC(ed[2], ed[1], ed[0]);
+  			var dateObj = new Date();
+			var actDate = dateObj.getTime();
+
+  			if(actDate > eDate)
+  				return true;
+  			else
+  				return false;
   		}
 
 
