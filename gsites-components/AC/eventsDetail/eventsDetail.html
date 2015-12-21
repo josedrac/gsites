@@ -130,7 +130,10 @@
 		}
 
 		.mapContainer {
-			
+			width: 100%;
+			float: left;
+			margin-top: 10px;
+			margin-bottom: 10px;
 		}
 
 		.info {
@@ -181,6 +184,7 @@
 
 		.descriptionContainer {
 			margin-left: 20px;
+			float: left;
 		}
 
 		.descriptionTitle {
@@ -197,6 +201,7 @@
 			display: inline-block;
 			overflow: hidden;
 			margin-bottom: 20px;
+			float: left;
 		}
 
 		.docsContainer {
@@ -229,6 +234,10 @@
 			    vertical-align: middle;
 			    color: #0065B7;
 			    display: inline-block;
+		}
+
+		.assistButtonContainer {
+			float: left;
 		}
 
 	</style>
@@ -265,9 +274,12 @@
 			</div>
 		</div>
 		<div class="imageContainer">
-			<img src=""/>
+			<img id="image" />
 		</div>
-		<div class="mapContainer">
+		<div id="videoContainer" class="videoContainer">
+		</div>
+		<div id="mapContainer" class="mapContainer">
+			<iframe id="map" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
 		<div class="descriptionContainer">
 			<div class="header">Descripción</div>
@@ -355,6 +367,9 @@
 				var schedule = data.getValue(0, 10);
 				var transport = data.getValue(0, 11);
 				var web = data.getValue(0, 12);
+				var map = data.getValue(0, 13);
+				var image = data.getValue(0, 14);
+				var video = data.getValue(0, 15);
 
 				var description = data.getValue(0, 2);
 
@@ -369,6 +384,23 @@
 				document.getElementById('web').innerHTML = web;
 				document.getElementById('description').innerHTML = description;
 
+				if(map != '' && map != 'undefined' && map != null){
+					document.getElementById('map').src = map;
+					document.getElementById('map').setAttribute("style","height:300px");
+					document.getElementById('map').style.height='300px';
+				}
+				else{
+					document.getElementById('map').setAttribute("style","height:0px");
+					document.getElementById('map').style.height='0px';
+				}
+
+				if(image != '' && image != 'undefined' && image != null){
+					document.getElementById('image').src = image;
+				}
+
+				if(video != '' && video != 'undefined' && video != null){
+					document.getElementById('videoContainer').innerHTML = "<iframe src='"+video+"'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:100%; height:300px; '></iframe>";
+				}
 				
 			}
 			else if(index == 1){
@@ -475,35 +507,42 @@
 	            dataType	: 'jsonp',
 				jsonpCallback: "on_result",
 				success: function(data) {
+
+
 					var user = JSON.parse(data);
 					var html = "";
 					var style = "";
 					console.log(user.email);
 
-					while(eventDate == null);
+					setTimeout(function(){
+						if(eventDate != null){
+							var id = getParam('id');
 
-					var id = getParam('id');
-
-					for(var i=0; i<dataUser.getNumberOfRows(); i++){
-						if(dataUser.getValue(i, 1) == user.email){
+							for(var i=0; i<dataUser.getNumberOfRows(); i++){
+								if(dataUser.getValue(i, 1) == user.email){
+									if(!pastDate(eventDate)){
+										html = "Confirmado";
+										style = "color: #46B1B6";
+										color = "#46B1B6";
+										activeDesAssistButton();
+									}
+									else{
+										html = "Asistido";
+										style = "color: #C7D151";
+										color = "#C7D151";
+									}
+									document.getElementById('confirmationTag').setAttribute("style", style);
+									document.getElementById('confirmationTag').style.color = color;
+									document.getElementById('confirmationTag').innerHTML = html;
+									return;
+								}
+							}
 							if(!pastDate(eventDate)){
-								html = "Confirmado";
-								style = "color: #46B1B6";
-								activeDesAssistButton();
+								activeAssistButton();
 							}
-							else{
-								html = "Asistido";
-								style = "color: #C7D151";
-							}
-							document.getElementById('confirmationTag').style = style;
-							document.getElementById('confirmationTag').innerHTML = html;
 							return;
 						}
-					}
-					if(!pastDate(eventDate)){
-						activeAssistButton();
-					}
-					
+					}, 300);
 				}
 			});
   		}
@@ -526,8 +565,9 @@
 
 					activeDesAssistButton();
 					
-					//Actualizar etiqueta de asistencia					
-					document.getElementById('confirmationTag').style = "color: #46B1B6";
+					//Actualizar etiqueta de asistencia				
+					document.getElementById('confirmationTag').setAttribute("style", "color: #46B1B6"); 	
+					document.getElementById('confirmationTag').style.color = "#46B1B6";
 					document.getElementById('confirmationTag').innerHTML = "Confirmado";
 				}
 			});
