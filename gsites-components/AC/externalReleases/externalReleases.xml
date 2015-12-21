@@ -284,7 +284,7 @@
         function getQueryParameters() {
             var filter = "";
 
-            var slider = "1";
+            var slider = prefs.getString("slider");
             var month = getParam("mes");
             var year = getParam("anyo");
             var inputText = urldecode(getParam("inputText").toLowerCase());
@@ -330,7 +330,7 @@
             var display = '';
             var classBorder = '';
 
-            var slider = "1";
+            var slider = prefs.getString("slider");
             var mes = "";
             var month = getParam("mes");
             var year = getParam("anyo");
