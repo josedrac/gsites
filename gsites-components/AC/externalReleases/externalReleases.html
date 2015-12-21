@@ -254,6 +254,10 @@
             return "";
         }
 
+        function urldecode(str) {
+           return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+        }
+
         function pagination(elements) {
             $('#pagination').smartpaginator({ 
                 totalrecords: elements, 
@@ -271,8 +275,8 @@
             var slider = "1";
             var month = getParam("mes");
             var year = getParam("anyo");
-            var inputText = decodeURIComponent(getParam("inputText").toLowerCase());
-            var tag = decodeURIComponent(getParam("tag").toLowerCase());
+            var inputText = urldecode(getParam("inputText").toLowerCase());
+            var tag = urldecode(getParam("tag").toLowerCase());
 
             if( !(slider == "1" && ((month != "" && year != "") || inputText != "" || tag != "")) ) {
                 var date = getMonthAndYear(1);
@@ -319,8 +323,8 @@
             var mes = "";
             var month = getParam("mes");
             var year = getParam("anyo");
-            var inputText = decodeURIComponent(getParam("inputText"));
-            var tag = decodeURIComponent(getParam("tag"));
+            var inputText = urldecode(getParam("inputText"));
+            var tag = urldecode(getParam("tag"));
 
 
             if( !(slider == "1" && ((month != "" && year != "") || inputText != "" || tag != "")) ) {
