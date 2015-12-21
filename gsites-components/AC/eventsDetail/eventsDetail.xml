@@ -380,6 +380,8 @@
 				var schedule = data.getValue(0, 10);
 				var transport = data.getValue(0, 11);
 				var web = data.getValue(0, 12);
+				var image = data.getValue(0, 14);
+				var video = data.getValue(0, 15);
 
 				var description = data.getValue(0, 2);
 
