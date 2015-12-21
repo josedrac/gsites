@@ -161,6 +161,7 @@
                 sheetName = encodeURIComponent('External Releases'),
                 queryString = encodeURIComponent('SELECT * where A <> "Título"'),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                alert(spreadsheetKey);
                 query.send(function (response) {
                 	handleQueryResponse(response, 0);
             	});
@@ -175,7 +176,7 @@
             var url = encodeURIComponent(parent.location.href);
             var clase = "";
             var claseText = "";
-
+            alert(url);
             for(var i=0; i<encontrados.length; i++){
                 
                 claseText = "tagText";
