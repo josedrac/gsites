@@ -50,16 +50,17 @@
 
         body {
             font-family: BBVA Web Book, Arial;
+            margin: 0px;
         }
 
         .container {
             border: 1px solid #DDE3EA;
             border-radius: 2px 2px 2px 2px;
             clear: both;
-            margin-top: 15px;
             width: 275px;
             float: left;
         }
+
 
 		.title {
             background: #ffffff; /* Old browsers */
