@@ -48,7 +48,20 @@
 		}
 		/* @end */
 
-		.title{
+        body {
+            font-family: BBVA Web Book, Arial;
+        }
+
+        .container {
+            border: 1px solid #DDE3EA;
+            border-radius: 2px 2px 2px 2px;
+            clear: both;
+            margin-top: 15px;
+            width: 275px;
+            float: left;
+        }
+
+		.title {
             background: #ffffff; /* Old browsers */
             background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%); /* FF3.6+ */
             background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8)); /* Chrome,Safari4+ */
@@ -65,93 +78,51 @@
             padding-left: 18px;
             padding-top: 14px;
         }
-        .subtitle {
-            color: #0078d2;
-            font-weight: bold;
-            text-align: center;
-            background-color: #f4f4f4;
-            padding: 10px 0;
-            border-top: 1px solid #DDE3EA;
-        }
 
-        .btn:hover {
-            background: #004C99;
-        }
 
-        .btn {
-            background: #0079C1;
-            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
-            background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
-            -webkit-border-radius: .1em;
-            -moz-border-radius: .1em;
-            border-radius: .1em;
-            text-align: center;
-            font-size: 13px;
-            vertical-align: middle;
-            height: 1.75em;
-            padding-left: 2em;
-            padding-right: 2em;
-            padding-bottom: 2px;
-            border: .1em solid #00559D;
-            color: white;
-            cursor: pointer;
-            position: relative;
-            text-align: center;
-            vertical-align: middle;
-            margin-left: 0px;
-            margin-right: 0px;
-        }
         select {
             width:220px;
         }
         .ui-widget-content {
             background: white;
         }
-        
-        .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
-            color: #0078d2;
-        }
-        .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus  {
-            background: #e2fafe none repeat scroll 0 0;
-            color: #003f8c;
-            border: 1px solid #e1e1e1;
-        }
-        .ui-widget-content {
-            border: 1px solid rgb(213, 226, 238);
-            color: rgb(34, 34, 34);
-        }
-        .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus {
-            background-image: none;
-        }
-        
-        .ui-state-default .ui-icon {
-            border: 0;
-            border-left: 1px solid #d2e5eb;
-            background: url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
-            background-position: 3px 0px;
-            width: 35px;
-            height: 30px;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-        
-        .name {
-            color: #434a58;
+
+        .tagsContainer {
             float: left;
-            font-family: Arial;
-            font-size: 13px;
-            margin-left: 15px;
-            margin-right: 10px;
-            padding-top: 10px;
+            padding: 15px;
+        }
+
+        .tag {
+            float: left;
+            padding: 5px;
+            margin: 3px;
+            cursor: pointer;
             font-weight: bold;
-            display: inline-block;
-            width: 30px;
+            font-size: 12px;
+        }
+
+        .tagText {
+            color: #FFFFFF;
+        }
+
+        .tagTextBlue {
+            color: #0072C9;
+        }
+
+        .all {
+            background-color: rgba(0, 115, 201, 1);
+        }
+
+        .many {
+            background-color: rgba(0, 115, 201, 0.75);
+        }
+
+        .some {
+            background-color: rgba(0, 115, 201, 0.25);
+        }
+
+        .almost {
+            background-color: rgba(0, 115, 201, 0.1);
         }
         
 
@@ -159,15 +130,9 @@
 
 
 	<div class="container">
-        <div class="title">Histórico de Publicaciones</div>
-        <div class="form">
-            <div class="element-year">
-                <label class="name">Año: </label>
-                
-            </div> 
-        </div>
-        <div class="subtitle">
-            <button onclick='javascript:Go();' class="btn">Ver</button>
+        <div class="title">Etiquetas</div>
+        <div id="tagsContainer" class="tagsContainer">
+            
         </div>
     </div>
     </div>
@@ -176,12 +141,11 @@
    		
    		adjustGadgetHeight('container');
 		var gadgetHelper = null;
-		var dataUser;
-		var eventDate;
+        var encontrados = [];
+        var releases;
+        var maxNumber = 0;
 		google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
-        google.setOnLoadCallback(sendQueryUsers);
-        google.setOnLoadCallback(sendQueryDocs);
         var prefs = new gadgets.Prefs();
 
 
@@ -190,36 +154,12 @@
 			google.setOnLoadCallback(sendQuery);
 		}
 
-	    function getParam(p){
-            var params;
-            //if(location.href.split("?").length > 1){
-            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
-                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-                //params = location.href.split("?")[1].split("&");
-                for(var i=0; i<params.length; i++){
-                    if(params[i].split("=")[0] == p)
-                        return params[i].split("=")[1];
-                }
-            }
-            return "";
-        }
-
-        function getQueryParameters() {
-            var filter = "";
-
-            var id = getParam('id');
-
-            if(id != "" && id > 0)
-            	filter += " AND A ="+ id;
-
-            return filter;
-        }
 
 		function sendQuery(){
 			var spreadsheetKey = prefs.getString('spreadsheetKey'),
 			//var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-                sheetName = encodeURIComponent('events'),
-                queryString = encodeURIComponent('SELECT * where B <> "title"' + getQueryParameters()),
+                sheetName = encodeURIComponent('External Releases'),
+                queryString = encodeURIComponent('SELECT * where A <> "Título"'),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(function (response) {
                 	handleQueryResponse(response, 0);
@@ -229,84 +169,74 @@
 
 		function handleQueryResponse(response, index) {
 			data = response.getDataTable();
-			
-			if(index == 0){
-				eventDate = data.getFormattedValue(0, 5);
-				if(eventDate == 'undefined' || eventDate == null || eventDate == '')
-					eventDate = data.getFormattedValue(0, 4);
 
-				var title = data.getValue(0, 1);
-				var address = data.getValue(0, 7);
-				var contact = data.getValue(0, 8);
-				var contactEmail = data.getValue(0, 9);
-				var schedule = data.getValue(0, 10);
-				var transport = data.getValue(0, 11);
-				var web = data.getValue(0, 12);
+            getTagValues(data);
+            var html = "";
+            var url = encodeURIComponent(parent.location.href);
+            var clase = "";
+            var claseText = "";
 
-				var description = data.getValue(0, 2);
+            for(var i=0; i<encontrados.length; i++){
+                
+                claseText = "tagText";
+                if(releases[i].length < 0.75 * maxNumber){
+                    if(releases[i].length < 0.5 * maxNumber){
+                        claseText = "tagTextBlue";
+                        if(releases[i].length > 0.25 * maxNumber)
+                            clase = "some";
+                        else
+                            clase = "almost";
+                    }
+                    else
+                        clase = "many";
+                }
+                else
+                    clase = "all";
 
-				var tagConfirm = "";
-					
-				document.getElementById('title').innerHTML = title;
-				document.getElementById('place').innerHTML = address;
-				document.getElementById('contactName').innerHTML = contact;
-				document.getElementById('contactEmail').innerHTML = contactEmail;
-				document.getElementById('schedule').innerHTML = schedule;
-				document.getElementById('transport').innerHTML = transport;
-				document.getElementById('web').innerHTML = web;
-				document.getElementById('description').innerHTML = description;
-
-				
-			}
-			else if(index == 1){
-				dataUser = data;
-				isAssistant(dataUser);
-				var filas = data.getNumberOfRows();
-				html = "";
-				for(var i=0; i<filas; i++) {
-
-					var date = data.getFormattedValue(i, 3);
-					var name = data.getValue(i, 1);
-					html += "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
-				}
-				
-				document.getElementById('assistants').innerHTML = html;
-			}
-			else {
-				var filas = data.getNumberOfRows();
-				html = "";
-				html += '<span class="header">Documentación:</span>';
-				for(var i=0; i<filas; i++){
-					html += '<div class="docContent">';
-					html += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
-					html += '	<a class="docLink" href="'+data.getValue(i, 2)+'">'+data.getValue(i, 1)+'</a>';
-					html += '</div>';
-				}
-				document.getElementById('docsContainer').innerHTML = html;
-			}
-
+                html += '<div class="tag '+clase+'" onclick="javascript:Go(\''+url+'?tag='+encodeURIComponent(encontrados[i])+'\')">';
+                html += '<span class="'+claseText+'">'+encontrados[i]+' ('+releases[i].length+')</span></div>';
+            }	
+            document.getElementById('tagsContainer').innerHTML = html;
 		}
-
 		
 
 	    function Go(destination){
-	    	window.open(destination,'_blank');
-		    //window.parent.location.href = destination;
+	    	//window.open(destination,'_parent');
+		    window.parent.location.href = destination;
 		    return false;
 		}
 
-		//delay loading
-		delayRender();
-	    function delayRender(){
-	    	window.setTimeout('showIframes()', 2000);
-	    }
+        function getTagValues(data) {
 
-	 	function showIframes() {
-		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
-		 	for (var i=0;i<iframes;i++) {
-				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
-			}
-	 	}
+            var s = 0;
+            var fin = false;
+            var rows = data.getNumberOfRows();
+            
+            for(var i=0; i<rows; i++){
+                if( encontrados.indexOf(data.getValue(i, 3)) == -1  &&  data.getValue(i, 3)!=null ) {
+                    encontrados[s++] = data.getValue(i, 3);
+                }
+            }
+
+            releases = [];
+            for(var i=0; i<encontrados.length; i++)
+                releases[i] = [];
+
+            for(var i=0; i<encontrados.length; i++){
+                for(var j=0; j<rows; j++){
+                    if(encontrados[i] == data.getValue(j, 3))
+                        releases[i].push(data.getValue(j, 0));
+                }
+            }
+
+            maxNumber = 0;
+            for(var i=0; i<encontrados.length; i++){
+                if(releases[i].length > maxNumber)
+                    maxNumber = releases[i].length;
+            }
+
+        }
+
 
   	</script>
 
