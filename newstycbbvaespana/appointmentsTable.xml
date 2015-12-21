@@ -8,6 +8,7 @@
   	</ModulePrefs>
 
 	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+	<UserPref name="headerText" display_name="headerText" required="true" />
 
  	<Content type="html">
     	<![CDATA[
@@ -89,21 +90,16 @@
 					text-align: right;;
 				}
 
-				table tbody tr td a {
+				table tbody tr td .sign-up {
 					font-family: BBVA Web Light, Arial;
 					font-size: 18px;
 					color: #0078D2;
-					text-decoration: none;
 					position: relative;
 				    top: -4px;
-				    outline: none;
+			        cursor: default
 				}
 
-				table tbody tr td a:visited {
-					color: #0078D2;
-				}
-
-				table tbody tr td a span {
+				table tbody tr td .sign-up span {
 					position: relative;
 				    top: -4px;
 				    font-weight: bold;
@@ -118,6 +114,7 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 			<script type="text/javascript">
 
@@ -125,19 +122,36 @@
 
 			</script>
 
-			<p>¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
+			<div id="container">
+				<p id="headerText">¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
 
-			<table>
-				<thead>
-					<tr>
-						<th class="col-1">Felicitaciones a</th>
-						<th class="col-2">Unidad</th>
-						<th class="col-3">Cargo anterior</th>
-						<th class="col-4" colspan="2">Cargo actual</th>
-					</tr>
-				</thead>
-				<tbody id="tableBody"></tbody>
-			</table>			
+				<table>
+					<thead>
+						<tr>
+							<th class="col-1">Felicitaciones a</th>
+							<th class="col-2">Unidad</th>
+							<th class="col-3">Cargo anterior</th>
+							<th class="col-4" colspan="2">Cargo actual</th>
+						</tr>
+					</thead>
+					<tbody id="tableBody"></tbody>
+				</table>		
+			</div>	
+
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -154,7 +168,7 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
-					spreadsheetKey = prefs.getString('spreadsheetKey'),
+					spreadsheetKey = prefs.getString('spreadsheetKey');
 					sheetName = encodeURIComponent('appointments'),
 					queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
@@ -185,12 +199,16 @@
 						template += '<td>' + dataTable.getValue(i, 3) + '</td>';
 						url = dataTable.getValue(i, 4);
 						if(url != null && url != undefined && url != '') {
-							template += '<td class="text-right"><a href="' + dataTable.getValue(i, 4) + '" target="_blank">apuntate<span>+</span></a></td>';
+							template += '<td class="text-right"><span class="sign-up">apuntate<span>+</span></span></td>';
 						}
 						template += '</tr>'	
 					}
-					
+
 					document.getElementById("tableBody").innerHTML = template; 
+					
+					var prefs = new gadgets.Prefs(),
+						headerText = prefs.getString('headerText');
+					document.getElementById("headerText").innerHTML = headerText; 
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
@@ -218,6 +236,11 @@
 				<tr>
 					<td>
 						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Header text: <input type="text" id="headerText" value="__UP_headerText__"   onchange="register('headerText')"/>
 					</td>
 				</tr>
 			</table>

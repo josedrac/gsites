@@ -9,10 +9,14 @@
 	</ModulePrefs>
 
 	<UserPref name="siteName" display_name="Site name" required="true" />
+	<UserPref name="title" display_name="title" required="true" />
+	<UserPref name="subtitle" display_name="subtitle" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
 
 			<style type="text/css">
 
@@ -71,10 +75,25 @@
 
 			</style>
 
-			<div class="appoinments" onclick="javascript:goAppointments()">
-				<h2>Nombramientos en DT Sur</h2>
-				<p>Descubre las últimas novedades de tu territorio</p>
+			<div id="appoinments" class="appoinments" onclick="javascript:goAppointments()">
+				<h2 id="title"></h2>
+				<p id="subtitle"></p>
 			</div>
+
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("appoinments");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -91,7 +110,13 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
-					siteName = prefs.getString('siteName');
+					siteName = prefs.getString('siteName'),
+					title = prefs.getString('title'),
+					subtitle = prefs.getString('subtitle');
+
+				document.getElementById('title').innerHTML = title;
+				document.getElementById('subtitle').innerHTML = subtitle;
+
 
 				function goAppointments() {
 					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/appointments/?date=' + getUrlParameter("date") + '';
@@ -120,6 +145,16 @@
 				<tr>
 					<td>
 						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Title: <input type="text" id="title" value="__UP_title__"   onchange="register('title')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Subtitle: <input type="text" id="subtitle" value="__UP_subtitle__"   onchange="register('subtitle')"/>
 					</td>
 				</tr>
 			</table>

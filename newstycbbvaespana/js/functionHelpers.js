@@ -1,6 +1,7 @@
 
 
 
+
 function adjustGadgetHeight(div) {
 	onElementHeightChange(document.getElementById(div),
 	 	function(){
@@ -28,3 +29,4 @@ function onElementHeightChange(elm, callback){
 }
 
 				
+

@@ -191,7 +191,7 @@
 
 			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
 				sheetName = encodeURIComponent('article content'),
-				queryString = encodeURIComponent('SELECT * where A = "DES" and D ends with "' + getUrlParameter("date") + '"'),
+				queryString = encodeURIComponent('SELECT * where A = "B10" and D ends with "' + getUrlParameter("date") + '"'),
 				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 			function getSpreadsheet() {
@@ -219,15 +219,22 @@
 					coverVideo = dataTable.getValue(0, 10);
 
 				if(coverImage != null && coverImage != undefined) {
-					data.coverMedia = '<img src="' + coverImage + '" alt="image"/>';;
+					data.coverMedia = '<img src="' + coverImage + '" alt="image"/>';
 				} else if(coverVideo != null && coverVideo != undefined) {
 					data.coverMedia = coverVideo;
 				}
 
 				document.getElementById("title").innerHTML = data.title; 				
 				document.getElementById("subtitle").innerHTML = data.subtitle; 	
-				document.getElementById("date").innerHTML = data.date;
-				document.getElementById("author").innerHTML = data.author; 	
+				
+				if(data.author != null && data.author != undefined) {
+					var authorSignature = '';
+					authorSignature += '<p class="author-signature">';
+					authorSignature += data.date + ' - ' + data.author;
+					authorSignature += '</p>';
+					document.getElementById("authorSignature").innerHTML = authorSignature;
+				}
+
 				document.getElementById("sortDescription").innerHTML = data.sortDescription;
 				document.getElementById("coverMedia").innerHTML = data.coverMedia;
 			}
@@ -254,11 +261,8 @@
 
 		 			<h2 id="title"></h2>
 					<h3 id="subtitle"></h3>
-					<p class="author-signature">
-						<span id="date"></span>
-						<span>-</span>
-						<span id="author"></span>
-					</p>
+					
+					<div id="authorSignature"></div>
 
 					<div id="sortDescription"></div>
 					<button type="button" onclick="javascript:goArticle()">Saber más</button>
