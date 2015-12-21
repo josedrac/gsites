@@ -160,7 +160,7 @@
 
             getTagValues(data);
             var html = "";
-            var url = encodeURIComponent(parent.location.href);
+            var url = document.referrer;
             var clase = "";
             var claseText = "";
 
@@ -189,8 +189,8 @@
 		
 
 	    function Go(destination){
-	    	//window.open(destination,'_parent');
-		    window.parent.location.href = destination;
+	    	window.open(destination,'_parent');
+		    //window.parent.location.href = destination;
 		    return false;
 		}
 
