@@ -303,7 +303,8 @@
 
             if(tag != "")
                 filter += " AND lower(D) = '"+tag+"'";
-
+                
+            alert(filter);
 
             return filter;
         }
