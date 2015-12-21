@@ -291,7 +291,7 @@
             var tag = urldecode(getParam("tag").toLowerCase());
 
             if( !(slider == "1" && ((month != "" && year != "") || inputText != "" || tag != "")) ) {
-                var date = getMonthAndYear(1);
+                var date = getMonthAndYear(slider);
 
                 inputText = "";
                 month = date.split(" ")[0];
@@ -340,7 +340,7 @@
 
             if( !(slider == "1" && ((month != "" && year != "") || inputText != "" || tag != "")) ) {
 
-                var date = getMonthAndYear(1);
+                var date = getMonthAndYear(slider);
 
                 inputText = "";
                 mes = date.split(" ")[0];
