@@ -271,7 +271,8 @@
             var slider = "1";
             var month = getParam("mes");
             var year = getParam("anyo");
-            var inputText = getParam("inputText");
+            var inputText = decodeURIComponent(getParam("inputText").toLowerCase());
+            var tag = decodeURIComponent(getParam("tag").toLowerCase());
 
             if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
                 var date = getMonthAndYear(1);
@@ -287,6 +288,9 @@
                 filter += " AND month(B) = "+ (month-1);
             if(inputText != "")
                 filter += " AND lower(A) like '%"+inputText+"%'";
+
+            if(tag != "")
+                filter += " AND lower(D) = '"+tag+"'";
 
 
             return filter;
