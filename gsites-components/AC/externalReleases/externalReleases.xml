@@ -266,6 +266,10 @@
             return "";
         }
 
+        function urldecode(str) {
+           return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+        }
+
         function pagination(elements) {
             $('#pagination').smartpaginator({ 
                 totalrecords: elements, 
@@ -280,13 +284,14 @@
         function getQueryParameters() {
             var filter = "";
 
-            var slider = prefs.getString('slider');
+            var slider = "1";
             var month = getParam("mes");
             var year = getParam("anyo");
-            var inputText = getParam("inputText");
+            var inputText = urldecode(getParam("inputText").toLowerCase());
+            var tag = urldecode(getParam("tag").toLowerCase());
 
-            if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
-                var date = getMonthAndYear(slider);
+            if( !(slider == "1" && ((month != "" && year != "") || inputText != "" || tag != "")) ) {
+                var date = getMonthAndYear(1);
 
                 inputText = "";
                 month = date.split(" ")[0];
@@ -298,7 +303,10 @@
             if (month > 0)
                 filter += " AND month(B) = "+ (month-1);
             if(inputText != "")
-                filter += " AND lower(A) like '%"+inputText.toLowerCase()+"%'";
+                filter += " AND lower(A) like '%"+inputText+"%'";
+
+            if(tag != "")
+                filter += " AND lower(D) = '"+tag+"'";
 
 
             return filter;
@@ -322,15 +330,17 @@
             var display = '';
             var classBorder = '';
 
-            var slider = prefs.getString('slider');
+            var slider = "1";
             var mes = "";
             var month = getParam("mes");
             var year = getParam("anyo");
-            var inputText = getParam("inputText");
+            var inputText = urldecode(getParam("inputText"));
+            var tag = urldecode(getParam("tag"));
 
-            if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
 
-                var date = getMonthAndYear(slider);
+            if( !(slider == "1" && ((month != "" && year != "") || inputText != "" || tag != "")) ) {
+
+                var date = getMonthAndYear(1);
 
                 inputText = "";
                 mes = date.split(" ")[0];
@@ -346,14 +356,18 @@
 
                 if(year == 0)
                     year = "Todos los años"; 
-                
+
+                tag = "Etiqueta "+tag;
             }
 
-            if(inputText == "")
+            if(tag != "")
+                document.getElementById('title').innerHTML = tag;
+            else if(inputText == "")
                 document.getElementById('title').innerHTML = month +" "+ year;
             else {
                 document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
             }
+
 
 
             if(filas<1)
