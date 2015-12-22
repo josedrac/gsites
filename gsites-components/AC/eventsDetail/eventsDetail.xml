@@ -428,7 +428,8 @@
 			else {
 				var filas = data.getNumberOfRows();
 				html = "";
-				html += '<span class="header">Documentación:</span>';
+				if(filas > 0)
+					html += '<span class="header">Documentación:</span>';
 				for(var i=0; i<filas; i++){
 					html += '<div class="docContent">';
 					html += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
