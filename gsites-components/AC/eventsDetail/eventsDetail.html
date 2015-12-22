@@ -280,7 +280,6 @@
 		<div id="videoContainer" class="videoContainer">
 		</div>
 		<div id="mapContainer" class="mapContainer">
-			<iframe id="map" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
 		<div class="descriptionContainer">
 			<div class="header">Descripción</div>
@@ -386,13 +385,9 @@
 				document.getElementById('description').innerHTML = description;
 
 				if(map != '' && map != 'undefined' && map != null){
-					document.getElementById('map').src = map;
-					document.getElementById('map').setAttribute("style","height:300px");
-					document.getElementById('map').style.height='300px';
-				}
-				else{
-					document.getElementById('map').setAttribute("style","height:0px");
-					document.getElementById('map').style.height='0px';
+					var iframeMap = "";
+					iframeMap += '<iframe id="map" src="'+map+'" style="height: 300px;" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>';
+					document.getElementById('mapContainer').innerHTML = iframeMap;
 				}
 
 				if(image != '' && image != 'undefined' && image != null){
