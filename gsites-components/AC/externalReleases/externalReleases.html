@@ -278,7 +278,7 @@
             var inputText = urldecode(getParam("inputText").toLowerCase());
             var tag = urldecode(getParam("tag").toLowerCase());
 
-            if( !(slider == "1" && ((month != "" && year != "") || inputText != "" || tag != "")) ) {
+            if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
                 var date = getMonthAndYear(1);
 
                 inputText = "";
