@@ -193,16 +193,17 @@
                 else
                     clase = "all";
 
-                html += '<div class="tag '+clase+'" onclick="javascript:Go(\''+url+'?tag='+encodeURIComponent(encontrados[i])+'\')">';
+                html += '<div class="tag '+clase+'" onclick="javascript:Go(\''+encodeURIComponent(encontrados[i])+'\')">';
                 html += '<span class="'+claseText+'">'+encontrados[i]+' ('+releases[i].length+')</span></div>';
             }   
             document.getElementById('tagsContainer').innerHTML = html;
         }
         
 
-        function Go(destination){
-            window.open(destination,'_parent');
-            //window.parent.location.href = destination;
+        function Go(selectedTag){
+
+            var url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
+            window.open(url + "?tag="+selectedTag, "_parent");
             return false;
         }
 
