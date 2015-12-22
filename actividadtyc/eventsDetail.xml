@@ -144,7 +144,6 @@
 
 		.mapContainer {
 			width: 100%;
-			height: 300px;
 			float: left;
 			margin-top: 10px;
 			margin-bottom: 10px;
@@ -293,7 +292,6 @@
 		<div id="videoContainer" class="videoContainer">
 		</div>
 		<div id="mapContainer" class="mapContainer">
-			<iframe id="map" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
 		</div>
 		<div class="descriptionContainer">
 			<div class="header">Descripción</div>
@@ -381,6 +379,7 @@
 				var schedule = data.getValue(0, 10);
 				var transport = data.getValue(0, 11);
 				var web = data.getValue(0, 12);
+				var map = data.getValue(0, 13);
 				var image = data.getValue(0, 14);
 				var video = data.getValue(0, 15);
 
@@ -398,13 +397,9 @@
 				document.getElementById('description').innerHTML = description;
 
 				if(map != '' && map != 'undefined' && map != null){
-					document.getElementById('map').src = map;
-					document.getElementById('map').setAttribute("style","height:300px");
-					document.getElementById('map').style.height='300px';
-				}
-				else{
-					document.getElementById('map').setAttribute("style","height:0px");
-					document.getElementById('map').style.height='0px';
+					var iframeMap = "";
+					iframeMap += '<iframe id="map" src="'+map+'" style="height: 300px;" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>';
+					document.getElementById('mapContainer').innerHTML = iframeMap;
 				}
 
 				if(image != '' && image != 'undefined' && image != null){
