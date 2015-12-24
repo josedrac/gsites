@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Module>
-  <ModulePrefs title="ED-titlePage.xml" height ="50">
-    <Require feature="idi"/>
-    <Require feature="locked-domain" />
-	<Require feature="dynamic-height"/>
-	<Require feature="setprefs" />
-  </ModulePrefs>
-<UserPref name="titlepage" display_name="Title of page" required="true" />
-<UserPref name="imageTitle" display_name="Image Title" required="true" />
-
- <Content type="html">
-    <![CDATA[
-	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 	<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
 
 	<style type="text/css">
@@ -73,9 +60,9 @@
 
    	<script type="text/javascript">
 	 	var gadgetHelper = null;
-	 	var prefs = new gadgets.Prefs();
-	 	var titlepage = prefs.getString("titlepage");
-	 	var imageTitle = prefs.getString("imageTitle");
+	 	//var prefs = new gadgets.Prefs();
+	 	var titlepage = 'title';
+	 	var imageTitle = '';
 	 	var html = "";
 		
 		if(imageTitle != null && typeof imageTitle != 'undefined' && imageTitle !== undefined && imageTitle != ""){
@@ -84,44 +71,5 @@
 		html += '<h1>' + titlepage + '</h1>';
 
 	 	document.getElementById("titlepage").innerHTML = html;
-	 	adjustGadgetHeight('titlepage');
+	 	//adjustGadgetHeight('titlepage');
    </script>
-
-    ]]>
-  </Content>
-  <Content type="html" view="configuration" preferred_height="480">
-
-<![CDATA[
-<style type="text/css">
- 	table td {
-		color: #000;
-		font-size: 11px;
-		font-weight: bold;
-	}
- </style>
- <table width="100%" border="0" id="tablaconfig">
-	<tr>
-       <td>
-           Title-Page: <input type="text" size="100" id="titlepage" value="__UP_titlepage__"   onchange="registra('titlepage')"/>
-       </td>
-    </tr>
-	<tr>
-    	<td>
-           Image-Page: <input type="text" size="100" id="imageTitle" value="__UP_imageTitle__"   onchange="registra('imageTitle')"/>
-       </td>
-    </tr>
-</table>
-
-<script type="text/javascript">
-    // Get userprefs
-    var prefs = new gadgets.Prefs();
-    function registra(variable)
-    {
-        prefs.set(variable,document.getElementById(variable).value);
-    }
-	gadgets.window.adjustHeight();
-</script>
-
- ]]>
- </Content>
-</Module>
