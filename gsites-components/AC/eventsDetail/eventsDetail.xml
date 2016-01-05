@@ -257,6 +257,7 @@
 		.docLink {
 		        font-size: 12px;
 			    display: table-cell;
+			    cursor: pointer;
 			    text-decoration: none;
 			    position: relative;
 			    vertical-align: middle;
@@ -511,7 +512,7 @@
 				for(var i=0; i<filas; i++){
 					html += '<div class="docContent">';
 					html += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
-					html += '	<a class="docLink" href="'+data.getValue(i, 2)+'">'+data.getValue(i, 1)+'</a>';
+					html += '	<a class="docLink" onclick=javascript:Go("'+ data.getValue(i, 2) +'")>'+data.getValue(i, 1)+'</a>';
 					html += '</div>';
 				}
 				document.getElementById('docsContainer').innerHTML = html;
@@ -644,7 +645,7 @@
 				
 							htm += '<div class="docContent">';
 							htm += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
-							htm += '	<a class="docLink" href="'+link+'">'+name+'</a>';
+							htm += '	<a class="docLink" onclick=javascript:Go("'+ link +'")>'+name+'</a>';
 							htm += '</div>';
 							document.getElementById('docsContainer').innerHTML = htm;
 						}
