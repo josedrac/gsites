@@ -294,7 +294,7 @@
                 filter += " AND lower(A) like '%"+inputText+"%'";
 
             if(tag != "")
-                filter += " AND lower(D) = '"+tag+"'";
+                filter += " AND lower(D) like '%"+tag+"%'";
 
 
             return filter;
@@ -312,7 +312,7 @@
 
         function handleQueryResponse(response) {
             data = response.getDataTable();
-            var filas = data.getNumberOfRows();
+            var filas;
             var pages = Math.ceil(filas / 8); 
             var html = "";
             var page = 0;
@@ -325,6 +325,7 @@
             var year = getParam("anyo");
             var inputText = urldecode(getParam("inputText"));
             var tag = urldecode(getParam("tag"));
+            var tagText;
 
 
             if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
@@ -347,17 +348,33 @@
                     year = "Todos los años"; 
 
                 if(tag != "")
-                    tag = "Etiqueta "+tag;
+                    tagText = "Etiqueta "+tag;
             }
 
-            if(tag != "")
-                document.getElementById('title').innerHTML = tag;
+            if(tagText != "")
+                document.getElementById('title').innerHTML = tagText;
             else if(inputText == "")
                 document.getElementById('title').innerHTML = month +" "+ year;
             else {
                 document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
             }
 
+            //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
+            var aux = data.clone();
+            var x = 0;
+            while(1){
+                if(aux.getNumberOfRows() <= x)
+                    break;
+                if(data.getValue(x, 3).split(',').indexOf(tag) == -1) {
+                    aux.removeRow(x);
+                    x--;
+                }
+                x++;
+            }
+
+            data = aux;
+
+            filas = data.getNumberOfRows();
 
             if(filas<1)
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
