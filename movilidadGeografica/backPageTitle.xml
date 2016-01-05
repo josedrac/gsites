@@ -6,8 +6,6 @@
 	  <Require feature="dynamic-height"/>
 	  <Require feature="setprefs" />
   </ModulePrefs>
-  <UserPref name="titlepage" display_name="Title of page" required="true" />
-  <UserPref name="imageTitle" display_name="Image Title" required="true" />
 
   <Content type="html">
     <![CDATA[
@@ -71,7 +69,7 @@
     <script type="text/javascript">
        function getParam(p){
          var params;
-         if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+         if(decodeURI(gadgets.util.getUrlParameters().parent.split("?").length > 1){
            params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
            for(var i=0; i<params.length; i++){
              if(params[i].split("=")[0] == p)
@@ -81,7 +79,7 @@
          return "";
        }
 
-       name = getParam('name');
+       name = decodeURI(getParam('name'));
        document.getElementById("name").innerHTML = name;
     </script>
 
