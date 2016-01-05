@@ -221,7 +221,7 @@
             for(var i=0; i<encontrados.length; i++){
                 for(var j=0; j<rows; j++){
 
-                    if(data.getValue(j, 3)!=null && data.getValue(j, 3).indexOf(encontrados[i]) >= 0)
+                    if(data.getValue(j, 3)!=null && data.getValue(j, 3).split(',').indexOf(encontrados[i]) >= 0)
                         releases[i].push(data.getValue(j, 0));
                 }
             }
