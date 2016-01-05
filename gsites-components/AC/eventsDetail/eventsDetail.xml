@@ -110,6 +110,15 @@
 			width: 100%;
 		}
 
+		.subHeader {
+			margin-bottom: 2px;
+			float: left;
+			display: inline-block;
+			font-size: 16px;
+			color: #979797;
+			width: 100%;
+		}
+
 		.row {
 			margin-bottom: 10px;
 			display: inline-block;
@@ -239,6 +248,12 @@
 			margin-right: 10px
 		}
 
+		.uploadDocsContainer {
+			float: left;
+			margin-left: 20px;
+			margin-top: 10px;
+		}
+
 		.docLink {
 		        font-size: 12px;
 			    display: table-cell;
@@ -249,19 +264,15 @@
 			    display: inline-block;
 		}
 
-		button:hover {
+		.assistButton:hover {
     		background: #004C99;
 		}
 
-		button {
-		    background: #0079C1;
-		    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-		    background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
-		    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
-		    background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		    background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		    background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
-		    background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+		.uploadDocButton:hover {
+			background: #CCCCCC;
+		}
+
+		.assistButton, .uploadDocButton {
 		    -webkit-border-radius: .3em;
 		    -moz-border-radius: .3em;
 		    border-radius: .3em;
@@ -272,8 +283,6 @@
 		    padding-left: .9em;
 		    padding-right: .9em;
 		    padding-bottom: 2px;
-		    border: .1em solid #00559D;
-		    color: white;
 		    cursor: pointer;
 		    position: relative;
 		    text-align: center;
@@ -285,8 +294,28 @@
 		    float: left;
 		}
 
-		.assistButtonContainer {
+		.assistButton {
+			background: #0079C1;
+		    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		    background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+		    background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+		    border: .1em solid #00559D;
+		    color: white;
+
+		}
+
+		.uploadDocButton {
+			border: .1em solid #CDCDCD;
+			color: black;
+		}
+
+		.content {
 			float: left;
+			width: 100%;
 		}
 
 	</style>
@@ -339,7 +368,21 @@
 			</div>
 			<div id="docsContainer" class="docsContainer">
 			</div>
-			<div id="assistButtonContainer" class="assistButtonContainer">
+			<div id="uploadDocsContainer" class="uploadDocsContainer">
+				<span class="header">¿Tienes algún documento sobre el evento?</span>
+				<div class="content">
+					<span class="subHeader">Introduce el enlace al documento</span>
+					<input id="docLink" type="text"/>
+				</div>
+				<div class="content" style="margin-top:10px">
+					<span class="subHeader">Introduce el nombre del documento</span>
+					<input id="docName" type="text"/>
+				</div>
+				<div class="content">
+					<button id="uploadDocButton" onclick='javascript:uploadDoc()' class="uploadDocButton">Añadir documento</button>
+				</div>
+			</div>
+			<div id="assistButtonContainer" class="content">
 			</div>
 		</div>
 	</div>
@@ -578,6 +621,41 @@
 					}, 300);
 				}
 			});
+  		}
+
+  		function uploadDoc() {
+  			var link = document.getElementById("docLink").value;
+  			var name = document.getElementById("docName").value;
+  			var id = getParam('id');
+
+  			if(name != '' && name != null){
+	  			if(link != "" && link != null && link.startsWith("http")){
+		  			$.ajax({
+			            type      	: 'GET', 
+			            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwBnJc-wVyxF4xZ9kcibmEiNTKzi9bfkWqrjVZLtXiGPP2OAME/exec?id='+id+'&link='+link+'&name='+name,
+			            dataType	: 'jsonp',
+						jsonpCallback: "on_result",
+						success: function(data) {
+							var result = JSON.parse(data);
+							console.log(result);
+							var htm = document.getElementById('docsContainer').innerHTML;
+							if(htm == "" || htm == null)
+								htm += '<span class="header">Documentación:</span>';
+				
+							htm += '<div class="docContent">';
+							htm += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
+							htm += '	<a class="docLink" href="'+link+'">'+name+'</a>';
+							htm += '</div>';
+							document.getElementById('docsContainer').innerHTML = htm;
+						}
+					});
+	  			}
+	  			else {
+	  				alert("El enlace no es válido");
+	  			}
+	  		}
+	  		else
+	  			alert("El nombre esta vacío");
   		}
 
 
