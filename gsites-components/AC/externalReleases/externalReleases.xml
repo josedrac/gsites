@@ -20,43 +20,47 @@
         /* @group fonts */
         @font-face {
             font-family: 'BBVA Web Light';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+            src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
             font-style: normal;
             font-weight: normal;
         }
 
         @font-face {
             font-family: 'BBVA Web Book';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+            src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
             font-style: normal;
             font-weight: normal;
         }
 
         @font-face {
             font-family: 'BBVA Web Medium';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+            src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
             font-style: normal;
             font-weight: normal;
         }
         /* @end */
 
         .title {
-            font-family: BBVA Web Book,Arial;
+            font-family: BBVA Web Light,Arial;
             color: #2F8ACB;
             font-size: 24px;
             margin-left: 15px;
+            display: block;
+            border: 0;
+            margin-top: 0.4em;
+            padding: 0;
         }
 
         .line {
@@ -70,15 +74,10 @@
         }
 
         .line.strong {
-            height: 4px;
-            margin-bottom: 2em;
-            margin-top: 0.4em;
-
-            background: #E5EEF4; /* For browsers that do not support gradients */
-            background: -webkit-linear-gradient(#E5EEF4, #F7FBFC); /* For Safari 5.1 to 6.0 */
-            background: -o-linear-gradient(#E5EEF4, #F7FBFC); /* For Opera 11.1 to 12.0 */
-            background: -moz-linear-gradient(#E5EEF4, #F7FBFC); /* For Firefox 3.6 to 15 */
-            background: linear-gradient(#E5EEF4, #F7FBFC); /* Standard syntax */
+            height: 2px;
+            margin-bottom: 1.5em;
+            margin-top: 0;
+            background: #E6EEF5;
             width: 100%;
             float: left;
 
@@ -88,7 +87,7 @@
             float: left;
             display: table-cell;
             margin-right: 5px;
-            color: #A9AAAE;
+            color: #71777F;
             font-size: 14px;
             text-align: right;
             width: 18px;
@@ -103,7 +102,7 @@
         .text {
             float: left;
             height: 100%;
-            width: 85%;
+            width: 80%;
         }
 
         .subtitle {
@@ -115,13 +114,14 @@
             max-height: 39px;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-size: 12px;
         }
 
         .date {
             display: inline-block;
-            color: #A9AAAE;
-            margin-left: 5px;
-            font-size: 14px;
+            color: #71777F;
+            margin-top: 6px;
+            font-size: 11px;
         }
 
         .column {
@@ -130,9 +130,9 @@
         }
 
         .column .content {
-            border-bottom: 2px solid #F2F2F2;
-            padding-bottom: 15px;
+            border-bottom: 1px solid #F2F2F2;
             margin-top: 8px;
+            margin-bottom: 0px;
             height: 60px;
             display: inline-block;
             width: 100%;
@@ -266,6 +266,10 @@
             return "";
         }
 
+        function urldecode(str) {
+           return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+        }
+
         function pagination(elements) {
             $('#pagination').smartpaginator({ 
                 totalrecords: elements, 
@@ -280,12 +284,13 @@
         function getQueryParameters() {
             var filter = "";
 
-            var slider = prefs.getString('slider');
+            var slider = prefs.getString("slider");
             var month = getParam("mes");
             var year = getParam("anyo");
-            var inputText = getParam("inputText");
+            var inputText = urldecode(getParam("inputText").toLowerCase());
+            var tag = urldecode(getParam("tag").toLowerCase());
 
-            if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
+            if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
                 var date = getMonthAndYear(slider);
 
                 inputText = "";
@@ -298,7 +303,10 @@
             if (month > 0)
                 filter += " AND month(B) = "+ (month-1);
             if(inputText != "")
-                filter += " AND lower(A) like '%"+inputText.toLowerCase()+"%'";
+                filter += " AND lower(A) like '%"+inputText+"%'";
+
+            if(tag != "")
+                filter += " AND lower(D) = '"+tag+"'";
 
 
             return filter;
@@ -322,13 +330,15 @@
             var display = '';
             var classBorder = '';
 
-            var slider = prefs.getString('slider');
+            var slider = prefs.getString("slider");
             var mes = "";
             var month = getParam("mes");
             var year = getParam("anyo");
-            var inputText = getParam("inputText");
+            var inputText = urldecode(getParam("inputText"));
+            var tag = urldecode(getParam("tag"));
 
-            if( !(slider == "1" && ((month != "" && year != "") || inputText != "")) ) {
+
+            if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
 
                 var date = getMonthAndYear(slider);
 
@@ -346,14 +356,19 @@
 
                 if(year == 0)
                     year = "Todos los años"; 
-                
+
+                if(tag != "")
+                    tag = "Etiqueta "+tag;
             }
 
-            if(inputText == "")
+            if(tag != "")
+                document.getElementById('title').innerHTML = tag;
+            else if(inputText == "")
                 document.getElementById('title').innerHTML = month +" "+ year;
             else {
                 document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
             }
+
 
 
             if(filas<1)
