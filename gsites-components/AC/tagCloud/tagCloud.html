@@ -197,12 +197,19 @@
 
         function getTagValues(data) {
 
+            var aux;
             var s = 0;
             var fin = false;
             var rows = data.getNumberOfRows();
             
             for(var i=0; i<rows; i++){
-                if( encontrados.indexOf(data.getValue(i, 3)) == -1  &&  data.getValue(i, 3)!=null ) {
+                if(data.getValue(i,3) != null && data.getValue(i,3).split(',').length > 1){
+                    aux = data.getValue(i,3).split(',');
+                    for(var j=0; j<aux.length; j++)
+                        if(encontrados.indexOf(aux[j]) == -1)
+                            encontrados[s++] = aux[j];
+                }
+                else if( encontrados.indexOf(data.getValue(i, 3)) == -1  &&  data.getValue(i, 3)!=null ) {
                     encontrados[s++] = data.getValue(i, 3);
                 }
             }
@@ -213,7 +220,8 @@
 
             for(var i=0; i<encontrados.length; i++){
                 for(var j=0; j<rows; j++){
-                    if(encontrados[i] == data.getValue(j, 3))
+
+                    if(data.getValue(j, 3)!=null && data.getValue(j, 3).split(',').indexOf(encontrados[i]) >= 0)
                         releases[i].push(data.getValue(j, 0));
                 }
             }
