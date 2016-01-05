@@ -648,6 +648,8 @@
 							htm += '	<a class="docLink" onclick=javascript:Go("'+ link +'")>'+name+'</a>';
 							htm += '</div>';
 							document.getElementById('docsContainer').innerHTML = htm;
+							document.getElementById("docLink").value = '';
+  							document.getElementById("docName").value = '';
 						}
 					});
 	  			}
