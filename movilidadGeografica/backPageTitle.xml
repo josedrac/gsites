@@ -21,7 +21,7 @@
         font-style: normal;
         font-weight: normal;
       }
-      h2 {
+      h2, span {
         font-family:"BBVA Web Light", arial, sans-serif;
         font-weight: lighter;
         color: #0078D2;
@@ -80,6 +80,7 @@
        }
 
        name = decodeURI(getParam('name'));
+       name = name.replace("+", " ");
        document.getElementById("name").innerHTML = name;
     </script>
 
