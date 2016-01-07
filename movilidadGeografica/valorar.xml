@@ -8,7 +8,8 @@
   </ModulePrefs>
   <Content type="html">
     <![CDATA[
-      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 	    <style type="text/css">
         /* @group fonts */
