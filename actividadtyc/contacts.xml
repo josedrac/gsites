@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="AC-contacts.xml"
+    description="">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+	<UserPref name="spreadsheetKey" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYE...)" required="true" />
+ <Content view="canvas" preferred_height="20px">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
+	<style type="text/css">
+	  	/* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+			src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+			src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+			src:url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+
+		.container {
+			font-family: "BBVA Web Book", arial, sans-serif;
+		    font-size: 12px;
+		    margin-bottom: 16px;
+		    position: relative;
+		    width: 460px;
+		    display: inline-block;
+		}
+
+		div {
+			float: left;
+		}
+
+		.contactContainer {
+			display: inline-block;
+			width: 100%;
+			margin-bottom: 60px;
+		}
+
+		.image {
+			display: inline-block;
+			float: left;
+			width: 110px;
+			text-align: center;
+		}
+
+		.textContainer {
+			display: inline-block;
+			width: 73%;
+			text-align: justify;
+			margin-left: 10px;
+		}
+
+		.name {
+			color: #2C5085;
+			font-size: 14px;
+		}
+
+
+		.description {
+		    color: #434A58;
+		    font-size: 12px;
+		    font-family: Arial;
+		    line-height: 18px;
+		    text-align: justify;
+			float: left;
+		}
+
+		hr{
+		    width: 100%;
+			margin-bottom: 5px;
+			margin-left: -1px;
+			color: #DCDCDC;
+		}
+
+		.lineinfo {
+			width:100%;
+			height:4px;
+			display:block;
+			margin-bottom: 20px;
+		}
+
+		p.text {
+            font-size: 0.8em;
+            color: #3B3B3B;
+        }
+
+	</style>
+
+
+	<div class="container" id="container">
+		
+
+	</div>
+
+   	<script type="text/javascript">
+   		adjustGadgetHeight('container');
+		var gadgetHelper = null;
+		google.load('visualization', '1', {packages: ['table']});
+        google.setOnLoadCallback(sendQuery);
+        var prefs = new gadgets.Prefs();
+
+	 	function loadVisualizationAPI() {
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
+
+
+		function sendQuery(){
+			var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			//var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+                sheetName = encodeURIComponent('contacts'),
+                queryString = encodeURIComponent('SELECT * where A <> "name"'),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response);
+            	});
+		}
+
+
+
+		function handleQueryResponse(response) {
+
+			var data = response.getDataTable();
+			var filas = data.getNumberOfRows();
+			var html = "";
+
+			for(var i=0; i < filas; i++) {
+				html += getContact(data, i);
+            }
+
+			document.getElementById('container').innerHTML += html;
+
+			gadgets.window.adjustHeight();
+			
+		}
+
+		function getContact(data, i) {
+			var html = "";
+
+			html += '<div class="contactContainer">';
+			html += '	<div class="imgContainer">';
+			html += '		<img class="image" src="'+data.getValue(i, 2)+'"/>';
+			html += '	</div>';
+			html += '	<div class="textContainer">';
+			html += '		<span class="name">'+data.getValue(i, 0)+'</span>';
+			html += '		<hr>';
+			html += '		<span class="description">'+data.getValue(i, 1)+'</span>';
+			html += '	</div>'
+			html += '</div>'
+					
+		    return html;
+		}
+
+  	</script>
+    ]]>
+  </Content>
+
+  <Content type="html" view="configuration">
+
+    <![CDATA[
+
+      <style type="text/css">
+
+        table td {
+          color: #000;
+          font-size: 11px;
+          font-weight: bold;
+        }
+
+      </style>
+
+      <table width="100%" border="0" id="tablaconfig">
+        <tr>
+          <td>
+            Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+          </td>
+        </tr>  
+      </table>
+
+      <script type="text/javascript">
+
+        var prefs = new gadgets.Prefs();
+        function register(variable) {
+          prefs.set(variable, document.getElementById(variable).value);
+        }
+
+        gadgets.window.adjustHeight();
+
+      </script>
+
+    ]]>
+  </Content>
+
+</Module>
