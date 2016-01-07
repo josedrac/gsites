@@ -67,7 +67,7 @@
     </div>
 
     <script type="text/javascript">
-       function getParam(p){
+      function getParam(p){
          var params;
          if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
            params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
@@ -77,11 +77,16 @@
            }
          }
          return "";
-       }
+      }
 
-       name = decodeURI(getParam('name'));
-       name = name.replace("+", " ");
-       document.getElementById("name").innerHTML = name;
+      function Go(destination){
+        window.open(destination,'_parent');
+        return false;
+      }
+
+      name = decodeURI(getParam('name'));
+      name = name.replace("+", " ");
+      document.getElementById("name").innerHTML = name;
     </script>
 
     ]]>
