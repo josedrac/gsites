@@ -304,7 +304,7 @@
             var //prefs = new gadgets.Prefs(),
                 spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
                 sheetName = encodeURIComponent('External Releases'),
-                queryString = encodeURIComponent('SELECT * where A <> "title"' + getQueryParameters()),
+                queryString = encodeURIComponent('SELECT * where C <> "Enlace"' + getQueryParameters()),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(handleQueryResponse);
         }
@@ -313,7 +313,7 @@
         function handleQueryResponse(response) {
             data = response.getDataTable();
             var filas;
-            var pages = Math.ceil(filas / 8); 
+            var pages;
             var html = "";
             var page = 0;
             var display = '';
@@ -361,20 +361,25 @@
 
             //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
             var aux = data.clone();
-            var x = 0;
-            while(1){
-                if(aux.getNumberOfRows() <= x)
-                    break;
-                if(data.getValue(x, 3).split(',').indexOf(tag) == -1) {
-                    aux.removeRow(x);
-                    x--;
+
+            if(tag != ""){
+                var x = 0;
+                while(1){
+                    if(aux.getNumberOfRows() <= x)
+                        break;
+                    if(data.getValue(x, 3).split(',').indexOf(tag) == -1) {
+                        aux.removeRow(x);
+                        x--;
+                    }
+                    x++;
                 }
-                x++;
             }
 
             data = aux;
 
             filas = data.getNumberOfRows();
+
+            pages = Math.ceil(filas / 8); 
 
             if(filas<1)
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
@@ -428,7 +433,7 @@
 
             if(filas > 0)
                 pagination(pages);
-            gadgets.window.adjustHeight();
+            //gadgets.window.adjustHeight();
 
         }
 
