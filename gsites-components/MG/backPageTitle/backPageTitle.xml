@@ -3,8 +3,8 @@
   <ModulePrefs title="MG-backPageTitle.xml" height ="50">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
-	  <Require feature="dynamic-height"/>
-	  <Require feature="setprefs" />
+    <Require feature="dynamic-height"/>
+    <Require feature="setprefs" />
   </ModulePrefs>
     <UserPref name="url" display_name="url" required="true" />
     <UserPref name="tag" display_name="tag" required="true" />
