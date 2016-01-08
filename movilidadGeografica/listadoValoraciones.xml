@@ -82,6 +82,7 @@
      }
      .headerTable td {
        padding: 10px !important;
+       font-weight: bold;
      }
      .headerTable td.puntuaciones {
        border-left: 1px solid #DDDDDD;
