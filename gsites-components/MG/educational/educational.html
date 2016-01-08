@@ -1,0 +1,106 @@
+<style type="text/css">
+    @font-face {
+        font-family: 'BBVA Web Light';
+        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot');
+        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+        font-style: normal;
+        font-weight: normal;
+    }
+    h2, span {
+        font-family:"BBVA Web Light", arial, sans-serif;
+        font-weight: lighter;
+        color: #0078D2;
+        font-size: 29.5px;
+        margin: 0;
+    }
+
+    .container{
+        width: 800px;
+        float: left;
+    }
+
+    .title-section-back h2 {
+        display: inline-block;
+        vertical-align: sub;
+    }
+
+    .title-section-back button {
+        vertical-align: middle;
+        margin-right: 12px;
+    }
+
+    .back-white {
+        background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/bg-boton-encabezado-volver_R2.png);
+        background-repeat: no-repeat;
+        background-color: initial;
+        cursor: pointer;
+        outline: none;
+        border: 0;
+        width: 73px;
+        height: 30px;
+        color: #0078D2;
+        font-size: 15px;
+        font-weight: bold;
+        padding-left: 10px;
+    }
+    </style>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <div id="container" class="container">
+        <div class="imageContainer">
+            <img class="image" src=""/>
+        </div>
+        <div class="textContainer">
+            <span class="title"></span>
+            <span class="subtitle"></span>
+            <span class="light-text"></span>
+            <div class="linksContainer">
+                <div class="columnA">
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/andalucia')">Andalucía >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/aragon')">Aragón >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/asturias')">Asturias >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/cantabria')">Cantabria >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/castilla-la-mancha')">Castilla La Mancha >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/castilla-y-leon')">Castilla y León >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/cataluna')">Cataluña >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/ceuta')">Ceuta >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/valencia')">Comunidad Valenciana >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/extremadura')">Extremadura >></span>
+                </div>
+                <div class="columnB">
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/galicia')">Galicia >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/islas-baleares')">Islas Baleares >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/islas-canarias')">Islas Canarias >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/la-rioja')">La Rioja >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/madrid')">Madrid >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/melilla')">Melilla >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/murcia')">Murcia >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/navarra')">Navarra >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/pais-vasco')">País Vasco >></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      function getParam(p){
+         var params;
+         if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+           params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+           for(var i=0; i<params.length; i++){
+             if(params[i].split("=")[0] == p)
+               return params[i].split("=")[1];
+           }
+         }
+         return "";
+      }
+
+      function Go(destination){
+        window.open(destination,'_parent');
+        return false;
+      }
+    </script>
