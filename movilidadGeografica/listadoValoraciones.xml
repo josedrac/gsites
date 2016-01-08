@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="MG-listadoValoraciones.xml" height="1000">
+  <ModulePrefs title="MG-listadoValoraciones.xml" height="1100">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
 	  <Require feature="dynamic-height"/>
