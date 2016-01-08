@@ -58,6 +58,11 @@
        font-weight: normal;
       }
 
+      p {
+        padding: 10px;
+        font-family: "BBVA Web Light", Arial;
+      }
+
      .valoracion {
        width:920px;
        font-size: 11px;
@@ -85,6 +90,7 @@
      td.user, td.puntuaciones, td.media {
        padding: 15px 10px;
        width: 25%;
+       vertical-align: text-top;
      }
      td.puntuaciones {
        width: 50%;
@@ -192,7 +198,7 @@
          return;
        }
        var dataTable = response.getDataTable();
-       dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheets is empty');
+       dataTable.getNumberOfRows() ? printDataTable(dataTable) : document.getElementById('listadoValoraciones').innerHTML += "<p>No exiten valoraciones para este centro.</p>";
      }
 
      function pagination(elements) {
