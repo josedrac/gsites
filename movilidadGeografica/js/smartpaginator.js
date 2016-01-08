@@ -28,8 +28,8 @@
                     dataElements = $('' + settings.dataelement + '', dataContainer);
                 }
                 var list = $('<ul/>');
-                var btnPrev = $('<div/>').append('<img src="https://github.com/sopraux/gsites/raw/menu/movilidadGeografica/img/anterior.png"/>').click(function () { if ($(this).hasClass('disabled')) return false; currentPage = parseInt(list.find('li a.active').text()) - 1; navigate(--currentPage); }).addClass('btn');
-                var btnNext = $('<div/>').append('<img src="https://github.com/sopraux/gsites/raw/menu/movilidadGeografica/img/siguiente.png"/>').click(function () { if ($(this).hasClass('disabled')) return false; currentPage = parseInt(list.find('li a.active').text()); navigate(currentPage); }).addClass('btn');
+                var btnPrev = $('<div/>').append('https://raw.githubusercontent.com/sopraux/gsites/master/movilidadGeografica/img/anterior.png').click(function () { if ($(this).hasClass('disabled')) return false; currentPage = parseInt(list.find('li a.active').text()) - 1; navigate(--currentPage); }).addClass('btn');
+                var btnNext = $('<div/>').append('https://raw.githubusercontent.com/sopraux/gsites/master/movilidadGeografica/img/siguiente.png').click(function () { if ($(this).hasClass('disabled')) return false; currentPage = parseInt(list.find('li a.active').text()); navigate(currentPage); }).addClass('btn');
                 container.append(btnPrev).append(list).append(btnNext).append($('<div/>'));
                 buildNavigation(startPage);
                 if (settings.initval == 0) settings.initval = 1;
