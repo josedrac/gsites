@@ -1,4 +1,4 @@
-+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
@@ -203,6 +203,10 @@
             background-color: #0072C9;
             color: #FFFFFF;
             border: solid 1px #0072C9;
+        }
+
+        a {
+            cursor: pointer;
         }
 
     </style>
@@ -446,7 +450,7 @@
             var html = "";
 
             html += '<li class="'+clase+'">';
-            html += '   <a href="'+link+'">'
+            html += '   <a onclick="javascript:Go(\''+link+'\')">'
             html += '       <span class="number">'+number+'.</span>';
             html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
             html += '       <div class="text">';
