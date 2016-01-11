@@ -196,7 +196,7 @@
            $('form').submit(function(event) {
              var formData = {
                'idCentro'             : getParam('idCentro'),
-               'nombreCentro'         : decodeURI(getParam('name')).replace("+", " "),
+               'nombreCentro'         : decodeURI(getParam('name')).replace("/+/g", " "),
                'comunidad'            : decodeURI(getParam('comunidad')),
                'ratingPofesorado'	    : $('input[name=ratingPofesorado]').val(),
                'ratingInstalaciones'  : $('input[name=ratingInstalaciones]').val(),
