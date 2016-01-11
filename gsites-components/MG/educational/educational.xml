@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="MG-educational.xml" height ="50">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+    <Require feature="dynamic-height"/>
+    <Require feature="setprefs" />
+  </ModulePrefs>
+    <UserPref name="url" display_name="url" required="true" />
+    <UserPref name="tag" display_name="tag" required="true" />
+  <Content type="html">
+    <![CDATA[
+<style type="text/css">
+    @font-face {
+        font-family: 'BBVA Web Light';
+        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot');
+        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+        font-style: normal;
+        font-weight: normal;
+    }
+
+    .container {
+        width: 951px;
+        float: left;
+    }
+
+    .imageContainer {
+        float: left;
+        margin-right: 20px;
+    }
+
+    .image {
+        width: 429px;
+    }
+
+    .textContainer {
+        float: left;
+        width: 502px;
+    }
+
+    .title {
+        font-size: 30px;
+        float: left;
+        font-family: "BBVA Web Light", arial, sans-serif;
+        color: #0078D2;
+        margin-bottom: 10px;
+    }
+
+    .subTitle {
+        font-size: 16px;
+        float: left;
+        font-family: arial, sans-serif;
+        color: #434A58;
+        line-height: 20px;
+        margin-bottom: 12px;
+    }
+
+    .light-text {
+        float: left;
+        font-family: arial, sans-serif;
+        font-size: 12px;
+        color: #71777F;
+        line-height: 20px;
+        margin-bottom: 20px;
+    }
+
+    .column {
+        width: 50%;
+        float: left;
+    }
+
+    .column span {
+        font-family: "BBVA Web Light", arial, sans-serif;
+        width: 100%;
+        float: left;
+        font-size: 12px;
+        color: #0065B7;
+        line-height: 12px;
+        margin-bottom: 7px;
+        cursor: pointer;
+    }
+
+    </style>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <div id="container" class="container">
+        <div class="imageContainer">
+            <img class="image" src="/home/david/Proyectos/gsites/movilidadGeografica/img/education.png"/>
+        </div>
+        <div class="textContainer">
+            <span class="title">Centros educativos de España</span>
+            <span class="subtitle">Conoce los diferentes centros accediendo seleccionando la Comunidad Autónoma que desees</span>
+            <span class="light-text">La información sobre los centros está proporcionada y actualizada por el Ministerio de Educación</span>
+            <div class="linksContainer">
+                <div class="column">
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/andalucia')">Andalucía >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/aragon')">Aragón >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/asturias')">Asturias >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/cantabria')">Cantabria >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/castilla-la-mancha')">Castilla La Mancha >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/castilla-y-leon')">Castilla y León >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/cataluna')">Cataluña >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/ceuta')">Ceuta >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/valencia')">Comunidad Valenciana >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/extremadura')">Extremadura >></span>
+                </div>
+                <div class="column">
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/galicia')">Galicia >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/islas-baleares')">Islas Baleares >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/islas-canarias')">Islas Canarias >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/la-rioja')">La Rioja >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/madrid')">Madrid >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/melilla')">Melilla >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/murcia')">Murcia >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/navarra')">Navarra >></span>
+                    <span onclick="javascript:Go('https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/pais-vasco')">País Vasco >></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+      function getParam(p){
+         var params;
+         if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+           params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+           for(var i=0; i<params.length; i++){
+             if(params[i].split("=")[0] == p)
+               return params[i].split("=")[1];
+           }
+         }
+         return "";
+      }
+
+      function Go(destination){
+        window.open(destination,'_parent');
+        return false;
+      }
+    </script>
+    ]]>
+  </Content>
+
+</Module>
