@@ -6,8 +6,6 @@
     <Require feature="dynamic-height"/>
     <Require feature="setprefs" />
   </ModulePrefs>
-    <UserPref name="url" display_name="url" required="true" />
-    <UserPref name="tag" display_name="tag" required="true" />
   <Content type="html">
     <![CDATA[
 <style type="text/css">
