@@ -450,7 +450,7 @@
         }
 
         function Go(destination){
-            window.parent.location.href = destination;
+            window.open(destination,'_parent');
             return false;
         }
 
