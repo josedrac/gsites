@@ -93,7 +93,7 @@
 		html += '<h1>' + titlepage + '</h1>';
 
 	 	document.getElementById("titlepage").innerHTML = html;
-	 	adjustGadgetHeight('titlepage');
+	 	//adjustGadgetHeight('titlepage');
    </script>
 
     ]]>
