@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="MG-backPageTitle.xml" height ="50">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	  <Require feature="dynamic-height"/>
+	  <Require feature="setprefs" />
+  </ModulePrefs>
+    <UserPref name="url" display_name="url" required="true" />
+    <UserPref name="tag" display_name="tag" required="true" />
+  <Content type="html">
+    <![CDATA[
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <style type="text/css">
+      @font-face {
+        font-family: 'BBVA Web Light';
+        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot');
+        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+        font-style: normal;
+        font-weight: normal;
+      }
+      h2, span {
+        font-family:"BBVA Web Light", arial, sans-serif;
+        font-weight: lighter;
+        color: #0078D2;
+        font-size: 29.5px;
+        margin: 0;
+      }
+      .title-section-back {
+        padding-bottom: 14px;
+        background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/border-bottom-shaded.png);
+        background-position: bottom;
+        background-repeat: repeat-x;
+      }
+      .title-section-back h2 {
+        display: inline-block;
+        vertical-align: sub;
+      }
+      .title-section-back button {
+        vertical-align: middle;
+        margin-right: 12px;
+      }
+      .back-white {
+        background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/bg-boton-encabezado-volver_R2.png);
+        background-repeat: no-repeat;
+        background-color: initial;
+        cursor: pointer;
+        outline: none;
+        border: 0;
+        width: 73px;
+        height: 30px;
+        color: #0078D2;
+        font-size: 15px;
+        font-weight: bold;
+        padding-left: 10px;
+      }
+    </style>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <div id="titleSectionBack">
+      <div id="title" class="title-section-back">
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function getParam(p){
+         var params;
+         if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+           params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+           for(var i=0; i<params.length; i++){
+             if(params[i].split("=")[0] == p)
+               return params[i].split("=")[1];
+           }
+         }
+         return "";
+      }
+
+      function Go(destination){
+        window.open(destination,'_parent');
+        return false;
+      }
+
+      var prefs = new gadgets.Prefs();
+      var html = "";
+      var url = prefs.getString('url');
+      var title = prefs.getString('tag');
+      html += '<button type="button" class="back-white" onclick="javascript:Go(\''+url+'\')">Volver</button>';
+      html += '<h2>'+title+' <span id="name"></span></h2>';
+      document.getElementById("title").innerHTML = html;
+
+      name = decodeURI(getParam('name'));
+      name = name.replace("+", " ");
+      document.getElementById("name").innerHTML = name;
+    </script>
+
+    ]]>
+  </Content>
+
+  <Content type="html" view="configuration">
+
+    <![CDATA[
+
+      <style type="text/css">
+
+        table td {
+          color: #000;
+          font-size: 11px;
+          font-weight: bold;
+        }
+
+      </style>
+
+      <table width="100%" border="0" id="tablaconfig">
+        <tr>
+          <td>
+            Url: <input type="text" id="url" value="__UP_url__"   onchange="register('url')"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Tag: <input type="text" id="tag" value="__UP_tag__"   onchange="register('tag')"/>
+          </td>
+        </tr>   
+      </table>
+
+      <script type="text/javascript">
+
+        var prefs = new gadgets.Prefs();
+        function register(variable) {
+          prefs.set(variable, document.getElementById(variable).value);
+        }
+
+        gadgets.window.adjustHeight();
+
+      </script>
+
+    ]]>
+  </Content>
+
+</Module>

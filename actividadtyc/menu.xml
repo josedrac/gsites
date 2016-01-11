@@ -190,7 +190,7 @@
 		        </a>
 		    </div>
 		    <div class="card-container yellow short">
-		    	<a onclick="javascript:Go('')">
+		    	<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/contactos')">
 			        <div class="content">
 			            <div class="icon">
 			                <img class="contact" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Contactos.png" alt="">
@@ -219,7 +219,8 @@
 
 
 			function Go(destination){
-			    window.parent.location.href = destination;
+				window.open(destination,'_parent');
+			    //window.parent.location.href = destination;
 			    return false;
 			}
 
