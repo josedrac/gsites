@@ -62,7 +62,7 @@
 
         <script type="text/javascript">
 
-            adjustGadgetHeight('container');
+            //adjustGadgetHeight('container');
 
             function getParam(p){
                 var params;
