@@ -260,7 +260,7 @@
     </div>
     <script type="text/javascript">
 
-        unction Go() {
+        function Go() {
             var elementYearSelector = document.getElementById('yearSelector');
             var elementMonthSelector = document.getElementById('monthSelector');
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
