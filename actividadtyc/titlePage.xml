@@ -81,7 +81,7 @@
 			color: #0078D2;
 			font-family: BBVA Web Light, Arial;
 			font-size: 30px;
-			margin: 0px 0px 0px 10px;
+			margin: 0px 0px 0px 5px;
 			padding: 0px;
 			font-weight: normal;
 			vertical-align: top;
