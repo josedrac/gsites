@@ -193,36 +193,37 @@
             $("#resultMedia").html(html);
           });
 
-           $('form').submit(function(event) {
-             var formData = {
-               'idCentro'             : getParam('idCentro'),
-               'nombreCentro'         : decodeURI(getParam('name')).replace("/+/g", " "),
-               'comunidad'            : decodeURI(getParam('comunidad')),
-               'ratingPofesorado'	    : $('input[name=ratingPofesorado]').val(),
-               'ratingInstalaciones'  : $('input[name=ratingInstalaciones]').val(),
-               'ratingIdioma'	        : $('input[name=ratingIdioma]').val(),
-               'ratingExtraescolares' : $('input[name=ratingExtraescolares]').val(),
-               'ratingComedor'	      : $('input[name=ratingComedor]').val(),
-               'ratingHorario'	      : $('input[name=ratingHorario]').val(),
-               'notaMedia'	          : $('input[name=notaMedia]').val()
-             };
+          $('form').submit(function(event) {
+            var formData = {
+              'idCentro'             : getParam('idCentro'),
+              'nombreCentro'         : decodeURI(getParam('name')),
+              'comunidad'            : decodeURI(getParam('comunidad')),
+              'ratingPofesorado'	   : $('input[name=ratingPofesorado]').val(),
+              'ratingInstalaciones'  : $('input[name=ratingInstalaciones]').val(),
+              'ratingIdioma'	       : $('input[name=ratingIdioma]').val(),
+              'ratingExtraescolares' : $('input[name=ratingExtraescolares]').val(),
+              'ratingComedor'	       : $('input[name=ratingComedor]').val(),
+              'ratingHorario'	       : $('input[name=ratingHorario]').val(),
+              'notaMedia'	           : $('input[name=notaMedia]').val()
+            };
 
-             $.ajax({
-               type      	: 'GET',
-               url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbxOVGcIftQBLR8lkOaZlARIERb55EhyU5XC5qkCQhhNi79rbbyO/exec',
-               data      	: formData,
-               dataType		: 'jsonp',
-               crossDomain	: true,
-               jsonpCallback: "on_result",
-               success: function(data) {
-                 return console.log(data);
-               },
-               error: function() {
-                 return console.error(data);
-               }
-             });
-             event.preventDefault();
-           });
+            $.ajax({
+              type        	: 'GET',
+              url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbxOVGcIftQBLR8lkOaZlARIERb55EhyU5XC5qkCQhhNi79rbbyO/exec',
+              data      	  : formData,
+              dataType		  : 'jsonp',
+              crossDomain	  : true,
+              jsonpCallback : "on_result",
+              success: function(data) {
+                console.log(data);
+              },
+              error: function() {
+                console.error('error');
+              }
+            });
+
+            event.preventDefault();
+          });
 
          });
   	  </script>
