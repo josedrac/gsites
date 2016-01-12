@@ -1,17 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Module>
-  <ModulePrefs title="MG-backPageTitle.xml" height ="50">
-    <Require feature="idi"/>
-    <Require feature="locked-domain" />
-	  <Require feature="dynamic-height"/>
-	  <Require feature="setprefs" />
-  </ModulePrefs>
-    <UserPref name="url" display_name="url" required="true" />
-    <UserPref name="tag" display_name="tag" required="true" />
-  <Content type="html">
-    <![CDATA[
-    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-    <style type="text/css">
+<style type="text/css">
       @font-face {
         font-family: 'BBVA Web Light';
         src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot');
@@ -83,61 +70,16 @@
         return false;
       }
 
-      var prefs = new gadgets.Prefs();
       var html = "";
-      var url = prefs.getString('url');
-      var title = prefs.getString('tag');
+      var url = 'https://sites.google.com/a/bbva.com/movilidad-geografica/prueba';
+      var title = 'Tu valoración del centro ';
       html += '<button type="button" class="back-white" onclick="javascript:Go(\''+url+'\')">Volver</button>';
       html += '<h2>'+title+' <span id="name"></span></h2>';
       document.getElementById("title").innerHTML = html;
 
       name = decodeURI(getParam('name'));
-      name = name.replace(/[+]/g," ");
+      name = name.replace("+", " ");
       document.getElementById("name").innerHTML = name;
     </script>
 
-    ]]>
-  </Content>
 
-  <Content type="html" view="configuration">
-
-    <![CDATA[
-
-      <style type="text/css">
-
-        table td {
-          color: #000;
-          font-size: 11px;
-          font-weight: bold;
-        }
-
-      </style>
-
-      <table width="100%" border="0" id="tablaconfig">
-        <tr>
-          <td>
-            Url: <input type="text" id="url" value="__UP_url__"   onchange="register('url')"/>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Tag: <input type="text" id="tag" value="__UP_tag__"   onchange="register('tag')"/>
-          </td>
-        </tr>
-      </table>
-
-      <script type="text/javascript">
-
-        var prefs = new gadgets.Prefs();
-        function register(variable) {
-          prefs.set(variable, document.getElementById(variable).value);
-        }
-
-        gadgets.window.adjustHeight();
-
-      </script>
-
-    ]]>
-  </Content>
-
-</Module>

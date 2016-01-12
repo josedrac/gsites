@@ -6,31 +6,31 @@
 	  	/* @group fonts */
 		@font-face {
 			font-family: 'BBVA Web Light';
-			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
-			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
 		@font-face {
 			font-family: 'BBVA Web Book';
-			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
-			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
 		@font-face {
 			font-family: 'BBVA Web Medium';
-			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
-			src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
@@ -145,9 +145,10 @@
 
 		function sendQuery(){
 			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+            var sheetName = 'guides';
+            sheetName = encodeURIComponent(sheetName);
 			var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-                sheetName = encodeURIComponent('External Releases'),
-                queryString = encodeURIComponent('SELECT * where A <> "Título"'),
+                queryString = encodeURIComponent('SELECT * where C <> "Link"'),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(function (response) {
                 	handleQueryResponse(response, 0);
@@ -160,7 +161,6 @@
 
             getTagValues(data);
             var html = "";
-            var url = document.referrer.split('?')[0];
             var clase = "";
             var claseText = "";
 
@@ -189,28 +189,33 @@
 		
 
 	    function Go(selectedTag){
+            var sheetName = 'guides';
+            var url = document.referrer.split('?')[0];
+            
+            if(sheetName == 'External Releases')
+                url += "/resultados"
 
-	    	var url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
             window.open(url + "?tag="+selectedTag, "_parent");
             return false;
 		}
 
         function getTagValues(data) {
 
+            var index = 5;
             var aux;
             var s = 0;
             var fin = false;
             var rows = data.getNumberOfRows();
             
             for(var i=0; i<rows; i++){
-                if(data.getValue(i,3) != null && data.getValue(i,3).split(',').length > 1){
-                    aux = data.getValue(i,3).split(',');
+                if(data.getValue(i,index) != null && data.getValue(i,index).split(',').length > 1){
+                    aux = data.getValue(i,index).split(',');
                     for(var j=0; j<aux.length; j++)
                         if(encontrados.indexOf(aux[j]) == -1)
                             encontrados[s++] = aux[j];
                 }
-                else if( encontrados.indexOf(data.getValue(i, 3)) == -1  &&  data.getValue(i, 3)!=null ) {
-                    encontrados[s++] = data.getValue(i, 3);
+                else if( encontrados.indexOf(data.getValue(i, index)) == -1  &&  data.getValue(i, index)!=null ) {
+                    encontrados[s++] = data.getValue(i, index);
                 }
             }
 
@@ -221,7 +226,7 @@
             for(var i=0; i<encontrados.length; i++){
                 for(var j=0; j<rows; j++){
 
-                    if(data.getValue(j, 3)!=null && data.getValue(j, 3).split(',').indexOf(encontrados[i]) >= 0)
+                    if(data.getValue(j, index)!=null && data.getValue(j, index).split(',').indexOf(encontrados[i]) >= 0)
                         releases[i].push(data.getValue(j, 0));
                 }
             }

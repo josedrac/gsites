@@ -4,33 +4,33 @@
                /* @group fonts */
         @font-face {
             font-family: 'BBVA Web Light';
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
             font-style: normal;
             font-weight: normal;
         }
 
         @font-face {
             font-family: 'BBVA Web Book';
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
             font-style: normal;
             font-weight: normal;
         }
 
         @font-face {
             font-family: 'BBVA Web Medium';
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
             font-style: normal;
             font-weight: normal;
         }
@@ -252,8 +252,12 @@
             var elementMonthSelector = document.getElementById('monthSelector');
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
             var month = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
-           
-            var url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
+
+            var releases = true;
+            var url = document.referrer.split('?')[0];
+            if(releases)
+                url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
+
             window.open(url + "?anyo="+selectedYear+"&mes="+month, "_parent");
             return false;
         }
