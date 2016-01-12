@@ -8,6 +8,8 @@
     <Require feature="setprefs" />
   </ModulePrefs>
     <UserPref name="spreadsheetKey" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYE...)" required="true" />
+    <UserPref name="sheetName" default_value="" display_name="Sheet name" required="true" />
+    <UserPref name="indexTag" default_value="" display_name="Index tag" required="true" />
  <Content view="canvas" preferred_height="20px">
     <![CDATA[
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -18,31 +20,31 @@
         /* @group fonts */
         @font-face {
             font-family: 'BBVA Web Light';
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
             font-style: normal;
             font-weight: normal;
         }
         @font-face {
             font-family: 'BBVA Web Book';
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
             font-style: normal;
             font-weight: normal;
         }
         @font-face {
             font-family: 'BBVA Web Medium';
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
-            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
             font-style: normal;
             font-weight: normal;
         }
@@ -157,10 +159,11 @@
 
 
         function sendQuery(){
+            var sheetName = prefs.getString('sheetName');
+            sheetName = encodeURIComponent(sheetName);
             var spreadsheetKey = prefs.getString('spreadsheetKey'),
             //var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-                sheetName = encodeURIComponent('External Releases'),
-                queryString = encodeURIComponent('SELECT * where A <> "Título"'),
+                queryString = encodeURIComponent('SELECT * where C <> "Link"'),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(function (response) {
                     handleQueryResponse(response, 0);
@@ -173,7 +176,6 @@
 
             getTagValues(data);
             var html = "";
-            var url = document.referrer.split('?')[0];
             var clase = "";
             var claseText = "";
             for(var i=0; i<encontrados.length; i++){
@@ -201,28 +203,33 @@
         
 
         function Go(selectedTag){
+            var sheetName = prefs.getString('sheetName');
+            var url = document.referrer.split('?')[0];
+            
+            if(sheetName == 'releases')
+                url += "/resultados"
 
-            var url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
             window.open(url + "?tag="+selectedTag, "_parent");
             return false;
         }
 
         function getTagValues(data) {
 
+            var index = parseInt(prefs.getString('indexTag'));
             var aux;
             var s = 0;
             var fin = false;
             var rows = data.getNumberOfRows();
             
             for(var i=0; i<rows; i++){
-                if(data.getValue(i,3) != null && data.getValue(i,3).split(',').length > 1){
-                    aux = data.getValue(i,3).split(',');
+                if(data.getValue(i,index) != null && data.getValue(i,index).split(',').length > 1){
+                    aux = data.getValue(i,index).split(',');
                     for(var j=0; j<aux.length; j++)
                         if(encontrados.indexOf(aux[j]) == -1)
                             encontrados[s++] = aux[j];
                 }
-                else if( encontrados.indexOf(data.getValue(i, 3)) == -1  &&  data.getValue(i, 3)!=null ) {
-                    encontrados[s++] = data.getValue(i, 3);
+                else if( encontrados.indexOf(data.getValue(i, index)) == -1  &&  data.getValue(i, index)!=null ) {
+                    encontrados[s++] = data.getValue(i, index);
                 }
             }
 
@@ -233,7 +240,7 @@
             for(var i=0; i<encontrados.length; i++){
                 for(var j=0; j<rows; j++){
 
-                    if(data.getValue(j, 3)!=null && data.getValue(j, 3).split(',').indexOf(encontrados[i]) >= 0)
+                    if(data.getValue(j, index)!=null && data.getValue(j, index).split(',').indexOf(encontrados[i]) >= 0)
                         releases[i].push(data.getValue(j, 0));
                 }
             }
@@ -270,6 +277,16 @@
         <tr>
           <td>
             Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            sheet name: <input type="text" id="sheetName" value="__UP_sheetName__"   onchange="register('sheetName')"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Indice de etiqueta: <input type="text" id="indexTag" value="__UP_indexTag__"   onchange="register('indexTag')"/>
           </td>
         </tr>
       </table>
