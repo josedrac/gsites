@@ -206,7 +206,7 @@
             var sheetName = prefs.getString('sheetName');
             var url = document.referrer.split('?')[0];
             
-            if(sheetName == 'releases')
+            if(sheetName == 'External Releases')
                 url += "/resultados"
 
             window.open(url + "?tag="+selectedTag, "_parent");
