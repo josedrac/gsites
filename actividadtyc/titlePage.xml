@@ -141,7 +141,7 @@
 
 	<div id="container" class="container">
 		<div id="titlepage" class="titlepage"></div>
-		<button>Añadir nuevo documento</button>
+		<button id="link"></button>
 	</div>
 
    	<script type="text/javascript">
