@@ -92,7 +92,7 @@
       document.getElementById("title").innerHTML = html;
 
       name = decodeURI(getParam('name'));
-      name = name.replace("+", " ");
+      name = name.replace("/+/g", " ");
       document.getElementById("name").innerHTML = name;
     </script>
 
@@ -123,7 +123,7 @@
           <td>
             Tag: <input type="text" id="tag" value="__UP_tag__"   onchange="register('tag')"/>
           </td>
-        </tr>   
+        </tr>
       </table>
 
       <script type="text/javascript">
