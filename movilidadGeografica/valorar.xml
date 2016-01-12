@@ -157,6 +157,7 @@
       <script src="https://rawgit.com/sopraux/gsites/master/movilidadGeografica/js/starrr.min.js" type="text/javascript"></script>
 
    	  <script type="text/javascript">
+
         function getParam(p){
           var params;
           if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
@@ -167,6 +168,11 @@
             }
           }
           return "";
+        }
+
+        function Go(destination){
+          window.open(destination,'_parent');
+          return false;
         }
 
         $(document).ready(function() {
@@ -216,6 +222,7 @@
               jsonpCallback : "on_result",
               success: function(data) {
                 console.log(data);
+                Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
               },
               error: function() {
                 console.error('error');
