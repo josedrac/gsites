@@ -42,12 +42,12 @@
     }
 
     .image {
-        width: 429px;
+        width: 380px;
     }
 
     .textContainer {
         float: left;
-        width: 502px;
+        width: 470px;
     }
 
     .title {
