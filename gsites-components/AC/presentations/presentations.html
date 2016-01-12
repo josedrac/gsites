@@ -149,13 +149,51 @@
         //var prefs = new gadgets.Prefs();
         var tab;
 
+        function urldecode(str) {
+           return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+        }
+
+        function getParam(p){
+            var params;
+            if(window.location.href.split("?").length > 1){
+                params = window.location.href.split("?")[1].split("&");
+                for(var i=0; i<params.length; i++){
+                    if(params[i].split("=")[0] == p)
+                        return params[i].split("=")[1];
+                }
+            }
+            return "";
+        }
+
+        function getQueryParameters() {
+            var filter = "";
+
+            var month = getParam("mes");
+            var year = getParam("anyo");
+            var inputText = urldecode(getParam("inputText").toLowerCase());
+            var tag = urldecode(getParam("tag").toLowerCase());
+
+            if (year > 0)
+                filter += " AND year(G) ="+ year;
+            if (month > 0)
+                filter += " AND month(G) = "+ (month-1);
+            if(inputText != "")
+                filter += " AND lower(A) like '%"+inputText+"%'";
+
+            if(tag != "")
+                filter += " AND lower(F) like '%"+tag+"%'";
+
+
+            return filter;
+        }
+
 
         function sendQuery() {
             tab = "presentations";
             var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
             //var spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sheetName = encodeURIComponent(tab),
-                queryString = encodeURIComponent('SELECT * where A <> "Título"'),
+                queryString = encodeURIComponent('SELECT * where C <> "Link"' + getQueryParameters()),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(handleQueryResponse);
         }
