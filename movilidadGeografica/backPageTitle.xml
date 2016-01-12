@@ -92,7 +92,7 @@
       document.getElementById("title").innerHTML = html;
 
       name = decodeURI(getParam('name'));
-      name = name.replace(/+/g, " ");
+      name = name.replace(/[+]/g," ");
       document.getElementById("name").innerHTML = name;
     </script>
 
