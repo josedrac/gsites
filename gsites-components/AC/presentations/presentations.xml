@@ -10,7 +10,7 @@
     <UserPref name="tab" display_name="tab" required="true" />
  <Content type="html">
     <![CDATA[
-         <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
     <script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
@@ -50,125 +50,216 @@
         }
         /* @end */
 
-
-        button {
-            background: #0079C1;
-            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
-            background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
-            background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
-            background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
-            background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
-            -webkit-border-radius: .3em;
-            -moz-border-radius: .3em;
-            border-radius: .3em;
-            font-size: 12px;
-            word-spacing: 2px;
-            height: 30px;
-            width: 80px;
-            padding-left: .9em;
-            padding-right: .9em;
-            border: .1em solid #00559D;
-            color: white;
-            cursor: pointer;
-            margin: 20px 0;
-            float: right;
-            font-family: BBVA Web Light, Arial;
-            font-weight: bold;
+        .title {
+            font-family: BBVA Web Light,Arial;
+            color: #2F8ACB;
+            font-size: 24px;
+            margin-left: 15px;
+            display: block;
+            border: 0;
+            margin-top: 0.4em;
+            padding: 0;
         }
 
-        button:hover {
-            background: #004C99;
+        .line {
+            display: block;
+            height: 1px;
+            border: 0;
+            border-top: 1px solid #EAEAEA;
+            margin-bottom: 2em;
+            margin-top: 0.4em;
+            padding: 0; 
         }
 
-        .container {
-            font-family: BBVA Web Book,Arial;
+        .line.strong {
+            height: 2px;
+            margin-bottom: 1.5em;
+            margin-top: 0;
+            background: #E6EEF5;
+            width: 100%;
             float: left;
-            width: 620px;
-            background-color: #F3F7F6;
-            padding: 5px;
+
         }
 
-        .card, .pCard {
+        .number {
             float: left;
-            list-style: outside none none;
-            background-color: #FFF;
-            margin: 1%;
-            padding: 20px 2.5% 10px;
-            width: 43%;
-            height: 125px;
-        }
-
-        .pCard {
-            height: 150px;
+            display: table-cell;
+            margin-right: 5px;
+            color: #71777F;
+            font-size: 14px;
+            text-align: right;
+            width: 18px;
         }
 
         .icon {
             float: left;
             display: table-cell;
-            margin-right: 15px;
-            max-width: 80px;
-        }
-
-        .innerText {
-            margin-left: 15px;
-            display: table;
-        }
-
-        .contact {
-            color: #71777F;
-            font-size: 11px;
-            font-family: Arial;
-            line-height: 18px;
-            width: 100%;
-            float: left;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
-
-        .title, .pTitle {
-            float: left;
-            font-family: BBVA Web Light,Arial;
-            color: #0078D2;
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .pTitle {
-            margin-bottom: 0px;
+            margin-right: 10px;
         }
 
         .text {
             float: left;
             height: 100%;
-            font-size: 13px;
-            color: #434a48;
-            text-align: justify;
+            width: 80%;
         }
-        
+
+        .subtitle {
+            color: #2871AB;
+            float: left;
+            font-weight: bold;
+            display: inline-block;
+            width: 100%;
+            max-height: 39px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 12px;
+        }
+
+        .date {
+            display: inline-block;
+            color: #71777F;
+            margin-top: 6px;
+            font-size: 11px;
+        }
+
+        .column {
+            width: 40%;
+            float: left;
+        }
+
+        .column .content {
+            border-bottom: 1px solid #F2F2F2;
+            margin-top: 8px;
+            margin-bottom: 0px;
+            height: 60px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .column .last {
+            border-bottom: 0px;
+        }
+
+        .container {
+            font-family: BBVA Web Book,Arial;
+            float: left;
+            width: 100%;
+        }
+
+        .paginationContainer{
+            text-align: center;
+            width: 100%;
+            float: left;
+        }
+
+        .page {
+
+        }
+
+        .clearBoth {
+            clear:both;
+        }
+
+        .pager {
+            height: 30px;
+            text-align: center;
+            width: 175px;
+            display: inline-block;
+        }
+        .pager ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-aling: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .pager ul li {
+            display: inline;
+            margin-left: 2px;
+        }
+        .pager ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-table;
+            width: 20px;
+            height: 18px;
+            text-align: center;
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+        }
+        .pager span {
+            margin-left: 4px;
+            color: White;
+            float: left;
+        }
+        .pager .btn {
+            width: 40px;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .pager .disabled {
+            color: #A0A0A0 !important;
+            text-shadow: 1px 1px 1px #FFFFFF;
+        }
+        .black.normal {
+            background-color: #FFFFFF;
+            color: #0072C9;
+            border: solid 1px #d2e5eb;
+        }
+        .black.active {
+            background-color: #0072C9;
+            color: #FFFFFF;
+            border: solid 1px #0072C9;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
     </style>
 
 
 <div id="container" class="container">
+    
+    <div class="title-container">
+        <span id="title" class="title"></span>
+    </div>
+    <hr class="line" />
+    
+    <div id="pages">    
+    </div>
+
+    <hr class="line strong" />
+
+    <div class="paginationContainer">
+        <div id="pagination" class="pagination">
+        </div>
+    </div>
+
 </div>
 
     <script type="text/javascript">
 
-        adjustGadgetHeight('container');
+        //adjustGadgetHeight('container');
+
         google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
-        var prefs = new gadgets.Prefs();
-        var tab;
 
-        function urldecode(str) {
-           return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+
+        function isSearchDone() {
+            if (window.location.href.split("=").length >= 2) {
+                return true;
+            }
+            return false;
         }
 
         function getParam(p){
             var params;
-            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
-                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+            if(window.location.href.split("?").length > 1){
+                params = window.location.href.split("?")[1].split("&");
                 for(var i=0; i<params.length; i++){
                     if(params[i].split("=")[0] == p)
                         return params[i].split("=")[1];
@@ -176,6 +267,21 @@
             }
             return "";
         }
+
+        function urldecode(str) {
+           return decodeURIComponent((str+'').replace(/\+/g, '%20'));
+        }
+
+        function pagination(elements) {
+            $('#pagination').smartpaginator({ 
+                totalrecords: elements, 
+                recordsperpage: 1, 
+                length: 4, 
+                datacontainer: 'pages', 
+                dataelement: 'div.page', 
+                initval: 0,
+            });
+         }
 
         function getQueryParameters() {
             var filter = "";
@@ -186,22 +292,24 @@
             var tag = urldecode(getParam("tag").toLowerCase());
 
             if (year > 0)
-                filter += " AND year(G) ="+ year;
+                filter += " AND year(B) ="+ year;
             if (month > 0)
-                filter += " AND month(G) = "+ (month-1);
+                filter += " AND month(B) = "+ (month-1);
             if(inputText != "")
                 filter += " AND lower(A) like '%"+inputText+"%'";
 
             if(tag != "")
-                filter += " AND lower(F) like '%"+tag+"%'";
+                filter += " AND lower(D) like '%"+tag+"%'";
 
 
             return filter;
         }
 
+
         function sendQuery() {
             tab = prefs.getString('tab');
-            var spreadsheetKey = prefs.getString('spreadsheetKey'),
+            var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+            //var spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sheetName = encodeURIComponent(tab),
                 queryString = encodeURIComponent('SELECT * where C <> "Link"' + getQueryParameters()),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -211,24 +319,128 @@
 
         function handleQueryResponse(response) {
             data = response.getDataTable();
-            var filas = data.getNumberOfRows();
-            var pages = Math.ceil(filas / 8); 
+            var filas;
+            var pages;
             var html = "";
             var page = 0;
             var display = '';
             var classBorder = '';
 
+            var slider = "1";
+            var mes = "";
+            var month = getParam("mes");
+            var year = getParam("anyo");
+            var inputText = urldecode(getParam("inputText"));
+            var tag = urldecode(getParam("tag"));
+            var tagText = "";
+
+
+            if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
+
+                var date = getMonthAndYear(1);
+
+                inputText = "";
+                mes = date.split(" ")[0];
+                month = getMonth(mes);
+                year = date.split(" ")[1];
+            }
+            else{
+
+                if(month > 0)
+                    month = getMonth(month);
+                else
+                    month = "Todos los meses";
+
+                if(year == 0)
+                    year = "Todos los años"; 
+
+                if(tag != "")
+                    tagText = "Etiqueta "+tag;
+            }
+
+            if(tagText != "")
+                document.getElementById('title').innerHTML = tagText;
+            else if(inputText == "")
+                document.getElementById('title').innerHTML = month +" "+ year;
+            else {
+                document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
+            }
+
+            //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
+            var aux = data.clone();
+
+            if(tag != ""){
+                var x = 0;
+                while(1){
+                    if(aux.getNumberOfRows() <= x)
+                        break;
+                    if(data.getValue(x, 3).split(',').indexOf(tag) == -1) {
+                        aux.removeRow(x);
+                        x--;
+                    }
+                    x++;
+                }
+            }
+
+            data = aux;
+
+            filas = data.getNumberOfRows();
+
+            pages = Math.ceil(filas / 8); 
 
             if(filas<1)
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
 
             for(var i=0;i<filas;i++) {
 
-                html += getElement(data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), data.getValue(i, 3), data.getValue(i, 4));
+                if(i % 8 == 3 || i % 8 == 7)
+                    classBorder = 'content last';
+                else
+                    classBorder = 'content';
+
+                if(i % 8 == 0)
+                {
+                    page++;
+
+                    if(page == 1)   display = 'block';
+                    else            display = 'none';
+
+                    html += '<div id="page'+page+'" class="page" style="display:'+display+'">';
+                    html += '   <ul id="column1" class="column">';
+                }
+
+                if(i % 8 < 4)
+                    html += getElement(i+1, data.getValue(i, 0), data.getFormattedValue(i, 1), data.getValue(i, 2), classBorder);
+
+
+                if(filas < 4 && i == filas-1)
+                {
+                    html += '   </ul>';
+                    html += '</div>'
+                }
+                else if(i % 8 == 3)
+                {
+                    html += '   </ul>';
+                    html += '   <ul id="column2" class="column">'
+                }
+
+                if(i % 8 > 3)
+                    html += getElement(i+1, data.getValue(i, 0), data.getFormattedValue(i, 1), data.getValue(i, 2), classBorder);
+
+
+                if((filas < 8 && i == filas-1) || (i % 8 == 7))
+                {
+                    html += '   </ul>';
+                    html += '</div>'
+                }
 
             }
 
-            document.getElementById('container').innerHTML = html;
+            document.getElementById('pages').innerHTML = html;
+
+            if(filas > 0)
+                pagination(pages);
+            //gadgets.window.adjustHeight();
 
         }
 
@@ -237,22 +449,83 @@
             return false;
         }
 
-        function getElement(title, text, link, icon, contact){
+        function getElement(number, text, date, link, clase){
             var html = "";
-            if(contact == null)
-                contact = "";
 
-            html += '<li class="pCard">';
-            html += '   <img class="icon" src="'+icon+'"/>';
-            html += '   <div class="innerText">';
-            html += '       <span class="pTitle">'+title+'</span>';
-            html += '       <span class="contact" onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/contactos\')">'+contact+'</span>';
-            html += '       <span class="text">'+text+'</span>';
-            html += '   </div>';
-            html += '   <button class="btn" type="button" onclick="javascript:Go(\''+link+'\')">Acceder</button>';
+            html += '<li class="'+clase+'">';
+            html += '   <a onclick="javascript:Go(\''+link+'\')">'
+            html += '       <span class="number">'+number+'.</span>';
+            html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
+            html += '       <div class="text">';
+            html += '           <span class="subtitle">'+text+'</span>';
+            html += '           <span class="date">'+date+'</span>';
+            html += '       </div>';
+            html += '   </a>';
             html += '</li>';
 
             return html;
+        }
+
+        function getMonth(index) {
+            var month = '';
+            switch(parseInt(index)) {
+                case 1: month = 'Enero';
+                        break;
+                case 2: month = 'Febrero';
+                        break;
+                case 3: month = 'Marzo';
+                        break;
+                case 4: month = 'Abril';
+                        break;
+                case 5: month = 'Mayo';
+                        break;
+                case 6: month = 'Junio';
+                        break;
+                case 7: month = 'Julio';
+                        break;
+                case 8: month = 'Agosto';
+                        break;
+                case 9: month = 'Septiembre';
+                        break;
+                case 10: month = 'Octubre';
+                        break;
+                case 11: month = 'Noviembre';
+                        break;
+                case 12: month = 'Diciembre';
+                        break;
+            }
+            return month;
+        }
+
+        function getMonthAndYear(slider) {
+            var dateObj = new Date();
+            var month = dateObj.getUTCMonth() + 1; //months from 1-12
+            var year = dateObj.getUTCFullYear();
+
+            switch(parseInt(slider)) {
+                case 2:
+                    if(month == 1){
+                        month = 12;
+                        year--;
+                    }
+                    else{
+                        month--;
+                    }
+                    break;
+                case 3:
+                    if(month == 1){
+                        month = 11;
+                        year--;
+                    }
+                    else if(month == 2){
+                        month = 12;
+                        year--;
+                    }
+                    else{
+                        month = month-2;
+                    }
+            }
+            return month +' '+ year;
         }
 
        
