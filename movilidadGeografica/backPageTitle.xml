@@ -117,7 +117,7 @@
 
       <table width="100%" border="0" id="tablaconfig">
         <tr>
-          <td
+          <td>
             Url: <input type="text" id="url" value="__UP_url__" onchange="register('url')"/>
           </td>
         </tr>
