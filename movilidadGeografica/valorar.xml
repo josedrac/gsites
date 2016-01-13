@@ -179,7 +179,7 @@
         }
 
         function Go(destination){
-          window.open(destination,'_parent');
+          window.open(destination,'_top');
           return false;
         }
 
@@ -232,7 +232,6 @@
               crossDomain	  : true,
               jsonpCallback : "on_result",
               success: function(data) {
-                console.log(data);
                 Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
               },
               error: function() {
