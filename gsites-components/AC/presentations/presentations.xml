@@ -20,37 +20,36 @@
         /* @group fonts */
         @font-face {
             font-family: 'BBVA Web Light';
-            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot');
-            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
             font-style: normal;
             font-weight: normal;
         }
-
         @font-face {
             font-family: 'BBVA Web Book';
-            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot');
-            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
             font-style: normal;
             font-weight: normal;
         }
-
         @font-face {
             font-family: 'BBVA Web Medium';
-            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
-            src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-                url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot');
+            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
             font-style: normal;
             font-weight: normal;
         }
         /* @end */
+
 
         button {
             background: #0079C1;
@@ -76,6 +75,8 @@
             cursor: pointer;
             margin: 20px 0;
             float: right;
+            font-family: BBVA Web Light, Arial;
+            font-weight: bold;
         }
 
         button:hover {
@@ -224,10 +225,7 @@
 
             for(var i=0;i<filas;i++) {
 
-                if(tab == "presentations")
-                    html += getElementContact(data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), data.getValue(i, 3), data.getValue(i, 4));
-                else
-                    html += getElement(data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), data.getValue(i, 3));
+                html += getElement(data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), data.getValue(i, 3), data.getValue(i, 4));
 
             }
 
@@ -240,22 +238,7 @@
             return false;
         }
 
-        function getElement(title, text, link, icon){
-            var html = "";
-
-            html += '<li class="card">';
-            html += '   <img class="icon" src="'+icon+'"/>';
-            html += '   <div class="innerText">';
-            html += '       <span class="title">'+title+'</span>';
-            html += '       <span class="text">'+text+'</span>';
-            html += '   </div>';
-            html += '   <button class="btn" type="button" onclick="javascript:Go(\''+link+'\')">Acceder</button>';
-            html += '</li>';
-
-            return html;
-        }
-
-        function getElementContact(title, text, link, icon, contact){
+        function getElement(title, text, link, icon, contact){
             var html = "";
             if(contact == null)
                 contact = "";
