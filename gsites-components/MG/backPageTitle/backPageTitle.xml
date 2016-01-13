@@ -80,6 +80,8 @@
       function getComunity(){
         var com = "";
         var aux = getParam('comunidad');
+
+
         switch(aux){
           case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20ANDALUC%C3%8DA": 
             com = "andalucia";
@@ -156,6 +158,9 @@
           case "COMUNIDAD%20AUT%C3%93NOMA%20DEL%20PA%C3%8DS%20VASCO":
             com = "pais-vasco";
             break;
+
+          default: console.log(aux);
+          break;
         }
 
         return com;
