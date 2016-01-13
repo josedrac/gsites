@@ -226,7 +226,7 @@
 
             $.ajax({
               type        	: 'GET',
-              url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbxOVGcIftQBLR8lkOaZlARIERb55EhyU5XC5qkCQhhNi79rbbyO/exec',
+              url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbwQpgkgawAruW-juS1q9e-dcMahtc3lza4RZ3NiiCLJUXMtp9Vr/exec',
               data      	  : formData,
               dataType		  : 'jsonp',
               crossDomain	  : true,
