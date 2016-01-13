@@ -9,21 +9,44 @@
 
 	<Content type="html">
 	    <![CDATA[
-		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+				<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>	
 
 		<head>
 			<style type="text/css">
-		        @font-face {
-		            font-family: 'BBVA Web Light';
-		            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
-		            src:url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-		                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-		            font-style: normal;
-		            font-weight: normal;
-		        }
+		        /* @group fonts */
+				@font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+				@font-face {
+					font-family: 'BBVA Web Medium';
+					src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+				/* @end */
 
 		        .blue {
 		        	background-color: #0078D2;
@@ -57,7 +80,7 @@
 		            -moz-border-radius: 2px;
 		            -webkit-border-radius: 2px;
 		            -khtml-border-radius: 2px;
-		            height: 150px;
+		            height: 170px;
 		            padding: 3px;
 		            float: left;
 		            margin: 7px;
@@ -74,16 +97,15 @@
 		        }
 
 		        .large {
-		        	width: 37%;
-		        	float: right;
+					width: 47.5%;
+		        	float: left;
 		        }
 
 		        .short {
 		        	width: 30.8%;
 		        }
 
-		        .content{
-		            font-family: 'BBVA Web Light';
+		        .content {
 		            display: table;
 		            font-size: 13px;
 		            font-family: BBVA Web Light, Arial;
@@ -92,14 +114,14 @@
 		        }
 
 		        .title {
-		        	font-weight: bold;
-		        	font-size: 18px;
+		        	font-size: 22px;
 		        	margin-top: 15px;
 		        	margin-bottom: 0px;
+		        	font-family: BBVA Web Book, Arial;
 		        }
 
 		    	.subtitle {
-		    		font-size: 14px;
+		    		font-size: 18px;
 		    	}
 
 		        .text, .icon {
@@ -110,12 +132,14 @@
 
 		        .text {
 		        	width: 100%;
+		        	margin-top: 5px;
 		        }
 
 		        .text .big {
-		        	font-size: 28px;
+		        	font-size: 30px;
 		        	margin-top: 5px;
 		        	font-weight: normal;
+		        	height: 35px;
 		        }
 
 		        .icon {
@@ -125,7 +149,7 @@
 		        }
 
 		        .contact {
-		        	margin-top: 10px;
+		        	margin-top: 15px;
 		        }
 
 
@@ -134,22 +158,6 @@
 		</head>
 
 		<div id="container" class="container">
-			<div class="image-container">
-				<img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/logo.png" />
-			</div>
-			<div class="card-container blue-green large">
-				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/presentaciones')">
-			        <div class="content">
-			            <div class="icon">
-			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Presentaciones.png" alt="">
-			            </div>
-			            <div class="text">
-			                <p class="title big">Presentaciones</p>
-			                <span class="subtitle">Un espacio para potenciar el conocimiento</span>
-			            </div>
-			        </div>
-		        </a>
-		    </div>
 			<div class="card-container blue large">
 				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/eventos')">
 			        <div class="content">
@@ -163,6 +171,19 @@
 			        </div>
 		        </a>
 		    </div>
+		    <div class="card-container blue-green large">
+				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/presentaciones')">
+			        <div class="content">
+			            <div class="icon">
+			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Presentaciones.png" alt="">
+			            </div>
+			            <div class="text">
+			                <p class="title big">Presentaciones</p>
+			                <span class="subtitle">Un espacio para compartir conocimiento</span>
+			            </div>
+			        </div>
+		        </a>
+		    </div>
 		    <div class="card-container pink short">
 		    	<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/guias')">
 			        <div class="content">
@@ -170,8 +191,8 @@
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/guias.png" alt="">
 			            </div>
 			            <div class="text">
-			                <p class="title big">Guias de gestión</p>
-			                <span class="subtitle">Un espacio para el análisis</span>
+			                <p class="title big">Guías de gestión</p>
+			                <span class="subtitle">Un espacio para consultar</span>
 			            </div>
 			        </div>
 		        </a>
@@ -197,7 +218,7 @@
 			            </div>
 			            <div class="text">
 			                <p class="title big">Contactos</p>
-			                <span class="subtitle">Un espacio para los usuarios</span>
+			                <span class="subtitle">Un espacio para dialogar</span>
 			            </div>
 			        </div>
 			    </a>
@@ -207,16 +228,7 @@
 		<div id="functionsContainer"></div>
 		<script type="text/javascript">
 			
-			$.ajax({
-				  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-					success: function(result){
-						var e = document.getElementById('functionsContainer');
-			            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
-			            eval(document.getElementById('sc1').innerHTML);
-					}
-				});
-
-
+			adjustGadgetHeight("container");
 
 			function Go(destination){
 				window.open(destination,'_parent');
