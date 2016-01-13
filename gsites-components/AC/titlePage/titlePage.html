@@ -126,7 +126,6 @@
 
 	<div id="container" class="container">
 		<div id="titlepage" class="titlepage"></div>
-		<button id="link"></button>
 	</div>
 
    	<script type="text/javascript">
@@ -143,9 +142,12 @@
 		}
 		html += '<h1>' + titlepage + '</h1>';
 
+		if(link != ""){
+			document.getElementById("container").innerHTML = document.getElementById("container").innerHTML + '<button id="link"></button>';
+			document.getElementById("link").setAttribute( "onClick", "javascript:Go('"+link+"');" );
+	 		document.getElementById("link").innerHTML = nameLink;
+	 	}
 	 	document.getElementById("titlepage").innerHTML = html;
-	 	document.getElementById("link").setAttribute( "onClick", "javascript:Go('"+link+"');" );
-	 	document.getElementById("link").innerHTML = nameLink;
 	 	//adjustGadgetHeight('titlepage');
 
 
