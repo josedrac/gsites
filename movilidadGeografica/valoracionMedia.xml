@@ -279,7 +279,7 @@
         var comunidad = getParam('comunidad');
         var name = getParam('name');
         var destination = "https://sites.google.com/a/bbva.com/movilidad-geografica/valorar?idCentro="+idCentro+"&comunidad="+comunidad+"&name="+name;
-        window.open(destination,'_parent');
+        window.open(destination,'_top');
         return false;
       }
 
