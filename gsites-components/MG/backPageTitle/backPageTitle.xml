@@ -6,7 +6,6 @@
     <Require feature="dynamic-height"/>
     <Require feature="setprefs" />
   </ModulePrefs>
-    <UserPref name="url" display_name="url" required="true" />
     <UserPref name="tag" display_name="tag" required="true" />
   <Content type="html">
     <![CDATA[
@@ -78,6 +77,96 @@
          return "";
       }
 
+      function getComunity(){
+        var com = "";
+        var aux = getParam('comunidad').replace(/[+]/g,"%20");
+
+
+        switch(aux){
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20ANDALUC%C3%8DA": 
+            com = "andalucia";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20ARAG%C3%93N":
+            com = "aragon";
+            break;
+
+          case "PRINCIPADO%20DE%20ASTURIAS":
+            com = "asturias";
+            break;
+
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20CANTABRIA":
+            com = "cantabria";
+            break;
+
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20CASTILLA-LA%20MANCHA":
+            com = "castilla-la-mancha";
+            break;
+          
+          case "COMUNIDAD%20DE%20CASTILLA%20Y%20LE%C3%93N":
+            com = "castilla-y-leon";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20CATALU%C3%91A":
+            com = "cataluna";
+            break;
+          
+          case "CIUDAD%20DE%20CEUTA":
+            com = "ceuta";
+            break;
+          
+          case "COMUNIDAD%20VALENCIANA":
+            com = "valencia";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20EXTREMADURA":
+            com = "extremadura";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20GALICIA":
+            com = "galicia";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20LAS%20ILLES%20BALEARS":
+            com = "islas-baleares";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20CANARIAS":
+            com = "islas-canarias";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20LA%20RIOJA":
+            com = "la-rioja";
+            break;
+          
+          case "COMUNIDAD%20DE%20MADRID":
+            com = "madrid";
+            break;
+
+          case "CIUDAD%20DE%20MELILLA":
+            com = "melilla";
+            break;
+          
+          case "REGI%C3%93N%20DE%20MURCIA":
+            com = "murcia";
+            break;
+          
+          case "COMUNIDAD%20FORAL%20DE%20NAVARRA":
+            com = "navarra";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DEL%20PA%C3%8DS%20VASCO":
+            com = "pais-vasco";
+            break;
+
+          default: console.log(aux);
+          break;
+        }
+
+        return com;
+      
+      }
+
       function Go(destination){
         window.open(destination,'_parent');
         return false;
@@ -85,14 +174,14 @@
 
       var prefs = new gadgets.Prefs();
       var html = "";
-      var url = prefs.getString('url');
+      var url = 'https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/' + getComunity();
       var title = prefs.getString('tag');
       html += '<button type="button" class="back-white" onclick="javascript:Go(\''+url+'\')">Volver</button>';
       html += '<h2>'+title+' <span id="name"></span></h2>';
       document.getElementById("title").innerHTML = html;
 
       name = decodeURI(getParam('name'));
-      name = name.replace("+", " ");
+      name = name.replace(/[+]/g," ");
       document.getElementById("name").innerHTML = name;
     </script>
 
@@ -114,11 +203,6 @@
       </style>
 
       <table width="100%" border="0" id="tablaconfig">
-        <tr>
-          <td>
-            Url: <input type="text" id="url" value="__UP_url__"   onchange="register('url')"/>
-          </td>
-        </tr>
         <tr>
           <td>
             Tag: <input type="text" id="tag" value="__UP_tag__"   onchange="register('tag')"/>
