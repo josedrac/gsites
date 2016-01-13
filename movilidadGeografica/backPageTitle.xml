@@ -79,7 +79,7 @@
 
       function getComunity(){
         var com = "";
-        var aux = getParam('comunidad');
+        var aux = getParam('comunidad').replace(/[+]/g,"%20");
 
 
         switch(aux){
@@ -181,7 +181,7 @@
       document.getElementById("title").innerHTML = html;
 
       name = decodeURI(getParam('name'));
-      name = name.replace("+", " ");
+      name = name.replace(/[+]/g," ");
       document.getElementById("name").innerHTML = name;
     </script>
 

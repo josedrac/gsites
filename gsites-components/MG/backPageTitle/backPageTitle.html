@@ -168,7 +168,7 @@
       document.getElementById("title").innerHTML = html;
 
       name = decodeURI(getParam('name'));
-      name = name.replace("+", " ");
+      name = name.replace(/[+]/g," ");
       document.getElementById("name").innerHTML = name;
     </script>
 
