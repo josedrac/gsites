@@ -44,6 +44,34 @@
         font-weight: normal;
       }
       /* @end */
+
+      button {
+        background: #0079C1;
+        background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+        background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 10px 15px;
+        border: .1em solid #00559D;
+        color: white;
+        cursor: pointer;
+        position: relative;
+        overflow: visible;
+        font-size: 14px;
+        font-weight:bold;
+        text-decoration: none;
+        position: absolute;
+        left: 10px;
+        top: 13px;
+      }
+
       p {
         font-size: 12px;
         font-family: 'BBVA Web Book', Arial;
@@ -99,6 +127,7 @@
         font-family: 'BBVA Web Book', Arial;
         text-align: right;
         padding: 20px 10px;
+        position: relative;
       }
       i {
         color: #0065B7;
@@ -162,6 +191,7 @@
       <img src="https://raw.githubusercontent.com/sopraux/gsites/master/movilidadGeografica/img/puntuacionMedia.png" />
     </div>
     <div class="media">
+      <button onclick="Go()">Valora</button>
       <label>Nota media</label> <span class="stars"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></span>
     </div>
 
@@ -242,6 +272,15 @@
           }
         }
         return html;
+      }
+
+      function Go() {
+        var idCentro = getParam('idCentro');
+        var comunidad = getParam('comunidad');
+        var name = getParam('name');
+        var destination = "https://sites.google.com/a/bbva.com/movilidad-geografica/valorar?idCentro="+idCentro+"&comunidad="+comunidad+"&name="+name;
+        window.open(destination,'_parent');
+        return false;
       }
 
       google.setOnLoadCallback(getSpreadsheet);
