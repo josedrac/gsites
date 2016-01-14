@@ -80,7 +80,6 @@
                 var parameterInput = "";
                 var contentInput = document.getElementById('inputText').value; 
 
-                var releases = prefs.getBool("releases");
                 var url = document.referrer.split('?')[0] + "/resultados";
                 if(contentInput != "") {
                     var parameterInput = '?inputText=' + contentInput;
