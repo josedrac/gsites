@@ -318,8 +318,7 @@
 
         function sendQuery() {
             tab = prefs.getString('tab');
-            var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-            //var spreadsheetKey = prefs.getString('spreadsheetKey'),
+            var spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sheetName = encodeURIComponent(tab),
                 queryString = encodeURIComponent('SELECT * where C <> "Link"' + getQueryParameters()),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -376,6 +375,7 @@
                 document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
             }
 
+
             //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
             var aux = data.clone();
 
@@ -396,7 +396,7 @@
 
             filas = data.getNumberOfRows();
 
-            pages = Math.ceil(filas / 8); 
+            pages = Math.ceil(filas / 8);
 
             if(filas<1)
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
@@ -450,7 +450,7 @@
 
             if(filas > 0)
                 pagination(pages);
-            //gadgets.window.adjustHeight();
+            gadgets.window.adjustHeight();
 
         }
 
