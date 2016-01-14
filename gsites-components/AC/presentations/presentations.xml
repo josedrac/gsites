@@ -8,6 +8,7 @@
   </ModulePrefs>
     <UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
     <UserPref name="tab" display_name="tab" required="true" />
+    <UserPref name="slider" display_name="slider" required="true" />
  <Content type="html">
     <![CDATA[
         <script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -559,6 +560,11 @@
             Tab: <input type="text" id="tab" value="__UP_tab__"   onchange="register('tab')"/>
           </td>
         </tr>   
+        <tr>
+          <td>
+            Slider (number 1-3): <input type="text" id="slider" value="__UP_slider__"   onchange="register('slider')"/>
+          </td>
+        </tr>  
       </table>
 
       <script type="text/javascript">
