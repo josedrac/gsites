@@ -244,7 +244,8 @@
 
     <script type="text/javascript">
 
-        //adjustGadgetHeight('container');
+        adjustGadgetHeight('container');
+        var prefs = new gadgets.Prefs();
 
         google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
