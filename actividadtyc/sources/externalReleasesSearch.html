@@ -69,7 +69,8 @@
 
                 //var prefs = new gadgets.Prefs();
                 //var releases = prefs.getBool("releases");
-                var url = document.referrer.split('?')[0] + "/resultados";
+                var url = document.referrer.split('?')[0].split('/resultados')[0] + "/resultados";
+                
                 if(contentInput != "") {
                     var parameterInput = '?inputText=' + contentInput;
                 }

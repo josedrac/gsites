@@ -80,7 +80,7 @@
                 var parameterInput = "";
                 var contentInput = document.getElementById('inputText').value; 
 
-                var url = document.referrer.split('?')[0] + "/resultados";
+                var url = document.referrer.split('?')[0].split('/resultados')[0] + "/resultados";
                 if(contentInput != "") {
                     var parameterInput = '?inputText=' + contentInput;
                 }
