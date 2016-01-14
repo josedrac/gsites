@@ -251,10 +251,7 @@
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
             var month = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
 
-            var releases = true;
-            var url = document.referrer.split('?')[0];
-            if(releases)
-                url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
+            var url = document.referrer.split('?')[0] + "/resultados";
 
             window.open(url + "?anyo="+selectedYear+"&mes="+month, "_parent");
             return false;
