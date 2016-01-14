@@ -189,7 +189,7 @@
 		
 
 	    function Go(selectedTag){
-            var url = document.referrer.split('?')[0] + "/resultados";
+            var url = document.referrer.split('?')[0].split('/resultados')[0] + "/resultados";
 
             window.open(url + "?tag="+selectedTag, "_parent");
             return false;
