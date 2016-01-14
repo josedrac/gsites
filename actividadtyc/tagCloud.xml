@@ -203,11 +203,7 @@
         
 
         function Go(selectedTag){
-            var sheetName = prefs.getString('sheetName');
-            var url = document.referrer.split('?')[0];
-            
-            if(sheetName == 'External Releases')
-                url += "/resultados"
+            var url = document.referrer.split('?')[0] + "/resultados";
 
             window.open(url + "?tag="+selectedTag, "_parent");
             return false;

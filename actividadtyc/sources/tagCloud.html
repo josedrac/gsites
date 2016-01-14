@@ -189,11 +189,7 @@
 		
 
 	    function Go(selectedTag){
-            var sheetName = 'guides';
-            var url = document.referrer.split('?')[0];
-            
-            if(sheetName == 'External Releases')
-                url += "/resultados"
+            var url = document.referrer.split('?')[0] + "/resultados";
 
             window.open(url + "?tag="+selectedTag, "_parent");
             return false;
@@ -201,7 +197,7 @@
 
         function getTagValues(data) {
 
-            var index = 5;
+            var index = 3;
             var aux;
             var s = 0;
             var fin = false;
