@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Module>
-  <ModulePrefs title="MG-valoracionMedia.xml" height="300">
-    <Require feature="idi"/>
-    <Require feature="locked-domain" />
-	  <Require feature="dynamic-height"/>
-	  <Require feature="setprefs" />
-  </ModulePrefs>
-  <Content type="html">
-    <![CDATA[
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <style type="text/css">
       /* @group fonts */
@@ -252,8 +241,8 @@
 
       function getParam(p){
         var params;
-        if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
-          params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+        if(window.location.href.split("?").length > 1){
+          params = window.location.href.split("?")[1].split("&");
           for(var i=0; i<params.length; i++){
             if(params[i].split("=")[0] == p)
               return params[i].split("=")[1];
@@ -278,7 +267,7 @@
         var idCentro = getParam('idCentro');
         var comunidad = getParam('comunidad');
         var name = getParam('name');
-        var destination = "https://sites.google.com/a/bbva.com/movilidad-geografica/valorar?idCentro="+idCentro+"&comunidad="+comunidad+"&name="+name +"&valora=true";
+        var destination = "https://sites.google.com/a/bbva.com/movilidad-geografica/valorar?idCentro="+idCentro+"&comunidad="+comunidad+"&name="+name+"&valora=true";
         window.open(destination,'_top');
         return false;
       }
@@ -286,7 +275,3 @@
       google.setOnLoadCallback(getSpreadsheet);
 
     </script>
-
-    ]]>
-  </Content>
-</Module>
