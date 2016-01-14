@@ -6,7 +6,6 @@
         <Require feature="dynamic-height"/>
         <Require feature="setprefs" />
     </ModulePrefs>
-    <UserPref name="releases" default_value="" display_name="releases" required="true" />
 
     <Content type="html">
         <![CDATA[
@@ -63,7 +62,7 @@
 
         <script type="text/javascript">
 
-            //adjustGadgetHeight('container');
+            adjustGadgetHeight('container');
 
             function getParam(p){
                 var params;
@@ -81,11 +80,8 @@
                 var parameterInput = "";
                 var contentInput = document.getElementById('inputText').value; 
 
-                var prefs = new gadgets.Prefs();
                 var releases = prefs.getBool("releases");
-                var url = document.referrer.split('?')[0];
-                if(releases)
-                    url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
+                var url = document.referrer.split('?')[0] + "/resultados";
                 if(contentInput != "") {
                     var parameterInput = '?inputText=' + contentInput;
                 }
@@ -111,41 +107,5 @@
 
         ]]>
      </Content>
-
-     <Content type="html" view="configuration">
-
-    <![CDATA[
-
-      <style type="text/css">
-
-        table td {
-          color: #000;
-          font-size: 11px;
-          font-weight: bold;
-        }
-
-      </style>
-
-      <table width="100%" border="0" id="tablaconfig">
-        <tr>
-          <td>
-            Publicaciones: <input type="checkbox" id="releases" value="__UP_releases__"   onchange="register('releases')"/>
-          </td>
-        </tr>  
-      </table>
-
-      <script type="text/javascript">
-
-        var prefs = new gadgets.Prefs();
-        function register(variable) {
-          prefs.set(variable, document.getElementById(variable).checked);
-        }
-
-        gadgets.window.adjustHeight();
-
-      </script>
-
-    ]]>
-  </Content>
 
 </Module>

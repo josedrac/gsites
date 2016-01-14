@@ -69,10 +69,7 @@
 
                 //var prefs = new gadgets.Prefs();
                 //var releases = prefs.getBool("releases");
-                var releases = true;
-                var url = document.referrer.split('?')[0];
-                if(releases)
-                    url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
+                var url = document.referrer.split('?')[0] + "/resultados";
                 if(contentInput != "") {
                     var parameterInput = '?inputText=' + contentInput;
                 }
