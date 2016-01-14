@@ -1,0 +1,731 @@
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>	
+
+	<style type="text/css">
+	  	/* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+
+		.container {
+			font-family: arial, sans-serif;
+		    font-size: 12px;
+		    margin-bottom: 16px;
+		    position: relative;
+		    width: 610px;
+		    float: left;
+		}
+
+		.titleContainer {
+			float: left;
+			display: table;
+		}
+
+		.icon {
+			display: inline-block;
+			float: left;
+		}
+
+		.title {
+			color: #0078D2;
+			font-size: 30px;
+			float: left;
+			display: table-cell;
+			margin-right: 10px;
+		}
+
+		.tag {
+			display: table-cell;
+			vertical-align: bottom;
+			padding-bottom: 5px;
+			font-weight: bold;
+		}
+
+		.line {
+		    width:610px;
+			margin-bottom:20px;
+			margin-left:-1px;
+			color:#DCDCDC;
+			float: left;
+		}
+
+		.data {
+			width: auto;
+			background-color: #F5F5F5;
+			float: left;
+			border-radius: 3px;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-color: #DFE0DE;
+			border-style: solid;
+			border-width: 1px;
+		}
+
+		.header {
+			margin-bottom: 10px;
+			float: left;
+			display: inline-block;
+			font-size: 18px;
+			width: 100%;
+			font-family: BBVA Web Book, Arial;
+		}
+
+		.subHeader {
+			margin-bottom: 2px;
+			float: left;
+			display: inline-block;
+			font-size: 16px;
+			color: #979797;
+			width: 100%;
+		}
+
+		.row {
+			margin-bottom: 10px;
+			display: inline-block;
+			float: left;
+			font-size: 12px;
+			width: 100%;
+		}
+
+		.row.last {
+			margin-bottom: 0px;
+		}
+
+		.row .field {
+			color: #666666;
+			font-size: 12px;
+			font-weight: bold;
+			width: 135px;
+			display: inline-block;	
+		}
+
+		.row .text.url, .row .text.email  {
+			color: #0065B7;
+		}
+
+		.row .text.url {
+			font-weight: bold;
+		}
+
+		.imageContainer {
+			float: left;
+		}
+
+		.mapContainer {
+			width: 100%;
+			float: left;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+
+		.info {
+			margin-left: 10px;
+			display: inline-block;
+			width: 420px;
+		}
+
+		.assistantsContainer {
+		    font-size: 13px;
+		    font-family: Arial;
+			margin-bottom: 15px;
+		    line-height: 18px;
+		    float: left;
+		    width: 100%;
+		}
+
+		.assistantHeader {
+			float: left;
+		}
+
+		.assistantsColumn {
+			font-size: 11px;
+			color: #434A58;
+			display: inline-block;
+			width: 80%;
+			margin-left: 10px;
+		}
+
+		.assistant {
+			display: inline-block;
+			width: 100%;
+		}
+
+		.place {
+		    color: #434A58;
+		    font-size: 13px;
+		    font-family: Arial;
+		    line-height: 18px;
+		}
+
+		.place span {
+		    font-size: 13px;
+		    font-family: Arial;
+		    color: #0078D2;
+		    line-height: 2px;
+		}
+
+		.descriptionContainer {
+			margin-left: 20px;
+			float: left;
+		}
+
+		.descriptionTitle {
+			font-size: 18px;
+		}
+
+		.description {
+		    color: #434A58;
+		    font-size: 12px;
+		    font-family: Arial;
+		    line-height: 18px;
+		    height: 36px;
+		    text-overflow: ellipsis;
+			display: inline-block;
+			overflow: hidden;
+			margin-bottom: 20px;
+			float: left;
+		}
+
+		.docsContainer {
+			display: inline-block;
+			width: 100%;
+		}
+
+		.docContent {
+			width: 100%;
+			position: relative;
+			height: 24px;
+			float: left;
+			display: table;
+		}
+
+		.icon {
+			float: left;
+			vertical-align: middle;
+			position: relative;
+			display: table-cell;
+			width: 12px;
+			margin-right: 10px
+		}
+
+		.uploadDocsContainer {
+			float: left;
+			margin-left: 20px;
+			margin-top: 10px;
+		}
+
+		.docLink {
+		        font-size: 12px;
+			    display: table-cell;
+			    cursor: pointer;
+			    text-decoration: none;
+			    position: relative;
+			    vertical-align: middle;
+			    color: #0065B7;
+			    display: inline-block;
+		}
+
+		.assistButton:hover {
+    		background: #004C99;
+		}
+
+		.uploadDocButton:hover {
+			background: #CCCCCC;
+		}
+
+		.assistButton, .uploadDocButton {
+		    -webkit-border-radius: .3em;
+		    -moz-border-radius: .3em;
+		    border-radius: .3em;
+		    text-align: center;
+		    font-size: 12px;
+		    vertical-align: middle;
+		    height: 1.75em;
+		    padding-left: .9em;
+		    padding-right: .9em;
+		    padding-bottom: 2px;
+		    cursor: pointer;
+		    position: relative;
+		    text-align: center;
+		    vertical-align: middle;
+		    margin-right: 22px;
+		    margin-bottom: 20px;
+		    margin-top: 20px;
+		    margin-left: 0px;
+		    float: left;
+		    font-family: BBVA Web Light, Arial;
+			font-weight: bold;
+		}
+
+		.assistButton {
+			background: #0079C1;
+		    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		    background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+		    background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+		    border: .1em solid #00559D;
+		    color: white;
+
+		}
+
+		.uploadDocButton {
+			border: .1em solid #CDCDCD;
+			color: black;
+		}
+
+		.content {
+			float: left;
+			width: 100%;
+		}
+
+	</style>
+
+
+	<div class="container" id="container">
+		<div class="titleContainer">
+			<span id="title" class="title"></span>
+		</div>
+		<hr class="line"/>
+		<div class="data">
+			<span class="header">Datos</span>
+			<div class="row">
+				<span class="field">Dirección:</span>
+				<span id="place" class="text"></span>
+			</div>
+			<div class="row">
+				<span class="field">Persona de contacto:</span>
+				<span id="contactName" class="text"></span>
+				<span id="contactEmail" class="text email"></span>
+			</div>
+			<div class="row">
+				<span class="field">Horario:</span>
+				<span id="schedule" class="text"></span>
+			</div>
+			<div class="row">
+				<span class="field">Transporte:</span>
+				<span id="transport" class="text"></span>
+			</div>
+			<div class="row last">
+				<span class="field">Web:</span>
+				<a id="web" class="text url"></a>
+			</div>
+		</div>
+		<div class="imageContainer">
+			<img id="image" />
+		</div>
+		<div id="videoContainer" class="videoContainer">
+		</div>
+		<div id="mapContainer" class="mapContainer">
+		</div>
+		<div class="descriptionContainer">
+			<div class="header">Descripción</div>
+			<div id="description" class="description"></div>
+			<div class="assistantsContainer">
+				<span class="assistantHeader">Asistentes:</span>
+				<div id="assistants" class="assistantsColumn">
+
+				</div>
+			</div>
+			<div id="docsContainer" class="docsContainer">
+			</div>
+			<div id="uploadDocsContainer" class="uploadDocsContainer">
+				<span class="header">¿Tienes algún documento sobre el evento?</span>
+				<div class="content">
+					<span class="subHeader">Introduce el enlace al documento</span>
+					<input id="docLink" type="text"/>
+				</div>
+				<div class="content" style="margin-top:10px">
+					<span class="subHeader">Introduce el nombre del documento</span>
+					<input id="docName" type="text"/>
+				</div>
+				<div class="content">
+					<button id="uploadDocButton" onclick='javascript:uploadDoc()' class="uploadDocButton">Añadir documento</button>
+				</div>
+			</div>
+			<div id="assistButtonContainer" class="content">
+			</div>
+		</div>
+	</div>
+
+   	<script type="text/javascript">
+   		
+   		//adjustGadgetHeight('container');
+		var gadgetHelper = null;
+		var dataUser;
+		var eventDate;
+		google.load('visualization', '1', {packages: ['table']});
+        google.setOnLoadCallback(sendQuery);
+        google.setOnLoadCallback(sendQueryUsers);
+        google.setOnLoadCallback(sendQueryDocs);
+        //var prefs = new gadgets.Prefs();
+
+
+	 	function loadVisualizationAPI() {
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
+
+	    function getParam(p){
+            var params;
+            if(location.href.split("?").length > 1){
+            //if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                //params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                params = location.href.split("?")[1].split("&");
+                for(var i=0; i<params.length; i++){
+                    if(params[i].split("=")[0] == p)
+                        return params[i].split("=")[1];
+                }
+            }
+            return "";
+        }
+
+        function getQueryParameters() {
+            var filter = "";
+
+            var id = getParam('id');
+
+            if(id != "" && id > 0)
+            	filter += " AND A ="+ id;
+
+            return filter;
+        }
+
+		function sendQuery(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+                sheetName = encodeURIComponent('events'),
+                queryString = encodeURIComponent('SELECT * where B <> "title"' + getQueryParameters()),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 0);
+            	});
+		}
+
+
+		function handleQueryResponse(response, index) {
+			data = response.getDataTable();
+			
+			if(index == 0){
+				eventDate = data.getFormattedValue(0, 5);
+				if(eventDate == 'undefined' || eventDate == null || eventDate == '')
+					eventDate = data.getFormattedValue(0, 4);
+
+				var title = data.getValue(0, 1);
+				var address = data.getValue(0, 7);
+				var contact = data.getValue(0, 8);
+				var contactEmail = data.getValue(0, 9);
+				var schedule = data.getValue(0, 10);
+				var transport = data.getValue(0, 11);
+				var web = data.getValue(0, 12);
+				var map = data.getValue(0, 13);
+				var image = data.getValue(0, 14);
+				var video = data.getValue(0, 15);
+
+				var description = data.getValue(0, 2);
+
+				var tagConfirm = "";
+					
+				document.getElementById('title').innerHTML = title;
+				document.getElementById('place').innerHTML = address;
+				document.getElementById('contactName').innerHTML = contact;
+				document.getElementById('contactEmail').innerHTML = contactEmail;
+				document.getElementById('schedule').innerHTML = schedule;
+				document.getElementById('transport').innerHTML = transport;
+				document.getElementById('web').innerHTML = web;
+				document.getElementById('description').innerHTML = description;
+
+				if(map != '' && map != 'undefined' && map != null){
+					var iframeMap = "";
+					iframeMap += '<iframe id="map" src="'+map+'" style="height: 300px;" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>';
+					document.getElementById('mapContainer').innerHTML = iframeMap;
+				}
+
+				if(image != '' && image != 'undefined' && image != null){
+					document.getElementById('image').src = image;
+				}
+
+				if(video != '' && video != 'undefined' && video != null){
+					document.getElementById('videoContainer').innerHTML = "<iframe src='"+video+"'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:100%; height:300px; '></iframe>";
+				}
+				
+			}
+			else if(index == 1){
+				dataUser = data;
+				isAssistant(dataUser);
+				var filas = data.getNumberOfRows();
+				html = "";
+				for(var i=0; i<filas; i++) {
+
+					var date = data.getFormattedValue(i, 3);
+					var name = data.getValue(i, 1);
+					html += "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
+				}
+				
+				document.getElementById('assistants').innerHTML = html;
+			}
+			else {
+				var filas = data.getNumberOfRows();
+				html = "";
+				if(filas > 0)
+					html += '<span class="header">Documentación:</span>';
+				for(var i=0; i<filas; i++){
+					html += '<div class="docContent">';
+					html += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
+					html += '	<a class="docLink" onclick=javascript:Go("'+ data.getValue(i, 2) +'")>'+data.getValue(i, 1)+'</a>';
+					html += '</div>';
+				}
+				document.getElementById('docsContainer').innerHTML = html;
+			}
+
+		}
+
+		function getQueryParametersUsers() {
+            var filter = "";
+
+            var id = getParam('id');
+
+            if(id != "" && id > 0)
+            	filter += " AND A ="+ id;
+
+            filter += " AND C ='x'";
+
+            return filter;
+        }
+
+		function sendQueryUsers(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey = '1CKb_vRSHUdZfU11-HxpLTCdbiPPu1kLdLZTGwEwRtOs',
+                sheetName = encodeURIComponent('eventos usuarios'),
+                queryString = encodeURIComponent('SELECT * where B <> "email"' + getQueryParametersUsers()),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 1);
+            	});
+		}
+
+		function getQueryParametersDocs() {
+            var filter = "";
+
+            var id = getParam('id');
+
+            if(id != "" && id > 0)
+            	filter += " AND A ="+ id;
+
+            return filter;
+        }
+
+		function sendQueryDocs(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+                sheetName = encodeURIComponent('eventos documentos'),
+                queryString = encodeURIComponent('SELECT * where B <> "name"' + getQueryParametersDocs()),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 2);
+            	});
+		}
+
+
+	    function Go(destination){
+	    	window.open(destination,'_blank');
+		    //window.parent.location.href = destination;
+		    return false;
+		}
+
+		//delay loading
+		delayRender();
+	    function delayRender(){
+	    	window.setTimeout('showIframes()', 2000);
+	    }
+
+	 	function showIframes() {
+		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+		 	for (var i=0;i<iframes;i++) {
+				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+			}
+	 	}
+
+
+	 	function isAssistant(dataUser) {
+  			$.ajax({
+	            type      	: 'GET', 
+	            //url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec', 
+	            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyfNDxo9Pli9r5j23r2rpO9CBV08hK5PCa2tMYm7cBzJ9oauBDF/exec',
+	            dataType	: 'jsonp',
+				jsonpCallback: "on_result",
+				success: function(data) {
+
+
+					var user = JSON.parse(data);
+					var html = "";
+					var style = "";
+					console.log(user.email);
+
+					setTimeout(function(){
+						if(eventDate != null){
+							var id = getParam('id');
+
+							for(var i=0; i<dataUser.getNumberOfRows(); i++){
+								if(dataUser.getValue(i, 1) == user.email){
+									if(!pastDate(eventDate)){
+										activeDesAssistButton();
+									}	
+								}
+							}
+							if(!pastDate(eventDate)){
+								activeAssistButton();
+							}
+							return;
+						}
+					}, 300);
+				}
+			});
+  		}
+
+  		function uploadDoc() {
+  			var link = document.getElementById("docLink").value;
+  			var name = document.getElementById("docName").value;
+  			var id = getParam('id');
+
+  			if(name != '' && name != null){
+	  			if(link != "" && link != null && link.startsWith("http")){
+		  			$.ajax({
+			            type      	: 'GET', 
+			            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwBnJc-wVyxF4xZ9kcibmEiNTKzi9bfkWqrjVZLtXiGPP2OAME/exec?id='+id+'&link='+link+'&name='+name,
+			            dataType	: 'jsonp',
+						jsonpCallback: "on_result",
+						success: function(data) {
+							var result = JSON.parse(data);
+							console.log(result);
+							var htm = document.getElementById('docsContainer').innerHTML;
+							if(htm == "" || htm == null)
+								htm += '<span class="header">Documentación:</span>';
+				
+							htm += '<div class="docContent">';
+							htm += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
+							htm += '	<a class="docLink" onclick=javascript:Go("'+ link +'")>'+name+'</a>';
+							htm += '</div>';
+							document.getElementById('docsContainer').innerHTML = htm;
+							document.getElementById("docLink").value = '';
+  							document.getElementById("docName").value = '';
+						}
+					});
+	  			}
+	  			else {
+	  				alert("El enlace no es válido");
+	  			}
+	  		}
+	  		else
+	  			alert("El nombre esta vacío");
+  		}
+
+  		function assistEvent(id) {
+  			$.ajax({
+	            type      	: 'GET', 
+	            //url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec', 
+	            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyd_YHHIqsZf9hn_CnrrTHTvW7ZB3ABLs6UQFhgva7HqsNwTCc/exec?id='+id+'&func=asistir',
+	            dataType	: 'jsonp',
+				jsonpCallback: "on_result",
+				success: function(data) {
+					var result = JSON.parse(data);
+					console.log(result);
+					var date = result[3];
+					var name = result[1];
+					var html = "<span class='assistant'>"+ date +" - Asistente "+ name +"</span>";
+					var inner = document.getElementById('assistants').innerHTML;
+					document.getElementById('assistants').innerHTML = inner + html;
+
+					activeDesAssistButton();
+					
+				}
+			});
+  		}
+
+  		function desAssistEvent(id) {
+  			$.ajax({
+	            type      	: 'GET', 
+	            //url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec', 
+	            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyd_YHHIqsZf9hn_CnrrTHTvW7ZB3ABLs6UQFhgva7HqsNwTCc/exec?id='+id+'&func=desasistir',
+	            dataType	: 'jsonp',
+				jsonpCallback: "on_result",
+				success: function(data) {
+					var result = JSON.parse(data);
+					console.log(result);
+					var email = result;
+
+					var assistantsContainer = document.getElementById('assistants');
+
+					var assistants = assistantsContainer.childNodes;
+
+					for(var i=0; i<assistants.length; i++){
+						var aux = assistants[i].innerHTML.split(" ");
+						if(email == aux[aux.length-1])
+							assistantsContainer.removeChild(assistants[i]);
+					}
+
+					activeAssistButton();
+					
+				}
+			});
+  		}
+
+  		function pastDate(eventDate){
+  			var ed = eventDate.split('/');
+  			
+  			var eDate = Date.UTC(ed[2], ed[1], ed[0]);
+  			var dateObj = new Date();
+			var actDate = dateObj.getTime();
+
+  			if(actDate > eDate)
+  				return true;
+  			else
+  				return false;
+  		}
+
+  		function activeDesAssistButton(){
+  			var id = getParam('id');
+			var html = "<button id='assistButton' onclick='javascript:desAssistEvent("+id+")' class='assistButton'>Desconfirmar asistencia</button>";
+			document.getElementById('assistButtonContainer').innerHTML = html;
+  		}
+
+  		function activeAssistButton(){
+  			var id = getParam('id');
+  			html = "<button id='assistButton' onclick='javascript:assistEvent("+id+")' class='assistButton'>Confirmar asistencia</button>";
+			document.getElementById('assistButtonContainer').innerHTML = html;
+  		}
+
+
+
+  	</script>
