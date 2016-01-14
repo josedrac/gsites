@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+
+	<ModulePrefs title="NB - simpleArticleCover.xml">
+		<Require feature="idi"/>
+		<Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+
+	<UserPref name="siteName" display_name="Site name" required="true" />
+
+	<UserPref name="sectionId" display_name="Section ID" required="true" />
+
+	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
+
+	<Content type="html">
+	    <![CDATA[
+
+			<style type="text/css">
+
+				@font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				h2 {
+					font-family: BBVA Web Light, Arial;
+					font-size: 16px;
+					font-weight: normal;
+					text-transform: uppercase;
+	    			word-spacing: 2px;
+					color: #333;
+					margin-top: 0;
+					margin-bottom: 5px;
+				}
+
+				h3 {
+		  			font-family: BBVA Web Book, Arial;
+		  			font-size: 18px;
+		  			font-weight: normal;
+					color: #0078D2;
+		  			text-decoration: none;
+		  			word-spacing: -2px;
+		  			margin: 0;
+				}
+
+				p,
+				dl {
+					font-family: arial;
+					font-size: 13px;
+					color: #434A58;
+				}
+
+				button {
+					background: #0079C1;
+					background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+					background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+					background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+					-webkit-border-radius: .3em;
+					-moz-border-radius: .3em;
+					border-radius: .3em;
+					font-size: 11px;
+					font-weight: bolder;
+					word-spacing: 2px;
+					height: 20px;
+					padding-left: .9em;
+					padding-right: .9em;
+					border: .1em solid #00559D;
+					color: white;
+					cursor: pointer;
+					margin: 20px 0;
+				}
+
+				button:hover {
+					background: #004C99;
+				}
+
+				dl {
+				    margin-top: 14px;
+				    margin-bottom: 16px;
+				}
+
+				dt {
+					float: left;
+				}
+				dt:after {
+					content: "\003A";
+					margin-right: 3px;
+				}
+				dd {
+					color: #0078D2;
+				    margin-bottom: 4px;
+				}
+				
+			</style>
+
+			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+			<script type="text/javascript">
+
+				google.load('visualization', '1', {packages: ['table']});
+
+			</script>
+
+		 	<div id="sectionId">
+
+				<h3 id="subtitle"></h3>	
+
+				<div id="sortDescription"></div>
+				<button id="buttonArticle" type="button" onclick="javascript:goArticle()"></button>
+
+		 	</div>
+
+		 	<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+				
+			</script>
+
+			<script type="text/javascript">
+
+				function getUrlParameter(parameterName) {
+
+					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
+
+					for (var i = 0; i < params.length; i++) {
+						var p = params[i].split('=');
+						if (p[0] == parameterName) {
+							return decodeURIComponent(p[1]);
+						}
+					}
+					return false;
+				}
+
+				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
+
+					siteName = prefs.getString('siteName'),
+
+					sectionId = prefs.getString('sectionId'),
+
+					date = getUrlParameter("date"),
+					sheetName = encodeURIComponent('article content'),
+					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
+				function getSpreadsheet() {
+					query.send(handleQueryResponse);
+				}
+
+				function handleQueryResponse(response) {
+					if (response.isError()) {
+						console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+						return;
+					}
+					var dataTable = response.getDataTable();
+					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+				}
+
+				function printDataTable(dataTable) {
+					var data = {
+							subtitle: dataTable.getValue(0, 2),
+							sortDescription: dataTable.getValue(0, 7)
+						};
+
+					document.getElementById("subtitle").innerHTML = data.subtitle; 	
+					document.getElementById("sortDescription").innerHTML = data.sortDescription;
+
+				}
+
+				function goArticle() {
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/articlecontent?id=' + sectionId + '&date=' + date + '';
+					return false;
+				}
+
+				google.setOnLoadCallback(getSpreadsheet);
+
+				var buttonLabel = prefs.getString('buttonLabel');
+				document.getElementById('buttonArticle').innerHTML = buttonLabel;
+
+			</script>
+
+	    ]]>
+	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+
+			<style type="text/css">
+
+				table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+			}
+
+			</style>
+
+
+			<table width="100%" border="0" id="tablaconfig">
+				<tr>
+					<td>
+						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
+						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
+						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
+					</td>
+				</tr>
+				<tr>
+				   	<td>
+				       	Button Label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__" onchange="register('buttonLabel')"/>
+				    </td>
+				</tr>
+			</table>
+
+			<script type="text/javascript">
+
+			var prefs = new gadgets.Prefs();
+				function register(variable) {
+				prefs.set(variable, document.getElementById(variable).value);
+			}
+
+			</script>
+
+		]]>
+
+	</Content>
+
+</Module>

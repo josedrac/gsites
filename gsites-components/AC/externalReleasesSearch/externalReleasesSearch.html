@@ -1,0 +1,97 @@
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://sites.google.com/a/bbva.com/evolucionadigital/jqueryui-css/jquery-ui.min.css?attredirects=0&d=1" media="all">
+        <style type="text/css">
+            .container{
+                clear: both;
+                width: 298px;
+                overflow: hidden;
+            }
+
+            .btn:hover {
+                background: #004C99;
+            }
+
+            .btn {
+                background: #0065B7;
+                border: 1px solid #0065B7;
+                cursor: pointer;
+                padding: 8px 12px;
+                float: right;
+                width: 45px;
+                height: 37px;
+            }
+
+            .inputContainer {
+                width: 83%;
+                float: left;
+            }
+
+            input {
+                border: 1px solid #d5e2ee;
+                width: 100%;
+                height: 38px;
+                padding: 0 5%;
+                color: #434a48;
+                font-size: 13px;
+            }
+        </style>
+        
+    </head>
+
+        <div id="container" class="container">
+            <div id="inputContainer" class="inputContainer"></div>
+            <button onclick='javascript:Go();' class="btn"><img src="https://rawgit.com/sopraux/gsites/master/actividadtyc/img/lupa.png"></button>
+        </div>
+
+
+        <script type="text/javascript">
+
+            //adjustGadgetHeight('container');
+
+            function getParam(p){
+                var params;
+                if(window.location.href.split("?").length > 1){
+                    params = window.location.href.split("?")[1].split("&");
+                    for(var i=0; i<params.length; i++){
+                        if(params[i].split("=")[0] == p)
+                            return params[i].split("=")[1];
+                    }
+                }
+                return "";
+            }
+
+            function Go(){
+                var parameterInput = "";
+                var contentInput = document.getElementById('inputText').value; 
+
+                //var prefs = new gadgets.Prefs();
+                //var releases = prefs.getBool("releases");
+                var releases = true;
+                var url = document.referrer.split('?')[0];
+                if(releases)
+                    url = "https://sites.google.com/a/bbva.com/actividadtyc/publicaciones/resultados";
+                if(contentInput != "") {
+                    var parameterInput = '?inputText=' + contentInput;
+                }
+                window.open(url + parameterInput, '_parent');
+                return false;
+            }
+
+            function getInputText(){
+                var contentInput = getParam('inputText');
+                if(contentInput != 'undefined' && contentInput != "") {
+                    return contentInput;
+                } else {
+                    return '';
+                }
+            }
+
+            (function() {
+                var html =  "<input type='text' id='inputText' placeholder='Busca por nombre' value='"+ getInputText() +"'/>";
+                document.getElementById('inputContainer').innerHTML = html;
+            })();
+
+        </script>
