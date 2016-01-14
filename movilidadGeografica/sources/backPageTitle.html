@@ -24,11 +24,15 @@
       }
       .title-section-back h2 {
         display: inline-block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 33px;
+        width: 735px;
         vertical-align: sub;
       }
       .title-section-back button {
-        vertical-align: middle;
         margin-right: 12px;
+        vertical-align: bottom;
       }
       .back-white {
         background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/bg-boton-encabezado-volver_R2.png);
@@ -171,7 +175,7 @@
       if(param != "")
         url = 'https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones/' + '?idCentro=' + idCentro + '&comunidad=' + comunidad + '&name=' + nombre;
 
-      var title = 'Tu valoración del centro ';
+      var title = 'Tu valoración del centro NUESTRA SEÑORA DE LA CONSOLACION';
       html += '<button type="button" class="back-white" onclick="javascript:Go(\''+url+'\')">Volver</button>';
       html += '<h2>'+title+' <span id="name"></span></h2>';
       document.getElementById("title").innerHTML = html;

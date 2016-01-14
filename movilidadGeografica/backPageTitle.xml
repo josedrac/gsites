@@ -36,11 +36,15 @@
       }
       .title-section-back h2 {
         display: inline-block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 33px;
+        width: 735px;
         vertical-align: sub;
       }
       .title-section-back button {
-        vertical-align: middle;
         margin-right: 12px;
+        vertical-align: bottom;
       }
       .back-white {
         background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/bg-boton-encabezado-volver_R2.png);
