@@ -251,7 +251,7 @@
             var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
             var month = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
 
-            var url = document.referrer.split('?')[0] + "/resultados";
+            var url = document.referrer.split('?')[0].split('/resultados')[0] + "/resultados";
 
             window.open(url + "?anyo="+selectedYear+"&mes="+month, "_parent");
             return false;
