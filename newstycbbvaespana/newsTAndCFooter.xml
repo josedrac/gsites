@@ -110,6 +110,17 @@
 
 	var TitleFooter = prefs.getString("TitleFooter");
    	
+   	function getParam(p){
+        var params;
+        if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+            params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+            for(var i=0; i<params.length; i++){
+                if(params[i].split("=")[0] == p)
+                    return params[i].split("=")[1];
+            }
+        }
+        return "";
+    }
 
 	function getSpreadsheet() {
    		var spreadsheetKey = prefs.getString("spreadsheetKey"),
@@ -149,7 +160,7 @@
 
 
  	function Go(destination){
-    	window.open(destination,'_parent');
+    	window.open(destination + getParam('date'), '_parent');
     	return false;
     }
 

@@ -96,7 +96,17 @@
 	//var TitleFooter = prefs.getString("TitleFooter");
 	var TitleFooter = "News T&C BBVA España";
 
-   	
+	function getParam(p){
+        var params;
+        if(window.location.href.split("?").length > 1){
+            params = window.location.href.split("?")[1].split("&");
+            for(var i=0; i<params.length; i++){
+                if(params[i].split("=")[0] == p)
+                    return params[i].split("=")[1];
+            }
+        }
+        return "";
+    }
 
 	function getSpreadsheet() {
 		var spreadsheetKey = '1GgolxvASZkQt6RDB-lH_2WhPE7GtNM0VUFbkrY0eZWo',
@@ -137,7 +147,7 @@
 
 
  	function Go(destination){
-    	window.open(destination,'_parent');
+    	window.open(destination + getParam('date'), '_parent');
     	return false;
     }
 
