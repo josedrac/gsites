@@ -182,7 +182,32 @@
 			        </div>
 		        </a>
 		    </div>
-		    
+			<div class="card-container pink short">
+				<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/guias\')">
+					<div class="content">
+						<div class="icon">
+							<img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/guias.png" alt="">
+						</div>
+						<div class="text">
+							<p class="title big">Guías de gestión</p>
+							<span class="subtitle">Un espacio para consultar</span>
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="card-container green short">
+				<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/publicaciones\')">
+					<div class="content">
+						<div class="icon">
+							<img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Publicaciones.png" alt="">
+						</div>
+						<div class="text">
+							<p class="title small">Publicaciones externas</p>
+							<span class="subtitle">Un espacio para la divulgación</span>
+						</div>
+					</div>
+				</a>
+			</div>  
 		</div>
 		
 		<script type="text/javascript">
@@ -193,35 +218,10 @@
 			hasPrivilegies();
 
 			function writeHtml(result){
-				if(result){
+
+				if(!result){
 					
-					html =  '<div class="card-container pink short">' +
-						    '	<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/guias\')">' +
-							'        <div class="content">' +
-							'            <div class="icon">' +
-							'                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/guias.png" alt="">' +
-							'            </div>' +
-							'            <div class="text">' +
-							'                <p class="title big">Guías de gestión</p>'+
-							'                <span class="subtitle">Un espacio para consultar</span>'+
-							'            </div>'+
-							'        </div>'+
-						    '    </a>'+
-						    '</div>'+
-						    '<div class="card-container green short">'+
-						    '	<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/publicaciones\')">'+
-							'        <div class="content">'+
-							'            <div class="icon">'+
-							'                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Publicaciones.png" alt="">'+
-							'            </div>'+
-							'            <div class="text">'+
-							'                <p class="title small">Publicaciones externas</p>'+
-							'                <span class="subtitle">Un espacio para la divulgación</span>'+
-							'            </div>'+
-							'        </div>'+
-						    '    </a>'+
-						    '</div>'+
-						    '<div class="card-container yellow short">'+
+					html += '<div class="card-container yellow short">'+
 						    '	<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/contactos\')">'+
 							'        <div class="content">'+
 							'            <div class="icon">'+
@@ -236,31 +236,18 @@
 						    '</div>';
 				}
 				else {
-					html =  '<div class="card-container pink medium">' +
-						    '	<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/guias\')">' +
-							'        <div class="content">' +
-							'            <div class="icon">' +
-							'                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/guias.png" alt="">' +
-							'            </div>' +
-							'            <div class="text">' +
-							'                <p class="title big">Guías de gestión</p>'+
-							'                <span class="subtitle">Un espacio para consultar</span>'+
-							'            </div>'+
-							'        </div>'+
-						    '    </a>'+
-						    '</div>'+
-						    '<div class="card-container green medium">'+
-						    '	<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/publicaciones\')">'+
+					html += '<div class="card-container yellow short">'+
+						    '	<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/contactos\')">'+
 							'        <div class="content">'+
 							'            <div class="icon">'+
-							'                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Publicaciones.png" alt="">'+
+							'                <img class="comite" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Comite.png" alt="">'+
 							'            </div>'+
 							'            <div class="text">'+
-							'                <p class="title small">Publicaciones externas</p>'+
-							'                <span class="subtitle">Un espacio para la divulgación</span>'+
+							'                <p class="title big">Comite</p>'+
+							'                <span class="subtitle">comites</span>'+
 							'            </div>'+
 							'        </div>'+
-						    '    </a>'+
+							'    </a>'+
 						    '</div>';
 				}
 
