@@ -285,6 +285,7 @@
 
 
         function sendQuery() {
+        	var prefs = new gadgets.Prefs();
             var tab = "Mitines";
             //var spreadsheetKey = '1rdg4lCIycwTMx-lgBS_1fIuczuYkNlMvktpWT16eyOM',
             var spreadsheetKey = prefs.getString('spreadsheetKey'),
