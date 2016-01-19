@@ -271,13 +271,44 @@
             });
          }
 
+         function getQueryParameters() {
+            var filter = "";
+
+            var slider = "1";
+            var month = getParam("mes");
+            var year = getParam("anyo");
+            var inputText = urldecode(getParam("inputText").toLowerCase());
+            var tag = urldecode(getParam("tag").toLowerCase());
+
+            if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
+                var date = getMonthAndYear(1);
+
+                inputText = "";
+                month = date.split(" ")[0];
+                year = date.split(" ")[1];
+            }
+
+            if (year > 0)
+                filter += " AND year(B) ="+ year;
+            if (month > 0)
+                filter += " AND month(B) = "+ (month-1);
+            if(inputText != "")
+                filter += " AND lower(A) like '%"+inputText+"%'";
+
+            if(tag != "")
+                filter += " AND lower(D) like '%"+tag+"%'";
+
+
+            return filter;
+        }
+
 
         function sendQuery() {
-            var tab = "Comites";
+            tab = "Comites";
             var spreadsheetKey = '1rdg4lCIycwTMx-lgBS_1fIuczuYkNlMvktpWT16eyOM',
             //var spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sheetName = encodeURIComponent(tab),
-                queryString = encodeURIComponent('SELECT * where C <> "Link"'),
+                queryString = encodeURIComponent('SELECT * where C <> "Link"' + getQueryParameters()),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(handleQueryResponse);
         }
@@ -294,8 +325,61 @@
 
             var slider = "1";
             var mes = "";
+            var month = getParam("mes");
+            var year = getParam("anyo");
+            var inputText = urldecode(getParam("inputText"));
+            var tag = urldecode(getParam("tag"));
             var tagText = "";
 
+
+            if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
+
+                var date = getMonthAndYear(1);
+
+                inputText = "";
+                mes = date.split(" ")[0];
+                month = getMonth(mes);
+                year = date.split(" ")[1];
+            }
+            else{
+
+                if(month > 0)
+                    month = getMonth(month);
+                else
+                    month = "Todos los meses";
+
+                if(year == 0)
+                    year = "Todos los años"; 
+
+                if(tag != "")
+                    tagText = "Etiqueta "+tag;
+            }
+
+            if(tagText != "")
+                document.getElementById('title').innerHTML = tagText;
+            else if(inputText == "")
+                document.getElementById('title').innerHTML = month +" "+ year;
+            else {
+                document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
+            }
+
+            //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
+            var aux = data.clone();
+
+            if(tag != ""){
+                var x = 0;
+                while(1){
+                    if(aux.getNumberOfRows() <= x)
+                        break;
+                    if(data.getValue(x, 3).split(',').indexOf(tag) == -1) {
+                        aux.removeRow(x);
+                        x--;
+                    }
+                    x++;
+                }
+            }
+
+            data = aux;
 
             filas = data.getNumberOfRows();
 
@@ -356,7 +440,6 @@
             //gadgets.window.adjustHeight();
 
         }
-
         function Go(destination){
             window.parent.location.href = destination;
             return false;
@@ -377,6 +460,68 @@
             html += '</li>';
 
             return html;
+        }
+
+        function getMonth(index) {
+            var month = '';
+            switch(parseInt(index)) {
+                case 1: month = 'Enero';
+                        break;
+                case 2: month = 'Febrero';
+                        break;
+                case 3: month = 'Marzo';
+                        break;
+                case 4: month = 'Abril';
+                        break;
+                case 5: month = 'Mayo';
+                        break;
+                case 6: month = 'Junio';
+                        break;
+                case 7: month = 'Julio';
+                        break;
+                case 8: month = 'Agosto';
+                        break;
+                case 9: month = 'Septiembre';
+                        break;
+                case 10: month = 'Octubre';
+                        break;
+                case 11: month = 'Noviembre';
+                        break;
+                case 12: month = 'Diciembre';
+                        break;
+            }
+            return month;
+        }
+
+        function getMonthAndYear(slider) {
+            var dateObj = new Date();
+            var month = dateObj.getUTCMonth() + 1; //months from 1-12
+            var year = dateObj.getUTCFullYear();
+
+            switch(parseInt(slider)) {
+                case 2:
+                    if(month == 1){
+                        month = 12;
+                        year--;
+                    }
+                    else{
+                        month--;
+                    }
+                    break;
+                case 3:
+                    if(month == 1){
+                        month = 11;
+                        year--;
+                    }
+                    else if(month == 2){
+                        month = 12;
+                        year--;
+                    }
+                    else{
+                        month = month-2;
+                    }
+            }
+            return month +' '+ year;
         }
 
 
