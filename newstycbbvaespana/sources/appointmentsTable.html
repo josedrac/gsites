@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>appointments table</title>
+
+		<!-- --- STYLES ------------------------------------------------------------------------------------------ -->
+
+		<style type="text/css">
+
+			@font-face {
+				font-family: 'BBVA Web Light';
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+
+			p {
+				font-family: arial;
+				font-size: 12.25px;
+				color: #434A58;
+				line-height: 20px;
+				padding: 0 20px;
+			}
+
+			table {
+		    	border-collapse: collapse;
+				background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
+				background-position: bottom;
+				background-repeat: repeat-x;
+				width: 860px;
+				margin: 0 auto;
+				margin-top: 40px;
+			}
+
+			table thead tr th {
+				font-family: BBVA Web Light, Arial;
+				font-weight: normal;
+				font-size: 16px;
+			    text-align: left;
+				color: #0078D2;
+				border-bottom: 1px solid #DDE3EA;
+			    padding: 0 20px 6px;
+			}
+
+			table thead tr th.col-1 {
+				width: 27%;
+			}
+
+			table thead tr th.col-2 {
+				width: 15%;
+			}
+
+			table thead tr th.col-3 {
+				width: 22%;
+			}
+
+			table thead tr th.col-4 {
+				width: 36%;
+			}
+
+			table tbody tr td {
+				font-family: arial;
+				font-size: 12.25px;
+				color: #434A58;
+			    padding: 7.25px 20px;
+		        vertical-align: top;
+			}
+
+			table tbody tr:first-child td {
+				padding-top: 26px;
+			}
+
+			table tbody tr:last-child td {
+				padding-bottom: 25px;
+			}
+
+			table tbody tr td.text-right {
+				text-align: right;;
+			}
+
+			table tbody tr td .sign-up {
+				font-family: BBVA Web Light, Arial;
+				font-size: 18px;
+				color: #0078D2;
+				position: relative;
+			    top: -4px;
+		        cursor: default
+			}
+
+			table tbody tr td .sign-up span {
+				position: relative;
+			    top: -4px;
+			    font-weight: bold;
+			    color: #0079C1;
+			}
+
+			table thead tr th:not(:first-child),
+			table tbody tr td:not(:first-child) {
+				padding-left: 0;
+			}
+
+			
+		</style>
+
+		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
+
+		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
+		
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+		<script type="text/javascript">
+
+			google.load('visualization', '1', {packages: ['table']});
+
+		</script>
+
+		<script type="text/javascript">
+
+			function getUrlParameter(parameterName) {
+				var params = window.location.search.substr(1).split('&');
+				for (var i = 0; i < params.length; i++) {
+					var p = params[i].split('=');
+					if (p[0] == parameterName) {
+						return decodeURIComponent(p[1]);
+					}
+				}
+				return false;
+			}
+
+			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				sheetName = encodeURIComponent('appointments'),
+				queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
+				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+
+			function getSpreadsheet() {
+				query.send(handleQueryResponse);
+			}
+
+			function handleQueryResponse(response) {
+				if (response.isError()) {
+					console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+					return;
+				}
+				var dataTable = response.getDataTable();
+				dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+			}
+
+			function printDataTable(dataTable) {
+				var rows = dataTable.getNumberOfRows(),
+					template = '',
+					url;
+
+				for(i = 0; i < rows; i++) {
+					template += '<tr>';
+					template += '<td>' + dataTable.getValue(i, 0) + '</td>';
+					template += '<td>' + dataTable.getValue(i, 1) + '</td>';
+					template += '<td>' + dataTable.getValue(i, 2) + '</td>';
+					template += '<td>' + dataTable.getValue(i, 3) + '</td>';
+					url = dataTable.getValue(i, 4);
+					if(url != null && url != undefined && url != '') {
+						template += '<td class="text-right"><span class="sign-up">apuntate<span>+</span></span></td>';
+					}
+					template += '</tr>'	
+				}
+				
+				document.getElementById("tableBody").innerHTML = template; 
+			}
+
+			google.setOnLoadCallback(getSpreadsheet);
+
+		</script>
+
+		<!-- --- END JAVASCRIPT ---------------------------------------------------------------------------------- -->
+
+	</head>
+
+	<!-- --- HTML -------------------------------------------------------------------------------------------- -->
+
+	<body>
+
+		<p>¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th class="col-1">Felicitaciones a</th>
+					<th class="col-2">Unidad</th>
+					<th class="col-3">Cargo anterior</th>
+					<th class="col-4" colspan="2">Cargo actual</th>
+				</tr>
+			</thead>
+			<tbody id="tableBody"></tbody>
+		</table>
+
+	</body>
+
+	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
+
+</html> 
