@@ -142,6 +142,8 @@
 				var buttonLabel = prefs.getString('buttonLabel');
 				document.getElementById('buttonLabel').innerHTML = buttonLabel;
 
+				google.setOnLoadCallback(getSpreadsheet);
+
 			</script>
    			
    		]]>
