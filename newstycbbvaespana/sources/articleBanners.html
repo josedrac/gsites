@@ -35,20 +35,21 @@
 
 		<script type="text/javascript">
 
-			function getUrlParameter(parameterName) {
-				var params = window.location.search.substr(1).split('&');
-				for (var i = 0; i < params.length; i++) {
-					var p = params[i].split('=');
-					if (p[0] == parameterName) {
-						return decodeURIComponent(p[1]);
-					}
-				}
-				return false;
-			}
+			function getParam(p){
+	            var params;
+	            if(window.location.href.split("?").length > 1){
+	                params = window.location.href.split("?")[1].split("&");
+	                for(var i=0; i<params.length; i++){
+	                    if(params[i].split("=")[0] == p)
+	                        return params[i].split("=")[1];
+	                }
+	            }
+	            return "";
+	        }
 
-			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+			var spreadsheetKey = getParam('key'),
 				sheetName = encodeURIComponent('article banners'),
-				queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
+				queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
 				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
 
 			function getSpreadsheet() {
