@@ -248,6 +248,7 @@
 
         google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(hasPrivilegies);
+        var prefs = new gadgets.Prefs();
 
 
         function isSearchDone() {
