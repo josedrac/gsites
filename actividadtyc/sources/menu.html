@@ -207,6 +207,19 @@
 						</div>
 					</div>
 				</a>
+			</div>
+			<div class="card-container yellow short">
+				<a id="enlaceComite" onclick="">
+					<div class="content">
+						<div class="contact">
+							<img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/comite.png" alt="">
+						</div>
+						<div class="text">
+							<p class="title small">Comité de Dirección T&C España</p>
+							<span class="subtitle"></span>
+						</div>
+					</div>
+				</a>
 			</div>  
 		</div>
 		
@@ -214,44 +227,17 @@
 			
 			//adjustGadgetHeight("container");
 			
-			var html = "";
 			hasPrivilegies();
 
 			function writeHtml(result){
 
-				if(!result){
-					
-					html += '<div class="card-container yellow short">'+
-						    '	<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/contactos\')">'+
-							'        <div class="content">'+
-							'            <div class="icon">'+
-							'                <img class="contact" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Contactos.png" alt="">'+
-							'            </div>'+
-							'            <div class="text">'+
-							'                <p class="title big">Contactos</p>'+
-							'                <span class="subtitle">Un espacio para dialogar</span>'+
-							'            </div>'+
-							'        </div>'+
-							'    </a>'+
-						    '</div>';
+				if(result){
+					document.getElementById( "enlaceComite" ).setAttribute( "onClick", "javascript: Go('https://sites.google.com/a/bbva.com/actividadtyc/comites);" );
 				}
 				else {
-					html += '<div class="card-container yellow short">'+
-						    '	<a onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/contactos\')">'+
-							'        <div class="content">'+
-							'            <div class="icon">'+
-							'                <img class="comite" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Comite.png" alt="">'+
-							'            </div>'+
-							'            <div class="text">'+
-							'                <p class="title big">Comite</p>'+
-							'                <span class="subtitle">comites</span>'+
-							'            </div>'+
-							'        </div>'+
-							'    </a>'+
-						    '</div>';
+					document.getElementById( "enlaceComite" ).setAttribute( "onClick", "alert('No tienes permisos para ver este contenido.');" );
 				}
 
-				document.getElementById('container').innerHTML += html;
 			}
 
 
