@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="AC-googleplus.xml" height ="122">
+        <Require feature="idi"/>
+        <Require feature="locked-domain" />
+        <Require feature="dynamic-height"/>
+        <Require feature="setprefs" />
+    </ModulePrefs>
+
+    <Content type="html">
+        <![CDATA[
+            <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+            <style>
+
+                img {
+                    cursor: pointer;
+                    width: auto;
+                }
+
+            </style>
+
+            <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/bannerGooglePlus.png" onclick="javascript:Go('https://plus.google.com/communities/102125230164439735660');"/>
+
+            <script type="text/javascript">
+                
+                function Go(destination){
+                    window.parent.location.href = destination;
+                    return false;
+                }
+
+            </script>
+        ]]>
+     </Content>
+</Module>
