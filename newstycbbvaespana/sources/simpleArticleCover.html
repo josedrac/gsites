@@ -131,7 +131,8 @@
 				return false;
 			}
 
-			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
+				siteName = 'servicios-centrales',
 				sheetName = encodeURIComponent('article content'),
 				queryString = encodeURIComponent('SELECT * where A = "DES" and D ends with "' + getUrlParameter("date") + '"'),
 				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -160,7 +161,8 @@
 			}
 
 			function goArticle() {
-				console.log('go article');
+				window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '&key=' + spreadsheetKey + '&siteName=' + siteName;
+				return false;
 			}
 
 			google.setOnLoadCallback(getSpreadsheet);
