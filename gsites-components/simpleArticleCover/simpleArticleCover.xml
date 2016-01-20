@@ -8,7 +8,13 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
+	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+
+	<UserPref name="siteName" display_name="Site name" required="true" />
+
 	<UserPref name="sectionId" display_name="Section ID" required="true" />
+
+	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -113,6 +119,7 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 			<script type="text/javascript">
 
@@ -120,14 +127,30 @@
 
 			</script>
 
-		 	<div>
+		 	<div id="sectionId">
 
 				<h3 id="subtitle"></h3>	
 
 				<div id="sortDescription"></div>
-				<button type="button" onclick="javascript:goArticle()">Saber más</button>
+				<button id="buttonArticle" type="button" onclick="javascript:goArticle()"></button>
 
 		 	</div>
+
+		 	<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("sectionId");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+				
+			</script>
 
 			<script type="text/javascript">
 
@@ -145,9 +168,13 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
+
+					siteName = prefs.getString('siteName'),
+
 					sectionId = prefs.getString('sectionId'),
+
 					date = getUrlParameter("date"),
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -173,14 +200,18 @@
 
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
+
 				}
 
 				function goArticle() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '';
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/articlecontent?id=' + sectionId + '&date=' + date + '';
 					return false;
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
+
+				var buttonLabel = prefs.getString('buttonLabel');
+				document.getElementById('buttonArticle').innerHTML = buttonLabel;
 
 			</script>
 
@@ -205,8 +236,25 @@
 			<table width="100%" border="0" id="tablaconfig">
 				<tr>
 					<td>
+						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
+						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
 						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
 					</td>
+				</tr>
+				<tr>
+				   	<td>
+				       	Button Label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__" onchange="register('buttonLabel')"/>
+				    </td>
 				</tr>
 			</table>
 

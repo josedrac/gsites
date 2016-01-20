@@ -187,6 +187,7 @@
 			 	articleCoverPage += '</div>';
 			 	
 			 	document.getElementById("articleCoverPage").innerHTML = articleCoverPage;
+			 	gadgets.window.adjustHeight();
 
 				function Go(destination){
 			    	window.parent.location.href = destination;

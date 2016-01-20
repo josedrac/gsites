@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="MG-backPageTitle.xml" height ="50">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+    <Require feature="dynamic-height"/>
+    <Require feature="setprefs" />
+  </ModulePrefs>
+    <UserPref name="tag" display_name="tag" required="true" />
+  <Content type="html">
+    <![CDATA[
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <style type="text/css">
+      @font-face {
+        font-family: 'BBVA Web Light';
+        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot');
+        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
+            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+        font-style: normal;
+        font-weight: normal;
+      }
+      h2, span {
+        font-family:"BBVA Web Light", arial, sans-serif;
+        font-weight: lighter;
+        color: #0078D2;
+        font-size: 29.5px;
+        margin: 0;
+      }
+      .title-section-back {
+        padding-bottom: 14px;
+        background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/border-bottom-shaded.png);
+        background-position: bottom;
+        background-repeat: repeat-x;
+      }
+      .title-section-back h2 {
+        display: inline-block;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 33px;
+        width: 735px;
+        vertical-align: sub;
+        white-space: nowrap;
+      }
+      .title-section-back button {
+        margin-right: 12px;
+        vertical-align: bottom;
+      }
+      .back-white {
+        background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/bg-boton-encabezado-volver_R2.png);
+        background-repeat: no-repeat;
+        background-color: initial;
+        cursor: pointer;
+        outline: none;
+        border: 0;
+        width: 73px;
+        height: 30px;
+        color: #0078D2;
+        font-size: 15px;
+        font-weight: bold;
+        padding-left: 10px;
+      }
+    </style>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+    <div id="titleSectionBack">
+      <div id="title" class="title-section-back">
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      function getParam(p){
+         var params;
+         if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+           params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+           for(var i=0; i<params.length; i++){
+             if(params[i].split("=")[0] == p)
+               return params[i].split("=")[1];
+           }
+         }
+         return "";
+      }
+
+      function getComunity(){
+        var com = "";
+        var aux = getParam('comunidad').replace(/[+]/g,"%20");
+
+
+        switch(aux){
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20ANDALUC%C3%8DA": 
+            com = "andalucia";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20ARAG%C3%93N":
+            com = "aragon";
+            break;
+
+          case "PRINCIPADO%20DE%20ASTURIAS":
+            com = "asturias";
+            break;
+
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20CANTABRIA":
+            com = "cantabria";
+            break;
+
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20CASTILLA-LA%20MANCHA":
+            com = "castilla-la-mancha";
+            break;
+          
+          case "COMUNIDAD%20DE%20CASTILLA%20Y%20LE%C3%93N":
+            com = "castilla-y-leon";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20CATALU%C3%91A":
+            com = "cataluna";
+            break;
+          
+          case "CIUDAD%20DE%20CEUTA":
+            com = "ceuta";
+            break;
+          
+          case "COMUNIDAD%20VALENCIANA":
+            com = "valencia";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20EXTREMADURA":
+            com = "extremadura";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20GALICIA":
+            com = "galicia";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20LAS%20ILLES%20BALEARS":
+            com = "islas-baleares";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20CANARIAS":
+            com = "islas-canarias";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DE%20LA%20RIOJA":
+            com = "la-rioja";
+            break;
+          
+          case "COMUNIDAD%20DE%20MADRID":
+            com = "madrid";
+            break;
+
+          case "CIUDAD%20DE%20MELILLA":
+            com = "melilla";
+            break;
+          
+          case "REGI%C3%93N%20DE%20MURCIA":
+            com = "murcia";
+            break;
+          
+          case "COMUNIDAD%20FORAL%20DE%20NAVARRA":
+            com = "navarra";
+            break;
+          
+          case "COMUNIDAD%20AUT%C3%93NOMA%20DEL%20PA%C3%8DS%20VASCO":
+            com = "pais-vasco";
+            break;
+
+          default: console.log(aux);
+          break;
+        }
+
+        return com;
+      
+      }
+
+      function Go(destination){
+        window.open(destination,'_parent');
+        return false;
+      }
+
+      var prefs = new gadgets.Prefs();
+      var param = getParam('valora');
+      var idCentro = getParam('idCentro');
+      var comunidad = getParam('comunidad');
+      var nombre = getParam('name');
+
+
+      var html = "";
+      var url = 'https://sites.google.com/a/bbva.com/movilidad-geografica/educacion/' + getComunity();
+
+      if(param != "")
+        url = 'https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones/' + '?idCentro=' + idCentro + '&comunidad=' + comunidad + '&name=' + nombre;
+
+      var title = prefs.getString('tag');
+      html += '<button type="button" class="back-white" onclick="javascript:Go(\''+url+'\')">Volver</button>';
+      html += '<h2>'+title+' <span id="name"></span></h2>';
+      document.getElementById("title").innerHTML = html;
+
+      name = decodeURI(getParam('name'));
+      name = name.replace(/[+]/g," ");
+      document.getElementById("name").innerHTML = name;
+    </script>
+
+    ]]>
+  </Content>
+
+  <Content type="html" view="configuration">
+
+    <![CDATA[
+
+      <style type="text/css">
+
+        table td {
+          color: #000;
+          font-size: 11px;
+          font-weight: bold;
+        }
+
+      </style>
+
+      <table width="100%" border="0" id="tablaconfig">
+        <tr>
+          <td>
+            Tag: <input type="text" id="tag" value="__UP_tag__"   onchange="register('tag')"/>
+          </td>
+        </tr>   
+      </table>
+
+      <script type="text/javascript">
+
+        var prefs = new gadgets.Prefs();
+        function register(variable) {
+          prefs.set(variable, document.getElementById(variable).value);
+        }
+
+        gadgets.window.adjustHeight();
+
+      </script>
+
+    ]]>
+  </Content>
+
+</Module>

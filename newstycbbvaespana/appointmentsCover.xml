@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+
+	<ModulePrefs title="NB - appointmentsCover.xml">
+		<Require feature="idi"/>
+		<Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<UserPref name="siteName" display_name="Site name" required="true" />
+	<UserPref name="title" display_name="title" required="true" />
+	<UserPref name="subtitle" display_name="subtitle" required="true" />
+
+	<Content type="html">
+	    <![CDATA[
+			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+			<style type="text/css">
+
+				@font-face {
+		            font-family: 'BBVA Web Light';
+		            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+		            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+		            font-style: normal;
+		            font-weight: normal;
+		        }
+
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
+					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				.appoinments {
+					background-color: #40B2DA;
+					background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/backgroundEquipo.png');
+					background-repeat: no-repeat;
+					background-position: 50% 96%;
+					color: white;
+					width: 465px;
+					height: 380px;
+					cursor: pointer;
+				}
+
+				.appoinments h2 {
+					font-family: 'BBVA Web Book';
+					font-size: 33.75px;
+				    font-weight: normal;
+				    line-height: 40px;
+				    margin: 0;
+			        padding: 27px 88px;
+				    background-image: url('https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/iconEquipo.png');
+					background-repeat: no-repeat;
+					background-position: 6% 38%;
+				}
+
+				.appoinments p {
+					font-family: 'BBVA Web Light';
+				    font-size: 25.50px;
+	    			line-height: 34px;
+			        margin: 0;
+	    			padding: 28px 88px;
+				}
+
+			</style>
+
+			<div id="appoinments" class="appoinments" onclick="javascript:goAppointments()">
+				<h2 id="title"></h2>
+				<p id="subtitle"></p>
+			</div>
+
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("appoinments");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
+
+			<script type="text/javascript">
+
+				function getUrlParameter(parameterName) {
+					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
+
+					for (var i = 0; i < params.length; i++) {
+						var p = params[i].split('=');
+						if (p[0] == parameterName) {
+							return decodeURIComponent(p[1]);
+						}
+					}
+					return false;
+				}
+
+				var prefs = new gadgets.Prefs(),
+					siteName = prefs.getString('siteName'),
+					title = prefs.getString('title'),
+					subtitle = prefs.getString('subtitle');
+
+				document.getElementById('title').innerHTML = title;
+				document.getElementById('subtitle').innerHTML = subtitle;
+
+
+				function goAppointments() {
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/appointments/?date=' + getUrlParameter("date") + '';
+				}
+
+			</script>
+
+	    ]]>
+	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+
+			<style type="text/css">
+
+				table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+
+			</style>
+
+			<table width="100%" border="0">
+				<tr>
+					<td>
+						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Title: <input type="text" id="title" value="__UP_title__"   onchange="register('title')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Subtitle: <input type="text" id="subtitle" value="__UP_subtitle__"   onchange="register('subtitle')"/>
+					</td>
+				</tr>
+			</table>
+
+			<script type="text/javascript">
+
+				var prefs = new gadgets.Prefs();
+					function register(variable) {
+					prefs.set(variable, document.getElementById(variable).value);
+				}
+
+			</script>
+
+		]]>
+
+	</Content>
+
+</Module>

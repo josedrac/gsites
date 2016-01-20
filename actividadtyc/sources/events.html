@@ -1,0 +1,487 @@
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+
+	<style type="text/css">
+	  	/* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot');
+			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+
+		.container {
+			font-family: arial, sans-serif;
+		    font-size: 12px;
+		    margin-bottom: 16px;
+		    position: relative;
+		    width: 460px;
+		}
+
+		.datesandtags {
+    		display: inline-block;
+			float: left;
+			margin-right: 10px;
+			width: 150px;
+		}
+
+		.datesandtags .start, .datesandtags .end {
+		    border-radius: 4px 4px 4px 4px;
+		    color: #FFFFFF;
+		    float: left;
+		    left: 9px;
+		    margin-bottom: 6px;
+		    padding: 4px 10px;
+		    text-align: center;
+		    width: 45px;
+		    padding-top: 0px;
+		}
+
+		.datesandtags .start {
+		    background: none repeat scroll 0 0 #018DF5;
+		}
+
+		.datesandtags .end {
+		    background: none repeat scroll 0 0 #0560BD;
+		}
+
+		.day {
+			font-size: 30px;
+		}
+
+		.month, .year {
+		    font-size: 18px;
+		    font-family: BBVA Web Book, Arial;
+		}
+
+		.iconArrow {
+			margin-right: 5px;
+			margin-left: 5px;
+			display: table-cell;
+			vertical-align: middle;
+			float: left;
+			margin-top: 25;
+		}
+
+		.icon {
+			display: inline-block;
+			float: left;
+			width: 24px;
+			text-align: center;
+		}
+
+		.info {
+			margin-left: 7px;
+			display: inline-block;
+			width: 265px;
+		}
+
+		.title {
+		    font-size: 18px;
+			font-family: BBVA Web Book, Arial;
+			color: #0078D2;
+			font-weight: bold;
+			overflow: hidden;
+			display: block;
+		}
+
+		.assistants {
+		    color: #71777F;
+			font-size: 11px;
+			font-family: Arial;
+			margin-bottom: 15px;
+			line-height: 18px;
+			float: left;
+			width: 100%;
+		}
+
+		.assistant {
+			width: 100%;
+			float: left;
+		}
+
+		.place {
+		    color: #434A58;
+		    font-size: 13px;
+		    font-family: Arial;
+		    line-height: 18px;
+		    float: left;
+		}
+
+		.place span {
+		    font-size: 13px;
+		    font-family: Arial;
+		    color: #0065B7;
+		    line-height: 2px;
+		}
+
+		.description {
+		    color: #434A58;
+		    font-size: 12px;
+		    font-family: Arial;
+		    margin-top: 20px;
+		    line-height: 18px;
+		    height: 36px;
+		    text-overflow: ellipsis;
+			display: block;
+			overflow: hidden;
+			float: left;
+		}
+
+		hr{
+		    width:610px;
+			margin-bottom:20px;
+			margin-left:-1px;
+			color:#DCDCDC;
+		}
+
+		button:hover {
+    		background: #004C99;
+		}
+
+		button {
+		    background: #0079C1;
+		    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		    background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+		    background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		    background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+		    -webkit-border-radius: .3em;
+		    -moz-border-radius: .3em;
+		    border-radius: .3em;
+		    text-align: center;
+		    font-size: 12px;
+		    vertical-align: middle;
+		    height: 1.75em;
+		    padding-left: .9em;
+		    padding-right: .9em;
+		    padding-bottom: 2px;
+		    border: .1em solid #00559D;
+		    color: white;
+		    cursor: pointer;
+		    position: relative;
+		    text-align: center;
+		    vertical-align: middle;
+		    margin-right: 22px;
+		    margin-bottom: 20px;
+		    margin-top: 20px;
+		    margin-left: 0px;
+		    float: left;
+		    font-family: BBVA Web Light, Arial;
+			font-weight: bold;
+		}
+
+		.paginaNueva {
+			width: auto;
+		}
+
+		.lineinfo {
+			width:100%;
+			height:4px;
+			display:block;
+			margin-bottom: 20px;
+		}
+
+		.sites-embed-align-left-wrapping-off{
+			display: block;
+			clear: both;
+			text-align: left;
+			margin: 5px auto 5px 0;
+			width: 650px;
+		}
+
+		p.text {
+            font-size: 0.8em;
+            color: #3B3B3B;
+        }
+
+		.youtubeIframe{
+			display:none;
+		}
+
+		.pager {
+		    height: 30px;
+		    text-align: center;
+		    width: 175px;
+		    display: table;
+		}
+		.pager ul {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    text-aling: center;
+		    display: table-cell;
+		    vertical-align: middle;
+		}
+		.pager ul li {
+		    display: inline;
+		    margin-left: 2px;
+		}
+		.pager ul li a {
+		    text-decoration: none;
+		    font-weight: bold;
+		    display: inline-table;
+		    width: 20px;
+		    height: 18px;
+		    text-align: center;
+		    border-radius: 4px;
+		    -moz-border-radius: 4px;
+		    font-size: 16px;
+		}
+		.pager span {
+		    margin-left: 4px;
+		    color: White;
+		    float: left;
+		}
+		.pager .btn {
+		    width: 40px;
+		    text-align: center;
+		    display: table-cell;
+		    vertical-align: middle;
+		}
+		.pager .disabled {
+		    color: #A0A0A0 !important;
+		    text-shadow: 1px 1px 1px #FFFFFF;
+		}
+		.black.normal {
+		    background-color: #FFFFFF;
+		    color: #0072C9;
+		    border: solid 1px #d2e5eb;
+		}
+		.black.active {
+		    background-color: #0072C9;
+		    color: #FFFFFF;
+		    border: solid 1px #0072C9;
+		}
+	</style>
+
+
+	<div class="container" id="container">
+		
+
+	</div>
+
+   	<script type="text/javascript">
+		var gadgetHelper = null;
+		google.load('visualization', '1', {packages: ['table']});
+        google.setOnLoadCallback(sendQuery);
+        //var prefs = new gadgets.Prefs();
+
+        var dataGlobal;
+
+        var month = new Array();
+			month[1] = "Ene";
+			month[2] = "Feb";
+			month[3] = "Mar";
+			month[4] = "Abr";
+			month[5] = "May";
+			month[6] = "Jun";
+			month[7] = "Jul";
+			month[8] = "Agt";
+			month[9] = "Sep";
+			month[10] = "Oct";
+			month[11] = "Nov";
+			month[12] = "Dic";
+
+	 	function loadVisualizationAPI() {
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
+
+
+		function sendQuery(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+                sheetName = encodeURIComponent('events'),
+                queryString = encodeURIComponent('SELECT * where B <> "title" order by E desc'),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 0);
+            	});
+		}
+
+		function sendQueryAssistants(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey = '1CKb_vRSHUdZfU11-HxpLTCdbiPPu1kLdLZTGwEwRtOs',
+                sheetName = encodeURIComponent('eventos usuarios'),
+                queryString = encodeURIComponent('SELECT * where B <> "email" AND C="x"'),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(function (response) {
+                	handleQueryResponse(response, 1);
+            	});
+		}
+
+		function pagination(elements) {
+	        $('#pagination').smartpaginator({ 
+		        totalrecords: elements, 
+		        recordsperpage: 3, 
+		        length: 4, 
+		        datacontainer: 'paginas', 
+		        dataelement: 'div.eventContainer', 
+		        initval: 0,
+	        });
+	    }
+
+		function handleQueryResponse(response, index) {
+
+			if(index == 0){
+				dataGlobal = response.getDataTable();
+				sendQueryAssistants();
+			}
+			else{
+				var data = response.getDataTable();
+				var filas = dataGlobal.getNumberOfRows();
+				var html = "";
+
+				if(filas < 1) 
+	    			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
+	            else {
+	                html += '<div id="paginas" class="paginaNueva" style=" display: block;">'; 
+
+					for(var i=0; i < filas; i++) {
+
+						html += getEvent(dataGlobal, data, i);
+		            }
+
+		            html += '</div>';
+		        }
+				html += "<div id='pagination' style='margin: auto;'></div>";
+
+				document.getElementById('container').innerHTML += html;
+				if(filas > 0)
+					pagination(filas);
+				gadgets.window.adjustHeight();
+			}
+		}
+
+		function getEvent(data, dataAss, i) {
+			var html = "";
+
+			var date = data.getFormattedValue(i, 4).split('/');
+			var day = date[0];
+			var mon = month[parseInt(date[1])]; 
+			var year = date[2];
+
+			var date2 = data.getFormattedValue(i, 5).split('/');
+			var day2 = date2[0];
+			var mon2 = month[parseInt(date2[1])]; 
+			var year2 = date2[2];
+
+			var tagConfirm = "";
+
+			var icon;
+			if(data.getValue(i, 6) == 'x')	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20calendario%20eventos.png";
+			else 							icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20radio%20eventos.png";
+				
+
+		   	html += "<div class='eventContainer'>";
+		   	html += "	<div class='datesandtags'>";
+		   	//Fecha inicio
+		   	html += "		<div class='start'>";
+		   	html += "			<div class='day'>" + day + "</div>";
+			html += "			<div class='month'>" + mon + "</div>";
+			html += "			<div class='year'>" + year + "</div>";
+		    html += "		</div>";
+
+		    if(date2 != "" && date2 != 'undefined' && date2 != null){
+
+		    	html += '		<img class="iconArrow" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/arrow.png"/>';
+
+			    //Fecha fin
+			    html += "		<div class='end'>";
+			   	html += "			<div class='day'>" + day2 + "</div>";
+				html += "			<div class='month'>" + mon2 + "</div>";
+				html += "			<div class='year'>" + year2 + "</div>";
+			    html += "		</div>";
+			}
+
+		    //etiqueta asistencia
+		    html += "		<div class='confirmation'>"+ tagConfirm +"</div>"
+
+		    html += "	</div>"
+
+		    //icono
+		    html += "	<div class='icon' id='icon'>";
+		   	html += "		<img src='"+icon+"'/>";
+		    html += "	</div>";
+
+			//Contenido
+		   	html += "	<div class='info'>";
+		   	html += "		<div class='title'>" + data.getValue(i, 1) + "</div>";
+		   	html += "		<div class='assistants'>";
+		   	html += 			getAssistants(data, dataAss, i);
+		   	html += "		</div>";
+		   	html += "		<div class='place'>Lugar: <span>" + data.getValue(i, 3) + "</span></div>";
+		   	html += "		<div class='description'>" + data.getValue(i, 2) + "</div>";
+		    html += "		<button type='button' onclick=javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/eventos/detalles?id="+ data.getValue(i, 0) +"')>Saber más</button>";
+		    html += "	</div>";
+
+			//Separación
+		    html += "	<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/>";
+		    html += "</div>";			
+		    return html;
+
+		}
+
+		function getAssistants(data, dataAss, index){
+			var id = data.getValue(index, 0);
+			var html = "";
+			var count = 0;
+			for(var i=0; i<dataAss.getNumberOfRows(); i++){
+				if(id == dataAss.getValue(i, 0)){
+					html += "			<span class='assistant'>"+dataAss.getFormattedValue(i, 3)+" - "+ dataAss.getValue(i, 1) + "</span>";
+					count++;
+					if(count > 1) break;
+				}
+			}
+			return html;
+		}
+
+	    function Go(destination){
+	    	window.open(destination,'_blank');
+		    //window.parent.location.href = destination;
+		    return false;
+		}
+
+		//delay loading
+		delayRender();
+	    function delayRender(){
+	    	window.setTimeout('showIframes()', 2000);
+	    }
+
+	 	function showIframes() {
+		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+		 	for (var i=0;i<iframes;i++) {
+				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+			}
+	 	}
+
+  	</script>
