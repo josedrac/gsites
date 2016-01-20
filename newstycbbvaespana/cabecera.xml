@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+
+    <ModulePrefs title="NB - articleCover.xml">
+        <Require feature="idi"/>
+        <Require feature="locked-domain" />
+        <Require feature="dynamic-height"/>
+        <Require feature="setprefs" />
+    </ModulePrefs>
+
+    <UserPref name="imageUrl" display_name="Url de la imagen" required="true" />
+    <UserPref name="siteName" display_name="Site name" required="true" />
+
+    <Content type="html">
+        <![CDATA[    
+        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+        <script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
+        <style>
+
+            img {
+                cursor: pointer;
+                width: auto;
+            }
+
+        </style>
+
+        <div id="container" class="container">
+            <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/bannerGooglePlus.png" onclick="javascript:Go('https://plus.google.com/communities/102125230164439735660');"/>
+        </div>
+
+        <script type="text/javascript">
+
+            adjustGadgetHeight('container');
+            var prefs = new gadgets.Prefs();
+            var imageUrl = prefs.getString("imageUrl");;
+            var siteName = prefs.getString("siteName");;
+
+            var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + siteName + "?date=" + getParam('date');
+
+            document.getElementById('container').innerHTML = '<img src="'+imageUrl+'" onclick="javascript:Go(\''+url+'\');"/>';
+            
+
+            function getParam(p){
+                var params;
+                if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                    params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                    for(var i=0; i<params.length; i++){
+                        if(params[i].split("=")[0] == p)
+                            return params[i].split("=")[1];
+                    }
+                }
+                return "";
+            }
+
+            function Go(destination){
+                window.parent.location.href = destination;
+                return false;
+            }
+
+        </script>
+
+        ]]>
+    </Content>
+
+    <Content type="html" view="configuration">
+
+        <![CDATA[
+
+            <style type="text/css">
+
+                table td {
+                    color: #000;
+                    font-size: 11px;
+                    font-weight: bold;
+            }
+
+            </style>
+
+
+            <table width="100%" border="0" id="tablaconfig">
+                <tr>
+                    <td>
+                        Url de la imagen: <input type="text" id="imageUrl" value="__UP_imageUrl__"   onchange="register('imageUrl')"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+
+                        Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+                    </td>
+                </tr>
+            </table>
+
+            <script type="text/javascript">
+
+            var prefs = new gadgets.Prefs();
+                function register(variable) {
+                prefs.set(variable, document.getElementById(variable).value);
+            }
+
+            </script>
+
+        ]]>
+
+    </Content>
+
+</Module>
