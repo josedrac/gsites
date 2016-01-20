@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 
+
 	<ModulePrefs title="NB - titleSection.xml">
 		<Require feature="idi"/>
 		<Require feature="locked-domain" />
@@ -54,33 +55,69 @@
 
 			<script type="text/javascript">
 
+				var date = getParam('date');
 				var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
 					sectionId = prefs.getString('sectionId'),
 					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * where A = "'+sectionId+'"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-					function getSpreadsheet() {
+
+				function getSpreadsheet() {
 					query.send(handleQueryResponse);
+				}
+
+				function getParam(p){
+		            var params;
+		            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+		                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+		                for(var i=0; i<params.length; i++){
+		                    if(params[i].split("=")[0] == p)
+		                        return params[i].split("=")[1];
+		                }
+		            }
+		            return "";
+		        }
+
+				function hasAnotherDate(data) {
+					var rows = data.getNumberOfRows();
+
+
+					for(var i=0; i < rows; i++){
+						if(data.getValue(i, 3) != null && data.getValue(i, 3) == date){
+							return i;
+						}
+					}
+
+					for(var i=0; i < rows; i++){
+						if(data.getValue(i, 3) == null || data.getValue(i, 3) == ""){
+							return i;
+						}
+					}
 				}
 
 				function handleQueryResponse(response) {
 					if (response.isError()) {
-					console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-					return;
-				}
-				var dataTable = response.getDataTable();
+						console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+						return;
+					}
+					var dataTable = response.getDataTable();
 					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
 				}
 
 				function printDataTable(dataTable) {
-					var name = dataTable.getValue(0, 1),
-						image = dataTable.getValue(0, 2),
-						html = "";
+					var index = hasAnotherDate(dataTable);
+
+
+					var name = dataTable.getValue(index, 1),
+					image = dataTable.getValue(index, 2);
+
+					var html = "";
 
 					if(image != undefined) {
 						html += '<img src="' + image + '" alt="image"/>';
-					} else if(name != null) {
+					} 
+					else if(name != null) {
 						html += '<h2>'+ name +'</h2>';
 					}
 

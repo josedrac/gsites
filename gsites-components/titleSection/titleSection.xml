@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
 
+
 	<ModulePrefs title="NB - titleSection.xml">
 		<Require feature="idi"/>
 		<Require feature="locked-domain" />
@@ -66,10 +67,12 @@
 
 				function handleQueryResponse(response) {
 					if (response.isError()) {
+
 					console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
 					return;
 				}
 				var dataTable = response.getDataTable();
+
 					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
 				}
 
