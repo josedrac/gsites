@@ -26,6 +26,7 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 			<script type="text/javascript">
 
@@ -33,25 +34,42 @@
 
 			</script>
 
-			<ul id="articleBanners"></ul>
+			<div id="container">
+				<ul id="articleBanners"></ul>
+			</div>
+
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
-				function getUrlParameter(parameterName) {
-					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
+				function getParam(p){
+		            var params;
+		            if(window.location.href.split("?").length > 1){
+		                params = window.location.href.split("?")[1].split("&");
+		                for(var i=0; i<params.length; i++){
+		                    if(params[i].split("=")[0] == p)
+		                        return params[i].split("=")[1];
+		                }
+		            }
+		            return "";
+		        }
 
-					for (var i = 0; i < params.length; i++) {
-						var p = params[i].split('=');
-						if (p[0] == parameterName) {
-							return decodeURIComponent(p[1]);
-						}
-					}
-					return false;
-				}
-
-				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				var spreadsheetKey = getParam('key'),
 					sheetName = encodeURIComponent('article banners'),
-					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
+					queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {

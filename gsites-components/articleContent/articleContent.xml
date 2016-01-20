@@ -7,6 +7,8 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
+  	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+
  	<Content type="html">
     	<![CDATA[
 			
@@ -77,10 +79,33 @@
 				}
 
 				.media-wrapper {
-					margin: 20px 0;
-					text-align: center;
-					padding: 0 10px;
+					height: 315px;
+					display: table;
+					width: 100%;
 				}
+
+				.media-content {
+				    display: table-cell;
+				    vertical-align: middle;
+				    text-align: center;				
+				}
+
+				.media-content:before {
+					content: ' ';
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    height: 100%;
+				}
+
+				.media-content img,
+				.media-content iframe {
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+			        max-height: 100%;
+	    			max-width: 100%;
+				}
+
 
 				dl {
 				    margin-top: 14px;
@@ -103,9 +128,17 @@
 				    margin-bottom: 4px;
 				}
 
+				li {
+					font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+				    font-size: 12px;
+				    color: #71777F;
+				    line-height: 19px;
+				}				
+
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 			<script type="text/javascript">
 
@@ -113,25 +146,38 @@
 
 			</script>
 
-			<div class="article-content">
+			<div id="article-content" class="article-content">
 
 				<h2 id="title"></h2>
 
 				<h3 id="subtitle"></h3>
 
-				<p class="author-signature">
-					<span id="date"></span>
-					<span>-</span>
-					<span id="author"></span>
-				</p>
+				<div id="authorSignature"></div>
 
 				<div id="sortDescription"></div>
 
-				<div id="media" class="media-wrapper"></div>
+				<div class="media-wrapper">
+					<div id="media" class="media-content"></div>
+				</div>
 
 				<div id="description"></div>
 
 			</div>
+
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("article-content");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -147,7 +193,8 @@
 					return false;
 				}
 
-				var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '" and D ends with "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
@@ -178,15 +225,22 @@
 						video = dataTable.getValue(0, 6);
 
 					if(image != null && image != undefined) {
-						data.media = image;
+						data.media = '<img src="' + image + '" alt="image"/>';
 					} else if(video != null && video != undefined) {
 						data.media = video;
 					}
 
 					document.getElementById("title").innerHTML = data.title; 				
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
-					document.getElementById("date").innerHTML = data.date;
-					document.getElementById("author").innerHTML = data.author; 	
+					
+					if(data.author != null && data.author != undefined) {
+						var authorSignature = '';
+						authorSignature += '<p class="author-signature">';
+						authorSignature += data.date + ' - ' + data.author;
+						authorSignature += '</p>';
+						document.getElementById("authorSignature").innerHTML = authorSignature;
+					}
+					
 					document.getElementById("sortDescription").innerHTML = data.sortDescription; 	
 					document.getElementById("media").innerHTML = data.media; 	
 					document.getElementById("description").innerHTML = data.description; 	
@@ -199,5 +253,40 @@
    			
    		]]>
   	</Content>
+
+	<Content type="html" view="configuration">
+
+		<![CDATA[
+
+			<style type="text/css">
+
+				table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
+
+			</style>
+
+			<table width="100%" border="0">
+				<tr>
+					<td>
+						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+			</table>
+
+			<script type="text/javascript">
+
+				var prefs = new gadgets.Prefs();
+					function register(variable) {
+					prefs.set(variable, document.getElementById(variable).value);
+				}
+
+			</script>
+
+		]]>
+
+	</Content>
 
 </Module>

@@ -1,0 +1,113 @@
+ <!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>article banners</title>
+
+		<!-- --- STYLES ------------------------------------------------------------------------------------------ -->
+
+		<style type="text/css">
+
+			ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+				text-align: right;
+			}
+
+			ul li {
+				margin: 10px 0;
+			}
+			
+		</style>
+
+		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
+
+		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
+		
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+		<script type="text/javascript">
+
+			google.load('visualization', '1', {packages: ['table']});
+
+		</script>
+
+		<script type="text/javascript">
+
+			function getParam(p){
+	            var params;
+	            if(window.location.href.split("?").length > 1){
+	                params = window.location.href.split("?")[1].split("&");
+	                for(var i=0; i<params.length; i++){
+	                    if(params[i].split("=")[0] == p)
+	                        return params[i].split("=")[1];
+	                }
+	            }
+	            return "";
+	        }
+
+			var spreadsheetKey = getParam('key'),
+				sheetName = encodeURIComponent('article banners'),
+				queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
+				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+
+			function getSpreadsheet() {
+				query.send(handleQueryResponse);
+			}
+
+			function handleQueryResponse(response) {
+				if (response.isError()) {
+					console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+					return;
+				}
+				var dataTable = response.getDataTable();
+				dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+			}
+
+			function printDataTable(dataTable) {
+
+				var rows = dataTable.getNumberOfRows(),
+					data = [],
+					template = '';
+
+				for(i = 0; i < rows; i++) {
+					data[i] = {
+						id: dataTable.getValue(i, 0),
+						imageUrl: dataTable.getValue(i, 1),
+						targetUrl: dataTable.getValue(i, 2)
+					}
+				}
+
+				for(i = 0; i < data.length; i++) {
+					template += '<li>';
+					template += '<a href="' + data[i].targetUrl + '">';
+					template += '<img src="' + data[i].imageUrl + '"/>';
+					template += '</a>';
+					template += '</li>';
+				}
+					
+				document.getElementById("articleBanners").innerHTML = template; 
+				
+			}
+
+			google.setOnLoadCallback(getSpreadsheet);
+
+		</script>
+
+		<!-- --- END JAVASCRIPT ---------------------------------------------------------------------------------- -->
+
+
+	</head>
+
+	<!-- --- HTML -------------------------------------------------------------------------------------------- -->
+
+	<body>
+
+		<ul id="articleBanners"></ul>
+
+	</body>
+
+	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
+
+</html> 

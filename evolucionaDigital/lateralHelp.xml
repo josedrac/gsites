@@ -58,11 +58,12 @@
 		        .content .text, .content .icon {
 		            display: table-cell;
 		        }
-		        .content .text span {
+		        .content .text a {
 		            color: #0078d2;
 		            text-decoration: none;
 		            font-weight: bold;
 		            font-size: 13px;
+		            cursor: pointer;
 		        }
 		        .content .icon {
 		            width: 67px;
@@ -78,11 +79,19 @@
 	            </div>
 	            <div class="text">
 	                <p>¿Alguna duda? mándanos un e-mail</p>
-	                <span>soportesdigitales.es@bbva.com</span>
+	                <a onclick="javascript:Go('https://mail.google.com/mail/?view=cm&fs=1&to=soportesdigitales.es@bbva.com')">soportesdigitales.es@bbva.com</a>
 	                <p>Te contestamos lo antes posible</p>
 	            </div>
 	        </div>
 	    </div>
+
+		<script>
+		    function Go(destination)
+			{
+				window.open(destination, "_blank");
+				return false;
+			}
+		</script>
 
 		]]>
 	 </Content>

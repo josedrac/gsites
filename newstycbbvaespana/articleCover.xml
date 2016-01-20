@@ -8,7 +8,10 @@
 		<Require feature="setprefs" />
 	</ModulePrefs>
 
+	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+	<UserPref name="siteName" display_name="Site name" required="true" />
 	<UserPref name="sectionId" display_name="Section ID" required="true" />
+	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -94,8 +97,7 @@
 		  			margin-bottom: 19px;
 				}
 
-				p,
-				dl {
+				p {
 					font-family: arial;
 					font-size: 13px;
 					color: #434A58;
@@ -152,26 +154,11 @@
 	    			bottom: 5px;
 				}
 
-				dl {
-				    margin-top: 14px;
-				    margin-bottom: 16px;
-				}
-
-				dt {
-					float: left;
-				}
-				dt:after {
-					content: "\003A";
-					margin-right: 3px;
-				}
-				dd {
-					color: #0078D2;
-				    margin-bottom: 4px;
-				}
-
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
 
 			<script type="text/javascript">
 
@@ -179,20 +166,17 @@
 
 			</script>
 
-		 	<div class="article-cover bordered-button">
+		 	<div id="container" class="article-cover bordered-button">
 		 		<div class="content-wrapper">
 					<div class="article-cover-wrapper">
 
 			 			<h2 id="title"></h2>
 						<h3 id="subtitle"></h3>
-						<p class="author-signature">
-							<span id="date"></span>
-							<span>-</span>
-							<span id="author"></span>
-						</p>
+						
+						<div id="authorSignature"></div>
 
 						<div id="sortDescription"></div>
-						<button type="button" onclick="javascript:goArticle()">Saber más</button>
+						<button id="buttonArticle" type="button" onclick="javascript:goArticle()"></button>
 
 					</div>
 		 		</div>
@@ -202,6 +186,21 @@
 		 			
 		 		</div>
 		 	</div>
+
+		 	<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -219,9 +218,10 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
+					siteName = prefs.getString('siteName'),
 					sectionId = prefs.getString('sectionId'),
 					date = getUrlParameter("date"),
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
@@ -259,18 +259,29 @@
 
 					document.getElementById("title").innerHTML = data.title; 				
 					document.getElementById("subtitle").innerHTML = data.subtitle; 	
-					document.getElementById("date").innerHTML = data.date;
-					document.getElementById("author").innerHTML = data.author; 	
+
+					if(data.author != null && data.author != undefined) {
+						var authorSignature = '';
+						authorSignature += '<p class="author-signature">';
+						authorSignature += data.date + ' - ' + data.author;
+						authorSignature += '</p>';
+						document.getElementById("authorSignature").innerHTML = authorSignature;
+					}
+
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
 					document.getElementById("coverMedia").innerHTML = data.coverMedia;
+
 				}
 
 				function goArticle() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '';
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '&key=' + spreadsheetKey + '&siteName=' + siteName;
 					return false;
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
+
+				var buttonLabel = prefs.getString('buttonLabel');
+				document.getElementById('buttonArticle').innerHTML = buttonLabel;
 
 			</script>
 
@@ -295,8 +306,23 @@
 			<table width="100%" border="0" id="tablaconfig">
 				<tr>
 					<td>
+						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
 						Section ID: <input type="text" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
 					</td>
+				</tr>
+				<tr>
+				   	<td>
+				       	Button Label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__" onchange="register('buttonLabel')"/>
+				    </td>
 				</tr>
 			</table>
 

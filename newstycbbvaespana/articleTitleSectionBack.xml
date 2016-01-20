@@ -7,7 +7,7 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
-  	<UserPref name="sectionName" display_name="Section name" required="true" />
+  	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
 
  	<Content type="html">
     	<![CDATA[
@@ -33,19 +33,19 @@
 					margin: 0;
 				}
 
-				div {
+				.container {
 					padding-bottom: 14px;
 					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 					background-position: bottom;
 					background-repeat: repeat-x;
 				}
 
-				div h2 {
+				.container h2 {
 					display: inline-block;
 					vertical-align: sub;
 				}
 
-				div button {
+				.container button {
 					vertical-align: middle;
 			        margin-right: 12px;
 				}
@@ -68,6 +68,8 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
 
 			<script type="text/javascript">
 
@@ -75,30 +77,44 @@
 
 			</script>
 
-			<div>
-				<button type="button" onclick="javascript:goBack();">Volver</button>
+			<div id="container" class="container">
+				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
 			</div>
 
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
+
 			<script type="text/javascript">
 
-				function getUrlParameter(parameterName) {
-					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
+				function getParam(p){
+		            var params;
+		            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+		                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+		                for(var i=0; i<params.length; i++){
+		                    if(params[i].split("=")[0] == p)
+		                        return params[i].split("=")[1];
+		                }
+		            }
+		            return "";
+		        }
 
-					for (var i = 0; i < params.length; i++) {
-						var p = params[i].split('=');
-						if (p[0] == parameterName) {
-							return decodeURIComponent(p[1]);
-						}
-					}
-					return false;
-				}
-
-				var prefs = new gadgets.Prefs(),
-					sectionName = prefs.getString('sectionName'),
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+				var	spreadsheetKey = getParam('key'),
+					siteName = getParam('siteName'),
 					sheetName = encodeURIComponent('sections'),
-					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
+					queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
 
 				function getSpreadsheet() {
@@ -115,60 +131,58 @@
 				}
 
 				function printDataTable(dataTable) {
-				
-					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);	
-
+					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);
 				}
 
 				function goBack() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/?date=' + getUrlParameter("date") + '';
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' + siteName + '?date=' + getParam("date") + '';
 				}
 
-				if(sectionName != null && sectionName != undefined && sectionName != '') {
-					document.getElementById("sectionName").innerHTML = sectionName; 						
-				}
-				else {
-					google.setOnLoadCallback(getSpreadsheet);
-				}
+				var prefs = new gadgets.Prefs();
+				var buttonLabel = prefs.getString('buttonLabel');
+				document.getElementById('buttonLabel').innerHTML = buttonLabel;
+
+				google.setOnLoadCallback(getSpreadsheet);
 
 			</script>
    			
    		]]>
   	</Content>
 
-	<Content type="html" view="configuration">
+  	  <Content type="html" view="configuration">
 
-		<![CDATA[
+    <![CDATA[
 
-			<style type="text/css">
+      <style type="text/css">
 
-				table td {
-					color: #000;
-					font-size: 11px;
-					font-weight: bold;
-			}
+        table td {
+          color: #000;
+          font-size: 11px;
+          font-weight: bold;
+        }
 
-			</style>
+      </style>
 
-			<table width="100%" border="0" id="tablaconfig">
-				<tr>
-					<td>
-						Section Name: <input type="text" id="sectionName" value="__UP_sectionName__"   onchange="register('sectionName')"/>
-					</td>
-				</tr>
-			</table>
+      <table width="100%" border="0" id="tablaconfig">
+        <tr>
+          <td>
+            Button label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__"   onchange="register('buttonLabel')"/>
+          </td>
+        </tr>      
+      </table>
 
-			<script type="text/javascript">
+      <script type="text/javascript">
 
-			var prefs = new gadgets.Prefs();
-				function register(variable) {
-				prefs.set(variable, document.getElementById(variable).value);
-			}
+        var prefs = new gadgets.Prefs();
+        function register(variable) {
+          prefs.set(variable, document.getElementById(variable).value);
+        }
 
-			</script>
+        gadgets.window.adjustHeight();
 
-		]]>
+      </script>
 
-	</Content>
+    ]]>
+  </Content>
 
 </Module>

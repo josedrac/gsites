@@ -7,7 +7,13 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
+	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+
+	<UserPref name="siteName" display_name="Site name" required="true" />
+
   	<UserPref name="sectionName" display_name="Section name" required="true" />
+
+  	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
 
  	<Content type="html">
     	<![CDATA[
@@ -33,19 +39,19 @@
 					margin: 0;
 				}
 
-				div {
+				.container {
 					padding-bottom: 14px;
 					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 					background-position: bottom;
 					background-repeat: repeat-x;
 				}
 
-				div h2 {
+				.container h2 {
 					display: inline-block;
 					vertical-align: sub;
 				}
 
-				div button {
+				.container button {
 					vertical-align: middle;
 			        margin-right: 12px;
 				}
@@ -68,6 +74,8 @@
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
 
 			<script type="text/javascript">
 
@@ -75,10 +83,25 @@
 
 			</script>
 
-			<div>
-				<button type="button" onclick="javascript:goBack();">Volver</button>
+			<div id="container" class="container">
+				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
 			</div>
+
+			<div id="functionsContainer"></div>
+
+			<script type="text/javascript">
+				
+				$.ajax({
+					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+						success: function(result){
+							var e = document.getElementById('functionsContainer');
+				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
+				            eval(document.getElementById('sc1').innerHTML);
+						}
+					});
+
+			</script>
 
 			<script type="text/javascript">
 
@@ -95,8 +118,11 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('spreadsheetKey'),
+
+					siteName = prefs.getString('siteName'),
+
 					sectionName = prefs.getString('sectionName'),
-					spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getUrlParameter("id") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
@@ -116,12 +142,12 @@
 
 				function printDataTable(dataTable) {
 				
-					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);	
+					document.getElementById("sectionName").innerHTML = dataTable.getValue(0, 1);
 
 				}
 
 				function goBack() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/?date=' + getUrlParameter("date") + '';
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/?date=' + getUrlParameter("date") + '';
 				}
 
 				if(sectionName != null && sectionName != undefined && sectionName != '') {
@@ -130,6 +156,9 @@
 				else {
 					google.setOnLoadCallback(getSpreadsheet);
 				}
+
+				var buttonLabel = prefs.getString('buttonLabel');
+				document.getElementById('buttonLabel').innerHTML = buttonLabel;
 
 			</script>
    			
@@ -153,8 +182,25 @@
 			<table width="100%" border="0" id="tablaconfig">
 				<tr>
 					<td>
+						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
+						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+
 						Section Name: <input type="text" id="sectionName" value="__UP_sectionName__"   onchange="register('sectionName')"/>
 					</td>
+				</tr>
+				<tr>
+				   	<td>
+				       	Button Label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__" onchange="register('buttonLabel')"/>
+				    </td>
 				</tr>
 			</table>
 
