@@ -76,7 +76,7 @@
 
 			</style>
 
-			<div id="appoinments" class="appoinments" onclick="javascript:goAppointments()">
+			<div id="appoinments" class="appoinments" onclick="javascript:Go()">
 				<h2 id="title"></h2>
 				<p id="subtitle"></p>
 			</div>
