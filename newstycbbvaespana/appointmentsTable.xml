@@ -155,21 +155,21 @@
 
 			<script type="text/javascript">
 
-				function getUrlParameter(parameterName) {
-					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
+				function getParam(p){
+		            var params;
+		            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+		                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+		                for(var i=0; i<params.length; i++){
+		                    if(params[i].split("=")[0] == p)
+		                        return params[i].split("=")[1];
+		                }
+		            }
+		            return "";
+		        }
 
-					for (var i = 0; i < params.length; i++) {
-						var p = params[i].split('=');
-						if (p[0] == parameterName) {
-							return decodeURIComponent(p[1]);
-						}
-					}
-					return false;
-				}
-
-				var spreadsheetKey = getUrlParameter('key');
+				var spreadsheetKey = getParam('key');
 					sheetName = encodeURIComponent('appointments'),
-					queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
+					queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
 
 				function getSpreadsheet() {
