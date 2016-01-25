@@ -63,14 +63,30 @@
 			
 		</style>
 
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+		<script type="text/javascript">
+
+			google.load('visualization', '1', {packages: ['table']});
+
+		</script>
+
 		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
 
 		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
 		
 		<script type="text/javascript">
 
+			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
+				siteName = 'servicios-centrales',
+				date = getUrlParameter("date"),
+				sheetName = encodeURIComponent('appointments'),
+				queryString = encodeURIComponent('SELECT * where D ends with "' + getUrlParameter("date") + '"'),
+				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
 			function getUrlParameter(parameterName) {
 				var params = window.location.search.substr(1).split('&');
+
 				for (var i = 0; i < params.length; i++) {
 					var p = params[i].split('=');
 					if (p[0] == parameterName) {
@@ -80,9 +96,9 @@
 				return false;
 			}
 
-			function goAppointments() {
-				console.log('goAppointments');
-				console.log('param date:', getUrlParameter("date"));
+			function Go() {
+				window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/appointments?date=' + date + '&key=' + spreadsheetKey + '&siteName=' + siteName;
+				return false;
 			}
 
 		</script>
@@ -95,7 +111,7 @@
 
 	<body>
 
-		<div class="appoinments" onclick="javascript:goAppointments()">
+		<div class="appoinments" onclick="javascript:Go()">
 			<h2>Nombramientos en DT Sur</h2>
 			<p>Descubre las últimas novedades de tu territorio</p>
 		</div>
