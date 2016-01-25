@@ -167,8 +167,7 @@
 					return false;
 				}
 
-				var prefs = new gadgets.Prefs(),
-					spreadsheetKey = prefs.getString('spreadsheetKey');
+				var spreadsheetKey = getUrlParameter('key');
 					sheetName = encodeURIComponent('appointments'),
 					queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
@@ -233,11 +232,6 @@
 			</style>
 
 			<table width="100%" border="0">
-				<tr>
-					<td>
-						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
-					</td>
-				</tr>
 				<tr>
 					<td>
 						Header text: <input type="text" id="headerText" value="__UP_headerText__"   onchange="register('headerText')"/>
