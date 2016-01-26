@@ -112,6 +112,10 @@
 		  background-position: center;
 		}
 
+		.pointer {
+			cursor: pointer;
+		}
+
 		.banner ul li .image {
 			width: 100%;
 			max-width: 650px;
@@ -246,9 +250,12 @@
 				title = dataTable.getValue(i, 0);
 				subtitle = dataTable.getValue(i, 1);
 				image = dataTable.getValue(i, 2);
+				link = dataTable.getValue(i, 3);
 
-
-				html += "<li>";
+				if(link != "" && link != null)
+					html += "<li class=\"pointer\" onclick=\"javascript:Go('"+link+"')\">";
+				else
+					html += "<li>";
 	        	html += "	<div class='image'>"
 		        html += "		<div class='background' style='background-image: url(\"" + image + "\");'></div>";	
 		        html += "	</div>";
@@ -293,7 +300,7 @@
 
 
 		function Go(destination){
-        	window.open(destination,'_parent');
+        	window.parent.location.href = destination;
         	return false;
     	}	
 
