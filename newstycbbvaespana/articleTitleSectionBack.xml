@@ -3,8 +3,8 @@
   	<ModulePrefs title="NB-articleTitleSectionBack.xml">
 	    <Require feature="idi"/>
 	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>
-		<Require feature="setprefs" />
+  		<Require feature="dynamic-height"/>
+  		<Require feature="setprefs" />
   	</ModulePrefs>
 
   	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
@@ -196,46 +196,5 @@
 
    		]]>
   	</Content>
-
-  	  <Content type="html" view="configuration">
-
-    <![CDATA[
-
-      <style type="text/css">
-
-        table td {
-          color: #000;
-          font-size: 11px;
-          font-weight: bold;
-        }
-
-      </style>
-
-      <table width="100%" border="0" id="tablaconfig">
-        <tr>
-          <td>
-            Button label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__"   onchange="register('buttonLabel')"/>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Printer button: <input type="checkbox" id="printer" value="__UP_printer__"   onchange="register('printer')"/>
-          </td>
-        </tr>
-      </table>
-
-      <script type="text/javascript">
-
-        var prefs = new gadgets.Prefs();
-        function register(variable) {
-          prefs.set(variable, document.getElementById(variable).value);
-        }
-
-        gadgets.window.adjustHeight();
-
-      </script>
-
-    ]]>
-  </Content>
 
 </Module>
