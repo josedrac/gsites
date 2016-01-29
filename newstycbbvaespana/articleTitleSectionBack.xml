@@ -8,7 +8,6 @@
   	</ModulePrefs>
 
   	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
-    <UserPref name="printer" display_name="printer" datatype="bool" required="true" default-value="true" />
 
  	<Content type="html">
     	<![CDATA[
@@ -91,7 +90,6 @@
 			<div id="container" class="container">
 				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
-        <div id="printer-container" class="printer-container"></div>
 			</div>
 
 			<div id="functionsContainer"></div>
@@ -176,10 +174,7 @@
 
 				var prefs = new gadgets.Prefs();
 				var buttonLabel = prefs.getString('buttonLabel');
-        var printer = prefs.getBool('printer');
 				document.getElementById('buttonLabel').innerHTML = buttonLabel;
-        if(printer)
-          document.getElementById("printer-container").innerHTML = "<img src='https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/printer.png' class='image' onclick='javascript:window.parent.print();' />";
 
 				google.setOnLoadCallback(getSpreadsheet);
 
