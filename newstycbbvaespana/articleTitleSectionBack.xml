@@ -8,10 +8,11 @@
   	</ModulePrefs>
 
   	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
+    <UserPref name="printer" display_name="printer" required="true" />
 
  	<Content type="html">
     	<![CDATA[
-			
+
 			<style type="text/css">
 
 				@font-face {
@@ -65,6 +66,25 @@
 	    			padding-left: 10px;
 				}
 
+        .printer-container {
+          display: inline-block;
+          float: right;
+          margin-top: 20px;
+        }
+
+        img {
+          background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/printer.png);
+          background-repeat: no-repeat;
+          cursor: pointer;
+          border: 0;
+            width: 73px;
+          height: 30px;
+          color: #0078D2;
+          font-size: 15px;
+          font-weight: bold;
+          padding-left: 20px;
+        }
+
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -80,12 +100,13 @@
 			<div id="container" class="container">
 				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
+        <div id="printer-container" class="printer-container"></div>
 			</div>
 
 			<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -110,13 +131,14 @@
 		            }
 		            return "";
 		        }
-		        
+
+
 				var date = getParam('date');
 				var	spreadsheetKey = getParam('key'),
 					siteName = getParam('siteName'),
 					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
 					query.send(handleQueryResponse);
@@ -153,8 +175,8 @@
 					var index = hasAnotherDate(dataTable);
 
 					var sectionName = dataTable.getValue(index, 1);
-					document.getElementById("sectionName").innerHTML = sectionName; 
-					
+					document.getElementById("sectionName").innerHTML = sectionName;
+
 				}
 
 				function goBack() {
@@ -163,12 +185,15 @@
 
 				var prefs = new gadgets.Prefs();
 				var buttonLabel = prefs.getString('buttonLabel');
+        var printer = prefs.getBoolean('printer');
 				document.getElementById('buttonLabel').innerHTML = buttonLabel;
+        if(printer)
+          document.getElementById("printer-container").innerHTML = "<img class='image' onclick='javascript:window.print();' />";
 
 				google.setOnLoadCallback(getSpreadsheet);
 
 			</script>
-   			
+
    		]]>
   	</Content>
 
@@ -191,7 +216,12 @@
           <td>
             Button label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__"   onchange="register('buttonLabel')"/>
           </td>
-        </tr>      
+        </tr>
+        <tr>
+          <td>
+            Printer button: <input type="checkbox" id="printer" value="__UP_printer__"   onchange="register('printer')"/>
+          </td>
+        </tr>
       </table>
 
       <script type="text/javascript">
