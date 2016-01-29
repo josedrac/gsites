@@ -179,7 +179,7 @@
         var printer = prefs.getBool('printer');
 				document.getElementById('buttonLabel').innerHTML = buttonLabel;
         if(printer)
-          document.getElementById("printer-container").innerHTML = "<img src='https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/printer.png' class='image' onclick='javascript:window.print();' />";
+          document.getElementById("printer-container").innerHTML = "<img src='https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/printer.png' class='image' onclick='javascript:window.parent.print();' />";
 
 				google.setOnLoadCallback(getSpreadsheet);
 
