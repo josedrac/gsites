@@ -11,6 +11,7 @@
 	<UserPref name="siteName" display_name="Site name" required="true" />
 	<UserPref name="title" display_name="title" required="true" />
 	<UserPref name="subtitle" display_name="subtitle" required="true" />
+	<UserPref name="key" display_name="key" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -75,7 +76,7 @@
 
 			</style>
 
-			<div id="appoinments" class="appoinments" onclick="javascript:goAppointments()">
+			<div id="appoinments" class="appoinments" onclick="javascript:Go()">
 				<h2 id="title"></h2>
 				<p id="subtitle"></p>
 			</div>
@@ -110,6 +111,8 @@
 				}
 
 				var prefs = new gadgets.Prefs(),
+					spreadsheetKey = prefs.getString('key'),
+					date = getUrlParameter('date'),
 					siteName = prefs.getString('siteName'),
 					title = prefs.getString('title'),
 					subtitle = prefs.getString('subtitle');
@@ -118,8 +121,9 @@
 				document.getElementById('subtitle').innerHTML = subtitle;
 
 
-				function goAppointments() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbva/' + siteName + '/appointments/?date=' + getUrlParameter("date") + '';
+				function Go() {
+					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/appointments?date=' + date + '&key=' + spreadsheetKey + '&siteName=' + siteName;
+					return false;
 				}
 
 			</script>
@@ -155,6 +159,11 @@
 				<tr>
 					<td>
 						Subtitle: <input type="text" id="subtitle" value="__UP_subtitle__"   onchange="register('subtitle')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Spreadsheet key: <input type="text" id="key" value="__UP_key__"   onchange="register('key')"/>
 					</td>
 				</tr>
 			</table>

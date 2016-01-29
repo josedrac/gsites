@@ -17,7 +17,9 @@
 
 			ul li {
 				margin: 10px 0;
+				cursor: pointer;
 			}
+
 			
 		</style>
 
@@ -66,7 +68,6 @@
 			}
 
 			function printDataTable(dataTable) {
-
 				var rows = dataTable.getNumberOfRows(),
 					data = [],
 					template = '';
@@ -81,14 +82,15 @@
 
 				for(i = 0; i < data.length; i++) {
 					template += '<li>';
-					template += '<a href="' + data[i].targetUrl + '">';
-					template += '<img src="' + data[i].imageUrl + '"/>';
-					template += '</a>';
+					template += '<img onclick="javascript:Go(\''+data[i].targetUrl+'\')" src="' + data[i].imageUrl + '"/>';
 					template += '</li>';
 				}
 					
 				document.getElementById("articleBanners").innerHTML = template; 
-				
+			}
+
+			function Go(destination) {
+				window.parent.location.href = destination;
 			}
 
 			google.setOnLoadCallback(getSpreadsheet);
