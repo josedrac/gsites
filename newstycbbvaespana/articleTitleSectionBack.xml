@@ -8,7 +8,7 @@
   	</ModulePrefs>
 
   	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
-    <UserPref name="printer" display_name="printer" required="true" />
+    <UserPref name="printer" display_name="printer" datatype="bool" required="true" default-value="true" />
 
  	<Content type="html">
     	<![CDATA[
