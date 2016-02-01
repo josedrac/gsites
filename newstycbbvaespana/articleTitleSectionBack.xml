@@ -3,15 +3,15 @@
   	<ModulePrefs title="NB-articleTitleSectionBack.xml">
 	    <Require feature="idi"/>
 	    <Require feature="locked-domain" />
-		<Require feature="dynamic-height"/>
-		<Require feature="setprefs" />
+  		<Require feature="dynamic-height"/>
+  		<Require feature="setprefs" />
   	</ModulePrefs>
 
   	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
 
  	<Content type="html">
     	<![CDATA[
-			
+
 			<style type="text/css">
 
 				@font-face {
@@ -65,6 +65,16 @@
 	    			padding-left: 10px;
 				}
 
+        .printer-container {
+          display: inline-block;
+          float: right;
+          margin-top: 20px;
+        }
+
+        img {
+          cursor: pointer;
+        }
+
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -85,7 +95,7 @@
 			<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -110,13 +120,14 @@
 		            }
 		            return "";
 		        }
-		        
+
+
 				var date = getParam('date');
 				var	spreadsheetKey = getParam('key'),
 					siteName = getParam('siteName'),
 					sheetName = encodeURIComponent('sections'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
 					query.send(handleQueryResponse);
@@ -153,8 +164,8 @@
 					var index = hasAnotherDate(dataTable);
 
 					var sectionName = dataTable.getValue(index, 1);
-					document.getElementById("sectionName").innerHTML = sectionName; 
-					
+					document.getElementById("sectionName").innerHTML = sectionName;
+
 				}
 
 				function goBack() {
@@ -168,44 +179,8 @@
 				google.setOnLoadCallback(getSpreadsheet);
 
 			</script>
-   			
+
    		]]>
   	</Content>
-
-  	  <Content type="html" view="configuration">
-
-    <![CDATA[
-
-      <style type="text/css">
-
-        table td {
-          color: #000;
-          font-size: 11px;
-          font-weight: bold;
-        }
-
-      </style>
-
-      <table width="100%" border="0" id="tablaconfig">
-        <tr>
-          <td>
-            Button label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__"   onchange="register('buttonLabel')"/>
-          </td>
-        </tr>      
-      </table>
-
-      <script type="text/javascript">
-
-        var prefs = new gadgets.Prefs();
-        function register(variable) {
-          prefs.set(variable, document.getElementById(variable).value);
-        }
-
-        gadgets.window.adjustHeight();
-
-      </script>
-
-    ]]>
-  </Content>
 
 </Module>

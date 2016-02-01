@@ -27,7 +27,7 @@
 				margin: 0;
 			}
 
-			div {
+			.content {
 				padding-bottom: 14px;
 				background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 				background-position: bottom;
@@ -58,13 +58,23 @@
     			font-weight: bold;
     			padding-left: 10px;
 			}
-			
+
+      .printer-container {
+        display: inline-block;
+        float: right;
+        margin-top: 20px;
+      }
+
+      img {
+        cursor: pointer;
+      }
+
 		</style>
 
 		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
 
 		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
-		
+
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 		<script type="text/javascript">
@@ -87,7 +97,8 @@
 	            return "";
 	        }
 
-	        var date = getParam('date');
+      var printer = true;
+	    var date = getParam('date');
 			var spreadsheetKey = getParam('key'),
 				siteName = getParam('siteName'),
 				sheetName = encodeURIComponent('sections'),
@@ -129,8 +140,10 @@
 				var index = hasAnotherDate(dataTable);
 
 				var sectionName = dataTable.getValue(index, 1);
-				document.getElementById("sectionName").innerHTML = sectionName; 
-				
+				document.getElementById("sectionName").innerHTML = sectionName;
+        if(printer)
+          document.getElementById("printer-container").innerHTML = "<img src='https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/printer.png' class='image' onclick='javascript:window.parent.print();' />";
+
 			}
 
 			function goBack() {
@@ -149,13 +162,14 @@
 
 	<body>
 
-		<div>
+		<div class="content">
 			<button type="button" onclick="javascript:goBack();">Volver</button>
 			<h2 id="sectionName"></h2>
+      <div id="printer-container" class="printer-container"></div>
 		</div>
 
 	</body>
 
 	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
 
-</html> 
+</html>
