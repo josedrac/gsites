@@ -223,8 +223,8 @@
         </div>
 	</div>
 
-	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
-    <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
 
    	<script type="text/javascript">
 		var gadgetHelper = null;

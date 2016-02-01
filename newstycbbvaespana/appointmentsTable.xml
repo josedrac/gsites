@@ -12,16 +12,16 @@
 
  	<Content type="html">
     	<![CDATA[
-			
+
 			<style type="text/css">
 
 				@font-face {
 					font-family: 'BBVA Web Light';
-					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
-					src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-						url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+					src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 					font-style: normal;
 					font-weight: normal;
 				}
@@ -36,7 +36,7 @@
 
 				table {
 			    	border-collapse: collapse;
-					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
 					background-position: bottom;
 					background-repeat: repeat-x;
 					width: 860px;
@@ -135,13 +135,13 @@
 						</tr>
 					</thead>
 					<tbody id="tableBody"></tbody>
-				</table>		
-			</div>	
+				</table>
+			</div>
 
 			<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -170,7 +170,7 @@
 				var spreadsheetKey = getParam('key');
 					sheetName = encodeURIComponent('appointments'),
 					queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
 					query.send(handleQueryResponse);
@@ -200,20 +200,20 @@
 						if(url != null && url != undefined && url != '') {
 							template += '<td class="text-right"><span class="sign-up">apuntate<span>+</span></span></td>';
 						}
-						template += '</tr>'	
+						template += '</tr>'
 					}
 
-					document.getElementById("tableBody").innerHTML = template; 
-					
+					document.getElementById("tableBody").innerHTML = template;
+
 					var prefs = new gadgets.Prefs(),
 						headerText = prefs.getString('headerText');
-					document.getElementById("headerText").innerHTML = headerText; 
+					document.getElementById("headerText").innerHTML = headerText;
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
 
 			</script>
-   			
+
    		]]>
   	</Content>
 

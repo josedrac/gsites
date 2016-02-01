@@ -15,31 +15,31 @@
         /* @group fonts */
         @font-face {
           font-family: 'BBVA Web Light';
-          src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot');
-          src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.eot');
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
           font-style: normal;
           font-weight: normal;
         }
         @font-face {
           font-family: 'BBVA Web Book';
-          src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-book/web-book.eot');
-          src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-book/web-book.woff') format("woff"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-book/web-book.ttf') format("truetype"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.eot');
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.woff') format("woff"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.ttf') format("truetype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
           font-style: normal;
           font-weight: normal;
         }
         @font-face {
           font-family: 'BBVA Web Medium';
-          src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-medium/web-medium.eot');
-          src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-medium/web-medium.woff') format("woff"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-medium/web-medium.ttf') format("truetype"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.eot');
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.woff') format("woff"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.ttf') format("truetype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
           font-style: normal;
           font-weight: normal;
         }
@@ -162,7 +162,7 @@
 
       <script type="text/javascript" src="https://www.google.com/jsapi"></script>
       <script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
-      <script src="https://rawgit.com/sopraux/gsites/master/movilidadGeografica/js/starrr.min.js" type="text/javascript"></script>
+      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/js/starrr.min.js" type="text/javascript"></script>
 
    	  <script type="text/javascript">
 

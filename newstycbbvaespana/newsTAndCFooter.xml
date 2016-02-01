@@ -14,7 +14,7 @@
 	<Content type="html">
 	    <![CDATA[
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js"</script>
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js"</script>
     <script type="text/javascript">
 		google.load('visualization', '1', {packages: ['table']});
 	</script>
@@ -23,22 +23,22 @@
 
 	@font-face {
 		font-family: 'BBVA Web Light';
-		src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
-		src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+		src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
 
 	@font-face {
 		font-family: 'BBVA Web Book';
-		src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot');
-		src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
-			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
-			url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+		src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
+		src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
@@ -92,7 +92,7 @@
 	
 	<div class="footer">
 
-	 	<img src="https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>
+	 	<img src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>
 	 	<div>
 		 	<h2 id="title"></h2>
 		 	<ul id="list">

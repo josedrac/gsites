@@ -10,11 +10,11 @@
 
 			@font-face {
 				font-family: 'BBVA Web Light';
-				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
-				src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-					url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 				font-style: normal;
 				font-weight: normal;
 			}
@@ -29,7 +29,7 @@
 
 			table {
 		    	border-collapse: collapse;
-				background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
+				background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
 				background-position: bottom;
 				background-repeat: repeat-x;
 				width: 860px;
@@ -104,13 +104,13 @@
 				padding-left: 0;
 			}
 
-			
+
 		</style>
 
 		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
 
 		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
-		
+
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 		<script type="text/javascript">
@@ -135,7 +135,7 @@
 			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
 				sheetName = encodeURIComponent('appointments'),
 				queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
-				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 			function getSpreadsheet() {
 				query.send(handleQueryResponse);
@@ -165,10 +165,10 @@
 					if(url != null && url != undefined && url != '') {
 						template += '<td class="text-right"><span class="sign-up">apuntate<span>+</span></span></td>';
 					}
-					template += '</tr>'	
+					template += '</tr>'
 				}
-				
-				document.getElementById("tableBody").innerHTML = template; 
+
+				document.getElementById("tableBody").innerHTML = template;
 			}
 
 			google.setOnLoadCallback(getSpreadsheet);
@@ -201,4 +201,4 @@
 
 	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
 
-</html> 
+</html>

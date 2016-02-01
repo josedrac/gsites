@@ -13,11 +13,11 @@
     <style type="text/css">
       @font-face {
         font-family: 'BBVA Web Light';
-        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot');
-        src:url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
-            url('https://rawgit.com/sopraux/gsites/master/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.eot');
+        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
         font-style: normal;
         font-weight: normal;
       }
@@ -30,7 +30,7 @@
       }
       .title-section-back {
         padding-bottom: 14px;
-        background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/border-bottom-shaded.png);
+        background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/img/border-bottom-shaded.png);
         background-position: bottom;
         background-repeat: repeat-x;
       }
@@ -48,7 +48,7 @@
         vertical-align: bottom;
       }
       .back-white {
-        background-image: url(https://rawgit.com/sopraux/gsites/master/movilidadGeografica/img/bg-boton-encabezado-volver_R2.png);
+        background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/img/bg-boton-encabezado-volver_R2.png);
         background-repeat: no-repeat;
         background-color: initial;
         cursor: pointer;

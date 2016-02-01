@@ -1,38 +1,38 @@
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-    <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
-    <script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
-    <script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
 
 
     <style type="text/css">
         /* @group fonts */
         @font-face {
             font-family: 'BBVA Web Light';
-            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot');
-            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.woff') format("woff"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.ttf') format("truetype"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.eot');
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.woff') format("woff"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
             font-style: normal;
             font-weight: normal;
         }
         @font-face {
             font-family: 'BBVA Web Book';
-            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot');
-            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.woff') format("woff"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.eot');
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.woff') format("woff"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
             font-style: normal;
             font-weight: normal;
         }
         @font-face {
             font-family: 'BBVA Web Medium';
-            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot');
-            src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.woff') format("woff"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.ttf') format("truetype"),
-                url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.eot');
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.woff') format("woff"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.ttf') format("truetype"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
             font-style: normal;
             font-weight: normal;
         }
@@ -56,7 +56,7 @@
             border-top: 1px solid #EAEAEA;
             margin-bottom: 2em;
             margin-top: 0.4em;
-            padding: 0; 
+            padding: 0;
         }
 
         .line.strong {
@@ -211,13 +211,13 @@
 
 
 <div id="container" class="container">
-    
+
     <div class="title-container">
         <span id="title" class="title"></span>
     </div>
     <hr class="line" />
-    
-    <div id="pages">    
+
+    <div id="pages">
     </div>
 
     <hr class="line strong" />
@@ -261,12 +261,12 @@
         }
 
         function pagination(elements) {
-            $('#pagination').smartpaginator({ 
-                totalrecords: elements, 
-                recordsperpage: 1, 
-                length: 4, 
-                datacontainer: 'pages', 
-                dataelement: 'div.page', 
+            $('#pagination').smartpaginator({
+                totalrecords: elements,
+                recordsperpage: 1,
+                length: 4,
+                datacontainer: 'pages',
+                dataelement: 'div.page',
                 initval: 0,
             });
          }
@@ -347,7 +347,7 @@
                     month = "Todos los meses";
 
                 if(year == 0)
-                    year = "Todos los años"; 
+                    year = "Todos los años";
 
                 if(tag != "")
                     tagText = "Etiqueta "+tag;
@@ -381,7 +381,7 @@
 
             filas = data.getNumberOfRows();
 
-            pages = Math.ceil(filas / 8); 
+            pages = Math.ceil(filas / 8);
 
             if(filas<1)
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
@@ -523,5 +523,5 @@
             return month +' '+ year;
         }
 
-       
+
     </script>

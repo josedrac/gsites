@@ -11,39 +11,39 @@
  <Content view="canvas" preferred_height="20px">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
-	<script src="https://rawgit.com/sopraux/gsites/master/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
-	<script src="https://rawgit.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
 
 	<style type="text/css">
 	  	/* @group fonts */
 		@font-face {
 			font-family: 'BBVA Web Light';
-			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot');
-			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.woff') format("woff"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.ttf') format("truetype"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.eot');
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.woff') format("woff"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
 		@font-face {
 			font-family: 'BBVA Web Book';
-			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot');
-			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.woff') format("woff"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.ttf') format("truetype"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.eot');
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.woff') format("woff"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
 		@font-face {
 			font-family: 'BBVA Web Medium';
-			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot');
-			src:url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.woff') format("woff"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.ttf') format("truetype"),
-				url('https://rawgit.com/sopraux/gsites/master/actividadtyc/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.eot');
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
 			font-style: normal;
 			font-weight: normal;
 		}
@@ -298,7 +298,7 @@
 
 
 	<div class="container" id="container">
-		
+
 
 	</div>
 
@@ -354,12 +354,12 @@
 		}
 
 		function pagination(elements) {
-	        $('#pagination').smartpaginator({ 
-		        totalrecords: elements, 
-		        recordsperpage: 3, 
-		        length: 4, 
-		        datacontainer: 'paginas', 
-		        dataelement: 'div.eventContainer', 
+	        $('#pagination').smartpaginator({
+		        totalrecords: elements,
+		        recordsperpage: 3,
+		        length: 4,
+		        datacontainer: 'paginas',
+		        dataelement: 'div.eventContainer',
 		        initval: 0,
 	        });
 	    }
@@ -375,10 +375,10 @@
 				var filas = dataGlobal.getNumberOfRows();
 				var html = "";
 
-				if(filas < 1) 
+				if(filas < 1)
 	    			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
 	            else {
-	                html += '<div id="paginas" class="paginaNueva" style=" display: block;">'; 
+	                html += '<div id="paginas" class="paginaNueva" style=" display: block;">';
 
 					for(var i=0; i < filas; i++) {
 
@@ -401,12 +401,12 @@
 
 			var date = data.getFormattedValue(i, 4).split('/');
 			var day = date[0];
-			var mon = month[parseInt(date[1])]; 
+			var mon = month[parseInt(date[1])];
 			var year = date[2];
 
 			var date2 = data.getFormattedValue(i, 5).split('/');
 			var day2 = date2[0];
-			var mon2 = month[parseInt(date2[1])]; 
+			var mon2 = month[parseInt(date2[1])];
 			var year2 = date2[2];
 
 			var tagConfirm = "";
@@ -414,7 +414,7 @@
 			var icon;
 			if(data.getValue(i, 6) == 'x')	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20calendario%20eventos.png";
 			else 							icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20radio%20eventos.png";
-				
+
 
 		   	html += "<div class='eventContainer'>";
 		   	html += "	<div class='datesandtags'>";
@@ -460,7 +460,7 @@
 
 			//Separación
 		    html += "	<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/>";
-		    html += "</div>";			
+		    html += "</div>";
 		    return html;
 
 		}
@@ -521,7 +521,7 @@
           <td>
             Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
           </td>
-        </tr>  
+        </tr>
       </table>
 
       <script type="text/javascript">
