@@ -18,7 +18,7 @@
 	  /* @group fonts */
 @font-face {
 	font-family: 'BBVA Web Light';
-	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.eot');
 	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
 		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
 		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
