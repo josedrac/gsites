@@ -18,33 +18,33 @@
 	  /* @group fonts */
 @font-face {
 	font-family: 'BBVA Web Light';
-	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
-	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
 
 @font-face {
 	font-family: 'BBVA Web Book';
-	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
-	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.eot');
+	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
 
 @font-face {
 	font-family: 'BBVA Web Medium';
-	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
-	src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.eot');
+	src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
 	font-style: normal;
 	font-weight: normal;
 }
@@ -364,6 +364,16 @@
 	#video iframe{
 	margin:0;
 	}
+
+  .button-container {
+      width: 300px;
+      height: 100px;
+  }
+  button {
+    background-color: #0072C9;
+    width: 100%;
+  }
+
 	</style>
 
 <div id="listportales"></div>
@@ -414,6 +424,13 @@
 			    }
                 html += "</div>";
                 html += "<div class='description'>"+data.getValue(i,4)+"</div>";
+
+                if(data.getValue(i,8) != null  &&  data.getValue(i,8) != ""){
+                  html += "<div class='button-container'>";
+                  html += " <button onclick=\"javascript:Go('"+data.getValue(i,8)+"')\">Más info</button>";
+                  html += "</div>";
+                }
+
 			    html +="</div>";
 			}
 				document.getElementById('listportales').innerHTML = html;
@@ -463,7 +480,11 @@
             return html;
         }
 
-
+        function Go(destination){
+  				window.open(destination,'_parent');
+  			    //window.parent.location.href = destination;
+  			    return false;
+  			}
 
 
   </script>
