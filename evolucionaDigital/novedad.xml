@@ -477,7 +477,7 @@
         }
 
         function Go(destination){
-  				window.open(destination,'_parent');
+  				window.open(destination,'_blank');
   			    //window.parent.location.href = destination;
   			    return false;
   			}
