@@ -142,13 +142,17 @@
 				var sectionName = dataTable.getValue(index, 1);
 				document.getElementById("sectionName").innerHTML = sectionName;
         if(printer)
-          document.getElementById("printer-container").innerHTML = "<img src='https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/printer.png' class='image' onclick='javascript:window.parent.print();' />";
+          document.getElementById("printer-container").innerHTML = "<img src='https://raw.githubusercontent.com/sopraux/gsites/3664f9dd134dab812e100086d5109278ea501f28/newstycbbvaespana/img/printer.png' class='image' onclick='javascript:goPrint();' />";
 
 			}
 
 			function goBack() {
 				window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' + siteName + '?date=' + date + '';
 			}
+
+      function goPrint() {
+        window.open(document.referrer+'?tmpl=/system/app/templates/print/&showPrintDialog=1');
+      }
 
 			google.setOnLoadCallback(getSpreadsheet);
 

@@ -3,11 +3,12 @@
   	<ModulePrefs title="NB-articleTitleSectionBack.xml">
 	    <Require feature="idi"/>
 	    <Require feature="locked-domain" />
-  		<Require feature="dynamic-height"/>
-  		<Require feature="setprefs" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
   	</ModulePrefs>
 
   	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
+    <UserPref name="printer" display_name="printer" required="true" />
 
  	<Content type="html">
     	<![CDATA[
@@ -16,11 +17,11 @@
 
 				@font-face {
 		            font-family: 'BBVA Web Light';
-		            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
-		            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+		            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
+		            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
 		            font-style: normal;
 		            font-weight: normal;
 		        }
@@ -35,7 +36,7 @@
 
 				.container {
 					padding-bottom: 14px;
-					background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
 					background-position: bottom;
 					background-repeat: repeat-x;
 				}
@@ -51,7 +52,7 @@
 				}
 
 				button {
-					background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/bg-boton-encabezado-volver_R2.png);
+					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/bg-boton-encabezado-volver_R2.png);
 					background-repeat: no-repeat;
 				    background-color: initial;
 				    cursor: pointer;
@@ -72,7 +73,16 @@
         }
 
         img {
+          background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/printer.png);
+          background-repeat: no-repeat;
           cursor: pointer;
+          border: 0;
+            width: 73px;
+          height: 30px;
+          color: #0078D2;
+          font-size: 15px;
+          font-weight: bold;
+          padding-left: 20px;
         }
 
 			</style>
@@ -90,6 +100,7 @@
 			<div id="container" class="container">
 				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
+        <div id="printer-container" class="printer-container"></div>
 			</div>
 
 			<div id="functionsContainer"></div>
@@ -172,9 +183,16 @@
 					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' + siteName + '?date=' + date + '';
 				}
 
+        function goPrint() {
+          window.open(document.referrer+'?tmpl=/system/app/templates/print/&showPrintDialog=1');
+        }
+
 				var prefs = new gadgets.Prefs();
 				var buttonLabel = prefs.getString('buttonLabel');
+        var printer = prefs.getBoolean('printer');
 				document.getElementById('buttonLabel').innerHTML = buttonLabel;
+        if(printer)
+          document.getElementById("printer-container").innerHTML = "<img class='image' onclick='javascript:window.goPrint();' />";
 
 				google.setOnLoadCallback(getSpreadsheet);
 
@@ -182,5 +200,46 @@
 
    		]]>
   	</Content>
+
+  	  <Content type="html" view="configuration">
+
+    <![CDATA[
+
+      <style type="text/css">
+
+        table td {
+          color: #000;
+          font-size: 11px;
+          font-weight: bold;
+        }
+
+      </style>
+
+      <table width="100%" border="0" id="tablaconfig">
+        <tr>
+          <td>
+            Button label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__"   onchange="register('buttonLabel')"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Printer button: <input type="checkbox" id="printer" value="__UP_printer__"   onchange="register('printer')"/>
+          </td>
+        </tr>
+      </table>
+
+      <script type="text/javascript">
+
+        var prefs = new gadgets.Prefs();
+        function register(variable) {
+          prefs.set(variable, document.getElementById(variable).value);
+        }
+
+        gadgets.window.adjustHeight();
+
+      </script>
+
+    ]]>
+  </Content>
 
 </Module>
