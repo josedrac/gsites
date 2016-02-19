@@ -105,7 +105,7 @@
 			width: 100%;
 			max-width: 650px;
     		margin: 0 auto;
-			
+
 		}
 
 		.banner ul li .image .background {
@@ -211,15 +211,27 @@
         var html="";
 	   	var gadgetHelper = null;
 
-		
 
 
-		
-			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
-	   		queryString = encodeURIComponent('SELECT * where A <> "title"'),
+
+
+			var spreadsheetKey = '18tFNC590Jj6pk1_Bii5AtcZxKCIO-U6u68g3N3yeogs',
+	   		queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
 			sheetName = encodeURIComponent('carousel territorial'),
 			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-		function getSpreadsheet() {	
+
+		function getUrlParameter(parameterName) {
+			var params = window.location.search.substr(1).split('&');
+			for (var i = 0; i < params.length; i++) {
+				var p = params[i].split('=');
+				if (p[0] == parameterName) {
+					return decodeURIComponent(p[1]);
+				}
+			}
+			return false;
+		}
+
+		function getSpreadsheet() {
 			query.send(handleQueryResponse);
 		}
 
@@ -249,7 +261,7 @@
 				else
 					html += "<li>";
 	        	html += "	<div class='image'>"
-		        html += "		<div class='background' style='background-image: url(\"" + image + "\");'></div>";	
+		        html += "		<div class='background' style='background-image: url(\"" + image + "\");'></div>";
 		        html += "	</div>";
 				html += "	<div class='content'>";
 				html += "		<h2>" + title + "</h2>";
@@ -267,25 +279,25 @@
 	     		carouselControls += '<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png"></a>';
 	     		carouselControls += '</div>';
 	     		document.getElementById('carouselControls').innerHTML += carouselControls;
-	     		
+
 	     	}
 
 			document.getElementById('carousel').innerHTML += html;
      		document.getElementById('titleCarousel').innerHTML += TitleCarousel;
 
 			var unslider = $('.banner').unslider({
-				speed: 500,               
+				speed: 500,
 				delay: 5000,
-				dots: true,                                          
+				dots: true,
 			});
-		 
+
 		    $('.unslider-arrow').click(function() {
 		        var fn = this.className.split(' ')[1];
 		        unslider.data('unslider')[fn]();
 		    });
 
 		    $('.prev').after($('.dots'));
-			
+
 		}
 
 
@@ -293,10 +305,8 @@
 		function Go(destination){
         	window.parent.location.href = destination;
         	return false;
-    	}	
+    	}
 
     	google.setOnLoadCallback(getSpreadsheet);
 
 	</script>
-
-   
