@@ -184,7 +184,8 @@
 				}
 
         function goPrint() {
-          window.open(document.referrer+'?tmpl=/system/app/templates/print/&showPrintDialog=1');
+          top.window.focus();
+          top.window.print();      
         }
 
 				var prefs = new gadgets.Prefs();
