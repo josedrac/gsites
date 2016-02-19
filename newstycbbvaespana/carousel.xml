@@ -12,7 +12,7 @@
  <Content type="html" charset="UTF-8">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 	<style type="text/css">
         /* @group fonts */
@@ -193,11 +193,23 @@
 
 	   	var prefs = new gadgets.Prefs(),
 					spreadsheetKey = prefs.getString('spreadsheetKey'),
-					queryString = encodeURIComponent('SELECT * where A <> "title"'),
+					queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"'),
 					sheetName = encodeURIComponent('carousel'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
-		function getSpreadsheet() {
+    function getParam(p){
+            var params;
+            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                for(var i=0; i<params.length; i++){
+                    if(params[i].split("=")[0] == p)
+                        return params[i].split("=")[1];
+                }
+            }
+            return "";
+        }
+
+    function getSpreadsheet() {
 			query.send(handleQueryResponse);
 		}
 
