@@ -223,7 +223,7 @@
 	   	var gadgetHelper = null;
 
 	   	var spreadsheetKey = prefs.getString("spreadsheetKey"),
-	   		queryString = encodeURIComponent('SELECT * where E = "' + getParam("date") + '"'),
+	   		queryString = encodeURIComponent('SELECT * where D = "' + getParam("date") + '"'),
 			sheetName = encodeURIComponent('carousel territorial'),
 			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
