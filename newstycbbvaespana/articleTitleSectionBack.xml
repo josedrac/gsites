@@ -189,7 +189,7 @@
 
 				var prefs = new gadgets.Prefs();
 				var buttonLabel = prefs.getString('buttonLabel');
-        var printer = prefs.getBoolean('printer');
+        var printer = prefs.getBool('printer');
 				document.getElementById('buttonLabel').innerHTML = buttonLabel;
         if(printer)
           document.getElementById("printer-container").innerHTML = "<img class='image' onclick='javascript:window.goPrint();' />";
