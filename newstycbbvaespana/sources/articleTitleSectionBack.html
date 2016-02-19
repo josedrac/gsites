@@ -151,7 +151,8 @@
 			}
 
       function goPrint() {
-        window.open(document.referrer+'?tmpl=/system/app/templates/print/&showPrintDialog=1');
+        window.top.focus();
+        print(); 
       }
 
 			google.setOnLoadCallback(getSpreadsheet);
