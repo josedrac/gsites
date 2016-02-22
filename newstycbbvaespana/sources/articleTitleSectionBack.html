@@ -141,8 +141,6 @@
 
 				var sectionName = dataTable.getValue(index, 1);
 				document.getElementById("sectionName").innerHTML = sectionName;
-        if(printer)
-          document.getElementById("printer-container").innerHTML = "<img src='https://raw.githubusercontent.com/sopraux/gsites/3664f9dd134dab812e100086d5109278ea501f28/newstycbbvaespana/img/printer.png' class='image' onclick='javascript:goPrint();' />";
 
 			}
 
@@ -152,7 +150,7 @@
 
       function goPrint() {
         window.top.focus();
-        print(); 
+        print();
       }
 
 			google.setOnLoadCallback(getSpreadsheet);
@@ -170,7 +168,6 @@
 		<div class="content">
 			<button type="button" onclick="javascript:goBack();">Volver</button>
 			<h2 id="sectionName"></h2>
-      <div id="printer-container" class="printer-container"></div>
 		</div>
 
 	</body>
