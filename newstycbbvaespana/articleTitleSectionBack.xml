@@ -79,6 +79,7 @@
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/gsites-components/js/functionHelpers.js"></script>
 
 
 			<script type="text/javascript">
@@ -91,21 +92,6 @@
 				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
 			</div>
-
-			<div id="functionsContainer"></div>
-
-			<script type="text/javascript">
-
-				$.ajax({
-					  	url: 'https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/gsites-components/js/functionHelpers.js',
-						success: function(result){
-							var e = document.getElementById('functionsContainer');
-				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
-				            eval(document.getElementById('sc1').innerHTML);
-						}
-					});
-
-			</script>
 
 			<script type="text/javascript">
 
