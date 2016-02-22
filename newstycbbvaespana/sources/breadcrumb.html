@@ -1,0 +1,83 @@
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+		<head>
+			<style type="text/css">
+		        @font-face {
+		            font-family: 'BBVA Web Light';
+		            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+		            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		            font-style: normal;
+		            font-weight: normal;
+		        }
+		        #content {
+		        	font-family: BBVA Web Light;
+		        	padding-left: 15px;
+		        }
+		        .breadcrumb a {
+					font-size: 12px;
+				    font-family: Arial;
+				    font-weight: bold;
+				    color: #0072C9;
+				    text-decoration: none;
+				    text-transform: capitalize;
+				}
+				.breadcrumb img {
+					padding: 0 5px;
+					position: relative;
+			    	top: 2px;
+				}
+		    </style>
+		</head>
+
+		<div id="content"></div>
+
+	    <script type="text/javascript">
+
+			var baseLink = "https://sites.google.com/a/bbva.com/newstycbbvaespana";
+
+			breadcrumb(gadgets.util.getUrlParameters().parent);
+
+			function breadcrumb (path) {
+
+				// Me quedo con el trozo de la url que me interesa
+				var link = path.toLowerCase().split('newstycbbvaespana')[1].split('/');
+				link.splice(0,1);
+
+				breadcrumb = "<div class='breadcrumb'>"
+				// Primer nivel
+				breadcrumb += "<a href='" + baseLink + "' target='_parent'>Home</a>";
+
+				// Segundo nivel
+				var fecha = getParam('date');
+				if(link[0] != "") {
+					linkQuery = link[0].toLowerCase().split('?');
+					breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
+					breadcrumb += " <a href='" + baseLink + "/" + linkQuery[0] + "?date=" + fecha + "' target='_parent'>" + linkQuery[0] + "</a>";
+				}
+
+
+				breadcrumb += "</div>"
+
+				// Muestro el resultado
+				var html = document.getElementById('content');
+				html.innerHTML = breadcrumb;
+
+			}
+
+
+      function getParam(p){
+          var params;
+          if(window.location.href.split("?").length > 1){
+              params = window.location.href.split("?")[1].split("&");
+              for(var i=0; i<params.length; i++){
+                  if(params[i].split("=")[0] == p)
+                      return params[i].split("=")[1];
+              }
+          }
+          return "";
+      }
+
+		</script>
