@@ -7,6 +7,8 @@
         <Require feature="setprefs" />
     </ModulePrefs>
 
+    <UserPref name="filterTitle" display_name="Title" required="true" />
+
     <Content type="html">
         <![CDATA[
 
