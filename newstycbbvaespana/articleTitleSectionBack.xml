@@ -79,7 +79,7 @@
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/gsites-components/js/functionHelpers.js"></script>
+      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js"></script>
 
 
 			<script type="text/javascript">
