@@ -49,9 +49,11 @@
 
 			var baseLink = "https://sites.google.com/a/bbva.com/newstycbbvaespana";
 
-			breadcrumb(gadgets.util.getUrlParameters().parent);
+			breadcrumb(document.referrer);
 
       function breadcrumb (path) {
+
+        var params = path.toLowerCase().split('?')[1];
 
         // Me quedo con el trozo de la url que me interesa
         var link = path.toLowerCase().split('newstycbbvaespana')[1].split('/');
@@ -61,14 +63,14 @@
 
         breadcrumb = "<div class='breadcrumb'>"
         // Primer nivel
-        breadcrumb += "<a href='" + baseLink + "/" + fecha + "' target='_parent'>Home</a>";
+        breadcrumb += "<a href='" + baseLink + "?date=" + fecha + "' target='_parent'>Home</a>";
 
         // Segundo nivel
 
         if(link[0] != "") {
           linkQuery = link[0].toLowerCase().split('?');
           breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
-          breadcrumb += " <a href='" + baseLink + "/" + link[0] + "' target='_parent'>Article content</a>";
+          breadcrumb += " <a href='" + baseLink + "/" + linkQuery[0] + "?" + params + "' target='_parent'>Article content</a>";
         }
 
 
