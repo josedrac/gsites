@@ -20,13 +20,13 @@
 				cursor: pointer;
 			}
 
-			
+
 		</style>
 
 		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
 
 		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
-		
+
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 		<script type="text/javascript">
@@ -51,8 +51,8 @@
 
 			var spreadsheetKey = getParam('key'),
 				sheetName = encodeURIComponent('article banners'),
-				queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
-				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+				queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '" and D = "' + getParam("date") + '"'),
+				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 			function getSpreadsheet() {
 				query.send(handleQueryResponse);
@@ -85,8 +85,8 @@
 					template += '<img onclick="javascript:Go(\''+data[i].targetUrl+'\')" src="' + data[i].imageUrl + '"/>';
 					template += '</li>';
 				}
-					
-				document.getElementById("articleBanners").innerHTML = template; 
+
+				document.getElementById("articleBanners").innerHTML = template;
 			}
 
 			function Go(destination) {
@@ -112,4 +112,4 @@
 
 	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
 
-</html> 
+</html>
