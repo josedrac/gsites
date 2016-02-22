@@ -90,7 +90,6 @@
 			<div id="container" class="container">
 				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
-        <div id="printer-container" class="printer-container"></div>
 			</div>
 
 			<div id="functionsContainer"></div>
