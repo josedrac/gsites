@@ -294,7 +294,7 @@
    			<table width="100%" border="0" id="tablaconfig">
    				<tr>
    					<td>
-   						Site name: <input type="text" id="filterTitle" value="__UP_filterTitle__"   onchange="register('filterTitle')"/>
+   						Title: <input type="text" id="filterTitle" value="__UP_filterTitle__"   onchange="register('filterTitle')"/>
    					</td>
    				</tr>
    			</table>
