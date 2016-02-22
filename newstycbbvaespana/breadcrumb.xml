@@ -53,17 +53,18 @@
 
       function breadcrumb (path) {
 
-        var params = path.toLowerCase().split('?')[1];
+        var params = path.split('?')[1];
 
         // Me quedo con el trozo de la url que me interesa
-        var link = path.toLowerCase().split('newstycbbvaespana')[1].split('/');
+        var link = path.split('newstycbbvaespana')[1].split('/');
         link.splice(0,1);
 
         var fecha = getParam('date');
+        var site = getParam('siteName');
 
         breadcrumb = "<div class='breadcrumb'>"
         // Primer nivel
-        breadcrumb += "<a href='" + baseLink + "?date=" + fecha + "' target='_parent'>Home</a>";
+        breadcrumb += "<a href='" + baseLink + "/"+ site +"?date=" + fecha + "' target='_parent'>Home</a>";
 
         // Segundo nivel
 
