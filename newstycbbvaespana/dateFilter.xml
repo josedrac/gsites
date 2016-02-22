@@ -252,6 +252,9 @@
     </div>
     <script type="text/javascript">
 
+        var prefs = new gadgets.Prefs();
+        $('.title').html(prefs.getString('filterTitle'));
+
         function Go() {
             var elementYearSelector = document.getElementById('yearSelector');
             var elementMonthSelector = document.getElementById('monthSelector');
@@ -272,5 +275,41 @@
 
         ]]>
      </Content>
+
+     <Content type="html" view="configuration">
+
+   		<![CDATA[
+
+   			<style type="text/css">
+
+   				table td {
+   					color: #000;
+   					font-size: 11px;
+   					font-weight: bold;
+   			}
+
+   			</style>
+
+
+   			<table width="100%" border="0" id="tablaconfig">
+   				<tr>
+   					<td>
+   						Site name: <input type="text" id="filterTitle" value="__UP_filterTitle__"   onchange="register('filterTitle')"/>
+   					</td>
+   				</tr>
+   			</table>
+
+   			<script type="text/javascript">
+
+   			var prefs = new gadgets.Prefs();
+   			function register(variable) {
+   				prefs.set(variable, document.getElementById(variable).value);
+   			}
+
+   			</script>
+
+   		]]>
+
+   	</Content>
 
 </Module>
