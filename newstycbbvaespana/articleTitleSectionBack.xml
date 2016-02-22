@@ -8,7 +8,6 @@
   	</ModulePrefs>
 
   	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
-    <UserPref name="printer" display_name="printer" required="true" />
 
  	<Content type="html">
     	<![CDATA[
@@ -17,11 +16,11 @@
 
 				@font-face {
 		            font-family: 'BBVA Web Light';
-		            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot');
-		            src:url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-		                url('https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+		            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+		            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
 		            font-style: normal;
 		            font-weight: normal;
 		        }
@@ -36,7 +35,7 @@
 
 				.container {
 					padding-bottom: 14px;
-					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
 					background-position: bottom;
 					background-repeat: repeat-x;
 				}
@@ -52,7 +51,7 @@
 				}
 
 				button {
-					background-image: url(https://rawgit.com/sopraux/gsites/master/newstycbbvaespana/img/bg-boton-encabezado-volver_R2.png);
+					background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/bg-boton-encabezado-volver_R2.png);
 					background-repeat: no-repeat;
 				    background-color: initial;
 				    cursor: pointer;
@@ -99,7 +98,7 @@
 			<script type="text/javascript">
 
 				$.ajax({
-					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
+					  	url: 'https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/gsites-components/js/functionHelpers.js',
 						success: function(result){
 							var e = document.getElementById('functionsContainer');
 				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
@@ -174,17 +173,9 @@
 					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' + siteName + '?date=' + date + '';
 				}
 
-        function goPrint() {
-          window.top.focus();
-          print();
-        }
-
 				var prefs = new gadgets.Prefs();
 				var buttonLabel = prefs.getString('buttonLabel');
-        var printer = prefs.getBool('printer');
 				document.getElementById('buttonLabel').innerHTML = buttonLabel;
-        if(printer)
-          document.getElementById("printer-container").innerHTML = "<img src='https://raw.githubusercontent.com/sopraux/gsites/3664f9dd134dab812e100086d5109278ea501f28/newstycbbvaespana/img/printer.png' class='image' onclick='javascript:window.goPrint();' />";
 
 				google.setOnLoadCallback(getSpreadsheet);
 
@@ -211,11 +202,6 @@
         <tr>
           <td>
             Button label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__"   onchange="register('buttonLabel')"/>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            Printer button: <input type="checkbox" id="printer" value="__UP_printer__"   onchange="register('printer')"/>
           </td>
         </tr>
       </table>
