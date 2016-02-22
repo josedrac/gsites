@@ -71,7 +71,7 @@
         if(link[0] != "") {
           linkQuery = link[0].toLowerCase().split('?');
           breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
-          breadcrumb += " <a href='" + baseLink + "/" + linkQuery[0] + "?" + params + "' target='_parent'>Article content</a>";
+          breadcrumb += " <a href='" + baseLink + "/" + linkQuery[0] + "?" + params + "' target='_parent'>Artículo</a>";
         }
 
 
