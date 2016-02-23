@@ -42,20 +42,26 @@
 
 			function breadcrumb (path) {
 
+				var params = path.split('?')[1];
+
 				// Me quedo con el trozo de la url que me interesa
-				var link = path.toLowerCase().split('newstycbbvaespana')[1].split('/');
+				var link = path.split('newstycbbvaespana')[1].split('/');
 				link.splice(0,1);
+
+				var fecha = getParam('date');
+				var datePath = getDate();
+				var site = getParam('siteName');
 
 				breadcrumb = "<div class='breadcrumb'>"
 				// Primer nivel
-				breadcrumb += "<a href='" + baseLink + "' target='_parent'>Home</a>";
+				breadcrumb += "<a href='" + baseLink + "/"+ site + "/" + datePath +"?date=" + fecha + "' target='_parent'>Home</a>";
 
 				// Segundo nivel
-				var fecha = getParam('date');
+
 				if(link[0] != "") {
 					linkQuery = link[0].toLowerCase().split('?');
 					breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
-					breadcrumb += " <a href='" + baseLink + "/" + linkQuery[0] + "?date=" + fecha + "' target='_parent'>" + linkQuery[0] + "</a>";
+					breadcrumb += " <a href='" + baseLink + "/" + linkQuery[0] + "?" + params + "' target='_parent'>Artículo</a>";
 				}
 
 
@@ -79,5 +85,30 @@
           }
           return "";
       }
+
+			function getDate() {
+				var d = getParam('date').split('/');
+				var month = getMonth( parseInt( d[0] ) );
+				var year = d[1];
+				return month+'-'+year;
+			}
+
+			function getMonth(month) {
+				switch(month) {
+					case 1:     return 'enero';
+					case 2:			return 'febrero';
+					case 3:			return 'marzo';
+					case 4:			return 'abril';
+					case 5:			return 'mayo';
+					case 6:			return 'junio';
+					case 7:			return 'julio';
+					case 8:			return 'agosto';
+					case 9:	    return 'septiembre';
+					case 10:		return 'octubre';
+					case 11:		return 'noviembre';
+					case 12:		return 'diciembre';
+					default:		return '';
+				}
+			}
 
 		</script>
