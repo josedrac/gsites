@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="NB-redirect.xml" height="275">
+        <Require feature="idi"/>
+        <Require feature="locked-domain" />
+        <Require feature="dynamic-height"/>
+        <Require feature="setprefs" />
+    </ModulePrefs>
+
+    <UserPref name="url" display_name="Title" required="true" />
+
+    <Content type="html">
+        <![CDATA[
+
+
+<script>
+  var prefs = new gadgets.Prefs();
+
+  var url = prefs.getString("url");
+
+  window.location.replace('"'+ url +'"');
+</script>
+
+]]>
+</Content>
+
+<Content type="html" view="configuration">
+
+<![CDATA[
+
+<style type="text/css">
+
+  table td {
+    color: #000;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+</style>
+
+
+<table width="100%" border="0" id="tablaconfig">
+  <tr>
+    <td>
+      Url: <input type="text" id="url" value="__UP_url__"   onchange="register('url')"/>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+
+var prefs = new gadgets.Prefs();
+function register(variable) {
+  prefs.set(variable, document.getElementById(variable).value);
+}
+
+</script>
+
+]]>
+
+</Content>
+
+</Module>
