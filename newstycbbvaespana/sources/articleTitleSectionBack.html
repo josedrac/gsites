@@ -99,6 +99,7 @@
 
       var printer = true;
 	    var date = getParam('date');
+      var datePath = getDate();
 			var spreadsheetKey = getParam('key'),
 				siteName = getParam('siteName'),
 				sheetName = encodeURIComponent('sections'),
@@ -145,13 +146,39 @@
 			}
 
 			function goBack() {
-				window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' + siteName + '?date=' + date + '';
+				window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' +
+                                          siteName + '/' + datePath + '?date=' + date + '';
 			}
 
       function goPrint() {
         window.top.focus();
         print();
       }
+
+      function getDate() {
+  			var d = getParam('date').split('/');
+  			var month = getMonth( parseInt( d[0] ) );
+  			var year = d[1];
+  			return month+'-'+year;
+  		}
+
+  		function getMonth(month) {
+  			switch(month) {
+  				case 1:     return 'enero';
+  				case 2:			return 'febrero';
+  				case 3:			return 'marzo';
+  				case 4:			return 'abril';
+  				case 5:			return 'mayo';
+  				case 6:			return 'junio';
+  				case 7:			return 'julio';
+  				case 8:			return 'agosto';
+  				case 9:	    return 'septiembre';
+  				case 10:		return 'octubre';
+  				case 11:		return 'noviembre';
+  				case 12:		return 'diciembre';
+  				default:		return '';
+  			}
+  		}
 
 			google.setOnLoadCallback(getSpreadsheet);
 
