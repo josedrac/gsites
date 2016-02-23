@@ -257,13 +257,20 @@
         var prefs = new gadgets.Prefs();
         document.getElementsByClassName('title')[0].innerHTML = prefs.getString('filterTitle');
 
+
         function Go() {
             var elementYearSelector = document.getElementById('yearSelector');
             var elementMonthSelector = document.getElementById('monthSelector');
             var year = elementYearSelector.options[elementYearSelector.selectedIndex].value;
             var month = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
 
+            var monthPath = elementMonthSelector.options[elementMonthSelector.selectedIndex].innerHTML.toLowerCase();
+
             var url = document.referrer.split('?')[0];
+            var path = url.split('/');
+            path = path.slice(0, path.length-1);
+
+            url = path.join('/') + '/' + monthPath + '-' + year;
 
             window.open(url + "?date=" + month + "/" + year, "_parent");
             return false;
