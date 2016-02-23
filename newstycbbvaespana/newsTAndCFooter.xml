@@ -83,13 +83,14 @@
 	.footer div ul li a {
 		text-decoration: none;
 		color: inherit;
+		cursor: pointer;
 	}
 
 
 </style>
 
 <div id="newsTAndCFooter">
-	
+
 	<div class="footer">
 
 	 	<img src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>
@@ -104,12 +105,12 @@
 <script type="text/javascript">adjustGadgetHeight('newsTAndCFooter');</script>
 
 <script type="text/javascript">
-	
+
    	var gadgetHelper = null;
    	var prefs = new gadgets.Prefs();
 
 	var TitleFooter = prefs.getString("TitleFooter");
-   	
+
    	function getParam(p){
         var params;
         if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
@@ -121,6 +122,31 @@
         }
         return "";
     }
+
+		function getDate() {
+	    var d = getParam('date').split('/');
+	    var month = getMonth( parseInt( d[0] ) );
+	    var year = d[1];
+	    return month+'-'+year;
+	  }
+
+	  function getMonth(month) {
+	    switch(month) {
+	      case 1:     return 'enero';
+	      case 2:			return 'febrero';
+	      case 3:			return 'marzo';
+	      case 4:			return 'abril';
+	      case 5:			return 'mayo';
+	      case 6:			return 'junio';
+	      case 7:			return 'julio';
+	      case 8:			return 'agosto';
+	      case 9:	    return 'septiembre';
+	      case 10:		return 'octubre';
+	      case 11:		return 'noviembre';
+	      case 12:		return 'diciembre';
+	      default:		return '';
+	    }
+	  }
 
 	function getSpreadsheet() {
    		var spreadsheetKey = prefs.getString("spreadsheetKey"),
@@ -149,7 +175,7 @@
 			name = dataTable.getValue(i, 0);
 			link = dataTable.getValue(i, 1);
 
-			html += '<li><a href="#" onclick=javascript:Go("'+ link +'")>'+ name +'</a></li>';
+			html += '<li><a onclick=javascript:Go("'+ link +'")>'+ name +'</a></li>';
 		}
 
 		document.getElementById("title").innerHTML = TitleFooter;
@@ -159,10 +185,10 @@
 	google.setOnLoadCallback(getSpreadsheet);
 
 
- 	function Go(destination){
-    	window.open(destination + '?date='+getParam('date'), '_parent');
-    	return false;
-    }
+	function Go(destination){
+		window.open(destination + '/' + getDate() + '?date='+getParam('date'), '_parent');
+  	return false;
+  }
 
 </script>
 
@@ -201,7 +227,7 @@
 		       	Spreadsheet key: <input type="text" size="100" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="registra('spreadsheetKey')"/>
 		    </td>
 		</tr>
-		
+
 	</table>
 
 	<script type="text/javascript">
