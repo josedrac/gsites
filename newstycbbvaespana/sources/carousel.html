@@ -169,22 +169,39 @@
    <script type="text/javascript">
 	   	var html="";
 	   	var gadgetHelper = null;
+			var date = getDate();
 
 	   	var spreadsheetKey = '1gWxfjBO4J5sKAWUjUE9x38TX-7t8lIkaoQpYiJGnEy4',
-	   		queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
+	   		queryString = encodeURIComponent('SELECT * where F = "' + date + '"'),
 			sheetName = encodeURIComponent('carousel'),
 			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
-		function getUrlParameter(parameterName) {
-			var params = window.location.search.substr(1).split('&');
-			for (var i = 0; i < params.length; i++) {
-				var p = params[i].split('=');
-				if (p[0] == parameterName) {
-					return decodeURIComponent(p[1]);
-				}
-			}
-			return false;
+
+		function getDate() {
+			var path = document.referrer.split('?')[0].split('/');
+			var month = getMonth(path[path.length-1]);
+			var year = path[path.length-2];
+			return month+'/'+year;
 		}
+
+		function getMonth(month) {
+			switch(month) {
+				case 'enero': 			return '01';
+				case 'febrero':			return '02';
+				case 'marzo':				return '03';
+				case 'abril':				return '04';
+				case 'mayo':				return '05';
+				case 'junio':				return '06';
+				case 'julio':				return '07';
+				case 'agosto':			return '08';
+				case 'septiembre':	return '09';
+				case 'octubre':			return '10';
+				case 'noviembre':		return '11';
+				case 'diciembre':		return '12';
+				default:						return '';
+			}
+		}
+
 
 		function getSpreadsheet() {
 			query.send(handleQueryResponse);
