@@ -1,0 +1,85 @@
+/* @group reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0pt;
+	padding: 0pt;
+	border: 0pt none;
+	font: inherit;
+	font-size:100%;
+	vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block;
+	*zoom:1;
+}
+
+div, button{
+	*zoom:1;
+}
+
+body {
+	line-height: 1;
+}
+
+ol, ul {
+	list-style: none outside none;
+}
+
+body, html {
+	font-size: 125%;
+	background-color: rgb(255, 255, 255);
+}
+
+body {
+	font-size: 0.5em;
+	font-family: Arial;
+	color: rgb(0, 76, 153);
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(0, 76, 153);
+}
+
+.hidden {
+	display: none;
+}
+
+.clear{
+	clear:both;
+}
+
+/* @end */
+
+/* @group reset button */
+
+button::-moz-focus-inner, 
+input[type="reset"]::-moz-focus-inner, 
+input[type="button"]::-moz-focus-inner, 
+input[type="submit"]::-moz-focus-inner, 
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+	border: 0pt none;
+	padding: 0pt;
+}
+
+/* @end */
+
+/* @group reset clearfix */
+.clearfix:before, div:before, article:before, section:before, nav:before, header:before, footer:before, .clearfix:after, div:after, article:after, section:after, nav:after, header:after, footer:after {
+	content: " ";
+	display: block;
+	overflow: hidden;
+	visibility: hidden;
+	width: 0pt;
+	height: 0pt;
+}
+
+.clearfix:after, div:after, article:after, section:after, nav:after, header:after, footer:after {
+	clear: both;
+}
+
+.clearfix, div, article, section, nav, header, footer {
+
+}
+/* @end */

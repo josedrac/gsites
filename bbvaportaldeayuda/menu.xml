@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <Module>
+  <ModulePrefs title="menu.xml"
+  height="75">
+  <Require feature="dynamic-height"/>
+	<Require feature="idi"/>
+	<Require feature="locked-domain" />
+	<Require feature="setprefs" />
+  </ModulePrefs>
+<Content type="html">
+<![CDATA[
+
+<style type="text/css">
+	/* @group fonts */
+	@font-face {
+		font-family: 'BBVA Web Light';
+		src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+		src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
+
+	@font-face {
+		font-family: 'BBVA Web Book';
+		src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+		src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
+
+	@font-face {
+		font-family: 'BBVA Web Medium';
+		src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+		src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
+	/* @end */
+
+body, html {
+	font-size: 125%;
+	background-color: rgb(255, 255, 255);
+}
+
+body {
+	font-size: 0.5em;
+	font-family: Arial;
+	color: rgb(0, 76, 153);
+	text-align: left;
+	line-height: 1;
+}
+ol, ul {
+	list-style: none outside none;
+}
+
+.cabeceramenu {
+	width: 95em;
+	height: 5.1em;
+	margin-top: 0px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background: #0079c1;
+	background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDUyOWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+	background: -moz-linear-gradient(top,  #0079c1 0%, #00529b 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079c1), color-stop(100%,#00529b));
+	background: -webkit-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+	background: -o-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+	background: -ms-linear-gradient(top,  #0079c1 0%,#00529b 100%);
+	background: linear-gradient(to bottom,  #0079c1 0%,#00529b 100%);
+	/*
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c1', endColorstr='#00529b',GradientType=0 );
+	*/
+	position: relative;
+	font-family: BBVA Web Light, Arial;
+	font-weight: normal;
+	text-align: center;
+}
+
+.cabeceramenu ul{
+  margin:0;
+  padding:0;
+}
+
+.cabeceramenu ul li.homefirst,
+.cabeceramenu ul li.iniciate,
+.cabeceramenu ul li.hpd2,
+.cabeceramenu ul li.trucos,
+.cabeceramenu ul li.exito,
+.cabeceramenu ul li.movilidad{
+  float: left;
+  text-align: center;
+  background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/separador-menu.png') no-repeat scroll right top transparent;
+}
+
+.cabeceramenu ul li.apps{
+  float: left;
+  text-align: center;
+  background-image: none;
+  border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+
+.cabeceramenu ul li.apps span,
+.cabeceramenu ul li.apps span:hover {
+	border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+
+.cabeceramenu ul li.apps a,
+.cabeceramenu ul li.apps a:hover{
+margin-left:0px;
+border-bottom-right-radius: 5px;
+border-top-right-radius: 5px;
+}
+
+.cabeceramenu ul li .enlace,
+.cabeceramenu ul li .enlace:hover{
+  font-size: 1.4em;
+  margin-right: 0.071em;
+  display: block;
+  color: #FFF;
+  cursor: pointer;
+  height: 3.571em;
+
+}
+
+.cabeceramenu ul li .enlace:hover{
+  background-color: #004c99;
+}
+
+.cabeceramenu ul li a,
+.cabeceramenu ul li a:hover{
+  color: #FFF;
+  cursor: pointer;
+  text-decoration:none;
+  font-family: BBVA Web Medium, Arial;
+  font-size:14px;
+  font-style:normal;
+  font-weight: bold;
+
+}
+
+.cabeceramenu ul li.home {
+	width: 81px;
+}
+
+.cabeceramenu ul li .enlace span{
+	padding-top: 1.286em;
+	display: inline-block;
+	height: 2em;
+}
+
+.cabeceramenu ul li .enlace span img{
+margin-top:-19px;
+}
+
+.cabeceramenu ul li.iniciate,
+.cabeceramenu ul li.hpd2,
+.cabeceramenu ul li.apps,
+.cabeceramenu ul li.trucos,
+.cabeceramenu ul li.movilidad,
+.cabeceramenu ul li.exito
+ {
+	width: 173.5px;
+}
+
+.cabeceramenu  ul li.homefirst {
+	width: 81px;
+	border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.cabeceramenu ul li.homefirst a:hover{
+	border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.cabeceramenu  ul li.homefirst a{
+	background: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
+	border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.bloqueEnlaces {
+	text-align: right;
+	margin-bottom: 10px;
+	margin-right: 5px;
+	color: #003F8C;
+	font-size: 12px;
+	font-family: BBVA Web Book,  Arial;
+}
+
+.bloqueEnlaces a.enlaceMenu {
+	text-decoration: none;
+	color:  #8B9098;
+	font-size: 12px;
+	font-family: BBVA Web Light, Arial;
+	font-weight: normal;
+
+}
+.selectedLeft
+{
+	border-bottom-left-radius: 5px !important;
+	border-top-left-radius: 5px !important;
+	background-color: rgb(0, 80, 152) !important;
+	box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 5px inset !important;
+}
+.selected
+{
+	background-color: rgb(0, 80, 152) !important;
+	box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 5px inset !important;;	
+}
+</style>
+<!--[if IE]>
+<style type="text/css">
+
+	.cabeceramenu{
+		color: #fff;
+		width: 95em;
+		height: 5.1em;
+		margin-top: 0px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		background-image: url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/fondo-menu.png');
+		position: relative;
+		font-family: BBVA Web Light, Arial;
+		font-weight: normal;
+		text-align: center;
+		}
+
+	#googleapps a,
+	#inicio a,
+	#trucosyconsejos a,
+	#movilidad a,
+	#exito a{
+	 color:#fff;
+	}
+
+
+</style>
+
+<![endif]-->
+
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+
+<div class="bloqueEnlaces">Español <a target="_parent" href="https://sites.google.com/a/bbva.com/help-site/" class="enlaceMenu">| English</a></div>
+
+<div class="cabeceramenu">
+  <ul>
+	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/home" target="_parent"  title="home"/></li>
+
+	<li id="inicio" class="iniciate"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/portaldeayuda/hpd" target="_parent">Web</a></span></span></li>	
+
+	<li id="movilidad" class="movilidad"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/portaldeayuda/movilidad"  target="_parent">Móvil</a></span></span></li>
+
+	<li id="exito" class="exito"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito"  target="_parent" >Casos de &eacute;xito</a></span></span></li>
+
+ 	<li id="trucosyconsejos" class="trucos"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/portaldeayuda/trucosyconsejos"  target="_parent">Tips</a></span></span></li>
+
+	<li id="googleapps" class="apps"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps"  target="_parent">Google Apps</a></span></span></li>
+  </ul>
+</div>
+
+<script type="text/javascript">
+
+if( typeof document.querySelector == "undefined") {
+    document.querySelectorAll = function(sel) {
+        var sels = sel.split(","),
+            run = function(node,selector) {
+                var sel = selector.split(/[ >]+/), com = selector.match(/[ >]+/g) || [], s, c, ret = [node], nodes, l, i, subs, m, j, check, x, w, ok,
+                    as;
+                com.unshift(" ");
+                while(s = sel.shift()) {
+                    c = com.shift();
+                    if( c) c = c.replace(/^ +| +$/g,"");
+                    nodes = ret.slice(0);
+                    ret = [];
+                    l = nodes.length;
+                    subs = s.match(/[#.[]?[a-z_-]+(?:='[^']+'|="[^"]+")?]?/gi);
+                    m = subs.length;
+                    for( i=0; i<l; i++) {
+                        if( subs[0].charAt(0) == "#") ret = [document.getElementById(subs[0].substr(1))];
+                        else {
+                            check = c == ">" ? nodes[i].children : nodes[i].getElementsByTagName("*");
+                            if( !check) continue;
+                            w = check.length;
+                            for( x=0; x<w; x++) {
+                                ok = true;
+                                for( j=0; j<m; j++) {
+                                    switch(subs[j].charAt(0)) {
+                                    case ".":
+                                        if( !check[x].className.match(new RegExp("\\b"+subs[j].substr(1)+"\\b"))) ok = false;
+                                        break;
+                                    case "[":
+                                        as = subs[j].substr(1,subs[j].length-2).split("=");
+                                        if( !check[x].getAttribute(as[0])) ok = false;
+                                        else if( as[1]) {
+                                            as[1] = as[1].replace(/^['"]|['"]$/g,"");
+                                            if( check[x].getAttribute(as[0]) != as[1]) ok = false;
+                                        }
+                                        break;
+                                    default:
+                                        if( check[x].tagName.toLowerCase() != subs[j].toLowerCase()) ok = false;
+                                        break;
+                                    }
+                                    if( !ok) break;
+                                }
+                                if( ok) ret.push(check[x]);
+                            }
+                        }
+                    }
+                }
+                return ret;
+            }, l = sels.length, i, ret = [], tmp, m, j;
+        for( i=0; i<l; i++) {
+            tmp = run(this,sels[i]);
+            m = tmp.length;
+            for( j=0; j<m; j++) {
+                ret.push(tmp[j]);
+            }
+        }
+        return ret;
+    };
+    document.querySelector = function(sel) {
+        var ret = this.querySelectorAll(sel);
+        if( ret.length > 0) return ret[0];
+        else return null;
+    };
+    if( typeof HTMLElement != "undefined") {
+        HTMLElement.prototype.querySelector = document.querySelector;
+        HTMLElement.prototype.querySelectorAll = document.querySelectorAll;
+    }
+
+}
+
+function getElementsByClassName(className) {
+	if (document.getElementsByClassName) {
+		return document.getElementsByClassName(className); }
+	else { return document.querySelectorAll('.' + className); }
+
+	}
+if (!Array.prototype.indexOf) {
+    Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
+        "use strict";
+        if (this == null) {
+            throw new TypeError();
+        }
+        var t = Object(this);
+        var len = t.length >>> 0;
+        if (len === 0) {
+            return -1;
+        }
+        var n = 0;
+        if (arguments.length > 0) {
+            n = Number(arguments[1]);
+            if (n != n) { // shortcut for verifying if it's NaN
+                n = 0;
+            } else if (n != 0 && n != Infinity && n != -Infinity) {
+                n = (n > 0 || -1) * Math.floor(Math.abs(n));
+            }
+        }
+        if (n >= len) {
+            return -1;
+        }
+        var k = n >= 0 ? n : Math.max(len - Math.abs(n), 0);
+        for (; k < len; k++) {
+            if (k in t && t[k] === searchElement) {
+                return k;
+            }
+        }
+        return -1;
+    }
+}
+
+
+
+	document.getElementById('home').onclick = function(){ Go('home');};
+	document.getElementById('inicio').onclick = function() {Go('inicio');};	
+	document.getElementById('googleapps').onclick = function() {Go('googleapps');};
+	document.getElementById('trucosyconsejos').onclick = function() {Go('trucosyconsejos');};
+	document.getElementById('movilidad').onclick = function() {Go('movilidad');};
+	document.getElementById('exito').onclick = function (){Go('exito');};
+
+	function Go(destination)
+	{
+		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/home";}
+		else if(destination=='inicio'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/hpd";}		
+		else if(destination=='googleapps'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps";}
+		else if(destination=='trucosyconsejos'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/trucosyconsejos";}
+		else if(destination=='movilidad'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/movilidad";}
+		else if(destination=='exito'){window.parent.location.href="https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito";}
+
+		return false;
+	}
+
+	gadgets.util.registerOnLoadHandler(renderSelected);
+
+	function renderSelected(){
+		resetStyles();
+	}
+	function resetStyles (){
+
+			jQuery('.homefirst').removeClass("selectedLeft");
+			jQuery('.exito').removeClass("selected");
+			jQuery('.apps').removeClass("selected");
+			jQuery('.trucos').removeClass("selected");
+			jQuery('.iniciate').removeClass("selected");
+			jQuery('.movilidad').removeClass("selected");			
+
+		return datospagina();
+	}
+
+	function datospagina()
+	{
+
+		var parametros = gadgets.util.getUrlParameters()["parent"];
+
+		if (parametros.indexOf("home")!=-1 || parametros == "https://sites.google.com/a/bbva.com/portaldeayuda/")
+		{
+			jQuery('.homefirst').addClass("selectedLeft");
+			return;
+		}else if(parametros.indexOf("casos-de-exito")!=-1){
+			jQuery('.exito').addClass("selected");
+			return;
+		} else if(parametros.indexOf("google-apps")!=-1){
+			jQuery('.apps').addClass("selected");
+			return;
+		} else if(parametros.indexOf("trucosyconsejos")!=-1){
+			jQuery('.trucos').addClass("selected");
+			return;
+		} else if((parametros.indexOf("iniciate")!=-1) || (parametros.indexOf("hpd")!=-1) &&(parametros.indexOf("google-apps")==-1)){			
+			jQuery('.iniciate').addClass("selected");
+			return;
+		}else if(parametros.indexOf("movilidad")!=-1){
+			jQuery('.movilidad').addClass("selected");
+			return;
+		}
+	}
+
+
+
+var userAgent = navigator.userAgent.toLowerCase();
+var test="";
+
+	if (userAgent.indexOf('msie 6')>-1)
+	{
+		var testValue = "Estas utilizando internet explorer 6 ->" + userAgent;
+		var test = "msie 6";
+	}
+	else
+	{
+		var testValue = "Estas utilizando ->" + userAgent;
+		var test = userAgent;
+	}
+
+
+	</script>
+
+  ]]>
+  </Content>
+  </Module>

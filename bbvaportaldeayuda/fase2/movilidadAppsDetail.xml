@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="movilidadAppsDetail.xml"
+    description=""
+    author_affiliation="SopraGroup-UX">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+
+ <Content type="html">
+<![CDATA[
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<style type="text/css">
+@font-face { font-family: 'BBVA Web Book'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot");
+src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff") format("woff"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf") format("truetype"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book") format("svg"); font-style: normal; font-weight: normal; }
+
+@font-face { font-family: 'BBVA Web Light'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot");
+src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff") format("woff"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf") format("truetype"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light") format("svg"); font-style: normal; font-weight: normal; }
+
+@font-face { font-family: 'BBVA Web Medium'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot");
+src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix") format("embedded-opentype"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff") format("woff"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf") format("truetype"),
+url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium") format("svg"); font-style: normal; font-weight: normal; }
+
+.container { max-width: 605px; font-family: 'BBVA Web Book'; padding: 10px; min-height: 300px; width: 100%; display: inline-block; }
+.container .title { margin-top: 0; padding-top: 0; font-weight: normal; color: #0078D2; font-family: BBVA Web Light, BBVA Web, Arial; font-size: 22px; margin: 15px 0px 12px 0px; }
+.container h3 { font-size: 16px; font-family: BBVA Web Light, Arial; color: #000; margin-bottom: 15px; font-weight: normal; }
+.container .graphics { display: inline; width: 100%; }
+.container .graphics .articleimg { text-align: left; display: inline; }
+.container .graphics .articleimg img { margin: auto; width: 120px; }
+.container .graphics .compatibility { display: inline-block; padding-left: 20px; }
+.container .graphics .compatibility ul.oslist { text-align: center; padding: 0; }
+.container .graphics .compatibility ul.oslist li { display: inline; list-style-type: none; padding-right: 10px; }
+.container .graphics .compatibility ul.oslist li .oslogo { width: 32px; display: inline-block; }
+.container .graphics .compatibility ul.oslist li span { display: inline-block; padding-left: 10px; vertical-align: super; }
+.container .description { background-image: url(https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png); background-position: bottom; background-repeat: no-repeat; font-family: 'BBVA Web Book'; padding-bottom: 20px; }
+.container .description h2 { text-align: left; font-size: 1em; }
+.container .description p.long { text-align: left; font-family: 'BBVA Web Book'; padding: 10px; font-size: 0.8em; }
+.container .manuals .titleguia { font-size: 16px; font-family: BBVA Web Light, Arial; color: #000; margin-bottom: 15px; font-weight: normal; }
+.container .manuals .guias { font-size: 12px; font-family: BBVA Web Book, Arial; color: #0078D2; text-decoration: none; }
+.container .manuals .guias li { color: #0065b7; }
+.container .manuals .guias li a { font-size: 12px; font-family: BBVA Web Book, Arial, sans-serif; color: #0065b7; text-decoration: none; line-height: 25px; }
+.container .manuals .guias li a .savePDF { position: relative; top: 2px; }
+
+.linetitle { display: block; width: 632px; height: 4px; margin-bottom: 20px; }
+
+
+</style>
+<!--[if lt IE 9]>
+<style>
+.container .graphics .compatibility { display: inline;}
+.savePDF { border: 0;}
+</style>
+<![endif]-->
+
+<div class="container" id="container"></div>
+
+   <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTable = prefs.getString("_table_query_url");
+	 var dispositivo = gadgets.util.getUrlParameters()["parent"].split("app_id=");
+   var parameters = dispositivo[1].split("&");
+   var aux = gadgets.util.getUrlParameters()["parent"];
+	 var situation = gadgets.util.getUrlParameters()["parent"];
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+	 function loadVisualizationAPI()
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+
+	  function sendQuery()
+			{
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};
+				var query = new google.visualization.Query(urlTable, opts);
+				var querytosend = "select * where A like '%"+parameters[0]+"%' ";
+            console.debug(querytosend);
+				query.setQuery(querytosend);
+				query.send(handleQueryResponse);
+
+
+			}
+
+	  var DataTable= function(data){
+                var HEADER_ROW = 0;
+                var MANUALS_COUNT = 5;
+                var FIELDS = {
+                        id : 0,
+                        title : 1,
+                        type: 2,
+                        image: 3,
+                        short: 4,
+                        long:  5,
+                        manual_title_1: 6,
+                        manual_url_1:7,
+                        manual_title_2: 8,
+                        manual_url_2:9,
+                        manual_title_3: 10,
+                        manual_url_3:11,
+                        manual_title_4: 12,
+                        manual_url_4:13,
+                        manual_title_5: 14,
+                        manual_url_5:15
+                };
+
+                var dataDC = data;
+                this.getNumberOfRows = function(){
+                        return dataDC.getNumberOfRows();
+                }
+                this.getId = function(row){
+                        return dataDC.getValue(row, FIELDS.id);
+                }
+                this.getTitle = function(row){
+                        return dataDC.getValue(row, FIELDS.title);
+                }
+                this.getImage = function(row){
+                        return dataDC.getValue(row, FIELDS.image);
+                }
+                this.getType= function(row){
+                        var icons = (dataDC.getValue(row, FIELDS.type)).split(/[ ,]+/);
+                        return icons;
+                }
+                this.getShort= function(row){
+                        return dataDC.getValue(row, FIELDS.short);
+                }
+                this.getLong= function(row){
+                        return dataDC.getValue(row, FIELDS.long);
+                }
+
+                this.getManual= function(row, number){
+                        return {
+                          title: dataDC.getValue(row, FIELDS['manual_title_'+number]),
+                          url: dataDC.getValue(row, FIELDS['manual_url_'+number])
+                        };
+                }
+
+                this.getManuals = function(row){
+                  var manuals = [];
+                  for(var manual_number=1; manual_number<=MANUALS_COUNT; manual_number++){
+                    manuals.push(this.getManual(row,manual_number));
+                  }
+                  return manuals;
+                }
+
+                this.isHeaderTable = function(row){
+                        return ( row == HEADER_ROW);
+                }
+
+        }
+
+   function handleQueryResponse(response){
+                var dataDC = new DataTable(response.getDataTable());
+                var filas = dataDC.getNumberOfRows();
+                var html= "";
+                //One element
+                row=0;
+                var renderIcons = function(types)
+                {
+                  var URLICONS =
+                              {
+                              "Android":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/android.png",
+                              "Iphone":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/iphone.png",
+                              "Ipad":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/ipad.png"
+                              };
+
+                  var iconshtml="";
+                  for(n in types)
+                  {
+                   iconshtml += "<li><img src=\""+URLICONS[types[n]]+"\"><span>"+types[n]+"</span></li>";
+                  }
+                  return iconshtml;
+                }
+                var renderManual = function(manual)
+                {
+                  var html_manual = '';
+                  if(((typeof(manual.title) != 'undefined') && (manual.title != "")) && ((typeof(manual.url) != 'undefined') && (manual.url != "")))
+                  {
+                      html_manual += '<li><a target=\"_blank\" href=\"'+manual.url+'\">'+manual.title;
+                      html_manual += '</li>';
+                  }
+                  return  html_manual;
+                }
+
+               var renderManuals = function(manuals){
+                 var html ='';
+                 for(key in manuals){
+                   html += renderManual(manuals[key]);
+                  }
+                 return html;
+              }
+                html +="<h2 class=\"title\">"+dataDC.getTitle(row)+"</h2>";
+                html +="<img src=\"https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png\" class=\"linetitle\">";
+                html +="<div class=\"graphics\">";
+	              html +="<div class=\"articleimg\"><img src='"+dataDC.getImage(row)+"'></div>";
+	              html +="<div class=\"compatibility\">Disponible para:<ul class=\"oslist\">"+renderIcons(dataDC.getType(row))+"</ul></div>";
+                html +="</div>";
+                html +="<div class=\"description\">";
+	              html +="<h3>Descripción de la App</h3>";
+	              html +="<p class=\"long\">"+dataDC.getLong(row)+"</p>";
+                html +="</div>";
+                if(renderManuals(dataDC.getManuals(row))!= '')
+                {
+                html +="<div class=\"manuals\"><h3>Acceso a Manuales</h3>";
+                html +="<ul class=\"guias\">"+renderManuals(dataDC.getManuals(row))+"</ul>";
+                html +="</div>";
+                }
+
+                document.getElementById('container').innerHTML = html;
+
+        }
+
+    </script>
+    ]]>
+  </Content>
+
+</Module>

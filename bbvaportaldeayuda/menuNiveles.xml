@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="menuNiveles.xml"
+    description=""
+    author_affiliation="Capgemini">
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="title" display_name="Título" required="true" />  
+<UserPref name="urlArray" display_name="Url" datatype="list" required="true"/>    
+<UserPref name="textoUrlArray" display_name="textoUrl" datatype="list" required="true"/>
+<Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<style type="text/css">
+	body{
+	padding-top:4px;
+	}
+	  	/* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		/* @end */
+		header{
+			border-bottom: 1px solid  #DDE3EA;
+			border-top: 1px solid  #DDE3EA;
+			border-right: 1px solid  #DDE3EA;
+			border-bottom-right-radius: 8px;
+			border-top-right-radius: 8px;
+			font-family:BBVA Web Light, Arial;
+			font-weight:bold;
+			font-size:14px;
+			color: #003F8C;
+			padding-left: 19px;
+			padding-top: 10px;
+			padding-right: 46px;
+			padding-bottom: 29px;
+			margin-left: 7px;
+			position: relative;
+			top: 7px;
+			width: 225px;
+		}
+		#superior {
+			border-left: 1px solid  #DDE3EA;
+			border-bottom: 1px solid  #DDE3EA;
+			border-bottom-left-radius: 8px;
+			position: relative;
+			bottom: -8px;
+			padding-bottom: 3px;
+			width: 100px;
+		}
+		ul{
+			padding-left: 20px;
+			margin: 0;
+			width: 270px;
+			border-left: 1px solid  #DDE3EA;
+			border-top: 1px solid  #DDE3EA;
+			border-top-left-radius: 8px;
+			top: 6px;
+			position: relative;
+		}
+		ul li{
+			list-style: none;
+			border-bottom: 1px solid #DDE3EA;
+			padding-bottom: 11px;
+			padding-top: 9px;
+			width: 275px;
+		}
+		ul li img {
+			padding-left: 4px;
+		}
+		ul li a,
+		ul li a:hover, 
+		ul li a:visited {
+            padding-left: 10px;
+			text-decoration: none;
+	        font-size:14px;
+			font-family:BBVA Web Book, Arial;
+			color: #0072C9;
+		}  
+		ul li:last-child{
+			border: 0;
+			padding-bottom: 12px;
+			padding-top: 9px;
+		}     
+	</style>
+	<div id="superior">&nbsp;</div>
+	<div id="content">
+	</div>	
+
+	<script type="text/javascript">
+		var gadgetHelper = null;
+		var prefs = new _IG_Prefs();
+		var titulo = prefs.getString("title");
+		var urlArray = prefs.getArray("urlArray");
+		var textoUrlArray = prefs.getArray("textoUrlArray");
+		var html = "";
+		function devuelveEnlace(varEnlace)
+      	{
+	        var link = "";
+	        if (varEnlace.indexOf("javascript:") != -1)
+	        {
+	            var link = 'href=\"#\" onclick=\"' + varEnlace + '\" ';
+	        }
+	        else
+	        {
+	            var link = 'href=\"'+ varEnlace +'\"  target=\"_parent\" ';
+	        }
+	        return link;
+        }
+		function insertHTML()
+		{
+			html += '<header>' + titulo + '</header>';
+			html += '<ul>';
+			insertarEnlace();
+			html += '</ul>';
+		}
+		
+		function insertarEnlace()
+        {
+          	for (i = 0;i < urlArray.length;i++){
+          		if ((urlArray[i] != "") && (textoUrlArray[i] != ""))
+	            {    
+	                var strLink = devuelveEnlace(urlArray[i]);
+	                html += '<li><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flechaInversa.png"/><a ' + strLink + ' title=\"' + textoUrlArray[i] + '\"  >' + textoUrlArray[i] + '</a></li>';
+	            }
+          	} 
+        }    
+		
+		insertHTML();
+		document.getElementById("content").innerHTML = html;
+	</script>
+    ]]>
+</Content>
+<Content type="html" view="configuration" preferred_height="480">
+<![CDATA[
+	<style type="text/css">
+		table td {
+			color: #000;
+			font-size: 11px;
+			font-weight: bold;
+		}
+		table td input {
+			color: #000;
+			font-size: 11px;	
+			width: 290px;			
+		}
+  	</style>
+  	
+	<table width="100%" border="0" id="tablaconfig">  
+		<tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray0"  onchange="registraArray('urlArray',0)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray0" onchange="registraArray('textoUrlArray',0)"/>                   
+            </td
+        </tr>
+        <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray1"  onchange="registraArray('urlArray',1)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray1" onchange="registraArray('textoUrlArray',1)"/>                   
+            </td>
+        </tr>
+        <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray2"  onchange="registraArray('urlArray',2)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray2" onchange="registraArray('textoUrlArray',2)"/>                   
+            </td>
+        </tr>
+        <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray3"  onchange="registraArray('urlArray',3)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray3" onchange="registraArray('textoUrlArray',3)"/>                   
+            </td>
+        </tr>
+        <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray4"  onchange="registraArray('urlArray',4)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray4" onchange="registraArray('textoUrlArray',4)"/>                   
+            </td>
+        </tr>
+		
+		 <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray5"  onchange="registraArray('urlArray',5)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray5" onchange="registraArray('textoUrlArray',5)"/>                   
+            </td>
+        </tr>
+		 <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray6"  onchange="registraArray('urlArray',6)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray6" onchange="registraArray('textoUrlArray',6)"/>                   
+            </td>
+        </tr>
+		 <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray7"  onchange="registraArray('urlArray',7)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray7" onchange="registraArray('textoUrlArray',7)"/>                   
+            </td>
+        </tr>
+		 <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray8"  onchange="registraArray('urlArray',8)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray8" onchange="registraArray('textoUrlArray',8)"/>                   
+            </td>
+        </tr>
+		 <tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray9"  onchange="registraArray('urlArray',9)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray9" onchange="registraArray('textoUrlArray',9)"/>                   
+            </td>
+        </tr>
+		<tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray10"  onchange="registraArray('urlArray',10)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray10" onchange="registraArray('textoUrlArray',10)"/>                   
+            </td>
+        </tr>
+		<tr>       
+        	<td>
+            	Table - Url: <input type="text" size="50" id="urlArray11"  onchange="registraArray('urlArray',11)"/>                   
+            </td>
+            <td>
+            	Texto: <input type="text" size="50" id="textoUrlArray11" onchange="registraArray('textoUrlArray',11)"/>                   
+            </td>
+        </tr>
+		
+		
+        <tr>       
+        	<td>
+            	Título: <input type="text" size="100" id="title" value="__UP_title__" onchange="registra('title')"/>                   
+            </td>
+        </tr>
+	</table>
+			
+    <script type="text/javascript">           
+    	// Get userprefs
+    	var prefs = new gadgets.Prefs();    
+    	
+    	var arrayUrl = prefs.getArray('urlArray');
+    	var arrayTxt = prefs.getArray('textoUrlArray');
+			
+		for (i = 0;i < arrayUrl.length;i++){
+			document.getElementById('urlArray' + i).value = arrayUrl[i];
+		}   
+		
+		for (i = 0;i < arrayTxt.length;i++){
+			document.getElementById('textoUrlArray' + i).value = arrayTxt[i];
+		}   
+		 	       
+        function registraArray(variable,pos)
+        {	
+            var elementos = prefs.getArray(variable);
+            var cadena = variable + pos; 
+			elementos[pos] = document.getElementById(cadena).value;
+        	prefs.setArray(variable,elementos);
+    	} 
+    	function registra(variable)
+        {	
+        	prefs.set(variable,document.getElementById(variable).value);
+    	} 
+		gadgets.window.adjustHeight();
+    </script>   	
+ ]]>	
+
+ </Content>
+</Module>

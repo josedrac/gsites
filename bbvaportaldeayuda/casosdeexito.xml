@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="casosdeexito.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+	<UserPref name="titlecomboVideo" display_name="Tilte Box Video" required="true" />   
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		
+		/* @end */
+	
+		#titlecomboVideo{
+		margin-top:-9px;
+		margin-left:-15px;
+		
+		}
+		#titlecomboVideo h2{
+		float:left;
+		color:#0078D2;
+		font-family:BBVA Web Light, Arial;
+		font-size:22px;
+		margin:31px 0px 10px 35px;
+		font-weight: normal;
+		}
+		
+		#comboVideo{
+		width:620px;
+		float:left;
+		}
+      #video-container,
+	  #video-container2 {
+	    float:left;
+		width:607px;
+		height:180px;
+	  }
+	  
+	  #urlVideo,
+	  #urlVideo2{
+		float:right;
+	    width:313px;
+		height:201px;
+		margin-right:4px;
+		margin-top:5px;
+	  }
+	  
+	  #TagVideo{
+	   color:#000;
+	   margin-bottom:11px;
+	   margin-left:11px;
+	   margin-top:-7px;
+	  }
+	  #TagVideo2{
+	    color:#000;
+		margin-bottom:11px;
+		margin-left: 11px;
+		margin-top: 0px;
+	  }
+	  
+      #titleVideo, 
+      #titleVideo2 {
+	  color:#0078D2;
+	  font-family:BBVA Web Book, Arial;
+	  font-size:18px;
+	  width:260px;
+	  margin: 0 0 20px 7px;
+	  font-weight: normal;	  
+	  }
+	  #titleVideo a,
+	  #titleVideo2 a{
+	  color:#0078D2;
+	  font-family:BBVA Web Book, Arial;
+	  font-size:18px;
+	  width:260px;
+	  font-weight: normal;
+	  text-decoration:none;
+	  }
+	  
+	  #textVideo,
+	  #textVideo2{
+		color:#434A58;
+		font-size:12px;
+		font-family:arial;
+		height:80px;
+		width:269px;
+		margin-top: 15px;
+		margin-left: 7px;
+		float:left;
+	    }
+	    
+		#infoVideo,
+		#infoVideo2{
+			float:left;
+			width:600px;
+			height:160px;
+			margin-left:15px;
+			margin-top:0px;
+			}
+			
+		hr{
+		    width:610px;
+			margin-bottom:20px;
+			margin-left:-1px;
+			color:#DCDCDC;
+		}	
+		
+		#allcontent{
+			-webkit-border-radius: .2em;
+			-moz-border-radius: .2em;
+			border-radius: .2em;
+			height: 1.75em;
+			padding-left: .7em;
+			padding-bottom:2px;
+			float:left;
+			margin-left:10px;
+			width:90px;
+			margin-top:0px;
+			font-family: BBVA Web Medium, Arial;
+			font-size:12px;			
+		}
+		
+		
+	
+	button{
+		background: #0079C1;
+		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+		background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+		background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+		-webkit-border-radius: .3em;
+		-moz-border-radius: .3em;
+		border-radius: .3em;
+		font-size: 10px;
+		text-align: center;
+		vertical-align: middle;
+		height: 2em;
+		padding-left: .9em;
+		padding-right: .9em;
+		border: .1em solid #00559D;
+		color: white;
+		cursor: pointer;
+		position: relative;
+		overflow: visible;
+	}
+	
+	#allcontent:hover{
+		background: #004C99;
+	}
+	
+	.linetitle{
+		display:block;
+		width:610px;
+		height:4px;
+		margin-bottom:20px;
+	}
+	
+	.linevideo{
+		width:610px;
+		height:4px;
+		display:block;		
+		margin-bottom: 20px;
+		padding-top: 25px;
+	}
+	
+	.sites-embed-align-left-wrapping-off{
+		display: block;
+		clear: both;
+		text-align: left;
+		margin: 5px auto 5px 0;
+		width: 650px;
+	}
+	
+	#dateVideo{
+		color:#71777F;
+		font-size:11px;
+		float:left;
+		margin-top:-15px;
+		margin-left:8px;
+	}
+	
+	#userVideo{
+		color:#71777F;
+		font-size:11px;
+		float:left;
+		margin-left:72px;
+		margin-top:-15px;
+	}
+	
+	.bloqueAnterior{
+       clear:both;
+       display:block;
+       margin-left:15px;
+       font-family: BBVA Web Book, Arial;
+		color:#0078D2;
+		float:left;
+		margin-top:-2px;
+      }
+      
+    .bloqueSiguiente{
+            display:block;
+          font-family: BBVA Web Book, Arial;
+          float:left;
+          margin-top:-2px;
+		padding-left:10px;
+          color:#0078D2;
+		width:64px;
+      }
+      
+	p.text {	 
+            font-size: 0.8em;
+            color: #3B3B3B;
+        }
+    
+	#bloqueEnlaces1 img{
+            
+			margin-left:260px;
+			padding-right:10px;
+        }
+        
+	.checkpage{
+    margin-top:-5px;
+	}	
+	
+	.checkpage1{
+    margin-top:-5px;
+	margin-left:260px;
+	}
+	.youtubeIframe{
+			display:none;
+	}	
+	
+	.checkpage a,
+	.checkpage1 a{
+		height:9px;
+		float:left;
+		padding-top:4px;
+		padding-left:2px;
+		padding-right:2px;
+	}
+	
+	</style>
+	
+	<!--[if IE]>
+		
+		<style type="text/css">
+		
+			.checkpage img,
+			.checkpage1 img,
+			.bloqueAnterior img,
+			.bloqueSiguiente img{
+				border: 0;
+			}	
+			button{
+					background: #0079C1;
+				}
+	#userVideo{
+				color:#71777F;
+				font-size:11px;
+				float:left;
+				margin-left:0px;
+				margin-top:-15px;
+			}	
+		</style>
+			
+	<![endif]-->
+	
+	<!--[if IE 9]>
+		
+		<style type="text/css">
+
+			#userVideo{
+				margin-left:72px;
+			}	
+		</style>
+			
+	<![endif]-->
+	
+	
+<div id="listportales"></div>	
+		
+   <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs(); 
+	 var urlTable = prefs.getString("_table_query_url");
+	 var titlecomboVideo = prefs.getString("titlecomboVideo");
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 
+	 function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+
+		function sendQuery() 
+			{
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};		
+				var query = new google.visualization.Query(urlTable, opts);	
+				var querytosend = "select * where A <> 'IdExito'";
+				query.setQuery(querytosend);			  
+				query.send(handleQueryResponse);
+				
+				
+			}
+		function handleQueryResponse(response) {
+			data = response.getDataTable();	
+			var filas = data.getNumberOfRows();
+			var pagTotales = Math.ceil(filas/3);
+			var pagActual = 1;
+			var html = "";
+			
+			 if(filas<1)
+            {
+    			html += '<p class="text">No hay ning򮠣ontenido referente a Portales.</p>';
+            }
+            else
+            {               
+                html += '<div id="pagina1" class="paginaNueva" style=" display: block;width: auto;height: 660px;">';
+            }
+			
+			
+			html += "<div id='titlecomboVideo'><h2>"+titlecomboVideo+"</h2></div><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png' class='linetitle'/>";
+			
+			 for(var i=0;i<filas;i++){
+			 
+			   html += "<div id='comboVideo'>";
+			   html += "<div id='video-container'><div id='infoVideo'>";
+			   html += "<div id='urlVideo'>";
+			   if(data.getValue(i,10)!=""){
+			   html += "<iframe src='"+data.getValue(i,10)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+			   
+			   /*html += "<object data='"+data.getValue(i,10)+"'>" +
+		   			   "<param name='video' value='"+data.getValue(i,10)+"'></param>" +
+		   			   "<param name='wmode' value='transparent'></param>" + 
+		   			   "<embed src='"+data.getValue(i,10)+"' type='application/x-shockwave-flash' wmode='transparent'></embed>" +
+		   			   "</object></div>";*/
+			   
+			   }else{
+			   html += "<img src='"+data.getValue(i,11)+"'></img></div>";
+				}
+			   html += "<div id='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
+			   html += "<div id='dateVideo'>"+data.getValue(i,2).toString()+" - </div>";
+			   html += "<div id='userVideo'> "+data.getValue(i,5)+"</div>";
+			   html += "<div id='textVideo'>"+data.getValue(i,3)+"</div>";
+			   var url = "https://sites.google.com/a/bbva.com/portaldeayuda/casos-de-exito/caso-de-exito?exito="+data.getValue(i,0);
+			   html += '<button type="button" id="allcontent" onclick="javascript:Go(\''+url+'\')">Saber más</button>';
+			   html +="</div></div><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png' class='linevideo'/></div>";
+			
+			   if(pagTotales>1){
+			     
+				  if (i==3*pagActual-1){
+				  
+				    var pagActualParaMostrar = pagActual+1;
+                    var pagSiguiente = pagActualParaMostrar+1;
+					
+					if(i>2){
+					 html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anterior(\''+ pagActualParaMostrar +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/anterior.png" /></a></div>';
+					}
+					
+					for(var j=1;j<=pagTotales;j++){
+					if ((j==pagActual) && (j==1)){
+					   	html += '<div id="paginas1" class="checkpage1"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
+
+					}
+					else if(j==pagActual){
+					    html += '<div id="paginas" class="checkpage"><a href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
+					  }else{
+					    html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActual +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActual +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png" id="pagination'+j+'"/></a></div>';
+
+					  }
+					}
+					
+					html += '<div id="bloqueEnlaces"  class="bloqueSiguiente"><a href="javascript:continuacion(\''+ pagActualParaMostrar +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/siguiente.png" /> </a></div>';
+                    html += '</div>';
+
+                    html += '<div id="pagina'+ pagActualParaMostrar +'" class="paginaNueva" style="display:none; width: auto;height: 660px; margin-top:40px">';
+			   
+			        pagActual++; 
+					
+					}
+					else if(i==filas-1)
+                    {    			
+				        //console.debug('ANTERIOR>');
+						var pagActualAux = pagActual;
+				        pagActual--;
+						
+					    html += '<div id="bloqueEnlaces1" class="bloqueAnterior"><a href="javascript:anteriorUltima(\''+ pagActualParaMostrar +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/anterior.png" /></a></div>';
+						for(var j=1;j<=pagTotales;j++){
+							if(j==pagActualAux){
+								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png" id="pagination'+j+'"/></a></div>';
+							}else{
+								html += '<div id="paginas" class="checkpage"><a onclick="javascript:changeImage(\''+ j +'\',\''+ pagActualAux +'\')" href="javascript:changePage(\''+ j +'\',\''+ pagActualAux +'\');"><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png" id="pagination'+j+'"/></a></div>';
+							}
+						}
+						html += '</div>';
+				    }			
+                }	   
+			   
+			}
+				
+				
+				document.getElementById('listportales').innerHTML += html;
+				
+			}
+		 function continuacion(num)
+        {           
+            var bloque = "pagina"+num;
+            var numInt = parseInt(num)-1;
+            var bloque_anterior = "pagina"+ numInt;           
+            document.getElementById(bloque).style.display='block'; 
+            document.getElementById(bloque_anterior).style.display='none';
+        }
+
+    	function anterior(num)
+        {           
+            var bloque = "pagina"+num;
+            var numInt = parseInt(num)-1;
+            var numInt2 = parseInt(num)-2;
+            if (numInt2 == 0)
+            {
+                numInt  = 2;
+                numInt2 = 1;
+            }
+            var bloque_actual = "pagina"+ numInt;
+            var bloque_anterior = "pagina"+ numInt2;
+            document.getElementById(bloque_actual).style.display='none';
+            document.getElementById(bloque_anterior).style.display='block';
+			document.getElementById('pagination'+numInt).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png";
+		    document.getElementById('pagination'+numInt2).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png";
+        }
+
+    	function anteriorUltima(num)
+        {
+            var bloque = "pagina"+num;
+            var numInt = parseInt(num)-1;
+            var bloque_anterior = "pagina"+ numInt;
+            document.getElementById(bloque).style.display='none';
+            document.getElementById(bloque_anterior).style.display='block';
+			document.getElementById('pagination'+num).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png";
+		    document.getElementById('pagination'+numInt).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png";
+    	}
+		function changePage(num,pag){
+		
+		    var bloque = "pagina"+pag;
+			//var numInt = parseInt(num)-1;
+			var bloque_anterior = "pagina"+ num;
+			
+		    document.getElementById(bloque).style.display='none';
+            document.getElementById(bloque_anterior).style.display='block';
+		}
+		function changeImage(pagina,old){
+
+		    document.getElementById('pagination'+old).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/pagina.png";
+		    document.getElementById('pagination'+pagina).src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/paginaHover.png";
+		}	
+	    function Go(destination){
+	    window.parent.location.href = destination;
+	    return false;
+		}
+
+		//delay loading 
+		delayRender();
+	    function delayRender(){
+	    	window.setTimeout('showIframes()',2000);	
+	    }
+	 	function showIframes() {
+	 		//console.log('debugg');
+		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+
+		 	for (var i=0;i<iframes;i++)
+			{ 
+			document.getElementsByClassName('youtubeIframe')[i].style.display='block';	
+			}	 	
+	 	}	
+
+  </script>
+    ]]>
+  </Content>
+  
+</Module>
