@@ -39,7 +39,8 @@
 				h2, img {
 					font-family:"BBVA Web Light",arial,sans-serif;
 					font-weight: lighter;
-					color: #0078D2;
+					text-transform: uppercase;
+					color: #000000;
 					font-size: 22px;
 					padding-bottom: 9px;
 					margin: 0;
@@ -116,7 +117,7 @@
 
 					if(image != undefined) {
 						html += '<img src="' + image + '" alt="image"/>';
-					} 
+					}
 					else if(name != null) {
 						html += '<h2>'+ name +'</h2>';
 					}
@@ -128,13 +129,13 @@
 
 			</script>
 
-			
+
 			<div id="sectionId"></div>
 
 			<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -168,7 +169,7 @@
 					<td>
 						Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
 					</td>
-				</tr>				
+				</tr>
 				<tr>
 					<td>
 						Section ID: <input type="text" size="100" id="sectionId" value="__UP_sectionId__"   onchange="register('sectionId')"/>
