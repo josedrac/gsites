@@ -72,7 +72,7 @@
 	  			font-family: BBVA Web Book, Arial;
 	  			font-size: 18px;
 	  			font-weight: normal;
-				color: #0078D2;
+		      color: #0078D2;
 	  			text-decoration: none;
 	  			word-spacing: -2px;
 	  			margin: 0;
@@ -166,7 +166,7 @@
 		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
 
 		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
-		
+
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 		<script type="text/javascript">
@@ -225,9 +225,9 @@
 					data.coverMedia = coverVideo;
 				}
 
-				document.getElementById("title").innerHTML = data.title; 				
-				document.getElementById("subtitle").innerHTML = data.subtitle; 	
-				
+				document.getElementById("title").innerHTML = data.title;
+				document.getElementById("subtitle").innerHTML = data.subtitle;
+
 				if(data.author != null && data.author != undefined) {
 					var authorSignature = '';
 					authorSignature += '<p class="author-signature">';
@@ -255,7 +255,7 @@
 
 	<!-- --- HTML -------------------------------------------------------------------------------------------- -->
 
-	<body>	
+	<body>
 
 	 	<div class="article-cover bordered-button">
 	 		<div class="content-wrapper">
@@ -263,7 +263,7 @@
 
 		 			<h2 id="title"></h2>
 					<h3 id="subtitle"></h3>
-					
+
 					<div id="authorSignature"></div>
 
 					<div id="sortDescription"></div>
@@ -274,7 +274,7 @@
 	 		<div class="media-wrapper">
 
 	 			<div id="coverMedia" class="cover-media"></div>
-	 			
+
 	 		</div>
 	 	</div>
 
@@ -282,5 +282,4 @@
 
 	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
 
-</html> 
-
+</html>

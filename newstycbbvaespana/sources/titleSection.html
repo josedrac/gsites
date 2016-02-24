@@ -20,8 +20,7 @@
 	h2, img {
   		font-family:"BBVA Web Light",arial,sans-serif;
   		font-weight: lighter;
-  		text-transform: uppercase;
-  		color: #000000;
+  		color: #0078D2;
   		font-size: 22px;
   		padding-bottom: 9px;
 		margin: 0;
@@ -41,7 +40,7 @@
 
 	var date = getParam('date');
 	var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
-		sectionId = 'EDT',
+		sectionId = 'B10',
 		sheetName = encodeURIComponent('sections'),
 		queryString = encodeURIComponent('SELECT * where A = "'+sectionId+'"'),
 		query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);

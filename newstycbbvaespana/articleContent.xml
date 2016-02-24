@@ -9,7 +9,7 @@
 
  	<Content type="html">
     	<![CDATA[
-			
+
 			<style type="text/css">
 
 				@font-face {
@@ -36,30 +36,30 @@
 
 				.article-content {
 					padding: 0 10px;
-				}				
-
-				h2 {
-					font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-					font-size: 22px;
-	    			font-weight: normal;
-	    			word-spacing: -1px;
-	    			color: #0078D2;
-	    			padding: 0 10px 6px;
-				    border-bottom: 1px solid #DCDCDC;
-				    margin-top: 0;
-				    margin-bottom: 25px;
-
 				}
 
-				h3 {
-				    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-				    font-size: 16.25px;
-				    font-weight: normal;
-				    text-transform: uppercase;
-				    color: #333;
-				    margin: 0;
-				    padding: 0 10px;
-				}
+        h2 {
+  				font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  				font-size: 22px;
+      			font-weight: normal;
+      			word-spacing: -1px;
+            text-transform: uppercase;
+            color: #333;
+      			padding: 0 10px 6px;
+  			    border-bottom: 1px solid #DCDCDC;
+  			    margin-top: 0;
+  			    margin-bottom: 25px;
+
+  			}
+
+  			h3 {
+  			    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  			    font-size: 16.25px;
+  			    font-weight: normal;
+            color: #0078D2;
+  			    margin: 0;
+  			    padding: 0 10px;
+  			}
 
 				p.author-signature {
 					font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -85,7 +85,7 @@
 				.media-content {
 				    display: table-cell;
 				    vertical-align: middle;
-				    text-align: center;				
+				    text-align: center;
 				}
 
 				.media-content:before {
@@ -131,7 +131,7 @@
 				    font-size: 12px;
 				    color: #71777F;
 				    line-height: 19px;
-				}				
+				}
 
 			</style>
 
@@ -165,7 +165,7 @@
 			<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -194,7 +194,7 @@
 				var spreadsheetKey = getParam('key'),
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '" and D ends with "' + getParam("date") + '"'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
 					query.send(handleQueryResponse);
@@ -227,9 +227,9 @@
 						data.media = video;
 					}
 
-					document.getElementById("title").innerHTML = data.title; 				
-					document.getElementById("subtitle").innerHTML = data.subtitle; 	
-					
+					document.getElementById("title").innerHTML = data.title;
+					document.getElementById("subtitle").innerHTML = data.subtitle;
+
 					if(data.author != null && data.author != undefined) {
 						var authorSignature = '';
 						authorSignature += '<p class="author-signature">';
@@ -237,17 +237,17 @@
 						authorSignature += '</p>';
 						document.getElementById("authorSignature").innerHTML = authorSignature;
 					}
-					
-					document.getElementById("sortDescription").innerHTML = data.sortDescription; 	
-					document.getElementById("media").innerHTML = data.media; 	
-					document.getElementById("description").innerHTML = data.description; 	
+
+					document.getElementById("sortDescription").innerHTML = data.sortDescription;
+					document.getElementById("media").innerHTML = data.media;
+					document.getElementById("description").innerHTML = data.description;
 
 				}
 
 				google.setOnLoadCallback(getSpreadsheet);
 
 			</script>
-   			
+
    		]]>
   	</Content>
 
