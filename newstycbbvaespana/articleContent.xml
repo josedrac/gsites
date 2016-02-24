@@ -44,7 +44,7 @@
       			font-weight: normal;
       			word-spacing: -1px;
             text-transform: uppercase;
-            color: #333;
+            color: #0078D2;
       			padding: 0 10px 6px;
   			    border-bottom: 1px solid #DCDCDC;
   			    margin-top: 0;
@@ -56,7 +56,7 @@
   			    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
   			    font-size: 16.25px;
   			    font-weight: normal;
-            color: #0078D2;
+            color: #333;
   			    margin: 0;
   			    padding: 0 10px;
   			}
