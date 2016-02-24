@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="soporte.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+
+/* @end */
+	
+    #tablasoporte{
+	 width:100%;
+	 font-size:12px;
+	 color:#434a45;
+	 margin-left:13px;
+	}
+	#tablasoporte th{
+	 font-family:BBVA Web Light, Arial;
+	 font-size:18px;
+	 color:#434a45;
+	 text-align:left;
+	 font-weight:normal;
+	}
+	
+	#tablasoporte td{
+	 font-family:Arial;
+	}
+	
+	.linedownheadertable{
+	 margin-bottom:25px;
+	 width:100%;
+	 display:block;
+	}
+	
+	.dato0{
+	width:83px;
+	
+	}
+	.dato1{
+	width:175px;
+	
+	}
+	.dato2{
+	width:110px;
+
+	}
+	.dato3{
+	width:150px;
+	}
+	
+	.col0{	
+	 width:83px;
+	}
+	.col1{
+	 width:167px;
+	}
+	.col2{
+	 width:158px;
+	}
+	.col3{
+	 width:150px;
+	
+	}
+	#tablasoporte tr.datosfila{
+	height:50px;
+	}
+	
+	.sobreMail{
+		border: 0px;
+	}
+	
+	</style>
+	
+
+<div id="infosoporte"></div>	
+	
+   <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTable = prefs.getString("_table_query_url");
+	 
+	 
+	 
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+	 function sendQuery() 
+			{
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};		
+				var query = new google.visualization.Query(urlTable, opts);	
+				var querytosend = "select *";
+				query.setQuery(querytosend);			  
+				query.send(handleQueryResponse);
+				
+				
+			}
+			
+			function sendGmail(emailTo){
+				
+				//window.open = ("https://mail.google.com/mail/?view=cm&fs=1&to="+emailTo,"send mail");
+				var to = emailTo;
+				var subject ='Portal de Ayuda';
+				var str = 'https://mail.google.com/mail/?view=cm&fs=1&to='+to+'&su='+subject;
+				//window.parent.location.href = str;
+				
+				window.open(str,'_blank','send mail');
+			
+				
+				}
+				
+	 function handleQueryResponse(response) {
+				data = response.getDataTable();	
+				var filas = data.getNumberOfRows();
+				var html= "";
+				html += "<table id='tablasoporte'>";
+				html += "<thead><tr><th class='col0'>Pa&iacute;s</th><th class='col1'>Tel&eacute;fono</th></tr></thead>";
+			    html += "<tbody><tr><td colspan='3'><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='linedownheadertable' /></td></tr>";
+				for(var i=1;i<filas;i++){
+				  /* if (data.getValue(i,1) == "luis.mayorga@bbva.com")
+					{ 
+				  var mail = "<a href=\"javascript:sendGmail('"+data.getValue(i,1)+"')\"><img src='https://efd75d34-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/portaldeayuda/soporte/enviar_correo.png' class='sobreMail'/></a>"; }
+					else
+					{
+						var mail= "<a href=\"javascript:sendGmail('"+data.getValue(i,1)+"')\">"+data.getValue(i,1)+"</a>";
+					}*/
+					html += "<tr class='datosfila'><td class='dato0'>"+data.getValue(i,0)+"</td><td class='dato1'>"+data.getValue(i,2)+"</td></tr>";
+					
+				}
+				html += "</tbody></table>";
+		document.getElementById('infosoporte').innerHTML += html;
+	
+		}
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>

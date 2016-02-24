@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="preguntas-frecuentes.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+/* @end */
+	
+	#titlepage{
+	float:left;
+	color:#0078D2;
+	font-family: BBVA Web Light, Arial;
+	font-weight: normal;
+	font-size:30px;
+	margin-bottom:6px;
+	padding-top:11px;
+	height:30px;
+	margin-left:11px;
+	}
+	
+	.linedowntitle{
+	margin-bottom:20px;
+	width:939px;
+	display:block;
+	}
+	.linedownheadertable{
+	margin-bottom:45px;
+	width:690px;
+	display:block;
+	}
+	
+	#textPage{
+	margin-bottom:90px;
+	width:675px;
+	height:57px;
+	font-family: BBVA Web Light, Arial;
+	font-weight: normal;
+	font-size:14px;
+	color:#434A58;	
+	margin-left:9px;
+	padding-top:11px;
+	}
+	.tablasoporte{
+	width:675px;
+	font-family:BBVA Web Medium, Arial;
+	font-size:12px;
+	color:#434A58;
+	margin-top:-22px;
+	margin-left:6px;
+	
+	}
+	.tablasoporte td{
+	width:250px;
+	padding-bottom:2px;
+	}
+	
+	.cabecera td{
+	font-family:BBVA Web Medium, Arial;
+	font-size:18px;
+	color:#434A58;
+	//padding-bottom:35px;
+	
+	
+	}
+	#iniciate{
+	font-size:16px;
+	font-family: BBVA Web Medium, Arial;
+	color:#0065B7;
+	}
+	#iniciate a{
+	font-size:16px;
+	font-family: Arial;
+	color:#0065B7;
+	text-decoration:none;
+	padding:10px 0px;
+	margin-left:10px;
+	margin-bottom:10px;
+	}
+	.flecha{
+	margin-left:15px;
+	
+	}
+	.iniciateline{
+		width: 619px;
+		margin-bottom:10px;
+		
+	}
+	.lineitem{
+		width: 619px;
+		margin-bottom:15px;
+		margin-top:15px;
+	}
+	.linedowntitle {
+		margin-bottom: 20px;
+		width: 619px;
+		display: block;
+}
+	
+	</style>
+	
+	<!--[if IE 7]>
+		
+		<style type="text/css"> 
+			
+			.flecha{
+				border: 0px;
+			}
+			
+			#iniciate a{
+				display: block;
+				margin-bottom: 0px;
+				padding-bottom: 0px;
+				padding-top: 0px;
+   			}
+				
+		</style>
+		
+	<![endif]-->
+	
+	<!--[if IE 8]>
+				
+		<style type="text/css"> 
+			
+			.flecha{
+				border: 0px;
+			}
+				
+			#iniciate a{
+				display: block;
+				margin-bottom: 0px;
+				padding-bottom: 0px;
+				padding-top: 0px;
+   			}
+   			
+		</style>
+		
+	<![endif]-->
+	
+	<!--[if IE 9]>
+				
+		<style type="text/css"> 
+			
+			.flecha{
+				border: 0px;
+			}
+
+		</style>
+		
+	<![endif]-->
+	
+<div id="iniciate"></div>
+	
+   <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 
+	 var html="";
+	// html +="<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/iniciateline.png' class='iniciateline'/>";
+
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/preguntas-frecuentes-contactos'>Contactos<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	  
+     html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/como-puedo-ver-mis-carpetas-en-nokia'>Cómo puedo ver mis carpetas en Nokia<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/etiquetas-preguntas-frecuentes'>Etiquetas<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/gmail-preguntas-frecuentes'>Gmail<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/google-calendar-preguntas-frecuentes'>Google Calendar<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/google-docs-preguntas-frecuentes'>Google Docs<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/interactuar-con-los-correos-preguntas-frecuentes'>Interactuar con los correos<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/migracion-a-gmail-preguntas-frecuentes'>Migración a Gmail<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/modo-de-funcionamiento-de-gmail'>Modo de funcionamiento de Gmail<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+	 html += "<a target='_parent' href='https://sites.google.com/a/bbva.com/portaldeayuda/preguntas-frecuentes/outlook-vs-gmail-preguntas-frecuentes'>Outlook vs. Gmail<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/flecha.png' class='flecha'/></a>";
+	 html += "<img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/linepagetitledown.png' class='lineitem'/>";
+	 
+					
+     document.getElementById('iniciate').innerHTML += html;
+	
+		
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>

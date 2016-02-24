@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="iniciateInterna.xml"
+    description=""
+    author_affiliation="SopraUX">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+	<UserPref name="_table_query_url" default_value="https://docs.google.com/a/bbva.com/spreadsheet/ccc?key=0ApZ6EoQT3skrdHMyNFVoWHpfR2piNzdyUkxEbVVtSmc" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+		
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* @end */
+	
+	#titlecomboVideo{
+	margin-top:-9px;
+	margin-left:-15px;
+	
+	}
+	#titlecomboVideo h2{
+	
+	color:#0078D2;
+	font-family:BBVA Web Light,  Arial;
+	font-size:22px;
+	margin:9px 0px 10px 28px;
+	font-weight: normal;
+	}
+	
+	#comboVideo{
+	width:620px;
+	float:left;
+	}
+      #video-container{
+   	    float:left;
+		width:607px;
+		height:504px;
+		}
+	  #video-container2{
+	    float:left;
+		width:607px;
+		height:504px;
+	  }
+	  
+	  #urlVideo{
+		float:right;
+	    width:640px;
+		height:427px;
+		margin-right:4px;
+		margin-top:5px;
+	  }
+	  #urlVideo2{
+		float:right;
+	    width:640px;
+		height:427px;
+		margin-right:4px;
+		margin-top:5px;
+	  }
+	  
+	  #TagVideo{
+	   color:#000;
+	   margin-bottom:11px;
+	   margin-left:11px;
+	   margin-top:-7px;		
+	  }
+	  #TagVideo2{
+	    color:#000;
+		margin-bottom:11px;
+		margin-left: 11px;
+		margin-top: 0px;		
+	  }
+	  
+      #titleVideo,  #titleVideo2{
+	  color:#0078D2;
+	  font-family:BBVA Web Book, Arial;
+	  font-size:18px;
+	  margin-bottom:20px;
+	  width:238px;
+	  margin-left:7px;
+	  margin-top:5px;
+	  font-weight: normal;
+	  
+	  }
+	  
+	  #textVideo{
+	    color:#0065B7;
+		font-size:11px;
+		font-family:BBVA Web Medium, Arial;
+		height:40px;
+		width:620px;
+		margin-top: 15px;
+		margin-left: -5px;
+		padding:5px 5px;
+		float:left;
+		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/addinfo.png')no-repeat;
+	  }
+	  #textVideo2{
+		color:#0065B7;
+		font-size:11px;
+		font-family:BBVA Web Medium, Arial;
+		height:40px;
+		width:620px;
+		margin-top: 15px;
+		margin-left: 7px;
+		float:left;
+		background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/addinfo.png')no-repeat;
+	    }
+	#infoVideo{
+	float:left;
+		width:640px;
+		height:427px;
+		margin-left:15px;
+		margin-top:-9px;
+	}
+	#infoVideo2{
+		float:left;
+		width:600px;
+		height:160px;
+		margin-left:15px;
+		margin-top:-9px;
+		}
+	hr{
+    width:610px;
+	margin-bottom:20px;
+	margin-left:-1px;
+	color:#DCDCDC;
+	}	
+	#allcontent{
+	
+	-webkit-border-radius: .2em;
+	-moz-border-radius: .2em;
+	border-radius: .2em;
+	height: 2em;
+	padding-left: 1.4em;
+	padding-right: 2.4em;
+	float:left;
+	margin-left:10px;
+	width:90px;
+	margin-top:25px;
+	
+	}
+	 #allcontent a{
+	float:left;
+	
+	position: relative;
+	top: -1px;
+	margin-right: 0;
+	text-decoration:none;
+	color:#FFF;
+	font-family: BBVA Web Medium, Arial;
+	font-size:12px;
+	margin-left:-16px;
+	width:90px;
+	}
+	
+	button{
+	background: #0079C1;
+	background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+	background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+	background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+	background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+	background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+	background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+	-webkit-border-radius: .3em;
+	-moz-border-radius: .3em;
+	border-radius: .3em;
+	font-size: 10px;
+	text-align: center;
+	vertical-align: middle;
+	height: 3em;
+	padding-left: .9em;
+	padding-right: .9em;
+	border: .1em solid #00559D;
+	color: white;
+	cursor: pointer;
+	position: relative;
+	overflow: visible;
+	}
+	#allcontent:hover{
+	background: #004C99;
+	}
+	
+	
+	.linetitle{
+	display:block;
+	width:632px;
+	height:4px;
+	margin-bottom:20px;
+	}
+	
+	.linevideo{
+	width:632px;
+	height:4px;
+	display:block;
+	margin-bottom:23px;
+	}
+	.sites-embed-align-left-wrapping-off{
+	display: block;
+	clear: both;
+	text-align: left;
+	margin: 5px auto 5px 0;
+	width: 650px;
+	}
+	
+	#dateVideo{
+	color:#71777F;
+	font-size:11px;
+	float:left;
+	margin-top:-15px;
+	margin-left:8px;
+	}
+	#userVideo{
+	color:#71777F;
+	font-size:11px;
+	float:left;
+	margin-left:72px;
+	margin-top:-15px;
+	}
+    #emailTo{
+	width:607px;
+	height:32px;
+	font-size:12px;
+	font-family:BBVA Web Book, Arial;
+	margin-left:10px;
+	color:#71777F;
+	
+	}
+	#emailTo a{
+	font-size:12px;
+	font-family:BBVA Web Book, Arial;
+	color:#0065B7;
+	}
+	</style>
+	
+<div id="listportales"></div>	
+	
+
+	
+	
+   <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs(); 
+	 var urlTable = prefs.getString("_table_query_url");
+	 var emailTo = prefs.getString("emailTo");
+    
+    function getDeviceId(){
+		var fullUrl = gadgets.util.getUrlParameters()["parent"].split("=");		
+		var deviceId = fullUrl[1].split("&")[0];		
+		return deviceId;
+	}
+	var dispositivo = getDeviceId();
+	
+	console.log('dispositivo');
+	
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 
+	 function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+
+		function sendQuery() 
+			{
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};		
+				var query = new google.visualization.Query(urlTable, opts);	
+				var querytosend = "select * where A like '%"+dispositivo+"%' ";
+				query.setQuery(querytosend);			  
+				query.send(handleQueryResponse);
+			}
+		
+
+		function handleQueryResponse(response) 
+		{
+		   data = response.getDataTable();	
+		   var html = "";
+		   html += "<div id='titlecomboVideo'><h2>"+data.getValue(0,1)+"</h2></div><img src='https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png' class='linetitle'/>";
+		   
+		   html += "<div id='comboVideo'>";
+		   html += "<div id='video-container'><div id='infoVideo'>";
+		   html += "<div id='textVideo'>"+data.getValue(0,3)+"</div>";
+		   html += "<div id='urlVideo'>";
+		   if(data.getValue(0,11)=="Other"){
+		   html +="<iframe src='"+data.getValue(0,2)+"' allowScriptAccess='always' frameborder='0' width='620' height='427'></iframe>";
+
+
+		   } else{
+		   		html += "<object width='620' height='427' data='"+data.getValue(0,2)+"'>" +
+		   			"<param name='video' value='"+data.getValue(0,2)+"'></param>" +
+		   			"<param name='wmode' value='transparent'></param>" + 
+		   			"<iframe src='"+data.getValue(0,2)+"' allowScriptAccess='always' frameborder='0' width='620' height='427'></iframe>" +
+		   			"</object></div>";		  
+		   }
+		   
+		   document.getElementById('listportales').innerHTML = html;				
+		}
+
+
+  </script>
+    ]]>
+  </Content>
+  
+</Module>

@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="pruebavideosResume.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="Urlall" display_name="Url page all videos" required="true" />  
+<UserPref name="titlecomboVideo" display_name="Tilte Box Video" required="true" /> 
+<UserPref name="imgTag" display_name="Image Tag Video" required="true" />     
+<UserPref name="tagVideo" display_name="Tag Video" required="true" />  
+<UserPref name="titleVideo" display_name="Title Video" required="true" />
+<UserPref name="textVideo" display_name="Text Video" required="true" />
+<UserPref name="urlsabermas" display_name="Url Saber más" required="true" />
+<UserPref name="urlVideo" display_name="Url Video" required="true" />
+<UserPref name="imgTag2" display_name="Image Tag Video2" required="true" />
+<UserPref name="tagVideo2" display_name="Tag Video" required="true" />  
+<UserPref name="titleVideo2" display_name="Title Video" required="true" />
+<UserPref name="textVideo2" display_name="Text Video" required="true" />
+<UserPref name="urlsabermas2" display_name="Url Saber más 2" required="true" />
+<UserPref name="urlVideo2" display_name="Url Video" required="true" />	
+
+
+ <Content type="html" view="configuration" preferred_height="480">
+
+<![CDATA[
+<style type="text/css">
+    input#VarrootSite {
+           width: 300px;
+          }
+	table td {
+				color: #000;
+				font-size: 11px;
+				font-weight: bold;
+			}
+  </style>
+  <table width="100%" border="0" id="tablaconfig">  
+			<tr>       
+                <td>
+                    Url -Page All Videos: <input type="text" size="100" id="Urlall" value="__UP_Urlall__"   onchange="registra('Urlall')"/>                   
+                </td>
+            </tr>
+			<tr/>
+			<tr>       
+                <td>
+                    Title - ComboBoxVideo: <input type="text" size="100" id="titlecomboVideo" value="__UP_titlecomboVideo__"   onchange="registra('titlecomboVideo')"/>                   
+                </td>
+            </tr>
+			<tr/>
+			<tr>       
+                <td>
+                    Img - Tag: <input type="text" size="100" id="imgTag" value="__UP_imgTag__"   onchange="registra('imgTag')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Tag - Video: <input type="text" size="100" id="tagVideo" value="__UP_tagVideo__"   onchange="registra('tagVideo')"/>                   
+                </td>
+            </tr>
+	 
+	 
+				<tr>       
+                <td>
+                    Title - Video: <input type="text" size="100" id="titleVideo" value="__UP_titleVideo__"   onchange="registra('titleVideo')"/>                   
+                </td>
+            </tr>
+			 <tr>       
+                <td>
+				 Url to Video: <input type="text" size="100" id="urlVideo" value="__UP_urlVideo__"   onchange="registra('urlVideo')"/>   
+
+					
+                </td>
+            </tr>
+			<tr>       
+                <td>
+				 Url to Saber más: <input type="text" size="100" id="urlsabermas" value="__UP_urlsabermas__"   onchange="registra('urlsabermas')"/>   
+
+					
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                Text - Video: <textarea id="textVideo" style="height: 245px; width: 100%" onchange="registra('textVideo')" >__UP_textVideo__</textarea>
+               
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Img - Tag2: <input type="text" size="100" id="imgTag2" value="__UP_imgTag2__"   onchange="registra('imgTag2')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Tag - Video2: <input type="text" size="100" id="tagVideo2" value="__UP_tagVideo2__"   onchange="registra('tagVideo2')"/>                   
+                </td>
+            </tr>
+	 
+	 
+				<tr>       
+                <td>
+                    Title - Video2: <input type="text" size="100" id="titleVideo2" value="__UP_titleVideo2__"   onchange="registra('titleVideo2')"/>                   
+                </td>
+            </tr>
+			 <tr>       
+                <td>
+				 Url to Video2: <input type="text" size="100" id="urlVideo2" value="__UP_urlVideo2__"   onchange="registra('urlVideo2')"/>   
+
+					
+                </td>
+            </tr>
+			<tr>       
+                <td>
+				 Url to Saber más2: <input type="text" size="100" id="urlsabermas2" value="__UP_urlsabermas2__"   onchange="registra('urlsabermas2')"/>   
+
+					
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                Text - Video2: <textarea id="textVideo2" style="height: 245px; width: 100%" onchange="registra('textVideo2')" >__UP_textVideo2__</textarea>
+               
+                </td>
+            </tr>
+			
+	</table>	
+
+    <script type="text/javascript">           
+            // Get userprefs
+            var prefs = new gadgets.Prefs();           
+            function registra(variable)
+            {					
+                prefs.set(variable,document.getElementById(variable).value);				
+            } 
+			gadgets.window.adjustHeight();
+    </script>   	
+ ]]>	
+
+ </Content>
+  <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<head>
+		<style type="text/css">
+		  /* @group fonts */
+			@font-face {
+				font-family: 'BBVA Web Light';
+				src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+				src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+			
+			@font-face {
+				font-family: 'BBVA Web Book';
+				src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+				src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+			
+			@font-face {
+				font-family: 'BBVA Web Medium';
+				src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+				src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+					url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+			
+			
+			/* @end */
+		
+			#titlecomboVideo{
+				margin-top:-9px;
+				margin-left:-15px;		
+			}
+			
+			#titlecomboVideo h2{
+				float:left;
+				color:#0078D2;
+				font-family:BBVA Web Light, Arial, sans-serif;
+				font-size:22px;
+				margin:15px 0px 10px 22px;
+				font-weight: normal;
+			}
+			
+			#comboVideo{
+				width:620px;
+				float:left;
+			}
+			
+		      #video-container,
+		      #video-container2 {
+		   	    float:left;
+				width:607px;
+				height:234px;
+				margin-bottom: 10px;
+			}
+			
+			  #urlVideo,
+			  #urlVideo2 {
+				float:right;
+			    width:302px;
+				height:201px;
+				margin-right:4px;
+				margin-top:5px;
+				display:block;
+			  }
+			  #TagVideo img,
+			  #TagVideo2 img{
+			   float:left;
+			   margin:-4px 10px 0px 0px;
+			  }
+			  #TagVideo{
+			   color:#000;
+			   margin-bottom:11px;
+			   margin-left:11px;
+			   margin-top:-7px;
+				font-family: 'BBVA Web Light', Arial, sans-serif;
+				font-weight: normal;
+			  }
+			  
+			  #TagVideo2{
+			    color:#000;
+				margin-bottom:11px;
+				margin-left: 11px;
+				margin-top: -13px;
+				font-family: 'BBVA Web Light', Arial, sans-serif;
+				font-weight: normal;
+			  }
+			  
+		      #titleVideo a,
+		      #titleVideo2 a{
+				  color:#0078D2;
+				  font-family:BBVA Web Book, Arial, sans-serif;
+				  font-size:18px;
+				  width:248px;
+				  margin: 0 0 20px 0px;  
+				  text-decoration:none;
+			  }
+			 
+			  #textVideo,
+			  #textVideo2 {
+			    color:#434A58;
+				font-size:12px;
+				font-family:arial;
+				height:100px;
+				width:269px;
+				margin-top: 20px;
+			  }
+			    
+			#infoVideo,
+			#infoVideo2 {
+				float:left;
+				width:600px;
+				height:160px;
+				margin-left:12px;
+			}
+			
+			hr{
+			    width:610px;
+				margin-bottom:20px;
+				margin-left:-1px;
+				color:#DCDCDC;
+			}	
+			
+			#allcontent{		
+				-webkit-border-radius: .4em;
+				-moz-border-radius: .4em;
+				border-radius: .4em;
+				height: 3em;
+				padding-left: 1.4em;
+				padding-right: 1.4em;
+				float:right;
+				margin-right:8px;
+				width:110px;
+				margin-top:10px;
+				font-size:14px;
+				font-family: BBVA Web Medium, Arial, sans-serif;
+				color:#FFF;
+			}
+			
+			 
+			
+			
+			 #allcontent2{
+				float:left;	
+				position: relative;
+				top: -1px;
+				margin-right: 0;
+				text-decoration:none;
+				color:#FFF;
+				font-family: BBVA Web Medium, Arial, sans-serif;
+				font-size:12px;
+				margin-left:-16px;
+				width:90px;
+				
+			}
+			 #allcontent3{
+				float:left;	
+				position: relative;
+				top: -1px;
+				margin-right: 0;
+				text-decoration:none;
+				color:#FFF;
+				font-family: BBVA Web Medium, Arial, sans-serif;
+				font-size:12px;
+				margin-left:-16px;
+				width:90px;
+				
+			}
+			#sabermas{
+			padding-top:20px;
+			font-size:12px;
+			
+			}
+			#sabermas2{
+			padding-top:40px;
+			font-size:12px;
+			
+			}
+			#sabermas button,
+			#sabermas2 button{
+			background: #0079C1;
+			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+			background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+			background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			border-radius: .3em;
+			text-align: center;
+			font-size: 12px;
+			vertical-align: middle;
+			height: 1.75em;
+			padding-left: .9em;
+			padding-right: .9em;
+			padding-bottom: 2px;
+			border: .1em solid #00559D;
+			color: white;
+			cursor: pointer;
+			position: relative;
+			overflow: visible;
+			margin-left:10px;
+			}
+			button{
+				background: #0079C1;
+				background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+				background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+				background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+				background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+				background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+				background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+				background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+				-webkit-border-radius: .3em;
+				-moz-border-radius: .3em;
+				border-radius: .3em;
+				font-size: 10px;
+				text-align: center;
+				vertical-align: middle;
+				height: 3em;
+				padding-left: .9em;
+				padding-right: .9em;
+				border: .1em solid #00559D;
+				color: white;
+				cursor: pointer;
+				position: relative;
+				overflow: visible;
+			}
+			
+			#allcontent:hover{
+				background: #004C99;
+			}
+			#allcontent2:hover{
+				background: #004C99;
+			}	
+			#allcontent3:hover{
+				background: #004C99;
+			}	
+			.linetitle{
+				display:block;
+				display:-moz-stack;
+				width:613px;
+				height:4px;
+				margin-bottom:20px;
+			}
+			
+			.linevideo{
+				width:613px;
+				height:4px;
+				display:block;
+				margin-bottom:26px;
+			}
+			
+			.linevideoLast{
+				width:613px;
+				height:4px;
+				display:block;
+				margin-bottom:10px;
+			}
+			
+			.sites-embed-align-left-wrapping-off{
+				display: block;
+				clear: both;
+				text-align: left;
+				margin: 5px auto 5px 0;
+				width: 650px;
+			}
+			
+		</style>
+		
+	</head>
+	
+<body onload="cargaCompleta()">
+<div id="titlecomboVideo"></div>
+<img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png" class="linetitle"/>
+<div id="comboVideo">
+	<div id="video-container">
+		<div id="tagVideo"></div>
+		<div id="infoVideo">	
+			<div id="urlVideo"></div>
+			<div id="titleVideo"></div>
+        	<div id="textVideo"></div>
+			<div id="sabermas"></div>
+        </div>
+     </div>
+	 <img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png" class="linevideo"/>
+	 <div id="video-container2">
+	    <div id="tagVideo2"></div>
+		<div id="infoVideo2">	
+			<div id="urlVideo2"></div>
+			<div id="titleVideo2"></div>
+        	<div id="textVideo2"></div>
+			<div id="sabermas2"></div>
+        </div>      
+	 </div>
+	 <img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png" class="linevideoLast"/>
+	 <button type="button" id="allcontent">Ver todos</button>
+</div>
+</body>
+	
+ <script type="text/javascript">
+ 
+	 var gadgetHelper = null;
+	 var prefs = new gadgets.Prefs();
+	 
+	 var titlecomboVideo = prefs.getString("titlecomboVideo");
+	 var Urlall = prefs.getString("Urlall");
+	 
+	 var titleVideo = prefs.getString("titleVideo");
+	 var textVideo = prefs.getString("textVideo");
+	 var urlVideo = prefs.getString("urlVideo");
+	 var tagVideo = prefs.getString("tagVideo");
+	 var urlsabermas = prefs.getString("urlsabermas");
+	 var imgTag = prefs.getString("imgTag");
+	 var imgTag2 = prefs.getString("imgTag2");
+	 
+	 
+	 
+	 
+	 var titleVideo2 = prefs.getString("titleVideo2");
+	 var textVideo2 = prefs.getString("textVideo2");
+	 var urlVideo2 = prefs.getString("urlVideo2");
+	 var tagVideo2 = prefs.getString("tagVideo2");
+	 var urlsabermas2 = prefs.getString("urlsabermas2");
+	
+	
+	 function cargaVideo()
+	 {
+		 document.getElementById("titlecomboVideo").innerHTML = '<h2>'+titlecomboVideo+'</h2>';
+		 document.getElementById("allcontent").onclick = function(){ Go(Urlall);};
+		 
+		 document.getElementById("tagVideo").innerHTML = "<img src='"+imgTag+"'/>"+ tagVideo;
+		 document.getElementById("titleVideo").innerHTML ="<a target='_parent' href='"+urlsabermas+"'>"+ titleVideo +"</a>";
+		 document.getElementById("textVideo").innerHTML = textVideo;
+		 document.getElementById("sabermas").innerHTML  = "<button type='button' id='allcontent2'>Saber más</button>";
+		 document.getElementById("allcontent2").onclick = function(){ Go(urlsabermas);};
+		 document.getElementById("urlVideo").innerHTML = '<iframe allowScriptAccess="always" frameborder="0" style="border:1px solid #AAA; width:302px; height:201px;" src="'+urlVideo+'"></iframe>';    //'<embed src="'+urlVideo+'"  allowScriptAccess="always" width="302" height="201" > </embed>';
+		
+		 
+		 document.getElementById("tagVideo2").innerHTML = "<img src='"+imgTag2+"'/>"+ tagVideo2;
+		 document.getElementById("titleVideo2").innerHTML = "<a target='_parent' href='"+urlsabermas2+"'>"+ titleVideo2 +"</a>";
+		 document.getElementById("textVideo2").innerHTML = textVideo2;
+		 document.getElementById("sabermas2").innerHTML  ="<button type='button' id='allcontent3'>Saber más</button>";
+		 document.getElementById("allcontent3").onclick = function(){ Go(urlsabermas2);};
+		 document.getElementById("urlVideo2").innerHTML = '<iframe allowScriptAccess="always" frameborder="0" style="border:1px solid #AAA; width:302px; height:201px;" src="'+urlVideo2+'"></iframe>';      // <embed src="'+urlVideo2+'"  allowScriptAccess="always" width="302" height="201" > </embed>;
+		 return false;
+	}
+	function cargaCompleta()
+	{
+		cargaVideo();
+	}
+	function Go(destination){
+	window.parent.location.href = destination;
+	return false;
+	}
+
+ </script>
+    ]]>
+  </Content>
+</Module>

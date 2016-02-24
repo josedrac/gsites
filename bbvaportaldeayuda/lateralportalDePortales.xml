@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="lateralPortalDePortales.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="titleportalesbbva" display_name="Portal de portales BBVA" required="true" />	  
+<UserPref name="urlportalesbbva" display_name="Portal de portales BBVA" required="true" />	
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style>
+	  /* @group fonts */
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+
+/* @end */
+#content{
+background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lateralportaldeportales.png');
+background-repeat:no-repeat;
+width:300px;
+height:116px;
+font-family: BBVA Web Book, Arial;
+}	
+#portalesbbva {
+padding:30px;
+}
+#portalesbbva span{
+color:#333333;
+font-size:12px;
+font-family: BBVA Web Book, Arial;
+
+}
+#portalesbbva a{
+color:#0065B7;
+font-size:12px;
+font-family: BBVA Web Book, Arial;
+text-decoration:underline;
+
+}
+#titulo{
+padding-left:30px;
+padding-top:15px;
+}
+#titulo span{
+color:#333333;
+font-size: 16px;
+font-family: BBVA Web Book, Arial;
+
+}
+	
+	</style>
+<div id="content">	
+<div id="titulo"></div>
+<div id="portalesbbva"></div> </div>
+	
+
+   <script type="text/javascript">
+	
+	
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs(); 
+	 var titleportalesbbva = prefs.getString("titleportalesbbva");
+	 var urlportalesbbva = prefs.getString("urlportalesbbva");
+	 
+	 document.getElementById('titulo').innerHTML = "<span class='title'>"+titleportalesbbva+"</span>";
+	 document.getElementById('portalesbbva').innerHTML = "<span class='urlportales'>Encuentra otros sites de BBVA en el <a target='_parent' href='"+urlportalesbbva+"'>Portal de portales</a></span>" ;
+	 
+	 
+   </script>
+   
+    ]]>
+  </Content>
+    <Content type="html" view="configuration" preferred_height="480">
+
+<![CDATA[
+<style type="text/css">
+    
+	table td {
+				color: #000;
+				font-size: 11px;
+				font-weight: bold;
+			}
+  </style>
+  <table width="100%" border="0" id="tablaconfig">  
+			<tr>       
+                <td>
+                    Title - Block: <input type="text" size="100" id="titleportalesbbva" value="__UP_titleportalesbbva__"   onchange="registra('titleportalesbbva')"/>                   
+                </td>
+            </tr>
+			<tr>       
+                <td>
+                    Url - Block: <input type="text" size="100" id="urlportalesbbva" value="__UP_urlportalesbbva__"   onchange="registra('urlportalesbbva')"/>                   
+                </td>
+            </tr>
+			
+	</table>	
+
+    <script type="text/javascript">           
+            // Get userprefs
+            var prefs = new gadgets.Prefs();           
+            function registra(variable)
+            {	
+				
+                prefs.set(variable,document.getElementById(variable).value);
+				
+			
+            } 
+			gadgets.window.adjustHeight();
+    </script>   	
+
+	  
+
+	 
+ ]]>	
+
+ </Content>
+  
+</Module>

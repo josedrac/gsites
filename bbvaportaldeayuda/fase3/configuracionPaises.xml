@@ -1,0 +1,294 @@
+<Module>
+<ModulePrefs title="configuracionPaises.xml" description="" author_affiliation="SopraGroup-UX">
+<Require feature="idi"/>
+<Require feature="locked-domain"/>
+<Require feature="dynamic-height"/>
+<Require feature="setprefs"/>
+</ModulePrefs>
+<UserPref name="_table_query_url" default_value="https://docs.google.com/a/bbva.com/spreadsheets/d/1a_CVjz3pqSszikAZ_zZHf9N3a7me06uN9avjoSKegI0" display_name="Data source url (Ej:https://docs.google.com/a/bbva.com/spreadsheets/d/1a_CVjz3pqSszikAZ_zZHf9N3a7me06uN9avjoSKegI0)" required="true"/>
+<Content type="html"><![CDATA[
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<style type="text/css">
+.container { max-width: 100%; margin: 0; padding: 0; width: 100%; font-family: 'BBVA Web Book'; }
+.container .header { display: inline-block; width: 100%; }
+.container .header h1.title { margin-top: 0; padding-left: 5px; font-weight: normal; color: #0078D2; font-family: BBVA Web Light, BBVA Web, Arial; font-size: 22px; margin: 16px 0px 16px 0px; display: inline-block; }
+.container .header ul.oslist { float: right; text-align: center; padding-right: 15px; }
+.container .header ul.oslist li { display: inline; list-style-type: none; padding-right: 10px; }
+.container .header ul.oslist li img { width: 24px; display: inline-block; }
+.container .header ul.oslist li span { display: inline-block; padding-left: 5px; vertical-align: super; font-size: 0.9em; }
+.container .render .article { padding: 10px 0; max-width: 184px; min-height: 60px; width: 18%; display: inline-block; vertical-align: top; margin: 5px; border: 1px solid  #DDE3EA; background: #ffffff; background: -moz-linear-gradient(top, white 0%, #f5f7f8 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f5f7f8)); background: -webkit-linear-gradient(top, white 0%, #f5f7f8 100%); background: -o-linear-gradient(top, white 0%, #f5f7f8 100%); background: -ms-linear-gradient(top, white 0%, #f5f7f8 100%); background: linear-gradient(to bottom, #ffffff 0%, #f5f7f8 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 ); }
+.container .render .article .enlace { color: black; text-decoration: none; font-size: 1em; }
+.container .render .article .enlace .articleimg { text-align: center; }
+.container .render .article .enlace .articleimg img { margin: auto; width: 70px; }
+.container .render .article .enlace h2 { text-align: center; font-size: 1em; font-family: 'BBVA Web Book'; }
+.container .render .article .enlace ul.oslist { text-align: center; padding: 0; }
+.container .render .article .enlace ul.oslist li { display: inline; list-style-type: none; padding-right: 10px; }
+.container .render .article .enlace ul.oslist li .oslogo { width: 32px; }
+.container .render .article .enlace div.short { text-align: left; padding: 10px; font-size: 11px; }
+.container .render .article .enlace div.short span { color: #434A58; }
+.show { display: block; }
+.noshow { 
+    float: left;
+    width: 100%;
+    display: none;
+}
+
+.noshow span{
+        display: block;
+
+    } 
+
+li{
+    list-style: none;
+    float: left;
+    margin: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+.flag img{
+    width: 50px;
+    height: 50px;
+}
+
+ul#paises{
+    padding-left: 0;
+}
+
+h1.titleCountry{
+    font-size: 20px;
+    color: #003F8C;
+    margin-bottom: 0;
+}
+
+ul#documentos{
+    width: 100%;
+    float: left;
+    padding-left: 0;
+    margin: 0;
+}
+
+h1#titleGuidesCountry{
+    width: auto;
+    float: left;
+    font-weight: normal; 
+    font-family: BBVA Web Light; 
+    font-size: 22px;
+    margin-top: 40px;
+    color: #0078D2;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+h1#elementGuide{
+    color: #0073C9;
+    font-size: 12px;
+    font-family: Arial;
+    margin-left: 24px;
+    padding-top: 4px;
+    text-decoration: none;
+    list-style: none;
+    font-weight: bold;
+}
+
+li.articleGuide{
+    width: auto;
+    text-align: left;
+    margin: 0;
+    clear: both;
+}
+
+a.enlace{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hideBlock{
+    visibility: hidden;
+}
+
+#loading{
+    float: left;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+/* @group fonts */
+@font-face { font-family: 'BBVA Web Book'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot"); 
+      src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff") format("woff"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf") format("truetype"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book") format("svg"); font-style: normal; font-weight: normal; }
+
+@font-face { font-family: 'BBVA Web Light'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot"); 
+      src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff") format("woff"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf") format("truetype"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light") format("svg"); font-style: normal; font-weight: normal; }
+</style>
+<!--[if lt IE 9]>
+<style>
+.container .header{padding-bottom:15px;}
+.container .header h1.title { margin:0; display: inline; }
+.container .header ul.oslist{ position:absolute; right:0; top:0; margin:0; display: inline; }
+img {border:none;}
+.container .render .article .enlace ul.oslist { text-align: none; margin:0; padding: 0; }
+.container .render .article_ie 
+{ max-width: 180px;height: 80px;width: 32%;display: inline;}
+</style>
+<![endif]-->
+<script type="text/javascript">
+         var gadgetHelper = null;
+         var prefs = new _IG_Prefs();
+         var urlTable = prefs.getString("_table_query_url");
+         var firstQuery = "select A,B,C,D,E order by A";
+         _IG_RegisterOnloadHandler(loadVisualizationAPI); 
+         var nameCountrySelected = "";
+
+         function loadVisualizationAPI() {
+                google.load("visualization", "1", {"packages": ["table"]});
+        }
+                
+        function getFromSpreadSheet(spreadsheetUrl,query,callBack){
+                var gadgetHelper = new google.visualization.GadgetHelper();
+                var opts = {dataType:'jsonp'};
+                var queryDC = new google.visualization.Query(spreadsheetUrl, opts);
+                queryDC.setQuery(query);                          
+                queryDC.send(callBack);  
+        }
+
+        var DataTable= function(data){
+                var HEADER_ROW = 0;
+                var FIELDS = {
+                        id : 0,
+                        codCountry : 1,
+                        country: 2,
+                        image: 3,
+                        url:4
+                };
+                
+                var dataDC = data;
+                this.getNumberOfRows = function(){
+                        return dataDC.getNumberOfRows();
+                }
+                this.getId = function(row){
+                        return dataDC.getValue(row, FIELDS.id);
+                }                
+                this.getCodCountry = function(row){
+                        return dataDC.getValue(row, FIELDS.codCountry);
+                }              
+                this.getCountry = function(row){
+                        return dataDC.getValue(row, FIELDS.country);
+                }               
+                this.getImage = function(row){
+                        return dataDC.getValue(row, FIELDS.image);
+                }                
+                this.getUrl= function(row){
+                        
+                        return dataDC.getValue(row, FIELDS.url);
+                        
+                }
+                this.isHeaderTable = function(row){
+                        return ( row == HEADER_ROW);
+                }
+
+        }
+
+        function renderCountriesList(response){
+                var dataDC = new DataTable(response.getDataTable());
+                var filas = dataDC.getNumberOfRows();               
+                var html= "";
+                for(var row=0;row<filas;row++){                       
+                    html +="<li class='article'><a onclick='getGuides(\""+dataDC.getUrl(row)+"\", \""+dataDC.getCountry(row)+"\")' class='enlace'>";
+                    html +="<div class='flag'><img src='"+dataDC.getImage(row)+"'></div>";
+                    html +="<h1 class='titleCountry'>"+dataDC.getCountry(row)+"</h1>";
+                    html +="</a></li>";
+                }                 
+                document.getElementById('paises').innerHTML = html;         
+        }
+
+        jQuery(document).ready(function() {
+            getFromSpreadSheet(urlTable,firstQuery,renderCountriesList);
+        });
+
+        function getGuides(urlSheet, nameCountry){
+          jQuery("#loading").removeClass("noshow");
+            jQuery(".guide").addClass("hideBlock"); 
+          var query = "select A,B,C,D order by A";   
+          nameCountrySelected = nameCountry;       
+          getFromSpreadSheet(urlSheet,query,renderList);
+        }
+
+        function renderList(response){
+                document.getElementById('documentos').innerHTML="";
+                var listData = new DataTableList(response.getDataTable());
+                var filas = listData.getNumberOfRows();               
+                var html= "";
+                var htmlTitleCountry= "";
+                htmlTitleCountry += "Guías de configuración de " + nameCountrySelected;
+
+                for(var row=0;row<filas;row++){                       
+                    html +="<li class='articleGuide'>";
+                    if (listData.getContentType(row)=="pagina"){
+                        html += "<a target='_parent' href='"+listData.getUrl(row)+"' class='enlace'>"; 
+                    }else{
+                        html += "<a target='_blank' href='"+listData.getUrl(row)+"' class='enlace'>";
+                    }
+                    html +="<h1 id='elementGuide'>"+listData.getTitle(row)+"</h1>";
+                    html +="</a></li>";
+                }                 
+                document.getElementById('documentos').innerHTML = html;         
+                document.getElementById('titleGuidesCountry').innerHTML = htmlTitleCountry;
+                window.location.href='#listDocuments';
+               jQuery("#loading").addClass("noshow");
+               jQuery(".guide").removeClass("hideBlock"); 
+        }
+
+        var DataTableList= function(data){
+                var HEADER_ROW = 0;
+                var FIELDS = {
+                        id : 0,
+                        title : 1,
+                        contentType: 2,
+                        url:3
+                };
+                
+                this.getNumberOfRows = function(){
+                        return data.getNumberOfRows();
+                }
+                this.getId = function(row){
+                        return data.getValue(row, FIELDS.id);
+                }                
+                this.getTitle = function(row){
+                        return data.getValue(row, FIELDS.title);
+                }              
+                this.getContentType = function(row){
+                        return data.getValue(row, FIELDS.contentType);
+                }                
+                this.getUrl= function(row){                        
+                        return encodeURI(data.getValue(row, FIELDS.url));                        
+                }
+                this.isHeaderTable = function(row){
+                        return ( row == HEADER_ROW);
+                }
+        }   
+</script>
+<body>
+<div class="container">
+  <div id="render" class="render">
+    <ul id="paises" class="list-paises"></ul>
+    <div class="noshow" id="loading"><img src="https://bbvaportaldeayuda.googlecode.com/svn-history/r3246/trunk/img/gif-load.gif"></div>
+    <div id="listDocuments" class="guide hideBlock">
+        <h1 id="titleGuidesCountry"> </h1>
+        <ul id="documentos"></ul>
+    </div>
+  </div>
+</div> 
+</body>
+
+   
+    
+  ]]></Content>
+</Module>

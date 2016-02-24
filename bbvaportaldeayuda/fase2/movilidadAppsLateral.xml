@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="movilidadLateral.xml"
+    description=""
+    author_affiliation="SopraGroup-UX">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+<UserPref name="subseccion" display_name="Subsección:" default_value="" required="true"/> 
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+				
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		
+		/* @end */
+	
+		
+		
+		/*modificado 08/01/2013*/
+			.titulo{
+						border-bottom: 1px solid  #DDE3EA;
+						background: #ffffff;
+						background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+						background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+						background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+						font-size: 16px;
+			font-family: BBVA Web Book, Arial;
+						color: #333333;
+						padding-left: 18px;
+						padding-left: 18px;
+						padding-top: 14px;
+						padding-bottom: 15px;
+					}
+					.caja{
+						border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+			margin-top:15px;
+					}
+					ul{
+						padding-left: 19px;
+						padding-right: 19px;
+						margin: 0;
+					}
+					ul li{
+						list-style: none;
+						border-bottom: 1px solid #DDE3EA;
+						padding-bottom: 12px;
+						padding-top: 17px;
+					}
+          ul li:last-child{
+						border: 0;
+						padding-bottom: 11px;
+						padding-top: 17px;
+					}     
+					ul li a{
+            padding-left: 2px;
+						vertical-align: 3px;
+						text-decoration: none;
+            font-size: 12px; font-family: Arial; 
+            font-weight: bold;
+						color: #0073C9;
+					}  
+		</style>
+		
+		<!--[if IE 7]>
+
+			<style type="text/css"> 
+				
+				.titulo{
+					background: #F5F7F8
+	    		}
+					
+			</style>
+		
+		<![endif]-->
+		
+		<!--[if IE 8]>
+    	
+			<style type="text/css">  
+				
+				.titulo{
+					background: #F5F7F8
+	    		}
+	   			
+			</style>
+			
+		<![endif]-->
+		
+<body onload="cargaCompleta()">	
+<!--<div id="textMovilidad">Guías de configuración, según dispositivo: </div>-->
+<!--<div id="movilidad">Guías de configuración, según dispositivo:
+ <select  onchange="devicesCountry(this.options[this.selectedIndex].value)" id="paises"></select>
+</div>-->
+<div id="content_div" class="caja"></div>	
+</body>
+   <script type="text/javascript">
+     var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTable = prefs.getString("_table_query_url");
+	 var subseccion = prefs.getString("subseccion"); 
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+	 function sendQuery() 
+			{
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};		
+				var query = new google.visualization.Query(urlTable, opts);	
+				var querytosend = "select max(A),B,max(C),max(D) group by B";
+				query.setQuery(querytosend);			  
+				query.send(handleQueryResponse);
+				
+				
+			}
+	 function handleQueryResponse(response) {
+				data = response.getDataTable();	
+				var filas = data.getNumberOfRows();
+				//alert(filas);
+				
+				
+				for(var i=0;i<filas;i++){
+				    
+				 if(data.getValue(i,1) == 'España'){
+					document.getElementById('paises').innerHTML += "<option selected='selected' value='"+data.getValue(i,1)+"'>"+data.getValue(i,1)+"</option>";
+					} else if(data.getValue(i,1) != 'País'){
+				    
+				    document.getElementById('paises').innerHTML += "<option  value='"+data.getValue(i,1)+"'>"+data.getValue(i,1)+"</option>";
+				   }
+				}
+			}
+		
+	 function devicesCountry(pais){
+	   var gadgetHelper = new google.visualization.GadgetHelper();
+	   var opts = {dataType:'jsonp'};
+	   var queryDC = new google.visualization.Query(urlTable, opts);
+	     
+	   var queryDCtosend = "select A,max(B),C,D,E where B like '"+pais+"'   group by A,C,D,E";
+	   
+	   queryDC.setQuery(queryDCtosend);			  
+	   queryDC.send(handleQueryResponseDC);
+	   
+
+	 }
+	 function handleQueryResponseDC(response){
+	 
+	   dataDC = response.getDataTable();
+	   var filas = dataDC.getNumberOfRows();
+	 
+	   var html= "";
+	   html +='<div class=\"titulo\">' + subseccion + '</div>';
+	   html +='<ul id=\"botonera\">'; 
+	   for(var i=0;i<filas;i++)
+	   {
+		if(dataDC.getValue(i,2) != 'Dispositivo')
+		{
+	    html +="<li><a  href='https://sites.google.com/a/bbva.com/portaldeayuda/movilidad/movil?dispositivo="+dataDC.getValue(i,0)+"' target='_parent'>"+dataDC.getValue(i,2)+"</a></li>";
+		}
+	 
+	  }
+	   html +='</ul>';
+	   document.getElementById('content_div').innerHTML = html;
+	   
+	 }
+	 function cargaCompleta(){
+	 
+	 devicesCountry('España');
+	 }
+	 
+	 
+	 
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>

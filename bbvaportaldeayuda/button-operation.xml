@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="button-operation.xml Cajetin botones"
+        title_url=""
+        height=""
+        width="300"
+        author=""
+        author_email=""
+        description="Cajetin botones"
+        screenshot=""
+        thumbnail=""  
+        scrolling="false"
+        author_location="Asturias, Spain"
+        scaling="false">
+        <Require feature="setprefs"/>
+    </ModulePrefs>
+    <UserPref name="VarEnlace1Texto" display_name="Texto enlace 1:" default_value=""/>
+    <UserPref name="VarEnlace1URL" display_name="enlace 1:" default_value=""/>
+     <UserPref name="VarEnlace2Texto" display_name="Texto enlace 2:" default_value=""/>
+    <UserPref name="VarEnlace2URL" display_name="enlace 2:" default_value="" />        
+    <Content type="html" view="home"><![CDATA[
+        <style>
+     
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+	src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}      
+					.titulo{
+						border-bottom: 1px solid  #DDE3EA;
+						background: #ffffff;
+						background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+						background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+						background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+						background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+						filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+						font-size: 16px;
+						font-family: BBVA Web Book, Arial;
+						color: #333333;
+						padding-left: 18px;
+						padding-left: 18px;
+						padding-top: 14px;
+						padding-bottom: 15px;
+						cursor:hand;
+					}
+					.titulo a{
+					color:#333;
+					text-decoration:none;
+					font-size: 16px;
+			font-family: BBVA Web Book, Arial;
+					background:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/contacto.png')no-repeat;
+					padding-left:40px;
+					background-position-y:2px;
+					}
+				
+					.caja{
+						border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+			margin-top:15px;
+					}
+					ul{
+						padding-left: 0px;
+						padding-right: 0px;
+						margin: 0;
+					}
+					ul li{
+						list-style: none;
+						border-bottom: none;
+						padding-bottom: 10px;
+						padding-top: 10px;
+					}
+          ul li:last-child{
+						border: 0;
+						padding-bottom: 10px;
+						padding-top: 10px;
+					}     
+					ul li a{
+            padding-left: 2px;
+						vertical-align: 3px;
+						text-decoration: none;
+            font-size: 12px; font-family: Arial; 
+            font-weight: bold;
+						color: #0073C9;
+					}  
+					
+					
+		/***************/
+		.c-aside-otrasOperaciones {
+width: 276px;
+padding: 0px;
+margin: 0em 0em 10px 0em;
+}
+
+ul {
+list-style: none outside none;
+}
+
+.c-aside-otrasOperaciones ul li .btn {
+width: 276px;
+padding: 10px;
+height: 20px;
+}
+.btn {
+background: #0079C1;
+background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+-webkit-border-radius: .3em;
+-moz-border-radius: .3em;
+border-radius: .3em;
+font-size: 10px;
+text-align: center;
+vertical-align: middle;
+height: 3em;
+padding-left: .9em;
+padding-right: .9em;
+border: .1em solid #00559D;
+color: white;
+cursor: pointer;
+position: relative;
+overflow: visible;
+}
+.btn.icon {
+text-align: left;
+}
+.btn.large {
+-webkit-border-radius: .4em;
+-moz-border-radius: .4em;
+border-radius: .4em;
+height: 4em;
+padding-left: 1.4em;
+padding-right: 1.4em;
+}
+.btn.white {
+background: white;
+background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmNWY3ZjgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+background: -moz-linear-gradient(top, white 0%, #F5F7F8 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#F5F7F8));
+background: -webkit-linear-gradient(top, white 0%,#F5F7F8 100%);
+background: -o-linear-gradient(top, white 0%,#F5F7F8 100%);
+background: -ms-linear-gradient(top, white 0%,#F5F7F8 100%);
+background: linear-gradient(to bottom, white 0%,#F5F7F8 100%);
+border: .1em solid #D5E2EE;
+color: #0073C9;
+}
+		
+		
+	.btn .icon-right {
+display: inline-block;
+float: right;
+margin-left: 1em;
+width: 1.6em;
+height: 1.6em;
+}
+.c-aside-otrasOperaciones ul li .btn span {
+padding-left: 23px;
+line-height: 17px;
+font-weight:bold;
+font-size: 12px;
+font-family: Arial;
+}
+.btn span {
+font-family: BBVA Web Medium, Arial;
+font-size: 1.2em;
+display: inline-block;
+margin-left: -1px;
+margin-right: -1px;
+}
+.btn.large span {
+font-size: 1.4em;
+position: relative;
+top: 1px;
+margin-right: 0;
+}
+	
+.btn.white i.arrow-right, .btn.info i.arrow-right {
+background: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/buttons-icon.png") no-repeat -26px -50px;
+width: .7em;
+height: 1.2em;
+margin-top: .4em;
+}			
+            
+            .btn.white:hover i.arrow-right,
+.btn.white.hover i.arrow-right,
+.btn.white:active i.arrow-right,
+.btn.white.active i.arrow-right,
+.btn.info:hover i.arrow-right,
+.btn.info.hover i.arrow-right{
+	background: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/buttons-icon.png") no-repeat -50px -50px;
+	width:.7em;
+	height:1.2em;
+	margin-top:.4em;
+}   
+
+.btn.white:hover, .btn.white.hover, .btn.white.arrow-left:active, .btn.white.arrow-left.active, .btn.white.larger:hover, .btn.white.larger.hover, .btn.white.larger:active, .btn.white.larger.active, .btn.white.larger[disabled], .btn.white.larger[disabled]:hover, .btn.white.larger[disabled]:active, .btn.white.larger.disabled {
+background: white;
+background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlYWYxZjciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+background: -moz-linear-gradient(top, white 0%, #EAF1F7 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,white), color-stop(100%,#EAF1F7));
+background: -webkit-linear-gradient(top, white 0%,#EAF1F7 100%);
+background: -o-linear-gradient(top, white 0%,#EAF1F7 100%);
+background: -ms-linear-gradient(top, white 0%,#EAF1F7 100%);
+background: linear-gradient(to bottom, white 0%,#EAF1F7 100%);
+-webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+-moz-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.15);
+border: .1em solid #B6CEEA;
+color: #003F8C;
+cursor: pointer;
+}
+        </style>
+    	
+    	<!--[if IE 7]>
+
+			<style type="text/css"> 
+						
+				.btn.white{
+					background: #F5F7F8
+			    }
+							
+			</style>
+		
+		<![endif]-->
+		
+		<!--[if IE 8]>
+		    	
+			<style type="text/css">  
+						
+				.btn.white{
+					background: #F5F7F8
+			    }
+			   			
+			</style>
+			
+		<![endif]-->
+        
+        
+        <div class="c-aside-otrasOperaciones">
+			<ul id="content_div">
+					
+				<li>
+					<div id="" class="btn white large icon">
+						<i class="icon-right arrow-right"></i>
+						<span>Contacta con nosotros</span>
+					</div>
+				</li>
+				
+				<li>
+					<div id="" class="btn white large icon">
+						<i class="icon-right arrow-right"></i>
+						<span>Curso Google Drive</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+
+        <script type="text/javascript">
+            var html="";
+            // Obtener userprefs
+            var prefs = new gadgets.Prefs();            
+            
+            var VarEnlace1Texto=prefs.getString("VarEnlace1Texto");
+            var VarEnlace1URL=prefs.getString("VarEnlace1URL");
+            
+            var VarEnlace2Texto=prefs.getString("VarEnlace2Texto");
+            var VarEnlace2URL=prefs.getString("VarEnlace2URL");
+                        
+            function Go(destination)
+            {
+				//window.parent.location.href = destination;
+				window.open(destination,'_blank');
+				return false;
+			}
+			
+			 function GoExterno(destination)
+            {
+				window.parent.location.href = destination;
+				return false;
+			}                
+            
+			//html+='<div class=\"titulo\" onclick="Go(\''+VarEnlace1URL+'\');"><a target="_parent" href="'+VarEnlace1URL+'">' + VarEnlace1Texto + '</a></div>';
+           	if (VarEnlace1Texto!="")
+           	{           	
+           		html+='<li><div class=\"btn white large icon\" onclick="Go(\''+VarEnlace1URL+'\');"><i class="icon-right arrow-right"></i><span>' + VarEnlace1Texto + '</span></div></li>';
+            }
+            if (VarEnlace2Texto!="")
+           	{
+           		html+='<li><div class=\"btn white large icon\" onclick="Go(\''+VarEnlace2URL+'\');"><i class="icon-right arrow-right"></i><span>' + VarEnlace2Texto + '</span></div></li>';
+            }
+            document.getElementById("content_div").innerHTML = html;
+            
+            gadgets.window.adjustHeight();
+            
+        </script>
+    ]]>  
+    </Content>  
+    <Content type="html" view="configuration"  preferred_height="300">
+    <![CDATA[        
+        <style>
+						table td {
+                color: #000;
+                font-size: 11px;
+                font-weight: bold;
+				height:100px;
+            }
+            table td input {
+                color: #000;
+                font-size: 11px;                
+            }   
+            .btnImg {
+                width: 400px;
+            }        
+            .btnTexto {
+                width: 400px;
+            }
+            .btnURL {
+                width: 400px;
+            }
+            .btnTitulo {
+                width: 400px;
+            }
+            .destacado {
+                color:red;
+                font-size:20px;
+                font-weight:bold;
+            }
+            .textodefecto {
+                width: 40px;
+            }
+            .textocolor {
+                width: 57px;
+            }
+            .separador {
+                border-bottom: 1px solid;
+            }
+            ul.gadget-config-list {
+                list-style: none outside none;
+                margin: 0 !important;
+                padding-left: 5px;
+            }
+        </style>
+        <table width="100%" height="100" border="0" id="tablaconfig">           
+           <tr>        
+                <td>                		   
+                    Enlace 1 - Texto: <input type="text" id="VarEnlace1Texto" class="btnTexto" value="__UP_VarEnlace1Texto__" onchange="registra('VarEnlace1Texto')"><br/>        
+                    Enlace 1 - URL: <input type="text" id="VarEnlace1URL" class="btnURL" value="__UP_VarEnlace1URL__" onchange="registra('VarEnlace1URL')">      
+                </td>
+            </tr>
+             <tr>        
+                <td>                		   
+                    Enlace 2 - Texto: <input type="text" id="VarEnlace2Texto" class="btnTexto" value="__UP_VarEnlace2Texto__" onchange="registra('VarEnlace2Texto')"><br/>        
+                    Enlace 2 - URL: <input type="text" id="VarEnlace2URL" class="btnURL" value="__UP_VarEnlace2URL__" onchange="registra('VarEnlace2URL')"><br/>        
+                </td>
+            </tr>
+        </table>        
+        <script type="text/javascript">    
+            var prefs = new gadgets.Prefs();            
+            function registra(variable)
+            {
+                prefs.set(variable,document.getElementById(variable).value);
+            }    
+            gadgets.window.adjustHeight();
+        </script>   
+    ]]>
+    </Content>
+</Module>

@@ -1,0 +1,115 @@
+<Module>
+<ModulePrefs title="feedback.xml" description="" author_affiliation="SopraGroup-UX">
+<Require feature="idi"/>
+<Require feature="dynamic-height"/>
+<Require feature="setprefs"/>
+</ModulePrefs>
+<UserPref name="_table_query_url" default_value="https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdGdxMFFLY2JFWlc0REpyNUFaRFA3c2c" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdGdxMFFLY2JFWlc0REpyNUFaRFA3c2c)" required="true"/>
+<Content type="html"><![CDATA[
+  
+  <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+ <style type="text/css">
+.container { max-width: 910px; font-family: 'BBVA Web Book'; padding: 10px; min-height: 150px; width: 100%; display: inline-block; border: 1px solid  #DDE3EA; background: #ffffff; background: -moz-linear-gradient(top, white 0%, #f5f7f8 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #f5f7f8)); background: -webkit-linear-gradient(top, white 0%, #f5f7f8 100%); background: -o-linear-gradient(top, white 0%, #f5f7f8 100%); background: -ms-linear-gradient(top, white 0%, #f5f7f8 100%); background: linear-gradient(to bottom, #ffffff 0%, #f5f7f8 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 ); }
+.container .survey, .container .feedback, .container .positive { font-family: 'BBVA Web Book'; padding-bottom: 20px; }
+.container .survey h1, .container .feedback h1, .container .positive h1 { margin-top: 0; padding-top: 0; font-weight: normal; color: #0078D2; font-family: BBVA Web Light, BBVA Web, Arial; font-size: 22px; margin: 15px 0px 12px 0px; background-image: url(https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png); background-position: bottom; background-repeat: repeat-x; padding-bottom: 10px; }
+.container .survey h2, .container .feedback h2, .container .positive h2 { margin-top: 0; padding-top: 0; font-weight: normal; color: #0078D2; font-family: BBVA Web Light, BBVA Web, Arial; font-size: 18px; margin: 15px 0px 12px 0px; padding-bottom: 10px; }
+.container .survey form, .container .feedback form, .container .positive form { display: inline-block; }
+.container .feedback form, .container .positive form { display: inline-block; }
+.container .feedback form .option, .container .positive form .option { display: block; }
+.container .feedback form .option:last-of-type, .container .positive form .option:last-of-type { padding-bottom: 15px; }
+.container .feedback form textarea, .container .positive form textarea { display: block; width: 300px; height: 50px; }
+
+.show { display: block; }
+.noshow { display: none; }
+
+
+
+/* @group fonts */
+@font-face { font-family: 'BBVA Web Book'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot"); 
+      src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff") format("woff"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf") format("truetype"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book") format("svg"); font-style: normal; font-weight: normal; }
+
+@font-face { font-family: 'BBVA Web Light'; src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot"); 
+      src: url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.woff") format("woff"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf") format("truetype"), 
+      url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light") format("svg"); font-style: normal; font-weight: normal; }
+</style>
+<!--[if lt IE 9]>
+<style>
+</style>
+<![endif]-->
+<div class="container" id="container">
+<div class="survey">
+  <h1>¿Te ha resultado útil?</h1>           
+  <span>Nada útil</span>
+  <form id="survey">        
+    
+    <input type="radio" name="quality" value="0">
+    <input type="radio" name="quality" value="1">
+    <input type="radio" name="quality" value="2">
+    <input type="radio" name="quality" value="3">
+    <input type="radio" name="quality" value="4">
+    <input type="radio" name="quality" value="5">       
+
+  </form>
+  <span>Muy útil</span>       
+</div>  
+<div class="feedback noshow">       
+  <h1>Lamentamos no haber podido ayudarte, ¿Podrías indicarnos en que hemos fallado?</h1>
+  <form id="feedback">                    
+    <div class="option"><input type="radio" name="feedback" value="0">La información era erronea</div>
+    <div class="option"><input type="radio" name="feedback" value="1">La información te ha confudido más</div>
+    <div class="option"><input type="radio" name="feedback" value="2">No era lo que buscabas</div>
+    <div class="option"><input type="radio" name="feedback" value="3">La información esá incompleta.</div>
+    <label for="response">¿Algo más que nos quieras decir?</label>
+    <textarea name="response"></textarea>         
+  </form>
+  <h2>Muchas Gracias</h2>
+</div>
+<div class="positive noshow">       
+  <h1>Nos alegra haber sido de ayuda.</h1>
+  <form id="positive">    
+    <label for="response">¿Podemos seguir mejor?¿Algo más que nos quieras decir?</label>
+    <textarea name="response"></textarea>         
+  </form>
+</div>
+</div>
+<script type="text/javascript">
+     var gadgetHelper = null;
+         var prefs = new _IG_Prefs();
+         // https://docs.google.com/a/bbva.com/spreadsheet/ccc?key=0Aj5c4zIocZp3dHhDa3loSlJ6aXRkbmRmT2dKRnp5clE
+         var urlTable = "https://docs.google.com/a/bbva.com/spreadsheet/ccc?key=0Aj5c4zIocZp3dHhDa3loSlJ6aXRkbmRmT2dKRnp5clE";
+         var fullurl = gadgets.util.getUrlParameters()["parent"];         
+        jQuery( document ).ready(function() {
+      console.log('ladecima010');
+      console.log(fullurl);
+      console.log('ladecima020');
+      console.log(document.referrer);
+          
+    jQuery("input[name='quality']").change(function(){
+      console.log('ladecima0100');
+      console.log(fullurl);
+      console.log('ladecima0200');
+      console.log(document.referrer);    
+    
+      if (jQuery(this).val() < 3)
+      {
+        jQuery(".survey").addClass("noshow");
+        jQuery(".feedback").removeClass("noshow").addClass("show");
+      } else  {
+        jQuery(".survey").addClass("noshow");
+        jQuery(".positive").removeClass("noshow").addClass("show");
+      }   
+      
+        });
+      });
+ 
+</script>   
+    
+  ]]></Content>
+</Module>

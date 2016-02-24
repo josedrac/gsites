@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="movilidadConfCorreoCentral.xml"
+    description=""
+    author_affiliation="Sopra">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+<UserPref name="_table_query_url" default_value="https://docs.google.com/a/bbva.com/spreadsheet/ccc?key=0ApZ6EoQT3skrdHlMVGhUeHNBTFJhWkEyU0MyTlUyd1E#gid=0" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+<UserPref name="title" display_name="Title:" default_value="" required="true"/> 
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+				
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+			src:url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		
+		/* @end */
+	
+		
+		
+		/*modificado 08/01/2013*/
+		.titulo{
+			border-bottom: 1px solid  #DDE3EA;
+			background: #ffffff;
+			background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+			background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+			background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+			background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+			background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+			font-size: 16px;
+			font-family: BBVA Web Book, Arial;
+			color: #333333;
+			padding-left: 18px;
+			padding-left: 18px;
+			padding-top: 14px;
+			padding-bottom: 15px;
+		}
+		.caja{
+      border-radius: 2px;
+      -ms-border-radius: 2px;
+      -moz-border-radius: 2px;
+      -webkit-border-radius: 2px;
+      -khtml-border-radius: 2px;
+      width: 100%;
+      clear: both;
+			margin-top:15px;
+		}		
+		ul{
+			padding-left: 0px;
+			padding-right: 0px;
+			margin: 0;
+		}
+		ul li{
+			list-style: none;
+			border: 1px solid #DDE3EA;
+			padding-bottom: 12px;
+			padding-top: 17px;
+			display: inline-block;
+			width: 162px;
+			margin: 13px;
+			height: 148;
+			text-align: center;
+      		background-color:#f5f5f5;
+      		vertical-align:top;
+		}   
+		ul li a{
+			padding-left: 2px;
+			vertical-align: 3px;
+			text-decoration: none;
+			font-size: 12px; font-family: Arial; 
+			font-weight: bold;
+			color: #0073C9;
+		} 
+		img{
+			width: 100px;
+			max-height: 100px;
+		}
+   .label{
+			min-height: 50px;
+		}
+		</style>
+		
+		<!--[if IE 7]>
+
+			<style type="text/css"> 
+				
+				.titulo{
+					background: #F5F7F8
+	    		}
+					
+			</style>
+		
+		<![endif]-->
+		
+		<!--[if IE 8]>
+    	
+			<style type="text/css">  
+				
+				.titulo{
+					background: #F5F7F8
+	    		}
+	   			
+			</style>
+			
+		<![endif]-->
+		
+<body>
+<div id="content_div" class="caja"></div>	
+</body>
+   <script type="text/javascript">
+     var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTable = prefs.getString("_table_query_url");
+	 var title= prefs.getString("title"); 	
+	
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+	 function loadVisualizationAPI() {
+		google.load("visualization", "1", {"packages": ["table"]});
+	}
+		
+	function devicesCountry(){
+		var gadgetHelper = new google.visualization.GadgetHelper();
+		var opts = {dataType:'jsonp'};
+		var queryDC = new google.visualization.Query(urlTable, opts);		 
+		var queryDCtosend = "select A,max(B),C,D,E where B <> 'no country' group by A,C,D,E";
+		queryDC.setQuery(queryDCtosend);			  
+		queryDC.send(handleQueryResponseDC);   
+	}
+	function getCountryFromUrl(){
+		var fullUrl = gadgets.util.getUrlParameters()["parent"];		
+		var urlSubstring = "https://sites.google.com/a/bbva.com/portaldeayuda/movilidad/guias/"
+		var country = fullUrl.replace(urlSubstring,"");		
+		country = country.split("correo")[0];
+		if(country=="esp-"){
+			country = "";
+		}
+		return country;
+	}
+	var country = getCountryFromUrl();
+	var DataTable= function(data){
+		var HEADER_ROW = 0;
+		var FIELDS = {
+			id : 0,
+			name: 2,
+			image: 3
+		};
+
+		var dataDC = data;
+		this.getId = function(row){
+			return dataDC.getValue(row, FIELDS.id);
+		}
+		this.getHref = function(row){
+			return 'https://sites.google.com/a/bbva.com/portaldeayuda/movilidad/'+country+'movil?dispositivo='+this.getId(row);
+		}
+		this.getNumberOfRows = function(){
+			return dataDC.getNumberOfRows();
+		}
+		this.getName = function(row){
+			return dataDC.getValue(row, FIELDS.name);
+		}		
+		this.getImage = function(row){
+			return dataDC.getValue(row, FIELDS.image);
+		}
+
+		this.validateRow = function(row){
+			return true;
+		}
+
+	}
+
+	function handleQueryResponseDC(response){
+	 	var dataDC = new DataTable(response.getDataTable());
+		var filas = dataDC.getNumberOfRows();
+	   	var html= "";
+	   	html +='<ul id=\"botonera\">'; 
+   		for(var row=2;row<filas;row++){
+			if( dataDC.validateRow(row)){
+				html +="<li><a  href='"+dataDC.getHref(row)+"' target='_parent'>"+
+				"<img src='"+getImgUrl(dataDC.getImage(row))+"'/><div class='label'>"+dataDC.getName(row)+"</div></a></li>";
+			}
+	  	}
+
+		html +='</ul>';
+		document.getElementById('content_div').innerHTML = html;
+	 
+	}
+
+	function getImgUrl(url){
+		var baseUrlDrive="https://drive.google.com/a/bbva.com/file/d/";
+		var baseUrlImg="http://drive.google.com/uc?export=view&id=";
+		var urlImg = url;
+		if(urlImg.indexOf(baseUrlDrive)>=0){
+			console.log('correo central v2');
+			var id = urlImg.replace(baseUrlDrive,"");
+			id = id.split("/")[0];
+			urlImg = baseUrlImg+id;
+		}
+		return urlImg;
+	}
+
+	jQuery(document).ready(function() {
+        devicesCountry();
+    });
+
+ 
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>
