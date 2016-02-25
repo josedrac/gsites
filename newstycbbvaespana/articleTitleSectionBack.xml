@@ -3,8 +3,8 @@
   	<ModulePrefs title="NB-articleTitleSectionBack.xml">
 	    <Require feature="idi"/>
 	    <Require feature="locked-domain" />
-  		<Require feature="dynamic-height"/>
-  		<Require feature="setprefs" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
   	</ModulePrefs>
 
   	<UserPref name="buttonLabel" display_name="Button Label" required="true" />
@@ -79,6 +79,7 @@
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js"></script>
 
 
 			<script type="text/javascript">
@@ -91,21 +92,6 @@
 				<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
 				<h2 id="sectionName"></h2>
 			</div>
-
-			<div id="functionsContainer"></div>
-
-			<script type="text/javascript">
-
-				$.ajax({
-					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
-						success: function(result){
-							var e = document.getElementById('functionsContainer');
-				            e.innerHTML = '<scr'+'ipt id="sc1">'+result+'adjustGadgetHeight("container");</sc'+'ript>';
-				            eval(document.getElementById('sc1').innerHTML);
-						}
-					});
-
-			</script>
 
 			<script type="text/javascript">
 
@@ -123,6 +109,7 @@
 
 
 				var date = getParam('date');
+        var datePath = getDate();
 				var	spreadsheetKey = getParam('key'),
 					siteName = getParam('siteName'),
 					sheetName = encodeURIComponent('sections'),
@@ -168,9 +155,40 @@
 
 				}
 
-				function goBack() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' + siteName + '?date=' + date + '';
-				}
+        function goBack() {
+          window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' +
+                                            siteName + '/' + datePath + '?date=' + date + '';
+        }
+
+        function goPrint() {
+          window.top.focus();
+          print();
+        }
+
+        function getDate() {
+          var d = getParam('date').split('/');
+          var month = getMonth( parseInt( d[0] ) );
+          var year = d[1];
+          return month+'-'+year;
+        }
+
+        function getMonth(month) {
+          switch(month) {
+            case 1:     return 'enero';
+            case 2:			return 'febrero';
+            case 3:			return 'marzo';
+            case 4:			return 'abril';
+            case 5:			return 'mayo';
+            case 6:			return 'junio';
+            case 7:			return 'julio';
+            case 8:			return 'agosto';
+            case 9:	    return 'septiembre';
+            case 10:		return 'octubre';
+            case 11:		return 'noviembre';
+            case 12:		return 'diciembre';
+            default:		return '';
+          }
+        }
 
 				var prefs = new gadgets.Prefs();
 				var buttonLabel = prefs.getString('buttonLabel');
@@ -182,5 +200,41 @@
 
    		]]>
   	</Content>
+
+  	  <Content type="html" view="configuration">
+
+    <![CDATA[
+
+      <style type="text/css">
+
+        table td {
+          color: #000;
+          font-size: 11px;
+          font-weight: bold;
+        }
+
+      </style>
+
+      <table width="100%" border="0" id="tablaconfig">
+        <tr>
+          <td>
+            Button label: <input type="text" id="buttonLabel" value="__UP_buttonLabel__"   onchange="register('buttonLabel')"/>
+          </td>
+        </tr>
+      </table>
+
+      <script type="text/javascript">
+
+        var prefs = new gadgets.Prefs();
+        function register(variable) {
+          prefs.set(variable, document.getElementById(variable).value);
+        }
+
+        gadgets.window.adjustHeight();
+
+      </script>
+
+    ]]>
+  </Content>
 
 </Module>

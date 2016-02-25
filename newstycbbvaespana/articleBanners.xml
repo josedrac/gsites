@@ -9,7 +9,7 @@
 
  	<Content type="html">
     	<![CDATA[
-			
+
 			<style type="text/css">
 
 				ul {
@@ -22,7 +22,7 @@
 				ul li {
 					margin: 10px 0;
 					cursor: pointer;
-				}				
+				}
 
 			</style>
 
@@ -42,7 +42,7 @@
 			<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -70,7 +70,7 @@
 
 				var spreadsheetKey = getParam('key'),
 					sheetName = encodeURIComponent('article banners'),
-					queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
+					queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '" and D = "' + getParam("date") + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
@@ -104,8 +104,8 @@
 						template += '<img onclick="javascript:Go(\''+data[i].targetUrl+'\')" src="' + data[i].imageUrl + '"/>';
 						template += '</li>';
 					}
-						
-					document.getElementById("articleBanners").innerHTML = template; 
+
+					document.getElementById("articleBanners").innerHTML = template;
 				}
 
 				function Go(destination) {
@@ -115,7 +115,7 @@
 				google.setOnLoadCallback(getSpreadsheet);
 
 			</script>
-   			
+
    		]]>
   	</Content>
 

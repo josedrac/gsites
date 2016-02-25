@@ -7,9 +7,6 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
-	<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
-	<UserPref name="headerText" display_name="headerText" required="true" />
-
  	<Content type="html">
     	<![CDATA[
 
@@ -123,19 +120,19 @@
 			</script>
 
 			<div id="container">
-				<p id="headerText">¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
+        <p id="text"></p>
 
-				<table>
-					<thead>
-						<tr>
-							<th class="col-1">Felicitaciones a</th>
-							<th class="col-2">Unidad</th>
-							<th class="col-3">Cargo anterior</th>
-							<th class="col-4" colspan="2">Cargo actual</th>
-						</tr>
-					</thead>
-					<tbody id="tableBody"></tbody>
-				</table>
+    		<table>
+    			<thead>
+    				<tr>
+    					<th id="col-1" class="col-1"></th>
+    					<th id="col-2" class="col-2"></th>
+    					<th id="col-3" class="col-3"></th>
+    					<th id="col-4" class="col-4" colspan="2"></th>
+    				</tr>
+    			</thead>
+    			<tbody id="tableBody"></tbody>
+    		</table>
 			</div>
 
 			<div id="functionsContainer"></div>
@@ -185,30 +182,32 @@
 					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
 				}
 
-				function printDataTable(dataTable) {
-					var rows = dataTable.getNumberOfRows(),
-						template = '',
-						url;
+        function printDataTable(dataTable) {
+  				var rows = dataTable.getNumberOfRows(),
+  					template = '',
+  					url;
 
-					for(i = 0; i < rows; i++) {
-						template += '<tr>';
-						template += '<td>' + dataTable.getValue(i, 0) + '</td>';
-						template += '<td>' + dataTable.getValue(i, 1) + '</td>';
-						template += '<td>' + dataTable.getValue(i, 2) + '</td>';
-						template += '<td>' + dataTable.getValue(i, 3) + '</td>';
-						url = dataTable.getValue(i, 4);
-						if(url != null && url != undefined && url != '') {
-							template += '<td class="text-right"><span class="sign-up">apuntate<span>+</span></span></td>';
-						}
-						template += '</tr>'
-					}
+  				document.getElementById('col-1').innerHTML = dataTable.getValue(0, 6);
+  				document.getElementById('col-2').innerHTML = dataTable.getValue(0, 7);
+  				document.getElementById('col-3').innerHTML = dataTable.getValue(0, 8);
+  				document.getElementById('col-4').innerHTML = dataTable.getValue(0, 9);
+  				document.getElementById('text').innerHTML = dataTable.getValue(0, 11);
 
-					document.getElementById("tableBody").innerHTML = template;
+  				for(i = 0; i < rows; i++) {
+  					template += '<tr>';
+  					template += '<td>' + dataTable.getValue(i, 0) + '</td>';
+  					template += '<td>' + dataTable.getValue(i, 1) + '</td>';
+  					template += '<td>' + dataTable.getValue(i, 2) + '</td>';
+  					template += '<td>' + dataTable.getValue(i, 3) + '</td>';
+  					url = dataTable.getValue(i, 4);
+  					if(url != null && url != undefined && url != '') {
+  						template += '<td class="text-right"><span class="sign-up">'+ dataTable.getValue(0, 10) +'<span>+</span></span></td>';
+  					}
+  					template += '</tr>';
+  				}
 
-					var prefs = new gadgets.Prefs(),
-						headerText = prefs.getString('headerText');
-					document.getElementById("headerText").innerHTML = headerText;
-				}
+  				document.getElementById("tableBody").innerHTML = template;
+  			}
 
 				google.setOnLoadCallback(getSpreadsheet);
 
@@ -216,40 +215,5 @@
 
    		]]>
   	</Content>
-
-	<Content type="html" view="configuration">
-
-		<![CDATA[
-
-			<style type="text/css">
-
-				table td {
-					color: #000;
-					font-size: 11px;
-					font-weight: bold;
-				}
-
-			</style>
-
-			<table width="100%" border="0">
-				<tr>
-					<td>
-						Header text: <input type="text" id="headerText" value="__UP_headerText__"   onchange="register('headerText')"/>
-					</td>
-				</tr>
-			</table>
-
-			<script type="text/javascript">
-
-				var prefs = new gadgets.Prefs();
-					function register(variable) {
-					prefs.set(variable, document.getElementById(variable).value);
-				}
-
-			</script>
-
-		]]>
-
-	</Content>
 
 </Module>

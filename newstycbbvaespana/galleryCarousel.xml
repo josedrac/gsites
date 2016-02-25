@@ -223,9 +223,21 @@
 	   	var gadgetHelper = null;
 
 	   	var spreadsheetKey = prefs.getString("spreadsheetKey"),
-	   		queryString = encodeURIComponent('SELECT * where A <> "title"'),
+	   		queryString = encodeURIComponent('SELECT * where E = "' + getParam("date") + '"'),
 			sheetName = encodeURIComponent('carousel territorial'),
 			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
+    function getParam(p){
+            var params;
+            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                for(var i=0; i<params.length; i++){
+                    if(params[i].split("=")[0] == p)
+                        return params[i].split("=")[1];
+                }
+            }
+            return "";
+        }
 
 		function getSpreadsheet() {
 			query.send(handleQueryResponse);

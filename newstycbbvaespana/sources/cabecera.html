@@ -19,11 +19,12 @@
 
         var imageUrl = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/bannerGooglePlus.png";
         var siteName = "servicios-centrales";
+        var datePath = getDate();
 
-        var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + siteName + "?date=" + getParam('date');
+        var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + siteName + '/' + datePath + "?date=" + getParam('date');
 
         document.getElementById('container').innerHTML = '<img src="'+imageUrl+'" onclick="javascript:Go(\''+url+'\');"/>';
-        
+
 
         function getParam(p){
             var params;
@@ -42,5 +43,30 @@
             window.parent.location.href = destination;
             return false;
         }
+
+        function getDate(){
+    			var d = getParam('date').split('/');
+    			var month = getMonth(parseInt( d[0]));
+    			var year = d[1];
+    			return month + '-' + year;
+    		}
+
+    		function getMonth(month) {
+    			switch(month) {
+    				case 1:     return 'enero';
+    				case 2:			return 'febrero';
+    				case 3:			return 'marzo';
+    				case 4:			return 'abril';
+    				case 5:			return 'mayo';
+    				case 6:			return 'junio';
+    				case 7:			return 'julio';
+    				case 8:			return 'agosto';
+    				case 9:	    return 'septiembre';
+    				case 10:		return 'octubre';
+    				case 11:		return 'noviembre';
+    				case 12:		return 'diciembre';
+    				default:		return '';
+    			}
+    		}
 
     </script>

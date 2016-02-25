@@ -121,7 +121,7 @@
 
 		<script type="text/javascript">
 
-			function getUrlParameter(parameterName) {
+			function getParam(parameterName) {
 				var params = window.location.search.substr(1).split('&');
 				for (var i = 0; i < params.length; i++) {
 					var p = params[i].split('=');
@@ -132,9 +132,9 @@
 				return false;
 			}
 
-			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q';
+			var spreadsheetKey = getParam('key');
 				sheetName = encodeURIComponent('appointments'),
-				queryString = encodeURIComponent('SELECT * where F = "' + getUrlParameter("date") + '"'),
+				queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"'),
 				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 			function getSpreadsheet() {
@@ -155,6 +155,12 @@
 					template = '',
 					url;
 
+				document.getElementById('col-1').innerHTML = dataTable.getValue(0, 6);
+				document.getElementById('col-2').innerHTML = dataTable.getValue(0, 7);
+				document.getElementById('col-3').innerHTML = dataTable.getValue(0, 8);
+				document.getElementById('col-4').innerHTML = dataTable.getValue(0, 9);
+				document.getElementById('text').innerHTML = dataTable.getValue(0, 11);
+
 				for(i = 0; i < rows; i++) {
 					template += '<tr>';
 					template += '<td>' + dataTable.getValue(i, 0) + '</td>';
@@ -163,9 +169,9 @@
 					template += '<td>' + dataTable.getValue(i, 3) + '</td>';
 					url = dataTable.getValue(i, 4);
 					if(url != null && url != undefined && url != '') {
-						template += '<td class="text-right"><span class="sign-up">apuntate<span>+</span></span></td>';
+						template += '<td class="text-right"><span class="sign-up">'+ dataTable.getValue(0, 10) +'<span>+</span></span></td>';
 					}
-					template += '</tr>'
+					template += '</tr>';
 				}
 
 				document.getElementById("tableBody").innerHTML = template;
@@ -183,15 +189,15 @@
 
 	<body>
 
-		<p>¿Quieres conocer los nombramientos que se han producido en nuestra territorial el pasado mes? Aprovechamos la ocasión para reiterar a todos ellos nuestra más sincera felicitaión y nuestro apoyo en su nueva etapa profesional.</p>
+		<p id="text"></p>
 
 		<table>
 			<thead>
 				<tr>
-					<th class="col-1">Felicitaciones a</th>
-					<th class="col-2">Unidad</th>
-					<th class="col-3">Cargo anterior</th>
-					<th class="col-4" colspan="2">Cargo actual</th>
+					<th id="col-1" class="col-1"></th>
+					<th id="col-2" class="col-2"></th>
+					<th id="col-3" class="col-3"></th>
+					<th id="col-4" class="col-4" colspan="2"></th>
 				</tr>
 			</thead>
 			<tbody id="tableBody"></tbody>

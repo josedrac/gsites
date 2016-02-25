@@ -380,12 +380,12 @@
     	}
 
         function pagination(elements) {
-	        $('#pagination').smartpaginator({ 
-		        totalrecords: elements, 
-		        recordsperpage: 4, 
-		        length: 4, 
-		        datacontainer: 'paginas', 
-		        dataelement: 'div.comboVideo', 
+	        $('#pagination').smartpaginator({
+		        totalrecords: elements,
+		        recordsperpage: 4,
+		        length: 4,
+		        datacontainer: 'paginas',
+		        dataelement: 'div.comboVideo',
 		        initval: 0,
 	        });
 	     }
@@ -465,7 +465,7 @@
 				html += "<div class='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
 				if(data.getValue(i,17) != null && data.getValue(i,17) == 'x'){
 					html += "<div class='tagFuture'>";
-					html += "<div class='dateVideoFuture'>Previsto "+data.getValue(i,20)+" - </div>";
+					html += "<div class='dateVideoFuture'>Previsto "+data.getFormattedValue(i,20)+" - </div>";
 					html += "<div class='userVideoFuture'> "+data.getValue(i,5)+"</div>";
 					html += "</div>";
 				}

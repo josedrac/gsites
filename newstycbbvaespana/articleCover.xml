@@ -55,7 +55,7 @@
 				.article-cover .article-cover-wrapper {
 				    margin-right: 20px;
 					padding-left: 20px;
-					width: 280px;
+					width: 270px;
 				}
 
 				.article-cover .content-wrapper {
@@ -149,9 +149,10 @@
 				    vertical-align: middle;  /* vertical alignment of the inline element */
 				    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
 			        max-height: 100%;
-	    			max-width: 320px;
+	    			max-width: 300px;
 	    			position: relative;
 	    			bottom: 5px;
+						padding-top: 5px;
 				}
 
 			</style>
@@ -172,7 +173,7 @@
 
 			 			<h2 id="title"></h2>
 						<h3 id="subtitle"></h3>
-						
+
 						<div id="authorSignature"></div>
 
 						<div id="sortDescription"></div>
@@ -183,14 +184,14 @@
 		 		<div class="media-wrapper">
 
 		 			<div id="coverMedia" class="cover-media"></div>
-		 			
+
 		 		</div>
 		 	</div>
 
 		 	<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -257,8 +258,8 @@
 						data.coverMedia = coverVideo;
 					}
 
-					document.getElementById("title").innerHTML = data.title; 				
-					document.getElementById("subtitle").innerHTML = data.subtitle; 	
+					document.getElementById("title").innerHTML = data.title;
+					document.getElementById("subtitle").innerHTML = data.subtitle;
 
 					if(data.author != null && data.author != undefined) {
 						var authorSignature = '';

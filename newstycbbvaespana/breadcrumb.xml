@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="ED-breadcrumb.xml" height ="20">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+		<head>
+			<style type="text/css">
+		        @font-face {
+		            font-family: 'BBVA Web Light';
+		            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+		            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+		                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		            font-style: normal;
+		            font-weight: normal;
+		        }
+		        #content {
+		        	font-family: BBVA Web Light;
+		        	padding-left: 15px;
+		        }
+		        .breadcrumb a {
+					font-size: 12px;
+				    font-family: Arial;
+				    font-weight: bold;
+				    color: #0072C9;
+				    text-decoration: none;
+				    text-transform: capitalize;
+				}
+				.breadcrumb img {
+					padding: 0 5px;
+					position: relative;
+			    	top: 2px;
+				}
+		    </style>
+		</head>
+
+		<div id="content"></div>
+
+	    <script type="text/javascript">
+
+			var baseLink = "https://sites.google.com/a/bbva.com/newstycbbvaespana";
+
+			breadcrumb(document.referrer);
+
+			function breadcrumb (path) {
+
+				var params = path.split('?')[1];
+
+				// Me quedo con el trozo de la url que me interesa
+				var link = path.split('newstycbbvaespana')[1].split('/');
+				link.splice(0,1);
+
+				var fecha = getParam('date');
+				var datePath = getDate();
+				var site = getParam('siteName');
+
+				breadcrumb = "<div class='breadcrumb'>"
+				// Primer nivel
+				breadcrumb += "<a href='" + baseLink + "/"+ site + "/" + datePath +"?date=" + fecha + "' target='_parent'>Home</a>";
+
+        // Segundo nivel
+
+        if(link[0] != "") {
+          linkQuery = link[0].toLowerCase().split('?');
+          breadcrumb += " <img src='https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/separatorbreadcrumb.png'> ";
+          breadcrumb += " <a href='" + baseLink + "/" + linkQuery[0] + "?" + params + "' target='_parent'>Artículo</a>";
+        }
+
+
+        breadcrumb += "</div>"
+
+        // Muestro el resultado
+        var html = document.getElementById('content');
+        html.innerHTML = breadcrumb;
+
+      }
+
+      function getParam(p){
+          var params;
+          if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+              params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+              for(var i=0; i<params.length; i++){
+                  if(params[i].split("=")[0] == p)
+                      return params[i].split("=")[1];
+              }
+          }
+          return "";
+      }
+
+			function getDate() {
+				var d = getParam('date').split('/');
+				var month = getMonth( parseInt( d[0] ) );
+				var year = d[1];
+				return month+'-'+year;
+			}
+
+			function getMonth(month) {
+				switch(month) {
+					case 1:     return 'enero';
+					case 2:			return 'febrero';
+					case 3:			return 'marzo';
+					case 4:			return 'abril';
+					case 5:			return 'mayo';
+					case 6:			return 'junio';
+					case 7:			return 'julio';
+					case 8:			return 'agosto';
+					case 9:	    return 'septiembre';
+					case 10:		return 'octubre';
+					case 11:		return 'noviembre';
+					case 12:		return 'diciembre';
+					default:		return '';
+				}
+			}
+
+    </script>
+
+    ]]>
+   </Content>
+</Module>
