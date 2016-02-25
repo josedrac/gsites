@@ -9,7 +9,7 @@
 
  	<Content type="html">
     	<![CDATA[
-			
+
 			<style type="text/css">
 
 				@font-face {
@@ -36,7 +36,7 @@
 
 				.article-content {
 					padding: 0 10px;
-				}				
+				}
 
 				h2 {
 					font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
@@ -85,7 +85,7 @@
 				.media-content {
 				    display: table-cell;
 				    vertical-align: middle;
-				    text-align: center;				
+				    text-align: center;
 				}
 
 				.media-content:before {
@@ -131,7 +131,14 @@
 				    font-size: 12px;
 				    color: #71777F;
 				    line-height: 19px;
-				}				
+				}
+
+        a {
+          font-family: arial,sans-serif;
+          color: #0000cc;
+          text-decoration: underline;
+          cursor: pointer;
+        }
 
 			</style>
 
@@ -165,7 +172,7 @@
 			<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -194,7 +201,7 @@
 				var spreadsheetKey = getParam('key'),
 					sheetName = encodeURIComponent('article content'),
 					queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '" and D ends with "' + getParam("date") + '"'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 				function getSpreadsheet() {
 					query.send(handleQueryResponse);
@@ -227,9 +234,9 @@
 						data.media = video;
 					}
 
-					document.getElementById("title").innerHTML = data.title; 				
-					document.getElementById("subtitle").innerHTML = data.subtitle; 	
-					
+					document.getElementById("title").innerHTML = data.title;
+					document.getElementById("subtitle").innerHTML = data.subtitle;
+
 					if(data.author != null && data.author != undefined) {
 						var authorSignature = '';
 						authorSignature += '<p class="author-signature">';
@@ -237,17 +244,22 @@
 						authorSignature += '</p>';
 						document.getElementById("authorSignature").innerHTML = authorSignature;
 					}
-					
-					document.getElementById("sortDescription").innerHTML = data.sortDescription; 	
-					document.getElementById("media").innerHTML = data.media; 	
-					document.getElementById("description").innerHTML = data.description; 	
+
+					document.getElementById("sortDescription").innerHTML = data.sortDescription;
+					document.getElementById("media").innerHTML = data.media;
+					document.getElementById("description").innerHTML = data.description;
 
 				}
+
+        function Go(destination){
+          	window.open(destination,'_parent');
+          	return false;
+      	}
 
 				google.setOnLoadCallback(getSpreadsheet);
 
 			</script>
-   			
+
    		]]>
   	</Content>
 

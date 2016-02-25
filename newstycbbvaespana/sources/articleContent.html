@@ -81,7 +81,7 @@
 			.media-content {
 			    display: table-cell;
 			    vertical-align: middle;
-			    text-align: center;				
+			    text-align: center;
 			}
 
 			.media-content:before {
@@ -128,12 +128,19 @@
 			    line-height: 19px;
 			}
 
+      a {
+        font-family: arial,sans-serif;
+        color: #0000cc;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
 		</style>
 
 		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
 
 		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
-		
+
 		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 
 		<script type="text/javascript">
@@ -159,7 +166,7 @@
 			var spreadsheetKey = getParam('key');
 				sheetName = encodeURIComponent('article content'),
 				queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '" and D ends with "' + getParam("date") + '"'),
-				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);      
+				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 			function getSpreadsheet() {
 				query.send(handleQueryResponse);
@@ -192,9 +199,9 @@
 					data.media = video;
 				}
 
-				document.getElementById("title").innerHTML = data.title; 				
-				document.getElementById("subtitle").innerHTML = data.subtitle; 	
-				
+				document.getElementById("title").innerHTML = data.title;
+				document.getElementById("subtitle").innerHTML = data.subtitle;
+
 				if(data.author != null && data.author != undefined) {
 					var authorSignature = '';
 					authorSignature += '<p class="author-signature">';
@@ -204,10 +211,15 @@
 				}
 
 				document.getElementById("sortDescription").innerHTML = data.sortDescription;
-				document.getElementById("media").innerHTML = data.media; 	
-				document.getElementById("description").innerHTML = data.description; 	
+				document.getElementById("media").innerHTML = data.media;
+				document.getElementById("description").innerHTML = data.description;
 
 			}
+
+      function Go(destination){
+        	window.open(destination,'_parent');
+        	return false;
+    	}
 
 			google.setOnLoadCallback(getSpreadsheet);
 
@@ -244,4 +256,4 @@
 
 	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
 
-</html> 
+</html>
