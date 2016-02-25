@@ -66,7 +66,7 @@ img {border:none;}
 				<span>Ipad</span></li>
 				<li><img src="https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/android.png">
 				<span>Android</span></li>
-        <li><img src="https://drive.google.com/a/bbva.com/file/d/0BwE3A2K6FhHuTjFfU3g5N0dhRnM/view">
+        <li><img src="blob:https://drive.google.com/147c973c-b538-478f-8dfa-48e2e73cfdee">
         <span>Tablet</span></li>
 			</ul>
  </div>
@@ -152,7 +152,7 @@ img {border:none;}
                               "Android":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/android.png",
                               "Iphone":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/iphone.png",
                               "Ipad":"https://bbvaportaldeayuda.googlecode.com/svn/trunk/fase2/img/ipad.png",
-                              "Tablet":"https://drive.google.com/a/bbva.com/file/d/0BwE3A2K6FhHuTjFfU3g5N0dhRnM/view"
+                              "Tablet":"blob:https://drive.google.com/147c973c-b538-478f-8dfa-48e2e73cfdee"
                               };
 
                   var iconshtml="";
