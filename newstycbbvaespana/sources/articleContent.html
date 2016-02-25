@@ -128,6 +128,13 @@
 			    line-height: 19px;
 			}
 
+      a {
+        font-family: arial,sans-serif;
+        color: #0000cc;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
 		</style>
 
 		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
@@ -208,6 +215,11 @@
 				document.getElementById("description").innerHTML = data.description;
 
 			}
+
+      function Go(destination){
+        	window.open(destination,'_parent');
+        	return false;
+    	}
 
 			google.setOnLoadCallback(getSpreadsheet);
 
