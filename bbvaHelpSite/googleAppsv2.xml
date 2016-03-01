@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="googleAppsv2.xml english version"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Office Light';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.svg#BBVA Office Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Office Book';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.svg#BBVA Office Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* @end */
+	
+	.listaGoogleApps{
+					list-style: none;  
+     				margin: 0; 
+     				padding: 0; 
+					width: 600px;
+					text-align:center;
+				}
+				
+	.listaGoogleApps li{
+					float: left;
+					width: 150px;
+					height:130px;
+				}
+	.listaGoogleApps a{
+					text-decoration:none;
+					color:#0073C9;
+					font-family:Arial;
+					font-weight:bold;
+					font-size:12px;
+				}
+	.listaGoogleApps img{
+					border:0;	
+	}				
+	
+	</style>
+	
+<div id="contenido"></div>
+	
+   <script type="text/javascript">
+     
+	 var html='';
+	 html +='<div class="cabeceramenu"><ul class="listaGoogleApps">';
+	
+	 html +='<li id="gmail" class="gmail"><a class="enlace" href="https://sites.google.com/a/bbva.com/help-site/google-apps/gmail" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/gmail_google_apps_seccion.png?attredirects=0"><p>Gmail</p></a></li>';
+	 html +='<li id="contactos" class="contactos"><a class="enlace" href="https://sites.google.com/a/bbva.com/help-site/google-apps/contactos" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/contact_google_apps_seccion.png?attredirects=0"><p>Contacts</p></a></li>';
+	 html +='<li id="calendario" class="calendario" ><a href="https://sites.google.com/a/bbva.com/help-site/google-apps/calendar" class="enlace" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/calendar_google_apps_seccion.png?attredirects=0"><p>Calendar</p></a></li>';
+	 html +='<li id="chat" class="chat"><a class="enlace" href="https://sites.google.com/a/bbva.com/help-site/google-apps/chat" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/chat_google_apps_seccion.png?attredirects=0"><p>Chat</p></a></li>';
+	 html +='<li id="drive" class="drive"><a class="enlace" href="https://sites.google.com/a/bbva.com/help-site/google-apps/drive" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/drive_google_apps_seccion.png?attredirects=0"><p>Drive</p></a></li>';
+	// html +='<li id="soporte" class="soporte"><a class="enlace" href="https://sites.google.com/a/bbva.com/help-site/google-apps/soporte-a-la-direccion" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/soporte_google_apps_seccion.png?attredirects=0"><p>Management support</p></a></li>';
+	 html +='<li id="groups" class="groups"><a class="enlace" href="https://sites.google.com/a/bbva.com/help-site/google-apps/groups" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/groups_google_apps_seccion.png?attredirects=0"><p>Groups</p></a></li>';
+	 html +='<li id="sites" class="sites" ><a class="enlace" href="https://sites.google.com/a/bbva.com/help-site/google-apps/sites" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/sites_google_apps_seccion.png?attredirects=0"><p>Sites</p></a></li>';
+	 html +='<li id="googleMas" class="googleMas"><a class="enlace" href="https://support.google.com/plus/?hl=en" target="_blank"><img src="https://sites.google.com/a/bbva.com/help-site/gplus_google_apps_seccion.png?attredirects=0"><p>Google +</p></a></li>';
+	 html +='<li id="mas" class="mas"><a class="enlace" href="https://sites.google.com/a/bbva.com/help-site/google-apps/mas" target="_parent"><img src="https://sites.google.com/a/bbva.com/help-site/mas_google_apps_seccion.png?attredirects=0"><p>More</p></a></li>';
+	 html +='</ul></div>';
+	 document.getElementById('contenido').innerHTML = html;	
+	
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>
