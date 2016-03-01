@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="urletiquetas.xml english version"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+
+<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+<UserPref name="etiqueta" display_name="Etiqueta:" default_value="" required="true"/> 
+ 
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+	  /* @group fonts */
+@font-face {
+	font-family: 'BBVA Web Light';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Book';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'BBVA Web Medium';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+@font-face {
+	font-family: 'BBVA Office Light';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-light/office-light.svg#BBVA Office Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+
+@font-face {
+	font-family: 'BBVA Office Book';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/office-book/office-book.svg#BBVA Office Book') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/*
+@font-face {
+	font-family: 'BBVA Office Book';
+    src: url('GrutchShaded-webfont.eot');
+    src: url('GrutchShaded-webfont.eot?#iefix') format('embedded-opentype'),
+         url('GrutchShaded-webfont.woff') format('woff'),
+         url('GrutchShaded-webfont.ttf') format('truetype'),
+         url('GrutchShaded-webfont.svg#BBVA Office Book') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+
+@font-face {
+	font-family: 'Stag Light';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-light/stag-light.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-light/stag-light.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-light/stag-light.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-light/stag-light.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-light/stag-light.svg#Stag Light') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Stag';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag/stag.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag/stag.eot?#iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag/stag.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag/stag.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag/stag.svg#Stag') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Stag Medium';
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.eot');
+	src:url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.eot?iefix') format("embedded-opentype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.woff') format("woff"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.ttf') format("truetype"),
+		url('https://bbva-help-site.googlecode.com/svn/trunk/fonts/stag-medium/stag-medium.svg#Stag Medium') format("svg");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* @end */
+	
+	.linedowntitle{
+	margin-bottom:10px;
+	width:619px;
+	display:-moz-stack;
+	}
+	.title{
+	color:#000;
+	font-size: 18px;
+	font-family: BBVA Web Light;
+	margin-left:22px;
+	margin-top:0px;
+	margin-bottom:15px;
+	}
+	.subseccion{
+	margin-bottom:30px;
+	}
+	.subseccion li{
+	list-style:none;
+	}
+	.subseccion li a{
+	color:#0065B7;
+	font-size: 12px;
+	font-family: BBVA Web Medium;
+	margin-left:24px;
+	padding-top:4px;
+	text-decoration:none;
+	list-style:none;
+	}
+	</style>
+<script type="text/javascript" src="https://bbva-help-site.googlecode.com/svn/trunk/bbcode2html.js"></script>
+
+<div id="contenido"></div>
+
+
+	
+	
+  <script type="text/javascript">
+	 var gadgetHelper = null;
+	 var prefs = new _IG_Prefs();
+	 var urlTable = prefs.getString("_table_query_url");
+	 var etiqueta = prefs.getString("etiqueta"); 
+	 _IG_RegisterOnloadHandler(loadVisualizationAPI);
+	 
+	  function loadVisualizationAPI() 
+			{
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+	  function sendQuery() 
+			{
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};		
+				var query = new google.visualization.Query(urlTable, opts);	
+				
+				var querytosend = "select max(A),C where I like '%"+etiqueta+"%' group by C";
+				
+				query.setQuery(querytosend);			  
+				query.send(handleQueryResponse);
+				
+				
+			}
+	  function handleQueryResponse(response)
+	        {
+				data = response.getDataTable();	
+				var filas = data.getNumberOfRows();
+				var html="";
+				
+				for(var i=0;i<filas;i++){
+				    if(data.getValue(i,1)!= 'Subsección'){
+					html +="<div id='titleSubsection' class='title'>"+data.getValue(i,1)+"</div>";
+					html +="<img src='https://bbva-help-site.googlecode.com/svn/trunk/img/linepagetitledown.png' class='linedowntitle' />";
+				    html +="<div id='subsection"+data.getValue(i,1)+"' class='subseccion'></div>";
+					
+					}
+				
+				}
+
+             document.getElementById('contenido').innerHTML += html;
+			 
+			 gadgetHelper = new google.visualization.GadgetHelper();
+			 var opts = {dataType:'jsonp'};	
+			 var query1 = new google.visualization.Query(urlTable, opts);
+			 var querytosend1 = "select * where I like '%"+etiqueta+"%'"; 
+			 query1.setQuery(querytosend1);			  
+			 query1.send(handleQueryResponse1);
+			 
+			}
+	  function handleQueryResponse1(response)
+	        {
+				data = response.getDataTable();	
+				var filas = data.getNumberOfRows();
+				
+				//alert(filas);
+				
+				for(var i=0;i<filas;i++){
+				  //  if(data.getValue(i,7)!=''){ 
+				    document.getElementById('subsection'+data.getValue(i,2)).innerHTML +="<li><a target='_parent' href='"+data.getValue(i,7)+"'>"+data.getValue(i,3)+"</a></li>";
+					//}
+				}
+				
+				
+
+
+
+			}
+
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>
