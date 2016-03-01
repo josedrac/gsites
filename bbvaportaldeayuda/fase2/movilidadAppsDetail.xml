@@ -46,6 +46,7 @@ url("https://bbvaportaldeayuda.googlecode.com/svn/trunk/fonts/web-medium/web-med
 .container .description { background-image: url(https://bbvaportaldeayuda.googlecode.com/svn/trunk/img/lineborder.png); background-position: bottom; background-repeat: no-repeat; font-family: 'BBVA Web Book'; padding-bottom: 20px; }
 .container .description h2 { text-align: left; font-size: 1em; }
 .container .description p.long { text-align: left; font-family: BBVA Web Light, Arial; padding: 10px; font-size: 0.8em; }
+.container .description p.long a { color: #0065b7; text-decoration: none; }
 .container .manuals .titleguia { font-size: 16px; font-family: BBVA Web Light, Arial; color: #000; margin-bottom: 15px; font-weight: normal; }
 .container .manuals .guias { font-size: 12px; font-family: BBVA Web Book, Arial; color: #0078D2; text-decoration: none; }
 .container .manuals .guias li { color: #0065b7; }
