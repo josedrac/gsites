@@ -66,6 +66,8 @@ img {border:none;}
 				<span>Ipad</span></li>
 				<li><img src="https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/android.png">
 				<span>Android</span></li>
+                <li><img src="https://raw.githubusercontent.com/sopraux/gsites/master/bbvaHelpSite/fase2/img/tablet.png">
+                <span>Tablet</span></li>
 			</ul>
  </div>
 <div id="render" class="render"><div>
