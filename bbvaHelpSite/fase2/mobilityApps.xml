@@ -7,9 +7,9 @@
 </ModulePrefs>
 <UserPref name="_table_query_url" default_value="https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdGdxMFFLY2JFWlc0REpyNUFaRFA3c2c" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdGdxMFFLY2JFWlc0REpyNUFaRFA3c2c)" required="true"/>
 <Content type="html"><![CDATA[
-  
+
   <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-  
+
  <style type="text/css">
 .container { max-width: 620px; margin: 0; padding: 0; width: 100%; font-family: 'BBVA Web Book'; }
 .container .header { display: inline-block; width: 100%; }
@@ -32,16 +32,16 @@
 
 
 /* @group fonts */
-@font-face { font-family: 'BBVA Web Book'; src: url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.eot"); 
-      src: url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"), 
-      url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.woff") format("woff"), 
-      url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf") format("truetype"), 
+@font-face { font-family: 'BBVA Web Book'; src: url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.eot");
+      src: url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.eot?iefix") format("embedded-opentype"),
+      url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.woff") format("woff"),
+      url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.ttf") format("truetype"),
       url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-book/web-book.svg#BBVA Web Book") format("svg"); font-style: normal; font-weight: normal; }
 
-@font-face { font-family: 'BBVA Web Light'; src: url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.eot"); 
-      src: url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"), 
-      url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.woff") format("woff"), 
-      url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf") format("truetype"), 
+@font-face { font-family: 'BBVA Web Light'; src: url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.eot");
+      src: url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.eot?iefix") format("embedded-opentype"),
+      url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.woff") format("woff"),
+      url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.ttf") format("truetype"),
       url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-light/web-light.svg#BBVA Web Light") format("svg"); font-style: normal; font-weight: normal; }
 </style>
 <!--[if lt IE 9]>
@@ -51,7 +51,7 @@
 .container .header ul.oslist{ position:absolute; right:0; top:0; margin:0; display: inline; }
 img {border:none;}
 .container .render .article .enlace ul.oslist { text-align: none; margin:0; padding: 0; }
-.container .render .article_ie 
+.container .render .article_ie
 { max-width: 180px;height: 300px;width: 32%;display: inline;}
 </style>
 <![endif]-->
@@ -60,7 +60,7 @@ img {border:none;}
 <div class="header">
 			<h1 class="title">BBVA Apps</h1>
 			<ul class="oslist">
-				<li><img src="https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/iphone.png">        
+				<li><img src="https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/iphone.png">
 				<span>Iphone</span></li>
 				<li><img src="https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/ipad.png">
 				<span>Ipad</span></li>
@@ -69,7 +69,7 @@ img {border:none;}
 			</ul>
  </div>
 <div id="render" class="render"><div>
-</div> 
+</div>
 <script type="text/javascript">
      var gadgetHelper = null;
          var prefs = new _IG_Prefs();
@@ -79,17 +79,17 @@ img {border:none;}
          function loadVisualizationAPI() {
                 google.load("visualization", "1", {"packages": ["table"]});
         }
-                
+
         function reload(){
                 var gadgetHelper = new google.visualization.GadgetHelper();
                 var opts = {dataType:'jsonp'};
                 var queryDC = new google.visualization.Query(urlTable, opts);
-                 
+
                 var queryDCtosend = "select A,B,C,D,E,F order by A";
 
-                queryDC.setQuery(queryDCtosend);                          
+                queryDC.setQuery(queryDCtosend);
                 queryDC.send(handleQueryResponseDC);
-   
+
         }
 
         var DataTable= function(data){
@@ -102,7 +102,7 @@ img {border:none;}
                         short: 4,
                         long:5
                 };
-                
+
                 var URL_DETAIL = "https://sites.google.com/a/bbva.com/help-site/mobility/app_detail?app_id=";
 
                 var dataDC = data;
@@ -111,10 +111,10 @@ img {border:none;}
                 }
                 this.getId = function(row){
                         return dataDC.getValue(row, FIELDS.id);
-                }                
+                }
                 this.getTitle = function(row){
                         return dataDC.getValue(row, FIELDS.title);
-                }               
+                }
                 this.getImage = function(row){
                         return dataDC.getValue(row, FIELDS.image);
                 }
@@ -128,7 +128,7 @@ img {border:none;}
                 this.getLong= function(row){
                         return dataDC.getValue(row, FIELDS.long);
                 }
-                
+
                 this.getUrlDetalle= function(row){
                         return URL_DETAIL+this.getId(row);
                 }
@@ -141,7 +141,7 @@ img {border:none;}
 
         function handleQueryResponseDC(response){
                 var dataDC = new DataTable(response.getDataTable());
-                var filas = dataDC.getNumberOfRows();               
+                var filas = dataDC.getNumberOfRows();
                 var html= "";
                 var renderIcons = function(types)
                 {
@@ -149,40 +149,41 @@ img {border:none;}
                               {
                               "Android":"https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/android.png",
                               "Iphone":"https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/iphone.png",
-                              "Ipad":"https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/ipad.png"
+                              "Ipad":"https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/ipad.png",
+                              "Tablet":"https://raw.githubusercontent.com/sopraux/gsites/master/bbvaHelpSite/fase2/img/tablet.png"
                               };
-                              
+
                   var iconshtml="";
                   for(n in types)
-                  {                                
-                   iconshtml += "<li class=\"oslist\"><img src=\""+URLICONS[types[n]]+"\"></li>";                  
-                  }    
+                  {
+                   iconshtml += "<li class=\"oslist\"><img src=\""+URLICONS[types[n]]+"\"></li>";
+                  }
                   return iconshtml;
                 }
                 for(var row=0;row<filas;row++){
-                       
+
                     html +="<div class=\"article article_ie\"><a class=\"enlace\" target=\"_parent\" href=\""+dataDC.getUrlDetalle(row)+"\">";
                     html +="<div class=\"articleimg\"><img src='"+dataDC.getImage(row)+"'></div>";
                     html +="<h2>"+dataDC.getTitle(row)+"</h2>";
                     html +="<ul class=\"oslist\">"+renderIcons(dataDC.getType(row))+"</ul>";
                     html +="<div class=\"short\"><span>"+dataDC.getShort(row)+"</span></div>";
                     html +="</a></div>";
-                     
+
                 }
 
-                
+
                 document.getElementById('render').innerHTML = html;
-         
+
         }
 
         function cargaCompleta(){
                 reload();
         }
- 
+
 </script>
 </body>
 
-   
-    
+
+
   ]]></Content>
 </Module>
