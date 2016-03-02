@@ -172,7 +172,7 @@ url("https://bbva-help-site.googlecode.com/svn/trunk/fonts/web-medium/web-medium
                               "Android":"https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/android.png",
                               "Iphone":"https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/iphone.png",
                               "Ipad":"https://bbva-help-site.googlecode.com/svn/trunk/fase2/img/ipad.png",
-                              "Tablet":"https://raw.githubusercontent.com/sopraux/gsites/master/bbvaportaldeayuda/fase2/img/tablet.png"
+                              "Tablet":"https://raw.githubusercontent.com/sopraux/gsites/master/bbvaHelpSite/fase2/img/tablet.png"
                               };
 
                   var iconshtml="";
