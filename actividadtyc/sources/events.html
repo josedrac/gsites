@@ -36,6 +36,10 @@
 		}
 		/* @end */
 
+		.clearfix {
+			overflow: auto;
+		}
+
 		.container {
 			font-family: arial, sans-serif;
 		    font-size: 12px;
@@ -117,7 +121,6 @@
 			font-family: Arial;
 			margin-bottom: 15px;
 			line-height: 18px;
-			float: left;
 			width: 100%;
 		}
 
@@ -131,7 +134,6 @@
 		    font-size: 13px;
 		    font-family: Arial;
 		    line-height: 18px;
-		    float: left;
 		}
 
 		.place span {
@@ -147,11 +149,10 @@
 		    font-family: Arial;
 		    margin-top: 20px;
 		    line-height: 18px;
-		    height: 36px;
+		    max-height: 36px;
 		    text-overflow: ellipsis;
 			display: block;
 			overflow: hidden;
-			float: left;
 		}
 
 		hr{
@@ -285,7 +286,7 @@
 
 
 	<div class="container" id="container">
-		
+
 
 	</div>
 
@@ -340,12 +341,12 @@
 		}
 
 		function pagination(elements) {
-	        $('#pagination').smartpaginator({ 
-		        totalrecords: elements, 
-		        recordsperpage: 3, 
-		        length: 4, 
-		        datacontainer: 'paginas', 
-		        dataelement: 'div.eventContainer', 
+	        $('#pagination').smartpaginator({
+		        totalrecords: elements,
+		        recordsperpage: 3,
+		        length: 4,
+		        datacontainer: 'paginas',
+		        dataelement: 'div.eventContainer',
 		        initval: 0,
 	        });
 	    }
@@ -361,10 +362,10 @@
 				var filas = dataGlobal.getNumberOfRows();
 				var html = "";
 
-				if(filas < 1) 
+				if(filas < 1)
 	    			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
 	            else {
-	                html += '<div id="paginas" class="paginaNueva" style=" display: block;">'; 
+	                html += '<div id="paginas" class="paginaNueva" style=" display: block;">';
 
 					for(var i=0; i < filas; i++) {
 
@@ -387,12 +388,12 @@
 
 			var date = data.getFormattedValue(i, 4).split('/');
 			var day = date[0];
-			var mon = month[parseInt(date[1])]; 
+			var mon = month[parseInt(date[1])];
 			var year = date[2];
 
 			var date2 = data.getFormattedValue(i, 5).split('/');
 			var day2 = date2[0];
-			var mon2 = month[parseInt(date2[1])]; 
+			var mon2 = month[parseInt(date2[1])];
 			var year2 = date2[2];
 
 			var tagConfirm = "";
@@ -400,7 +401,7 @@
 			var icon;
 			if(data.getValue(i, 6) == 'x')	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20calendario%20eventos.png";
 			else 							icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20radio%20eventos.png";
-				
+
 
 		   	html += "<div class='eventContainer'>";
 		   	html += "	<div class='datesandtags'>";
@@ -436,7 +437,7 @@
 			//Contenido
 		   	html += "	<div class='info'>";
 		   	html += "		<div class='title'>" + data.getValue(i, 1) + "</div>";
-		   	html += "		<div class='assistants'>";
+		   	html += "		<div class='assistants clearfix'>";
 		   	html += 			getAssistants(data, dataAss, i);
 		   	html += "		</div>";
 		   	html += "		<div class='place'>Lugar: <span>" + data.getValue(i, 3) + "</span></div>";
@@ -446,7 +447,7 @@
 
 			//Separación
 		    html += "	<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/>";
-		    html += "</div>";			
+		    html += "</div>";
 		    return html;
 
 		}
