@@ -101,16 +101,16 @@
 
 					for(i = 0; i < data.length; i++) {
 						template += '<li>';
-						template += '<img onclick="javascript:Go(\''+data[i].targetUrl+'\')" src="' + data[i].imageUrl + '"/>';
+						template += '<a target="_blank" href="' + data[i].targetUrl + '"><img src="' + data[i].imageUrl + '" /></a>';
 						template += '</li>';
 					}
 
 					document.getElementById("articleBanners").innerHTML = template;
 				}
 
-				function Go(destination) {
+				/*function Go(destination) {
 					window.parent.location.href = destination;
-				}
+				}*/
 
 				google.setOnLoadCallback(getSpreadsheet);
 
