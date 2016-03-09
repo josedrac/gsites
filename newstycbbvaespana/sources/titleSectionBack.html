@@ -1,0 +1,167 @@
+  <style type="text/css">
+  	@font-face {
+            font-family: 'BBVA Web Light';
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+  	h2 {
+  		font-family:"BBVA Web Light", arial, sans-serif;
+  		font-weight: lighter;
+  		color: #0078D2;
+  		font-size: 29.5px;
+  		margin: 0;
+  	}
+  	.container {
+  		padding-bottom: 14px;
+  		background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
+  		background-position: bottom;
+  		background-repeat: repeat-x;
+  	}
+  	.container h2 {
+  		display: inline-block;
+  		vertical-align: sub;
+  	}
+  	.container button {
+  		vertical-align: middle;
+          margin-right: 12px;
+  	}
+  	button {
+  		background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/bg-boton-encabezado-volver_R2.png);
+  		background-repeat: no-repeat;
+  	    background-color: initial;
+  	    cursor: pointer;
+          outline: none;
+  	    border: 0;
+          width: 73px;
+  			height: 30px;
+  			color: #0078D2;
+  	    font-size: 15px;
+  			font-weight: bold;
+  			padding-left: 10px;
+  	}
+    .printer-container {
+      display: inline-block;
+      float: right;
+      margin-top: 20px;
+    }
+    img {
+      cursor: pointer;
+    }
+  </style>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js"></script>
+  <script type="text/javascript">
+  	google.load('visualization', '1', {packages: ['table']});
+  </script>
+  <div id="container" class="container">
+  	<button id="buttonLabel" type="button" onclick="javascript:goBack();"></button>
+  	<h2 id="title"></h2>
+  </div>
+  <script type="text/javascript">
+    function getParam(p){
+        var params;
+        if(window.location.href.split("?").length > 1){
+            params = window.location.href.split("?")[1].split("&");
+            for(var i=0; i<params.length; i++){
+                if(params[i].split("=")[0] == p)
+                    return params[i].split("=")[1];
+            }
+        }
+        return "";
+    }
+
+    var article = false;
+    var queryString = "";
+    if (article) {
+      queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"');
+    }
+
+  	var date = getParam('date');
+    var datePath = getDate();
+  	var	spreadsheetKey = getParam('key'),
+  		siteName = getParam('siteName'),
+  		sheetName = encodeURIComponent('sections'),
+  		query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
+    function getSpreadsheet() {
+  		query.send(handleQueryResponse);
+  	}
+
+  	function hasAnotherDate(data) {
+  		var rows = data.getNumberOfRows();
+  		for(var i=0; i < rows; i++){
+  			if(data.getValue(i, 3) != null && data.getValue(i, 3) == date){
+  				return i;
+  			}
+  		}
+  		for(var i=0; i < rows; i++){
+  			if(data.getValue(i, 3) == null || data.getValue(i, 3) == ""){
+  				return i;
+  			}
+  		}
+  	}
+
+  	function handleQueryResponse(response) {
+  		if (response.isError()) {
+  			console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+  			return;
+  		}
+  		var dataTable = response.getDataTable();
+  		dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+  	}
+
+  	function printDataTable(dataTable) {
+      var title;
+      var index = hasAnotherDate(dataTable);
+      var buttonLabel = dataTable.getValue(index, 4);
+
+      if(article) title = dataTable.getValue(index, 1);
+      else        title = dataTable.getValue(index, 5);
+
+  		document.getElementById("title").innerHTML = title;
+      document.getElementById('buttonLabel').innerHTML = buttonLabel;
+  	}
+
+    function goBack() {
+      window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/' +
+                                        siteName + '/' + datePath + '?date=' + date + '';
+    }
+
+    function goPrint() {
+      window.top.focus();
+      print();
+    }
+
+    function getDate() {
+      var d = getParam('date').split('/');
+      var month = getMonth( parseInt( d[0] ) );
+      var year = d[1];
+      return month+'-'+year;
+    }
+
+    function getMonth(month) {
+      switch(month) {
+        case 1:     return 'enero';
+        case 2:			return 'febrero';
+        case 3:			return 'marzo';
+        case 4:			return 'abril';
+        case 5:			return 'mayo';
+        case 6:			return 'junio';
+        case 7:			return 'julio';
+        case 8:			return 'agosto';
+        case 9:	    return 'septiembre';
+        case 10:		return 'octubre';
+        case 11:		return 'noviembre';
+        case 12:		return 'diciembre';
+        default:		return '';
+      }
+    }
+
+  	google.setOnLoadCallback(getSpreadsheet);
+  </script>
