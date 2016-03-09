@@ -154,9 +154,9 @@
 
 			<div id="article-content" class="article-content">
 
-				<h2 id="subtitle"></h2>
+				<h2 id="title"></h2>
 
-				<h3 id="title"></h3>
+				<h3 id="subtitle"></h3>
 
 				<div id="authorSignature"></div>
 
