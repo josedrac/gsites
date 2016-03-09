@@ -38,7 +38,7 @@
 					padding: 0 10px;
 				}
 
-        h2 {
+        #title {
           font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
           font-size: 22px;
             font-weight: normal;
@@ -51,8 +51,8 @@
 
         }
 
-        h3 {
-            font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+        #subtitle {
+            font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
             font-size: 16.25px;
             font-weight: normal;
             text-transform: uppercase;
