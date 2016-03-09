@@ -145,12 +145,12 @@
                 </tr>
                 <tr>
                     <td>
-                        Url de la imagen: <input type="text" id="imageUrl" value="__UP_imageUrl__"   onchange="register('imageUrl')"/>
+                        Url de la imagen: <input type="text" id="imageUrl" value="__UP_imageUrl__" onchange="register('imageUrl')"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+                        Site name: <input type="text" id="siteName" value="__UP_siteName__" onchange="register('siteName')"/>
                     </td>
                 </tr>
             </table>
@@ -165,6 +165,7 @@
 
             function toggleSubpage(){
                 var isChecked = document.getElementById('subpage').checked;
+                prefs.set('subpage', isChecked);
 
                 if(isChecked){
                     document.getElementById('imageUrl').disabled = true;
