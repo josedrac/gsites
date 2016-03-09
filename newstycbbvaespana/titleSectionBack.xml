@@ -192,11 +192,6 @@
 				font-weight: bold;
 			}
 		 </style>
-      <script>
-        var aux = '__UP_article__';
-        if(aux.length > 0)
-          document.getElementById('article').checked = '__UP_article__';
-      </script>
 		 <table width="100%" border="0" id="tablaconfig">
 			<tr>
 		       <td>
@@ -204,6 +199,12 @@
 		       </td>
 		   </tr>
 		</table>
+
+    <script type="text/javascript">
+      var aux = '__UP_article__';
+      if(aux.length > 0)
+        document.getElementById('article').checked = '__UP_article__';
+    </script>
 
 		<script type="text/javascript">
 
