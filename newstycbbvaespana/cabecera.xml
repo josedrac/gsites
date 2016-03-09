@@ -10,6 +10,7 @@
 
     <UserPref name="imageUrl" display_name="Url de la imagen" required="true" />
     <UserPref name="siteName" display_name="Site name" required="true" />
+    <UserPref name="subpage" display_name="Subpage" />
 
     <Content type="html">
         <![CDATA[
@@ -26,21 +27,53 @@
 
         </style>
 
-        <div id="container" class="container">
-            <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/bannerGooglePlus.png" onclick="javascript:Go('https://plus.google.com/communities/102125230164439735660');"/>
-        </div>
+        <div id="container" class="container"></div>
+
+        <script type="text/javascript">
+
+            google.load('visualization', '1', {packages: ['table']});
+
+        </script>
 
         <script type="text/javascript">
 
             adjustGadgetHeight('container');
             var prefs = new gadgets.Prefs();
-            var imageUrl = prefs.getString("imageUrl");
-            var siteName = prefs.getString("siteName");
-            var datePath = getDate();
+            var subpage = prefs.getBool('subpage');
 
-            var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + siteName + '/' + datePath + "?date=" + getParam('date');
+            if(subpage){
+                var siteName = getParam('siteName');
+                var spreadsheetKey = '1GgolxvASZkQt6RDB-lH_2WhPE7GtNM0VUFbkrY0eZWo',
+                    sheetName = encodeURIComponent('territoriales'),
+                    queryString = encodeURIComponent('SELECT * where B ends with "' + siteName + '"'),
+                    query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
-            document.getElementById('container').innerHTML = '<img src="'+imageUrl+'" onclick="javascript:Go(\''+url+'\');"/>';
+                query.send(handleQueryResponse);
+            }else{
+                var imageUrl = prefs.getString("imageUrl");
+                var siteName = prefs.getString("siteName");
+                var datePath = getDate();
+
+                var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + siteName + '/' + datePath + "?date=" + getParam('date');
+                document.getElementById('container').innerHTML = '<img src="' + imageUrl + '" onclick="javascript:Go(\'' + url + '\');"/>';
+            }
+
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+
+                var dataTable = response.getDataTable();
+
+                if(dataTable.getNumberOfRows()){
+                    var imageUrl = dataTable.getValue(0, 2);
+                    var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + getParam('siteName') + '/' + getDate() + "?date=" + getParam('date');
+                    document.getElementById('container').innerHTML = '<img src="'+imageUrl+'" onclick="javascript:Go(\''+url+'\');"/>';
+                }else{
+                    console.log('spreadsheet is empty');
+                }
+            }
 
             function getParam(p){
                 var params;
@@ -107,12 +140,16 @@
             <table width="100%" border="0" id="tablaconfig">
                 <tr>
                     <td>
+                        Subpage: <input type="checkbox" id="subpage" value="__UP_subpage__" onclick="toggleSubpage()" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
                         Url de la imagen: <input type="text" id="imageUrl" value="__UP_imageUrl__"   onchange="register('imageUrl')"/>
                     </td>
                 </tr>
                 <tr>
                     <td>
-
                         Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
                     </td>
                 </tr>
@@ -121,8 +158,21 @@
             <script type="text/javascript">
 
             var prefs = new gadgets.Prefs();
-                function register(variable) {
+
+            function register(variable) {
                 prefs.set(variable, document.getElementById(variable).value);
+            }
+
+            function toggleSubpage(){
+                var isChecked = document.getElementById('subpage').checked;
+
+                if(isChecked){
+                    document.getElementById('imageUrl').disabled = true;
+                    document.getElementById('siteName').disabled = true;
+                }else{
+                    document.getElementById('imageUrl').disabled = false;
+                    document.getElementById('siteName').disabled = false;
+                }
             }
 
             </script>
