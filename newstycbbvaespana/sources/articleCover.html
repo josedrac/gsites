@@ -57,8 +57,18 @@
 				vertical-align: middle;
 			}
 
-			h2 {
-				font-family: BBVA Web Light, Arial;
+			#title {
+	  			font-family: BBVA Web Light, Arial;
+	  			font-size: 18px;
+	  			font-weight: normal;
+		      color: #0078D2;
+	  			text-decoration: none;
+	  			word-spacing: -2px;
+	  			margin: 0;
+			}
+
+      #subtitle {
+				font-family: BBVA Web Book, Arial;
 				font-size: 16px;
 				font-weight: normal;
 				text-transform: uppercase;
@@ -66,16 +76,6 @@
 				color: #333;
 				margin-top: 0;
 				margin-bottom: 5px;
-			}
-
-			h3 {
-	  			font-family: BBVA Web Book, Arial;
-	  			font-size: 18px;
-	  			font-weight: normal;
-		      color: #0078D2;
-	  			text-decoration: none;
-	  			word-spacing: -2px;
-	  			margin: 0;
 			}
 
 			.author-signature {
@@ -189,7 +189,7 @@
 				return false;
 			}
 
-			var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
+			var spreadsheetKey = '1gWxfjBO4J5sKAWUjUE9x38TX-7t8lIkaoQpYiJGnEy4',
 				siteName = 'servicios-centrales',
 				sheetName = encodeURIComponent('article content'),
 				queryString = encodeURIComponent('SELECT * where A = "B10" and D ends with "' + getUrlParameter("date") + '"'),
