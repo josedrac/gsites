@@ -11,20 +11,51 @@
 
     </style>
 
-    <div id="container" class="container">
-        <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/bannerGooglePlus.png" onclick="javascript:Go('https://plus.google.com/communities/102125230164439735660');"/>
-    </div>
+    <div id="container" class="container"></div>
 
     <script type="text/javascript">
 
-        var imageUrl = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/bannerGooglePlus.png";
-        var siteName = "servicios-centrales";
-        var datePath = getDate();
+        google.load('visualization', '1', {packages: ['table']});
 
-        var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + siteName + '/' + datePath + "?date=" + getParam('date');
+    </script>
 
-        document.getElementById('container').innerHTML = '<img src="'+imageUrl+'" onclick="javascript:Go(\''+url+'\');"/>';
+    <script type="text/javascript">
 
+        var subpage = true;
+
+        if(subpage){
+            var siteName = getParam('siteName');
+            var spreadsheetKey = '1GgolxvASZkQt6RDB-lH_2WhPE7GtNM0VUFbkrY0eZWo',
+                sheetName = encodeURIComponent('territoriales'),
+                queryString = encodeURIComponent('SELECT * where B ends with "' + siteName + '"'),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
+            query.send(handleQueryResponse);
+        }else{
+            var imageUrl = "https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/home/imagenes/Logo%20Servicios%20Centrales.png?attachauth=ANoY7coOie9q5o64tnwlOBU01wlf1Cmk3BAKJ5hQlnmzXNtDErKjhaiCtGuOJ-uLsRzaX5N3Wxzdv6CYGSxn-bT6VOXqdPSxG6ONESR2Rc3twkX2967A3WtyVO9XGihW48OOM4CbS0rBAkXhaYWcFEly-OK__Z8uOPmMYhOrf-CnvIVetWTmMJFfVJ-NfjNzNkMw2yhY_BRHgNPo4SfYrGoGtow8UV7BvSoAC4rf-f8OV2tmNewz4ki9wy-pK4xD3EgBA9vQX_Ke&attredirects=0";
+            var siteName = "servicios-centrales";
+            var datePath = getDate();
+
+            var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + siteName + '/' + datePath + "?date=" + getParam('date');
+            document.getElementById('container').innerHTML = '<img src="' + imageUrl + '" onclick="javascript:Go(\'' + url + '\');"/>';
+        }
+
+        function handleQueryResponse(response) {
+            if (response.isError()) {
+                console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+            }
+
+            var dataTable = response.getDataTable();
+
+            if(dataTable.getNumberOfRows()){
+                var imageUrl = dataTable.getValue(0, 2);
+                var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + getParam('siteName') + '/' + getDate() + "?date=" + getParam('date');
+                document.getElementById('container').innerHTML = '<img src="'+imageUrl+'" onclick="javascript:Go(\''+url+'\');"/>';
+            }else{
+                console.log('spreadsheet is empty');
+            }
+        }
 
         function getParam(p){
             var params;
