@@ -78,10 +78,10 @@
 		  			margin: 0;
 				}
 
-	      #subtitle {
-					font-family: BBVA Web Book, Arial;
+				#subtitle {
+					font-family: BBVA Web Light, Arial;
 					font-size: 16px;
-					font-weight: normal;
+					font-weight: bold;
 					text-transform: uppercase;
 	    			word-spacing: 2px;
 					color: #333;
