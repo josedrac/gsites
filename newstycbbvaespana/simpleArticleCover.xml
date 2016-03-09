@@ -43,8 +43,18 @@
 					font-weight: normal;
 				}
 
-				h2 {
-					font-family: BBVA Web Light, Arial;
+				#title {
+		  			font-family: BBVA Web Light, Arial;
+		  			font-size: 18px;
+		  			font-weight: normal;
+			      color: #0078D2;
+		  			text-decoration: none;
+		  			word-spacing: -2px;
+		  			margin: 0;
+				}
+
+	      #subtitle {
+					font-family: BBVA Web Book, Arial;
 					font-size: 16px;
 					font-weight: normal;
 					text-transform: uppercase;
@@ -52,16 +62,6 @@
 					color: #333;
 					margin-top: 0;
 					margin-bottom: 5px;
-				}
-
-				h3 {
-		  			font-family: BBVA Web Book, Arial;
-		  			font-size: 18px;
-		  			font-weight: normal;
-					color: #0078D2;
-		  			text-decoration: none;
-		  			word-spacing: -2px;
-		  			margin: 0;
 				}
 
 				p,
@@ -115,7 +115,7 @@
 					color: #0078D2;
 				    margin-bottom: 4px;
 				}
-				
+
 			</style>
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -129,7 +129,7 @@
 
 		 	<div id="sectionId">
 
-				<h3 id="subtitle"></h3>	
+				<h3 id="subtitle"></h3>
 
 				<div id="sortDescription"></div>
 				<button id="buttonArticle" type="button" onclick="javascript:goArticle()"></button>
@@ -139,7 +139,7 @@
 		 	<div id="functionsContainer"></div>
 
 			<script type="text/javascript">
-				
+
 				$.ajax({
 					  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 						success: function(result){
@@ -149,7 +149,7 @@
 						}
 					});
 
-				
+
 			</script>
 
 			<script type="text/javascript">
@@ -198,7 +198,7 @@
 							sortDescription: dataTable.getValue(0, 7)
 						};
 
-					document.getElementById("subtitle").innerHTML = data.subtitle; 	
+					document.getElementById("subtitle").innerHTML = data.subtitle;
 					document.getElementById("sortDescription").innerHTML = data.sortDescription;
 
 				}
