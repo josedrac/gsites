@@ -69,7 +69,7 @@
 				}
 
 				#title {
-		  			font-family: BBVA Web Light, Arial;
+		  			font-family: BBVA Web Book, Arial;
 		  			font-size: 18px;
 		  			font-weight: normal;
 			      color: #0078D2;
@@ -79,11 +79,11 @@
 				}
 
 	      #subtitle {
-					font-family: BBVA Web Book, Arial;
+					font-family: BBVA Web Light, Arial;
 					font-size: 16px;
 					font-weight: normal;
 					text-transform: uppercase;
-	    			word-spacing: 2px;
+	    		word-spacing: 2px;
 					color: #333;
 					margin-top: 0;
 					margin-bottom: 5px;
@@ -171,8 +171,8 @@
 		 		<div class="content-wrapper">
 					<div class="article-cover-wrapper">
 
-			 			<h2 id="title"></h2>
 						<h3 id="subtitle"></h3>
+			 			<h2 id="title"></h2>
 
 						<div id="authorSignature"></div>
 
