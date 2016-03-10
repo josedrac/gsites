@@ -84,7 +84,7 @@
 					font-weight: normal;
 					text-transform: uppercase;
 	    		word-spacing: 2px;
-					color: #333;
+					color: #000;
 					margin-top: 0;
 					margin-bottom: 5px;
 				}
