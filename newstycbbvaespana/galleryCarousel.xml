@@ -262,17 +262,15 @@
 				image = dataTable.getValue(i, 2);
 				link = dataTable.getValue(i, 3);
 
-				if(link != "" && link != null)
-					html += "<li class=\"pointer\" onclick=\"javascript:Go('"+link+"')\">";
-				else
-					html += "<li>";
+                html += "<li>";
 	        	html += "	<div class='image'>"
 		        html += "		<div class='background' style='background-image: url(\"" + image + "\");'></div>";
 		        html += "	</div>";
 				html += "	<div class='content'>";
 				html += "		<h2>" + title + "</h2>";
 				html += "    	<p>" + subtitle + "</p>";
-                html += "       <button type='button'>Más info</button>";
+                if(link != '' && link != null)
+                    html += "       <button type='button' onclick=\"javascript:Go('" + link + "')\">Más info</button>";
 				html += "	</div>";
 				html += "</li>";
 
