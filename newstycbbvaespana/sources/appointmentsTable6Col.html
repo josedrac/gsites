@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>appointments table</title>
+
+		<!-- --- STYLES ------------------------------------------------------------------------------------------ -->
+
+		<style type="text/css">
+
+			@font-face {
+				font-family: 'BBVA Web Light';
+				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+
+			p {
+				font-family: arial;
+				font-size: 12.25px;
+				color: #434A58;
+				line-height: 20px;
+				padding: 0 20px;
+			}
+
+			table {
+		    	border-collapse: collapse;
+				background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
+				background-position: bottom;
+				background-repeat: repeat-x;
+				width: 860px;
+				margin: 0 auto;
+				margin-top: 40px;
+			}
+
+			table thead tr th {
+				font-family: BBVA Web Light, Arial;
+				font-weight: normal;
+				font-size: 16px;
+			    text-align: left;
+				color: #0078D2;
+				border-bottom: 1px solid #DDE3EA;
+			    padding: 0 20px 6px;
+			}
+
+			table thead tr th.col-1 {
+				width: 24%;
+			}
+
+			table thead tr th.col-2 {
+				width: 15%;
+			}
+
+			table thead tr th.col-3 {
+				width: 18%;
+			}
+
+			table thead tr th.col-4 {
+				width: 15%;
+			}
+
+			table thead tr th.col-5 {
+				width: 18%;
+			}
+
+			table tbody tr td {
+				font-family: arial;
+				font-size: 12.25px;
+				color: #434A58;
+			    padding: 7.25px 20px;
+		        vertical-align: top;
+			}
+
+			table tbody tr:first-child td {
+				padding-top: 26px;
+			}
+
+			table tbody tr:last-child td {
+				padding-bottom: 25px;
+			}
+
+			table thead tr th .sign-up {
+				font-family: BBVA Web Light, Arial;
+				font-size: 14px;
+				color: #0078D2;
+				position: relative;
+			    top: -2px;
+		        cursor: default
+			}
+
+			table thead tr th .sign-up span {
+				position: relative;
+			    top: -4px;
+			    font-weight: bold;
+			    color: #0079C1;
+			}
+
+			table thead tr th:not(:first-child),
+			table tbody tr td:not(:first-child) {
+				padding-left: 0;
+			}
+
+			.text-center {
+				text-align: center;
+			}
+
+
+		</style>
+
+		<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
+
+		<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
+
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+		<script type="text/javascript">
+
+			google.load('visualization', '1', {packages: ['table']});
+
+		</script>
+
+		<script type="text/javascript">
+
+			function getParam(parameterName) {
+				var params = window.location.search.substr(1).split('&');
+				for (var i = 0; i < params.length; i++) {
+					var p = params[i].split('=');
+					if (p[0] == parameterName) {
+						return decodeURIComponent(p[1]);
+					}
+				}
+				return false;
+			}
+
+			var spreadsheetKey = getParam('key');
+				sheetName = encodeURIComponent('appointments'),
+				queryString = encodeURIComponent('SELECT * where G = "' + getParam("date") + '"'),
+				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
+			function getSpreadsheet() {
+				query.send(handleQueryResponse);
+			}
+
+			function handleQueryResponse(response) {
+				if (response.isError()) {
+					console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+					return;
+				}
+				var dataTable = response.getDataTable();
+				dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+			}
+
+			function printDataTable(dataTable) {
+				var rows = dataTable.getNumberOfRows(),
+					template = '',
+					url;
+
+				document.getElementById('col-1').innerHTML = dataTable.getValue(0, 7);
+				document.getElementById('col-2').innerHTML = dataTable.getValue(0, 8);
+				document.getElementById('col-3').innerHTML = dataTable.getValue(0, 9);
+				document.getElementById('col-4').innerHTML = dataTable.getValue(0, 10);
+				document.getElementById('col-5').innerHTML = dataTable.getValue(0, 11);
+				document.getElementById('text').innerHTML = dataTable.getValue(0, 12);
+
+				for(i = 0; i < rows; i++) {
+					template += '<tr>';
+					template += '<td>' + dataTable.getValue(i, 0) + '</td>';
+					template += '<td>' + dataTable.getValue(i, 1) + '</td>';
+					template += '<td>' + dataTable.getValue(i, 2) + '</td>';
+					template += '<td>' + dataTable.getValue(i, 3) + '</td>';
+					template += '<td>' + dataTable.getValue(i, 4) + '</td>';
+					url = dataTable.getValue(i, 5);
+					if(url != null && url != undefined && url != ''){
+						template += '<td class="text-center"><img src="../img/green-check.png"></td>';
+					}
+					template += '</tr>';
+				}
+
+				document.getElementById("tableBody").innerHTML = template;
+			}
+
+			google.setOnLoadCallback(getSpreadsheet);
+
+		</script>
+
+		<!-- --- END JAVASCRIPT ---------------------------------------------------------------------------------- -->
+
+	</head>
+
+	<!-- --- HTML -------------------------------------------------------------------------------------------- -->
+
+	<body>
+
+		<p id="text"></p>
+
+		<table>
+			<thead>
+				<tr>
+					<th id="col-1" class="col-1"></th>
+					<th id="col-2" class="col-2"></th>
+					<th id="col-3" class="col-3"></th>
+					<th id="col-4" class="col-4"></th>
+					<th id="col-5" class="col-5"></th>
+					<th><span id="sign-up" class="sign-up">apuntate<span>+</span></span></th>
+				</tr>
+			</thead>
+			<tbody id="tableBody"></tbody>
+		</table>
+
+	</body>
+
+	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
+
+</html>
