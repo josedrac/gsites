@@ -199,7 +199,7 @@
     					template += '<td>' + dataTable.getValue(i, 4) + '</td>';
     				url = dataTable.getValue(i, 5);
     				if(url !== null && url !== undefined && url !== ''){
-    					template += '<td class="text-center"><img src="../img/green-check.png"></td>';
+    					template += '<td class="text-center"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/green-check.png"></td>';
     				}
     				template += '</tr>';
     			}
