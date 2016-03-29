@@ -47,23 +47,23 @@
 			    padding: 0 20px 6px;
 			}
 
-			table thead tr th.col-1 {
+			.six-cols .col-1 {
 				width: 24%;
 			}
 
-			table thead tr th.col-2 {
+			.six-cols .col-2 {
 				width: 15%;
 			}
 
-			table thead tr th.col-3 {
+			.six-cols .col-3 {
 				width: 18%;
 			}
 
-			table thead tr th.col-4 {
+			.six-cols .col-4 {
 				width: 15%;
 			}
 
-			table thead tr th.col-5 {
+			.six-cols .col-5 {
 				width: 18%;
 			}
 
@@ -136,6 +136,7 @@
 				return false;
 			}
 
+			var isSixColumns = false;
 			var spreadsheetKey = getParam('key');
 				sheetName = encodeURIComponent('appointments'),
 				queryString = encodeURIComponent('SELECT * where G = "' + getParam("date") + '"'),
@@ -151,7 +152,21 @@
 					return;
 				}
 				var dataTable = response.getDataTable();
-				dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+
+				if(dataTable.getNumberOfRows()){
+					var column11 = dataTable.getValue(0, 11);
+					if( column11 !== "" && column11 !== null ) {
+						isSixColumns = true;
+						print6ColumnsDataTable(dataTable);
+					}
+					else {
+						isSixColumns = false;
+						printDataTable(dataTable);
+					}
+				}
+				else{
+					console.log('spreadsheet is empty');
+				}
 			}
 
 			function printDataTable(dataTable) {
@@ -159,12 +174,7 @@
 					template = '',
 					url;
 
-				document.getElementById('col-1').innerHTML = dataTable.getValue(0, 7);
-				document.getElementById('col-2').innerHTML = dataTable.getValue(0, 8);
-				document.getElementById('col-3').innerHTML = dataTable.getValue(0, 9);
-				document.getElementById('col-4').innerHTML = dataTable.getValue(0, 10);
-				document.getElementById('col-5').innerHTML = dataTable.getValue(0, 11);
-				document.getElementById('text').innerHTML = dataTable.getValue(0, 12);
+				createTableHeader(dataTable);
 
 				for(i = 0; i < rows; i++) {
 					template += '<tr>';
@@ -172,7 +182,8 @@
 					template += '<td>' + dataTable.getValue(i, 1) + '</td>';
 					template += '<td>' + dataTable.getValue(i, 2) + '</td>';
 					template += '<td>' + dataTable.getValue(i, 3) + '</td>';
-					template += '<td>' + dataTable.getValue(i, 4) + '</td>';
+					if(isSixColumns)
+						template += '<td>' + dataTable.getValue(i, 4) + '</td>';
 					url = dataTable.getValue(i, 5);
 					if(url != null && url != undefined && url != ''){
 						template += '<td class="text-center"><img src="../img/green-check.png"></td>';
@@ -181,6 +192,25 @@
 				}
 
 				document.getElementById("tableBody").innerHTML = template;
+			}
+
+			function createTableHeader(dataTable) {
+				var header = "";
+
+				if(isSixColumns)		$('#table-header').addClass('six-cols');
+
+				header += 		'<th id="col-1" class="col-1">'+ dataTable.getValue(0, 7) +'</th>' +
+								'<th id="col-2" class="col-2">'+ dataTable.getValue(0, 8) +'</th>' +
+								'<th id="col-3" class="col-3">'+ dataTable.getValue(0, 9) +'</th>' +
+								'<th id="col-4" class="col-4">'+ dataTable.getValue(0, 10) +'</th>';
+
+				if(isSixColumns)
+					header += 	'<th id="col-5" class="col-5">'+ dataTable.getValue(0, 11) +'</th>';
+
+				header +=		'<th><span id="sign-up" class="sign-up">apuntate<span>+</span></span></th>';
+
+				document.getElementById('table-header').innerHTML = header;
+				document.getElementById('text').innerHTML = dataTable.getValue(0, 12);
 			}
 
 			google.setOnLoadCallback(getSpreadsheet);
@@ -199,13 +229,7 @@
 
 		<table>
 			<thead>
-				<tr>
-					<th id="col-1" class="col-1"></th>
-					<th id="col-2" class="col-2"></th>
-					<th id="col-3" class="col-3"></th>
-					<th id="col-4" class="col-4"></th>
-					<th id="col-5" class="col-5"></th>
-					<th><span id="sign-up" class="sign-up">apuntate<span>+</span></span></th>
+				<tr id="table_header">
 				</tr>
 			</thead>
 			<tbody id="tableBody"></tbody>
