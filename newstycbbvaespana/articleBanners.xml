@@ -19,10 +19,10 @@
 					text-align: right;
 				}
 
-				ul li {
-					margin: 10px 0;
-					cursor: pointer;
-				}
+                ul li {
+    				padding: 10px 0;
+    				cursor: pointer;
+    			}
 
 			</style>
 
