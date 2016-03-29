@@ -241,19 +241,21 @@
     		}
 
 
-    		function createTableHeader(dataTable) {
+            function createTableHeader(dataTable) {
     			var header = "",
+    				decrement = 1,
     				textIndex = 11;
 
     			if(isSixColumns) {
     				textIndex = 12;
+    				decrement = 0;
     				$('#table_header').addClass('six-cols');
     			}
 
-    			header += 		'<th id="col-1" class="col-1">'+ dataTable.getValue(0, 7) +'</th>' +
-    							'<th id="col-2" class="col-2">'+ dataTable.getValue(0, 8) +'</th>' +
-    							'<th id="col-3" class="col-3">'+ dataTable.getValue(0, 9) +'</th>' +
-    							'<th id="col-4" class="col-4">'+ dataTable.getValue(0, 10) +'</th>';
+    			header += 		'<th id="col-1" class="col-1">'+ dataTable.getValue(0, 7 - decrement) +'</th>' +
+    							'<th id="col-2" class="col-2">'+ dataTable.getValue(0, 8 - decrement) +'</th>' +
+    							'<th id="col-3" class="col-3">'+ dataTable.getValue(0, 9 - decrement) +'</th>' +
+    							'<th id="col-4" class="col-4">'+ dataTable.getValue(0, 10 - decrement) +'</th>';
 
     			if(isSixColumns)
     				header += 	'<th id="col-5" class="col-5">'+ dataTable.getValue(0, 11) +'</th>';
