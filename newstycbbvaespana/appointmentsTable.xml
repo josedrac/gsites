@@ -115,10 +115,26 @@
         <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
 
 		<script type="text/javascript">
-
 			google.load('visualization', '1', {packages: ['table']});
-
 		</script>
+
+        <!-- --- HTML -------------------------------------------------------------------------------------------- -->
+
+    	<div id='container'>
+
+    		<p id="text"></p>
+
+    		<table>
+    			<thead>
+    				<tr id="table_header">
+    				</tr>
+    			</thead>
+    			<tbody id="tableBody"></tbody>
+    		</table>
+
+    	</div>
+
+    	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
 
 		<script type="text/javascript">
 
@@ -217,24 +233,6 @@
 
     	<!-- --- END JAVASCRIPT ---------------------------------------------------------------------------------- -->
 
-
-    	<!-- --- HTML -------------------------------------------------------------------------------------------- -->
-
-    	<div id='container'>
-
-    		<p id="text"></p>
-
-    		<table>
-    			<thead>
-    				<tr id="table_header">
-    				</tr>
-    			</thead>
-    			<tbody id="tableBody"></tbody>
-    		</table>
-
-    	</div>
-
-    	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
 
    		]]>
   	</Content>
