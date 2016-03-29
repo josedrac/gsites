@@ -178,10 +178,17 @@
             adjustGadgetHeight("container");
 
 
-    		var isSixColumns = false;
+            var isSixColumns = false,
+    			date = getParam("date"),
+    			queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"');
+
+    		if(parseInt(date.split('/')[0]) > 2) {
+    			isSixColumns = true;
+    			queryString = encodeURIComponent('SELECT * where G = "' + getParam("date") + '"')
+    		}
+
     		var spreadsheetKey = getParam('key');
     			sheetName = encodeURIComponent('appointments'),
-    			queryString = encodeURIComponent('SELECT * where G = "' + getParam("date") + '"'),
     			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
     		function getSpreadsheet() {
@@ -207,10 +214,11 @@
     			var rows = dataTable.getNumberOfRows(),
     				column11 = dataTable.getValue(0, 11),
     				template = '',
-    				url;
+    				url,
+    				urlIndex = 4;
 
-    			if( column11 !== "" && column11 !== null && column11 !== undefined )
-    				isSixColumns = true;
+    			if(isSixColumns)
+    				urlIndex = 5;
 
     			createTableHeader(dataTable);
 
@@ -222,7 +230,7 @@
     				template += '<td>' + dataTable.getValue(i, 3) + '</td>';
     				if(isSixColumns)
     					template += '<td>' + dataTable.getValue(i, 4) + '</td>';
-    				url = dataTable.getValue(i, 5);
+    				url = dataTable.getValue(i, urlIndex);
     				if(url !== null && url !== undefined && url !== ''){
     					template += '<td class="text-center"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/green-check.png"></td>';
     				}
@@ -234,9 +242,13 @@
 
 
     		function createTableHeader(dataTable) {
-    			var header = "";
+    			var header = "",
+    				textIndex = 11;
 
-    			if(isSixColumns)		$('#table_header').addClass('six-cols');
+    			if(isSixColumns) {
+    				textIndex = 12;
+    				$('#table_header').addClass('six-cols');
+    			}
 
     			header += 		'<th id="col-1" class="col-1">'+ dataTable.getValue(0, 7) +'</th>' +
     							'<th id="col-2" class="col-2">'+ dataTable.getValue(0, 8) +'</th>' +
@@ -249,7 +261,7 @@
     			header +=		'<th><span id="sign-up" class="sign-up">apuntate<span>+</span></span></th>';
 
     			document.getElementById('table_header').innerHTML = header;
-    			document.getElementById('text').innerHTML = dataTable.getValue(0, 12);
+    			document.getElementById('text').innerHTML = dataTable.getValue(0, textIndex);
     		}
 
     		google.setOnLoadCallback(getSpreadsheet);
