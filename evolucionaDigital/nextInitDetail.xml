@@ -198,7 +198,7 @@
                 else                                                    return true;
             }
 
-			var spreadsheetKey = getParam('key'),
+			var spreadsheetKey = 1o8qZcf1hFqxhmBxr8dqaYy3fmuyB8QFPyjRbxR7fkKI,
             sheetName = encodeURIComponent('archivo'),
             queryString = encodeURIComponent('SELECT * where A = "' + getParam("id") + '"'),
             query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
