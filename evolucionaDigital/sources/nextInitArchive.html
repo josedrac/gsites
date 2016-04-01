@@ -303,7 +303,7 @@
             var status 	= urldecode(getParam("status"));
 
             if (round != "")
-                filter += ' AND K = "'+ round +'"';
+                filter += ' AND K = '+ round;
             if (status != "")
                 filter += ' AND L = "'+ status +'"';
 
