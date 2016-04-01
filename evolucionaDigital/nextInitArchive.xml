@@ -288,8 +288,7 @@
 
 
         <div class="container" id="container">
-
-
+            <p id="intro" class="introduction"></p>
         </div>
 
         <script type="text/javascript">
