@@ -74,6 +74,10 @@
         vertical-align: middle;
     }
 
+    .status {
+        margin-left: 5px;
+    }
+
     .image-container {
         text-align: center;
         margin: 25px 0;
@@ -182,11 +186,17 @@
                 postImageText:  dataTable.getValue(0, 5),
                 author:         dataTable.getValue(0, 6),
                 status:         dataTable.getValue(0, 11),
+                round:          dataTable.getValue(0, 12),
                 footer:         dataTable.getValue(0, 13),
             },
+            icon,
             image = dataTable.getValue(0, 12);
 
+            if(data.round == 1)	 icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
+			else 			     icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
+
             document.getElementById("title").innerHTML          =   data.title;
+            document.getElementById("round").src                =   icon;
             document.getElementById("status").className         +=  " " + getStatusClass(data.status);
             document.getElementById("status").innerHTML         =   data.status;
             document.getElementById("preImageText").innerHTML   =   data.preImageText;
@@ -225,7 +235,7 @@
         <div class="header-container">
             <h3 id="title" class="title"></h3>
             <div class="status-round-container">
-                <img class="round" src=""/>
+                <img id="round" class="round" src=""/>
                 <span id="status" class="status"></span>
             </div>
         </div>
