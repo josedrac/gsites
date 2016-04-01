@@ -162,7 +162,7 @@
             <div class="header-container">
                 <h3 id="title" class="title"></h3>
                 <div class="status-round-container">
-                    <img class="round" src=""/>
+                    <img id="round" class="round" src=""/>
                     <span id="status" class="status"></span>
                 </div>
             </div>
