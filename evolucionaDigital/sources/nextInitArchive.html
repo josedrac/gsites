@@ -53,6 +53,10 @@
 			float: left;
 		}
 
+		.introduction {
+			color: 	#434A58;
+		}
+
 		.info {
 			margin-left: 7px;
 			display: inline-block;
@@ -264,8 +268,7 @@
 
 
 	<div class="container" id="container">
-
-
+		<p id="intro" class="introduction"></p>
 	</div>
 
    	<script type="text/javascript">
@@ -273,6 +276,8 @@
 		google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
         //var prefs = new gadgets.Prefs();
+        var intro = "lorem ipsum cogito ergo sum";
+		document.getElementById('intro').innerHTML = intro;
 
 
         function loadVisualizationAPI() {
