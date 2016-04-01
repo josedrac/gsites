@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  	<ModulePrefs title="NB-articleContent.xml">
+  	<ModulePrefs title="ED-nextInitDetail.xml">
 	    <Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -84,6 +84,10 @@
         .round, .status {
             display: inline-block;
             vertical-align: middle;
+        }
+
+        .status {
+            margin-left: 5px;
         }
 
         .image-container {
@@ -227,11 +231,17 @@
                     postImageText:  dataTable.getValue(0, 5),
                     author:         dataTable.getValue(0, 6),
                     status:         dataTable.getValue(0, 11),
+                    round:          dataTable.getValue(0, 12),
                     footer:         dataTable.getValue(0, 13),
                 },
+                icon,
                 image = dataTable.getValue(0, 12);
 
+                if(data.round == 1)	 icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
+    			else 			     icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
+
                 document.getElementById("title").innerHTML          =   data.title;
+                document.getElementById("round").src                =   icon;
                 document.getElementById("status").className         +=  " " + getStatusClass(data.status);
                 document.getElementById("status").innerHTML         =   data.status;
                 document.getElementById("preImageText").innerHTML   =   data.preImageText;
