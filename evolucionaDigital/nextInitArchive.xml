@@ -51,6 +51,10 @@
                 overflow: auto;
             }
 
+            .status-container {
+    			margin-bottom: 5px;
+    		}
+
             .container {
                 font-family: arial, sans-serif;
                 font-size: 12px;
@@ -115,6 +119,10 @@
                 display: inline-block;
                 vertical-align: middle;
             }
+
+            .status {
+    			margin-left: 5px;
+    		}
 
             .title {
                 font-size: 18px;
@@ -388,8 +396,8 @@
     				buttonLabel	= data.getValue(index, 15),
     				statusClass	= getStatusClass(status);
 
-    			if(round == 1)	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20calendario%20eventos.png";
-    			else 			icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20radio%20eventos.png";
+                    if(round == 1)	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
+                    else 			icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
 
     			url = gadgets.util.getUrlParameters().parent.split("?")[0] + '/detalles?id=' + id;
 
