@@ -40,6 +40,10 @@
 			overflow: auto;
 		}
 
+		.status-container {
+			margin-bottom: 5px;
+		}
+
 		.container {
 			font-family: arial, sans-serif;
 		    font-size: 12px;
@@ -77,13 +81,6 @@
 			text-align: right;
 		}
 
-		.status-round-container {
-	        float: right;
-	        font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-	        font-size: 12px;
-	        margin-right: 10px;
-	    }
-
 	    .implementado {
 	        color: #3EB6B9;
 	    }
@@ -104,6 +101,10 @@
 	        display: inline-block;
 	        vertical-align: middle;
 	    }
+
+		.status {
+			margin-left: 5px;
+		}
 
 		.title {
 		    font-size: 18px;
@@ -377,8 +378,8 @@
 				buttonLabel	= data.getValue(index, 15),
 				statusClass	= getStatusClass(status);
 
-			if(round == 1)	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20calendario%20eventos.png";
-			else 			icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20radio%20eventos.png";
+			if(round == 1)	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
+			else 			icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
 
 			url = window.location.href.split("?")[0] + '/detalles?id=' + id;
 
