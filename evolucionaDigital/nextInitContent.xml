@@ -9,6 +9,7 @@
     <UserPref name="spreadsheetKey" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYE...)" required="true" />
     <UserPref name="intro" default_value="" display_name="Introduction text" required="false" />
 
+
 	<Content type="html">
     	<![CDATA[
         <script src="https://www.google.com/jsapi" type="text/javascript"></script>
