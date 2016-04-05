@@ -257,8 +257,6 @@
                 var url                     = document.referrer.split('?')[0];
                 var filter                  = "?";
 
-                if (round == 0 && status == 0)
-                    return false;
                 if(round != 0)
                     filter += "round=" + round + "&";
                 if(status != 0)
