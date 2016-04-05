@@ -11,6 +11,7 @@
 <UserPref name="Description" default_value="" display_name="Description" required="true" />
 <UserPref name="Link" default_value="" display_name="Link" required="true" />
 <UserPref name="Video" default_value="" display_name="Video" required="true" />
+<UserPref name="Image" default_value="" display_name="Image" required="true" />
 
  <Content type="html" charset="UTF-8">
     <![CDATA[
@@ -118,6 +119,7 @@
         var Description = prefs.getString("Description");
         var Link = prefs.getString("Link");
         var Video = prefs.getString("Video");
+        var Image = prefs.getString("Image");
 
     	html += "<div class='dcbc'>";
 		html += "	<div class='text'>";
@@ -127,7 +129,7 @@
 		html += "	</div>";
 		html +=	"	<div class='media'>";
             //		html +=	"		<iframe src='" + Video + "' allowfullscreen='true' allowScriptAccess='always' style='border: 0px solid #AAA;'></iframe>";
-        html += "       <img src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/nextinit.png' />";
+        html += "       <img src='" + Image + "' />";
         html +=	"	</div>";
 		html += "	<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/>";
 		html += "</div>";
@@ -180,6 +182,11 @@
 	    <tr>
 	        <td>
 				Video: <input type="text" size="100" id="Video" value="__UP_Video__" onchange="registra('Video')"/>
+			</td>
+	    </tr>
+	    <tr>
+	        <td>
+				Image: <input type="text" size="100" id="Image" value="__UP_Image__" onchange="registra('Image')"/>
 			</td>
 	    </tr>
 	    <tr>
