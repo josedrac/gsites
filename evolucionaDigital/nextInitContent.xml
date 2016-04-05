@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="ED-nextInitContent.xml">
+	    <Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+    <UserPref name="spreadsheetKey" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYE...)" required="true" />
+    <UserPref name="intro" default_value="" display_name="Introduction text" required="false" />
+
+	<Content type="html">
+    	<![CDATA[
+        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+
+        <style type="text/css">
+            /* @group fonts */
+            @font-face {
+                font-family: 'BBVA Web Light';
+                src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.eot');
+                src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+                font-style: normal;
+                font-weight: normal;
+            }
+            @font-face {
+                font-family: 'BBVA Web Book';
+                src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.eot');
+                src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+                font-style: normal;
+                font-weight: normal;
+            }
+            @font-face {
+                font-family: 'BBVA Web Medium';
+                src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.eot');
+                src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                    url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+                font-style: normal;
+                font-weight: normal;
+            }
+            /* @end */
+
+            .clearfix {
+                overflow: auto;
+            }
+
+            .container {
+                font-family: arial, sans-serif;
+                font-size: 12px;
+                margin-bottom: 16px;
+                position: relative;
+                width: 600px;
+                float: left;
+            }
+
+            .introduction {
+                color: 	#434A58;
+            }
+
+            .info {
+                margin-left: 7px;
+                display: inline-block;
+                width: 265px;
+            }
+
+            .element-container {
+                float: left;
+                border-bottom: 1px solid #DCDCDC;
+                margin-top: 20px;
+                padding-left: 20px;
+                padding-right: 5px;
+            }
+
+            .element-container > div {
+                width: 48%;
+                float: left;
+            }
+
+            .data-container {
+                margin-right: 4%;
+            }
+
+            .media {
+                max-width: 100%;
+                text-align: right;
+            }
+
+            .title {
+                font-size: 18px;
+                font-family: BBVA Web Book, Arial;
+                color: #0078D2;
+                overflow: hidden;
+                display: block;
+            }
+
+            .text {
+                color: 			#434A58;
+                font-size: 		12px;
+                font-family: 	Arial;
+                margin-top: 	15px;
+                line-height: 	18px;
+                display: 		block;
+            }
+
+            hr{
+                width:610px;
+                margin-bottom:20px;
+                margin-left:-1px;
+                color:#DCDCDC;
+            }
+
+            button:hover {
+                background: #004C99;
+            }
+
+            button {
+                background: #0079C1;
+                background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+                background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+                background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+                background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+                background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+                background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+                -webkit-border-radius: .3em;
+                -moz-border-radius: .3em;
+                border-radius: .3em;
+                text-align: center;
+                font-size: 12px;
+                vertical-align: middle;
+                height: 1.75em;
+                padding-left: .9em;
+                padding-right: .9em;
+                padding-bottom: 2px;
+                border: .1em solid #00559D;
+                color: white;
+                cursor: pointer;
+                position: relative;
+                text-align: center;
+                vertical-align: middle;
+                margin-right: 22px;
+                margin-bottom: 20px;
+                margin-top: 20px;
+                margin-left: 0px;
+                float: left;
+                font-family: BBVA Web Book, Arial;
+            }
+
+
+            .lineinfo {
+                width:100%;
+                height:4px;
+                display:block;
+                margin-bottom: 20px;
+            }
+
+            .sites-embed-align-left-wrapping-off{
+                display: block;
+                clear: both;
+                text-align: left;
+                margin: 5px auto 5px 0;
+                width: 650px;
+            }
+
+            p.text {
+                font-size: 0.8em;
+                color: #3B3B3B;
+            }
+
+            .youtubeIframe{
+                display:none;
+            }
+
+            .black.normal {
+                background-color: #FFFFFF;
+                color: #0072C9;
+                border: solid 1px #d2e5eb;
+            }
+            .black.active {
+                background-color: #0072C9;
+                color: #FFFFFF;
+                border: solid 1px #0072C9;
+            }
+        </style>
+
+
+        <div class="container" id="container">
+            <p id="intro" class="introduction"></p>
+        </div>
+
+        <script type="text/javascript">
+            var gadgetHelper = null;
+            google.load('visualization', '1', {packages: ['table']});
+            google.setOnLoadCallback(sendQuery);
+            var prefs = new gadgets.Prefs();
+            var intro = prefs.getString('intro');
+            document.getElementById('intro').innerHTML = intro;
+
+            function loadVisualizationAPI() {
+                google.load("visualization", "1", {"packages": ["table"]});
+                google.setOnLoadCallback(sendQuery);
+            }
+
+            function getParam(p){
+	            var params;
+	            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+	                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+	                for(var i=0; i<params.length; i++){
+	                    if(params[i].split("=")[0] == p)
+	                        return params[i].split("=")[1];
+	                }
+	            }
+	            return "";
+	        }
+
+            function sendQuery(){
+                var spreadsheetKey = prefs.getString('spreadsheetKey'),
+                //var spreadsheetKey 	= '1o8qZcf1hFqxhmBxr8dqaYy3fmuyB8QFPyjRbxR7fkKI',
+                    sheetName 		= encodeURIComponent('contenidos'),
+                    queryString 	= encodeURIComponent('SELECT * where C <> "imagen"'),
+                    query 			= new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+                query.send(handleQueryResponse);
+            }
+
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+                var dataTable = response.getDataTable();
+                dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+            }
+
+            function printDataTable(dataTable) {
+
+                var filas 	= dataTable.getNumberOfRows();
+                var html 	= "";
+
+                for(var i=0; i < filas; i++) {
+                    html += getElement(dataTable, i);
+                }
+
+                document.getElementById('container').innerHTML += html;
+                gadgets.window.adjustHeight();
+            }
+
+            function getElement(data, index) {
+                var html 		= "",
+                    title 		= data.getValue(index, 0),
+                    text		= data.getValue(index, 1),
+                    image		= data.getValue(index, 2),
+                    url         = data.getValue(index, 3),
+                    buttonLabel	= data.getValue(index, 4);
+
+                html += "<div class='element-container'>";
+                html += "	<div class='data-container'>";
+                html += "		<span class='title'>"+ title +"</span>";
+                html += "		<span class='text'>"+ text +"</span>";
+                html += "		<button class='element-button' onclick='javascript:Go(\""+ url +"\")'>"+ buttonLabel +"</button>";
+                html += "	</div>";
+                html += "	<div class='media-container'>";
+                html += "		<img class='media' src='"+ image +"' />";
+                html += "	</div>";
+                html += "</div>";
+
+                return html;
+            }
+
+            function isNull(value) {
+                if(value !== null && value!== undefined && value!== "" && value.length > 0) return false;
+                else                                                    					return true;
+            }
+
+            function Go(destination){
+                window.open(destination,'_blank');
+                //window.parent.location.href = destination;
+                return false;
+            }
+
+            //delay loading
+            //delayRender();
+            function delayRender(){
+                window.setTimeout('showIframes()', 2000);
+            }
+
+            function showIframes() {
+                var iframes =document.getElementsByClassName('youtubeIframe').length;
+                for (var i=0;i<iframes;i++) {
+                    document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+                }
+            }
+        </script>
+
+        ]]>
+	</Content>
+
+    <Content type="html" view="configuration">
+
+      <![CDATA[
+
+        <style type="text/css">
+
+          table td {
+            color: #000;
+            font-size: 11px;
+            font-weight: bold;
+          }
+
+        </style>
+
+        <table width="100%" border="0" id="tablaconfig">
+          <tr>
+            <td>
+              Spreadsheet Key: <input type="text" id="spreadsheetKey" value="__UP_spreadsheetKey__"   onchange="register('spreadsheetKey')"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Introduction Text: <input type="text" id="intro" value="__UP_intro__"   onchange="register('intro')"/>
+            </td>
+          </tr>
+        </table>
+
+        <script type="text/javascript">
+
+          var prefs = new gadgets.Prefs();
+          function register(variable) {
+            prefs.set(variable, document.getElementById(variable).value);
+          }
+
+          gadgets.window.adjustHeight();
+
+        </script>
+
+      ]]>
+    </Content>
+
+</Module>
