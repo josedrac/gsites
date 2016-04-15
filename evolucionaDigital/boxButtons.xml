@@ -180,9 +180,9 @@
                if(digitalizar) {
                   document.getElementById("tour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
                   document.getElementById("login").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MmU5YzAyMWIzMWQ3NmMzMA');};
-                  document.getElementById("confirmuser").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6ZjdlZDVkMjBkMWM2YmQw');};
+                  document.getElementById("confirmuser").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3aXdDRjZIbnhGNTg');};
                   document.getElementById("downloadapp").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWViYWFkZmEzODQ3ZDRiYQ');};
-                  document.getElementById("validate").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MTQzOTZlNGQ3NjAzZmY0Mw');};
+                  document.getElementById("validate").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3N1AzUXVVSnNzMHM');};
                   document.getElementById("register").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MTk2MTc0YmJjYjIxMDk2OQ');};
                   document.getElementById("appMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NjAxYzE3NjEwMDRiNTAxZg');};
                   document.getElementById("validMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWI4NWI5MGEyYTlhYjcxNw');};
