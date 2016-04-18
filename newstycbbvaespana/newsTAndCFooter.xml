@@ -150,7 +150,7 @@
 
 	function getSpreadsheet() {
    		var spreadsheetKey = prefs.getString("spreadsheetKey"),
-   		queryString = encodeURIComponent('SELECT * where A <> "name"'),
+   		queryString = encodeURIComponent('SELECT * where A <> "name" and D = TRUE'),
 		sheetName = encodeURIComponent('territoriales'),
 		query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 		query.send(handleQueryResponse);
