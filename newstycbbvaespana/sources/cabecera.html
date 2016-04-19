@@ -24,10 +24,11 @@
         var subpage = true;
 
         if(subpage){
-            var siteName = getParam('siteName');
+            var siteName = getParam('siteName'),
+                fullDate = getReversedFullDate(getParam('date'));
             var spreadsheetKey = '1GgolxvASZkQt6RDB-lH_2WhPE7GtNM0VUFbkrY0eZWo',
                 sheetName = encodeURIComponent('territoriales'),
-                queryString = encodeURIComponent('SELECT * where B ends with "' + siteName + '"'),
+                queryString = encodeURIComponent('SELECT * where B ends with "' + siteName + '" and date "' + fullDate + '" >= E and date "' + fullDate + '" <= F'),
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
             query.send(handleQueryResponse);
@@ -69,6 +70,10 @@
             return "";
         }
 
+        function getReversedFullDate(date){
+            var dateParams = date.split('/');
+            return dateParams[1] + '-' + dateParams[0] + '-01';
+        }
 
         function Go(destination){
             window.parent.location.href = destination;
