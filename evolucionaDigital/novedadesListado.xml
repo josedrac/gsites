@@ -235,6 +235,11 @@
 			display:none;
 		}
 
+        video {
+            width: 313px;
+            height: 160px;
+        }
+
 	    .icons {
 	        margin-left: 23px;
 	    }
@@ -456,8 +461,11 @@
 				html += getIcons(data, i);
 				html += "<div class='video-container'><div class='infoVideo'>";
 				html += "<div class='urlVideo'>";
-				if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
-				  	html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+                if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
+                    if(data.getValue(i,7).startsWith('https://www.youtube.com'))
+		                html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+                    else
+                        html += "<video src='"+data.getValue(i,7)+"' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
 				} else {
 				  	html += "<img class='urlVideo imgArt' src='"+data.getValue(i,6)+"'></img></div>";
 				}
