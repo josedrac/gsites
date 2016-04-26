@@ -1,0 +1,95 @@
+    <style type="text/css">
+
+        .container {
+            width: 100%;
+            display: block;
+        }
+
+        .disclaimer {
+            font-family: arial, sans-serif;
+            color: #434A58;
+            font-size: 11px;
+        }
+
+
+    </style>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js"></script>
+
+
+    <script type="text/javascript">
+
+        google.load('visualization', '1', {packages: ['table']});
+
+    </script>
+
+    <div id="container" class="container">
+        <div id="disclaimer" class="disclaimer">
+            La presente comunicación y los contenidos a los que la misma da acceso (datos, información, documentación e imágenes adjuntas), en adelante la "Información", serán tratados y guardados como información de exclusivo uso interno de BBVA S.A. Por tanto, esta Información se entiende dirigida exclusivamente a usted, como destinatario expreso y único de este correo, quedando expresamente prohibida su divulgación, copia, cesión, entrega, remisión o envío sin consentimiento previo y escrito del remitente.
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var disclaimer_text = getDisclaimerText();
+        if( disclaimer_text != '' ) {
+            document.getElementById('disclaimer').innerHTML = disclaimer_text;
+        }
+
+        //adjustGadgetHeight('container');
+        //var prefs = new gadgets.Prefs();
+/*
+        var	spreadsheetKey = '',
+            siteName = getSiteName(),
+            sheetName = encodeURIComponent('sections'),
+            queryString = encodeURIComponent('SELECT * where A = "' + siteName + '"'),
+            query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
+        google.setOnLoadCallback(getSpreadsheet);
+
+        function getSpreadsheet() {
+            query.send(handleQueryResponse);
+        }
+
+
+        function handleQueryResponse(response) {
+            if (response.isError()) {
+                console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+            }
+            var dataTable = response.getDataTable();
+            dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+        }
+
+        function printDataTable(dataTable) {
+
+            var disclaimer_text = dataTable.getValue(0, 2);
+
+            document.getElementById("disclaimer").innerHTML = disclaimer_text;
+
+        }
+*/
+        function getDisclaimerText() {
+            var disclaimer_text = '',
+                siteName = getSiteName();
+
+            if (siteName == 'seguros') {
+                disclaimer_text = 'La presente comunicación y los contenidos a los que la misma da acceso (datos, información, documentación e imágenes adjuntas), en adelante la "Información", serán tratados y guardados como información de exclusivo uso interno de BBVA Seguros. Por tanto, esta Información se entiende dirigida exclusivamente a usted, como destinatario expreso y único de este correo, quedando expresamente prohibida su divulgación, copia, cesión, entrega, remisión o envío sin consentimiento previo y escrito del remitente.';
+            }
+            else if (siteName == 'portugal') {
+                disclaimer_text = 'A presente comunicação e os conteúdos a que a mesma dá acesso (dados, informação, documentação e imagens anexas) adiante designada \'Informação\', serão tratados e guardados como informação de exclusivo uso interno do Banco Bilbao Viscaya Argentaria (Portugal), S.A.. Assim sendo, esta Informação é destinada exclusivamente a si, como destinatário explícito e único deste correio, ficando expressamente proibida a sua divulgação, cópia, cedência, entrega, re-emissão  ou  envio sem o consentimento prévio e escrito do remetente.';
+            }
+            else if (siteName == 'catalunya') {
+                disclaimer_text = 'La present comunicació i els continguts als quals la mateixa dóna accés (dades, informació, documentació i imatges adjuntes ), d\'ara en endavant la "Informació ", seran tractades i guardades com informació d\'exclusiu ús intern de BBVA S.A. Per tant, aquesta Informació s\'entén dirigida exclusivament a vostè, com a destinatari exprés i únic d\'aquest correu , quedant expressament prohibida la seva divulgació, còpia, cessió, lliurament, remissió o enviament sense consentiment previ i escrit del remitent.';
+            }
+            return disclaimer_text;
+        }
+
+        function getSiteName() {
+            var url_array = window.location.href.split('?')[0].split('/');
+            return url_array[url_array.length-2];
+        }
+
+    </script>
