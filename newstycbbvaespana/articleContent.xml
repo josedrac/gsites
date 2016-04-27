@@ -252,10 +252,10 @@
 
 				}
 
-        function Go(destination){
-          	window.open(destination,'_parent');
-          	return false;
-      	}
+                function Go(destination){
+                  	window.parent.location.href = destination;
+                  	return false;
+              	}
 
 				google.setOnLoadCallback(getSpreadsheet);
 
