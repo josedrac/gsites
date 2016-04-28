@@ -84,6 +84,11 @@
             return false;
         }
 
+        function getSiteName() {
+            var url_array = window.location.href.split('?')[0].split('/');
+            return url_array[url_array.length-2];
+        }
+
         function getDate(){
     			var d = getParam('date').split('/');
     			var month = getMonth(parseInt( d[0]));
