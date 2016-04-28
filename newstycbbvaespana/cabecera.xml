@@ -9,7 +9,6 @@
     </ModulePrefs>
 
     <UserPref name="imageUrl" display_name="Url de la imagen" required="true" />
-    <UserPref name="siteName" display_name="Site name" required="true" />
     <UserPref name="subpage" display_name="Subpage" />
 
     <Content type="html">
@@ -56,7 +55,7 @@
                 query.send(handleQueryResponse);
             }else{
                 var imageUrl = prefs.getString("imageUrl");
-                var siteName = prefs.getString("siteName");
+                var siteName = getSiteName();
                 var datePath = getDate();
 
                 var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + siteName + '/' + datePath + "?date=" + getParam('date');
@@ -100,6 +99,11 @@
             function Go(destination){
                 window.parent.location.href = destination;
                 return false;
+            }
+
+            function getSiteName() {
+                var url_array = gadgets.util.getUrlParameters().parent.split('?')[0].split('/');
+                return url_array[url_array.length-2];
             }
 
             function getDate(){
@@ -156,11 +160,6 @@
                 <tr>
                     <td>
                         Url de la imagen: <input type="text" id="imageUrl" value="__UP_imageUrl__" onchange="register('imageUrl')"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Site name: <input type="text" id="siteName" value="__UP_siteName__" onchange="register('siteName')"/>
                     </td>
                 </tr>
             </table>
