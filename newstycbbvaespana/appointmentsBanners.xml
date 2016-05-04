@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="NB-appointmentsBanners.xml">
+        <Require feature="idi"/>
+        <Require feature="locked-domain" />
+        <Require feature="dynamic-height"/>
+        <Require feature="setprefs" />
+    </ModulePrefs>
+
+    <Content type="html">
+        <![CDATA[
+
+        <style type="text/css">
+
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            ul li {
+                padding: 0 5px;
+                cursor: pointer;
+                display: inline;
+            }
+
+        </style>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+        <script type="text/javascript">
+            google.load('visualization', '1', {packages: ['table']});
+        </script>
+
+        <!-- --- HTML -------------------------------------------------------------------------------------------- -->
+
+        <div>
+            <ul id="appointmentsBanners"></ul>
+        </div>
+
+        <!-- --- END HTML ---------------------------------------------------------------------------------------- -->
+
+        <script type="text/javascript">
+
+            function getParam(p){
+                var params;
+                if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                    params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                    for(var i=0; i<params.length; i++){
+                        if(params[i].split("=")[0] == p)
+                            return params[i].split("=")[1];
+                    }
+                }
+                return "";
+            }
+
+            var spreadsheetKey = getParam('key');
+                sheetName = encodeURIComponent('appointments banners'),
+                queryString = encodeURIComponent('SELECT * where C = "' + getParam("date") + '"'),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
+            function getSpreadsheet() {
+                query.send(handleQueryResponse);
+            }
+
+            function handleQueryResponse(response) {
+                if (response.isError()) {
+                    console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
+                var dataTable = response.getDataTable();
+
+                if(dataTable.getNumberOfRows()){
+                    printDataTable(dataTable);
+                }
+                else{
+                    console.log('spreadsheet is empty');
+                }
+            }
+
+            function printDataTable(dataTable) {
+                var rows = dataTable.getNumberOfRows(),
+                    template = '';
+
+                for(i = 0; i < rows; i++) {
+                    template += '<li><a target="_blank" href="' + dataTable.getValue(i, 1) + '"><img src="' + dataTable.getValue(i, 0) + '"></a></li>\n';
+                }
+
+                document.getElementById("appointmentsBanners").innerHTML = template;
+            }
+
+            google.setOnLoadCallback(getSpreadsheet);
+
+        </script>
+
+        ]]>
+    </Content>
+
+</Module>
