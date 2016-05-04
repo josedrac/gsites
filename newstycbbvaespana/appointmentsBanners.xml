@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-    <ModulePrefs title="NB-appointmentsTable.xml">
+    <ModulePrefs title="NB-appointmentsBanners.xml">
         <Require feature="idi"/>
         <Require feature="locked-domain" />
         <Require feature="dynamic-height"/>
