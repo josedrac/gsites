@@ -324,13 +324,16 @@
     		function getQueryParameters() {
                 var filter 	= '';
 
-                var round 	= getParam("round").toLowerCase();
-                var status 	= urldecode(getParam("status"));
+				var round 		= getParam("round").toLowerCase();
+	            var viability 	= urldecode(getParam("viability"));
+				var tematic		= urldecode(getParam("tematic"));
 
-                if (round != "")
-                    filter += ' AND K = '+ round;
-                if (status != "")
-                    filter += ' AND L = "'+ status +'"';
+	            if (round != "")
+	                filter += ' AND K = '+ round;
+	            if (viability != "")
+	                filter += ' AND L = "'+ viability +'"';
+				if (tematic != "")
+	                filter += ' AND Q = "'+ tematic +'"';
 
                 return filter;
             }
