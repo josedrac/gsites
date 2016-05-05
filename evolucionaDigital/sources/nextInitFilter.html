@@ -176,7 +176,11 @@
             padding-top: 20px;
             padding-bottom: 5px
         }
-        .element-status {
+        .element-viability {
+            padding-top: 5px;
+            padding-bottom: 5px
+        }
+        .element-tematic {
             padding-top: 5px;
             padding-bottom: 20px
         }
@@ -185,12 +189,12 @@
             float: left;
             font-family: Arial;
             font-size: 13px;
-            margin-left: 15px;
+            margin-left: 10px;
             margin-right: 10px;
             padding-top: 10px;
-            font-weight: bold;
             display: inline-block;
-            width: 45px;
+            width: 63px;
+            text-align: right;
         }
         .ui-menu-item {
             color: #003f8c;
@@ -219,14 +223,26 @@
                     <option value="4">4</option>
                 </select>
             </div>
-            <div class="element-status">
-                <label class="name">Estado: </label>
-                <select id="statusSelector" name="status">
+            <div class="element-viability">
+                <label class="name">Viabilidad: </label>
+                <select id="viabilitySelector" name="status">
                     <option value="0">Todos</option>
                     <option value="Implementado">Implementado</option>
                     <option value="En desarrollo">En desarrollo</option>
                     <option value="Analizando">Analizando</option>
                     <option value="Rechazado">Rechazado</option>
+                </select>
+            </div>
+            <div class="element-tematic">
+                <label class="name">Temática: </label>
+                <select id="tematicSelector" name="tematic">
+                    <option value="0">Todas</option>
+                    <option value="Experiencia Cliente">Experiencia Cliente</option>
+                    <option value="Venta Digital y asistida">Venta Digital y asistida</option>
+                    <option value="Conveniencia">Conveniencia</option>
+                    <option value="Oferta productos/servicios">Oferta productos/servicios</option>
+                    <option value="Ayuda al Gestor">Ayuda al Gestor</option>
+                    <option value="Asesoramiento">Asesoramiento</option>
                 </select>
             </div>
         </div>
@@ -238,17 +254,21 @@
     <script type="text/javascript">
 
         function Go() {
-            var elementRoundSelector    = document.getElementById('roundSelector');
-            var elementStatusSelector   = document.getElementById('statusSelector');
-            var round                   = elementRoundSelector.options[elementRoundSelector.selectedIndex].value;
-            var status                  = elementStatusSelector.options[elementStatusSelector.selectedIndex].value;
-            var url                     = document.referrer.split('?')[0];
-            var filter                  = "?";
+            var elementRoundSelector        = document.getElementById('roundSelector');
+            var elementViabilitySelector    = document.getElementById('viabilitySelector');
+            var elementTematicSelector      = document.getElementById('tematicSelector');
+            var round                       = elementRoundSelector.options[elementRoundSelector.selectedIndex].value;
+            var viability                   = elementViabilitySelector.options[elementViabilitySelector.selectedIndex].value;
+            var tematic                     = elementTematicSelector.options[elementTematicSelector.selectedIndex].value;
+            var url                         = document.referrer.split('?')[0];
+            var filter                      = "?";
 
             if(round != 0)
                 filter += "round=" + round + "&";
-            if(status != 0)
-                filter += "status=" + status;
+            if(viability != 0)
+                filter += "viability=" + viability + "&";
+            if(tematic != 0)
+                filter += "tematic=" + tematic;
 
             window.open(url + filter, "_parent");
             return false;
@@ -256,6 +276,8 @@
 
         $( "#roundSelector" ).selectmenu({width: 190});
 
-        $( "#statusSelector" ).selectmenu({width: 190});
+        $( "#viabilitySelector" ).selectmenu({width: 190});
+
+        $( "#tematicSelector" ).selectmenu({width: 190});
 
     </script>
