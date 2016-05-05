@@ -296,28 +296,28 @@
 	            $( "#tematicSelector" ).selectmenu({width: 190});
 	        }
 
-	        findDistinctValues(data, column) {
+			function findDistinctValues(data, column) {
 	            var val,
 	                values  = [],
 	                rows    = data.getNumberOfRows();
 
 	            for(var i=0; i<rows; i++) {
 	                val = data.getValue(i, column);
-	                if(values.indexOf(val) < 0) {
+	                if(val != null && values.indexOf(val) < 0) {
 	                    values.push(val);
 	                }
 	            }
 	            return values;
 	        }
 
-	        getOptions(array) {
+	        function getOptions(array) {
 	            var html = "";
 	            for(var i=0; i<array.length; i++) {
 	                html += '<option value="'+array[i]+'">'+array[i]+'</option>';
 	            }
 	            return html;
 	        }
-
+			
 			function Go() {
 				var elementRoundSelector        = document.getElementById('roundSelector');
 				var elementViabilitySelector    = document.getElementById('viabilitySelector');
