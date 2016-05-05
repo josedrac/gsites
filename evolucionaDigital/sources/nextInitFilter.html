@@ -216,33 +216,16 @@
             <div class="element-round">
                 <label class="name">Ronda: </label>
                 <select name="round" id="roundSelector">
-                    <option value="0">Todas</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
                 </select>
             </div>
             <div class="element-viability">
                 <label class="name">Viabilidad: </label>
                 <select id="viabilitySelector" name="status">
-                    <option value="0">Todos</option>
-                    <option value="Implementado">Implementado</option>
-                    <option value="En desarrollo">En desarrollo</option>
-                    <option value="Analizando">Analizando</option>
-                    <option value="Rechazado">Rechazado</option>
                 </select>
             </div>
             <div class="element-tematic">
                 <label class="name">Temática: </label>
                 <select id="tematicSelector" name="tematic">
-                    <option value="0">Todas</option>
-                    <option value="Experiencia Cliente">Experiencia Cliente</option>
-                    <option value="Venta Digital y asistida">Venta Digital y asistida</option>
-                    <option value="Conveniencia">Conveniencia</option>
-                    <option value="Oferta productos/servicios">Oferta productos/servicios</option>
-                    <option value="Ayuda al Gestor">Ayuda al Gestor</option>
-                    <option value="Asesoramiento">Asesoramiento</option>
                 </select>
             </div>
         </div>
@@ -252,6 +235,71 @@
     </div>
 
     <script type="text/javascript">
+
+        google.load('visualization', '1', {packages: ['table']});
+        google.setOnLoadCallback(sendQuery);
+
+        function sendQuery(){
+			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+			var spreadsheetKey 	= '1o8qZcf1hFqxhmBxr8dqaYy3fmuyB8QFPyjRbxR7fkKI',
+                sheetName 		= encodeURIComponent('archive'),
+                queryString 	= encodeURIComponent('SELECT * where A <> "T"'),
+                query 			= new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+            query.send(handleQueryResponse);
+		}
+
+        function handleQueryResponse(response) {
+            if (response.isError()) {
+                console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+            }
+            var dataTable = response.getDataTable();
+            dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+        }
+
+        function printDataTable(dataTable) {
+
+			var roundValues     = findDistinctValues(dataTable, 10),
+                viabilityValues = findDistinctValues(dataTable, 11),
+                tematicValues   = findDistinctValues(dataTable, 16),
+                html            = "";
+
+            html += '<option value="0">Todas</option>';
+            html += getOptions(roundValues);
+            document.getElementById('#roundSelector').innerHTML = html;
+            html = '';
+
+            html += '<option value="0">Todos</option>';
+            html += getOptions(viabilityValues);
+            document.getElementById('#viabilitySelector').innerHTML = html;
+            html = '';
+
+            html += '<option value="0">Todas</option>';
+            html += getOptions(tematicValues);
+            document.getElementById('#tematicSelector').innerHTML = html;
+        }
+
+        findDistinctValues(data, column) {
+            var val,
+                values  = [],
+                rows    = data.getNumberOfRows();
+
+            for(var i=0; i<rows; i++) {
+                val = data.getValue(i, column);
+                if(values.indexOf(val) < 0) {
+                    values.push(val);
+                }
+            }
+            return values;
+        }
+
+        getOptions(array) {
+            var html = "";
+            for(var i=0; i<array.length; i++) {
+                html += '<option value="'+array[i]+'">'+array[i]+'</option>';
+            }
+            return html;
+        }
 
         function Go() {
             var elementRoundSelector        = document.getElementById('roundSelector');

@@ -265,6 +265,71 @@
 
 		<script type="text/javascript">
 
+			google.load('visualization', '1', {packages: ['table']});
+	        google.setOnLoadCallback(sendQuery);
+
+	        function sendQuery(){
+				//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+				var spreadsheetKey 	= '1o8qZcf1hFqxhmBxr8dqaYy3fmuyB8QFPyjRbxR7fkKI',
+	                sheetName 		= encodeURIComponent('archive'),
+	                queryString 	= encodeURIComponent('SELECT * where A <> "T"'),
+	                query 			= new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+	            query.send(handleQueryResponse);
+			}
+
+	        function handleQueryResponse(response) {
+	            if (response.isError()) {
+	                console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+	                return;
+	            }
+	            var dataTable = response.getDataTable();
+	            dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+	        }
+
+	        function printDataTable(dataTable) {
+
+				var roundValues     = findDistinctValues(dataTable, 10),
+	                viabilityValues = findDistinctValues(dataTable, 11),
+	                tematicValues   = findDistinctValues(dataTable, 16),
+	                html            = "";
+
+	            html += '<option value="0">Todas</option>';
+	            html += getOptions(roundValues);
+	            document.getElementById('#roundSelector').innerHTML = html;
+	            html = '';
+
+	            html += '<option value="0">Todos</option>';
+	            html += getOptions(viabilityValues);
+	            document.getElementById('#viabilitySelector').innerHTML = html;
+	            html = '';
+
+	            html += '<option value="0">Todas</option>';
+	            html += getOptions(tematicValues);
+	            document.getElementById('#tematicSelector').innerHTML = html;
+	        }
+
+	        findDistinctValues(data, column) {
+	            var val,
+	                values  = [],
+	                rows    = data.getNumberOfRows();
+
+	            for(var i=0; i<rows; i++) {
+	                val = data.getValue(i, column);
+	                if(values.indexOf(val) < 0) {
+	                    values.push(val);
+	                }
+	            }
+	            return values;
+	        }
+
+	        getOptions(array) {
+	            var html = "";
+	            for(var i=0; i<array.length; i++) {
+	                html += '<option value="'+array[i]+'">'+array[i]+'</option>';
+	            }
+	            return html;
+	        }
+
 			function Go() {
 				var elementRoundSelector        = document.getElementById('roundSelector');
 				var elementViabilitySelector    = document.getElementById('viabilitySelector');
