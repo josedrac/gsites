@@ -224,45 +224,28 @@
 		</head>
 
 		<div class="container">
-			<div class="title">Búsqueda de Ideas Nextinit</div>
-			<div class="form">
-				<div class="element-round">
-					<label class="name">Ronda: </label>
-					<select name="round" id="roundSelector">
-						<option value="0">Todas</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-					</select>
-				</div>
-				<div class="element-viability">
-					<label class="name">Viabilidad: </label>
-					<select id="viabilitySelector" name="status">
-						<option value="0">Todos</option>
-						<option value="Implementado">Implementado</option>
-						<option value="En desarrollo">En desarrollo</option>
-						<option value="Analizando">Analizando</option>
-						<option value="Rechazado">Rechazado</option>
-					</select>
-				</div>
-				<div class="element-tematic">
-					<label class="name">Temática: </label>
-					<select id="tematicSelector" name="tematic">
-						<option value="0">Todas</option>
-						<option value="Experiencia Cliente">Experiencia Cliente</option>
-						<option value="Venta Digital y asistida">Venta Digital y asistida</option>
-						<option value="Conveniencia">Conveniencia</option>
-						<option value="Oferta productos/servicios">Oferta productos/servicios</option>
-						<option value="Ayuda al Gestor">Ayuda al Gestor</option>
-						<option value="Asesoramiento">Asesoramiento</option>
-					</select>
-				</div>
-			</div>
-			<div class="subtitle">
-				<button onclick='javascript:Go();' class="btn">Ver</button>
-			</div>
-		</div>
+	        <div class="title">Búsqueda de Ideas Nextinit</div>
+	        <div class="form">
+	            <div class="element-round">
+	                <label class="name">Ronda: </label>
+	                <select name="round" id="roundSelector">
+	                </select>
+	            </div>
+	            <div class="element-viability">
+	                <label class="name">Viabilidad: </label>
+	                <select id="viabilitySelector" name="status">
+	                </select>
+	            </div>
+	            <div class="element-tematic">
+	                <label class="name">Temática: </label>
+	                <select id="tematicSelector" name="tematic">
+	                </select>
+	            </div>
+	        </div>
+	        <div class="subtitle">
+	            <button onclick='javascript:Go();' class="btn">Ver</button>
+	        </div>
+	    </div>
 
 		<script type="text/javascript">
 
