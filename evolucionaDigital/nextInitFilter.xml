@@ -272,9 +272,9 @@
 
 			function printDataTable(dataTable) {
 
-				var roundValues     = findDistinctValues(dataTable, 10),
-	                viabilityValues = findDistinctValues(dataTable, 11),
-	                tematicValues   = findDistinctValues(dataTable, 16),
+				var roundValues     = findDistinctValues(dataTable, 9),
+	                viabilityValues = findDistinctValues(dataTable, 10),
+	                tematicValues   = findDistinctValues(dataTable, 14),
 	                html            = "";
 
 	            html += '<option value="0">Todas</option>';
@@ -317,7 +317,7 @@
 	            }
 	            return html;
 	        }
-			
+
 			function Go() {
 				var elementRoundSelector        = document.getElementById('roundSelector');
 				var elementViabilitySelector    = document.getElementById('viabilitySelector');
