@@ -14,6 +14,8 @@
         <script src="https://www.google.com/jsapi" type="text/javascript"></script>
         <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
         <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+		<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
 
         <style type="text/css">
             /* @group fonts */
@@ -292,6 +294,7 @@
         </div>
 
         <script type="text/javascript">
+			adjustGadgetHeight('container');
             var gadgetHelper = null;
             google.load('visualization', '1', {packages: ['table']});
             google.setOnLoadCallback(sendQuery);
@@ -321,22 +324,22 @@
                return decodeURIComponent((str+'').replace(/\+/g, '%20'));
             }
 
-    		function getQueryParameters() {
-                var filter 	= '';
+			function getQueryParameters() {
+	            var filter 	= '';
 
-				var round 		= getParam("round").toLowerCase();
+	            var round 		= getParam("round").toLowerCase();
 	            var viability 	= urldecode(getParam("viability"));
 				var tematic		= urldecode(getParam("tematic"));
 
 	            if (round != "")
-	                filter += ' AND K = '+ round;
+	                filter += ' AND J = '+ round;
 	            if (viability != "")
-	                filter += ' AND L = "'+ viability +'"';
+	                filter += ' AND K = "'+ viability +'"';
 				if (tematic != "")
-	                filter += ' AND Q = "'+ tematic +'"';
+	                filter += ' AND O = "'+ tematic +'"';
 
-                return filter;
-            }
+	            return filter;
+	        }
 
     		function sendQuery(){
     			var spreadsheetKey = prefs.getString('spreadsheetKey'),
@@ -393,18 +396,18 @@
 
     		}
 
-    		function getArchive(data, index) {
-    			var html 		= "", icon, url;
+			function getArchive(data, index) {
+				var html 		= "", icon, url;
 
-    			var id 			= data.getValue(index, 0),
-    				title		= data.getValue(index, 1),
-    				description	= data.getValue(index, 3),
-    				image		= data.getValue(index, 7),
-    				status 		= data.getValue(index, 11),
-    				round 		= data.getValue(index, 10),
-    				email		= data.getValue(index, 14),
-    				buttonLabel	= data.getValue(index, 15),
-    				statusClass	= getStatusClass(status);
+				var id 			= data.getValue(index, 0),
+					title		= data.getValue(index, 1),
+					description	= data.getValue(index, 3),
+					image		= data.getValue(index, 6),
+					status 		= data.getValue(index, 10),
+					round 		= data.getValue(index, 9),
+					email		= data.getValue(index, 12),
+					buttonLabel	= data.getValue(index, 13),
+					statusClass	= getStatusClass(status);
 
                     if(round == 1)	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
                     else 			icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
