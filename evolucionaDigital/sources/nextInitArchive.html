@@ -309,11 +309,11 @@
 			var tematic		= urldecode(getParam("tematic"));
 
             if (round != "")
-                filter += ' AND K = '+ round;
+                filter += ' AND J = '+ round;
             if (viability != "")
-                filter += ' AND L = "'+ viability +'"';
+                filter += ' AND K = "'+ viability +'"';
 			if (tematic != "")
-                filter += ' AND Q = "'+ tematic +'"';
+                filter += ' AND O = "'+ tematic +'"';
 
             return filter;
         }
@@ -379,11 +379,11 @@
 			var id 			= data.getValue(index, 0),
 				title		= data.getValue(index, 1),
 				description	= data.getValue(index, 3),
-				image		= data.getValue(index, 7),
-				status 		= data.getValue(index, 11),
-				round 		= data.getValue(index, 10),
-				email		= data.getValue(index, 14),
-				buttonLabel	= data.getValue(index, 15),
+				image		= data.getValue(index, 6),
+				status 		= data.getValue(index, 10),
+				round 		= data.getValue(index, 9),
+				email		= data.getValue(index, 12),
+				buttonLabel	= data.getValue(index, 13),
 				statusClass	= getStatusClass(status);
 
 			if(round == 1)	icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";

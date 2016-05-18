@@ -158,7 +158,7 @@
         </script>
 
 
-        <div id="container" class="container">
+        <div class="container">
 
             <div class="header-container">
                 <h3 id="title" class="title"></h3>
@@ -168,13 +168,12 @@
                 </div>
             </div>
             <div class="body-container">
-                <p id="preImageText" class="text"></p>
 
                 <div id="image_container" class="image-container"></div>
 
-                <p id="postImageText" class="text"></p>
+                <p id="text" class="text"></p>
             </div>
-            <div class="footer-container">
+            <div id="footer-container" class="footer-container">
                 <div class="footer-content">
                     <span id="footer-text" class="footer-text" ></span>
                 </div>
@@ -228,15 +227,14 @@
             function printDataTable(dataTable) {
                 var data = {
                     title:          dataTable.getValue(0, 1),
-                    preImageText:   dataTable.getValue(0, 4),
-                    postImageText:  dataTable.getValue(0, 5),
-                    author:         dataTable.getValue(0, 6),
-                    status:         dataTable.getValue(0, 11),
-                    round:          dataTable.getValue(0, 12),
-                    footer:         dataTable.getValue(0, 13),
+                    text:           dataTable.getValue(0, 4),
+                    author:         dataTable.getValue(0, 5),
+                    status:         dataTable.getValue(0, 10),
+                    round:          dataTable.getValue(0, 9),
+                    footer:         dataTable.getValue(0, 11),
                 },
                 icon,
-                image = dataTable.getValue(0, 12);
+                image = dataTable.getValue(0, 6);
 
                 if(data.round == 1)	 icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
     			else 			     icon = "https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ronda1.png";
@@ -245,15 +243,16 @@
                 document.getElementById("round").src                =   icon;
                 document.getElementById("status").className         +=  " " + getStatusClass(data.status);
                 document.getElementById("status").innerHTML         =   data.status;
-                document.getElementById("preImageText").innerHTML   =   data.preImageText;
+                document.getElementById("text").innerHTML           =   data.text;
 
                 if(!isNull(image))
                     document.getElementById("image_container").innerHTML    = '<img class="image" src="' + image + '"/>';
-                if(!isNull(data.postImageText))
-                    document.getElementById("postImageText").innerHTML      = data.postImageText;
 
                 if(!isNull(data.footer))
                     document.getElementById('footer-text').innerHTML        = data.footer;
+                else
+                    document.getElementById('footer-container').style.display = 'none';
+
                 if(!isNull(data.author))
                     document.getElementById("author").innerHTML             = data.author;
 
