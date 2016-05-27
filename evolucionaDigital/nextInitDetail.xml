@@ -108,17 +108,17 @@
         }
 
         .footer-container {
+            display: inline-block;
             background-color: #F5F5F5;
             border: 1px solid #DFE0DE;
             border-radius: 2px;
-            height: 50px;
+            min-height: 50px;
             padding: 12px 15px;
             margin-top: 25px;
         }
 
         .footer-content {
             display: table;
-            height: 100%;
             float: left;
             font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
         }
