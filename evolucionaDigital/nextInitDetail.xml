@@ -130,6 +130,7 @@
         .footer-text {
             color: #0078D2;
             float: left;
+            font-size: 12px;
         }
 
         .author {
