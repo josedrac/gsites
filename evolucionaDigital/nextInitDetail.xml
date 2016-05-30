@@ -127,15 +127,16 @@
             float: right;
         }
 
+        .footer-text, .author {
+            color: #71777F;
+        }
         .footer-text {
-            color: #0078D2;
             float: left;
             font-size: 12px;
         }
 
         .author {
             font-size: 11px;
-            color: #71777F;
             margin-top: 1px;
             display: table-cell;
             vertical-align: bottom;
