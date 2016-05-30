@@ -113,32 +113,38 @@
             border: 1px solid #DFE0DE;
             border-radius: 2px;
             min-height: 50px;
-            padding: 12px 15px;
+            padding: 8px 15px 10px 15px;
             margin-top: 25px;
         }
 
         .footer-content {
             display: table;
             float: left;
+            color: #71777F;
             font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
         }
 
         .footer-content.right {
             float: right;
+            margin-top: 8px;
+        }
+
+        .footer-title {
+            width: 100%;
+            margin-bottom: 10px;
         }
 
         .footer-text {
-            color: #0078D2;
             float: left;
             font-size: 12px;
         }
 
         .author {
             font-size: 11px;
-            color: #71777F;
             margin-top: 1px;
             display: table-cell;
             vertical-align: bottom;
+            font-weight: bold;
         }
 
 
@@ -175,6 +181,9 @@
                 <p id="text" class="text"></p>
             </div>
             <div id="footer-container" class="footer-container">
+                <div class="footer-content footer-title">
+                    Comentarios
+                </div>
                 <div class="footer-content">
                     <span id="footer-text" class="footer-text" ></span>
                 </div>
