@@ -216,6 +216,9 @@
 				border-top: 1px solid #e1e1e1;
 				font-size: 13px;
 				font-weight: normal;
+				white-space: nowrap;
+	            overflow: hidden;
+	            text-overflow: ellipsis;
 			}
 			</style>
 			<script src="https://www.google.com/jsapi" type="text/javascript"></script>
