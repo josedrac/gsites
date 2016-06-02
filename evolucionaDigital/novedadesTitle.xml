@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="ED - pagetitle.xml" height ="50">
+  <ModulePrefs title="ED - novedadesTitle.xml" height ="50">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
 	<Require feature="dynamic-height"/>
@@ -64,7 +64,7 @@
 	<div id="titlepage"></div>
 
    	<script type="text/javascript">
-		
+
 		var html = "";
 		var title = "";
 
