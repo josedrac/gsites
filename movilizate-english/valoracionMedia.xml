@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="MG-valoracionMedia.xml" height="300">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	  <Require feature="dynamic-height"/>
+	  <Require feature="setprefs" />
+  </ModulePrefs>
+  <Content type="html">
+    <![CDATA[
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <style type="text/css">
+      /* @group fonts */
+      @font-face {
+        font-family: 'BBVA Web Light';
+        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.eot');
+        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.woff') format("woff"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.ttf') format("truetype"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+        font-style: normal;
+        font-weight: normal;
+      }
+      @font-face {
+        font-family: 'BBVA Web Book';
+        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.eot');
+        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.woff') format("woff"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.ttf') format("truetype"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+        font-style: normal;
+        font-weight: normal;
+      }
+      @font-face {
+        font-family: 'BBVA Web Medium';
+        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.eot');
+        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.woff') format("woff"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.ttf') format("truetype"),
+          url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+        font-style: normal;
+        font-weight: normal;
+      }
+      /* @end */
+
+      button {
+        background: #0079C1;
+        background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+        background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+        background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 10px 15px;
+        border: .1em solid #00559D;
+        color: white;
+        cursor: pointer;
+        position: relative;
+        overflow: visible;
+        font-size: 14px;
+        font-weight:bold;
+        text-decoration: none;
+        position: absolute;
+        left: 10px;
+        top: 13px;
+      }
+
+      p {
+        font-size: 12px;
+        font-family: 'BBVA Web Book', Arial;
+        color: #434A58;
+        margin-bottom: 5px;
+      }
+      label {
+        margin-right: 25px;
+      }
+      .puntuaciones {
+        width: 70%;
+        float: left;
+        position: relative;
+      }
+      .puntuaciones div {
+        width: 49.5%;
+        float: left;
+      }
+      .puntuaciones .lineSeparator {
+        height: 135px;
+        border-left: 1px solid #E5E5E5;
+        width: 0px;
+        position: absolute;
+        left: 47%;
+        top: 11%;
+      }
+      .puntuaciones div table {
+        width: 100%;
+        font-family: 'BBVA Web Light';
+        color: #434A58;
+        font-size: 18px;
+      }
+      .puntuaciones div table tr td {
+        padding: 15px 0;
+      }
+      .puntuaciones div table tr td:first-child {
+        width: 45%;
+      }
+      .puntuaciones div table tr td:last-child {
+        width: 55%;
+      }
+      .img {
+        width: 30%;
+        float: right;
+      }
+      .media {
+        clear: both;
+        background-color: #F2F4F5;
+        border-top: 1px solid #E5E5E5;
+        border-bottom: 1px solid #D1D1D1;
+        font-weight: bold;
+        color: #434A58;
+        font-family: 'BBVA Web Book', Arial;
+        text-align: right;
+        padding: 20px 10px;
+        position: relative;
+      }
+      i {
+        color: #0065B7;
+        font-size: 24px!important;
+        padding: 0 3px;
+      }
+      i.empty {
+        color: #C9C9C9;
+      }
+    </style>
+
+    <p>Esta es la valoración media otorgada por otros usuarios.</p>
+    <div class="puntuaciones">
+      <div class="lineSeparator"></div>
+      <div class="">
+        <table>
+          <tr>
+            <td>Profesorado</td>
+            <td class="stars">
+              <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Instalaciones</td>
+            <td class="stars">
+              <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Idiomas</td>
+            <td class="stars">
+              <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="">
+        <table>
+          <tr>
+            <td>Extraescolares</td>
+            <td class="stars">
+              <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Comedor</td>
+            <td class="stars">
+              <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>Horario ampliado</td>
+            <td class="stars">
+              <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="img">
+      <img src="https://raw.githubusercontent.com/sopraux/gsites/master/movilidadGeografica/img/puntuacionMedia.png" />
+    </div>
+    <div class="media">
+      <button onclick="Go()">Valora</button>
+      <label>Nota media</label> <span class="stars"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></span>
+    </div>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['table']});
+    </script>
+
+    <script type="text/javascript">
+
+      var spreadsheetKey = '1MnJzf8uiCAVVAECx_6vvzc3vkRb6SNQdDg5NC2MQ7Z0',
+      queryString = encodeURIComponent('SELECT *' + getQueryParameters()),
+      query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString);
+
+      function getSpreadsheet() {
+        query.send(handleQueryResponse);
+      }
+
+      function handleQueryResponse(response) {
+        if (response.isError()) {
+          console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+          return;
+        }
+        var dataTable = response.getDataTable();
+        dataTable.getNumberOfRows() ? getMediaData(dataTable) : console.log('Data empty');
+      }
+
+      function getMediaData(data) {
+
+        var puntuaciones = [0, 0, 0, 0, 0, 0, 0];
+        var filas = data.getNumberOfRows();
+
+        $.each(puntuaciones, function(index) {
+          for(var i = 0; i < filas; i++) {
+            puntuaciones[index] += data.getValue(i, index + 2);
+          }
+          puntuaciones[index] = Math.round(puntuaciones[index] / filas);
+        });
+
+        $(".stars").each(function(index) {
+          $(this).html(printRating(puntuaciones[index]));
+        });
+
+      }
+
+      function getQueryParameters() {
+        var filter = "";
+        var id = getParam('idCentro');
+
+        if(id != "" && id > 0)
+          filter += " WHERE A ="+ id;
+
+        return filter;
+      }
+
+
+      function getParam(p){
+        var params;
+        if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+          params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+          for(var i=0; i<params.length; i++){
+            if(params[i].split("=")[0] == p)
+              return params[i].split("=")[1];
+          }
+        }
+        return "";
+      }
+
+      function printRating(puntuacion) {
+        var html = "";
+        for (var i = 1; i <= 5; i++) {
+          if(i <= puntuacion) {
+            html += "<i class='fa fa-star'></i>";
+          } else {
+            html += "<i class='fa fa-star empty'></i>";
+          }
+        }
+        return html;
+      }
+
+      function Go() {
+        var idCentro = getParam('idCentro');
+        var comunidad = getParam('comunidad');
+        var name = getParam('name');
+        var destination = "https://sites.google.com/a/bbva.com/movilidad-geografica/valorar?idCentro="+idCentro+"&comunidad="+comunidad+"&name="+name +"&valora=true";
+        window.open(destination,'_top');
+        return false;
+      }
+
+      google.setOnLoadCallback(getSpreadsheet);
+
+    </script>
+
+    ]]>
+  </Content>
+</Module>
