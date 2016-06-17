@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="MG-listadoValoraciones.xml" height="1100">
+  <ModulePrefs title="me-listadoValoraciones.xml" height="1100">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
 	  <Require feature="dynamic-height"/>
@@ -185,44 +185,44 @@
 
    <script type="text/javascript">
 
-     var spreadsheetKey = '1MnJzf8uiCAVVAECx_6vvzc3vkRb6SNQdDg5NC2MQ7Z0',
-       queryString = encodeURIComponent('SELECT *' + getQueryParameters() + ' ORDER BY B ASC'),
-       query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString);
+       var spreadsheetKey = '1MnJzf8uiCAVVAECx_6vvzc3vkRb6SNQdDg5NC2MQ7Z0',
+           queryString = encodeURIComponent('SELECT *' + getQueryParameters() + ' ORDER BY B ASC'),
+           query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString);
 
-     function getSpreadsheet() {
-       query.send(handleQueryResponse);
-     }
-
-     function handleQueryResponse(response) {
-       if (response.isError()) {
-         console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-         return;
+       function getSpreadsheet() {
+           query.send(handleQueryResponse);
        }
+
+       function handleQueryResponse(response) {
+           if (response.isError()) {
+                console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                return;
+           }
        var dataTable = response.getDataTable();
-       dataTable.getNumberOfRows() ? printDataTable(dataTable) : document.getElementById('listadoValoraciones').innerHTML += "<p>No exiten valoraciones para este centro.</p>";
-     }
+       dataTable.getNumberOfRows() ? printDataTable(dataTable) : document.getElementById('listadoValoraciones').innerHTML += "<p>Not exists ratings for this center.</p>";
+       }
 
-     function pagination(elements) {
-       $('#pagination').smartpaginator({
-         totalrecords: elements,
-         recordsperpage: 10,
-         length: 4,
-         datacontainer: 'valoraciones',
-         dataelement: 'div.valoracion',
-         initval: 0,
-       });
-     }
+       function pagination(elements) {
+           $('#pagination').smartpaginator({
+                totalrecords: elements,
+                recordsperpage: 10,
+                length: 4,
+                datacontainer: 'valoraciones',
+                dataelement: 'div.valoracion',
+                initval: 0,
+           });
+       }
 
 
-     function getQueryParameters() {
-         var filter = "";
-         var id = getParam('idCentro');
+       function getQueryParameters() {
+            var filter = "";
+            var id = getParam('idCentro');
 
-         if(id != "" && id > 0)
-           filter += " WHERE A ="+ id;
+            if(id != "" && id > 0)
+              filter += " WHERE A ="+ id;
 
-         return filter;
-     }
+            return filter;
+       }
 
      function getParam(p){
          var params;
@@ -237,34 +237,34 @@
      }
 
 
-    function printDataTable(data) {
-      var filas = data.getNumberOfRows();
-      var html = "";
+     function printDataTable(data) {
+         var filas = data.getNumberOfRows();
+         var html = "";
 
-      html += '<div id="valoraciones" style=" display: block;width: auto;">';
+         html += '<div id="valoraciones" style=" display: block;width: auto;">';
 
-      for(var i=0;i<filas;i++) {
+         for(var i=0;i<filas;i++) {
 
-         html += "<div class='valoracion'>";
-         html += "<table><tr>";
-         html += "  <td class='user'>"+data.getValue(i,1)+"</td>";
-         html += "  <td class='puntuaciones'><table>";
-         html += "    <tr><td><span>Profesorado</span>" + printRating(data.getValue(i,2)) + "</td><td><span>Extraescolares</span>" + printRating(data.getValue(i,5)) + "</td></tr>";
-         html += "    <tr><td><span>Instalaciones</span>" + printRating(data.getValue(i,3)) + "</td><td><span>Comedor</span>" + printRating(data.getValue(i,6)) + "</td></tr>";
-         html += "    <tr><td><span>Idiomas</span>" + printRating(data.getValue(i,4)) + "</td><td><span>Horario Ampliado</span>" + printRating(data.getValue(i,7)) + "</td></tr>";
-         html += "  </table></td>";
-         html += "  <td class='media'>" + printRating(data.getValue(i,8)) + "</td>";
-         html += "</tr></table><hr>";
+              html += "<div class='valoracion'>";
+              html += "<table><tr>";
+              html += "  <td class='user'>"+data.getValue(i,1)+"</td>";
+              html += "  <td class='puntuaciones'><table>";
+              html += "    <tr><td><span>Professorate</span>" + printRating(data.getValue(i,2)) + "</td><td><span>Extracurricular</span>" + printRating(data.getValue(i,5)) + "</td></tr>";
+              html += "    <tr><td><span>Facilities</span>" + printRating(data.getValue(i,3)) + "</td><td><span>Dinning room</span>" + printRating(data.getValue(i,6)) + "</td></tr>";
+              html += "    <tr><td><span>Languages</span>" + printRating(data.getValue(i,4)) + "</td><td><span>External hours</span>" + printRating(data.getValue(i,7)) + "</td></tr>";
+              html += "  </table></td>";
+              html += "  <td class='media'>" + printRating(data.getValue(i,8)) + "</td>";
+              html += "</tr></table><hr>";
+              html += "</div>";
+
+         }
          html += "</div>";
+         html += "<div id='pagination' style='margin: auto;'></div>";
 
-       }
-       html += "</div>";
-       html += "<div id='pagination' style='margin: auto;'></div>";
-
-      document.getElementById('listadoValoraciones').innerHTML += html;
-      if(filas > 0)
-         pagination(filas);
-    }
+         document.getElementById('listadoValoraciones').innerHTML += html;
+         if(filas > 0)
+             pagination(filas);
+     }
 
     function printRating(puntuacion) {
       var html = "";
@@ -282,13 +282,13 @@
 
    </script>
 
-   <h2>Usuarios que han valorado este centro</h2>
+   <h2>Users that have rated this center</h2>
    <table class="headerTable">
-     <tr>
-       <td class='user'>USUARIO</td>
-       <td class='puntuaciones'>VALORACIÓN</td>
-       <td class='media'>NOTA MEDIA</td>
-     </tr>
+    <tr>
+      <td class='user'>USER</td>
+      <td class='puntuaciones'>RATING</td>
+      <td class='media'>AVERAGE RATING</td>
+    </tr>
    </table>
    <div id="listadoValoraciones"></div>
 

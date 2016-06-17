@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="MG-valoracionMedia.xml" height="300">
+  <ModulePrefs title="me-valoracionMedia.xml" height="300">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
 	  <Require feature="dynamic-height"/>
@@ -139,25 +139,25 @@
       }
     </style>
 
-    <p>Esta es la valoración media otorgada por otros usuarios.</p>
+    <p>This is the average rating given by another users.</p>
     <div class="puntuaciones">
       <div class="lineSeparator"></div>
       <div class="">
         <table>
           <tr>
-            <td>Profesorado</td>
+            <td>Professorate</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
           </tr>
           <tr>
-            <td>Instalaciones</td>
+            <td>Facilities</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
           </tr>
           <tr>
-            <td>Idiomas</td>
+            <td>Languages</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
@@ -167,19 +167,19 @@
       <div class="">
         <table>
           <tr>
-            <td>Extraescolares</td>
+            <td>Extracurricular</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
           </tr>
           <tr>
-            <td>Comedor</td>
+            <td>Dinning room</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
           </tr>
           <tr>
-            <td>Horario ampliado</td>
+            <td>Extended hours</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
@@ -191,8 +191,8 @@
       <img src="https://raw.githubusercontent.com/sopraux/gsites/master/movilidadGeografica/img/puntuacionMedia.png" />
     </div>
     <div class="media">
-      <button onclick="Go()">Valora</button>
-      <label>Nota media</label> <span class="stars"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></span>
+      <button onclick="Go()">Rate</button>
+      <label>Average rating</label> <span class="stars"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></span>
     </div>
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -278,7 +278,7 @@
         var idCentro = getParam('idCentro');
         var comunidad = getParam('comunidad');
         var name = getParam('name');
-        var destination = "https://sites.google.com/a/bbva.com/movilidad-geografica/valorar?idCentro="+idCentro+"&comunidad="+comunidad+"&name="+name +"&valora=true";
+        var destination = "https://sites.google.com/a/bbva.com/movilizate-english/valorar?idCentro="+idCentro+"&comunidad="+comunidad+"&name="+name+"&valora=true";
         window.open(destination,'_top');
         return false;
       }
