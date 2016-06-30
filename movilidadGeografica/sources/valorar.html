@@ -554,14 +554,12 @@
             return false;
 
         for (var i=0; i<elems.length; i++) {
-            if (row === elems[i]) {
-                var noUse  = 'noUse' + elems[i];
-                var noDisp = 'noDisp' + elems[i];
+            var noUse  = 'noUse' + elems[i];
+            var noDisp = 'noDisp' + elems[i];
 
-                if ( formData['rating'+elems[i]] <= 0 )
-                    if ( !$('#'+noUse).prop( "checked" ) && !$('#'+noDisp).prop( "checked" ) )
-                        return false;
-            }
+            if ( formData['rating'+elems[i]] <= 0 )
+                if ( !$('#'+noUse).prop( "checked" ) && !$('#'+noDisp).prop( "checked" ) )
+                    return false;
         }
         return true;
     }
