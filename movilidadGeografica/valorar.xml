@@ -587,25 +587,34 @@
         }
 
         function calculateMedia() {
-          var sum = 0;
-          var media = 0;
-          var html = "";
-          sum = parseInt($('input[name=ratingPofesorado]').val()) +
-                parseInt($('input[name=ratingInstalaciones]').val()) +
-                parseInt($('input[name=ratingIdioma]').val()) +
-                parseInt($('input[name=ratingExtraescolares]').val()) +
-                parseInt($('input[name=ratingComedor]').val()) +
-                parseInt($('input[name=ratingHorario]').val());
-          media = Math.round(sum/6);
-          for (var i = 1; i <= 5; i++) {
-            if(i <= media) {
-              html += "<i class='fa fa-star'></i>";
-            } else {
-              html += "<i class='fa fa-star empty'></i>";
+            var sum = 0;
+            var number = 6;
+            var media = 0;
+            var html = "";
+            sum =   parseInt($('input[name=ratingPofesorado]').val()) +
+                    parseInt($('input[name=ratingInstalaciones]').val()) +
+                    parseInt($('input[name=ratingIdioma]').val()) +
+                    parseInt($('input[name=ratingExtraescolares]').val()) +
+                    parseInt($('input[name=ratingComedor]').val()) +
+                    parseInt($('input[name=ratingHorario]').val());
+
+            for (var i=0; i<elems.length; i++) {
+                var noUse  = 'noUse' + elems[i];
+                var noDisp = 'noDisp' + elems[i];
+                if ( $('#'+noUse).prop( "checked" ) || $('#'+noDisp).prop( "checked" ) )
+                    number--;
             }
-          }
-          $('input[name=notaMedia]').val(media);
-          $("#resultMedia").html(html);
+
+            media = Math.round(sum/number);
+            for (var i = 1; i <= 5; i++) {
+                if(i <= media) {
+                    html += "<i class='fa fa-star'></i>";
+                } else {
+                    html += "<i class='fa fa-star empty'></i>";
+                }
+            }
+            $('input[name=notaMedia]').val(media);
+            $("#resultMedia").html(html);
         }
 
       $(document).ready(function() {
