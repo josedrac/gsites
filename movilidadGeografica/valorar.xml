@@ -9,10 +9,11 @@
   <Content type="html">
     <![CDATA[
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://sites.google.com/a/bbva.com/evolucionadigital/jqueryui-css/jquery-ui.min.css?attredirects=0&d=1" media="all">
 
-	    <style type="text/css">
-        /* @group fonts */
+      <style type="text/css">
+          /* @group fonts */
         @font-face {
           font-family: 'BBVA Web Light';
           src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/fonts/web-light/web-light.eot');
@@ -44,6 +45,10 @@
           font-weight: normal;
         }
         /* @end */
+
+          body {
+              max-width: 600px;
+          }
 
          p, form {
            color: #434A58;
@@ -98,16 +103,23 @@
            color: #C9C9C9;
          }
 
-         span {
+         .valoracion span, .media span {
            font-size: 18px;
            width: 60px;
            font-family: 'BBVA Web Light';
            display: inline-block;
-           width: 180px;
+           width: 160px;
+         }
+         .media span {
+             font-family: 'BBVA Web Book';
          }
 
          .valoracion, .media {
            padding: 15px;
+         }
+
+         .valoracion {
+             padding-right: 0;
          }
 
          .media {
@@ -133,39 +145,367 @@
            color: #0065B7;
            display: none;
          }
-	    </style>
 
-      <p>
-        Valora los siguientes aspectos del centro, siendo una estrella la puntuación mínima y cinco estrellas la puntuación máxima. Además tu e-mail quedará registrado asociado a este centro para que tus compañeros puedan ponerse en contacto contigo si lo necesitan.
-      </p>
-      <form action="#">
-         <div class="valoracion"><span>Profesorado</span> <div class='starrr' data-connected-input='ratingPofesorado'></div></div>
-         <div class="valoracion"><span>Instalaciones</span> <div class='starrr' data-connected-input='ratingInstalaciones'></div></div>
-         <div class="valoracion"><span>Idiomas</span> <div class='starrr' data-connected-input='ratingIdioma'></div></div>
-         <div class="valoracion"><span>Extraescolares</span> <div class='starrr' data-connected-input='ratingExtraescolares'></div></div>
-         <div class="valoracion"><span>Comedor</span> <div class='starrr' data-connected-input='ratingComedor'></div></div>
-         <div class="valoracion"><span>Horario ampliado</span> <div class='starrr' data-connected-input='ratingHorario'></div></div>
-         <div class="media"><span>Nota media</span> <div id='resultMedia'><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i></div></div>
-         <br /><br>
-         <input type='hidden' value='3' name='ratingPofesorado'/>
-         <input type='hidden' value='3' name='ratingInstalaciones'/>
-         <input type='hidden' value='3' name='ratingIdioma'/>
-         <input type='hidden' value='3' name='ratingExtraescolares'/>
-         <input type='hidden' value='3' name='ratingComedor'/>
-         <input type='hidden' value='3' name='ratingHorario'/>
-         <input type='hidden' value='3' name='notaMedia'/>
-         <button type="submit">Valorar</button>
-         <i class="fa fa-circle-o-notch fa-spin"></i>
-      </form>
+         .title{
+             background: #ffffff; /* Old browsers */
+             background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%); /* FF3.6+ */
+             background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8)); /* Chrome,Safari4+ */
+             background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* Chrome10+,Safari5.1+ */
+             background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* Opera 11.10+ */
+             background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%); /* IE10+ */
+             background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%); /* W3C */
+             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 ); /* IE6-9 */
+             border-bottom: 1px solid #DDE3EA;
+             color: #333333;
+             font-family: BBVA Web Book,Arial;
+             font-size: 16px;
+             padding-bottom: 15px;
+             padding-left: 18px;
+             padding-top: 14px;
+         }
+         .subtitle {
+             color: #0078d2;
+             font-weight: bold;
+             text-align: center;
+             background-color: #f4f4f4;
+             padding: 10px 0;
+             border-top: 1px solid #DDE3EA;
+         }
 
-      <div id='error'></div>
+         .btn:hover {
+             background: #004C99;
+         }
 
-      <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-      <script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
-      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/js/starrr.min.js" type="text/javascript"></script>
+         .btn {
+             background: #0079C1;
+             background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJoâ€¦iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+             background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+             background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+             background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+             background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+             background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+             background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+             -webkit-border-radius: .1em;
+             -moz-border-radius: .1em;
+             border-radius: .1em;
+             text-align: center;
+             font-size: 13px;
+             vertical-align: middle;
+             height: 1.75em;
+             padding-left: 2em;
+             padding-right: 2em;
+             padding-bottom: 2px;
+             border: .1em solid #00559D;
+             color: white;
+             cursor: pointer;
+             position: relative;
+             text-align: center;
+             vertical-align: middle;
+             margin-left: 0px;
+             margin-right: 0px;
+         }
+         select {
+             width:220px;
+         }
+         .ui-widget-content {
+             background: white;
+         }
+         .ui-selectmenu-button {
+             background: rgba(255,255,255,1);
+              background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 56%, rgba(194,226,249,1) 100%);
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#c2e2f9', GradientType=0 );
+             border-color: #d2e5eb;
+             border: 1px solid #d5e2ee;
+             -moz-border-radius: 4px;
+             -webkit-border-radius: 4px;
+             border-radius: 4px;
+             color: #0065B7;;
+             font-size: 13px;
+             overflow: hidden;
+             position: relative;
+             text-align: left;
+             width: 100%;
+             line-height: 14px;
+             width: 190px;
+             height: 25px;
+             display: table;
+         }
+         .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
+             color: #0065B7;
+         }
+         .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus  {
+             background: #e2fafe none repeat scroll 0 0;
+             color: #003f8c;
+             border: 1px solid #e1e1e1;
+         }
+         .ui-widget-content {
+             border: 1px solid rgb(213, 226, 238);
+             color: rgb(34, 34, 34);
+         }
+         .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus {
+             background-image: none;
+         }
+         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+             background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(236,246,253,1) 100%);
+         }
+         .ui-selectmenu-button span.ui-icon {
+             right: 2px;
+         }
+         .ui-selectmenu-button.ui-corner-all .ui-icon {
+             background-position: -2px -4.5em;
+         }
+         .ui-selectmenu-button.ui-corner-top .ui-icon {
+             background-position: -2px 28px;
+         }
+         .ui-state-default .ui-icon {
+             border: 0;
+             border-left: 1px solid #d2e5eb;
+             background: rgba(255,255,255,1);
+             background: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(236,246,253,1) 100%);
+             background-position: -2px 0px;
+             width: 25px;
+             height: 29px;
+             position: absolute;
+             top: 0;
+             right: 0;
+         }
+         .ui-selectmenu-button span {
+             font-family: 'BBVA Web Book', arial;
+         }
+         .ui-selectmenu-button span.ui-selectmenu-text {
+             padding-left: 8px;
+             font-size: 13px;
+             display: table-cell;
+             vertical-align: middle;
+         }
+         .ui-selectmenu-button span.ui-icon {
+             top: 9;
+         }
+         .ui-selectmenu-menu .ui-menu {
+                 height: 115px;
+         }
+         .name {
+             color: #434a58;
+             float: left;
+             font-family: Arial;
+             font-size: 13px;
+             padding-top: 10px;
+             display: table-cell;
+             margin-bottom: 5px;
+             width: 100%;
+         }
+         .ui-menu-item {
+             color: #003f8c;
+             padding: 0 0 0 1.25em;
+             border-top: 1px solid #e1e1e1;
+             font-size: 13px;
+             font-weight: normal;
+         }
 
-   	  <script type="text/javascript">
+         .radio-container {
+             position: relative;
+             display: table;
+             float: right;
+             margin: 0;
+             padding: 0;
+             width: 42%;
+         }
+         .radio-container span {
+              width: 90px;
+              font-size: 14px;
+              display: table-cell;
+              vertical-align: middle;
+         }
 
+         input[type=radio] {
+             opacity: 0;
+             position: absolute;
+         }
+
+          .check {
+              display: block;
+              position: absolute;
+              border: 1px solid #AAAAAA;
+              border-radius: 100%;
+              height: 18px;
+              width: 18px;
+          }
+
+          .check::before {
+            display: block;
+            position: absolute;
+            content: '';
+            border-radius: 100%;
+            height: 6px;
+            width: 6px;
+            top: 6px;
+            left: 6px;
+            margin: auto;
+          }
+
+
+
+          input[type=radio]:checked ~ .check::before{
+            background: #6AAD22;;
+          }
+
+          .radio-container label {
+              display: block;
+              position: absolute;
+              height: 30px;
+              width: 30px;
+              z-index: 9;
+              cursor: pointer;
+          }
+
+         .container {
+             margin: 15px 0;
+             text-align: left;
+         }
+         .element {
+             display: table-cell;
+             padding-right: 15px;
+         }
+         .radio-container li {
+             list-style: none;
+             float: left;
+             display: inline-block;
+             position: relative;
+             width: 21px;
+             height: 19px;
+         }
+      </style>
+
+
+    <form action="#">
+
+        <div class="container">
+            <div class="element">
+                <label class="name">Edad de tu hijo</label>
+                <select name="edad" id="edadSelector">
+                    <option value="">Selecciona la edad</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="element">
+                <label class="name">Curso de tu hijo</label>
+                <select name="curso" id="cursoSelector">
+                    <option value="">Selecciona el curso</option>
+                    <option value="primaria">Primaria</option>
+                    <option value="secundaria">Secundaria</option>
+                    <option value="bachillerato">Bachillerato</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+        </div>
+
+
+        <p>
+          Valora los siguientes aspectos del centro, siendo una estrella la puntuación mínima y cinco estrellas la puntuación máxima. Además tu e-mail quedará registrado asociado a este centro para que tus compañeros puedan ponerse en contacto contigo si lo necesitan.
+        </p>
+
+       <div class="valoracion">
+            <span>Profesorado</span>
+            <div class='starrr' data-connected-input='ratingPofesorado'></div>
+       </div>
+       <div class="valoracion">
+           <span>Instalaciones</span>
+           <div class='starrr' data-connected-input='ratingInstalaciones'></div>
+       </div>
+       <div class="valoracion">
+           <span>Idiomas</span>
+           <div class='starrr' data-connected-input='ratingIdioma'></div>
+           <ul class="radio-container">
+                <li>
+                   <input type="radio" id="noUseIdioma" name="noUseIdioma"/><div class="check"></div><label for="noUseIdioma"></label>
+                </li>
+                <span>No lo uso</span>
+                <li>
+                    <input type="radio" id="noDispIdioma" name="noDispIdioma"/><div class="check"></div><label for="noDispIdioma"></label>
+                </li>
+                <span>No disponible</span>
+           </ul>
+       </div>
+       <div class="valoracion">
+           <span>Extraescolares</span>
+           <div class='starrr' data-connected-input='ratingExtraescolares'></div>
+           <ul class="radio-container">
+                <li>
+                   <input type="radio" id="noUseExtraescolares" name="noUseExtraescolares"/><div class="check"></div><label for="noUseExtraescolares"></label>
+                </li>
+                <span>No lo uso</span>
+                <li>
+                    <input type="radio" id="noDispExtraescolares" name="noDispExtraescolares"/><div class="check"></div><label for="noDispExtraescolares"></label>
+                </li>
+                <span>No disponible</span>
+           </ul>
+       </div>
+       <div class="valoracion">
+           <span>Comedor</span>
+           <div class='starrr' data-connected-input='ratingComedor'></div>
+           <ul class="radio-container">
+                <li>
+                   <input type="radio" id="noUseComedor" name="noUseComedor"/><div class="check"></div><label for="noUseComedor"></label>
+                </li>
+                <span>No lo uso</span>
+                <li>
+                    <input type="radio" id="noDispComedor" name="noDispComedor"/><div class="check"></div><label for="noDispComedor"></label>
+                </li>
+                <span>No disponible</span>
+           </ul>
+       </div>
+       <div class="valoracion">
+           <span>Horario ampliado</span>
+           <div class='starrr' data-connected-input='ratingHorario'></div>
+           <ul class="radio-container">
+                <li>
+                   <input type="radio" id="noUseHorario" name="noUseHorario"/><div class="check"></div><label for="noUseHorario"></label>
+                </li>
+                <span>No lo uso</span>
+                <li>
+                    <input type="radio" id="noDispHorario" name="noDispHorario"/><div class="check"></div><label for="noDispHorario"></label>
+                </li>
+                <span>No disponible</span>
+           </ul>
+       </div>
+       <div class="media">
+           <span>Nota media</span>
+           <div id='resultMedia'><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i></div>
+       </div>
+       <br /><br>
+       <input type='hidden' value='0' name='ratingPofesorado'/>
+       <input type='hidden' value='0' name='ratingInstalaciones'/>
+       <input type='hidden' value='0' name='ratingIdioma'/>
+       <input type='hidden' value='0' name='ratingExtraescolares'/>
+       <input type='hidden' value='0' name='ratingComedor'/>
+       <input type='hidden' value='0' name='ratingHorario'/>
+       <input type='hidden' value='0' name='notaMedia'/>
+       <button type="submit">Valorar</button>
+       <i class="fa fa-circle-o-notch fa-spin"></i>
+    </form>
+
+    <div id='error'></div>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/movilidadGeografica/js/starrr.min.js" type="text/javascript"></script>
+
+     <script type="text/javascript">
+
+      var elems = ['Idioma', 'Extraescolares', 'Comedor', 'Horario'];
         function getParam(p){
           var params;
           if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
@@ -179,71 +519,169 @@
         }
 
         function Go(destination){
-          window.open(destination,'_top');
-          return false;
+            window.open(destination,'_top');
+            return false;
         }
 
-        $(document).ready(function() {
+        function prepareFormData() {
+            var formData = {
+                'idCentro'              : getParam('idCentro'),
+                'nombreCentro'          : decodeURI(getParam('name')),
+                'comunidad'             : decodeURI(getParam('comunidad')),
+                'edad'                  : $('#edadSelector').val(),
+                'curso'                 : $('#cursoSelector').val(),
+                'ratingPofesorado'	    : $('input[name=ratingPofesorado]').val(),
+                'ratingInstalaciones'   : $('input[name=ratingInstalaciones]').val(),
+                'ratingIdioma'	        : $('input[name=ratingIdioma]').val(),
+                'ratingExtraescolares'  : $('input[name=ratingExtraescolares]').val(),
+                'ratingComedor'	        : $('input[name=ratingComedor]').val(),
+                'ratingHorario'	        : $('input[name=ratingHorario]').val(),
+                'notaMedia'	            : $('input[name=notaMedia]').val()
+            };
 
-          $(".starrr").click(function(event) {
+            for (var i=0; i<elems.length; i++) {
+                var noUse  = 'noUse' + elems[i];
+                var noDisp = 'noDisp' + elems[i];
+
+                if ( $('#'+noUse).prop( "checked" ) )
+                    formData['rating'+elems[i]] = 'No lo uso';
+                if ( $('#'+noDisp).prop( "checked" ) )
+                    formData['rating'+elems[i]] = 'No disponible';
+            }
+
+            return formData;
+        }
+
+        function checkFormData(formData) {
+            if (formData.edad == '')
+                return false;
+            if (formData.curso == '')
+                return false;
+
+            if (formData.ratingProfesorado <= 0)
+                return false;
+            if (formData.ratingInstalaciones <= 0)
+                return false;
+
+            for (var i=0; i<elems.length; i++) {
+                var noUse  = 'noUse' + elems[i];
+                var noDisp = 'noDisp' + elems[i];
+
+                if ( formData['rating'+elems[i]] <= 0 )
+                    if ( !$('#'+noUse).prop( "checked" ) && !$('#'+noDisp).prop( "checked" ) )
+                        return false;
+            }
+            return true;
+        }
+
+        function clearRadioRow( row ) {
+          for (var i=0; i<elems.length; i++) {
+              if (row === elems[i]) {
+                  var noUse  = 'noUse' + elems[i];
+                  var noDisp = 'noDisp' + elems[i];
+
+                  $('#'+noUse).prop( "checked", false );
+                  $('#'+noDisp).prop( "checked", false );
+              }
+          }
+        }
+
+        function calculateMedia() {
             var sum = 0;
+            var number = 6;
             var media = 0;
             var html = "";
-            sum = parseInt($('input[name=ratingPofesorado]').val()) +
-                  parseInt($('input[name=ratingInstalaciones]').val()) +
-                  parseInt($('input[name=ratingIdioma]').val()) +
-                  parseInt($('input[name=ratingExtraescolares]').val()) +
-                  parseInt($('input[name=ratingComedor]').val()) +
-                  parseInt($('input[name=ratingHorario]').val());
-            media = Math.round(sum/6);
+            sum =   parseInt($('input[name=ratingPofesorado]').val()) +
+                    parseInt($('input[name=ratingInstalaciones]').val()) +
+                    parseInt($('input[name=ratingIdioma]').val()) +
+                    parseInt($('input[name=ratingExtraescolares]').val()) +
+                    parseInt($('input[name=ratingComedor]').val()) +
+                    parseInt($('input[name=ratingHorario]').val());
+
+            for (var i=0; i<elems.length; i++) {
+                var noUse  = 'noUse' + elems[i];
+                var noDisp = 'noDisp' + elems[i];
+                if ( $('#'+noUse).prop( "checked" ) || $('#'+noDisp).prop( "checked" ) )
+                    number--;
+            }
+
+            media = Math.round(sum/number);
             for (var i = 1; i <= 5; i++) {
-              if(i <= media) {
-                html += "<i class='fa fa-star'></i>";
-              } else {
-                html += "<i class='fa fa-star empty'></i>";
-              }
+                if(i <= media) {
+                    html += "<i class='fa fa-star'></i>";
+                } else {
+                    html += "<i class='fa fa-star empty'></i>";
+                }
             }
             $('input[name=notaMedia]').val(media);
             $("#resultMedia").html(html);
-          });
+        }
 
-          $('form').submit(function(event) {
+      $(document).ready(function() {
 
-            $('.fa-spin').css('display', 'inherit');
+        $(".radio-container label").click(function() {
+            var input = $(this).closest('li').find('input').attr('id');
 
-            var formData = {
-              'idCentro'             : getParam('idCentro'),
-              'nombreCentro'         : decodeURI(getParam('name')),
-              'comunidad'            : decodeURI(getParam('comunidad')),
-              'ratingPofesorado'	   : $('input[name=ratingPofesorado]').val(),
-              'ratingInstalaciones'  : $('input[name=ratingInstalaciones]').val(),
-              'ratingIdioma'	       : $('input[name=ratingIdioma]').val(),
-              'ratingExtraescolares' : $('input[name=ratingExtraescolares]').val(),
-              'ratingComedor'	       : $('input[name=ratingComedor]').val(),
-              'ratingHorario'	       : $('input[name=ratingHorario]').val(),
-              'notaMedia'	           : $('input[name=notaMedia]').val()
-            };
+            for (var i=0; i<elems.length; i++) {
+                var noUse  = 'noUse' + elems[i];
+                var noDisp = 'noDisp' + elems[i];
 
-            $.ajax({
-              type        	: 'GET',
-              url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbwQpgkgawAruW-juS1q9e-dcMahtc3lza4RZ3NiiCLJUXMtp9Vr/exec',
-              data      	  : formData,
-              dataType		  : 'jsonp',
-              crossDomain	  : true,
-              jsonpCallback : "on_result",
-              success: function(data) {
-                Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
-              },
-              error: function() {
-                console.error('error');
-              }
-            });
+                if (input === noUse) {
+                    $('#'+noUse).prop( "checked", true );
+                    $('#'+noDisp).prop( "checked", false );
+                    $('input[name=rating'+ elems[i] +']').val(0);
+                    $('.starrr[data-connected-input="rating'+ elems[i] +'"]').starrr({rating:0});
+                    $('.starrr[data-connected-input="rating'+ elems[i] +'"] .fa-star').addClass('empty');
+                }
+                else if (input === noDisp) {
+                    $('#'+noUse).prop( "checked", false );
+                    $('#'+noDisp).prop( "checked", true );
+                    $('input[name=rating'+ elems[i] +']').val(0);
+                    $('.starrr[data-connected-input="rating'+ elems[i] +'"]').starrr({rating:0});
+                    $('.starrr[data-connected-input="rating'+ elems[i] +'"] .fa-star').addClass('empty');
+                }
+            }
+            calculateMedia();
+        });
 
+
+        $(".starrr").click(function(event) {
+            clearRadioRow( $(this).attr('data-connected-input').replace('rating', '') );
+            calculateMedia();
+        });
+
+        $('form').submit(function(event) {
+            var formData = prepareFormData();
+
+            if ( checkFormData(formData) ) {
+                $('.fa-spin').css('display', 'inherit');
+                $.ajax({
+                    type        	: 'GET',
+                    url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbwQpgkgawAruW-juS1q9e-dcMahtc3lza4RZ3NiiCLJUXMtp9Vr/exec',
+                    data      	  : formData,
+                    dataType		  : 'jsonp',
+                    crossDomain	  : true,
+                    jsonpCallback : "on_result",
+                    success: function(data) {
+                        Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
+                    },
+                    error: function() {
+                        console.error('error');
+                        alert('Se ha producido un error');
+                    }
+                });
+            }
+            else {
+                alert('Por favor, rellena todos los campos.');
+            }
             event.preventDefault();
-          });
+        });
 
-         });
-  	  </script>
+        $( "#edadSelector" ).selectmenu({width: 190});
+        $( "#cursoSelector" ).selectmenu({width: 190});
+
+      });
+    </script>
 
     ]]>
   </Content>
