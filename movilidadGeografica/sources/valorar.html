@@ -496,24 +496,75 @@
 
   var elems = ['Idioma', 'Extraescolares', 'Comedor', 'Horario'];
 
-  function getParam(p) {
-    var params;
-    if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
-      params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-      for(var i=0; i<params.length; i++){
-        if(params[i].split("=")[0] == p)
-          return params[i].split("=")[1];
-      }
+    function getParam(p) {
+        var params;
+        if(location.href.split("?").length > 1){
+          params = location.href.split("?")[1].split("&");
+          for(var i=0; i<params.length; i++){
+            if(params[i].split("=")[0] == p)
+              return params[i].split("=")[1];
+          }
+        }
+        return "";
     }
-    return "";
-  }
 
-  function Go(destination){
-    window.open(destination,'_top');
-    return false;
-  }
+    function Go(destination){
+        window.open(destination,'_top');
+        return false;
+    }
 
-  function clearRadioRow( row ) {
+    function prepareFormData() {
+        return formData = {
+            'idCentro'              : getParam('idCentro'),
+            'nombreCentro'          : decodeURI(getParam('name')),
+            'comunidad'             : decodeURI(getParam('comunidad')),
+            'edad'                  : $('#edadSelector').val(),
+            'curso'                 : $('#cursoSelector').val(),
+            'ratingPofesorado'	    : $('input[name=ratingPofesorado]').val(),
+            'ratingInstalaciones'   : $('input[name=ratingInstalaciones]').val(),
+            'ratingIdioma'	        : $('input[name=ratingIdioma]').val(),
+            'ratingExtraescolares'  : $('input[name=ratingExtraescolares]').val(),
+            'ratingComedor'	        : $('input[name=ratingComedor]').val(),
+            'ratingHorario'	        : $('input[name=ratingHorario]').val(),
+            'notaMedia'	            : $('input[name=notaMedia]').val()
+        };
+
+        for (var i=0; i<elems.length; i++) {
+            if (row === elems[i]) {
+                var noUse  = 'noUse' + elems[i];
+                var noDisp = 'noDisp' + elems[i];
+
+                if ( !$('#'+noUse).prop( "checked" ) && !$('#'+noDisp).prop( "checked" ) )
+                    formData['rating'+elems[i]] = 'No lo uso';
+            }
+        }
+    }
+
+    function checkFormData(formData) {
+        if (formData.edad == '')
+            return false;
+        if (formData.curso == '')
+            return false;
+
+        if (formData.ratingProfesorado <= 0)
+            return false;
+        if (formData.ratingInstalaciones <= 0)
+            return false;
+
+        for (var i=0; i<elems.length; i++) {
+            if (row === elems[i]) {
+                var noUse  = 'noUse' + elems[i];
+                var noDisp = 'noDisp' + elems[i];
+
+                if ( formData['rating'+elems[i]] <= 0 )
+                    if ( !$('#'+noUse).prop( "checked" ) && !$('#'+noDisp).prop( "checked" ) )
+                        return false;
+            }
+        }
+        return true;
+    }
+
+    function clearRadioRow( row ) {
       for (var i=0; i<elems.length; i++) {
           if (row === elems[i]) {
               var noUse  = 'noUse' + elems[i];
@@ -523,9 +574,9 @@
               $('#'+noDisp).prop( "checked", false );
           }
       }
-  }
+    }
 
-  function calculateMedia() {
+    function calculateMedia() {
       var sum = 0;
       var media = 0;
       var html = "";
@@ -545,12 +596,11 @@
       }
       $('input[name=notaMedia]').val(media);
       $("#resultMedia").html(html);
-  }
+    }
 
   $(document).ready(function() {
 
     $(".radio-container label").click(function() {
-
         var input = $(this).closest('li').find('input').attr('id');
 
         for (var i=0; i<elems.length; i++) {
@@ -573,7 +623,6 @@
             }
         }
         calculateMedia();
-
     });
 
 
@@ -583,42 +632,34 @@
     });
 
     $('form').submit(function(event) {
+        var formData = prepareFormData();
 
-      $('.fa-spin').css('display', 'inherit');
-
-      var formData = {
-        'idCentro'             : getParam('idCentro'),
-        'nombreCentro'         : decodeURI(getParam('name')),
-        'comunidad'            : decodeURI(getParam('comunidad')),
-        'ratingPofesorado'	   : $('input[name=ratingPofesorado]').val(),
-        'ratingInstalaciones'  : $('input[name=ratingInstalaciones]').val(),
-        'ratingIdioma'	       : $('input[name=ratingIdioma]').val(),
-        'ratingExtraescolares' : $('input[name=ratingExtraescolares]').val(),
-        'ratingComedor'	       : $('input[name=ratingComedor]').val(),
-        'ratingHorario'	       : $('input[name=ratingHorario]').val(),
-        'notaMedia'	           : $('input[name=notaMedia]').val()
-      };
-
-      $.ajax({
-        type        	: 'GET',
-        url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbwQpgkgawAruW-juS1q9e-dcMahtc3lza4RZ3NiiCLJUXMtp9Vr/exec',
-        data      	  : formData,
-        dataType		  : 'jsonp',
-        crossDomain	  : true,
-        jsonpCallback : "on_result",
-        success: function(data) {
-          Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
-        },
-        error: function() {
-          console.error('error');
+        if ( checkFormData(formData) ) {
+            $('.fa-spin').css('display', 'inherit');
+            $.ajax({
+                type        	: 'GET',
+                url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbwQpgkgawAruW-juS1q9e-dcMahtc3lza4RZ3NiiCLJUXMtp9Vr/exec',
+                data      	  : formData,
+                dataType		  : 'jsonp',
+                crossDomain	  : true,
+                jsonpCallback : "on_result",
+                success: function(data) {
+                    Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
+                },
+                error: function() {
+                    console.error('error');
+                    alert('Se ha producido un error');
+                }
+            });
         }
-      });
-
-      event.preventDefault();
+        else {
+            alert('Por favor, rellena todos los campos.');
+        }
+        event.preventDefault();
     });
 
     $( "#edadSelector" ).selectmenu({width: 190});
     $( "#cursoSelector" ).selectmenu({width: 190});
 
-   });
+  });
 </script>
