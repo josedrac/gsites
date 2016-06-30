@@ -524,7 +524,7 @@
         }
 
         function prepareFormData() {
-            return formData = {
+            var formData = {
                 'idCentro'              : getParam('idCentro'),
                 'nombreCentro'          : decodeURI(getParam('name')),
                 'comunidad'             : decodeURI(getParam('comunidad')),
@@ -540,14 +540,16 @@
             };
 
             for (var i=0; i<elems.length; i++) {
-                if (row === elems[i]) {
-                    var noUse  = 'noUse' + elems[i];
-                    var noDisp = 'noDisp' + elems[i];
+                var noUse  = 'noUse' + elems[i];
+                var noDisp = 'noDisp' + elems[i];
 
-                    if ( !$('#'+noUse).prop( "checked" ) && !$('#'+noDisp).prop( "checked" ) )
-                        formData['rating'+elems[i]] = 'No lo uso';
-                }
+                if ( $('#'+noUse).prop( "checked" ) )
+                    formData['rating'+elems[i]] = 'No lo uso';
+                if ( $('#'+noDisp).prop( "checked" ) )
+                    formData['rating'+elems[i]] = 'No disponible';
             }
+
+            return formData;
         }
 
         function checkFormData(formData) {
