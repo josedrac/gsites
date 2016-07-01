@@ -262,8 +262,12 @@
             html += "<table><tr>";
             html += "  <td><table>";
             html += "    <tr class='user'><td><span>"+data.getValue(i,1)+"</span></td></tr>";
-            if (data.getValue(i,12) != null)
-                html += "    <tr><td><span>Edad: "+data.getValue(i,12)+" años</span></td></tr>";
+            if (data.getValue(i,12) != null) {
+                var edad_text = data.getValue(i,12);
+                if (edad_text !== 'otro')
+                    edad_text += ' años';
+                html += "    <tr><td><span>Edad: "+edad_text+"</span></td></tr>";
+            }
             if (data.getValue(i,13) != null)
                 html += "    <tr><td><span>Curso: "+data.getValue(i,13)+"</span></td></tr>";
             if (data.getValue(i,14) != null)
