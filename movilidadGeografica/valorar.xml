@@ -58,7 +58,7 @@
            padding: 0 15px;
          }
 
-         button {
+         .submit {
            background: #0079C1;
            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
@@ -245,7 +245,7 @@
          .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus {
              background-image: none;
          }
-         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+         .ui-selectmenu-button, .ui-widget-content .ui-selectmenu-button, .ui-widget-header .ui-selectmenu-button {
              background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(236,246,253,1) 100%);
          }
          .ui-selectmenu-button span.ui-icon {
@@ -257,7 +257,7 @@
          .ui-selectmenu-button.ui-corner-top .ui-icon {
              background-position: -2px 28px;
          }
-         .ui-state-default .ui-icon {
+         .ui-selectmenu-button .ui-icon {
              border: 0;
              border-left: 1px solid #d2e5eb;
              background: rgba(255,255,255,1);
@@ -374,6 +374,22 @@
              width: 21px;
              height: 19px;
          }
+
+        .ui-dialog .ui-button .ui-icon {
+            background-image: url("https://raw.githubusercontent.com/josedrac/gsites/master/movilidadGeografica/img/ui-icons_555555_256x240.png");
+        }
+        .ui-widget-overlay {
+           opacity: .50 !important; /* Make sure to change both of these, as IE only sees the second one */
+           filter: Alpha(Opacity=50) !important;
+           background-color: rgb(50, 50, 50) !important; /* This will make it darker */
+        }
+        .ui-widget-header {
+            background: none;
+            border: none;
+        }
+        .ui-dialog-titlebar-close {
+            display: none;
+        }
       </style>
 
 
@@ -384,6 +400,16 @@
                 <label class="name">Edad de tu hijo</label>
                 <select name="edad" id="edadSelector">
                     <option value="">Selecciona la edad</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
                     <option value="10">10</option>
                     <option value="11">11</option>
                     <option value="12">12</option>
@@ -492,7 +518,7 @@
        <input type='hidden' value='0' name='ratingComedor'/>
        <input type='hidden' value='0' name='ratingHorario'/>
        <input type='hidden' value='0' name='notaMedia'/>
-       <button type="submit">Valorar</button>
+       <button type="submit" class="submit">Valorar</button>
        <i class="fa fa-circle-o-notch fa-spin"></i>
     </form>
 
@@ -505,7 +531,14 @@
 
      <script type="text/javascript">
 
-      var elems = ['Idioma', 'Extraescolares', 'Comedor', 'Horario'];
+        var elems = ['Idioma', 'Extraescolares', 'Comedor', 'Horario'];
+
+        $( "#error" ).dialog({
+            autoOpen: false,
+            modal: true,
+            buttons: { "OK": function() { $(this).dialog("close"); } }
+        });
+
         function getParam(p){
           var params;
           if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
@@ -667,12 +700,15 @@
                     },
                     error: function() {
                         console.error('error');
-                        alert('Se ha producido un error');
+                        $('.fa-spin').css('display', 'none');
+                        $( "#error" ).text('Se ha producido un error');
+                        $( "#error" ).dialog( "open" );
                     }
                 });
             }
             else {
-                alert('Por favor, rellena todos los campos.');
+                $( "#error" ).text('Por favor, rellena todos los campos.');
+                $( "#error" ).dialog( "open" );
             }
             event.preventDefault();
         });
