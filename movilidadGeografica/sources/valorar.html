@@ -365,7 +365,7 @@
      }
 
     .ui-dialog .ui-button .ui-icon {
-        background-image: url("../img/ui-icons_555555_256x240.png");
+        background-image: url("https://raw.githubusercontent.com/josedrac/gsites/master/movilidadGeografica/img/ui-icons_555555_256x240.png");
     }
     .ui-widget-overlay {
        opacity: .50 !important; /* Make sure to change both of these, as IE only sees the second one */
@@ -375,6 +375,9 @@
     .ui-widget-header {
         background: none;
         border: none;
+    }
+    .ui-dialog-titlebar-close {
+        display: none;
     }
   </style>
 
@@ -521,7 +524,8 @@
 
     $( "#error" ).dialog({
         autoOpen: false,
-        modal: true
+        modal: true,
+        buttons: { "OK": function() { $(this).dialog("close"); } }
     });
 
     function getParam(p) {
