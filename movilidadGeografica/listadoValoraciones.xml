@@ -276,7 +276,7 @@
              html += "    <tr class='user'><td><span>"+data.getValue(i,1)+"</span></td></tr>";
              if (data.getValue(i,12) != null) {
                  var edad_text = data.getValue(i,12);
-                 if (edad_text !== 'otro')
+                 if (edad_text !== 'Otra')
                      edad_text += ' años';
                  html += "    <tr><td><span>Edad: "+edad_text+"</span></td></tr>";
              }
