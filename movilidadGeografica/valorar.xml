@@ -421,7 +421,7 @@
                     <option value="18">18</option>
                     <option value="19">19</option>
                     <option value="20">20</option>
-                    <option value="otro">Otro</option>
+                    <option value="Otra">Otra</option>
                 </select>
             </div>
 
@@ -429,10 +429,11 @@
                 <label class="name">Curso de tu hijo</label>
                 <select name="curso" id="cursoSelector">
                     <option value="">Selecciona el curso</option>
-                    <option value="primaria">Primaria</option>
-                    <option value="secundaria">Secundaria</option>
-                    <option value="bachillerato">Bachillerato</option>
-                    <option value="otro">Otro</option>
+                    <option value="Infantil">Infantil</option>
+                    <option value="Primaria">Primaria</option>
+                    <option value="Secundaria">Secundaria</option>
+                    <option value="Bachillerato">Bachillerato</option>
+                    <option value="Otro">Otro</option>
                 </select>
             </div>
         </div>
