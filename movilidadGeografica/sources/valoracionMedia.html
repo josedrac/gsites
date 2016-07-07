@@ -185,7 +185,7 @@
     </div>
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
       google.load('visualization', '1', {packages: ['table']});
@@ -216,10 +216,18 @@
         var filas = data.getNumberOfRows();
 
         $.each(puntuaciones, function(index) {
-          for(var i = 0; i < filas; i++) {
-            puntuaciones[index] += data.getValue(i, index + 2);
-          }
-          puntuaciones[index] = Math.round(puntuaciones[index] / filas);
+            var count_not = 0;
+            for(var i = 0; i < filas; i++) {
+                var value = data.getValue(i, index + 2);
+
+                if ( value === 'No lo uso' || value === 'No disponible' ) {
+                    count_not++;
+                }
+                else {
+                    puntuaciones[index] += value;
+                }
+            }
+          puntuaciones[index] = Math.round(puntuaciones[index] / (filas - count_not));
         });
 
         $(".stars").each(function(index) {

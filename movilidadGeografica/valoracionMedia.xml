@@ -227,10 +227,18 @@
         var filas = data.getNumberOfRows();
 
         $.each(puntuaciones, function(index) {
-          for(var i = 0; i < filas; i++) {
-            puntuaciones[index] += data.getValue(i, index + 2);
-          }
-          puntuaciones[index] = Math.round(puntuaciones[index] / filas);
+            var count_not = 0;
+            for(var i = 0; i < filas; i++) {
+                var value = data.getValue(i, index + 2);
+
+                if ( value === 'No lo uso' || value === 'No disponible' ) {
+                    count_not++;
+                }
+                else {
+                    puntuaciones[index] += value;
+                }
+            }
+          puntuaciones[index] = Math.round(puntuaciones[index] / (filas - count_not));
         });
 
         $(".stars").each(function(index) {
