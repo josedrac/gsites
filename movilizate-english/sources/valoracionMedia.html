@@ -128,13 +128,13 @@
       }
     </style>
 
-    <p>This is the average rating given by another users.</p>
+    <p>This is the average score given by other users.</p>
     <div class="puntuaciones">
       <div class="lineSeparator"></div>
       <div class="">
         <table>
           <tr>
-            <td>Professorate</td>
+            <td>Teachers team</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
@@ -156,19 +156,19 @@
       <div class="">
         <table>
           <tr>
-            <td>Extracurricular</td>
+            <td>Out-of-school activities</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
           </tr>
           <tr>
-            <td>Dinning room</td>
+            <td>School cafeteria</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
           </tr>
           <tr>
-            <td>Extended hours</td>
+            <td>Extended school hours</td>
             <td class="stars">
               <i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i>
             </td>
@@ -180,12 +180,12 @@
       <img src="https://raw.githubusercontent.com/sopraux/gsites/master/movilidadGeografica/img/puntuacionMedia.png" />
     </div>
     <div class="media">
-      <button onclick="Go()">Rate</button>
+      <button onclick="Go()">Evaluate</button>
       <label>Average rating</label> <span class="stars"><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i><i class="fa fa-star empty"></i></span>
     </div>
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
 
     <script type="text/javascript">
       google.load('visualization', '1', {packages: ['table']});
@@ -216,10 +216,18 @@
         var filas = data.getNumberOfRows();
 
         $.each(puntuaciones, function(index) {
-          for(var i = 0; i < filas; i++) {
-            puntuaciones[index] += data.getValue(i, index + 2);
-          }
-          puntuaciones[index] = Math.round(puntuaciones[index] / filas);
+            var count_not = 0;
+            for(var i = 0; i < filas; i++) {
+                var value = data.getValue(i, index + 2);
+
+                if ( value === 'No lo uso' || value === 'No disponible' ) {
+                    count_not++;
+                }
+                else {
+                    puntuaciones[index] += parseInt(value);
+                }
+            }
+          puntuaciones[index] = Math.round(puntuaciones[index] / (filas - count_not));
         });
 
         $(".stars").each(function(index) {
