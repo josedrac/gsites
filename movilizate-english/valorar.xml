@@ -393,137 +393,137 @@
       </style>
 
 
-    <form action="#">
+      <form action="#">
 
-        <div class="container">
-            <div class="element">
-                <label class="name">Age of your child</label>
-                <select name="edad" id="edadSelector">
-                    <option value="">Selecciona la edad</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="Otra">Otra</option>
-                </select>
-            </div>
+          <div class="container">
+              <div class="element">
+                  <label class="name">Age of your child</label>
+                  <select name="edad" id="edadSelector">
+                      <option value="">Select Age</option>
+                      <option value="0">0</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="Otra">Other</option>
+                  </select>
+              </div>
 
-            <div class="element">
-                <label class="name">Course of your child</label>
-                <select name="curso" id="cursoSelector">
-                    <option value="">Selecciona el curso</option>
-                    <option value="Infantil">Pre-school</option>
-                    <option value="Primaria">Elementary</option>
-                    <option value="Secundaria">Secondary</option>
-                    <option value="Bachillerato">High school</option>
-                    <option value="Otro">Otro</option>
-                </select>
-            </div>
-        </div>
+              <div class="element">
+                  <label class="name">Course of your child</label>
+                  <select name="curso" id="cursoSelector">
+                      <option value="">Select Course</option>
+                      <option value="Infantil">Pre-school</option>
+                      <option value="Primaria">Elementary</option>
+                      <option value="Secundaria">Secondary</option>
+                      <option value="Bachillerato">High school</option>
+                      <option value="Otro">Other</option>
+                  </select>
+              </div>
+          </div>
 
 
-        <p>
-          Please evaluate the following aspects of the center, where a star the lowest rating and five stars the highest rating. Your e-mail will stay linked to this center so that your colleagues can contact you in case they need.
-        </p>
+          <p>
+            Please evaluate the following aspects of the center, where a star the lowest rating and five stars the highest rating. Your e-mail will stay linked to this center so that your colleagues can contact you in case they need.
+          </p>
 
-       <div class="valoracion">
-            <span>Teachers team</span>
-            <div class='starrr' data-connected-input='ratingPofesorado'></div>
-       </div>
-       <div class="valoracion">
-           <span>Facilities</span>
-           <div class='starrr' data-connected-input='ratingInstalaciones'></div>
-       </div>
-       <div class="valoracion">
-           <span>Languages</span>
-           <div class='starrr' data-connected-input='ratingIdioma'></div>
-           <ul class="radio-container">
-                <li>
-                   <input type="radio" id="noUseIdioma" name="noUseIdioma"/><div class="check"></div><label for="noUseIdioma"></label>
-                </li>
-                <span>I don't use it</span>
-                <li>
-                    <input type="radio" id="noDispIdioma" name="noDispIdioma"/><div class="check"></div><label for="noDispIdioma"></label>
-                </li>
-                <span>Not available</span>
-           </ul>
-       </div>
-       <div class="valoracion">
-           <span>Out-of-school activities</span>
-           <div class='starrr' data-connected-input='ratingExtraescolares'></div>
-           <ul class="radio-container">
-                <li>
-                   <input type="radio" id="noUseExtraescolares" name="noUseExtraescolares"/><div class="check"></div><label for="noUseExtraescolares"></label>
-                </li>
-                <span>I don't use it</span>
-                <li>
-                    <input type="radio" id="noDispExtraescolares" name="noDispExtraescolares"/><div class="check"></div><label for="noDispExtraescolares"></label>
-                </li>
-                <span>Not available</span>
-           </ul>
-       </div>
-       <div class="valoracion">
-           <span>School cafeteria</span>
-           <div class='starrr' data-connected-input='ratingComedor'></div>
-           <ul class="radio-container">
-                <li>
-                   <input type="radio" id="noUseComedor" name="noUseComedor"/><div class="check"></div><label for="noUseComedor"></label>
-                </li>
-                <span>I don't use it</span>
-                <li>
-                    <input type="radio" id="noDispComedor" name="noDispComedor"/><div class="check"></div><label for="noDispComedor"></label>
-                </li>
-                <span>Not available</span>
-           </ul>
-       </div>
-       <div class="valoracion">
-           <span>Extended school hours</span>
-           <div class='starrr' data-connected-input='ratingHorario'></div>
-           <ul class="radio-container">
-                <li>
-                   <input type="radio" id="noUseHorario" name="noUseHorario"/><div class="check"></div><label for="noUseHorario"></label>
-                </li>
-                <span>I don't use it</span>
-                <li>
-                    <input type="radio" id="noDispHorario" name="noDispHorario"/><div class="check"></div><label for="noDispHorario"></label>
-                </li>
-                <span>Not available</span>
-           </ul>
-       </div>
-       <div class="media">
-           <span>Average rating</span>
-           <div id='resultMedia'><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i></div>
-       </div>
-       <br /><br>
-       <input type='hidden' value='0' name='ratingPofesorado'/>
-       <input type='hidden' value='0' name='ratingInstalaciones'/>
-       <input type='hidden' value='0' name='ratingIdioma'/>
-       <input type='hidden' value='0' name='ratingExtraescolares'/>
-       <input type='hidden' value='0' name='ratingComedor'/>
-       <input type='hidden' value='0' name='ratingHorario'/>
-       <input type='hidden' value='0' name='notaMedia'/>
-       <button type="submit" class="submit">Evaluate</button>
-       <i class="fa fa-circle-o-notch fa-spin"></i>
-    </form>
+         <div class="valoracion">
+              <span>Teachers team</span>
+              <div class='starrr' data-connected-input='ratingPofesorado'></div>
+         </div>
+         <div class="valoracion">
+             <span>Facilities</span>
+             <div class='starrr' data-connected-input='ratingInstalaciones'></div>
+         </div>
+         <div class="valoracion">
+             <span>Languages</span>
+             <div class='starrr' data-connected-input='ratingIdioma'></div>
+             <ul class="radio-container">
+                  <li>
+                     <input type="radio" id="noUseIdioma" name="noUseIdioma"/><div class="check"></div><label for="noUseIdioma"></label>
+                  </li>
+                  <span>I don't use it</span>
+                  <li>
+                      <input type="radio" id="noDispIdioma" name="noDispIdioma"/><div class="check"></div><label for="noDispIdioma"></label>
+                  </li>
+                  <span>Not available</span>
+             </ul>
+         </div>
+         <div class="valoracion">
+             <span>Out-of-school activities</span>
+             <div class='starrr' data-connected-input='ratingExtraescolares'></div>
+             <ul class="radio-container">
+                  <li>
+                     <input type="radio" id="noUseExtraescolares" name="noUseExtraescolares"/><div class="check"></div><label for="noUseExtraescolares"></label>
+                  </li>
+                  <span>I don't use it</span>
+                  <li>
+                      <input type="radio" id="noDispExtraescolares" name="noDispExtraescolares"/><div class="check"></div><label for="noDispExtraescolares"></label>
+                  </li>
+                  <span>Not available</span>
+             </ul>
+         </div>
+         <div class="valoracion">
+             <span>School cafeteria</span>
+             <div class='starrr' data-connected-input='ratingComedor'></div>
+             <ul class="radio-container">
+                  <li>
+                     <input type="radio" id="noUseComedor" name="noUseComedor"/><div class="check"></div><label for="noUseComedor"></label>
+                  </li>
+                  <span>I don't use it</span>
+                  <li>
+                      <input type="radio" id="noDispComedor" name="noDispComedor"/><div class="check"></div><label for="noDispComedor"></label>
+                  </li>
+                  <span>Not available</span>
+             </ul>
+         </div>
+         <div class="valoracion">
+             <span>Extended school hours</span>
+             <div class='starrr' data-connected-input='ratingHorario'></div>
+             <ul class="radio-container">
+                  <li>
+                     <input type="radio" id="noUseHorario" name="noUseHorario"/><div class="check"></div><label for="noUseHorario"></label>
+                  </li>
+                  <span>I don't use it</span>
+                  <li>
+                      <input type="radio" id="noDispHorario" name="noDispHorario"/><div class="check"></div><label for="noDispHorario"></label>
+                  </li>
+                  <span>Not available</span>
+             </ul>
+         </div>
+         <div class="media">
+             <span>Average rating</span>
+             <div id='resultMedia'><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i><i class='fa fa-star empty'></i></div>
+         </div>
+         <br /><br>
+         <input type='hidden' value='0' name='ratingPofesorado'/>
+         <input type='hidden' value='0' name='ratingInstalaciones'/>
+         <input type='hidden' value='0' name='ratingIdioma'/>
+         <input type='hidden' value='0' name='ratingExtraescolares'/>
+         <input type='hidden' value='0' name='ratingComedor'/>
+         <input type='hidden' value='0' name='ratingHorario'/>
+         <input type='hidden' value='0' name='notaMedia'/>
+         <button type="submit" class="submit">Evaluate</button>
+         <i class="fa fa-circle-o-notch fa-spin"></i>
+      </form>
 
-    <div id='error'></div>
+      <div id='error'></div>
 
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
