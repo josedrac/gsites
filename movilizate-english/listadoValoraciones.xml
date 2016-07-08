@@ -326,15 +326,15 @@
 
      </script>
 
-    <h2>Usuarios que han valorado este centro</h2>
-    <table class="headerTable">
-        <tr>
-            <td class='user'>USER</td>
-            <td class='puntuaciones'>RATING</td>
-            <td class='media'>AVERAGE SCORE</td>
-        </tr>
-    </table>
-    <div id="listadoValoraciones"></div>
+     <h2>Users who have evaluated this center</h2>
+     <table class="headerTable">
+         <tr>
+             <td class='user'>USER</td>
+             <td class='puntuaciones'>RATING</td>
+             <td class='media'>AVERAGE SCORE</td>
+         </tr>
+     </table>
+     <div id="listadoValoraciones"></div>
 
 
    ]]>

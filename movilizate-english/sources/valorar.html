@@ -388,7 +388,7 @@
         <div class="element">
             <label class="name">Age of your child</label>
             <select name="edad" id="edadSelector">
-                <option value="">Selecciona la edad</option>
+                <option value="">Select Age</option>
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -410,19 +410,19 @@
                 <option value="18">18</option>
                 <option value="19">19</option>
                 <option value="20">20</option>
-                <option value="Otra">Otra</option>
+                <option value="Otra">Other</option>
             </select>
         </div>
 
         <div class="element">
             <label class="name">Course of your child</label>
             <select name="curso" id="cursoSelector">
-                <option value="">Selecciona el curso</option>
+                <option value="">Select Course</option>
                 <option value="Infantil">Pre-school</option>
                 <option value="Primaria">Elementary</option>
                 <option value="Secundaria">Secondary</option>
                 <option value="Bachillerato">High school</option>
-                <option value="Otro">Otro</option>
+                <option value="Otro">Other</option>
             </select>
         </div>
     </div>
@@ -691,13 +691,13 @@
                 error: function() {
                     console.error('error');
                     $('.fa-spin').css('display', 'none');
-                    $( "#error" ).text('Se ha producido un error');
+                    $( "#error" ).text('An error has ocurred');
                     $( "#error" ).dialog( "open" );
                 }
             });
         }
         else {
-            $( "#error" ).text('Por favor, rellena todos los campos.');
+            $( "#error" ).text('Please, fill all the fields.');
             $( "#error" ).dialog( "open" );
         }
         event.preventDefault();
