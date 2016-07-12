@@ -191,7 +191,7 @@
         url = 'https://sites.google.com/a/bbva.com/movilizate-english/valoraciones/' + '?idCentro=' + idCentro + '&comunidad=' + comunidad + '&name=' + nombre;
 
       var title = prefs.getString('tag');
-      html += '<button type="button" class="back-white" onclick="javascript:Go(\''+url+'\')">Volver</button>';
+      html += '<button type="button" class="back-white" onclick="javascript:Go(\''+url+'\')">Back</button>';
       html += '<h2>'+title+' <span id="name"></span></h2>';
       document.getElementById("title").innerHTML = html;
 
