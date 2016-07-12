@@ -10,7 +10,7 @@
     <![CDATA[
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="https://sites.google.com/a/bbva.com/evolucionadigital/jqueryui-css/jquery-ui.min.css?attredirects=0&d=1" media="all">
+    <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
 
       <style type="text/css">
           /* @group fonts */
