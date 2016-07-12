@@ -277,13 +277,13 @@
                 html += "  <td><table>";
                 html += "    <tr class='user'><td><span>"+data.getValue(i,1)+"</span></td></tr>";
                 if (data.getValue(i,12) != null) {
-                    var edad_text = data.getValue(i,12);
-                    if (edad_text !== 'Otra')
+                    var edad_text = traducir(data.getValue(i,12));
+                    if (edad_text !== 'Other')
                         edad_text += ' years';
                     html += "    <tr><td><span>Age: "+edad_text+"</span></td></tr>";
                 }
                 if (data.getValue(i,13) != null)
-                    html += "    <tr><td><span>Course: "+data.getValue(i,13)+"</span></td></tr>";
+                    html += "    <tr><td><span>Course: "+traducir(data.getValue(i,13))+"</span></td></tr>";
                 if (data.getValue(i,14) != null)
                     html += "    <tr><td><span>Evaluation date: "+date+"</span></td></tr>";
                 html += "  </table></td>";
@@ -305,10 +305,23 @@
             pagination(filas);
         }
 
+
+        function traducir( phrase ) {
+            if (phrase === 'Infantil')      return 'Pre-school';
+            if (phrase === 'Primaria')      return 'Elementary';
+            if (phrase === 'Secundaria')    return 'Secondary';
+            if (phrase === 'Bachillerato')  return 'High school';
+            if (phrase === 'No lo uso')     return 'I don\'t use it';
+            if (phrase === 'No disponible') return 'Not available';
+            if (phrase === 'Otro' || phrase === 'Otra')  return 'Other';
+            return phrase;
+        }
+
+
         function printRating(puntuacion) {
             var html = "";
             if ( isNaN(puntuacion) ) {
-                html = "<span class='rating-text'>" + puntuacion + "</span>";
+                html = "<span class='rating-text'>" + traducir(puntuacion) + "</span>";
             }
             else {
                 for (var i = 1; i <= 5; i++) {
