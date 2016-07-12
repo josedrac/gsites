@@ -688,8 +688,8 @@
                 success: function(data) {
                     Go('https://sites.google.com/a/bbva.com/movilizate-english/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
                 },
-                error: function() {
-                    console.error('error');
+                error: function(xhr, status, error) {
+                    console.error(error.message);
                     $('.fa-spin').css('display', 'none');
                     $( "#error" ).text('An error has ocurred');
                     $( "#error" ).dialog( "open" );
