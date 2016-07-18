@@ -36,7 +36,7 @@
     			background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
     			background-position: bottom;
     			background-repeat: repeat-x;
-    			width: 860px;
+    			width: 900px;
     			margin: 0 auto;
     			margin-top: 40px;
     		}
@@ -60,12 +60,17 @@
     		}
 
     		.col-3 {
-    			width: 22%;
+    			width: 25%;
     		}
 
     		.col-4 {
     			width: 36%;
     		}
+
+    		.col-5 {
+    			width: 18%;
+    		}
+
 
     		.six-cols .col-1 {
     			width: 24%;
@@ -85,6 +90,17 @@
 
     		.six-cols .col-5 {
     			width: 18%;
+    		}
+
+    		table tbody tr {
+    			height: 50px;
+    			border-top: 1px solid #DDE3EA;
+    			border-bottom: 1px solid #DDE3EA;
+
+    		}
+
+    		table tbody tr:nth-child(even) {
+    			background: #F7F7F7;
     		}
 
     		table tbody tr td {
@@ -228,13 +244,15 @@
     				template += '<td>' + dataTable.getValue(i, 1) + '</td>';
     				template += '<td>' + dataTable.getValue(i, 2) + '</td>';
     				template += '<td>' + dataTable.getValue(i, 3) + '</td>';
-    				if(isSixColumns)
+                    if(isSixColumns)
     					template += '<td>' + dataTable.getValue(i, 4) + '</td>';
+
     				url = dataTable.getValue(i, urlIndex);
+    				template += '<td class="text-center">';
     				if(url !== null && url !== undefined && url !== ''){
-    					template += '<td class="text-center"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/green-check.png"></td>';
+    					template += '<img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/green-check.png">';
     				}
-    				template += '</tr>';
+    				template += '</td></tr>';
     			}
 
     			document.getElementById("tableBody").innerHTML = template;
