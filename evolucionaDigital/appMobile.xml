@@ -127,7 +127,7 @@
 				</div>
 			</div>
 			<div class="col-img">
-					<img id="imgMobile" src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile.png">
+					<img id="imgMobile" src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/mobile_home.png">
 			</div>
 		</div>
 
@@ -166,7 +166,7 @@
 			* como la etiqueta del evento.
 			*/
 			var trackOutboundLink = function(url) {
-			   	ga('send', 'event', 'externo', 'click', url, {'hitCallback': 
+			   	ga('send', 'event', 'externo', 'click', url, {'hitCallback':
 			   		function () {
 			    		document.location = url;
 			    	}
