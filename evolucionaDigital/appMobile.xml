@@ -62,9 +62,6 @@
 		        .section .text, .section .icon {
 		            display: table-cell;
 		        }
-				#imgMobile {
-					width: 300px;
-				}
 
 		        button{
 		            background: #0079C1;
