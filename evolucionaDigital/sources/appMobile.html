@@ -85,25 +85,25 @@
     		<div class="section">
     			<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/demo.png" alt=""></div>
                 <div class="text">
-                    <h2>Demo móvil navegable</h2>
-                    <p>Prueba todas las funcionalidades de nuestra app cómodamente desde tu pc con un usuario ficticio.</p>
-                    <button id="buttonDemo">Accede</button>
+                    <h2>Un  día a través del móvil</h2>
+                    <p>Descubre lo más destacado de la app BBVA de forma muy sencilla.</p>
+                    <button id="buttonThroughMobile">Accede</button>
                 </div>
     		</div>
     		<div class="section">
                 <div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/tour.png" alt=""></div>
                 <div class="text">
-    				<h2>Tour por la app</h2>
-    				<p>Descubre en una visita guiada todo lo que puedes hacer con la aplicación de BBVA.</p>
-    				<button id="buttonTour">Accede</button>
+    				<h2>La revolución de las pequeñas cosas</h2>
+    				<p>Continuas ventajas por utilizar el móvil para acceder a BBVA.</p>
+    				<button id="buttonSmallThings">Accede</button>
                 </div>
     		</div>
     		<div class="section">
     			<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/movil2.png" alt=""></div>
                 <div class="text">
-                    <h2>Operativa por canal móvil</h2>
+                    <h2>Operativa en el móvil</h2>
                     <p>Listado de todo lo que tus clientes pueden hacer a través del móvil en comparación con otros canales.</p>
-                    <button id="buttonMovil">Accede</button>
+                    <button id="buttonMobile">Accede</button>
                 </div>
     		</div>
     		<div class="section">
@@ -137,12 +137,17 @@
             return false;
         }
 
+        function GoOut(destination){
+            window.open(destination,'_blank');
+            return false;
+        }
+
         function addURL() {
             document.getElementById("imgMobile").onclick = function(){ trackOutboundLink('https://movil.bbva.es'); openMobile('https://movil.bbva.es');};
-            document.getElementById("buttonDemo").onclick = function(){ trackOutboundLink('https://demo.movil.bbva.es/apps/buzz/index.html'); openMobile('https://demo.movil.bbva.es/apps/buzz/index.html');};
-            document.getElementById("buttonTour").onclick = function(){ trackOutboundLink('https://movil.bbva.es/#/tour'); openMobile('https://movil.bbva.es/#/tour');};
-            document.getElementById("buttonMovil").onclick = function(){ trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
-            document.getElementById("buttonMail").onclick = function(){ trackOutboundLink('https://www.bbva.es/estaticos/micros/wallet/index.html'); Go('https://www.bbva.es/estaticos/micros/wallet/index.html');};
+            document.getElementById("buttonThroughMobile").onclick = function(){ trackOutboundLink('https://www.blogbbva.es/pequenascosas/'); GoOut('https://www.blogbbva.es/pequenascosas/');};
+            document.getElementById("buttonSmallThings").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/banca-online/destacados/index.jsp'); GoOut('https://www.bbva.es/general/banca-online/destacados/index.jsp');};
+            document.getElementById("buttonMobile").onclick = function(){ trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
+            document.getElementById("buttonMail").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/apps/bbva-wallet.jsp'); Go('https://www.bbva.es/general/apps/bbva-wallet.jsp');};
         }
 
         addURL();
