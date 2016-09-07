@@ -165,7 +165,7 @@
 
 
   	<div class="container">
-          <h2 class="title">¿De qué soy Beta Tester?</h2>
+          <h2 class="title">¿Registrado para probar?</h2>
           <div class="subtitle">ANDROID</div>
           <ul class="android">
           	<li>
@@ -204,7 +204,7 @@
           	</li>
           </ul>
           <div class="buttonContainer">
-          	<button onclick="javascript:Go('https://docs.google.com/a/bbva.com/forms/d/1vGp1RkLZMFGzzV2ZdQI04hQ3H2u09t56fYINr4nTejA/viewform')">No quiero ser Beta Tester</button>
+          	<button onclick="javascript:Go('https://docs.google.com/a/bbva.com/forms/d/1vGp1RkLZMFGzzV2ZdQI04hQ3H2u09t56fYINr4nTejA/viewform')">No quiero seguir probando</button>
       	</div>
       </div>
 
