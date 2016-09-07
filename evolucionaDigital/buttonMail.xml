@@ -64,22 +64,19 @@
         }
     </style>
 
-
 	<div id="button-container">
-
+        <button type='button' onclick="javascript:Go('https://mail.google.com/mail/?view=cm&fs=1&to=soporte_banco_digital.group@bbva.com')">
+            Valora tu Experiencia nueva app BBVA
+        </button>
 	</div>
 
-   <script type="text/javascript">
-	   	var html="";
-	   	var gadgetHelper = null;
-
-        html = "<button type='button' onclick=javascript:Go('https://mail.google.com/mail/?view=cm&fs=1&to=soporte_banco_digital.group@bbva.com')>";
-        html += "Valora tu Experiencia nueva app BBVA";
-        html +="</button>";
-
-     	document.getElementById('button-container').innerHTML += html;
-
-	</script>
+    <script type="text/javascript">
+        function Go(destination)
+        {
+            window.open(destination, "_blank");
+            return false;
+        }
+    </script>
 
     ]]>
   	</Content>
