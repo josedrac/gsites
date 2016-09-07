@@ -72,17 +72,10 @@
    <script type="text/javascript">
 	   	var html="";
 	   	var gadgetHelper = null;
-	   	var prefs = new gadgets.Prefs();
 
-    	var VarTextLink1 = prefs.getString("VarTextLink1");
-        var VarLink1 = prefs.getString("VarLink1");
-
-        if (VarLink1!="")
-        {
-          html = "<button type='button' onclick=javascript:Go('https://mail.google.com/mail/?view=cm&fs=1&to=soporte_banco_digital.group@bbva.com')>";
-          html += "Valora tu Experiencia nueva app BBVA";
-          html +="</button>";
-     	}
+        html = "<button type='button' onclick=javascript:Go('https://mail.google.com/mail/?view=cm&fs=1&to=soporte_banco_digital.group@bbva.com')>";
+        html += "Valora tu Experiencia nueva app BBVA";
+        html +="</button>";
 
      	document.getElementById('button-container').innerHTML += html;
 
