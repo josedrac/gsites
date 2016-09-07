@@ -65,7 +65,7 @@
     </style>
 
 	<div id="button-container">
-        <button type='button' onclick="javascript:Go('https://mail.google.com/mail/?view=cm&fs=1&to=soporte_banco_digital.group@bbva.com?subject=FEEDBACK-WOODY')">
+        <button type='button' onclick="javascript:Go('https://mail.google.com/mail/?view=cm&fs=1&to=soporte_banco_digital.group@bbva.com')">
             Valora tu Experiencia nueva app BBVA
         </button>
 	</div>
