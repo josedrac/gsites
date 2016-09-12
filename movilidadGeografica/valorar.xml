@@ -699,7 +699,7 @@
                 }).always(function(data) {
                     $('.fa-spin').css('display', 'none');
                     console.log(data);
-                    //Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
+                    Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
                 });
             }
             else {
