@@ -696,7 +696,8 @@
                     dataType		  : 'jsonp',
                     crossDomain	  : true,
                     jsonpCallback : "on_result",
-                }).done(function() {
+                }).always(function() {
+                    $('.fa-spin').css('display', 'none');
                     Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
                 });
             }
