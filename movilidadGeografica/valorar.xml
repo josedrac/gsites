@@ -689,7 +689,7 @@
 
             if ( checkFormData(formData) ) {
                 $('.fa-spin').css('display', 'inherit');
-                $.ajax({
+                $.ajaxSetup({
                     type        	: 'GET',
                     url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbwQpgkgawAruW-juS1q9e-dcMahtc3lza4RZ3NiiCLJUXMtp9Vr/exec',
                     data      	  : formData,
