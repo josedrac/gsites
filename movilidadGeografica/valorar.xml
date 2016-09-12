@@ -689,22 +689,15 @@
 
             if ( checkFormData(formData) ) {
                 $('.fa-spin').css('display', 'inherit');
-                $.ajaxSetup({
+                $.ajax({
                     type        	: 'GET',
                     url       	  : 'https://script.google.com/a/macros/bbva.com/s/AKfycbwQpgkgawAruW-juS1q9e-dcMahtc3lza4RZ3NiiCLJUXMtp9Vr/exec',
                     data      	  : formData,
                     dataType		  : 'jsonp',
                     crossDomain	  : true,
                     jsonpCallback : "on_result",
-                    success: function(data) {
-                        Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
-                    },
-                    error: function() {
-                        console.error('error');
-                        $('.fa-spin').css('display', 'none');
-                        $( "#error" ).text('Se ha producido un error');
-                        $( "#error" ).dialog( "open" );
-                    }
+                }).done(function() {
+                    Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
                 });
             }
             else {
