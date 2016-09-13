@@ -686,10 +686,7 @@
 
         $('form').submit(function(event) {
             var formData = prepareFormData();
-
-            console.log(formData);
-            console.log(JSON.stringify(formData));
-
+            event.preventDefault();
             if ( checkFormData(formData) ) {
                 $('.fa-spin').css('display', 'inherit');
                 $.ajax({
@@ -700,13 +697,14 @@
                     crossDomain	  : true,
                     jsonpCallback : "on_result",
                     success: function(data) {
-                        console.log(data);
-                        $('.fa-spin').css('display', 'none');
-                        <!-- Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name')); -->
+                        console.log('exito');
+                        Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
                     },
-                    error: function(error) {
-                        console.log(error);
+                    error: function() {
+                        console.error('error');
                         $('.fa-spin').css('display', 'none');
+                        $( "#error" ).text('Se ha producido un error');
+                        $( "#error" ).dialog( "open" );
                     }
                 });
             }
@@ -714,7 +712,6 @@
                 $( "#error" ).text('Por favor, rellena todos los campos.');
                 $( "#error" ).dialog( "open" );
             }
-            event.preventDefault();
         });
 
         $( "#edadSelector" ).selectmenu({width: 190});

@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
 
@@ -381,6 +388,9 @@
     }
   </style>
 
+</head>
+<body>
+
 
 <form action="#">
 
@@ -675,7 +685,7 @@
 
     $('form').submit(function(event) {
         var formData = prepareFormData();
-
+        event.preventDefault();
         if ( checkFormData(formData) ) {
             $('.fa-spin').css('display', 'inherit');
             $.ajax({
@@ -686,6 +696,7 @@
                 crossDomain	  : true,
                 jsonpCallback : "on_result",
                 success: function(data) {
+                    console.log('exito');
                     Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
                 },
                 error: function() {
@@ -700,7 +711,6 @@
             $( "#error" ).text('Por favor, rellena todos los campos.');
             $( "#error" ).dialog( "open" );
         }
-        event.preventDefault();
     });
 
     $( "#edadSelector" ).selectmenu({width: 190});
@@ -708,3 +718,6 @@
 
   });
 </script>
+
+</body>
+</html>
