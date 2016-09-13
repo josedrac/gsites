@@ -687,6 +687,9 @@
         $('form').submit(function(event) {
             var formData = prepareFormData();
 
+            console.log(formData);
+            console.log(JSON.stringify(formData));
+
             if ( checkFormData(formData) ) {
                 $('.fa-spin').css('display', 'inherit');
                 $.ajax({
