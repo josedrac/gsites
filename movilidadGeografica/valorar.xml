@@ -690,8 +690,6 @@
             console.log(formData);
             console.log(JSON.stringify(formData));
 
-            return 0;
-
             if ( checkFormData(formData) ) {
                 $('.fa-spin').css('display', 'inherit');
                 $.ajax({
@@ -704,7 +702,7 @@
                     success: function(data) {
                         console.log(data);
                         $('.fa-spin').css('display', 'none');
-                        Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
+                        <!-- Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name')); -->
                     },
                     error: function(error) {
                         console.log(error);
