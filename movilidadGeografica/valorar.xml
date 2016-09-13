@@ -690,6 +690,8 @@
             console.log(formData);
             console.log(JSON.stringify(formData));
 
+            return 0;
+
             if ( checkFormData(formData) ) {
                 $('.fa-spin').css('display', 'inherit');
                 $.ajax({
