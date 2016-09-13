@@ -697,11 +697,9 @@
                     crossDomain	  : true,
                     jsonpCallback : "on_result",
                     success: function(data) {
-                        console.log('exito');
                         Go('https://sites.google.com/a/bbva.com/movilidad-geografica/valoraciones?idCentro='+getParam('idCentro')+'&comunidad='+getParam('comunidad')+'&name='+getParam('name'));
                     },
                     error: function() {
-                        console.error('error');
                         $('.fa-spin').css('display', 'none');
                         $( "#error" ).text('Se ha producido un error');
                         $( "#error" ).dialog( "open" );
