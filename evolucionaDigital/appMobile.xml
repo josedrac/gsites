@@ -154,7 +154,7 @@
 	        }
 
 	        function addURL() {
-	            document.getElementById("imgMobile").onclick = function(){ trackOutboundLink('https://movil.bbva.es'); openMobile('https://movil.bbva.es');};
+	            document.getElementById("imgMobile").onclick = function(){ trackOutboundLink('https://m.bbva.es/'); openMobile('https://m.bbva.es/');};
 	            document.getElementById("buttonThroughMobile").onclick = function(){ trackOutboundLink('https://www.blogbbva.es/pequenascosas/'); GoOut('https://www.blogbbva.es/pequenascosas/');};
 	            document.getElementById("buttonSmallThings").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/banca-online/destacados/index.jsp'); GoOut('https://www.bbva.es/general/banca-online/destacados/index.jsp');};
 	            document.getElementById("buttonMobile").onclick = function(){ trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
