@@ -125,6 +125,14 @@
 	                    <button id="buttonMail">Accede</button>
 	                </div>
 	    		</div>
+				<div class="section">
+	    			<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/bizum.png" alt=""></div>
+	                <div class="text">
+	                    <h2>BIZUM</h2>
+	                    <p>Enviar o pedir dinero desde la app BBVA con solo saber el número de móvil.</p>
+	                    <button id="buttonBizum">Accede</button>
+	                </div>
+	    		</div>
 	    	</div>
 	    	<div class="col-img">
 	    			<img id="imgMobile" src="https://raw.githubusercontent.com/josedrac/gsites/master/evolucionaDigital/img/mobile_home.png">
@@ -159,6 +167,7 @@
 	            document.getElementById("buttonSmallThings").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/banca-online/destacados/index.jsp'); GoOut('https://www.bbva.es/general/banca-online/destacados/index.jsp');};
 	            document.getElementById("buttonMobile").onclick = function(){ trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
 	            document.getElementById("buttonMail").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/apps/bbva-wallet.jsp'); Go('https://www.bbva.es/general/apps/bbva-wallet.jsp');};
+				document.getElementById("buttonBizum").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/banca-online/bizum/index.jsp'); Go('https://www.bbva.es/general/banca-online/bizum/index.jsp');};
 	        }
 
 	        addURL();
