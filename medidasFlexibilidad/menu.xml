@@ -14,33 +14,33 @@
 	/* @group fonts */
 	@font-face {
 		font-family: 'BBVA Web Light';
-		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/mevolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
 
 	@font-face {
 		font-family: 'BBVA Web Book';
-		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
 
 	@font-face {
 		font-family: 'BBVA Web Medium';
-		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
+		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
@@ -98,11 +98,10 @@ ol, ul {
 .cabeceramenu ul li.opcion1,
 .cabeceramenu ul li.opcion2,
 .cabeceramenu ul li.opcion3,
-.cabeceramenu ul li.opcion4,
-.cabeceramenu ul li.opcion5 {
+ {
   float: left;
   text-align: center;
-  background: url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/img/separador-menu.png') no-repeat scroll right top transparent;
+  background: url('https://rawgit.com/sopraux/gsites/menu/evolucionaDigital/img/separador-menu.png') no-repeat scroll right top transparent;
 }
 
 .cabeceramenu ul li.apps{
@@ -171,7 +170,7 @@ margin-top:-19px;
 
 .cabeceramenu ul li.opcion1
  {
-	width: 180px;
+	width: 100px;
 }
 .cabeceramenu ul li.opcion2
  {
@@ -179,19 +178,11 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion3
  {
-	width: 170px;
-}
-.cabeceramenu ul li.opcion4
- {
-	width: 155px;
-}
-.cabeceramenu ul li.opcion5
- {
-	width: 150px;
+	width: 100px;
 }
 .cabeceramenu ul li.opcion6
  {
-	width: 117px;
+	width: 1px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -211,7 +202,7 @@ border-top-right-radius: 5px;
 }
 
 .cabeceramenu  ul li.homefirst a{
-	background: url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
+	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
 	border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
@@ -268,7 +259,7 @@ border-top-right-radius: 5px;
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
 		border-radius: 5px;
-		background-image: url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/img/fondo-menu.png');
+		background-image: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/fondo-menu.png');
 		position: relative;
 		font-family: BBVA Web Light, Arial;
 		font-weight: normal;
