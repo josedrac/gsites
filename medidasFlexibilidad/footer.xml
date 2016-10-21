@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="ED-footer.xml"
+    description=""
+    author_affiliation="Sopra"
+    height="300">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+
+
+ <Content type="html">
+
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://www.google-analytics.com/analytics.js" type="text/javascript"></script>
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/reset.css" media="all">
+		<link rel="stylesheet" type="text/css" href="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/css/buttons.css" media="all">
+		<style type="text/css">
+		  /* @group fonts */
+
+			@font-face {
+				font-family: 'BBVA Web Book';
+				src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+				src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+					/*url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),*/
+					url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+					url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+				font-style: normal;
+				font-weight: normal;
+
+			}
+
+			/*footer*/
+			.footer {
+                padding-left: 16px;
+            }
+
+            .footer ul {
+                    display: inline;
+                    list-style-type: none;
+
+                }
+      .footer ul.footer-container {
+      		display: inline-block;
+      }
+
+            .footer ul li {
+                        background: none repeat scroll 0 0 transparent;
+                        float: left;
+                        margin: 0;
+                        padding: 0 9px 0 20px;
+                        position: relative;
+                        text-align: left;
+                        width: 30%;
+                        border-right: 1px solid #DCDCDC;
+                    }
+
+            .footer ul li ul li {
+            width: 200px;
+                        border-right: none;
+                    }
+
+            .footer ul li ul li.op3{
+
+                        border-right: none;
+                    }
+
+            .footer ul li.op1,
+            .footer ul li.op2,
+            .footer ul li.op3 {
+                        min-height: 200px;
+                    }
+
+            .footer ul li ul li {
+                        display: block;
+                        float: left;
+                        color: #8C9299;
+                        border: none;
+                        padding: 0;
+                    }
+
+            .footer ul li h2{
+                        color: #434A58;
+                        font-size: 11px;
+                        font-family: BBVA Web Book, Arial;
+                        /*padding-bottom: 10px;*/
+                    }
+
+            .footer ul li.first {
+                        padding: 0 9px 0 12px;
+                    }
+
+            .footer ul li.last {
+                        padding: 0 0 0 19px;
+                        border: none;
+                    }
+
+            .footer ul li a {
+                        color: #8C9299;
+                        font-size: 11px;
+                        font-weight: normal;
+                        text-align: left!important;
+                        text-decoration: none;
+                    }
+
+            .footer ul li ul li a {
+                        color: #8C9299;
+                        font-weight: normal;
+                        line-height: 20px;
+                    }
+
+            .footer ul li ul.redes-sociales li a{
+                        line-height: 24px;
+                        padding: 3px 3px 3px 20px;
+                    }
+
+            .footer ul li ul.redes-sociales li a.face{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-face.png') no-repeat left;
+                    }
+
+            .footer ul li ul.redes-sociales li a.rss{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-rss.png') no-repeat left;
+                    }
+
+            .footer ul li ul.redes-sociales li a.tw{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-tw.png') no-repeat left;
+                    }
+
+            .footer ul li ul.redes-sociales li a.link{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-link.png') no-repeat left;
+                    }
+
+            .footer ul li ul.redes-sociales li a.you{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-you.png') no-repeat left;
+                    }
+
+            .footer ul li ul.redes-sociales li a.gplus{
+                        background: url('https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ico-gplus.png') no-repeat left;
+                    }
+
+            .footer ul li ul.redes-sociales li span {
+                        padding-left: 20px;
+                    }
+
+
+            /* @end */
+
+            .footer-bottom {
+                border: 1px solid #EDEDEF;
+                height: 3em;
+                padding: 1.5em 0 0 0;
+                width: 99%;
+                font-size: 0.7em;
+                background: #F9FAF9;
+                color: #8C9299;
+                margin-top:20px;
+            }
+
+            .footer-bottom ul{
+                margin-left: auto;
+                margin-right: auto;
+                width: 96em;
+                margin: 0pt auto;
+            }
+
+            .footer-bottom span {
+                float: left;
+                padding: 0 9px 0 4.4em;
+            }
+
+            .footer-bottom ul li a {
+                color: #8C9299;
+                font-size: 1.1em;
+                font-weight: normal;
+                text-align: left!important;
+            }
+
+            .footer-bottom ul li ul { /*prueba*/
+                background-color: red;
+                padding-top: -10px;
+            }
+
+            .footer-bottom span.copyright {
+                color: #8C9299;
+                float: right;
+                padding-right: 4.4em;
+            }
+            /* @end */
+
+
+
+            .linedowntitle{
+                margin-bottom:40px;
+                width:939px;
+                display:block;
+                }
+                .container_20 .grid_20.footer {
+                padding: 17em 0;
+                }
+
+
+		</style>
+
+		<!--[if IE]>
+
+			<style type="text/css">
+				.footer ul li h2{
+					padding-bottom: 10px;
+				}
+			</style>
+
+		<![endif]-->
+
+	</head>
+
+    <div class="grid_20 footer">
+    	<div class="footer">
+    		<ul class="footer-container">
+    			<li class="first op1">
+    				<h2>EVOLUCIONA DIGITAL</h2>
+    				<ul>
+    					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital">Inicio</a></li>
+    					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar">Digitalizar y remotizar</a></li>
+    					<li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo">Decálogo</a></li>
+                        <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades">Novedades</a></li>
+                        <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal">Operativa por canal</a></li>
+                        <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes">¡Pruébalo antes!</a></li>
+                        <li><a target="_parent" href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion">Tu opinión</a></li>
+    				</ul>
+    			</li>
+    			<li class="op2">
+    				<h2>ENLACES DE INTERÉS</h2>
+    				<ul>
+    					<li><a href="javascript:void(0)" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/transforma-t/'); Go('https://sites.google.com/a/bbva.com/transforma-t/');">Evoluciona</a></li>
+                        <li><a href="javascript:void(0)" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/dcbc'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/dcbc');">DCBC´s y Embajadores</a></li>
+                        <li><a href="javascript:void(0)" onclick="trackOutboundLink('https://sites.google.com/a/bbva.com/somos-bbva-contigo'); Go('https://sites.google.com/a/bbva.com/somos-bbva-contigo');">BBVA Contigo</a></li>
+                        <li><a href="javascript:void(0)" onclick="trackOutboundLink('https://www.bbvaopenmind.com/'); Go('https://www.bbvaopenmind.com/');">BBVA OpenMind</a></li>
+    				</ul>
+    			</li>
+    			<li class="last op3">
+    				<h2>BBVA EN REDES SOCIALES</h2>
+    				<ul class="redes-sociales">
+    					<li><a href="javascript:void(0)" class="face" onclick="trackOutboundLink('https://www.facebook.com/BBVAespana'); Go('https://www.facebook.com/BBVAespana');">Facebook</a></li>
+    					<li><a href="javascript:void(0)" class="tw" onclick="trackOutboundLink('https://twitter.com/BBVA_esp'); Go('https://twitter.com/BBVA_esp');">Twitter</a></li>
+                        <li><a href="javascript:void(0)" class="you" onclick="trackOutboundLink('https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed'); Go('https://www.youtube.com/channel/UCrZO4eHT5BVQC6EhTxkLVaA/feed');">Youtube</a></li>
+    					<li><a href="javascript:void(0)" class="gplus" onclick="trackOutboundLink('https://plus.google.com/+BbvaEs'); Go('https://plus.google.com/+BbvaEs');">Google+</a></li>
+                        <li><a href="javascript:void(0)" class="rss" onclick="trackOutboundLink('https://www.blogbbva.es'); Go('https://www.blogbbva.es');">Blog BBVA</a></li>
+    					<li><a href="javascript:void(0)" class="link" onclick="trackOutboundLink('http://www.linkedin.com/company/bbvaespana'); Go('http://www.linkedin.com/company/bbvaespana');">Linkedin</a></li>
+    				</ul>
+    			</li>
+    		</ul>
+    	</div>
+    	<div class="footer-bottom">
+          <span class="copyright">Banco Bilbao Vizcaya Argentaria S.A. - 2015</span>
+        </div>
+    </div>
+
+    <script>
+        /**
+        * Función de Google Analytics que realiza un seguimiento de un clic en un enlace externo.
+        * Esta función toma una cadena de URL válida como argumento y la utiliza
+        * como la etiqueta del evento.
+        */
+        var trackOutboundLink = function(url) {
+            ga('send', 'event', 'externo', 'click', url, {'hitCallback': 
+                function () {
+                    document.location = url;
+                }
+           });
+        }
+
+        function Go(destination){
+            window.open(destination,'_blank');
+            return false;
+        }
+    </script>
+
+    ]]>
+  </Content>
+
+</Module>

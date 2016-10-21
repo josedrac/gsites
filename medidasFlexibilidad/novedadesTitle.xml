@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="ED - novedadesTitle.xml" height ="50">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+	<style type="text/css">
+		/* @group fonts */
+		@font-face {
+            font-family: 'BBVA Web Light';
+            src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot');
+            src:url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.woff') format("woff"),
+                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.ttf') format("truetype"),
+                url('https://raw.githubusercontent.com/josedrac/gsite/master/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+		/* @end */
+
+		#titlepage {
+			display: table;
+			width: 100%;
+			clear: both;
+			background-attachment: scroll;
+			background-clip: border-box;
+			background-color: transparent;
+			background-image: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/bg-separador-doble.png");
+			background-origin: padding-box;
+			background-position: left bottom;
+			background-repeat: repeat-x;
+			background-size: auto auto;
+			padding-bottom: 5px;
+		}
+		#titlepage h1{
+			color: #0078D2;
+			font-family: BBVA Web Light, Arial;
+			font-size: 30px;
+			margin: 5px 0px 10px 10px;
+			padding: 0px;
+			height: 40px;
+			font-weight: normal;
+			display: table-cell;
+			vertical-align: top;
+			width: 100%;
+		}
+	</style>
+
+	<!--[if IE 7]>
+		<style type="text/css">
+			#titlepage{
+				padding-bottom: 6px;
+			}
+		</style>
+	<![endif]-->
+
+	<div id="titlepage"></div>
+
+   	<script type="text/javascript">
+
+		var html = "";
+		var title = "";
+
+		if(isSearchDone()) {
+			switch(getParam("marco")) {
+				case 'R':
+					title = "Disponible Próximamente";
+					break;
+				case 'S':
+					title = "Novedades ya disponibles";
+					break;
+				case 'T':
+					title = "Archivo";
+					break;
+				default:
+					title = "Novedades y Archivo";
+			}
+		} else {
+			title = "Novedades ya disponibles";
+		}
+
+		html += "<h1>" + title + "</h1>";
+	 	document.getElementById("titlepage").innerHTML = html;
+
+	 	function getParam(p) {
+    		var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+    		for(var i=0; i<params.length; i++){
+    			if(params[i].split("=")[0] == p)
+    				return params[i].split("=")[1];
+    		}
+    		return "";
+    	}
+
+    	function isSearchDone() {
+        	if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            	return true;
+        	}
+        	return false;
+    	}
+
+	</script>
+
+    ]]>
+  </Content>
+</Module>

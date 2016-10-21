@@ -1,0 +1,183 @@
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <style>
+          @font-face {
+             font-family: 'BBVA Web Book';
+             src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+             src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+             font-style: normal;
+             font-weight: normal;
+          }
+                    .titulo{
+                        border-bottom: 1px solid  #DDE3EA;
+                        background: #ffffff;
+                        background: -moz-linear-gradient(top,  #ffffff 0%, #f5f7f8 100%);
+                        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f5f7f8));
+                        background: -webkit-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+                        background: -o-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+                        background: -ms-linear-gradient(top,  #ffffff 0%,#f5f7f8 100%);
+                        background: linear-gradient(to bottom,  #ffffff 0%,#f5f7f8 100%);
+                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f5f7f8',GradientType=0 );
+
+                            font-size:16px;
+    font-family: BBVA Web Book, Arial;
+                        color: #333333;
+                        padding-left: 18px;
+                        padding-left: 18px;
+                        padding-top: 14px;
+                        padding-bottom: 15px;
+                    }
+                    .caja{
+                        border: 1px solid #DDE3EA;
+            border-radius: 2px;
+            -ms-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            width: 298px;
+            clear: both;
+            margin-top:15px;
+                    }
+                    ul{
+                        padding-left: 19px;
+                        padding-right: 19px;
+                        margin: 0;
+                    }
+                    ul li{
+                        list-style: none;
+                        border-bottom: 1px solid #DDE3EA;
+                        padding-bottom: 12px;
+                        padding-top: 17px;
+            cursor: pointer;
+            padding-left: 2px;
+            vertical-align: 3px;
+            text-decoration: none;
+            font-size: 13px; font-family: Arial;
+            font-weight: bold;
+            color: #0073C9;
+                    }
+          ul li:last-child{
+                        border: 0;
+                        padding-bottom: 11px;
+                        padding-top: 17px;
+                    }
+                    ul li a,
+          ul li a:visited,
+          ul li a:hover,
+          ul li a:active {
+            padding-left: 2px;
+                        vertical-align: 3px;
+                        text-decoration: none;
+            font-size: 13px; font-family: Arial;
+            font-weight: bold;
+                        color: #0073C9;
+                    }
+
+        </style>
+
+        <!--[if IE 7]>
+
+            <style type="text/css">
+
+                .titulo{
+                    background: #F5F7F8
+                }
+
+            </style>
+
+        <![endif]-->
+
+        <!--[if IE 8]>
+
+            <style type="text/css">
+
+                .titulo{
+                    background: #F5F7F8
+                }
+
+            </style>
+
+        <![endif]-->
+
+    <div id="listLinks">
+    </div>
+
+
+
+    <script type="text/javascript">
+
+          function addLinks() {
+              var digitalizar = true;
+              renderPage(digitalizar);
+              addURL(digitalizar);
+          }
+
+          function renderPage(digitalizar) {
+              var html = "";
+              html += createBody(digitalizar);
+              document.getElementById('listLinks').innerHTML += html;
+          }
+
+          function createBody(digitalizar) {
+              if(digitalizar) {
+                  return "<div id='content_div' class='caja'><div class='titulo'>Más información</div> \
+                              <ul id='botonera'>\
+                                <li id='validMobile'>¿El cliente tiene un smartphone válido?</li>\
+                                <li id='appMobile'>Argumentario utilización/venta app móvil</li>\
+                                <li id='validate'>Cómo validar un móvil</li>\
+                                <li id='downloadapp'>Cómo descargar la app de BBVA</li>\
+                                <li id='confirmuser'>Confirmar usuario multicanal</li>\
+                                <li id='login'>Login en app BBVA</li>\
+                                <li id='register'>Alta de usuario multicanal</li>\
+                                <li id='tour'>Tour por la app</li>\
+                              </ul>\
+                          </div>";
+              }
+              return "<div id='content_div' class='caja'>\
+                          <div class='titulo'>Más información</div>\
+                          <ul id='botonera'>\
+                            <li id='cbc'>Remotización en CBC 2.0</li>\
+                            <li id='cbcplus'>Remotización en CBC 2.0+</li>\
+                            <li id='profile'>¿Qué perfil de remotización tiene el cliente?</li>\
+                          </ul>\
+                      </div>";
+          }
+
+          function openMobile(destination) {
+              var width = 360;
+              var height = 650;
+              var left = (window.screen.width / 2) - ((width / 2) + 10);
+              var top = (window.screen.height / 2) - ((height / 2) + 50);
+              window.open(destination,'',
+                  "status=no,height=" + height + ",width=" + width + ",resizable=yes,left="
+                  + left + ",top=" + top + ",screenX=" + left + ",screenY="
+                  + top + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
+          }
+
+          function Go(destination){
+              window.open(destination,'_blank');
+              return false;
+          }
+
+          function addURL(digitalizar) {
+               if(digitalizar) {
+                  document.getElementById("tour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
+                  document.getElementById("login").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MmU5YzAyMWIzMWQ3NmMzMA');};
+                  document.getElementById("confirmuser").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3aXdDRjZIbnhGNTg');};
+                  document.getElementById("downloadapp").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWViYWFkZmEzODQ3ZDRiYQ');};
+                  document.getElementById("validate").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3N1AzUXVVSnNzMHM');};
+                  document.getElementById("register").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MTk2MTc0YmJjYjIxMDk2OQ');};
+                  document.getElementById("appMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NjAxYzE3NjEwMDRiNTAxZg');};
+                  document.getElementById("validMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWI4NWI5MGEyYTlhYjcxNw');};
+              } else {
+                  document.getElementById("cbc").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NGQ1ZWUwZWJiMzkyYjk0ZQ');};
+                  document.getElementById("cbcplus").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6Nzg2MWE4OTg4ZGZjZDhlNA');};
+                  document.getElementById("profile").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3NzJmYUhrOGVmM2M/view');};
+              }
+
+          }
+          addLinks();
+
+      </script>

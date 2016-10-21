@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="googleAppsv2.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>   
+	<Require feature="setprefs" />   
+  </ModulePrefs>
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	
+	<style type="text/css">
+
+	
+	.listaGoogleApps{
+					list-style: none;  
+     				margin: 0; 
+     				padding: 0; 
+					width: 600px;
+					text-align:center;
+				}
+				
+	.listaGoogleApps li{
+					float: left;
+					width: 150px;
+					height:130px;
+				}
+	.listaGoogleApps a{
+					text-decoration:none;
+					color:#0073C9;
+					font-family:Arial;
+					font-weight:bold;
+					font-size:12px;
+				}
+	.listaGoogleApps img{
+					border:0;	
+	}			
+	
+	</style>
+	
+<div id="contenido"></div>
+	
+   <script type="text/javascript">
+     
+	 var html='';
+	 html +='<div class="cabeceramenu"><ul class="listaGoogleApps">';
+	
+	 html +='<li id="gmail" class="gmail"><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps/gmail" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/gmail_google_apps_seccion.png?attredirects=0"><p>Gmail</p></a></li>';
+	 html +='<li id="contactos" class="contactos"><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps/contactos" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/contact_google_apps_seccion.png?attredirects=0"><p>Contactos</p></a></li>';
+	 html +='<li id="calendario" class="calendario" ><a href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps/calendar" class="enlace" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/calendar_google_apps_seccion.png?attredirects=0"><p>Calendar</p></a></li>';
+	 html +='<li id="chat" class="chat"><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps/chat" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/chat_google_apps_seccion.png?attredirects=0"><p>Chat</p></a></li>';
+	 html +='<li id="drive" class="drive"><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps/drive" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/drive_google_apps_seccion.png?attredirects=0"><p>Drive</p></a></li>';
+	// html +='<li id="soporte" class="soporte"><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/soporte-a-la-direccion" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/soporte_google_apps_seccion.png?attredirects=0"><p>Soporte a la dirección</p></a></li>';
+	 html +='<li id="groups" class="groups"><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps/groups" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/groups_google_apps_seccion.png?attredirects=0"><p>Groups</p></a></li>';
+	 html +='<li id="sites" class="sites" ><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps/sites" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/sites_google_apps_seccion.png?attredirects=0"><p>Sites</p></a></li>';
+	 html +='<li id="googleMas" class="googleMas"><a class="enlace" href="https://support.google.com/plus/?hl=es" target="_blank"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/gplus_google_apps_seccion.png?attredirects=0"><p>Google +</p></a></li>';
+	 html +='<li id="mas" class="mas"><a class="enlace" href="https://sites.google.com/a/bbva.com/portaldeayuda/google-apps/mas" target="_parent"><img src="https://sites.google.com/a/bbva.com/portaldeayuda/mas_google_apps_seccion.png?attredirects=0"><p>Más</p></a></li>';
+	 html +='</ul></div>';
+	 document.getElementById('contenido').innerHTML = html;	
+	
+   </script>
+   
+    ]]>
+  </Content>
+  
+</Module>
