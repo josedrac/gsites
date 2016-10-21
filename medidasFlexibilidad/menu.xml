@@ -294,24 +294,15 @@ border-top-right-radius: 5px;
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-<a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/" class="externallink">
-    [Volver a evoluciona]
-</a>
 <div class="cabeceramenu">
   <ul>
 	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/" target="_parent"  title="home"/></li>
 
-	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/digitalizar-y-remotizar" target="_parent">Digitalizar y remotizar</a></span></span></li>
+	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/reducciones-de-jornada" target="_parent">Reducciones de jornada</a></span></span></li>
 
-	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/decalogo"  target="_parent">Decálogo</a></span></span></li>
+	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/permisos-y-licencias"  target="_parent">Permisos y licencias</a></span></span></li>
 
-	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/novedades"  target="_parent" >Novedades y Archivo</a></span></span></li>
-
- 	<li id="opcion4" class="opcion4"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal"  target="_parent">Operativa por canal</a></span></span></li>
-
-	<li id="opcion5" class="opcion5"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes"  target="_parent">¡Pruébalo antes!</a></span></span></li>
-
-  <li id="opcion6" class="opcion6"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion"  target="_parent">Tu opinión</a></span></span></li>
+	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/teletrabajo"  target="_parent" >Teletrabajo</a></span></span></li>
 
   </ul>
 </div>
@@ -440,12 +431,9 @@ if (!Array.prototype.indexOf) {
 	function Go(destination)
 	{
 		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/";}
-		else if(destination=='opcion1'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/digitalizar-y-remotizar";}
-		else if(destination=='opcion2'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/decalogo";}
-		else if(destination=='opcion3'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/novedades";}
-		else if(destination=='opcion4'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/operativa-por-canal";}
-		else if(destination=='opcion5'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/pruebalo-antes";}
-    else if(destination=='opcion6'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/tu-opinion";}
+		else if(destination=='opcion1'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/reducciones-de-jornada";}
+		else if(destination=='opcion2'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/permisos-y-licencias";}
+		else if(destination=='opcion3'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/teletrabajo";}
 
 		return false;
 	}
