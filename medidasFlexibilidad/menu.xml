@@ -14,33 +14,33 @@
 	/* @group fonts */
 	@font-face {
 		font-family: 'BBVA Web Light';
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.eot');
+		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
 
 	@font-face {
 		font-family: 'BBVA Web Book';
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.eot');
+		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
 
 	@font-face {
 		font-family: 'BBVA Web Medium';
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.eot');
+		src:url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.woff') format("woff"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.ttf') format("truetype"),
+		url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
@@ -102,7 +102,7 @@ ol, ul {
 .cabeceramenu ul li.opcion5 {
   float: left;
   text-align: center;
-  background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/separador-menu.png') no-repeat scroll right top transparent;
+  background: url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/img/separador-menu.png') no-repeat scroll right top transparent;
 }
 
 .cabeceramenu ul li.apps{
@@ -211,7 +211,7 @@ border-top-right-radius: 5px;
 }
 
 .cabeceramenu  ul li.homefirst a{
-	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
+	background: url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
 	border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
@@ -268,7 +268,7 @@ border-top-right-radius: 5px;
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
 		border-radius: 5px;
-		background-image: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/fondo-menu.png');
+		background-image: url('https://github.com/sopraux/gsites/raw/menu/medidas-flexibilidad/img/fondo-menu.png');
 		position: relative;
 		font-family: BBVA Web Light, Arial;
 		font-weight: normal;
@@ -299,13 +299,13 @@ border-top-right-radius: 5px;
 </a>
 <div class="cabeceramenu">
   <ul>
-	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/evolucionadigital/" target="_parent"  title="home"/></li>
+	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/" target="_parent"  title="home"/></li>
 
-	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar" target="_parent">Digitalizar y remotizar</a></span></span></li>
+	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/digitalizar-y-remotizar" target="_parent">Digitalizar y remotizar</a></span></span></li>
 
-	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo"  target="_parent">Decálogo</a></span></span></li>
+	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/decalogo"  target="_parent">Decálogo</a></span></span></li>
 
-	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades"  target="_parent" >Novedades y Archivo</a></span></span></li>
+	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/novedades"  target="_parent" >Novedades y Archivo</a></span></span></li>
 
  	<li id="opcion4" class="opcion4"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal"  target="_parent">Operativa por canal</a></span></span></li>
 
@@ -439,13 +439,13 @@ if (!Array.prototype.indexOf) {
 
 	function Go(destination)
 	{
-		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/";}
-		else if(destination=='opcion1'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar";}
-		else if(destination=='opcion2'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo";}
-		else if(destination=='opcion3'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades";}
-		else if(destination=='opcion4'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal";}
-		else if(destination=='opcion5'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes";}
-    else if(destination=='opcion6'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/tu-opinion";}
+		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/";}
+		else if(destination=='opcion1'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/digitalizar-y-remotizar";}
+		else if(destination=='opcion2'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/decalogo";}
+		else if(destination=='opcion3'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/novedades";}
+		else if(destination=='opcion4'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/operativa-por-canal";}
+		else if(destination=='opcion5'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/pruebalo-antes";}
+    else if(destination=='opcion6'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/tu-opinion";}
 
 		return false;
 	}
@@ -474,7 +474,7 @@ if (!Array.prototype.indexOf) {
 
 		var parametros = gadgets.util.getUrlParameters()["parent"];
 
-		if (parametros.indexOf("home")!=-1 || parametros == "https://sites.google.com/a/bbva.com/evolucionadigital/")
+		if (parametros.indexOf("home")!=-1 || parametros == "https://sites.google.com/a/bbva.com/medidas-flexibilidad/")
 		{
 			jQuery('.homefirst').addClass("selectedLeft");
 			return;
