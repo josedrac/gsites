@@ -33,7 +33,7 @@
 			clear: both;
 			background-attachment: scroll;
 			background-clip: border-box;
-			background-color: transparent;
+			background-color: #F4F4F4;
 			background-image: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/bg-separador-doble.png");
 			background-origin: padding-box;
 			background-position: left bottom;
