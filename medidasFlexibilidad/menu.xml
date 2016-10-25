@@ -173,31 +173,19 @@ margin-top:-19px;
 
 .cabeceramenu ul li.opcion1
  {
-	width: 200px;
+	width: 150px;
 }
 .cabeceramenu ul li.opcion2
  {
-	width: 200px;
+	width: 150px;
 }
 .cabeceramenu ul li.opcion3
- {
-	width: 200px;
-}
-.cabeceramenu ul li.opcion4
- {
-	width: 20px;
-}
-.cabeceramenu ul li.opcion5
- {
-	width: 20px;
-}
-.cabeceramenu ul li.opcion6
  {
 	width: 10%;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
-.cabeceramenu ul li.opcion6 a:hover{
+.cabeceramenu ul li.opcion3 a:hover{
 border-bottom-right-radius: 5px;
 border-top-right-radius: 5px;
 }
@@ -279,10 +267,7 @@ border-top-right-radius: 5px;
 
 	#opcion1 a,
 	#opcion2 a,
-	#opcion3 a,
-	#opcion4 a,
-	#opcion5 a,
-    #opcion6 a{
+	#opcion3 a{
 	 color:#fff;
 	}
 
@@ -423,11 +408,6 @@ if (!Array.prototype.indexOf) {
 	document.getElementById('home').onclick = function(){ Go('home');};
 	document.getElementById('opcion1').onclick = function() {Go('opcion1');};
 	document.getElementById('opcion2').onclick = function() {Go('opcion2');};
-	document.getElementById('opcion3').onclick = function() {Go('opcion3');};
-	document.getElementById('opcion4').onclick = function() {Go('opcion4');};
-	document.getElementById('opcion5').onclick = function (){Go('opcion5');};
-  document.getElementById('opcion6').onclick = function (){Go('opcion6');};
-
 	function Go(destination)
 	{
 		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/";}
@@ -447,10 +427,6 @@ if (!Array.prototype.indexOf) {
 			jQuery('.homefirst').removeClass("selectedLeft");
 			jQuery('.opcion1').removeClass("selected");
 			jQuery('.opcion2').removeClass("selected");
-			jQuery('.opcion3').removeClass("selected");
-			jQuery('.opcion4').removeClass("selected");
-			jQuery('.opcion5').removeClass("selected");
-      jQuery('.opcion6').removeClass("selected");
 
 
 		return datospagina();
