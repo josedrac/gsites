@@ -304,8 +304,6 @@ border-top-right-radius: 5px;
 
 	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/permisos-y-licencias"  target="_parent">Permisos y licencias</a></span></span></li>
 
-	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/teletrabajo"  target="_parent" >Teletrabajo</a></span></span></li>
-
   </ul>
 </div>
 
@@ -435,7 +433,6 @@ if (!Array.prototype.indexOf) {
 		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/";}
 		else if(destination=='opcion1'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/reducciones-de-jornada";}
 		else if(destination=='opcion2'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/permisos-y-licencias";}
-		else if(destination=='opcion3'){window.parent.location.href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/teletrabajo";}
 
 		return false;
 	}
@@ -468,10 +465,10 @@ if (!Array.prototype.indexOf) {
 		{
 			jQuery('.homefirst').addClass("selectedLeft");
 			return;
-		}else if(parametros.indexOf("digitalizar-y-remotizar")!=-1){
+		}else if(parametros.indexOf("reducciones-de-jornada")!=-1){
 			jQuery('.opcion1').addClass("selected");
 			return;
-		} else if(parametros.indexOf("decalogo")!=-1){
+		} else if(parametros.indexOf("permisos-y-licencias")!=-1){
 			jQuery('.opcion2').addClass("selected");
 			return;
 		} else if(parametros.indexOf("novedades")!=-1){
