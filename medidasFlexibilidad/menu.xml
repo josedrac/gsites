@@ -98,6 +98,9 @@ ol, ul {
 .cabeceramenu ul li.opcion1,
 .cabeceramenu ul li.opcion2,
 .cabeceramenu ul li.opcion3,
+.cabeceramenu ul li.opcion4,
+.cabeceramenu ul li.opcion5,
+.cabeceramenu ul li.opcion6,
  {
   float: left;
   text-align: center;
@@ -170,19 +173,27 @@ margin-top:-19px;
 
 .cabeceramenu ul li.opcion1
  {
-	width: 100px;
+	width: 200px;
 }
 .cabeceramenu ul li.opcion2
  {
-	width: 100px;
+	width: 200px;
 }
 .cabeceramenu ul li.opcion3
  {
-	width: 100px;
+	width: 200px;
+}
+.cabeceramenu ul li.opcion4
+ {
+	width: 20px;
+}
+.cabeceramenu ul li.opcion5
+ {
+	width: 20px;
 }
 .cabeceramenu ul li.opcion6
  {
-	width: 100%;
+	width: 10%;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
