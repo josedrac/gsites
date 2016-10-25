@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="ED - pagetitle2.xml" height ="50">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+<UserPref name="titlepage" display_name="Title of page" required="true" />
+<UserPref name="imageTitle" display_name="Image Title" required="true" />
+
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+	<style type="text/css">
+		/* @group fonts */
+		@font-face {
+            font-family: 'BentonSansBBVA-Light';
+            src:url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Light.eot');
+            src:url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Light.eot?iefix') format("embedded-opentype"),
+                url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Light.woff') format("woff"),
+                url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Light.ttf') format("truetype"),
+                url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Light.svg#BentonSansBBVA-Light') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+		/* @end */
+
+		#titlepage {
+			display: table;
+			width: 100%;
+			clear: both;
+			background-attachment: scroll;
+			background-clip: border-box;
+			background-color: #F4F4F4;
+			background-image: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/bg-separador-doble.png");
+			background-origin: padding-box;
+			background-position: left bottom;
+			background-repeat: repeat-x;
+			background-size: auto auto;
+			padding-bottom: 5px;
+		}
+		#titlepage h1{
+			color: #121212;
+			font-family: BentonSansBBVA-Light, Helvetica, Arial, Sans;
+			font-size: 36px;
+			margin: 5px 0px 10px 10px;
+			padding: 0px;
+			height: 40px;
+			font-weight: normal;
+			display: table-cell;
+			vertical-align: top;
+			width: 100%;
+		}
+		#titlepage img {
+			max-height: 30px;
+			max-width: 30px;
+			margin-right: 10px;
+			width: 30px;
+			display: table-cell;
+		}
+	</style>
+
+	<!--[if IE 7]>
+		<style type="text/css">
+			#titlepage{
+				padding-bottom: 6px;
+			}
+		</style>
+	<![endif]-->
+
+	<h1 id="titlepage"></h1>
+
+   	<script type="text/javascript">
+	 	var gadgetHelper = null;
+	 	var prefs = new gadgets.Prefs();
+	 	var titlepage = prefs.getString("titlepage");
+	 	var imageTitle = prefs.getString("imageTitle");
+	 	var html = "";
+		
+		if(imageTitle != null && typeof imageTitle != 'undefined' && imageTitle !== undefined && imageTitle != ""){
+			html += '<img src="' + imageTitle + '">';
+		}
+		html += '<h1>' + titlepage + '</h1>';
+
+	 	document.getElementById("titlepage").innerHTML = html;
+   </script>
+
+    ]]>
+  </Content>
+  <Content type="html" view="configuration" preferred_height="480">
+
+<![CDATA[
+<style type="text/css">
+ 	table td {
+		color: #000;
+		font-size: 11px;
+		font-weight: bold;
+	}
+ </style>
+ <table width="100%" border="0" id="tablaconfig">
+	<tr>
+       <td>
+           Title-Page: <input type="text" size="100" id="titlepage" value="__UP_titlepage__"   onchange="registra('titlepage')"/>
+       </td>
+    </tr>
+	<tr>
+    	<td>
+           Image-Page: <input type="text" size="100" id="imageTitle" value="__UP_imageTitle__"   onchange="registra('imageTitle')"/>
+       </td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+    // Get userprefs
+    var prefs = new gadgets.Prefs();
+    function registra(variable)
+    {
+        prefs.set(variable,document.getElementById(variable).value);
+
+    }
+	gadgets.window.adjustHeight();
+</script>
+
+ ]]>
+ </Content>
+</Module>
