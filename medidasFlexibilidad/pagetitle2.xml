@@ -36,7 +36,7 @@
 			background-color: #FFF;
 			background-image: url("https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/bg-separador-doble.png");
 			background-origin: padding-box;
-			background-position: left bottom;
+			background-position: center bottom;
 			background-repeat: repeat-x;
 			background-size: auto auto;
 			padding-bottom: 5px;
