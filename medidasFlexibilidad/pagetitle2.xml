@@ -51,6 +51,7 @@
 			font-weight: normal;
 			display: table-cell;
 			vertical-align: top;
+			horizontal-align: center;
 			width: 100%;
 		}
 		#titlepage img {
