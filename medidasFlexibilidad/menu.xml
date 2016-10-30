@@ -13,37 +13,16 @@
 <style type="text/css">
 	/* @group fonts */
 	@font-face {
-		font-family: 'BBVA Web Light';
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/mevolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		font-family: 'BentonSansBBVA-Bold';
+		src:url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Bold.eot');
+		src:url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Bold.eot?iefix') format("embedded-opentype"),
+		url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Bold.woff') format("woff"),
+		url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Bold.ttf') format("truetype"),
+		url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Bold.svg#BentonSansBBVA-Bold') format("svg");
 		font-style: normal;
 		font-weight: normal;
 	}
 
-	@font-face {
-		font-family: 'BBVA Web Book';
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-		font-style: normal;
-		font-weight: normal;
-	}
-
-	@font-face {
-		font-family: 'BBVA Web Medium';
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
-		src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-		url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
-		font-style: normal;
-		font-weight: normal;
-	}
 	/* @end */
 
 body, html {
@@ -53,9 +32,9 @@ body, html {
 
 body {
 	font-size: 0.5em;
-	font-family: Arial;
+	font-family: BentonSansBBVA-Bold, Helvetica, Arial, Sans;
 	color: rgb(0, 76, 153);
-	text-align: left;
+	text-align: center;
 	line-height: 1;
 }
 ol, ul {
@@ -63,24 +42,14 @@ ol, ul {
 }
 
 .cabeceramenu {
-	height: 51px;
+	height: 55px;
 	margin-top: 0px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	background: #0079c1;
-	background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDUyOWIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-	background: -moz-linear-gradient(top,  #0079c1 0%, #00529b 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079c1), color-stop(100%,#00529b));
-	background: -webkit-linear-gradient(top,  #0079c1 0%,#00529b 100%);
-	background: -o-linear-gradient(top,  #0079c1 0%,#00529b 100%);
-	background: -ms-linear-gradient(top,  #0079c1 0%,#00529b 100%);
-	background: linear-gradient(to bottom,  #0079c1 0%,#00529b 100%);
-	/*
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0079c1', endColorstr='#00529b',GradientType=0 );
-	*/
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background: #1a1a1a;
 	position: relative;
-	font-family: BBVA Web Light, Arial;
+	font-family: BentonSansBBVA-Bold, Helvetica, Arial, Sans;
 	font-weight: normal;
 	text-align: center;
 }
@@ -98,36 +67,25 @@ ol, ul {
 .cabeceramenu ul li.opcion1,
 .cabeceramenu ul li.opcion2,
 .cabeceramenu ul li.opcion3,
-.cabeceramenu ul li.opcion4,
-.cabeceramenu ul li.opcion5,
-.cabeceramenu ul li.opcion6,
  {
   float: left;
   text-align: center;
-  background: url('https://rawgit.com/sopraux/gsites/menu/evolucionaDigital/img/separador-menu.png') no-repeat scroll right top transparent;
 }
 
 .cabeceramenu ul li.apps{
   float: left;
   text-align: center;
   background-image: none;
-  border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-
 }
 
 .cabeceramenu ul li.apps span,
 .cabeceramenu ul li.apps span:hover {
-	border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
 
 }
 
 .cabeceramenu ul li.apps a,
 .cabeceramenu ul li.apps a:hover{
 margin-left:0px;
-border-bottom-right-radius: 5px;
-border-top-right-radius: 5px;
 }
 
 .cabeceramenu ul li .enlace,
@@ -142,7 +100,7 @@ border-top-right-radius: 5px;
 }
 
 .cabeceramenu ul li .enlace:hover{
-  background-color: #004c99;
+  background-color: #CCC;
 }
 
 .cabeceramenu ul li a,
@@ -150,7 +108,7 @@ border-top-right-radius: 5px;
   color: #FFF;
   cursor: pointer;
   text-decoration:none;
-  font-family: BBVA Web Medium, Arial;
+  font-family: BentonSansBBVA-Bold, Helvetica, Arial, Sans;
   font-size:14px;
   font-style:normal;
   font-weight: bold;
@@ -173,37 +131,27 @@ margin-top:-19px;
 
 .cabeceramenu ul li.opcion1
  {
-	width: 150px;
+	width: 250px;
 }
 .cabeceramenu ul li.opcion2
  {
-	width: 150px;
+	width: 250px;
 }
 .cabeceramenu ul li.opcion3
  {
 	width: 10%;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
 }
 .cabeceramenu ul li.opcion3 a:hover{
-border-bottom-right-radius: 5px;
-border-top-right-radius: 5px;
 }
 .cabeceramenu  ul li.homefirst {
 	width: 75px;
-	border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
 }
 
 .cabeceramenu ul li.homefirst a:hover{
-	border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
 }
 
 .cabeceramenu  ul li.homefirst a{
 	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
-	border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
 }
 
 .bloqueEnlaces {
@@ -212,21 +160,19 @@ border-top-right-radius: 5px;
 	margin-right: 5px;
 	color: #003F8C;
 	font-size: 12px;
-	font-family: BBVA Web Book,  Arial;
+	font-family: BentonSansBBVA-Bold, Helvetica, Arial, Sans;
 }
 
 .bloqueEnlaces a.enlaceMenu {
 	text-decoration: none;
 	color:  #8B9098;
 	font-size: 12px;
-	font-family: BBVA Web Light, Arial;
+	font-family: BentonSansBBVA-Bold, Helvetica, Arial, Sans;
 	font-weight: normal;
 
 }
 .selectedLeft
 {
-	border-bottom-left-radius: 5px !important;
-	border-top-left-radius: 5px !important;
 	background-color: rgb(0, 80, 152) !important;
 	box-shadow: rgba(0, 0, 0, 0.498039) 0px 0px 5px inset !important;
 }
