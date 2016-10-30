@@ -31,6 +31,7 @@
 			display: table;
 			width: 100%;
 			clear: both;
+			text-align: center;
 			background-attachment: scroll;
 			background-clip: border-box;
 			background-color: #FFF;
@@ -43,6 +44,7 @@
 		}
 		#titlepage h1{
 			color: #121212;
+			text-align: center;
 			font-family: BentonSansBBVA-Light, Helvetica, Arial, Sans;
 			font-size: 36px;
 			margin: 5px 0px 10px 10px;
@@ -67,6 +69,7 @@
 		<style type="text/css">
 			#titlepage{
 				padding-bottom: 6px;
+				text-align: center;
 			}
 		</style>
 	<![endif]-->
@@ -98,6 +101,7 @@
 		color: #000;
 		font-size: 11px;
 		font-weight: bold;
+		text-align: center;
 	}
  </style>
  <table width="100%" border="0" id="tablaconfig">
