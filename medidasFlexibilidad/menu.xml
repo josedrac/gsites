@@ -43,14 +43,12 @@ ol, ul {
 
 .cabeceramenu {
 	height: 55px;
-	margin-top: 0px;
-	-webkit-border-radius: 0px;
-	-moz-border-radius: 0px;
+	margin-top: -50px;
 	border-radius: 0px;
 	background: #1a1a1a;
 	position: relative;
 	font-family: BentonSansBBVA-Bold, Helvetica, Arial, Sans;
-	font-weight: normal;
+	font-weight: bold;
 	text-align: center;
 }
 
