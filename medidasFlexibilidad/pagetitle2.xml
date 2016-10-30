@@ -24,6 +24,7 @@
                 url('https://rawgit.com/josedrac/gsites/master/medidasFlexibilidad/fonts/BentonSansBBVA-Light.svg#BentonSansBBVA-Light') format("svg");
             font-style: normal;
             font-weight: normal;
+	text-align: center;
         }
 		/* @end */
 
@@ -47,6 +48,7 @@
 			text-align: center;
 			font-family: BentonSansBBVA-Light, Helvetica, Arial, Sans;
 			font-size: 36px;
+			text-align: center !important;
 			margin: 5px 0px 10px 10px;
 			padding: 0px;
 			height: 40px;
@@ -62,6 +64,7 @@
 			margin-right: 10px;
 			width: 30px;
 			display: table-cell;
+			text-align: center !important;
 		}
 	</style>
 
@@ -69,7 +72,7 @@
 		<style type="text/css">
 			#titlepage{
 				padding-bottom: 6px;
-				text-align: center;
+				text-align: center !important;
 			}
 		</style>
 	<![endif]-->
