@@ -122,7 +122,7 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion2
  {
-	width: 100px;
+	width: 180px;
 }
 .cabeceramenu ul li.opcion3
  {
@@ -139,26 +139,16 @@ margin-top:-19px;
 .cabeceramenu ul li.opcion6
  {
 	width: 117px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
 }
 .cabeceramenu ul li.opcion6 a:hover{
-border-bottom-right-radius: 5px;
-border-top-right-radius: 5px;
 }
 .cabeceramenu  ul li.homefirst {
 	width: 75px;
-	border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
 }
 .cabeceramenu ul li.homefirst a:hover{
-	border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
 }
 .cabeceramenu  ul li.homefirst a{
 	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
-	border-bottom-left-radius: 5px;
-    border-top-left-radius: 5px;
 }
 .bloqueEnlaces {
 	text-align: right;
@@ -228,15 +218,11 @@ border-top-right-radius: 5px;
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
-<a target="_blank" href="https://sites.google.com/a/bbva.com/transforma-t/" class="externallink">
-    [Volver a evoluciona]
-</a>
 <div class="cabeceramenu">
   <ul>
 	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/" target="_parent"  title="home"/></li>
 	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/reducciones-de-jornada" target="_parent">Reducciones de jornada</a></span></span></li>
 	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/permisos-y-licencias"  target="_parent">Permisos y Licencias</a></span></span></li>
-  <li id="opcion6" class="opcion6"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/permisos-y-licencias">Prueba</a></span></span></li>
   </ul>
 </div>
 <script type="text/javascript">
