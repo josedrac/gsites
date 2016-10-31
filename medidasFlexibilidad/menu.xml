@@ -93,7 +93,7 @@ border-top-right-radius: 5px;
   height: 3.571em;
 }
 .cabeceramenu ul li .enlace:hover{
-  background-color: #004c99;
+  background-color: #00B0B0;
 }
 .cabeceramenu ul li a,
 .cabeceramenu ul li a:hover{
