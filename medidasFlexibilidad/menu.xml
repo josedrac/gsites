@@ -42,10 +42,10 @@ ol, ul {
 }
 
 .cabeceramenu {
-	height: 55px;
+	height: 40px;
 	margin-top: 0px;
 	border-radius: 0px;
-	background: #1a1a1a;
+	background: #072146;
 	position: relative;
 	font-family: BentonSansBBVA-Bold, Helvetica, Arial, Sans;
 	font-weight: bold;
@@ -93,34 +93,35 @@ margin-left:0px;
   display: block;
   color: #FFF;
   cursor: pointer;
-  height: 3.571em;
+  height: 40px;
 
 }
 
 .cabeceramenu ul li .enlace:hover{
-  background-color: #CCC;
+  background-color: #00B0B0;
 }
 
-.cabeceramenu ul li a,
-.cabeceramenu ul li a:hover{
+.cabeceramenu ul li a, {
   color: #FFF;
   cursor: pointer;
   text-decoration:none;
   font-family: BentonSansBBVA-Bold, Helvetica, Arial, Sans;
-  font-size:14px;
+  font-size:16px;
   font-style:normal;
   font-weight: bold;
-
+}
+.cabeceramenu ul li a:hover{
+  color: #072146;
 }
 
 .cabeceramenu ul li.home {
-	width: 81px;
+	width: 40px;
 }
 
 .cabeceramenu ul li .enlace span{
-	padding-top: 1.286em;
+	padding-top: 0px;
 	display: inline-block;
-	height: 2em;
+	height: 40px;
 }
 
 .cabeceramenu ul li .enlace span img{
@@ -129,25 +130,22 @@ margin-top:-19px;
 
 .cabeceramenu ul li.opcion1
  {
-	width: 250px;
+	width: 10%;
 }
 .cabeceramenu ul li.opcion2
  {
-	width: 250px;
+	width: 10%;
 }
 .cabeceramenu ul li.opcion3
  {
-	width: 10%;
 }
 .cabeceramenu ul li.opcion3 a:hover{
 }
 .cabeceramenu  ul li.homefirst {
-	width: 75px;
 }
 
 .cabeceramenu ul li.homefirst a:hover{
 }
-
 .cabeceramenu  ul li.homefirst a{
 	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
 }
