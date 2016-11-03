@@ -221,7 +221,7 @@ margin-top:-19px;
 <div class="cabeceramenu">
   <ul>
 	<li id="home" class="homefirst"><a class="enlace" href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/" target="_parent"  title="home"/></li>
-	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/reducciones-de-jornada" target="_parent">Reducciones de jornada</a></span></span></li>
+	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/reducciones-de-jornada" target="_parent">Reducciones de jornadas</a></span></span></li>
 	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/medidas-flexibilidad/permisos-y-licencias"  target="_parent">Permisos y Licencias</a></span></span></li>
   </ul>
 </div>
