@@ -1,68 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="ED-oauth.xml"
-    description=""
-    author_affiliation="Sopra">
-    <Require feature="idi"/>
-    <Require feature="locked-domain" />
-	<Require feature="dynamic-height"/>
-	<Require feature="setprefs" />
-  </ModulePrefs>
+    <ModulePrefs title="ED-oauth.xml"
+        description=""
+        author_affiliation="Sopra">
+        <Require feature="idi"/>
+        <Require feature="locked-domain" />
+    	<Require feature="dynamic-height"/>
+    	<Require feature="setprefs" />
+    </ModulePrefs>
 	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
 
- <Content type="html">
-    <![CDATA[
-	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <Content type="html">
+        <![CDATA[
+	        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
+            <div>
+                <button id="authorize-button" style="visibility: hidden">Authorize</button>
+            </div>
 
-    <div id="listportales"></div>
+            <script type="text/javascript">
 
-    <script type="text/javascript">
+                console.log('yeah');
 
-        console.log('yeah');
+                // NOTE: You must replace the client id on the following line.
+                var clientId = '872842019185-v0c6ckaa1jp8nbl2dq37e9nuh0b847p5.apps.googleusercontent.com';
+                var scopes = 'https://spreadsheets.google.com/feeds';
 
-        // NOTE: You must replace the client id on the following line.
-        var clientId = '872842019185-v0c6ckaa1jp8nbl2dq37e9nuh0b847p5.apps.googleusercontent.com';
-        var scopes = 'https://spreadsheets.google.com/feeds';
+                var init = function() {
+                    gapi.auth.authorize(
+                        {client_id: clientId, scope: scopes, immediate: true},
+                        handleAuthResult
+                    );
+                }
 
-        var init = function() {
-           gapi.auth.authorize(
-               {client_id: clientId, scope: scopes, immediate: true},
-               handleAuthResult
-           );
-        }
+                var handleAuthResult = function(authResult) {
+                    var authorizeButton = document.getElementById('authorize-button');
+                    if (authResult && !authResult.error) {
+                        authorizeButton.style.visibility = 'hidden';
+                        makeApiCall();
+                    } else {
+                        authorizeButton.style.visibility = '';
+                        authorizeButton.onclick = handleAuthClick;
+                    }
+                }
 
-       var handleAuthResult = function(authResult) {
-           var authorizeButton = document.getElementById('authorize-button');
-           if (authResult && !authResult.error) {
-               authorizeButton.style.visibility = 'hidden';
-               makeApiCall();
-           } else {
-               authorizeButton.style.visibility = '';
-               authorizeButton.onclick = handleAuthClick;
-           }
-       }
+                var handleAuthClick = function(event) {
+                    gapi.auth.authorize(
+                        {client_id: clientId, scope: scopes, immediate: false},
+                        handleAuthResult
+                    );
+                    return false;
+                }
 
-       var handleAuthClick = function(event) {
-           gapi.auth.authorize(
-               {client_id: clientId, scope: scopes, immediate: false},
-               handleAuthResult);
-           return false;
-       }
+                var makeApiCall = function() {
+                    console.log(encodeURIComponent(gapi.auth.getToken().access_token));
+                }
 
-       var makeApiCall = function() {
-           console.log(encodeURIComponent(gapi.auth.getToken().access_token));
-       }
+                var handleTqResponse = function(resp) {
+                    document.write(JSON.stringify(resp));
+                }
 
-       var handleTqResponse = function(resp) {
-           document.write(JSON.stringify(resp));
-       }
+            </script>
 
-  </script>
+            <script src="https://apis.google.com/js/auth.js?onload=init"></script>
 
-  <script src="https://apis.google.com/js/auth.js?onload=init"></script>
-
-    ]]>
-  </Content>
+        ]]>
+    </Content>
 
 </Module>
