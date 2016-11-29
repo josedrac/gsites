@@ -17,14 +17,51 @@
 
     <div id="listportales"></div>
 
-   <script type="text/javascript">
+    <script type="text/javascript">
 
-       console.log('yeah');
+        console.log('yeah');
 
+        // NOTE: You must replace the client id on the following line.
+        var clientId = '872842019185-v0c6ckaa1jp8nbl2dq37e9nuh0b847p5.apps.googleusercontent.com';
+        var scopes = 'https://spreadsheets.google.com/feeds';
 
+        var init = function() {
+           gapi.auth.authorize(
+               {client_id: clientId, scope: scopes, immediate: true},
+               handleAuthResult
+           );
+        }
 
+       var handleAuthResult = function(authResult) {
+           var authorizeButton = document.getElementById('authorize-button');
+           if (authResult && !authResult.error) {
+               authorizeButton.style.visibility = 'hidden';
+               makeApiCall();
+           } else {
+               authorizeButton.style.visibility = '';
+               authorizeButton.onclick = handleAuthClick;
+           }
+       }
+
+       var handleAuthClick = function(event) {
+           gapi.auth.authorize(
+               {client_id: clientId, scope: scopes, immediate: false},
+               handleAuthResult);
+           return false;
+       }
+
+       var makeApiCall = function() {
+           console.log(encodeURIComponent(gapi.auth.getToken().access_token));
+       }
+
+       var handleTqResponse = function(resp) {
+           document.write(JSON.stringify(resp));
+       }
 
   </script>
+
+  <script src="https://apis.google.com/js/auth.js?onload=init"></script>
+
     ]]>
   </Content>
 
