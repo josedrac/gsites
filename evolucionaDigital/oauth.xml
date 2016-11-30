@@ -134,6 +134,7 @@
         			var orderQuery = " order by G desc, F desc"
         			querytosend = querytosend.concat(orderQuery);
 
+
         			query.setQuery(params);
                     window.QUERY = query;
         			//query.send(handleQueryResponse);
