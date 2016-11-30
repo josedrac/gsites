@@ -191,13 +191,28 @@
                 }
 
                 var read_token = function(){
-                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1";
-                    console.log('url: ', url);
-                    makeRequest('GET', url).then(function (datums) {
-                      console.log('OK', datums);
-                    }).catch(function (err) {
-                      console.error('Augh2, there was an error!', err.statusText);
-                    });
+                    //var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1";
+                    //AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw
+                    //console.log('url: ', url);
+                    //makeRequest('GET', url).then(function (datums) {
+                    //  console.log('OK', datums);
+                    //}).catch(function (err) {
+                    //  console.error('Augh2, there was an error!', err.statusText);
+                    //});
+
+                    gapi.client.init({
+                      'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
+                    }).then(function() {
+                        console.log("gapi init done");
+                        gapi.client.sheets.spreadsheets.values.get({
+                            spreadsheetId: '1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U',
+                            range: 'hoja!A1:A1',
+                        }).then(function(response) {
+                            console.log('final: ', response);
+                        }).catch(function(err){
+                            console.log('final error', err);
+                        });
+                    })
                 }
 
                 var makeApiCall = function() {
