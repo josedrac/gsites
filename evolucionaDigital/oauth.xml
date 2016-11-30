@@ -183,6 +183,7 @@
                 }
 
                 var handleAuthClick = function(event) {
+                    console.log('GENERATING NEW TOKEN');
                     gapi.auth.authorize(
                         {client_id: clientId, scope: scopes, immediate: false},
                         handleAuthResult
@@ -191,34 +192,36 @@
                 }
 
                 var read_token = function(){
-                    //var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1";
-                    //console.log('url: ', url);
-                    //makeRequest('GET', url).then(function (datums) {
-                    //  console.log('OK', datums);
-                    //}).catch(function (err) {
-                    //  console.error('Augh2, there was an error!', err.statusText);
-                    //});
-
-                    gapi.client.init({
-                      'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
-                    }).then(function() {
-                        console.log("gapi init done");
-                        gapi.client.sheets.spreadsheets.values.get({
-                            spreadsheetId: '1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U',
-                            range: 'hoja!A1:A1',
-                        }).then(function(response) {
-                            console.log('final: ', response);
-                        }).catch(function(err){
-                            console.log('final error', err);
-                        });
-                    }).catch(function(err){
-                        console.log('pre final error: ', error);
+                    console.log('READING TOKEN FROM DRIVE');
+                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1";
+                    console.log('url: ', url);
+                    makeRequest('GET', url).then(function (datums) {
+                          console.log('READED TOKEN FROM DRIVE: ', datums);
+                    }).catch(function (err) {
+                          console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
                     });
+
+
+                    //gapi.client.init({
+                    //  'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
+                    //}).then(function() {
+                    //    console.log("gapi init done");
+                    //    gapi.client.sheets.spreadsheets.values.get({
+                    //        spreadsheetId: '1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U',
+                    //        range: 'hoja!A1:A1',
+                    //    }).then(function(response) {
+                    //        console.log('final: ', response);
+                    //    }).catch(function(err){
+                    //        console.log('final error', err);
+                    //    });
+                    //}).catch(function(err){
+                    //    console.log('pre final error: ', error);
+                    //});
                 }
 
                 var makeApiCall = function() {
                     var token = gapi.auth.getToken().access_token;
-                    console.log('token: ', token);
+                    console.log('TOKEN GENERATED: ', token);
 
                     //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/tq?access_token=" + encodeURIComponent(token);
                     //var params = "select * where A <> 'IdImplantacion' order by G desc, F desc";
@@ -231,6 +234,7 @@
                     //console.log('params: ', params);
                     //sendQuery(url, params);
 
+                    console.log('PUTTING TOKEN ON DRIVE');
                     var csv_data = {
                         "values": [
                             [
@@ -242,7 +246,7 @@
                     console.log('url: ', url);
                     console.log('csv_data: ', csv_data);
                     makeRequest('PUT', url, JSON.stringify(csv_data)).then(function (datums) {
-                      console.log('OK', datums);
+                      console.log('TOKEN PUT ON DRIVE: ', datums);
                       read_token();
                     }).catch(function (err) {
                       console.error('Augh, there was an error!', err.statusText);
