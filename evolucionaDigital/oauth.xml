@@ -212,7 +212,9 @@
                         }).catch(function(err){
                             console.log('final error', err);
                         });
-                    })
+                    }).catch(function(err){
+                        console.log('pre final error: ', error);
+                    });
                 }
 
                 var makeApiCall = function() {
