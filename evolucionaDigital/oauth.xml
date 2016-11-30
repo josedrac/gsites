@@ -214,7 +214,7 @@
                     }
                     var url = "https://sheets.googleapis.com/v4/spreadsheets/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/values/Sheet1!A1:A1?valueInputOption=raw&access_token=" + encodeURIComponent(token);
                     console.log('url: ', url);
-                    console.log('csv_data: ', csv_data);
+                    console.log('csv_data: ', JSON.stringify(csv_data));
                     makeRequest('PUT', url, csv_data).then(function (datums) {
                       console.log('OK', datums);
                     }).catch(function (err) {
