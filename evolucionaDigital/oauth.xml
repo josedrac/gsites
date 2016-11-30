@@ -13,6 +13,7 @@
     <Content type="html">
         <![CDATA[
 	        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+            google.load("visualization", "1", {"packages": ["table"]});
 
             <div>
                 <button id="authorize-button" style="visibility: hidden">Authorize</button>
@@ -208,7 +209,6 @@
                     //}).catch(function (err) {
                     //  console.error('Augh, there was an error!', err.statusText);
                     //});
-
 
             		sendQuery();
 
