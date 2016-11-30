@@ -162,7 +162,6 @@
                     });
                 }
 
-                // NOTE: You must replace the client id on the following line.
                 var clientId = '872842019185-v0c6ckaa1jp8nbl2dq37e9nuh0b847p5.apps.googleusercontent.com';
                 var scopes = 'https://spreadsheets.google.com/feeds';
 
