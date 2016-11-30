@@ -68,6 +68,7 @@
         	    }
 
                 function handleQueryResponse(response) {
+                    console.log('response', response);
         			data = response.getDataTable();
         			var filas = data.getNumberOfRows();
         			var html = "";
@@ -151,7 +152,7 @@
                                 });
                             }
                         };
-                        xhr.onerror = function () {
+                        xhr.onerror = function (err) {
                             reject({
                                 status: this.status,
                                 statusText: xhr.statusText
