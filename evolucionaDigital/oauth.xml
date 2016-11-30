@@ -135,7 +135,8 @@
         			querytosend = querytosend.concat(orderQuery);
 
         			query.setQuery(params);
-        			query.send(handleQueryResponse);
+                    window.QUERY = query;
+        			//query.send(handleQueryResponse);
         		}
 
                 function makeRequest (method, url) {
@@ -200,7 +201,7 @@
                     '&access_token=' + encodeURIComponent(token);
 
                     var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/&access_token=" + encodeURIComponent(token);
-                    var params = "tq=select * where A <> 'IdImplantacion' order by G desc, F desc&tqx=reqId:0";                    
+                    var params = "tq=select * where A <> 'IdImplantacion' order by G desc, F desc&tqx=reqId:0";
 
                     console.log('url: ',tqUrl);
 
