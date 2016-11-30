@@ -200,7 +200,7 @@
                     '&access_token=' + encodeURIComponent(token);
 
                     var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/tq?access_token=" + encodeURIComponent(token);
-                    var params = "select * where A <> 'IdImplantacion' order by G desc, F desc0";
+                    var params = "select * where A <> 'IdImplantacion' order by G desc, F desc";
 
                     console.log('url: ', url);
                     console.log('params: ', params);
