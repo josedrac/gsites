@@ -36,9 +36,11 @@
                 var handleAuthResult = function(authResult) {
                     var authorizeButton = document.getElementById('authorize-button');
                     if (authResult && !authResult.error) {
+                        console.log('ok');
                         authorizeButton.style.visibility = 'hidden';
                         makeApiCall();
                     } else {
+                        console.log('error');
                         authorizeButton.style.visibility = '';
                         authorizeButton.onclick = handleAuthClick;
                     }
@@ -53,6 +55,7 @@
                 }
 
                 var makeApiCall = function() {
+                    console.log('makeapi');
                     console.log(encodeURIComponent(gapi.auth.getToken().access_token));
                 }
 
