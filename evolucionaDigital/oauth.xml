@@ -79,7 +79,9 @@
                 var makeApiCall = function() {
                     var token = gapi.auth.getToken().access_token;
 
-                    var tqUrl = 'https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/edit?usp=sharing&tqx=responseHandler:handleTqResponse&access_token=' + encodeURIComponent(token);
+                    var tqUrl = 'https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/tq' +
+                    '?usp=sharing&tq=select%20*%20where%20A%20%3C%3E%20%27IdImplantacion%27%20order%20by%20G%20desc%2C%20F%20desc&tqx=reqId%3A0' +
+                    '&access_token=' + encodeURIComponent(token);
 
                     console.log(encodeURIComponent(gapi.auth.getToken().access_token));
 
