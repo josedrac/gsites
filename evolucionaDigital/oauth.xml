@@ -202,7 +202,6 @@
                           console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
                     });
 
-
                     //gapi.client.init({
                     //  'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
                     //}).then(function() {
