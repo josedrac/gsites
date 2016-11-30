@@ -124,7 +124,7 @@
         			gadgets.window.adjustHeight();
         		}
 
-                function sendQuery(){
+                function sendQuery(tqUrl){
                     console.log('send query');
         			gadgetHelper = new google.visualization.GadgetHelper();
         			var opts = {dataType:'jsonp'};
@@ -133,10 +133,6 @@
         			querytosend = querytosend.concat(getQueryParameters());
         			var orderQuery = " order by G desc, F desc"
         			querytosend = querytosend.concat(orderQuery);
-
-                    var tqUrl = 'https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/tq' +
-                    '?usp=sharing&tq=select%20*%20where%20A%20%3C%3E%20%27IdImplantacion%27%20order%20by%20G%20desc%2C%20F%20desc&tqx=reqId%3A0' +
-                    '&access_token=' + encodeURIComponent(token);
 
         			query.setQuery(tqUrl);
         			query.send(handleQueryResponse);
@@ -211,8 +207,7 @@
                     //  console.error('Augh, there was an error!', err.statusText);
                     //});
 
-                    sendQuery();
-
+                    sendQuery(tqUrl);
                 }
 
                 var handleTqResponse = function(resp) {
