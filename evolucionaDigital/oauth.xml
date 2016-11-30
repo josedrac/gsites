@@ -28,7 +28,7 @@
 
                 var init = function() {
                     gapi.auth.authorize(
-                        {client_id: clientId, scope: scopes, immediate: false},
+                        {client_id: clientId, scope: scopes, immediate: true},
                         handleAuthResult
                     );
                 }
