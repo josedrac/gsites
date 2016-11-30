@@ -274,6 +274,7 @@
 		var gadgetHelper = null;
 		var prefs = new _IG_Prefs();
 	 	var urlTable = prefs.getString("_table_query_url");
+        console.log('urlTable', urlTable);
 	 	_IG_RegisterOnloadHandler(loadVisualizationAPI);
 
 	 	function loadVisualizationAPI() {
@@ -332,12 +333,12 @@
 		}
 
 		function pagination(elements) {
-	        $('#pagination').smartpaginator({ 
-		        totalrecords: elements, 
-		        recordsperpage: 4, 
-		        length: 4, 
-		        datacontainer: 'paginas', 
-		        dataelement: 'div.implantation', 
+	        $('#pagination').smartpaginator({
+		        totalrecords: elements,
+		        recordsperpage: 4,
+		        length: 4,
+		        datacontainer: 'paginas',
+		        dataelement: 'div.implantation',
 		        initval: 0,
 	        });
 	    }
@@ -361,10 +362,10 @@
 			month[11] = "Nov";
 			month[12] = "Dic";
 
-			if(filas < 1) 
+			if(filas < 1)
     			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
             else {
-                html += '<div id="paginas" class="paginaNueva" style=" display: block;">'; 
+                html += '<div id="paginas" class="paginaNueva" style=" display: block;">';
 
 				for(var i=0; i < filas; i++) {
 
