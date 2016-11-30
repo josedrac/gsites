@@ -138,6 +138,7 @@
                     console.log(query);
                     console.log('query', query);
 
+                    var d = "asdadsads";
         			//query.send(handleQueryResponse); sgddsgdsgdsgg
         		}
 
