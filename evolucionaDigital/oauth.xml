@@ -197,10 +197,10 @@
 
                     console.log('url: ', url);
                     makeRequest('GET', url).then(function (datums) {
-                          console.log('READED TOKEN FROM DRIVE: ', datums);
+                        console.log('READED TOKEN FROM DRIVE: ', datums);
                     }).catch(function (err) {
-                          console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
-                    });
+                        console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
+                    });                    
 
                     //gapi.client.init({
                     //  'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
