@@ -22,6 +22,118 @@
 
                 console.log('Loading Oauth');
 
+                var gadgetHelper = null;
+        		var prefs = new _IG_Prefs();
+        	 	var urlTable = prefs.getString("_table_query_url");
+        	 	_IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+                function isSearchDone() {
+        	        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+        	            return true;
+        	        }
+        	        return false;
+        	    }
+
+         		function getSelectedSecondValue() {
+        	        return gadgets.util.getUrlParameters().parent.split("=")[2];
+        	    }
+
+        	    function getSelectedFirstValue() {
+        	        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+        	    }
+
+        	    function getSelectedFirstParameter() {
+        	        return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1];
+        	    }
+
+        	    function getQueryParameters() {
+            		var filter = "";
+            		if (isSearchDone()){
+            			var firstParam = getSelectedFirstParameter();
+        	    		var first = getSelectedFirstValue();
+        	    		if (firstParam == "anyo" && first > 0) {
+        	    			filter = " AND (G = "+first+")";
+        	    		} else if (firstParam == "inputText") {
+        	    			first= first.toLowerCase();
+        	    			filter = " AND (lower(B) like '%"+first+"%' OR lower(C) like '%"+first+"%' OR lower(D) like '%"+first+"%' OR lower(E) like '%"+first+"%')";
+        	    		}
+        	    		var second = getSelectedSecondValue();
+        	    		if (second > 0) {
+        	    			filter = filter.concat(" AND (F = "+second+")");
+        	    		}
+        	    	}
+            		return filter;
+        	    }
+
+                function handleQueryResponse(response) {
+        			data = response.getDataTable();
+        			var filas = data.getNumberOfRows();
+        			var html = "";
+
+        			var month = new Array();
+        			month[1] = "Ene";
+        			month[2] = "Feb";
+        			month[3] = "Mar";
+        			month[4] = "Abr";
+        			month[5] = "May";
+        			month[6] = "Jun";
+        			month[7] = "Jul";
+        			month[8] = "Agt";
+        			month[9] = "Sep";
+        			month[10] = "Oct";
+        			month[11] = "Nov";
+        			month[12] = "Dic";
+
+        			if(filas < 1)
+            			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
+                    else {
+                        html += '<div id="paginas" class="paginaNueva" style=" display: block;">';
+
+        				for(var i=0; i < filas; i++) {
+
+        				   	html += "<div class='implantation'>";
+
+        				   	//Fecha
+        				   	html += "<div class='datesandtags'><div class='date'>";
+        					html += "<div class='month' id='mes'>" + month[data.getValue(i,5)] + "</div>";
+        					html += "<div class='year' id='anyo'>" + data.getValue(i,6) + "</div>";
+        				    html += "</div></div>";
+
+        					//Contenido
+        				   	html += "<div class='info'>";
+        				   	html += "<div class='title'>" + data.getValue(i,1) + "</div>";
+        				   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,2) + "</span></div>";
+        				   	html += "<div class='ambito'>Ámbito: <span>" + data.getValue(i,3) + "</span></div>";
+        				   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
+        				    html += "<button type='button' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
+        				    html += "</div>";
+
+        					//Separación
+        				    html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/></div>";
+        	            }
+
+        	            html += '</div>';
+        	        }
+        			html += "<div id='pagination' style='margin: auto;'></div>";
+
+        			document.getElementById('listImplantaciones').innerHTML += html;
+        			if(filas > 0)
+        				pagination(filas);
+        			gadgets.window.adjustHeight();
+        		}
+
+                function sendQuery(){
+        			gadgetHelper = new google.visualization.GadgetHelper();
+        			var opts = {dataType:'jsonp'};
+        			var query = new google.visualization.Query(urlTable, opts);
+        			var querytosend = "select * where A <> 'IdImplantacion'";
+        			querytosend = querytosend.concat(getQueryParameters());
+        			var orderQuery = " order by G desc, F desc"
+        			querytosend = querytosend.concat(orderQuery);
+        			query.setQuery(querytosend);
+        			query.send(handleQueryResponse);
+        		}
+
                 function makeRequest (method, url) {
                     return new Promise(function (resolve, reject) {
                         var xhr = new XMLHttpRequest();
@@ -83,19 +195,25 @@
                     '?usp=sharing&tq=select%20*%20where%20A%20%3C%3E%20%27IdImplantacion%27%20order%20by%20G%20desc%2C%20F%20desc&tqx=reqId%3A0' +
                     '&access_token=' + encodeURIComponent(token);
 
-                    console.log(encodeURIComponent(gapi.auth.getToken().access_token));
+                    console.log('url: ',tqUrl);
 
-                    makeRequest('GET', tqUrl).then(function (datums) {
-                      console.log(datums);
-                    }).catch(function (err) {
-                      console.error('Augh, there was an error!', err.statusText);
-                    });
+                    //makeRequest('GET', tqUrl).then(function (datums) {
+                    //  console.log(datums);
+                    //}).catch(function (err) {
+                    //  console.error('Augh, there was an error!', err.statusText);
+                    //});
+
+
+        			google.load("visualization", "1", {"packages": ["table"]});
+            		google.setOnLoadCallback(sendQuery);
 
                 }
 
                 var handleTqResponse = function(resp) {
                     document.write(JSON.stringify(resp));
                 }
+
+
 
             </script>
 
