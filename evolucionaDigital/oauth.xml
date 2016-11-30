@@ -17,6 +17,7 @@
 
             <div>
                 <button id="authorize-button" style="visibility: hidden">Authorize</button>
+                <div id="listImplantaciones"></div>
             </div>
 
             <script type="text/javascript">
@@ -119,9 +120,7 @@
         	        }
         			html += "<div id='pagination' style='margin: auto;'></div>";
 
-        			document.getElementById('listImplantaciones').innerHTML += html;
-        			if(filas > 0)
-        				pagination(filas);
+        			document.getElementById('listImplantaciones').innerHTML += html;        			
         			gadgets.window.adjustHeight();
         		}
 
