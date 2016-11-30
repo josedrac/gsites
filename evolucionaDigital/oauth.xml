@@ -136,7 +136,7 @@
 
 
         			query.setQuery(params);
-                    window.QUERY = query;
+                    console.log(query);
         			//query.send(handleQueryResponse);
         		}
 
