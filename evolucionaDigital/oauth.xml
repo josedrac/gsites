@@ -190,6 +190,16 @@
                     return false;
                 }
 
+                var read_token = function(){
+                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1";
+                    console.log('url: ', url);
+                    makeRequest('GET', url).then(function (datums) {
+                      console.log('OK', datums);
+                    }).catch(function (err) {
+                      console.error('Augh2, there was an error!', err.statusText);
+                    });
+                }
+
                 var makeApiCall = function() {
                     var token = gapi.auth.getToken().access_token;
                     console.log('token: ', token);
@@ -217,6 +227,7 @@
                     console.log('csv_data: ', csv_data);
                     makeRequest('PUT', url, JSON.stringify(csv_data)).then(function (datums) {
                       console.log('OK', datums);
+                      read_token();
                     }).catch(function (err) {
                       console.error('Augh, there was an error!', err.statusText);
                     });
