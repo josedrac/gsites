@@ -137,7 +137,7 @@
         			query.setQuery(params);
                     console.log(query);
 
-        			//query.send(handleQueryResponse);
+        			//query.send(handleQueryResponse); sgddsgdsgdsgg
         		}
 
                 function makeRequest (method, url) {
