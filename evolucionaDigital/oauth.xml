@@ -192,7 +192,6 @@
 
                 var read_token = function(){
                     //var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1";
-                    //AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw
                     //console.log('url: ', url);
                     //makeRequest('GET', url).then(function (datums) {
                     //  console.log('OK', datums);
