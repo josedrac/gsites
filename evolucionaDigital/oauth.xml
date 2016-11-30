@@ -55,13 +55,11 @@
                 var makeApiCall = function() {
                     var token = gapi.auth.getToken().access_token;
 
-                    https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/edit?usp=sharing
-
                     var tqUrl = 'https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/edit?usp=sharing' +
                         '&tqx=responseHandler:handleTqResponse' +
                         '&access_token=' + encodeURIComponent(token);
 
-                    document.write('<script src="' + tqUrl +'" type="text/javascript"></script>');
+                    document.write('<script src="' + tqUrl + '" type="text/javascript"></script>');
 
                     //console.log(encodeURIComponent(gapi.auth.getToken().access_token));
                 }
