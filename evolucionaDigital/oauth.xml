@@ -61,7 +61,7 @@
 
                     document.write('<script src="' + tqUrl + '" type="text/javascript"></script>');
 
-                    //console.log(encodeURIComponent(gapi.auth.getToken().access_token));
+                    console.log(encodeURIComponent(gapi.auth.getToken().access_token));
                 }
 
                 var handleTqResponse = function(resp) {
