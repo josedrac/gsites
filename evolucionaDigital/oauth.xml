@@ -20,7 +20,31 @@
 
             <script type="text/javascript">
 
-                console.log('yeah');
+                console.log('Loading Oauth');
+
+                function makeRequest (method, url) {
+                    return new Promise(function (resolve, reject) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open(method, url);
+                        xhr.onload = function () {
+                            if (this.status >= 200 && this.status < 300) {
+                                resolve(xhr.response);
+                            } else {
+                                reject({
+                                    status: this.status,
+                                    statusText: xhr.statusText
+                                });
+                            }
+                        };
+                        xhr.onerror = function () {
+                            reject({
+                                status: this.status,
+                                statusText: xhr.statusText
+                            });
+                        };
+                        xhr.send();
+                    });
+                }
 
                 // NOTE: You must replace the client id on the following line.
                 var clientId = '872842019185-v0c6ckaa1jp8nbl2dq37e9nuh0b847p5.apps.googleusercontent.com';
@@ -58,7 +82,13 @@
                     var tqUrl = 'https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/edit?usp=sharing&tqx=responseHandler:handleTqResponse&access_token=' + encodeURIComponent(token);
 
                     console.log(encodeURIComponent(gapi.auth.getToken().access_token));
-                    
+
+                    makeRequest('GET', tqUrl).then(function (datums) {
+                      console.log(datums);
+                    }).catch(function (err) {
+                      console.error('Augh, there was an error!', err.statusText);
+                    });
+
                 }
 
                 var handleTqResponse = function(resp) {
