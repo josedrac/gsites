@@ -210,7 +210,7 @@
                     //  console.error('Augh, there was an error!', err.statusText);
                     //});
 
-                    _IG_RegisterOnloadHandler(loadVisualizationAPI);                    
+                    _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
                 }
 
@@ -219,6 +219,7 @@
                 }
 
                 function loadVisualizationAPI() {
+                    console.log('load');
                     google.load("visualization", "1", {"packages": ["table"]});
                     google.setOnLoadCallback(sendQuery);
                 }
