@@ -36,11 +36,9 @@
                 var handleAuthResult = function(authResult) {
                     var authorizeButton = document.getElementById('authorize-button');
                     if (authResult && !authResult.error) {
-                        console.log('ok');
                         authorizeButton.style.visibility = 'hidden';
                         makeApiCall();
                     } else {
-                        console.log('error');
                         authorizeButton.style.visibility = '';
                         authorizeButton.onclick = handleAuthClick;
                     }
@@ -55,8 +53,17 @@
                 }
 
                 var makeApiCall = function() {
-                    console.log('makeapi');
-                    console.log(encodeURIComponent(gapi.auth.getToken().access_token));
+                    var token = gapi.auth.getToken().access_token;
+
+                    https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/edit?usp=sharing
+
+                    var tqUrl = 'https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/edit?usp=sharing' +
+                        '&tqx=responseHandler:handleTqResponse' +
+                        '&access_token=' + encodeURIComponent(token);
+
+                    document.write('<script src="' + tqUrl +'" type="text/javascript"></script>');
+
+                    //console.log(encodeURIComponent(gapi.auth.getToken().access_token));
                 }
 
                 var handleTqResponse = function(resp) {
