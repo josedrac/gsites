@@ -25,6 +25,7 @@
                 var gadgetHelper = null;
         		var prefs = new _IG_Prefs();
         	 	var urlTable = prefs.getString("_table_query_url");
+                console.log('urlTable', urlTable);
 
                 function isSearchDone() {
         	        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
