@@ -193,7 +193,8 @@
 
                 var read_token = function(){
                     console.log('READING TOKEN FROM DRIVE');
-                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1";
+                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1" +
+                    "?apiKey=AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw";
                     console.log('url: ', url);
                     makeRequest('GET', url).then(function (datums) {
                           console.log('READED TOKEN FROM DRIVE: ', datums);
