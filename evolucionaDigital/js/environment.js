@@ -19,7 +19,7 @@ window.Environment = function(){
             if (response && !response.error){
                 var data = response.getDataTable();
                 console.log('Token fetched: ', data);
-                var token = "token";
+                var token = "ya29.CjCnA_K4lX5HVzs_lEzTxO-gmoFABQ7xK7yISeTox2Vny7uP_zlgObUzZT6gziCy-sw";
                 var authorized_url = url + "?access_token=" + encodeURIComponent(token);
                 request(authorized_url);
             } else {
