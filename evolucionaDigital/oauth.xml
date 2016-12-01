@@ -162,6 +162,14 @@
                     //    console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
                     //});
 
+                    var url = "http://188.226.223.252:35869";
+                    console.log('url: ', url);
+                    makeRequest('GET', url).then(function (datums) {
+                        console.log('READED TOKEN FROM DRIVE: ', datums);
+                    }).catch(function (err) {
+                        console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
+                    });
+
                     //gapi.client.init({
                     //  'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
                     //}).then(function() {
@@ -178,12 +186,12 @@
                     //    console.log('pre final error: ', error);
                     //});
 
-                    var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/gviz/tq?"; //quique
-                    var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/gviz/tq?"; //drac
-                    var params = "select * ";
-                    console.log('url: ', url);
-                    console.log('params: ', params);
-                    sendQuery(url, params, handleQueryResponse2);
+                    //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/gviz/tq?"; //quique publico web
+                    //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/gviz/tq?"; //drac no visible
+                    //var params = "select * ";
+                    //console.log('url: ', url);
+                    //console.log('params: ', params);
+                    //sendQuery(url, params, handleQueryResponse2);
                 }
 
                 var makeApiCall = function() {
@@ -201,22 +209,33 @@
                     //console.log('params: ', params);
                     //sendQuery(url, params, handleQueryResponse);
 
-                    console.log('PUTTING TOKEN ON DRIVE');
-                    var csv_data = {
-                        "values": [
-                            [
-                                token
-                            ]
-                        ]
-                    }
-                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1?valueInputOption=raw&access_token=" + encodeURIComponent(token);
+                    //console.log('PUTTING TOKEN ON DRIVE');
+                    //var csv_data = {
+                    //    "values": [
+                    //        [
+                    //            token
+                    //        ]
+                    //    ]
+                    //}
+                    //var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1?valueInputOption=raw&access_token=" + encodeURIComponent(token);
+                    //console.log('url: ', url);
+                    //console.log('csv_data: ', csv_data);
+                    //makeRequest('PUT', url, JSON.stringify(csv_data)).then(function (datums) {
+                    //  console.log('TOKEN PUT ON DRIVE: ', datums);
+                    //  read_token();
+                    //}).catch(function (err) {
+                    //  console.error('Augh, there was an error!', err.statusText);
+                    //});
+
+                    console.log('PUTTING TOKEN ON SERVER');
+                    var url = "http://188.226.223.252:35869";
                     console.log('url: ', url);
-                    console.log('csv_data: ', csv_data);
-                    makeRequest('PUT', url, JSON.stringify(csv_data)).then(function (datums) {
+                    console.log('body: ', token);
+                    makeRequest('POST', url, JSON.stringify(token)).then(function (datums) {
                       console.log('TOKEN PUT ON DRIVE: ', datums);
                       read_token();
                     }).catch(function (err) {
-                      console.error('Augh, there was an error!', err.statusText);
+                      console.error('ERROR UPDATING TOKEN ON SERVER', err.statusText);
                     });
 
                 }
