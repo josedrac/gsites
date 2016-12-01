@@ -6,7 +6,7 @@ window.Environment = function(){
     var params = "select * ";
 
     function sendQuery(url, params, callback){
-        console.log('GETTING TOKEN');
+        console.log('Getting token');
         var opts = {dataType:'jsonp'};
         var query = new google.visualization.Query(url, opts);
         query.setQuery(params);
