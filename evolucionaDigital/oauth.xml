@@ -193,14 +193,15 @@
 
                 var read_token = function(){
                     console.log('READING TOKEN FROM DRIVE');
-                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/values/hoja!A1:A1";
+                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/values/hoja!A1:A1" +
+                    "?key=AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw";
 
                     console.log('url: ', url);
                     makeRequest('GET', url).then(function (datums) {
                         console.log('READED TOKEN FROM DRIVE: ', datums);
                     }).catch(function (err) {
                         console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
-                    });                    
+                    });
 
                     //gapi.client.init({
                     //  'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
