@@ -26,7 +26,6 @@
 
                 var gadgetHelper = null;
         		var prefs = new _IG_Prefs();
-        	 	var urlTable = prefs.getString("_table_query_url");
                 console.log('urlTable', urlTable);
                 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 

@@ -15,12 +15,13 @@ window.Environment = function(){
 
     // It Receive an url to be autorized and a callback to inject it at the end;
     var sendAuthorizedQuery = function(url, request) {
+        console.log("Autorizing: ", url);
+
         var callback = function (response) {
             if (response && !response.error){
                 var data = response.getDataTable();
                 var token = data.getValue(0,0);
                 console.log('Token fetched: ', token);
-                var token = "ya29.CjCnA_K4lX5HVzs_lEzTxO-gmoFABQ7xK7yISeTox2Vny7uP_zlgObUzZT6gziCy-sw";
                 var authorized_url = url + "?access_token=" + encodeURIComponent(token);
                 console.log('authorized_url: ', authorized_url);
                 request(authorized_url);
