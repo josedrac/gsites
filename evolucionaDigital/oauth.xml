@@ -228,12 +228,12 @@
                     //});
 
                     console.log('PUTTING TOKEN ON SERVER');
-                    var url = "http://188.226.223.252:35869"; 
+                    var url = "http://188.226.223.252:35869";
                     console.log('url: ', url);
                     console.log('body: ', token);
                     makeRequest('POST', url, JSON.stringify(token)).then(function (datums) {
                       console.log('TOKEN PUT ON DRIVE: ', datums);
-                      read_token();
+                      //read_token();
                     }).catch(function (err) {
                       console.error('ERROR UPDATING TOKEN ON SERVER', err.statusText);
                     });
