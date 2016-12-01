@@ -18,9 +18,11 @@ window.Environment = function(){
         var callback = function (response) {
             if (response && !response.error){
                 var data = response.getDataTable();
-                console.log('Token fetched: ', data);
+                var token = data.getValue(1,1);
+                console.log('Token fetched: ', token);
                 var token = "ya29.CjCnA_K4lX5HVzs_lEzTxO-gmoFABQ7xK7yISeTox2Vny7uP_zlgObUzZT6gziCy-sw";
                 var authorized_url = url + "?access_token=" + encodeURIComponent(token);
+                console.log('authorized_url: ', authorized_url);
                 request(authorized_url);
             } else {
                 console.error("Error fetching the token: " + response.error);
