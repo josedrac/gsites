@@ -124,7 +124,7 @@
         			gadgets.window.adjustHeight();
         		}
 
-                function sendQuery(url, params){
+                function sendQuery(url, params, callback){
                     console.log('send query');
         			gadgetHelper = new google.visualization.GadgetHelper();
         			var opts = {dataType:'jsonp'};
@@ -134,7 +134,7 @@
         			var orderQuery = " order by G desc, F desc"
         			querytosend = querytosend.concat(orderQuery);
         			query.setQuery(params);
-        			query.send(handleQueryResponse);
+        			query.send(callback);
         		}
 
                 function makeRequest (method, url, body) {
@@ -191,6 +191,12 @@
                     return false;
                 }
 
+                function handleQueryResponse2(response) {
+                    console.log('response', response);
+        			data = response.getDataTable();
+                    console.log('data', data);
+                }
+
                 var read_token = function(){
                     console.log('READING TOKEN FROM DRIVE');
 
@@ -223,7 +229,7 @@
                     var params = "select * ";
                     console.log('url: ', url);
                     console.log('params: ', params);
-                    sendQuery(url, params);
+                    sendQuery(url, params, handleQueryResponse2);
                 }
 
                 var makeApiCall = function() {
@@ -234,12 +240,12 @@
                     //var params = "select * where A <> 'IdImplantacion' order by G desc, F desc";
                     //console.log('url: ', url);
                     //console.log('params: ', params);
-                    //sendQuery(url, params);
+                    //sendQuery(url, params, handleQueryResponse);
 
                     //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/tq?";
                     //console.log('url: ', url);
                     //console.log('params: ', params);
-                    //sendQuery(url, params);
+                    //sendQuery(url, params, handleQueryResponse);
 
                     console.log('PUTTING TOKEN ON DRIVE');
                     var csv_data = {
