@@ -321,7 +321,7 @@
     		return filter;
 	    }
 
-		function sendQuery(){            
+		function sendQuery(){
 
             var request = function (authorized_url){
     			gadgetHelper = new google.visualization.GadgetHelper();
@@ -335,7 +335,7 @@
     			query.send(handleQueryResponse);
             }
 
-            Environment.sendAuthorizedQuery(urlTable, request);
+            window.Environment.sendAuthorizedQuery(urlTable, request);
 		}
 
 		function pagination(elements) {
