@@ -18,7 +18,7 @@ window.Environment = function(){
         var callback = function (response) {
             if (response && !response.error){
                 var data = response.getDataTable();
-                var token = data.getValue(1,1);
+                var token = data.getValue(0,0);
                 console.log('Token fetched: ', token);
                 var token = "ya29.CjCnA_K4lX5HVzs_lEzTxO-gmoFABQ7xK7yISeTox2Vny7uP_zlgObUzZT6gziCy-sw";
                 var authorized_url = url + "?access_token=" + encodeURIComponent(token);
