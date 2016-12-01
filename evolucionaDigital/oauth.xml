@@ -72,54 +72,7 @@
                     console.log('response', response);
         			data = response.getDataTable();
         			var filas = data.getNumberOfRows();
-        			var html = "";
-
-        			var month = new Array();
-        			month[1] = "Ene";
-        			month[2] = "Feb";
-        			month[3] = "Mar";
-        			month[4] = "Abr";
-        			month[5] = "May";
-        			month[6] = "Jun";
-        			month[7] = "Jul";
-        			month[8] = "Agt";
-        			month[9] = "Sep";
-        			month[10] = "Oct";
-        			month[11] = "Nov";
-        			month[12] = "Dic";
-
-        			if(filas < 1)
-            			html += '<p class="text">No hay ningún contenido para las fechas seleccionadas.</p>';
-                    else {
-                        html += '<div id="paginas" class="paginaNueva" style=" display: block;">';
-
-        				for(var i=0; i < filas; i++) {
-
-        				   	html += "<div class='implantation'>";
-
-        				   	//Fecha
-        				   	html += "<div class='datesandtags'><div class='date'>";
-        					html += "<div class='month' id='mes'>" + month[data.getValue(i,5)] + "</div>";
-        					html += "<div class='year' id='anyo'>" + data.getValue(i,6) + "</div>";
-        				    html += "</div></div>";
-
-        					//Contenido
-        				   	html += "<div class='info'>";
-        				   	html += "<div class='title'>" + data.getValue(i,1) + "</div>";
-        				   	html += "<div class='destinatarios'>Destinatarios: <span>" + data.getValue(i,2) + "</span></div>";
-        				   	html += "<div class='ambito'>Ámbito: <span>" + data.getValue(i,3) + "</span></div>";
-        				   	html += "<div class='description'>" + data.getValue(i,4) + "</div>";
-        				    html += "<button type='button' onclick=javascript:Go('" + data.getValue(i,7) + "')>Saber más</button>";
-        				    html += "</div>";
-
-        					//Separación
-        				    html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineinfo'/></div>";
-        	            }
-
-        	            html += '</div>';
-        	        }
-        			html += "<div id='pagination' style='margin: auto;'></div>";
-
+        			var html = "hecho";
         			document.getElementById('listImplantaciones').innerHTML += html;
         			gadgets.window.adjustHeight();
         		}
