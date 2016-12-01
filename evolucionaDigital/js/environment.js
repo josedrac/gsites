@@ -1,6 +1,6 @@
 "use strict";
 
-window.Environment = function(){  
+window.Environment = function(){
 
     var token_url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/gviz/tq?";
     var params = "select * ";
@@ -17,7 +17,7 @@ window.Environment = function(){
     var sendAuthorizedQuery = function(url, request) {
         var callback = function (response) {
             if (response && !response.error){
-                data = response.getDataTable();
+                var data = response.getDataTable();
                 console.log('Token fetched: ', data);
                 var token = "token";
                 var authorized_url = url + "?access_token=" + encodeURIComponent(token);
