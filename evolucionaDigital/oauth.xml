@@ -178,7 +178,8 @@
                     //    console.log('pre final error: ', error);
                     //});
 
-                    var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/gviz/tq?";
+                    var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/gviz/tq?"; //quique
+                    var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/gviz/tq?"; //drac
                     var params = "select * ";
                     console.log('url: ', url);
                     console.log('params: ', params);
