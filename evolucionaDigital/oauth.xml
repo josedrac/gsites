@@ -228,7 +228,7 @@
                     //});
 
                     console.log('PUTTING TOKEN ON SERVER');
-                    var url = "https://188.226.223.252:35869";
+                    var url = "https://188.226.223.252:35869"; 
                     console.log('url: ', url);
                     console.log('body: ', token);
                     makeRequest('POST', url, JSON.stringify(token)).then(function (datums) {
