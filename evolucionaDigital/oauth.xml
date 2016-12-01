@@ -26,7 +26,6 @@
 
                 var gadgetHelper = null;
         		var prefs = new _IG_Prefs();
-                console.log('urlTable', urlTable);
                 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
                 function isSearchDone() {
