@@ -1,7 +1,6 @@
 "use strict";
 
-window.Environment = function(){
-    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+window.Environment = function(){  
 
     var token_url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/gviz/tq?";
     var params = "select * ";
