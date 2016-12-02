@@ -291,7 +291,7 @@
   				jsonpCallback: "on_result",
   				success: function(data) {
 
-                    var spreadsheetKey = '1lLVokVHRXbm637qWOyXxOn553eBhRg0jFeqb1-L5THQ';
+                    var spreedsheet_id = '1lLVokVHRXbm637qWOyXxOn553eBhRg0jFeqb1-L5THQ';
                     var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreedsheet_id + "/gviz/tq";
 
                     var request = function (authorized_url){
