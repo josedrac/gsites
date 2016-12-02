@@ -248,7 +248,7 @@
                 function loadVisualizationAPI() {
                     console.log('load');
                     google.load("visualization", "1", {"packages": ["table"]});
-                    //google.setOnLoadCallback(init);
+                    google.setOnLoadCallback(init);
                 }
 
 
