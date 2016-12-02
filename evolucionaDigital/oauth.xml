@@ -109,7 +109,7 @@
                         var token = data.getValue(0,0);
                         show_message("<h3>" + token + "</h3>");
                         show_message("<p>TEST OK</p>");
-                        show_message("<h3>" + FINISH + "</h3>");
+                        show_message("<h3>FINISH</h3>");
                     } else {
                         show_message("<p>TEST FAILED</p>");
                     }
