@@ -11,6 +11,7 @@
  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
 
 	<style type="text/css">
 	  	@font-face {
@@ -239,13 +240,18 @@
 			google.setOnLoadCallback(sendQuery2);
 		}
 
-		function sendQuery(){
-			gadgetHelper = new google.visualization.GadgetHelper();
-			var opts = {dataType:'jsonp'};
-			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where A <> 'IdHelp' order by G, F";
-			query.setQuery(querytosend);
-			query.send(handleQueryResponse);
+        function sendQuery(){
+
+            var request = function (authorized_url){
+    			gadgetHelper = new google.visualization.GadgetHelper();
+    			var opts = {dataType:'jsonp'};
+    			var query = new google.visualization.Query(authorized_url, opts);
+    			var querytosend = "select * where A <> 'IdHelp' order by G, F";
+    			query.setQuery(querytosend);
+    			query.send(handleQueryResponse);
+            }
+
+            window.Environment.sendAuthorizedQuery(urlTable, request);
 		}
 
 		function handleQueryResponse(response) {
@@ -267,14 +273,19 @@
 			document.getElementById('listLinksHelpers').innerHTML += html;
 		}
 
-		function sendQuery2(){
-			gadgetHelper = new google.visualization.GadgetHelper();
-			var opts = {dataType:'jsonp'};
-			var query = new google.visualization.Query(urlTable2, opts);
-			var querytosend = "select * where A <> 'IdNovedad' and P like 'x' order by C";
-			query.setQuery(querytosend);
-			query.send(handleQueryResponse2);
-		}
+        function sendQuery2(){
+
+            var request = function (authorized_url){
+                gadgetHelper = new google.visualization.GadgetHelper();
+                var opts = {dataType:'jsonp'};
+                var query = new google.visualization.Query(authorized_url, opts);
+                var querytosend = "select * where A <> 'IdNovedad' and P like 'x' order by C";
+                query.setQuery(querytosend);
+                query.send(handleQueryResponse2);
+            }
+
+            window.Environment.sendAuthorizedQuery(urlTable2, request);
+        }
 
 		function handleQueryResponse2(response) {
 			data2 = response.getDataTable();
