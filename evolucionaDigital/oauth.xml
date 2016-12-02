@@ -161,7 +161,6 @@
 
                 var makeApiCall = function() {
                     var token = gapi.auth.getToken().access_token;
-                    var div = document.getElementById('raw-token');
                     show_message("<p>TOKEN GENERATED:</p>");
                     show_message("<h3>" + token + "</h3>");
 
@@ -187,7 +186,6 @@
                     var url = "https://sheets.googleapis.com/v4/spreadsheets/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/values/hoja!A1:A1?valueInputOption=raw&access_token=" + encodeURIComponent(token);
                     console.log('url: ', url);
                     console.log('csv_data: ', csv_data);
-                    div.innerHTML = div.innerHTML + "<p>Putting token on drive... </p>";
                     makeRequest('PUT', url, JSON.stringify(csv_data)).then(function (datums) {
                         show_message("<p>Token stored.</p>");
                         read_token();
