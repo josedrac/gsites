@@ -24,68 +24,37 @@
 
             <script type="text/javascript">
 
-                console.log('Loading Oauth');
-
+                var div = document.getElementById('raw-token');
+                var clientId = '872842019185-v0c6ckaa1jp8nbl2dq37e9nuh0b847p5.apps.googleusercontent.com';
+                var scopes = 'https://spreadsheets.google.com/feeds';
                 var gadgetHelper = null;
-        		var prefs = new _IG_Prefs();
+                var prefs = new _IG_Prefs();
+
+                var show_message = function(textHTML){
+                    div.innerHTML = div.innerHTML + textHTML;
+                }
+                show_message("<h2>UPDATING OAUTH TOKEN</h2>");
+
+                var init = function() {
+                    show_message("<p>Authorizing...</p>");
+                    gapi.auth.authorize(
+                        {client_id: clientId, scope: scopes, immediate: true},
+                        handleAuthResult
+                    );
+                }
+
+                function loadVisualizationAPI() {
+                    show_message("<p>Initializing...</p>");
+                    google.load("visualization", "1", {"packages": ["table"]});
+                    google.setOnLoadCallback(init);
+                }
+
                 _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
-                function isSearchDone() {
-        	        if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-        	            return true;
-        	        }
-        	        return false;
-        	    }
-
-         		function getSelectedSecondValue() {
-        	        return gadgets.util.getUrlParameters().parent.split("=")[2];
-        	    }
-
-        	    function getSelectedFirstValue() {
-        	        return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
-        	    }
-
-        	    function getSelectedFirstParameter() {
-        	        return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1];
-        	    }
-
-        	    function getQueryParameters() {
-            		var filter = "";
-            		if (isSearchDone()){
-            			var firstParam = getSelectedFirstParameter();
-        	    		var first = getSelectedFirstValue();
-        	    		if (firstParam == "anyo" && first > 0) {
-        	    			filter = " AND (G = "+first+")";
-        	    		} else if (firstParam == "inputText") {
-        	    			first= first.toLowerCase();
-        	    			filter = " AND (lower(B) like '%"+first+"%' OR lower(C) like '%"+first+"%' OR lower(D) like '%"+first+"%' OR lower(E) like '%"+first+"%')";
-        	    		}
-        	    		var second = getSelectedSecondValue();
-        	    		if (second > 0) {
-        	    			filter = filter.concat(" AND (F = "+second+")");
-        	    		}
-        	    	}
-            		return filter;
-        	    }
-
-                function handleQueryResponse(response) {
-                    console.log('response', response);
-        			data = response.getDataTable();
-        			var filas = data.getNumberOfRows();
-        			var html = "hecho";
-        			document.getElementById('listImplantaciones').innerHTML += html;
-        			gadgets.window.adjustHeight();
-        		}
-
                 function sendQuery(url, params, callback){
-                    console.log('send query');
         			gadgetHelper = new google.visualization.GadgetHelper();
         			var opts = {dataType:'jsonp'};
         			var query = new google.visualization.Query(url, opts);
-        			var querytosend = "select * where A <> 'IdImplantacion'";
-        			querytosend = querytosend.concat(getQueryParameters());
-        			var orderQuery = " order by G desc, F desc"
-        			querytosend = querytosend.concat(orderQuery);
         			query.setQuery(params);
         			query.send(callback);
         		}
@@ -114,29 +83,20 @@
                     });
                 }
 
-                var clientId = '872842019185-v0c6ckaa1jp8nbl2dq37e9nuh0b847p5.apps.googleusercontent.com';
-                var scopes = 'https://spreadsheets.google.com/feeds';
-
-                var init = function() {
-                    gapi.auth.authorize(
-                        {client_id: clientId, scope: scopes, immediate: true},
-                        handleAuthResult
-                    );
-                }
-
                 var handleAuthResult = function(authResult) {
                     var authorizeButton = document.getElementById('authorize-button');
                     if (authResult && !authResult.error) {
+                        show_message("<p>Authorized.</p>");
                         authorizeButton.style.visibility = 'hidden';
                         makeApiCall();
                     } else {
+                        show_message("<p>Click the button to obtain a token.</p>");
                         authorizeButton.style.visibility = '';
                         authorizeButton.onclick = handleAuthClick;
                     }
                 }
 
                 var handleAuthClick = function(event) {
-                    console.log('GENERATING NEW TOKEN');
                     gapi.auth.authorize(
                         {client_id: clientId, scope: scopes, immediate: false},
                         handleAuthResult
@@ -145,13 +105,18 @@
                 }
 
                 function handleQueryResponse2(response) {
-                    console.log('response', response);
-        			data = response.getDataTable();
-                    console.log('data', data);
+                    if (authResult && !authResult.error) {
+            			data = response.getDataTable();
+                        var token = data.getValue(0,0);
+                        show_message("<h3>" + token + "</h3>");
+                        show_message("<h3>" + FINISH + "</h3>");
+                    } else {
+                        show_message("<p>Fail reading token from drive.</p>");
+                    }
                 }
 
                 var read_token = function(){
-                    console.log('READING TOKEN FROM DRIVE');
+                    show_message("<p>Reading token from drive... </p>");
 
                     //var url = "https://sheets.googleapis.com/v4/spreadsheets/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/values/hoja!A1:A1" +
                     //"?key=AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw";
@@ -162,13 +127,13 @@
                     //    console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
                     //});
 
-                    var url = "http://188.226.223.252:35869";
-                    console.log('url: ', url);
-                    makeRequest('GET', url).then(function (datums) {
-                        console.log('READED TOKEN FROM DRIVE: ', datums);
-                    }).catch(function (err) {
-                        console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
-                    });
+                    //var url = "http://188.226.223.252:35869";
+                    //console.log('url: ', url);
+                    //makeRequest('GET', url).then(function (datums) {
+                    //    console.log('READED TOKEN FROM DRIVE: ', datums);
+                    //}).catch(function (err) {
+                    //    console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
+                    //});
 
                     //gapi.client.init({
                     //  'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
@@ -186,20 +151,19 @@
                     //    console.log('pre final error: ', error);
                     //});
 
-                    //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/gviz/tq?"; //quique publico web
+                    var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/gviz/tq?"; //quique publico web
                     //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/gviz/tq?"; //drac no visible
-                    //var params = "select * ";
-                    //console.log('url: ', url);
-                    //console.log('params: ', params);
-                    //sendQuery(url, params, handleQueryResponse2);
+                    var params = "select * ";
+                    console.log('url: ', url);
+                    console.log('params: ', params);
+                    sendQuery(url, params, handleQueryResponse2);
                 }
 
                 var makeApiCall = function() {
                     var token = gapi.auth.getToken().access_token;
-                    console.log('TOKEN GENERATED: ', token);
-                    var div = document.getElementById('raw-token').innerHTML = ""+
-                    "<p>Copy this token into the spreadsheet file.</p>" +
-                    "<h3>" + token + "</h3>";
+                    var div = document.getElementById('raw-token');
+                    show_message("<p>TOKEN GENERATED:</p>");
+                    show_message("<h3>" + token + "</h3>");
 
                     //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/tq?access_token=" + encodeURIComponent(token);
                     //var params = "select * where A <> 'IdImplantacion' order by G desc, F desc";
@@ -212,23 +176,25 @@
                     //console.log('params: ', params);
                     //sendQuery(url, params, handleQueryResponse);
 
-                    //console.log('PUTTING TOKEN ON DRIVE');
-                    //var csv_data = {
-                    //    "values": [
-                    //        [
-                    //            token
-                    //        ]
-                    //    ]
-                    //}
-                    //var url = "https://sheets.googleapis.com/v4/spreadsheets/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/values/hoja!A1:A1?valueInputOption=raw&access_token=" + encodeURIComponent(token);
-                    //console.log('url: ', url);
-                    //console.log('csv_data: ', csv_data);
-                    //makeRequest('PUT', url, JSON.stringify(csv_data)).then(function (datums) {
-                    //  console.log('TOKEN PUT ON DRIVE: ', datums);
-                    //  read_token();
-                    //}).catch(function (err) {
-                    //  console.error('Augh, there was an error!', err.statusText);
-                    //});
+                    show_message("<p>Storing token on drive... </p>");
+                    var csv_data = {
+                        "values": [
+                            [
+                                token
+                            ]
+                        ]
+                    }
+                    var url = "https://sheets.googleapis.com/v4/spreadsheets/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/values/hoja!A1:A1?valueInputOption=raw&access_token=" + encodeURIComponent(token);
+                    console.log('url: ', url);
+                    console.log('csv_data: ', csv_data);
+                    div.innerHTML = div.innerHTML + "<p>Putting token on drive... </p>";
+                    makeRequest('PUT', url, JSON.stringify(csv_data)).then(function (datums) {
+                        show_message("<p>Token stored.</p>");
+                        read_token();
+                    }).catch(function (err) {
+                        show_message("<p>FAIL putting token on drive.</p>");
+                        console.error('Augh, there was an error!', err.statusText);
+                    });
 
                     //console.log('PUTTING TOKEN ON SERVER');
                     //var url = "http://188.226.223.252:35869";
@@ -243,20 +209,7 @@
 
                 }
 
-                var handleTqResponse = function(resp) {
-                    document.write(JSON.stringify(resp));
-                }
-
-                function loadVisualizationAPI() {
-                    console.log('load');
-                    google.load("visualization", "1", {"packages": ["table"]});
-                    google.setOnLoadCallback(init);
-                }
-
-
             </script>
-
-            <!-- <script src="https://apis.google.com/js/auth.js?onload=init"></script> -->
 
         ]]>
     </Content>
