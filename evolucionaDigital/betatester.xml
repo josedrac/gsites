@@ -302,7 +302,7 @@
                         query.send(handleQueryResponse);
                     }
 
-                    window.Environment.sendAuthorizedQuery(urlTable, request);
+                    window.Environment.sendAuthorizedQuery(url, request);
 
 
   				  	//spreadsheetKey = '1lLVokVHRXbm637qWOyXxOn553eBhRg0jFeqb1-L5THQ';
