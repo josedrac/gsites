@@ -18,7 +18,6 @@
             <div>
                 <button id="authorize-button" style="visibility: hidden">Authorize</button>
                 <div id="raw-token">
-                    <p>Generating new token...</p>
                 </div>
             </div>
 
@@ -33,7 +32,7 @@
                 var show_message = function(textHTML){
                     div.innerHTML = div.innerHTML + textHTML;
                 }
-                show_message("<h2>UPDATING OAUTH TOKEN</h2>");
+                show_message("<h3>UPDATING OAUTH TOKEN</h3>");
 
                 var init = function() {
                     show_message("<p>Authorizing...</p>");
