@@ -282,20 +282,36 @@
   		    return false;
   		}
 
-        	$(document).ready(function() {
-    			$.ajax({
+    	$(document).ready(function() {
+
+			$.ajax({
   	            type      	: 'GET',
   	            url       	: 'https://script.google.com/a/macros/bbva.com/s/AKfycbzFTxMbVhrbPOOPW7-cWg0IALTA5-kE7FvV3fkvVkwGZqG3Z4w/exec',
   	            dataType	: 'jsonp',
   				jsonpCallback: "on_result",
   				success: function(data) {
-  				  	spreadsheetKey = '1lLVokVHRXbm637qWOyXxOn553eBhRg0jFeqb1-L5THQ';
-  					queryString = encodeURIComponent('SELECT * WHERE B LIKE "' + data + '" ORDER BY A ASC');
-  					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString);
-  				  	google.setOnLoadCallback(getSpreadsheet());
+
+                    var spreadsheetKey = '1lLVokVHRXbm637qWOyXxOn553eBhRg0jFeqb1-L5THQ';
+                    var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreedsheet_id + "/gviz/tq";
+
+                    var request = function (authorized_url){
+                        var opts = {dataType:'jsonp'};
+                        var query = new google.visualization.Query(authorized_url, opts);
+                        var querytosend = 'SELECT * WHERE B LIKE "' + data + '" ORDER BY A ASC';
+                        query.setQuery(querytosend);
+                        query.send(handleQueryResponse);
+                    }
+
+                    window.Environment.sendAuthorizedQuery(urlTable, request);
+
+
+  				  	//spreadsheetKey = '1lLVokVHRXbm637qWOyXxOn553eBhRg0jFeqb1-L5THQ';
+  					//queryString = encodeURIComponent('SELECT * WHERE B LIKE "' + data + '" ORDER BY A ASC');
+  					//query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString);
+  				  	//google.setOnLoadCallback(getSpreadsheet());
   				}
-  			});
-    		});
+			});
+		});
   	</script>
 
 
