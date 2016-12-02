@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="ED-oauth.xml"
+        description=""
+        author_affiliation="Sopra">
+        <Require feature="idi"/>
+        <Require feature="locked-domain" />
+    	<Require feature="dynamic-height"/>
+    	<Require feature="setprefs" />
+    </ModulePrefs>
+	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+
+    <Content type="html">
+        <![CDATA[
+	        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+            <script src="https://apis.google.com/js/auth.js" type="text/javascript"></script>
+
+            <div>
+                <button id="authorize-button" style="visibility: hidden">Authorize</button>
+                <div id="raw-token">
+                </div>
+            </div>
+
+            <script type="text/javascript">
+
+                var div = document.getElementById('raw-token');
+                var clientId = '872842019185-v0c6ckaa1jp8nbl2dq37e9nuh0b847p5.apps.googleusercontent.com';
+                var scopes = 'https://spreadsheets.google.com/feeds';
+                var spreedsheet_id = '1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao';
+                var gadgetHelper = null;
+                var prefs = new _IG_Prefs();
+
+                var show_message = function(textHTML){
+                    div.innerHTML = div.innerHTML + textHTML;
+                }
+                show_message("<h3>UPDATING OAUTH TOKEN</h3>");
+
+                var init = function() {
+                    show_message("<p>Authorizing...</p>");
+                    gapi.auth.authorize(
+                        {client_id: clientId, scope: scopes, immediate: false},
+                        handleAuthResult
+                    );
+                }
+
+                function loadVisualizationAPI() {
+                    show_message("<p>Initializing...</p>");
+                    google.load("visualization", "1", {"packages": ["table"]});
+                    google.setOnLoadCallback(init);
+                }
+
+                _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+                function sendQuery(url, params, callback){
+        			gadgetHelper = new google.visualization.GadgetHelper();
+        			var opts = {dataType:'jsonp'};
+        			var query = new google.visualization.Query(url, opts);
+        			query.setQuery(params);
+        			query.send(callback);
+        		}
+
+                function makeRequest (method, url, body) {
+                    return new Promise(function (resolve, reject) {
+                        var xhr = new XMLHttpRequest();
+                        xhr.open(method, url);
+                        xhr.onload = function () {
+                            if (this.status >= 200 && this.status < 300) {
+                                resolve(xhr.response);
+                            } else {
+                                reject({
+                                    status: this.status,
+                                    statusText: xhr.statusText
+                                });
+                            }
+                        };
+                        xhr.onerror = function (err) {
+                            reject({
+                                status: this.status,
+                                statusText: xhr.statusText
+                            });
+                        };
+                        xhr.send(body);
+                    });
+                }
+
+                var handleAuthResult = function(authResult) {
+                    var authorizeButton = document.getElementById('authorize-button');
+                    if (authResult && !authResult.error) {
+                        show_message("<p>Authorized.</p>");
+                        authorizeButton.style.visibility = 'hidden';
+                        makeApiCall();
+                    } else {
+                        show_message("<p>Click the button to obtain a token.</p>");
+                        authorizeButton.style.visibility = '';
+                        authorizeButton.onclick = handleAuthClick;
+                    }
+                }
+
+                var handleAuthClick = function(event) {
+                    gapi.auth.authorize(
+                        {client_id: clientId, scope: scopes, immediate: false},
+                        handleAuthResult
+                    );
+                    return false;
+                }
+
+                function handleQueryResponse2(response) {
+                    if (response && !response.error) {
+            			data = response.getDataTable();
+                        var token = data.getValue(0,0);
+                        show_message("<h3>" + token + "</h3>");
+                        show_message("<p>TEST OK</p>");
+                        show_message("<h3>FINISH</h3>");
+                    } else {
+                        show_message("<p>TEST FAILED</p>");
+                    }
+                }
+
+                var read_token = function(){
+                    show_message("<p>TEST: Reading token from drive... </p>");
+
+                    //var url = "https://sheets.googleapis.com/v4/spreadsheets/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/values/hoja!A1:A1" +
+                    //"?key=AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw";
+                    //console.log('url: ', url);
+                    //makeRequest('GET', url).then(function (datums) {
+                    //    console.log('READED TOKEN FROM DRIVE: ', datums);
+                    //}).catch(function (err) {
+                    //    console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
+                    //});
+
+                    //var url = "http://188.226.223.252:35869";
+                    //console.log('url: ', url);
+                    //makeRequest('GET', url).then(function (datums) {
+                    //    console.log('READED TOKEN FROM DRIVE: ', datums);
+                    //}).catch(function (err) {
+                    //    console.error('ERROR READING TOKEN FROM DRIVE: ', err.statusText);
+                    //});
+
+                    //gapi.client.init({
+                    //  'apiKey': 'AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw',
+                    //}).then(function() {
+                    //    console.log("gapi init done");
+                    //    gapi.client.sheets.spreadsheets.values.get({
+                    //        spreadsheetId: '1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U',
+                    //        range: 'hoja!A1:A1',
+                    //    }).then(function(response) {
+                    //        console.log('final: ', response);
+                    //    }).catch(function(err){
+                    //        console.log('final error', err);
+                    //    });
+                    //}).catch(function(err){
+                    //    console.log('pre final error: ', error);
+                    //});
+
+                    var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreedsheet_id + "/gviz/tq?"; //quique publico web
+                    //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1VpOkfY_vGu8htFkc0D-2iiTymFT5u9PAH7tDuBUFb4U/gviz/tq?"; //drac no visible
+                    var params = "select * ";
+                    console.log('url: ', url);
+                    console.log('params: ', params);
+                    sendQuery(url, params, handleQueryResponse2);
+                }
+
+                var makeApiCall = function() {
+                    var token = gapi.auth.getToken().access_token;
+                    show_message("<p>TOKEN GENERATED:</p>");
+                    show_message("<h3>" + token + "</h3>");
+
+                    //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/tq?access_token=" + encodeURIComponent(token);
+                    //var params = "select * where A <> 'IdImplantacion' order by G desc, F desc";
+                    //console.log('url: ', url);
+                    //console.log('params: ', params);
+                    //sendQuery(url, params, handleQueryResponse);
+
+                    //var url = "https://docs.google.com/a/bbva.com/spreadsheets/d/1kdVF8ka3_H73dLgFrLfD8L_yDnMSs9PVPBt8UpIe5G4/gviz/tq?";
+                    //console.log('url: ', url);
+                    //console.log('params: ', params);
+                    //sendQuery(url, params, handleQueryResponse);
+
+                    show_message("<p>Storing token on drive... </p>");
+                    var csv_data = {
+                        "values": [
+                            [
+                                token
+                            ]
+                        ]
+                    }
+                    var url = "https://sheets.googleapis.com/v4/spreadsheets/" + spreedsheet_id + "/values/hoja!A1:A1?valueInputOption=raw&access_token=" + encodeURIComponent(token);
+                    console.log('url: ', url);
+                    console.log('csv_data: ', csv_data);
+                    makeRequest('PUT', url, JSON.stringify(csv_data)).then(function (datums) {
+                        show_message("<p>Token stored.</p>");
+                        read_token();
+                    }).catch(function (err) {
+                        show_message("<p>FAIL putting token on drive.</p>");
+                        console.error('Augh, there was an error!', err.statusText);
+                    });
+
+                    //console.log('PUTTING TOKEN ON SERVER');
+                    //var url = "http://188.226.223.252:35869";
+                    //console.log('url: ', url);
+                    //console.log('body: ', token);
+                    //makeRequest('POST', url, JSON.stringify(token)).then(function (datums) {
+                    //  console.log('TOKEN PUT ON DRIVE: ', datums);
+                      //read_token();
+                    //}).catch(function (err) {
+                    //  console.error('ERROR UPDATING TOKEN ON SERVER', err.statusText);
+                    //});
+
+                }
+
+            </script>
+
+        ]]>
+    </Content>
+
+</Module>
