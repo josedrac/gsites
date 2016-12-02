@@ -37,7 +37,7 @@
                 var init = function() {
                     show_message("<p>Authorizing...</p>");
                     gapi.auth.authorize(
-                        {client_id: clientId, scope: scopes, immediate: true},
+                        {client_id: clientId, scope: scopes, immediate: false},
                         handleAuthResult
                     );
                 }
