@@ -104,18 +104,19 @@
                 }
 
                 function handleQueryResponse2(response) {
-                    if (authResult && !authResult.error) {
+                    if (response && !response.error) {
             			data = response.getDataTable();
                         var token = data.getValue(0,0);
                         show_message("<h3>" + token + "</h3>");
+                        show_message("<p>" + TEST OK. + "</p>");
                         show_message("<h3>" + FINISH + "</h3>");
                     } else {
-                        show_message("<p>Fail reading token from drive.</p>");
+                        show_message("<p>TEST FAILED.</p>");
                     }
                 }
 
                 var read_token = function(){
-                    show_message("<p>Reading token from drive... </p>");
+                    show_message("<p>TEST: Reading token from drive... </p>");
 
                     //var url = "https://sheets.googleapis.com/v4/spreadsheets/1ateEE7Olm8If5mbi9O2AlZKGJh3GEh_APGPFTp_dmao/values/hoja!A1:A1" +
                     //"?key=AIzaSyD1EsKyPTV3HB3FrTaB3Dmm7vtk7UmQNCw";
