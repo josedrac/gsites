@@ -17,7 +17,9 @@
 
             <div>
                 <button id="authorize-button" style="visibility: hidden">Authorize</button>
-                <div id="raw-token"></div>
+                <div id="raw-token">
+                    <p>Generating new token...</p>
+                </div>
             </div>
 
             <script type="text/javascript">
