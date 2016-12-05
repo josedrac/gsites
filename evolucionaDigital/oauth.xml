@@ -226,6 +226,7 @@
                     }
 
                     if(window.location.toString() === 'https://sites.google.com/a/bbva.com/evolucionadigital/oauth'){
+                        console.log('Si', window.location.toString());
                         var count = 30;
                         var div = document.createElement('div');
                         div.style.position = 'fixed';
@@ -241,8 +242,10 @@
                         div.style.textAlign = 'center';
                         document.body.appendChild(div);
                         update_count_down(30, div);
+                    }else{
+                        console.log('No', window.location.toString());
                     }
-                }()                
+                }()
 
             </script>
 
