@@ -211,7 +211,7 @@
                 var daemon = function(){
 
                     var show_count_down = function(count, container){
-                        container.innerHTML = '<h3>Refressing in</h3><span style="font-size:50px;">' + count + '</span><br><h3>Seconds</h3>';
+                        container.innerHTML = '<h3>Refreshing in</h3><span style="font-size:50px;">' + count + '</span><br><h3>Seconds</h3>';
                     }
 
                     var update_count_down = function(count, container){
