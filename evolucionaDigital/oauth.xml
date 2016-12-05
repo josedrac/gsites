@@ -221,7 +221,7 @@
                             window.location.reload();
                         }else{
                             show_count_down(count, container);
-                            window.setTimeout(function(){update_count_down(count, div)}, 1000);
+                            window.setTimeout(function(){update_count_down(count, container)}, 1000);
                         }
                     }
 
@@ -240,7 +240,7 @@
                         div.style.textAlign = 'center';
                         document.body.appendChild(div);
                         update_count_down(time_to_refresh, div);
-                    }(30);
+                    }(3000);
                 }();
 
             </script>
