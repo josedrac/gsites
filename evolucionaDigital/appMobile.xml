@@ -6,6 +6,7 @@
 		<Require feature="dynamic-height"/>
 		<Require feature="setprefs" />
 	</ModulePrefs>
+	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/a/bbva.com/spreadsheets/d/1DBjyCBv5_QVaKJASQwNRSEb48hkxvWIkbj0I-hI9Q10/edit?usp=sharing)" required="true" />
 
 	<Content type="html">
 	    <![CDATA[
@@ -87,59 +88,56 @@
 	                overflow: visible;
 	                width: 90px;
 	                height: 20px;
-	                }
+	            }
 	    	</style>
 	    </head>
 
-	    <div class="content">
-	    	<div class="col-text">
-	    		<div class="section">
-	    			<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/demo.png" alt=""></div>
-	                <div class="text">
-	                    <h2>Un  día a través del móvil</h2>
-	                    <p>Descubre lo más destacado de la app BBVA de forma muy sencilla.</p>
-	                    <button id="buttonThroughMobile">Accede</button>
-	                </div>
-	    		</div>
-	    		<div class="section">
-	                <div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/tour.png" alt=""></div>
-	                <div class="text">
-	    				<h2>La revolución de las pequeñas cosas</h2>
-	    				<p>Continuas ventajas por utilizar el móvil para acceder a BBVA.</p>
-	    				<button id="buttonSmallThings">Accede</button>
-	                </div>
-	    		</div>
-	    		<div class="section">
-	    			<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/movil2.png" alt=""></div>
-	                <div class="text">
-	                    <h2>Operativa en el móvil</h2>
-	                    <p>Listado de todo lo que tus clientes pueden hacer a través del móvil en comparación con otros canales.</p>
-	                    <button id="buttonMobile">Accede</button>
-	                </div>
-	    		</div>
-	    		<div class="section">
-	    			<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/movil.png" alt=""></div>
-	                <div class="text">
-	                    <h2>App BBVA Wallet</h2>
-	                    <p>Amplia información sobre la aplicación BBVA Wallet: pagar con el móvil y gestionar tus tarjetas.</p>
-	                    <button id="buttonMail">Accede</button>
-	                </div>
-	    		</div>
-				<div class="section">
-	    			<div class="icon"><img src="https://github.com/sopraux/gsites/raw/master/evolucionaDigital/img/bizum.png" alt=""></div>
-	                <div class="text">
-	                    <h2>BIZUM</h2>
-	                    <p>Enviar o pedir dinero desde la app BBVA con solo saber el número de móvil.</p>
-	                    <button id="buttonBizum">Accede</button>
-	                </div>
-	    		</div>
-	    	</div>
+		<div class="content">
+	        <div id="sections" class="col-text"></div>
 	    	<div class="col-img">
-	    			<img id="imgMobile" src="https://raw.githubusercontent.com/josedrac/gsites/master/evolucionaDigital/img/mobile_home.png">
+	    		<img id="imgMobile" src="https://raw.githubusercontent.com/josedrac/gsites/master/evolucionaDigital/img/mobile_home.png">
 	    	</div>
 	    </div>
 
-	    <script type="text/javascript">
+		<script type="text/javascript">
+
+	        var gadgetHelper = null;
+			var prefs = new _IG_Prefs();
+	        var urlTable = prefs.getString("_table_query_url");
+	        _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+		 	function loadVisualizationAPI() {
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
+
+	        function sendQuery() {
+				gadgetHelper = new google.visualization.GadgetHelper();
+				var opts = {dataType:'jsonp'};
+				var query = new google.visualization.Query(urlTable, opts);
+				var querytosend = "select * where A <> 'Titulo'";
+				query.setQuery(querytosend);
+				query.send(handleQueryResponse);
+		    }
+
+	        function handleQueryResponse(response) {
+				data = response.getDataTable();
+	            var filas = data.getNumberOfRows();
+	            var html = "";
+
+	            for (var i = 0; i < filas; i++) {
+	                html += "<div class='section'>";
+	                html +=     "<div class='icon'><img src='" + data.getValue(i,1) + "'></div>";
+	        		html +=     "<div class='text'>";
+	                html +=         "<h2>" + data.getValue(i,0) + "</h2>";
+	                html +=         "<p>" + data.getValue(i,2) + "</p>";
+	                html +=         "<button onclick=\"javascript:Go('" + data.getValue(i,4) + "', '" + data.getValue(i,5) + "')\">" + data.getValue(i,3) + "</button>";
+	                html +=     "</div>";
+	                html += "</div>";
+	            }
+	            document.getElementById('sections').innerHTML = html;
+	        }
+
 	        function openMobile(destination) {
 	            var width = 360;
 	            var height = 650;
@@ -151,30 +149,13 @@
 	                + top + ",toolbar=no,menubar=no,scrollbars=no,location=no,directories=no");
 	        }
 
-	        function Go(destination){
-	            window.open(destination,'_parent');
+	        function Go(type ,destination) {
+	            trackOutboundLink(destination);
+	            window.open(destination, type);
 	            return false;
 	        }
 
-	        function GoOut(destination){
-	            window.open(destination,'_blank');
-	            return false;
-	        }
-
-	        function addURL() {
-	            document.getElementById("imgMobile").onclick = function(){ trackOutboundLink('https://m.bbva.es/'); openMobile('https://m.bbva.es/');};
-	            document.getElementById("buttonThroughMobile").onclick = function(){ trackOutboundLink('https://www.blogbbva.es/pequenascosas/'); GoOut('https://www.blogbbva.es/pequenascosas/');};
-	            document.getElementById("buttonSmallThings").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/banca-online/destacados/index.jsp'); GoOut('https://www.bbva.es/general/banca-online/destacados/index.jsp');};
-	            document.getElementById("buttonMobile").onclick = function(){ trackOutboundLink('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone'); Go('https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Smartphone');};
-	            document.getElementById("buttonMail").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/apps/bbva-wallet.jsp'); Go('https://www.bbva.es/general/apps/bbva-wallet.jsp');};
-				document.getElementById("buttonBizum").onclick = function(){ trackOutboundLink('https://www.bbva.es/general/banca-online/bizum/index.jsp'); Go('https://www.bbva.es/general/banca-online/bizum/index.jsp');};
-	        }
-
-	        addURL();
-	    </script>
-
-	    <script>
-	    	/**
+	        /**
 	    	* Función de Google Analytics que realiza un seguimiento de un clic en un enlace externo.
 	    	* Esta función toma una cadena de URL válida como argumento y la utiliza
 	    	* como la etiqueta del evento.
