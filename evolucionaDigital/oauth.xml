@@ -229,11 +229,11 @@
                         var div = document.createElement('div');
                         div.style.position = 'fixed';
                         div.style.top = 0;
-                        div.style.left = 0;
+                        div.style.right = 0;
                         div.style.zIndex = 10000000;
                         div.style.backgroundColor = "rgba(0,0,0,0.7)";
                         div.style.width = '150px';
-                        div.style.height = '150px';
+                        div.style.height = '175px';
                         div.style.border = '1px solid black';
                         div.style.borderRadius = '8px';
                         div.style.color = 'white';
