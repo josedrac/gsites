@@ -225,8 +225,7 @@
                         }
                     }
 
-                    var function = run(){
-                        var count = 30;
+                    var run = function(time_to_refresh){
                         var div = document.createElement('div');
                         div.style.position = 'fixed';
                         div.style.top = 0;
@@ -240,8 +239,8 @@
                         div.style.color = 'white';
                         div.style.textAlign = 'center';
                         document.body.appendChild(div);
-                        update_count_down(30, div);
-                    }();
+                        update_count_down(time_to_refresh, div);
+                    }(30);
                 }();
 
             </script>
