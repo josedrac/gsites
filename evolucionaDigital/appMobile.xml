@@ -95,7 +95,7 @@
 		<div class="content">
 	        <div id="sections" class="col-text"></div>
 	    	<div class="col-img">
-	    		<img id="imgMobile" src="https://raw.githubusercontent.com/josedrac/gsites/master/evolucionaDigital/img/mobile_home.png">
+	    		<img onclick="javascript:openMobile('https://m.bbva.es/')" src="https://raw.githubusercontent.com/josedrac/gsites/master/evolucionaDigital/img/mobile_home.png">
 	    	</div>
 	    </div>
 
