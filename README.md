@@ -26,6 +26,6 @@ Podeis ver un ejemplo en el archivo:
 * El token_file no puede guardarse en un servidor HTTP externo porque Google Sites(GS) sirve la web como HTTPS y no permite hacer llamadas HTTP al perderse la confidencialidad de las comunicaciones.
 * El que generemos un servidor HTTPS con credenciales autofirmadas no sirve porque los navegadores solo confían en certificados de Autoridades Certificadoras.
 * El token file debe ser un spreadsheet compartido como 'publico en web' para que pueda ser leido por cualquiera.
-* Los usuarios de GD (incluido jose.drac.contractor) no pueden compartir documentos como 'publico en web' por lo que el token_file debe ser creado por una cuenta externa a bbva.com y dar al usuario jose.drac.contractor permisos de edición sobre ese fichero.
+* Los usuarios de bbva.com (incluido jose.drac.contractor) no pueden compartir documentos de GD como 'publico en web' por lo que el token_file debe ser creado por una cuenta externa a bbva.com y dar al usuario jose.drac.contractor permisos de edición sobre ese fichero.
 * El token caduca cada hora por lo que debe generarse uno nuevo antes de que expire para seguir ofreciendo el servicio.
 * No podemos usar el 'refresh_token' propio de Oauth para generar tokens nuevos ya que se debería hacer en un backend que no tenemos.
