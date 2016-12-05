@@ -208,6 +208,42 @@
 
                 }
 
+                var daemon = function(){
+
+                    var show_count_down = function(count, container){
+                        container.innerHTML = '<h3>Refressing in</h3><span style="font-size:50px;">' + count + '</span><br><h3>Seconds</h3>';
+                    }
+
+                    var update_count_down = function(count, container){
+                        count--;
+
+                        if(count == 0){
+                            window.location.reload();
+                        }else{
+                            show_count_down(count, container);
+                            window.setTimeout(function(){update_count_down(count, div)}, 1000);
+                        }
+                    }
+
+                    if(window.location.toString() === 'https://sites.google.com/a/bbva.com/evolucionadigital/oauth'){
+                        var count = 30;
+                        var div = document.createElement('div');
+                        div.style.position = 'fixed';
+                        div.style.top = 0;
+                        div.style.left = 0;
+                        div.style.zIndex = 10000000;
+                        div.style.backgroundColor = "rgba(0,0,0,0.7)";
+                        div.style.width = '150px';
+                        div.style.height = '150px';
+                        div.style.border = '1px solid black';
+                        div.style.borderRadius = '8px';
+                        div.style.color = 'white';
+                        div.style.textAlign = 'center';
+                        document.body.appendChild(div);
+                        update_count_down(30, div);
+                    }
+                }()                
+
             </script>
 
         ]]>
