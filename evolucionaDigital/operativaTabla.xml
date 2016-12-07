@@ -123,7 +123,6 @@
     .colBody {
         width: 75px;
         float:left;
-        border-bottom: 1px solid #E5E5E5;
         line-height: 35px;
         color: #434a58;
         display: table;
@@ -156,12 +155,14 @@
         font-size: 12px;
         margin-bottom: 10px;
         width: 100%;
+        border-bottom: 1px solid #E5E5E5;
+        overflow: hidden;
     }
 
     .rowTitle {
         clear: both;
         width: 100%;
-        margin-top:55px;
+        margin-top: 20px;
         font-weight: bold;
         font-size: 13px;
         color: #434a58;
