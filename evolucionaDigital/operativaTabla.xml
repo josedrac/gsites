@@ -120,6 +120,12 @@
         border-left: 0;
     }
 
+    .text {
+        line-height: 15px;
+        vertical-align: middle;
+        display: table-cell;
+    }
+
     .colBody {
         width: 75px;
         float:left;
@@ -165,6 +171,7 @@
         font-weight: bold;
         font-size: 13px;
         color: #434a58;
+        margin-bottom: 5px;
     }
     #lastcol {
         border-right: 0 !important;
@@ -294,7 +301,7 @@
                 }
 
                 html +=  "<div class='row'>";
-                html +=     "<div class='colBody firstcol'>";
+                html +=     "<div class='colBody firstcol'><div class='text'>";
                 if(data.getValue(i,13) == 'x') {
                     html += "<span class='click' onclick=javascript:Go('https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"')>";
                 }
@@ -302,7 +309,7 @@
                 if(data.getValue(i,13) == 'x') {
                     html += "</span>";
                 }
-                html +=     "</div>";
+                html +=     "</div></div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 3, 4)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 6, 7)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
