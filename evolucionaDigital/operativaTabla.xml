@@ -153,7 +153,6 @@
     .row {
         clear: both;
         font-size: 12px;
-        margin-bottom: 10px;
         width: 100%;
         border-bottom: 1px solid #E5E5E5;
         overflow: hidden;
