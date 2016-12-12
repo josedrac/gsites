@@ -277,8 +277,8 @@
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></div>";
-                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Línea BBVA</div></div>";
-                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Red de cajeros BBVA</div></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Línea BBVA</div></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></div>";
                 html +=     "<div class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></div>";
                 html += "</div>";
             return html;
@@ -359,8 +359,8 @@
                 10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
                 11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
                 12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
-                15: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
-                16: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
+                15: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonop.png', 15, 15],
+                16: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerop.png', 16, 15],
             };
 
 
