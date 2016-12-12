@@ -6,9 +6,8 @@
 	<Require feature="dynamic-height"/>
 	<Require feature="setprefs" />
   </ModulePrefs>
-	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
-	<UserPref name="titlecomboVideo" display_name="Tilte Box Video" required="true" />
- <Content type="html">
+  <UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+  <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
@@ -180,10 +179,9 @@
 
     <script type="text/javascript">
         var data;
-        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch'];
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch', 'Linea', 'Cajeros'];
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
-        var titlecomboVideo = prefs.getString("titlecomboVideo");
         _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
         function loadVisualizationAPI()
@@ -247,6 +245,15 @@
             if (channel == channels[4]) {
                 sql += " AND (L like 'x' OR M like 'x') ";
             }
+
+            if (channel == channels[5]) {
+                sql += " AND (P like 'x') ";
+            }
+
+            if (channel == channels[6]) {
+                sql += " AND (Q like 'x') ";
+            }
+
             return sql;
         }
 
@@ -270,6 +277,8 @@
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Línea BBVA</div></div>";
+                html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Red de cajeros BBVA</div></div>";
                 html +=     "<div class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></div>";
                 html += "</div>";
             return html;
@@ -303,6 +312,8 @@
                 html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 9, 10)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 11, 12)+"</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
