@@ -6,7 +6,8 @@
 	<Require feature="dynamic-height"/>
 	<Require feature="setprefs" />
   </ModulePrefs>
-  <UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+  <UserPref name="_table_query_url" default_value="" display_name="Link spreadsheet" required="true" />
+  <UserPref name="_table2_query_url" default_value="" display_name="Link spreadsheet" required="true" />
   <Content type="html">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -182,6 +183,7 @@
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch', 'Linea', 'Cajeros'];
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
+        var urlTable2 = prefs.getString("_table2_query_url");
         _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
         function loadVisualizationAPI()
@@ -200,7 +202,6 @@
                 if (isSearchDone()) {
                     var product = getSelectedProduct();
                     var channel = getSelectedChannel();
-                    var inputText = getInputText();
 
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
 
@@ -212,19 +213,18 @@
                         querytosend += getChannelCondition(channel);
                     }
 
-                    if (inputText != false) {
-                       querytosend = querytosend.concat(" AND (lower(C) like '%" + inputText + "%') ");
-                    }
-
                    querytosend = querytosend.concat(" order by B");
                 }
                 else {
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
+                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' AND A like 'Destacados' order by B";
                 }
                 query.setQuery(querytosend);
                 query.send(handleQueryResponse);
             }
 
+            document.getElementById('listportales').innerHTML += createHeader();
+
+            window.Environment.sendAuthorizedQuery(urlTable2, request);
             window.Environment.sendAuthorizedQuery(urlTable, request);
         }
 
@@ -259,18 +259,11 @@
 
         function handleQueryResponse(response) {
             data = response.getDataTable();
-            renderPage();
-        }
-
-        function renderPage() {
-            var html = "";
-            html += createHeader();
-            html += createBody();
-            document.getElementById('listportales').innerHTML += html;
+            document.getElementById('listportales').innerHTML += createBody();
         }
 
         function createHeader() {
-            var html =  "<div id='tableHeader'>";
+            var html  = "<div id='tableHeader'>";
                 html +=     "<div class='colHeader firstcol'></div>";
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
                 html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
@@ -288,7 +281,7 @@
             var html = "";
             var filas = data.getNumberOfRows();
             var previousAction = "";
-            for (var i=0;i<filas;i++) {
+            for (var i =0 ; i < filas; i++) {
                 if (data.getValue(i,1) == 'null' || data.getValue(i,1) == null) continue;
                 if (data.getValue(i,2) == 'null' || data.getValue(i,2) == null) continue;
 
@@ -320,15 +313,6 @@
             }
             return html;
        }
-
-       function getInputText() {
-            var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
-            if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
-                return contentInput.toLowerCase();
-            } else {
-                return false;
-            }
-        }
 
         function getSelectedChannel() {
             return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');

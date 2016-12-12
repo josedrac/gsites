@@ -175,6 +175,7 @@
     //var prefs = new _IG_Prefs();
     //var urlTable = prefs.getString("_table_query_url");
     var urlTable = "https://docs.google.com/a/bbva.com/spreadsheets/d/15-Fu9a9tPRm_XPbu4XoJ56pVEz3ymVRwkgJe15A4CuI/edit?usp=sharing";
+    var urlTableDest = "https://docs.google.com/a/bbva.com/spreadsheets/d/1cbYnBCLJjs4K6AJMOqdoA0DP1Q3wGEd5OujuLuOl-h4/edit?usp=sharing";
     //_IG_RegisterOnloadHandler(loadVisualizationAPI);
     loadVisualizationAPI();
 
@@ -191,35 +192,34 @@
             var opts = {dataType:'jsonp'};
             var query = new google.visualization.Query(authorized_url, opts);
             var querytosend;
-            // if (isSearchDone()) {
-            //     // var product = getSelectedProduct();
-            //     // var channel = getSelectedChannel();
-            //     // var inputText = getInputText();
-            //
-            //     querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
-            //
-            //     if (product != "Todos") {
-            //         querytosend = querytosend.concat(" AND A like '" + product + "' ");
-            //     }
-            //
-            //     if (channel != channels[0]) {
-            //         querytosend += getChannelCondition(channel);
-            //     }
-            //
-            //     if (inputText != false) {
-            //        querytosend = querytosend.concat(" AND (lower(C) like '%" + inputText + "%') ");
-            //     }
-            //
-            //    querytosend = querytosend.concat(" order by B");
-            // }
-            // else {
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
-            //}
+            if (isSearchDone()) {
+                var product = getSelectedProduct();
+                var channel = getSelectedChannel();
+
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
+
+                if (product != "Todos") {
+                    querytosend = querytosend.concat(" AND A like '" + product + "' ");
+                }
+
+                if (channel != channels[0]) {
+                    querytosend += getChannelCondition(channel);
+                }
+
+               querytosend = querytosend.concat(" order by B");
+            }
+            else {
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL' AND A like 'Destacados' order by B";
+            }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
         }
 
+        document.getElementById('listportales').innerHTML += createHeader();
+
+        //window.Environment.sendAuthorizedQuery(urlTableDest, request);
         //window.Environment.sendAuthorizedQuery(urlTable, request);
+        request(urlTableDest);
         request(urlTable);
     }
 
@@ -254,18 +254,11 @@
 
     function handleQueryResponse(response) {
         data = response.getDataTable();
-        renderPage();
-    }
-
-    function renderPage() {
-        var html = "";
-        html += createHeader();
-        html += createBody();
-        document.getElementById('listportales').innerHTML += html;
+        document.getElementById('listportales').innerHTML += createBody();
     }
 
     function createHeader() {
-        var html =  "<div id='tableHeader'>";
+        var html  = "<div id='tableHeader'>";
             html +=     "<div class='colHeader firstcol'></div>";
             html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
             html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
@@ -283,7 +276,7 @@
         var html = "";
         var filas = data.getNumberOfRows();
         var previousAction = "";
-        for (var i=0;i<filas;i++) {
+        for (var i =0 ; i < filas; i++) {
             if (data.getValue(i,1) == 'null' || data.getValue(i,1) == null) continue;
             if (data.getValue(i,2) == 'null' || data.getValue(i,2) == null) continue;
 
@@ -316,29 +309,23 @@
         return html;
    }
 
-   // function getInputText() {
-   //      var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
-   //      if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
-   //          return contentInput.toLowerCase();
-   //      } else {
-   //          return false;
-   //      }
-   //  }
-   //
-   //  function getSelectedChannel() {
-   //      return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
-   //  }
-   //
-   //  function getSelectedProduct() {
-   //      return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
-   //  }
-   //
-   //  function isSearchDone() {
-   //      if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-   //          return true;
-   //      }
-   //      return false;
-   //  }
+    function getSelectedChannel() {
+        //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+        return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+    }
+
+    function getSelectedProduct() {
+        //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+        return decodeURI(location.href.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+    }
+
+    function isSearchDone() {
+        //if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+        if (location.href.split("=").length >= 2) {
+            return true;
+        }
+        return false;
+    }
 
     function getIcon(data, row, column, columnb) {
         var html="";
