@@ -118,14 +118,6 @@
         height: 30px;
     }
 
-    #buttonViewAll {
-        margin-top: 10px;
-        float: right;
-    }
-
-    #viewAll {
-        font-size: 13px;
-    }
 
 	p.text {
         font-size: 0.8em;
@@ -246,9 +238,7 @@
             html += createComboChannel();
             //html += createInput();
             html += createButtonShowResults();
-            //html += createButtonShowAll();
 		    document.getElementById('listportales').innerHTML += html;
-
 		}
 
         function createComboProduct() {
@@ -323,14 +313,6 @@
             return html;
         }
 
-        function createButtonShowAll() {
-            var html = "<div id='buttonViewAll'>";
-            html +=         "<button id='viewAll' onclick='javascript:showAll();'>Ver tabla completa</button>";
-            html +=    "</div>";
-            return html;
-        }
-
-
         function showResults() {
             var elementProductSelector = document.getElementById('productsSelector');
             var elementChannelSelector = document.getElementById('channelSelector');
@@ -342,10 +324,6 @@
             } else {
                 window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
             }
-        }
-
-        function showAll(){
-            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Todos","_parent");
         }
 
   </script>
