@@ -318,12 +318,12 @@
             var elementChannelSelector = document.getElementById('channelSelector');
             var selectedProduct = elementProductSelector.options[elementProductSelector.selectedIndex].value;
             var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].value;
-            var inputText = document.getElementById('inputText').value;
-            if (inputText != "") {
-                window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel+"&inputText="+inputText,"_parent");
-            } else {
+            //var inputText = document.getElementById('inputText').value;
+            //if (inputText != "") {
+            //    window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel+"&inputText="+inputText,"_parent");
+            //} else {
                 window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
-            }
+            //}
         }
 
   </script>
