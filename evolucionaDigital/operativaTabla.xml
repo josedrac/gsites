@@ -101,7 +101,7 @@
         }
 
         .firstcol {
-            width: 475px !important;
+            width: 350px !important;
             border-left: 0;
         }
 
@@ -312,8 +312,8 @@
                 html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 9, 10)+"</div>";
-                html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
-                html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 15)+"</div>";
+                html +=     "<div class='colBody'>"+getIcon(data, i, 16)+"</div>";
                 html +=     "<div class='colBody'>"+getIcon(data, i, 11, 12)+"</div>";
                 html +=  "</div>";
                 previousAction = data.getValue(i,1);
