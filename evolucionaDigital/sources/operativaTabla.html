@@ -184,6 +184,9 @@
 <script type="text/javascript">
 
     var data;
+    var html = "";
+    var flagHeader = false;
+    var flagFooter = true;
     var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch', 'Linea', 'Cajeros'];
     //var prefs = new _IG_Prefs();
     //var urlTable = prefs.getString("_table_query_url");
@@ -229,8 +232,6 @@
             query.send(handleQueryResponse);
         }
 
-        document.getElementById('listportales').innerHTML += createHeader();
-
         //window.Environment.sendAuthorizedQuery(urlTableDest, request);
         //window.Environment.sendAuthorizedQuery(urlTable, request);
         request(urlTableDest);
@@ -268,39 +269,42 @@
 
     function handleQueryResponse(response) {
         data = response.getDataTable();
-        document.getElementById('listportales').innerHTML += createBody();
+        createBody();
+        document.getElementById('listportales').innerHTML = html;
     }
 
     function createHeader() {
-        var html  = "<div id='tableHeader'>";
-            html +=     "<div class='colHeader firstcol'></div>";
-            html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></div>";
-            html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></div>";
-            html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></div>";
-            html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></div>";
-            html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></div>";
-            html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Línea BBVA</div></div>";
-            html +=     "<div class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></div>";
-            html +=     "<div class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></div>";
-            html += "</div>";
-        return html;
+        html += "<table><tr id='tableHeader'>";
+        html +=     "<td class='colHeader firstcol'></td>";
+        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></td>";
+        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></td>";
+        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></td>";
+        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></td>";
+        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></td>";
+        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Línea BBVA</div></td>";
+        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></td>";
+        html +=     "<td class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></td>";
+        html += "</tr>";
    }
 
    function createBody() {
-        var html = "";
         var filas = data.getNumberOfRows();
         var previousAction = "";
+        if (!flagHeader) {
+            createHeader();
+        }
+        flagHeader = true;
         for (var i =0 ; i < filas; i++) {
             if (data.getValue(i,1) == 'null' || data.getValue(i,1) == null) continue;
             if (data.getValue(i,2) == 'null' || data.getValue(i,2) == null) continue;
 
             if (previousAction != data.getValue(i,1)) {
                 previousAction = data.getValue(i,1);
-                html += "<div class='rowTitle'>"+data.getValue(i,1)+"</div>";
+                html += "<tr class='rowTitle'><td>"+data.getValue(i,1)+"</td></tr>";
             }
 
-            html +=  "<div class='row'>";
-            html +=     "<div class='colBody firstcol'><div class='text'>";
+            html +=  "<tr class='row'>";
+            html +=     "<td class='colBody firstcol'><div class='text'>";
             if(data.getValue(i,13) == 'x') {
                 html += "<span class='click' onclick=javascript:Go('https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"')>";
             }
@@ -308,19 +312,23 @@
             if(data.getValue(i,13) == 'x') {
                 html += "</span>";
             }
-            html +=     "</div></div>";
-            html +=     "<div class='colBody'>"+getIcon(data, i, 3, 4)+"</div>";
-            html +=     "<div class='colBody'>"+getIcon(data, i, 6, 7)+"</div>";
-            html +=     "<div class='colBody'>"+getIcon(data, i, 5)+"</div>";
-            html +=     "<div class='colBody'>"+getIcon(data, i, 8)+"</div>";
-            html +=     "<div class='colBody'>"+getIcon(data, i, 9, 10)+"</div>";
-            html +=     "<div class='colBody'>"+getIcon(data, i, 15)+"</div>";
-            html +=     "<div class='colBody'>"+getIcon(data, i, 16)+"</div>";
-            html +=     "<div class='colBody'>"+getIcon(data, i, 11, 12)+"</div>";
-            html +=  "</div>";
+            html +=     "</div></td>";
+            html +=     "<td class='colBody'>"+getIcon(data, i, 3, 4)+"</td>";
+            html +=     "<td class='colBody'>"+getIcon(data, i, 6, 7)+"</td>";
+            html +=     "<td class='colBody'>"+getIcon(data, i, 5)+"</td>";
+            html +=     "<td class='colBody'>"+getIcon(data, i, 8)+"</td>";
+            html +=     "<td class='colBody'>"+getIcon(data, i, 9, 10)+"</td>";
+            html +=     "<td class='colBody'>"+getIcon(data, i, 15)+"</td>";
+            html +=     "<td class='colBody'>"+getIcon(data, i, 16)+"</td>";
+            html +=     "<td class='colBody'>"+getIcon(data, i, 11, 12)+"</td>";
+            html +=  "</tr>";
             previousAction = data.getValue(i,1);
         }
-        return html;
+        if (!flagFooter) {
+            html += "</table>";
+        } else {
+            flagFooter = false;
+        }
    }
 
     function getSelectedChannel() {
@@ -342,7 +350,7 @@
     }
 
     function getIcon(data, row, column, columnb) {
-        var html="";
+        var htmlIcon="";
 
         var iconCols = {
             3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
@@ -362,18 +370,18 @@
 
         if (typeof columnb == "undefined") {
             if (data.getValue(row, column) != 'x') {
-                html = "<div class='centerText'>-</div>";
-                return html;
+                htmlIcon = "<div class='centerText'>-</div>";
+                return htmlIcon;
             }
             else{
-                html += "<div class='colBodyIcon center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
-                return html;
+                htmlIcon += "<div class='colBodyIcon center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                return htmlIcon;
             }
         }
         else {
             if (data.getValue(row, column) != 'x' && data.getValue(row,columnb) != 'x') {
-                html = "<div class='centerText'>-</div>";
-                return html;
+                htmlIcon = "<div class='centerText'>-</div>";
+                return htmlIcon;
             }
         }
 
@@ -384,28 +392,28 @@
             s++;
 
         if (s < 2) {
-            html += "<div class='colBodyIcon'>";
+            htmlIcon += "<div class='colBodyIcon'>";
         }
         else {
-            html += "<div class='colBodyIconLeft'>";
+            htmlIcon += "<div class='colBodyIconLeft'>";
         }
 
         if (typeof column != "undefined" && data.getValue(row, column) == 'x') {
-            html += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
+            htmlIcon += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
         }
-        html += "</div>";
+        htmlIcon += "</div>";
 
         if (s < 2) {
-            html += "<div class='colBodyIcon'>";
+            htmlIcon += "<div class='colBodyIcon'>";
         }
         else {
-            html += "<div class='colBodyIconRight'>";
+            htmlIcon += "<div class='colBodyIconRight'>";
         }
         if (typeof columnb != "undefined" && data.getValue(row, columnb) == 'x') {
-            html += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
+            htmlIcon += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
         }
-        html += "</div>";
-        return html;
+        htmlIcon += "</div>";
+        return htmlIcon;
 
     }
 
