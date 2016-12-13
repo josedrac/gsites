@@ -1,5 +1,10 @@
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 <script src="https://www.google-analytics.com/analytics.js" type="text/javascript"></script>
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous">
+</script>
 
 <head>
     <style type="text/css">
@@ -164,8 +169,16 @@
             cursor: pointer;
         }
     </style>
+
+    <style type="text/css" media="print">
+        #tableHeader, #tableheader {display:none!important;}
+        @media print {
+            #tableHeader, #tableheader {display:none!important;}
+        }
+    </style>
 </head>
 
+<a href="javascript:imprSelec('listportales')">Imprimir</a>
 <div id="listportales"></div>
 
 <script type="text/javascript">
@@ -400,4 +413,30 @@
         window.open(destination,'_parent');
         return false;
     }
+
+    function imprSelec(id){
+        var contents = $("#listportales").html();
+        var frame1 = $('<iframe />');
+        frame1[0].name = "frame1";
+        frame1.css({ "position": "absolute", "top": "-1000000px" });
+        $("body").append(frame1);
+        var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+        frameDoc.document.open();
+        //Create a new HTML document.
+        frameDoc.document.write('<html><head><title>DIV Contents</title>');
+        frameDoc.document.write('</head><body>');
+        //Append the external CSS file.
+        //frameDoc.document.write('<link href="style.css" rel="stylesheet" type="text/css" />');
+        //Append the DIV contents.
+        frameDoc.document.write(contents);
+        frameDoc.document.write('</body></html>');
+        frameDoc.document.close();
+        setTimeout(function () {
+            window.frames["frame1"].focus();
+            window.frames["frame1"].print();
+            frame1.remove();
+        }, 500);
+    }
+
+
 </script>
