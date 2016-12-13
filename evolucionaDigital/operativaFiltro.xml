@@ -226,7 +226,7 @@
     <script type="text/javascript">
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch'];
         var channelNames = ['Todos', 'Smartphone app BBVA', 'PC', 'Tablet', 'SmartWatch'];
-        var products = ['Todos', 'Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras consultas/operaciones', 'Pago impuestos'];
+        var products = ['Todos', 'Destacados', 'Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras consultas/operaciones', 'Pago impuestos'];
 
         renderPage();
         $( "#productsSelector" ).selectmenu({width: 200});
@@ -236,7 +236,6 @@
             var html = "";
             html += createComboProduct();
             html += createComboChannel();
-            //html += createInput();
             html += createButtonShowResults();
 		    document.getElementById('listportales').innerHTML += html;
 		}
@@ -246,6 +245,7 @@
             html +=         "<label>Servicio o producto</label>";
             html +=         "<select id='productsSelector'>";
             for (var product in products) {
+                                //if ((isSearchDone() && products[product] == getSelectedProduct()) || (!isSearchDone() && products[product] == "Destacados")) {
                                 if ((isSearchDone() && products[product] == getSelectedProduct()) || (!isSearchDone() && products[product] == "Todos")) {
                                     html += "<option value='"+products[product]+"' selected='selected'>"+products[product]+"</option>";
                                     continue;
@@ -272,24 +272,6 @@
             html +=    "</div>";
             return html;
         }
-
-
-        /* function createInput() {
-            var html = "<div id='text'>";
-            html +=         "<label>Texto</label>";
-            html +=         "<input type='text' id='inputText' value='"+ getInputText() +"'/>";
-            html +=    "</div>";
-            return html;
-        }
-
-        function getInputText() {
-            var contentInput = decodeURI(gadgets.util.getUrlParameters().parent.split("=")[3]).replace(/\+/g, ' ');
-            if(contentInput != null && contentInput != 'undefined' && contentInput !== undefined && contentInput != "") {
-                return contentInput;
-            } else {
-                return '';
-            }
-        } */
 
         function getSelectedChannel() {
             return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
@@ -318,12 +300,7 @@
             var elementChannelSelector = document.getElementById('channelSelector');
             var selectedProduct = elementProductSelector.options[elementProductSelector.selectedIndex].value;
             var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].value;
-            //var inputText = document.getElementById('inputText').value;
-            //if (inputText != "") {
-            //    window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel+"&inputText="+inputText,"_parent");
-            //} else {
-                window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel,"_parent");
-            //}
+            window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto="+selectedProduct+"&canal="+selectedChannel, "_parent");
         }
 
   </script>
