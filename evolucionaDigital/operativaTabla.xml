@@ -200,23 +200,16 @@
                 var query = new google.visualization.Query(authorized_url, opts);
                 var querytosend;
                 if (isSearchDone()) {
-                    var product = getSelectedProduct();
-                    var channel = getSelectedChannel();
-
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
-
-                    if (product != "Todos") {
+                    if (product != "Todos" && product != "Destacados") {
                         querytosend = querytosend.concat(" AND A like '" + product + "' ");
                     }
-
                     if (channel != channels[0]) {
                         querytosend += getChannelCondition(channel);
                     }
-
                    querytosend = querytosend.concat(" order by B");
                 }
                 else {
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' AND A like 'Destacados' order by B";
                     querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
                 }
                 query.setQuery(querytosend);
@@ -225,8 +218,17 @@
 
             document.getElementById('listportales').innerHTML += createHeader();
 
-            window.Environment.sendAuthorizedQuery(urlTable2, request);
-            window.Environment.sendAuthorizedQuery(urlTable, request);
+            if (!isSearchDone()) {
+                request(urlTableDest);
+            } else {
+                var product = getSelectedProduct();
+                var channel = getSelectedChannel();
+                if (product == "Destacados") {
+                    window.Environment.sendAuthorizedQuery(urlTableDest, request);
+                } else {
+                    window.Environment.sendAuthorizedQuery(urlTable, request);
+                }
+            }
         }
 
         function getChannelCondition(channel) {
