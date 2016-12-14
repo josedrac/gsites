@@ -180,8 +180,6 @@
     </div>
     <div id="listportales"></div>
 
-    <div id="listportales"></div>
-
     <script type="text/javascript">
         var data;
         var html = "";
