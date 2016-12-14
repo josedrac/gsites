@@ -171,6 +171,13 @@
             padding: 0 10px 5px 0;
         }
     </style>
+    
+    <div class="print">
+        <a href="javascript:imprSelec('listportales')">
+            <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/impresora.png" alt="">
+        </a>
+    </div>
+    <div id="listportales"></div>
 
     <div id="listportales"></div>
 
