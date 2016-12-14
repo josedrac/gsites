@@ -81,10 +81,8 @@
         }
 
         .headerImg {
-            margin-left: auto;
-            margin-right: auto;
-            display: block;
             margin-top: 10px;
+            margin: 10px 3px 0;
         }
 
         .colHeader {
@@ -109,31 +107,18 @@
         .colBody {
             width: 75px;
             float:left;
-            line-height: 35px;
             color: #434a58;
             display: table;
             height: 36px;
+            border-bottom: 1px solid #E5E5E5;
         }
 
         .colBodyIcon {
             height: 25px;
-            display: table-cell;
         }
 
         .colBodyIcon .center {
             width: 100%;
-        }
-
-        .colBodyIconLeft {
-            height: 25px;
-            display: table-cell;
-            padding-left: 20%;
-        }
-
-        .colBodyIconRight {
-            height: 25px;
-            display: table-cell;
-            padding-right: 20%;
         }
 
         .row {
@@ -154,13 +139,18 @@
             margin-bottom: 5px;
         }
 
+        .rowTitle td{
+            padding-top: 20px;
+        }
+
         #lastcol {
             border-right: 0 !important;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .centerText {
             text-align:center;
+            margin-top:11px;
         }
 
         span.click {
@@ -278,14 +268,14 @@
     function createHeader() {
         html += "<table><tr id='tableHeader'>";
         html +=     "<td class='colHeader firstcol'></td>";
-        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></td>";
-        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></td>";
-        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></td>";
-        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></td>";
-        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></td>";
-        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Línea BBVA</div></td>";
-        html +=     "<td class='colHeader'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></td>";
-        html +=     "<td class='colHeader' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Línea BBVA</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></td>";
+        html +=     "<td class='colHeader' align='center' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></td>";
         html += "</tr>";
    }
 
@@ -315,14 +305,14 @@
                 html += "</span>";
             }
             html +=     "</div></td>";
-            html +=     "<td class='colBody'>"+getIcon(data, i, 3, 4)+"</td>";
-            html +=     "<td class='colBody'>"+getIcon(data, i, 6, 7)+"</td>";
-            html +=     "<td class='colBody'>"+getIcon(data, i, 5)+"</td>";
-            html +=     "<td class='colBody'>"+getIcon(data, i, 8)+"</td>";
-            html +=     "<td class='colBody'>"+getIcon(data, i, 9, 10)+"</td>";
-            html +=     "<td class='colBody'>"+getIcon(data, i, 15)+"</td>";
-            html +=     "<td class='colBody'>"+getIcon(data, i, 16)+"</td>";
-            html +=     "<td class='colBody'>"+getIcon(data, i, 11, 12)+"</td>";
+            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 3, 4)+"</td>";
+            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 6, 7)+"</td>";
+            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 5)+"</td>";
+            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 8)+"</td>";
+            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 9, 10)+"</td>";
+            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 15)+"</td>";
+            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 16)+"</td>";
+            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 11, 12)+"</td>";
             html +=  "</tr>";
             previousAction = data.getValue(i,1);
         }
@@ -393,28 +383,13 @@
         if(data.getValue(row, columnb) == 'x')
             s++;
 
-        if (s < 2) {
-            htmlIcon += "<div class='colBodyIcon'>";
-        }
-        else {
-            htmlIcon += "<div class='colBodyIconLeft'>";
-        }
-
         if (typeof column != "undefined" && data.getValue(row, column) == 'x') {
             htmlIcon += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
         }
-        htmlIcon += "</div>";
 
-        if (s < 2) {
-            htmlIcon += "<div class='colBodyIcon'>";
-        }
-        else {
-            htmlIcon += "<div class='colBodyIconRight'>";
-        }
         if (typeof columnb != "undefined" && data.getValue(row, columnb) == 'x') {
             htmlIcon += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
         }
-        htmlIcon += "</div>";
         return htmlIcon;
 
     }
@@ -433,10 +408,9 @@
         var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
         frameDoc.document.open();
         //Create a new HTML document.
-        frameDoc.document.write('<html><head><title>DIV Contents</title>');
+        frameDoc.document.write('<html><head><title>Operativa por canal</title>');
+        frameDoc.document.write('<style>@media print{@page {size: landscape; margin-bottom: 0mm;} html{margin: .5cm auto;} .headerImg {margin: 0 1mm; }} table td {border-bottom:1px solid #e5e5e5;} table tr.rowTitle td {border: none; padding-top: 5mm;} </style>');
         frameDoc.document.write('</head><body>');
-        //Append the external CSS file.
-        //frameDoc.document.write('<link href="style.css" rel="stylesheet" type="text/css" />');
         //Append the DIV contents.
         frameDoc.document.write(contents);
         frameDoc.document.write('</body></html>');
