@@ -161,16 +161,20 @@
             cursor: pointer;
         }
 
-        .print {
+        .controls {
             text-align: right;
             max-width: 969px;
             padding: 0 10px 5px 0;
+        }
+        .view-all {
+            margin-right: 10px;
         }
     </style>
 
 </head>
 
-<div class="print">
+<div class="controls">
+    <button class='view-all' onclick='javascript:showAll();'>Ver tabla completa</button>
     <a href="javascript:imprSelec('listportales')">
         <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/impresora.png" alt="">
     </a>
@@ -405,6 +409,10 @@
     function Go(destination){
         window.open(destination,'_parent');
         return false;
+    }
+
+    function showAll(){
+        window.open("https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal?producto=Todos&canal=Todos","_parent");
     }
 
     function imprSelec(id){
