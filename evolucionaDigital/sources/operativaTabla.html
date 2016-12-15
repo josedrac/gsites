@@ -68,6 +68,10 @@
             overflow: visible;
         }
 
+        .container-table {
+            width: 100%;
+        }
+
         #tableHeader {
             margin-top: 10px;
         }
@@ -86,15 +90,18 @@
         }
 
         .colHeader {
-            width: 74px;
+            width: 8%;
             height: 85px;
             float: left;
             border-right: 1px solid #E5E5E5;
             border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
         }
 
         .firstcol {
-            width: 315px !important;
+            width: 36% !important;
             border-left: 0;
         }
 
@@ -106,13 +113,16 @@
         }
 
         .colBody {
-            width: 75px;
+            width: 8%;
             float:left;
             color: #434a58;
             display: table;
             height: 36px;
             border-bottom: 1px solid #E5E5E5;
             text-align: center;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
         }
 
         .colBodyIcon {
@@ -278,7 +288,7 @@
     }
 
     function createHeader() {
-        html += "<table><tr id='tableHeader'>";
+        html += "<table class='container-table'><tr id='tableHeader'>";
         html +=     "<td class='colHeader firstcol'></td>";
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA</div></td>";
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA WALLET</div></td>";
