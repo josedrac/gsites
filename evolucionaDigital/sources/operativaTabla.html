@@ -94,7 +94,7 @@
         }
 
         .firstcol {
-            width: 320px !important;
+            width: 310px !important;
             border-left: 0;
         }
 
@@ -212,10 +212,12 @@
                 if (channel != channels[0]) {
                     querytosend += getChannelCondition(channel);
                 }
-               querytosend = querytosend.concat(" order by B");
+                if (product != "Destacados") {
+                   querytosend = querytosend.concat(" order by B");
+               }
             }
             else {
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' order by B";
+                querytosend = "select * where A <> 'GRUPO FUNCIONAL'";
             }
             query.setQuery(querytosend);
             query.send(handleQueryResponse);
@@ -274,9 +276,9 @@
     function createHeader() {
         html += "<table><tr id='tableHeader'>";
         html +=     "<td class='colHeader firstcol'></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA</div></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone APP BBVA WALLET</div></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA WALLET</div></td>";
+        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>bbva.es</div></td>";
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></td>";
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></td>";
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Contact Center</div></td>";
