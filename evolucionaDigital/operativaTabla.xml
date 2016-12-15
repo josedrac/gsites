@@ -101,7 +101,7 @@
         }
 
         .firstcol {
-            width: 325px !important;
+            width: 320px !important;
             border-left: 0;
         }
 
@@ -109,6 +109,7 @@
             line-height: 15px;
             vertical-align: middle;
             display: table-cell;
+            text-align: left;
         }
 
         .colBody {
@@ -118,6 +119,7 @@
             display: table;
             height: 36px;
             border-bottom: 1px solid #E5E5E5;
+            text-align: center;
         }
 
         .colBodyIcon {
