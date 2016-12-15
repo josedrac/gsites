@@ -279,7 +279,7 @@
             html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>Smartphone bbva.es</div></td>";
             html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></td>";
             html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></td>";
-            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Línea BBVA</div></td>";
+            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Contact Center</div></td>";
             html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></td>";
             html +=     "<td class='colHeader' align='center' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></td>";
             html += "</tr>";
