@@ -101,7 +101,7 @@
         }
 
         .firstcol {
-            width: 310px !important;
+            width: 315px !important;
             border-left: 0;
         }
 
