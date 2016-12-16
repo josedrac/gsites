@@ -197,7 +197,7 @@
         var html = "";
         var flagHeader = false;
         var flagFooter = true;
-        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch', 'Linea', 'Cajeros'];
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch', 'Center', 'Cajeros'];
         var prefs = new _IG_Prefs();
         var urlTable = prefs.getString("_table_query_url");
         var urlTableDest = prefs.getString("_table2_query_url");
