@@ -216,7 +216,7 @@
             var querytosend;
             if (isSearchDone()) {
                 querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
-                if (product != "Todos" && product != "Destacados") {
+                if (product != "Ver tabla completa" && product != "Destacados") {
                     querytosend = querytosend.concat(" AND A like '" + product + "' ");
                 }
                 if (channel != channels[0]) {
