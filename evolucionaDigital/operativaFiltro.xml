@@ -224,8 +224,8 @@
     <div id="listportales"></div>
 
     <script type="text/javascript">
-        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch'];
-        var channelNames = ['Todos', 'Smartphone app BBVA', 'PC', 'Tablet', 'SmartWatch'];
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Center', 'Cajeros', 'Smartwatch'];
+        var channelNames = ['Todos', 'Smartphone app BBVA', 'PC', 'Tablet', 'Contact Center', 'Red de cajeros BBVA', 'SmartWatch'];
         var products = ['Ver tabla completa', 'Destacados', 'Valores', 'Tarjetas', 'Seguros', 'Recibos', 'Préstamos', 'Planes y Fondos', 'IICS SICAVS', 'Depósitos', 'Cuentas', 'Carteras gestionadas', 'Alta y accesibilidad', 'Acerca de', 'Notificaciones', 'Perfil y ajustes', 'Cuentas y Tarjetas', 'Asistencia', 'Otras consultas/operaciones', 'Pago impuestos'];
 
         renderPage();
