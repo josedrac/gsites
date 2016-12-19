@@ -424,7 +424,7 @@
             frameDoc.document.open();
             //Create a new HTML document.
             frameDoc.document.write('<html><head><title>Operativa por canal</title>');
-            frameDoc.document.write('<style> @media print{@page {margin-bottom: 0mm;} body {font-family: \'BBVA Web Light\', Arial, \'Times New Roman\', serif;} html{margin: .5cm auto;} .headerImg {margin: 0 1mm; } table td {border-bottom:1px solid #e5e5e5; font-size: 8pt;} table tr.rowTitle td {font-weight: bolder; border: none; padding-top: 5mm;}} </style>');
+            frameDoc.document.write('<style>@media print{@page {margin-bottom: 0mm;} body {font-family: \'BBVA Web Light\', Arial, \'Times New Roman\', serif;} html{margin: .5cm auto;} .headerImg{margin: 0mm 1mm 2mm;} table td {border-bottom:1px solid #e5e5e5; font-size: 8pt;} table tr.rowTitle td{font-weight: bolder; border: none; padding-top: 5mm;}} </style>');
             frameDoc.document.write('</head><body>');
             //Append the DIV contents.
             frameDoc.document.write(contents);
