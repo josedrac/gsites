@@ -284,7 +284,7 @@
     }
 
     function createHeader() {
-        html += "<table class='container-table'><tr id='tableHeader'>";
+        html += "<table class='container-table'><thead><tr id='tableHeader'>";
         html +=     "<td class='colHeader firstcol'></td>";
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA</div></td>";
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA WALLET</div></td>";
@@ -294,7 +294,7 @@
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Contact Center</div></td>";
         html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></td>";
         html +=     "<td class='colHeader' align='center' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></td>";
-        html += "</tr>";
+        html += "</tr></thead>";
    }
 
    function createBody() {
@@ -427,7 +427,7 @@
         frameDoc.document.open();
         //Create a new HTML document.
         frameDoc.document.write('<html><head><title>Operativa por canal</title>');
-        frameDoc.document.write('<style>@media print{@page {margin-bottom: 0mm;} body {font-family: \'BBVA Web Light\', Arial, \'Times New Roman\', serif;} html{margin: .5cm auto;} .headerImg{margin: 0mm 1mm 2mm;} table td {border-bottom:1px solid #e5e5e5; font-size: 8pt;} table tr.rowTitle td{font-weight: bolder; border: none; padding-top: 5mm;}} </style>');
+        frameDoc.document.write('<style>@media print{.colHeader{padding-bottom: 4mm; padding-top: 4mm;} thead {display: table-header-group; break-inside: avoid;} thead td {margin-bottom: 3mm;} body {font-family: \'BBVA Web Light\', Arial, \'Times New Roman\', serif;} .headerImg {margin: 0mm 1mm 2mm;} table td {border-bottom:1px solid #e5e5e5; font-size: 8pt;} table tr.rowTitle td{font-weight: bolder; border: none; padding-top: 5mm;}} </style>');
         frameDoc.document.write('</head><body>');
         //Append the DIV contents.
         frameDoc.document.write(contents);
