@@ -112,6 +112,10 @@
             border-left: 0;
         }
 
+        .firstcol img {
+            display: none;
+        }
+
         .text {
             line-height: 15px;
             vertical-align: middle;
@@ -284,8 +288,9 @@
         }
 
         function createHeader() {
-            html += "<table class='container-table'><thead><tr id='tableHeader'>";
-            html +=     "<td class='colHeader firstcol'></td>";
+            html += "<table class='container-table'><thead>";
+            html += "<tr id='tableHeader'>";
+            html +=     "<td class='colHeader firstcol'><img src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/bbva.png'/></td>";
             html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA</div></td>";
             html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA WALLET</div></td>";
             html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>bbva.es</div></td>";
