@@ -305,42 +305,6 @@
 		}
 	</style>
 
-	<!--[if IE]>
-
-		<style type="text/css">
-
-			.checkpage img,
-			.checkpage1 img,
-			.bloqueAnterior img,
-			.bloqueSiguiente img{
-				border: 0;
-			}
-			button{
-				background: #0079C1;
-			}
-			#userVideo{
-				color:#71777F;
-				font-size:11px;
-				float:left;
-				margin-left:0px;
-				margin-top:-15px;
-			}
-		</style>
-
-	<![endif]-->
-
-	<!--[if IE 9]>
-
-		<style type="text/css">
-
-			#userVideo{
-				margin-left:72px;
-			}
-		</style>
-
-	<![endif]-->
-
-
 <div id="listportales" class="novedades"></div>
 
    <script type="text/javascript">
@@ -391,6 +355,7 @@
 	    		var type = getParam("type");
 	    		var marco = getParam("marco");
 	    		var operativa = getParam("idOperativa");
+				var text = getParam("text");
 
 	    		if (channel == 'J')
 	    			filter += " AND (J='x' OR K='x' OR L='x')";
@@ -413,6 +378,9 @@
 	    		if (operativa != '') {
 	    			filter += " AND V="+operativa;
 	    		}
+				if (text != '') {
+					filter += " AND (lower(B) like '%" + text + "%' OR lower(D) like '%" + text + "%' OR lower(E) like '%" + text + "%') ";
+				}
 			} else {
 				filter += " AND S='x'";
 			}
@@ -439,7 +407,7 @@
         	else
           		html += '<div id="paginas" class="paginaNueva" style=" display: block;width: auto;">';
 
-        	for(var i=0;i<filas;i++) {
+        	for (var i = 0; i < filas; i++) {
 
 				html += "<div class='comboVideo'>";
 				html += getIcons(data, i);
@@ -492,7 +460,6 @@
 	    	window.setTimeout('showIframes()',2000);
 	    }
 	 	function showIframes() {
-	 		//console.log('debugg');
 		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
 
 		 	for (var i=0;i<iframes;i++)
