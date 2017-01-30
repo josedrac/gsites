@@ -198,11 +198,11 @@
     			date = getParam("date"),
     			queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"');
 
-		console.log("----date.split(/)[1]"+date.split('/')[1]);
-    		/*if(parseInt(date.split('/')[0]) > 2){
+		console.log("add condition date.split(/)[1]"+date.split('/')[1]);
+    		if( (parseInt(date.split('/')[0]) > 2) && (parseInt(date.split('/')[1]) == 2016) ){
     			isSixColumns = true;
     			queryString = encodeURIComponent('SELECT * where G = "' + getParam("date") + '"')
-    		}*/
+    		}
 
     		var spreadsheetKey = getParam('key');
     			sheetName = encodeURIComponent('appointments'),
