@@ -193,10 +193,10 @@
 
             adjustGadgetHeight("container");
 		
-	    console.log("2 add condition date.split(/)[1]"+date.split('/')[1]);
+	    console.log("3 add condition date.split(/)[1]"+date.split('/')[1]);
 
             var isSixColumns = false,
-		if( (parseInt(date.split('/')[0]) <= 2) && (parseInt(date.split('/')[1]) == 2016) ){
+		if ( (parseInt(date.split('/')[0]) <= 2)&&(parseInt(date.split('/')[1]) == 2016) ) {
     			date = getParam("date"),
     			queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"');
 		}
