@@ -198,8 +198,8 @@
     			date = getParam("date"),
     			queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"');
 
-		console.log("add condition date.split(/)[1]"+date.split('/')[1]);
-    		if( (parseInt(date.split('/')[0]) > 2) && (parseInt(date.split('/')[1]) == 2016) ){
+		console.log("1 add condition date.split(/)[1]"+date.split('/')[1]);
+    		if( (parseInt(date.split('/')[0]) > 2) && (parseInt(date.split('/')[1]) > 2016) ){
     			isSixColumns = true;
     			queryString = encodeURIComponent('SELECT * where G = "' + getParam("date") + '"')
     		}
