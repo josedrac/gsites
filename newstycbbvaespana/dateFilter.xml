@@ -227,6 +227,7 @@
                 <label class="name">Año: </label>
                 <select name="anyo" id="yearSelector">
                     <option value="2016">2016</option>
+                    <option value="2017">2017</option>
                 </select>
             </div>
             <div class="element-month">
@@ -239,7 +240,7 @@
                     <option value="05">Mayo</option>
                     <option value="06">Junio</option>
                     <option value="07">Julio</option>
-                    <!-- <option value="08">Agosto</option> -->
+                    <option value="08">Agosto</option>
                     <option value="09">Septiembre</option>
                     <option value="10">Octubre</option>
                     <option value="11">Noviembre</option>
@@ -256,7 +257,7 @@
 
         var prefs = new gadgets.Prefs();
         document.getElementsByClassName('title')[0].innerHTML = prefs.getString('filterTitle');
-        console.log('add new month');
+        console.log('add new year');
 
         function Go() {
             var elementYearSelector = document.getElementById('yearSelector');
