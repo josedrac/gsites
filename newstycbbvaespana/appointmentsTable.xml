@@ -193,10 +193,11 @@
 
             adjustGadgetHeight("container");
 		
-	    console.log("4 add condition date.split(/)[1]"+date.split('/')[1]);
+	  
 
             var isSixColumns = false;
 		date = getParam("date");
+  console.log("5 add condition date.split(/)[1]"+date.split('/')[1]);
 		if ( (parseInt(date.split('/')[0]) <= 2)&&(parseInt(date.split('/')[1]) == 2016) ) {
     			
     			queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"');
