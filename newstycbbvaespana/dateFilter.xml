@@ -257,7 +257,7 @@
 
         var prefs = new gadgets.Prefs();
         document.getElementsByClassName('title')[0].innerHTML = prefs.getString('filterTitle');
-
+        console.log('add new year');
 
         function Go() {
             var elementYearSelector = document.getElementById('yearSelector');
