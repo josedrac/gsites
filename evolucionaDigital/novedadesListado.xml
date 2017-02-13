@@ -429,15 +429,12 @@
  	    			filter += " AND V="+operativa;
  	    		}
  				if (text != '') {
-				 	console.log(text);
-				 	text = window.decodeURIComponent(text);
-					 console.log(text);
+				 	text = window.decodeURIComponent(text).replace(/\+/g, " ");
  					filter += " AND (lower(B) like '%" + text + "%' OR lower(D) like '%" + text + "%' OR lower(E) like '%" + text + "%') ";
  				}
  			} else {
  				filter += " AND S='x'";
  			}
-			 console.log(filter);
      		return filter;
      	}
 
