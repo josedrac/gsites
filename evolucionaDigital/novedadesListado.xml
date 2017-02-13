@@ -429,6 +429,7 @@
  	    			filter += " AND V="+operativa;
  	    		}
  				if (text != '') {
+				 	text = window.decodeURIComponent(text);
  					filter += " AND (lower(B) like '%" + text + "%' OR lower(D) like '%" + text + "%' OR lower(E) like '%" + text + "%') ";
  				}
  			} else {
