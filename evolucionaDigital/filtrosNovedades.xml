@@ -334,7 +334,7 @@
             elementChannelSelector.selectedIndex = getIndex(channel, arrayChannel);
             elementMarcoTempSelector.selectedIndex = getIndex(marco, arrayMarco);
             elementTypeSelector.selectedIndex = getIndex(type, arrayType);
-            elementTextSelector.value = text;
+            elementTextSelector.value = window.decodeURIComponent(text);
 
         }
 
