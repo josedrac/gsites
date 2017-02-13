@@ -352,9 +352,16 @@
             var selectedMarcoTemp = elementMarcoTempSelector.options[elementMarcoTempSelector.selectedIndex].value;
             var selectedType = elementTypeSelector.options[elementTypeSelector.selectedIndex].value;
             var selectedText = elementTextSelector.value;
-            var url = document.referrer;
+
+			var url = document.referrer;
             url = document.referrer.split('?')[0];
-            window.open(url + "?anyo="+selectedYear+"&mes="+selectedMonth+"&channel="+selectedChannel+"&marco="+selectedMarcoTemp+"&type="+selectedType+"&text="+selectedText, "_parent");
+			url += "?anyo="+selectedYear+"&mes="+selectedMonth+"&channel="+selectedChannel+"&marco="+selectedMarcoTemp+"&type="+selectedType;
+
+			if (selectedText && selectedText.length > 0 ) {
+				url += "&text="+selectedText;
+			}
+
+			window.open(url, "_parent");
             return false;
         }
 
