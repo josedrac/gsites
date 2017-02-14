@@ -137,9 +137,23 @@
             text-align: left;
         }
 
+        .pretitle {
+          margin-top: 30px;
+          margin-bottom: 40px;
+        }
+
+        .pretitle p {
+          margin: 0;
+          color: #71777F;
+          font-size: 12px;
+          font-family: arial;
+        }
+
     </style>
-<div id="container" class="container">
-</div>
+
+<div class="pretitle"><p>Toda la información que puedes precisar en tu día a día a un solo click de distancia<p></div>
+<div id="container" class="container"></div>
+
     <script type="text/javascript">
         adjustGadgetHeight('container');
         google.load('visualization', '1', {packages: ['table']});
