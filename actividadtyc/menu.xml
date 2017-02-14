@@ -180,25 +180,27 @@
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Eventos.png" alt="">
 			            </div>
 			            <div class="text">
-			                <p class="title small">Observatorio de mejores prácticas</p>
-			                <span class="subtitle">Un espacio para aprender</span>
+			                <p class="title small">Eventos y foros</p>
+			                <span class="subtitle">Un espacio para el encuentro</span>
 			            </div>
 			        </div>
 		        </a>
 		    </div>
-		    <div class="card-container blue-green large">
-				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/presentaciones')">
+
+			<div class="card-container blue-green large">
+				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/documentacion-gestion')">
 			        <div class="content">
 			            <div class="icon">
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Presentaciones.png" alt="">
 			            </div>
 			            <div class="text">
-			                <p class="title big">Presentaciones</p>
+			                <p class="title big">Documentación de gestión</p>
 			                <span class="subtitle">Un espacio para compartir conocimiento</span>
 			            </div>
 			        </div>
 		        </a>
 		    </div>
+
 			<div class="card-container pink short">
 				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/guias')">
 					<div class="content">
@@ -212,6 +214,7 @@
 					</div>
 				</a>
 			</div>
+
 			<div class="card-container green short">
 				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/publicaciones')">
 					<div class="content">
@@ -219,12 +222,13 @@
 							<img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Publicaciones.png" alt="">
 						</div>
 						<div class="text">
-							<p class="title small">Publicaciones externas</p>
-							<span class="subtitle">Un espacio para la divulgación</span>
+							<p class="title small">Publicaciones y presentaciones</p>
+							<span class="subtitle"></span>
 						</div>
 					</div>
 				</a>
 			</div>
+
 			<div class="card-container yellow short">
 				<a id="enlaceComite" onclick="">
 					<div class="content">
@@ -233,8 +237,8 @@
 							<img class="candado" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/candado.png" alt="">
 						</div>
 						<div class="text">
-							<p class="title small">Comité de Dirección TyC España</p>
-							<span class="subtitle"></span>
+							<p class="title small">Comités TyC</p>
+							<span class="subtitle">Un espacio para dialogar</span>
 						</div>
 					</div>
 				</a>
