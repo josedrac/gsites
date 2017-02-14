@@ -118,7 +118,7 @@
 		        }
 
 		        .title {
-		        	font-size: 26px;
+		        	font-size: 22px;
 		        	margin-top: 12px;
 		        	margin-bottom: 0px;
 		        	font-family: BBVA Web Book, Arial;
@@ -237,7 +237,7 @@
 							<img class="candado" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/candado.png" alt="">
 						</div>
 						<div class="text">
-							<p class="title small">Comités TyC</p>
+							<p class="title big">Comités TyC</p>
 							<span class="subtitle">Un espacio para dialogar</span>
 						</div>
 					</div>
