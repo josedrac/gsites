@@ -118,7 +118,7 @@
 		        }
 
 		        .title {
-		        	font-size: 22px;
+		        	font-size: 26px;
 		        	margin-top: 12px;
 		        	margin-bottom: 0px;
 		        	font-family: BBVA Web Book, Arial;
@@ -180,7 +180,7 @@
 			                <img src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/Eventos.png" alt="">
 			            </div>
 			            <div class="text">
-			                <p class="title small">Eventos y foros</p>
+			                <p class="title big">Eventos y foros</p>
 			                <span class="subtitle">Un espacio para el encuentro</span>
 			            </div>
 			        </div>
