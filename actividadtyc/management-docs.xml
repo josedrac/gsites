@@ -8,7 +8,8 @@
   </ModulePrefs>
     <UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
     <UserPref name="tab" display_name="tab" required="true" />
- <Content type="html">
+
+ <Content view="canvas" preferred_height="600px">
     <![CDATA[
         <script src="https://www.google.com/jsapi" type="text/javascript"></script>
         <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
@@ -184,6 +185,12 @@
                 html += getElement(data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), data.getValue(i, 3));
             }
             document.getElementById('container').innerHTML = html;
+
+            try {
+              gadgets.window.adjustHeight();
+            } catch(err) {
+              console.error(err);
+            }
         }
 
         function Go(destination){
