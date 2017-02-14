@@ -98,8 +98,8 @@
           var data = response.getDataTable();
           var filas = dataGlobal.getNumberOfRows();
           console.log(response);
-          var html = "<div id="useful-links-list">";
-          html += "</div>";
+          var html = '<div id="useful-links-list">';
+          html += '</div>';
 
           document
             .getElementById('container')
