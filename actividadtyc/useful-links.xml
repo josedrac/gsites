@@ -88,13 +88,13 @@
 
         function sendQuery(){
           var spreadsheetKey = prefs.getString('spreadsheetKey');
-          var sheetName = encodeURIComponent('events');
-          var queryString = encodeURIComponent('SELECT * where B <> "title" order by E desc');
+          var sheetName = encodeURIComponent('links');
+          var queryString = encodeURIComponent('SELECT *');
           var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-          query.send(function (response) { handleQueryResponse(response, 0); });
+          query.send(function (response) { handleQueryResponse(response); });
         }
 
-        function handleQueryResponse(response, index) {
+        function handleQueryResponse(response) {
           var data = response.getDataTable();
           var filas = dataGlobal.getNumberOfRows();
           console.log(response);
