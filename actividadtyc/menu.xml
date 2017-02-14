@@ -177,7 +177,7 @@
 				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/eventos')">
 			        <div class="content">
 			            <div class="icon">
-			                <img src="https://raw.githubusercontent.com/josedrac/gsites/actividadtyc-new-changes/actividadtyc/img/new-home-icons/calendar.png" alt="">
+			                <img src="https://raw.githubusercontent.com/josedrac/gsites/master/actividadtyc/img/new-home-icons/calendar.png" alt="">
 			            </div>
 			            <div class="text">
 			                <p class="title big">Eventos y foros</p>
@@ -191,7 +191,7 @@
 				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/documentacion-gestion')">
 			        <div class="content">
 			            <div class="icon">
-			                <img src="https://raw.githubusercontent.com/josedrac/gsites/actividadtyc-new-changes/actividadtyc/img/new-home-icons/docs.png" alt="">
+			                <img src="https://raw.githubusercontent.com/josedrac/gsites/master/actividadtyc/img/new-home-icons/docs.png" alt="">
 			            </div>
 			            <div class="text">
 			                <p class="title big">Documentación de gestión</p>
@@ -205,7 +205,7 @@
 				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/guias')">
 					<div class="content">
 						<div class="icon">
-							<img src="https://raw.githubusercontent.com/josedrac/gsites/actividadtyc-new-changes/actividadtyc/img/new-home-icons/communication.png" alt="">
+							<img src="https://raw.githubusercontent.com/josedrac/gsites/master/actividadtyc/img/new-home-icons/communication.png" alt="">
 						</div>
 						<div class="text">
 							<p class="title small">Hitos de comunicación</p>
@@ -219,7 +219,7 @@
 				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/publicaciones')">
 					<div class="content">
 						<div class="icon">
-							<img src="https://raw.githubusercontent.com/josedrac/gsites/actividadtyc-new-changes/actividadtyc/img/new-home-icons/downloads.png" alt="">
+							<img src="https://raw.githubusercontent.com/josedrac/gsites/master/actividadtyc/img/new-home-icons/downloads.png" alt="">
 						</div>
 						<div class="text">
 							<p class="title small">Publicaciones y presentaciones</p>
@@ -233,7 +233,7 @@
 				<a id="enlaceComite" onclick="">
 					<div class="content">
 						<div class="contact">
-							<img class="comite" src="https://raw.githubusercontent.com/josedrac/gsites/actividadtyc-new-changes/actividadtyc/img/new-home-icons/people.png" alt="">
+							<img class="comite" src="https://raw.githubusercontent.com/josedrac/gsites/master/actividadtyc/img/new-home-icons/people.png" alt="">
 							<img class="candado" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/candado.png" alt="">
 						</div>
 						<div class="text">
