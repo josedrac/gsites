@@ -12,7 +12,7 @@
   <UserPref
     name="spreadsheetKey"
     default_value=""
-    display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYE...)"
+    display_name="spreadsheetKey (example: hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8)"
     required="false"
   />
 
@@ -69,14 +69,40 @@
           margin-bottom: 16px;
           position: relative;
           width: 460px;
+          margin: 7px;
         }
       </style>
-
 
       <div class="container" id="container">
         <h2>Enlaces de interés</h2>
         <div><a>Lorem ipsum</a></div>
       </div>
+
+      <script type="text/javascript">
+
+        // adjustGadgetHeight('container');
+        // var gadgetHelper = null;
+        // google.load('visualization', '1', {packages: ['table']});
+        // google.setOnLoadCallback(sendQuery);
+        // var prefs = new gadgets.Prefs();
+
+        function sendQuery(){
+          var spreadsheetKey = prefs.getString('spreadsheetKey');
+          var sheetName = encodeURIComponent('events');
+          var queryString = encodeURIComponent('SELECT * where B <> "title" order by E desc');
+          var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+          query.send(function (response) { handleQueryResponse(response, 0); });
+        }
+
+        function handleQueryResponse(response, index) {
+          var data = response.getDataTable();
+          var filas = dataGlobal.getNumberOfRows();
+          console.log(response);
+          var html = "";
+          document.getElementById('container').innerHTML += html;
+        }
+
+      </script>
     ]]>
   </Content>
 
