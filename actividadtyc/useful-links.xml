@@ -82,12 +82,13 @@
           margin-bottom: 30px;
         }
 
-        a {
+        .link {
           display: inline-block;
           margin-bottom 10px;
           font-size: 12px;
           font-family: arial;
           color: #1e6bb3;
+          text-decoration: none;
         }
       </style>
 
@@ -120,7 +121,7 @@
           for (var i = 0; i < rows; i++) {
             var link = data.getFormattedValue(i, 0);
             var href = data.getFormattedValue(i, 1);
-            html += '<div><a href="' + href + '" target="_blank">' + link + '</a></div>';
+            html += '<div><a class="link" href="' + href + '" target="_blank">' + link + '</a></div>';
           }
 
           document
