@@ -70,8 +70,10 @@
             border: .1em solid #00559D;
             color: white;
             cursor: pointer;
-            margin: 20px 0;
+            margin: 0px 0px 20px 0;
             float: right;
+            position: absolute;
+            right: 23px;
         }
         button:hover {
             background: #004C99;
@@ -90,7 +92,8 @@
             margin: 1%;
             padding: 20px 2.5% 10px;
             width: 43%;
-            height: 145px;
+            height: 120px;
+            position: relative;
         }
         .pCard {
             height: 150px;
