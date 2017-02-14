@@ -100,8 +100,8 @@
 
           var html = '<div id="useful-links-list">';
           for (var i = 0; i < rows; i++) {
-            var link = dataTable.getFormattedValue(0,0);
-            var href = dataTable.getFormattedValue(1,1);
+            var link = data.getFormattedValue(0,0);
+            var href = data.getFormattedValue(1,1);
             html += '<div><a href="' + href + '" target="_blank">' + link + '<a></div>';
           }
 
