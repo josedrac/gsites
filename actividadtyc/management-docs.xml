@@ -142,6 +142,7 @@
         google.setOnLoadCallback(sendQuery);
         var prefs = new gadgets.Prefs();
         var tab;
+
         function sendQuery() {
             tab = 'management-docs';
             var spreadsheetKey = prefs.getString('spreadsheetKey'),
@@ -150,6 +151,7 @@
                 query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
                 query.send(handleQueryResponse);
         }
+
         function handleQueryResponse(response) {
             data = response.getDataTable();
             var filas = data.getNumberOfRows();
@@ -165,22 +167,25 @@
             }
             document.getElementById('container').innerHTML = html;
         }
+
         function Go(destination){
             window.parent.location.href = destination;
             return false;
         }
+
         function getElement(title, text, link, icon){
             var html = "";
             html += '<li class="card">';
             html += '   <img class="icon" src="'+icon+'"/>';
             html += '   <div class="innerText">';
             html += '       <span class="title">'+title+'</span>';
-            html += '       <span class="text">'+text+'</span>';
+            // html += '       <span class="text">'+text+'</span>';
             html += '   </div>';
             html += '   <button class="btn" type="button" onclick="javascript:Go(\''+link+'\')">Acceder</button>';
             html += '</li>';
             return html;
         }
+
         function getElementContact(title, text, link, icon, contact){
             var html = "";
             if(contact == null)
