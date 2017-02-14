@@ -71,23 +71,23 @@
           width: 884px;
           margin: 7px;
           float: left;
+        }
 
-          h2 {
-            font-family: BBVA Web Light;
-            font-size: 18px;
-            color: #000;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #e5e5e5;
-            margin-bottom: 30px;
-          }
+        h2 {
+          font-family: BBVA Web Light;
+          font-size: 18px;
+          color: #000;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #e5e5e5;
+          margin-bottom: 30px;
+        }
 
-          a {
-            display: inline-block;
-            margin-bottom 10px;
-            font-size: 12px;
-            font-family: arial;
-            color: #1e6bb3;
-          }
+        a {
+          display: inline-block;
+          margin-bottom 10px;
+          font-size: 12px;
+          font-family: arial;
+          color: #1e6bb3;
         }
       </style>
 
@@ -116,14 +116,12 @@
           var data = response.getDataTable();
           var rows = data.getNumberOfRows();
 
-          var html = '<div id="useful-links-list">';
+          var html = '';
           for (var i = 0; i < rows; i++) {
             var link = data.getFormattedValue(0,0);
             var href = data.getFormattedValue(1,1);
-            html += '<div><a href="' + href + '" target="_blank">' + link + '<a></div>';
+            html += '<div><a href="' + href + '" target="_blank">' + link + '</a></div>';
           }
-
-          html += '</div>';
 
           document
             .getElementById('useful-links-list')
