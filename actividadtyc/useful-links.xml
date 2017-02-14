@@ -68,8 +68,26 @@
           font-size: 12px;
           margin-bottom: 16px;
           position: relative;
-          width: 460px;
+          width: 884px;
           margin: 7px;
+          float: left;
+
+          h2 {
+            font-family: BBVA Web Light;
+            font-size: 18px;
+            color: #000;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e5e5e5;
+            margin-bottom: 30px;
+          }
+
+          a {
+            display: inline-block;
+            margin-bottom 10px;
+            font-size: 12px;
+            font-family: arial;
+            color: #1e6bb3;
+          }
         }
       </style>
 
@@ -110,6 +128,12 @@
           document
             .getElementById('useful-links-list')
             .innerHTML = html;
+
+          try {
+            gadgets.window.adjustHeight();
+          } catch(err) {
+            console.error(err);
+          }
         }
 
       </script>
