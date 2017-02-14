@@ -96,13 +96,19 @@
 
         function handleQueryResponse(response) {
           var data = response.getDataTable();
-          var filas = dataGlobal.getNumberOfRows();
-          console.log(response);
+          var rows = data.getNumberOfRows();
+
           var html = '<div id="useful-links-list">';
+          for (var i = 0; i < rows; i++) {
+            var link = dataTable.getFormattedValue(0,0);
+            var href = dataTable.getFormattedValue(1,1);
+            html += '<div><a href="' + href + '" target="_blank">' + link + '<a></div>';
+          }
+
           html += '</div>';
 
           document
-            .getElementById('container')
+            .getElementById('useful-links-list')
             .innerHTML = html;
         }
 
