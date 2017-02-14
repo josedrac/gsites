@@ -118,8 +118,8 @@
 
           var html = '';
           for (var i = 0; i < rows; i++) {
-            var link = data.getFormattedValue(i,i);
-            var href = data.getFormattedValue(i+1,i+1);
+            var link = data.getFormattedValue(i, 0);
+            var href = data.getFormattedValue(i, 1);
             html += '<div><a href="' + href + '" target="_blank">' + link + '</a></div>';
           }
 
