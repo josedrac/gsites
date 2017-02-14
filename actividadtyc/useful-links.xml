@@ -83,7 +83,7 @@
         // adjustGadgetHeight('container');
         // var gadgetHelper = null;
         // google.load('visualization', '1', {packages: ['table']});
-        // google.setOnLoadCallback(sendQuery);
+        google.setOnLoadCallback(sendQuery);
         // var prefs = new gadgets.Prefs();
 
         function sendQuery(){
