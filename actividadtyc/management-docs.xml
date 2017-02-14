@@ -185,12 +185,7 @@
                 html += getElement(data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), data.getValue(i, 3));
             }
             document.getElementById('container').innerHTML = html;
-
-            try {
-              setTimeout(function() { gadgets.window.adjustHeight(); }, 2000);
-            } catch(err) {
-              console.error(err);
-            }
+            adjustGadgetHeight("container");
         }
 
         function Go(destination){
