@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
+
   <ModulePrefs title="AC-management-docs.xml">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
     <Require feature="dynamic-height"/>
     <Require feature="setprefs" />
   </ModulePrefs>
+
     <UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
     <UserPref name="tab" display_name="tab" required="true" />
 
@@ -199,7 +201,7 @@
             }
 
             document.getElementById('container').innerHTML = html;
-            adjustGadgetHeight("container");
+            gadgets.window.adjustHeight();
         }
 
         function Go(destination){
