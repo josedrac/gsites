@@ -88,7 +88,7 @@
         .container {
             font-family: BBVA Web Book,Arial;
             float: left;
-            width: 620px;
+            width: 610px;
             background-color: #F3F7F6;
             padding: 5px;
         }
@@ -165,8 +165,8 @@
 
     </style>
 
-<div class="pretitle"><p>Toda la información que puedes precisar en tu día a día a un solo click de distancia<p></div>
-<div id="container" class="container"></div>
+    <div id="pretitle" class="pretitle"></div>
+    <div id="container" class="container"></div>
 
     <script type="text/javascript">
 
@@ -201,6 +201,10 @@
             }
 
             document.getElementById('container').innerHTML = html;
+
+            var pretitleText = data.getValue(0,4);
+            document.getElementById('pretitle').innerHTML = "<p>" + pretitleText + "</p>";
+
             gadgets.window.adjustHeight();
         }
 

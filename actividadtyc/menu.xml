@@ -115,6 +115,7 @@
 		            font-family: BBVA Web Light, Arial;
 		            padding: 14px 14px 15px;
 		            cursor: pointer;
+					min-width: 90%;
 		        }
 
 		        .title {
