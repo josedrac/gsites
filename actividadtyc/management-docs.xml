@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <ModulePrefs title="AC-presentations.xml">
+  <ModulePrefs title="AC-management-docs.xml">
     <Require feature="idi"/>
     <Require feature="locked-domain" />
     <Require feature="dynamic-height"/>
@@ -49,6 +49,7 @@
             font-weight: normal;
         }
         /* @end */
+
         button {
             background: #0079C1;
             background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
@@ -77,9 +78,11 @@
             right: 23px;
             top: 100px;
         }
+
         button:hover {
             background: #004C99;
         }
+
         .container {
             font-family: BBVA Web Book,Arial;
             float: left;
@@ -87,6 +90,7 @@
             background-color: #F3F7F6;
             padding: 5px;
         }
+
         .card, .pCard {
             float: left;
             list-style: outside none none;
@@ -97,19 +101,23 @@
             height: 120px;
             position: relative;
         }
+
         .pCard {
             height: 150px;
         }
+
         .icon {
             float: left;
             display: table-cell;
             margin-right: 15px;
             max-width: 80px;
         }
+
         .innerText {
             margin-left: 15px;
             display: table;
         }
+
         .contact {
             color: #71777F;
             font-size: 11px;
@@ -120,6 +128,7 @@
             margin-bottom: 15px;
             cursor: pointer;
         }
+
         .title, .pTitle {
             float: left;
             font-family: BBVA Web Light,Arial;
@@ -127,9 +136,11 @@
             font-size: 19px;
             margin-bottom: 15px;
         }
+
         .pTitle {
             margin-bottom: 0px;
         }
+
         .text {
             float: left;
             height: 100%;
@@ -156,14 +167,14 @@
 <div id="container" class="container"></div>
 
     <script type="text/javascript">
+
         // adjustGadgetHeight('container');
         google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
         var prefs = new gadgets.Prefs();
-        var tab;
 
         function sendQuery() {
-            tab = 'management-docs';
+            var tab = 'management-docs';
             var spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sheetName = encodeURIComponent(tab),
                 queryString = encodeURIComponent('SELECT * where B <> "Texto"'),
@@ -172,18 +183,21 @@
         }
 
         function handleQueryResponse(response) {
-            data = response.getDataTable();
+            var data = response.getDataTable();
             var filas = data.getNumberOfRows();
             var pages = Math.ceil(filas / 8);
             var html = "";
             var page = 0;
             var display = '';
             var classBorder = '';
-            if(filas<1)
+            if (filas < 1) {
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
-            for(var i=0;i<filas;i++) {
+            }
+
+            for (var i=0;i<filas;i++) {
                 html += getElement(data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), data.getValue(i, 3));
             }
+
             document.getElementById('container').innerHTML = html;
             adjustGadgetHeight("container");
         }
@@ -208,8 +222,11 @@
 
         function getElementContact(title, text, link, icon, contact){
             var html = "";
-            if(contact == null)
+
+            if (contact == null) {
                 contact = "";
+            }
+
             html += '<li class="pCard">';
             html += '   <img class="icon" src="'+icon+'"/>';
             html += '   <div class="innerText">';
