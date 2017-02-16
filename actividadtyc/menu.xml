@@ -254,8 +254,8 @@
 
 			function writeHtml(result){
 
-				if(result){
-					document.getElementById( "enlaceComite" ).setAttribute( "onClick", "javascript: Go('https://sites.google.com/a/bbva.com/actividadtyc/comites');" );
+				if (result) {
+					document.getElementById( "enlaceComite" ).setAttribute( "onClick", "javascript: Go('https://sites.google.com/a/bbva.com/actividadtyc/comites-v2');" );
 				}
 				else {
 					document.getElementById( "enlaceComite" ).setAttribute( "onClick", "alert('No tienes permisos para ver este contenido.');" );
