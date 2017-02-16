@@ -176,7 +176,7 @@
         var prefs = new gadgets.Prefs();
 
         function sendQuery() {
-            var tab = 'management-docs';
+            var tab = 'Comites v2';
             var spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sheetName = encodeURIComponent(tab),
                 queryString = encodeURIComponent('SELECT * where B <> "Texto"'),
