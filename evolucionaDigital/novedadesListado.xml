@@ -232,9 +232,9 @@
 	      	color: #3B3B3B;
 	    }
 
-		.youtubeIframe{
+		/* .youtubeIframe{
 			display:none;
-		}
+		} */
 
         video {
             width: 313px;
