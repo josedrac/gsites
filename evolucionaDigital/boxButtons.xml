@@ -145,8 +145,8 @@
                                 <li id='downloadapp'>Cómo descargar la app de BBVA</li>\
                                 <li id='confirmuser'>Confirmar usuario multicanal</li>\
                                 <li id='login'>Login en app BBVA</li>\
-                                <li id='register'>Alta de usuario multicanal</li>\
-                                <li id='tour'>Tour por la app</li>\
+                                <li id='register'>Alta de usuario multicanal desde el móvil</li>\
+                                <li id='tour'>Alta de usuario multicanal desde la web</li>\
                               </ul>\
                           </div>";
               }
@@ -178,12 +178,12 @@
 
           function addURL(digitalizar) {
                if(digitalizar) {
-                  document.getElementById("tour").onclick = function(){ openMobile('https://movil.bbva.es/#/tour');};
+                  document.getElementById("tour").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3RlVZeU5LME1CY0k/view?usp=sharing');};
                   document.getElementById("login").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MmU5YzAyMWIzMWQ3NmMzMA');};
                   document.getElementById("confirmuser").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3aXdDRjZIbnhGNTg');};
                   document.getElementById("downloadapp").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWViYWFkZmEzODQ3ZDRiYQ');};
                   document.getElementById("validate").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3N1AzUXVVSnNzMHM');};
-                  document.getElementById("register").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MTk2MTc0YmJjYjIxMDk2OQ');};
+                  document.getElementById("register").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3QTd5THRSOHBpMkk/view?usp=sharing');};
                   document.getElementById("appMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NjAxYzE3NjEwMDRiNTAxZg');};
                   document.getElementById("validMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWI4NWI5MGEyYTlhYjcxNw');};
               } else {
