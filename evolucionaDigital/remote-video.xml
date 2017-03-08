@@ -95,7 +95,7 @@
 
           document
             .getElementById('container')
-            .innerHTML = '<iframe width="300" height="233" src="' + videoUrl + '" frameborder="0" allowfullscreen></iframe>';
+            .innerHTML = '<iframe allowScriptAccess="always" width="300" height="233" src="' + embedUrl + '" frameborder="0" allowfullscreen></iframe>';
 
           try {
             gadgets.window.adjustHeight();
