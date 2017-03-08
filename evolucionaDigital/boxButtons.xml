@@ -140,11 +140,8 @@
                   return "<div id='content_div' class='caja'><div class='titulo'>Más información</div> \
                               <ul id='botonera'>\
                                 <li id='validMobile'>¿El cliente tiene un smartphone válido?</li>\
-                                <li id='appMobile'>Argumentario utilización/venta app móvil</li>\
                                 <li id='validate'>Cómo validar un móvil</li>\
                                 <li id='downloadapp'>Cómo descargar la app de BBVA</li>\
-                                <li id='confirmuser'>Confirmar usuario multicanal</li>\
-                                <li id='login'>Login en app BBVA</li>\
                                 <li id='register'>Alta de usuario multicanal desde el móvil</li>\
                                 <li id='tour'>Alta de usuario multicanal desde la web</li>\
                               </ul>\
