@@ -205,22 +205,21 @@
 	<div class="container">
 
 		<div class="form">
+			<div class="form">
+				<label class="name">Tipología</label>
+				<div class="element">
+					<select name="marco" id="typeSelector">
+						<option value="0">Todos</option>
+						<option value="G">Videos Comerciales</option>
+						<option value="H">Tutoriales Cliente</option>
+						<option value="I">Comunicación interna</option>
+					</select>
+				</div>
+			</div>
             <div class="element">
                 <div>
                     <button onclick='javascript:Go();' class="btn">Ver resultados</button>
                 </div>
-            </div>
-        </div>
-
-		<div class="form">
-            <label class="name">Tipología</label>
-            <div class="element">
-                <select name="marco" id="typeSelector">
-                    <option value="0">Todos</option>
-                    <option value="G">Videos Comerciales</option>
-                    <option value="H">Tutoriales Cliente</option>
-                    <option value="I">Comunicación interna</option>
-                </select>
             </div>
         </div>
 
@@ -252,7 +251,7 @@
 
 		<div class="form">
             <div class="element">
-                <label class="name">Fecha</label>
+                <label class="name">Fecha publicación</label>
                 <select name="type" id="recentSelector">
                     <option value="R">Recientes</option>
                     <option value="0">Todos</option>
