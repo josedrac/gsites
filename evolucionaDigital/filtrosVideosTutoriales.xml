@@ -203,7 +203,8 @@
     </head>
 
 	<div class="container">
-        <div class="form">
+
+		<div class="form">
             <div class="element">
                 <label class="name">Texto</label>
                 <input type='text' id='inputText' value=''/>
@@ -214,65 +215,51 @@
                 </div>
             </div>
         </div>
-        <div class="form">
-            <label class="name">Novedades y Archivo</label>
-            <div class="element-marcotemp">
-                <select name="marco" id="marcoSelector">
+
+		<div class="form">
+            <label class="name">Tipología</label>
+            <div class="element">
+                <select name="marco" id="typeSelector">
                     <option value="0">Todos</option>
-                    <option value="R">Disponible Próximamente</option>
-                    <option value="S">Novedades ya disponibles</option>
-                    <option value="T">Archivo</option>
+                    <option value="G">Videos Comerciales</option>
+                    <option value="H">Tutoriales Cliente</option>
+                    <option value="I">Comunicación interna</option>
                 </select>
             </div>
         </div>
-        <div class="form">
+
+		<div class="form">
+            <label class="name">Finalidad</label>
             <div class="element">
-                <label class="name">Canales</label>
-                <select name="channel" id="channelSelector">
+                <select name="marco" id="reasonSelector">
                     <option value="0">Todos</option>
-                    <option value="J">Smartphone</option>
-                    <option value="M">PC</option>
-                    <option value="N">Tablet</option>
-                    <option value="O">Teléfono</option>
-                </select>
-            </div>
-            <div class="element">
-                <label class="name">Año</label>
-                <select name="anyo" id="yearSelector">
-                    <option value="0">Todos</option>
-                    <option value="2013">2013</option>
-                    <option value="2014">2014</option>
-                    <option value="2015">2015</option>
-                    <option value="2016">2016</option>
-                    <option value="2017">2017</option>
+                    <option value="J">Hazte cliente de BBVA</option>
+                    <option value="K">Operativa</option>
+                    <option value="L">Contratación-Cancelación</option>
+					<option value="M">BBVA a mano-Sin esperas</option>
+					<option value="N">Asesoramiento</option>
                 </select>
             </div>
         </div>
-        <div class="form">
+
+		<div class="form">
             <div class="element">
-                <label class="name">Tipo de contenido</label>
-                <select name="type" id="typeSelector">
+                <label class="name">Canal</label>
+                <select name="type" id="channelSelector">
                     <option value="0">Todos</option>
-                    <option value="H">Vídeo</option>
-                    <option value="G">Artículo</option>
+                    <option value="O">Móvil</option>
+                    <option value="P">Web</option>
+					<option value="Q">Otros</option>
                 </select>
             </div>
+        </div>
+
+		<div class="form">
             <div class="element">
-                <label class="name">Mes</label>
-                <select id="monthSelector" name="mes">
-                    <option value="0">Cualquiera</option>
-                    <option value="1">Enero</option>
-                    <option value="2">Febrero</option>
-                    <option value="3">Marzo</option>
-                    <option value="4">Abril</option>
-                    <option value="5">Mayo</option>
-                    <option value="6">Junio</option>
-                    <option value="7">Julio</option>
-                    <option value="8">Agosto</option>
-                    <option value="9">Septiembre</option>
-                    <option value="10">Octubre</option>
-                    <option value="11">Noviembre</option>
-                    <option value="12">Diciembre</option>
+                <label class="name">Fecha</label>
+                <select name="type" id="recentSelector">
+                    <option value="R">Recientes</option>
+                    <option value="0">Todos</option>
                 </select>
             </div>
         </div>
@@ -280,10 +267,10 @@
 
     <script type="text/javascript">
 
-        var arrayYear = ['0', '2013', '2014', '2015', '2016', '2017'];
-        var arrayMarco = ['0', 'R', 'S', 'T'];
-        var arrayChannel = ['0', 'J', 'M', 'N', 'O'];
-        var arrayType = ['0', 'H', 'G'];
+        var arrayType = ['0', 'G', 'H', 'I'];
+        var arrayReason = ['0', 'J', 'K', 'L', 'M', 'N'];
+        var arrayChannel = ['0', 'O', 'P', 'Q'];
+        var arrayRecent = ['R', '0'];
 
         setDefaultSelectOption();
 
@@ -292,84 +279,31 @@
             if(url.split("?").length > 1){
                 var params = document.referrer.split("?")[1].split("&");
                 for(var i=0; i<params.length; i++){
-                    if(params[i].split("=")[0] == p)
-                        return params[i].split("=")[1];
+                    if(params[i].split("=")[0] == p) return params[i].split("=")[1];
                 }
             }
-            return "";
+
+			return "";
         }
 
         function getIndex(value, array) {
             for(var i=0; i<array.length; i++){
-                    if(array[i] == value)
-                        return i;
+                if(array[i] == value) return i;
             }
-            return 0;
+
+			return 0;
         }
 
 		function setDefaultSelectOption() {
-            var elementYearSelector = document.getElementById('yearSelector');
-            var elementMonthSelector = document.getElementById('monthSelector');
-            var elementChannelSelector = document.getElementById('channelSelector');
-            var elementMarcoTempSelector = document.getElementById('marcoSelector');
-            var elementTypeSelector = document.getElementById('typeSelector');
-            var elementTextSelector = document.getElementById('inputText');
-
-            var year = getParam("anyo");
-            var month = getParam("mes");
-            if (month == '') {
-                month = 0;
-            }
-            var channel = getParam("channel");
-            var type = getParam("type");
-            var marco = getParam("marco");
-            var idOperativa = getParam("idOperativa");
-            if (marco == '' && idOperativa == "") {
-                marco = 'S';
-            }
-            var text = getParam("text");
-
-            elementYearSelector.selectedIndex = getIndex(year, arrayYear);
-            elementMonthSelector.selectedIndex = month;
-            elementChannelSelector.selectedIndex = getIndex(channel, arrayChannel);
-            elementMarcoTempSelector.selectedIndex = getIndex(marco, arrayMarco);
-            elementTypeSelector.selectedIndex = getIndex(type, arrayType);
-            elementTextSelector.value = window.decodeURIComponent(text);
-
         }
 
         function Go() {
-            var elementYearSelector = document.getElementById('yearSelector');
-            var elementMonthSelector = document.getElementById('monthSelector');
-            var elementChannelSelector = document.getElementById('channelSelector');
-            var elementMarcoTempSelector = document.getElementById('marcoSelector');
-            var elementTypeSelector = document.getElementById('typeSelector');
-            var elementTextSelector = document.getElementById('inputText');
-
-            var selectedYear = elementYearSelector.options[elementYearSelector.selectedIndex].value;
-            var selectedMonth = elementMonthSelector.options[elementMonthSelector.selectedIndex].value;
-            var selectedChannel = elementChannelSelector.options[elementChannelSelector.selectedIndex].value;
-            var selectedMarcoTemp = elementMarcoTempSelector.options[elementMarcoTempSelector.selectedIndex].value;
-            var selectedType = elementTypeSelector.options[elementTypeSelector.selectedIndex].value;
-            var selectedText = elementTextSelector.value;
-
-			var url = document.referrer;
-            url = document.referrer.split('?')[0];
-			url += "?anyo="+selectedYear+"&mes="+selectedMonth+"&channel="+selectedChannel+"&marco="+selectedMarcoTemp+"&type="+selectedType;
-
-			if (selectedText && selectedText.length > 0 ) {
-				url += "&text="+selectedText;
-			}
-
-			window.open(url, "_parent");
-            return false;
         }
 
-        $( "#yearSelector" ).selectmenu({width: 200});
-        $( "#monthSelector" ).selectmenu({width: 200});
-        $( "#channelSelector" ).selectmenu({width: 200});
-        $( "#typeSelector" ).selectmenu({width: 200});
-        $( "#marcoSelector" ).selectmenu({width: 200});
+        $("#typeSelector").selectmenu({width: 200});
+        $("#reasonSelector").selectmenu({width: 200});
+        $("#channelSelector").selectmenu({width: 200});
+        $("#recentSelector").selectmenu({width: 200});
 
     </script>
 
