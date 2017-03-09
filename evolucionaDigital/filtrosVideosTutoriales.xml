@@ -315,7 +315,7 @@
 			var selectedRecent = recentSelector.options[recentSelector.selectedIndex].value;
 		  	var url = document.referrer;
 			url = document.referrer.split('?')[0];
-			url += '?type=' + selectedType + '&reason=' + selectedReason + '&channel=' + selectedChannel + '&=recent' + selectedRecent;
+			url += '?type=' + selectedType + '&reason=' + selectedReason + '&channel=' + selectedChannel + '&recent=' + selectedRecent;
 			window.open(url, "_parent");
 			return false;
         }
