@@ -86,7 +86,10 @@
 			title = "Novedades ya disponibles";
 		}
 
-		if (window.location.pathname.indexOf('videos-y-tutoriales') > - 1)  {
+		if (
+			window.location.pathname.indexOf('videos-y-tutoriales') > - 1 ||
+			(document.referrer && document.referrer.indexOf('videos-y-tutoriales') > - 1)
+		)  {
 			title = "Videos y Tutoriales";
 		}
 
