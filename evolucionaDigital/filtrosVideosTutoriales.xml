@@ -291,9 +291,34 @@
         }
 
 		function setDefaultSelectOption() {
+			var typeSelector = document.getElementById('typeSelector');
+			var reasonSelector = document.getElementById('reasonSelector');
+			var channelSelector = document.getElementById('channelSelector');
+			var recentSelector = document.getElementById('recentSelector');
+			var type = getParam('type');
+			var reason = getParam('reason');
+			var channel = getParam('channel');
+			var recent = getParam('recent');
+			typeSelector.selectedIndex = getIndex(type, arrayType);
+			reasonSelector.selectedIndex = getIndex(reason, arrayReason);
+			channelSelector.selectedIndex = getIndex(channel, arrayChannel);
+			recentSelector.selectedIndex = getIndex(reason, arrayReason);
         }
 
         function Go() {
+			var typeSelector = document.getElementById('typeSelector');
+			var reasonSelector = document.getElementById('reasonSelector');
+			var channelSelector = document.getElementById('channelSelector');
+			var recentSelector = document.getElementById('recentSelector');
+			var selectedType = typeSelector.options[typeSelector.selectedIndex].value;
+			var selectedReason = reasonSelector.options[reasonSelector.selectedIndex].value;
+			var selectedChannel = channelSelector.options[channelSelector.selectedIndex].value;
+			var selectedRecent = recentSelector.options[recentSelector.selectedIndex].value;
+		  	var url = document.referrer;
+			url = document.referrer.split('?')[0];
+			url += '?type=' + selectedType + '&reason=' + selectedReason + '&channel=' + selectedChannel + '&=recent' + selectedRecent;
+			window.open(url, "_parent");
+			return false;
         }
 
         $("#typeSelector").selectmenu({width: 200});
