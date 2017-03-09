@@ -206,10 +206,6 @@
 
 		<div class="form">
             <div class="element">
-                <label class="name">Texto</label>
-                <input type='text' id='inputText' value=''/>
-            </div>
-            <div class="element">
                 <div>
                     <button onclick='javascript:Go();' class="btn">Ver resultados</button>
                 </div>
