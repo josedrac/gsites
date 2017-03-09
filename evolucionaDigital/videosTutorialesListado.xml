@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="ED-videos-tutoriales-listado.xml"
+    description=""
+    author_affiliation="Capgemini">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+	<UserPref name="_table_query_url" default_value="" display_name="Data source url (Ej:https://docs.google.com/spreadsheet/ccc?key=0AoYEewut2JmZdG5HM2VLTTdwQUlLdmhnMk1DLXBWZl)" required="true" />
+ <Content type="html">
+    <![CDATA[
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
+
+	<style type="text/css">
+		/* @group fonts */
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: 'BBVA Web Medium';
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
+			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+		/* @end */
+
+		.novedades {
+			max-width: 620px;
+			overflow: hidden;
+		}
+		.comboVideo {
+			width:620px;
+			float:left;
+		}
+	    .video-container {
+		    float:left;
+			width:607px;
+			height:180px;
+	  	}
+ 		.urlVideo {
+			float:right;
+    		width:313px;
+			height:201px;
+			margin-right:4px;
+			margin-top:5px;
+      	}
+      	.urlVideo .imgArt {
+        	width: 300px;
+        	height: 150px;
+      	}
+		.titleVideo {
+			color: #0078D2;
+			font-family: BBVA Web Book,Arial;
+			font-size: 18px;
+			width: 260px;
+			font-weight: normal;
+			margin: 0px 0px 3px 7px;
+		}
+		.titleVideo a{
+			color:#0078D2;
+			font-family:BBVA Web Book, Arial;
+			font-size:18px;
+			width:260px;
+			font-weight: normal;
+			text-decoration:none;
+			text-overflow: ellipsis;
+			display: block;
+			max-height: 65px;
+			overflow: hidden;
+		}
+
+		.textVideo{
+			color:#434A58;
+			font-size:13px;
+			font-family:arial;
+			max-height: 54px;
+			width:269px;
+			margin-top: 15px;
+			margin-left: 7px;
+			float:left;
+	    	line-height:18px;
+	    	text-overflow: ellipsis;
+			display: block;
+			overflow: hidden;
+	    }
+
+		.infoVideo {
+			float:left;
+			width:600px;
+			height:160px;
+			margin-left:15px;
+			margin-top:5px;
+		}
+
+		.allcontent{
+			-webkit-border-radius: .2em;
+			-moz-border-radius: .2em;
+			border-radius: .2em;
+			height: 1.75em;
+			padding-left: .7em;
+			padding-bottom:2px;
+			float:left;
+			margin-left: 27px;
+			width:90px;
+			margin-top:0px;
+			font-family: BBVA Web Medium, Arial;
+			font-size:12px;
+		}
+
+		.allcontent:hover{
+			background: #004C99;
+		}
+
+		button{
+			background: #0079C1;
+			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+			background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+			background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+			-webkit-border-radius: .3em;
+			-moz-border-radius: .3em;
+			border-radius: .3em;
+			font-size: 10px;
+			text-align: center;
+			vertical-align: middle;
+			height: 2em;
+			padding-left: .9em;
+			padding-right: .9em;
+			border: .1em solid #00559D;
+			color: white;
+			cursor: pointer;
+			position: relative;
+			overflow: visible;
+		}
+
+		.linevideo{
+			width:610px;
+			height:4px;
+			display:block;
+			margin-bottom: 20px;
+			padding-top: 25px;
+		}
+
+		.sites-embed-align-left-wrapping-off{
+			display: block;
+			clear: both;
+			text-align: left;
+			margin: 5px auto 5px 0;
+			width: 650px;
+		}
+
+		.tag {
+			margin-left: 5px;
+			padding: 0.1em;
+			display: table;
+		}
+
+		.tagFuture {
+			background-color: #3EB6BA;
+			padding: 0.1em 0.5em;
+			display: table;
+			margin-left: 5px;
+		}
+
+		.dateVideo {
+			color:#71777F;
+			font-size:11px;
+			margin-top:-15px;
+			margin-left:8px;
+			display: table-cell;
+		}
+
+		.dateVideoFuture {
+			color: #FFF;
+			font-size: 11px;
+			margin-top: -15px;
+			margin-left: 8px;
+			display: table-cell;
+		}
+
+		.userVideo {
+			color:#71777F;
+			font-size:11px;
+			margin-left:72px;
+			margin-top:-15px;
+			display: table-cell;
+			padding-left: 3px;
+		}
+
+		.userVideoFuture {
+			color: #FFF;
+			font-size: 11px;
+			margin-left: 72px;
+			margin-top: -15px;
+			display: table-cell;
+			padding-left: 3px;
+		}
+
+		p.text {
+	      	font-size: 0.8em;
+	      	color: #3B3B3B;
+	    }
+
+		/* .youtubeIframe{
+			display:none;
+		} */
+
+        video {
+            width: 313px;
+            height: 160px;
+        }
+
+	    .icons {
+	        margin-left: 23px;
+	    }
+
+	    .icons img {
+	        margin: 0 0 5px 0 !important;
+	    }
+
+	    .icon {
+	        float:left;
+	        height: 21px;
+	    }
+	    .iconMargin {
+	        float:left;
+	    }
+	    .noIcons {
+	    	height: 21px;
+	    }
+	    .clearBoth {
+	        clear:both;
+	    }
+
+	    .pager {
+		    height: 30px;
+		    text-align: center;
+		    width: 175px;
+		    display: table;
+		}
+		.pager ul {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    text-aling: center;
+		    display: table-cell;
+		    vertical-align: middle;
+		}
+		.pager ul li {
+		    display: inline;
+		    margin-left: 2px;
+		}
+		.pager ul li a {
+		    text-decoration: none;
+		    font-weight: bold;
+		    display: inline-table;
+		    width: 20px;
+		    height: 18px;
+		    text-align: center;
+		    border-radius: 4px;
+		    -moz-border-radius: 4px;
+		}
+		.pager span {
+		    margin-left: 4px;
+		    color: White;
+		    float: left;
+		}
+		.pager .btn {
+		    width: 40px;
+		    text-align: center;
+		    display: table-cell;
+		    vertical-align: middle;
+		    cursor: pointer;
+		}
+		.pager .disabled {
+		    color: #A0A0A0 !important;
+		    text-shadow: 1px 1px 1px #FFFFFF;
+		}
+		.black.normal {
+		    background-color: #FFFFFF;
+		    color: #0072C9;
+		    border: solid 1px #d2e5eb;
+		}
+		.black.active {
+		    background-color: #0072C9;
+		    color: #FFFFFF;
+		    border: solid 1px #0072C9;
+		}
+	</style>
+
+	<!--[if IE]>
+
+		<style type="text/css">
+
+			.checkpage img,
+			.checkpage1 img,
+			.bloqueAnterior img,
+			.bloqueSiguiente img{
+				border: 0;
+			}
+			button{
+				background: #0079C1;
+			}
+			#userVideo{
+				color:#71777F;
+				font-size:11px;
+				float:left;
+				margin-left:0px;
+				margin-top:-15px;
+			}
+		</style>
+
+	<![endif]-->
+
+	<!--[if IE 9]>
+
+		<style type="text/css">
+
+			#userVideo{
+				margin-left:72px;
+			}
+		</style>
+
+	<![endif]-->
+
+
+<div id="listportales" class="novedades"></div>
+
+   <script type="text/javascript">
+        var gadgetHelper = null;
+        var prefs = new _IG_Prefs();
+        var urlTable = prefs.getString("_table_query_url");
+        _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
+	 	function loadVisualizationAPI()
+		{
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
+
+		function isSearchDone() {
+        	if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            	return true;
+        	}
+        	return false;
+    	}
+
+    	function getParam(p){
+    		var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+    		for(var i=0; i<params.length; i++){
+    			if(params[i].split("=")[0] == p)
+    				return params[i].split("=")[1];
+    		}
+    		return "";
+    	}
+
+        function pagination(elements) {
+	        $('#pagination').smartpaginator({
+		        totalrecords: elements,
+		        recordsperpage: 4,
+		        length: 4,
+		        datacontainer: 'paginas',
+		        dataelement: 'div.comboVideo',
+		        initval: 0,
+	        });
+	     }
+
+         function getQueryParameters() {
+     		var filter = "";
+     		if(isSearchDone()){
+ 	    		var year = getParam("anyo");
+ 	    		var month = getParam("mes");
+ 	    		var channel = getParam("channel");
+ 	    		var type = getParam("type");
+ 	    		var marco = getParam("marco");
+ 	    		var operativa = getParam("idOperativa");
+ 				var text = getParam("text");
+
+ 	    		if (channel == 'J')
+ 	    			filter += " AND (J='x' OR K='x' OR L='x')";
+ 	    		else if (channel != '0' && channel != '')
+ 	    			filter += " AND "+channel+"='x'";
+
+ 	    		if (year > 0)
+ 	    			filter += " AND year(C) ="+ year;
+ 	    		if (month > 0)
+ 	    			filter += " AND month(C) = "+ (month-1);
+
+ 	    		if (type != '0' && type != '')
+ 	    			filter += " AND "+type+" is not null";
+
+ 	    		if (marco != '0' && marco != '')
+ 	    			filter += " AND "+marco+"='x'";
+ 	    		else if (marco == '' && operativa == '')
+ 	    			filter += " AND S='x'";
+
+ 	    		if (operativa != '') {
+ 	    			filter += " AND V="+operativa;
+ 	    		}
+ 				if (text != '') {
+				 	text = window.decodeURIComponent(text).replace(/\+/g, " ");
+ 					filter += " AND (lower(B) like '%" + text + "%' OR lower(D) like '%" + text + "%' OR lower(E) like '%" + text + "%') ";
+ 				}
+ 			} else {
+ 				filter += " AND S='x'";
+ 			}
+     		return filter;
+     	}
+
+        function sendQuery(){
+
+            var request = function (authorized_url){
+                gadgetHelper = new google.visualization.GadgetHelper();
+                var opts = {dataType:'jsonp'};
+                var query = new google.visualization.Query(authorized_url, opts);
+                var querytosend = "select * where A <> 'IdNovedad' AND P <> 'x' ";
+    			querytosend = querytosend.concat(getQueryParameters());
+    			querytosend = querytosend.concat(" order by C desc");
+                query.setQuery(querytosend);
+                query.send(handleQueryResponse);
+            }
+
+            window.Environment.sendAuthorizedQuery(urlTable, request);
+        }
+
+		function handleQueryResponse(response) {
+            data = response.getDataTable();
+            var filas = data.getNumberOfRows();
+			var html = "";
+
+			if(filas<1)
+    			html += '<p class="text">No hay ningún contenido disponible.</p>';
+        	else
+          		html += '<div id="paginas" class="paginaNueva" style=" display: block;width: auto;">';
+
+        	for(var i=0;i<filas;i++) {
+
+				html += "<div class='comboVideo'>";
+				html += getIcons(data, i);
+				html += "<div class='video-container'><div class='infoVideo'>";
+				html += "<div class='urlVideo'>";
+                if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
+                    if(data.getValue(i,7).startsWith('https://www.youtube.com'))
+		                html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+                    else
+                        html += "<video src='"+data.getValue(i,7)+"' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
+				} else {
+				  	html += "<img class='urlVideo imgArt' src='"+data.getValue(i,6)+"'></img></div>";
+				}
+
+				html += "<div class='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
+				if(data.getValue(i,17) != null && data.getValue(i,17) == 'x'){
+					html += "<div class='tagFuture'>";
+					html += "<div class='dateVideoFuture'>Previsto "+data.getFormattedValue(i,20)+" - </div>";
+					html += "<div class='userVideoFuture'> "+data.getValue(i,5)+"</div>";
+					html += "</div>";
+				}
+				else{
+					html += "<div class='tag'>";
+					html += "<div class='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
+					html += "<div class='userVideo'> "+data.getValue(i,5)+"</div>";
+					html += "</div>"
+				}
+				html += "<div class='textVideo'>"+data.getValue(i,3)+"</div>";
+				var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
+				html += '</div><button type="button" class="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
+				html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
+			}
+			html += "</div>";
+			html += "<div id='pagination' style='margin: auto;'></div>";
+
+			document.getElementById('listportales').innerHTML += html;
+			if(filas > 0)
+				pagination(filas);
+			gadgets.window.adjustHeight();
+		}
+
+	    function Go(destination){
+		    window.parent.location.href = destination;
+		    return false;
+		}
+
+		//delay loading
+		delayRender();
+	    function delayRender(){
+	    	window.setTimeout('showIframes()',2000);
+	    }
+	 	function showIframes() {
+	 		//console.log('debugg');
+		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+
+		 	for (var i=0;i<iframes;i++)
+			{
+			document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+			}
+        }
+
+        function getIcons(data, row) {
+            var html = "<div class='icons'>";
+                var iconCols = {
+                9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
+                13: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
+                14: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/phone.png', 15, 15]
+                };
+
+            var isCellphoneShown = false;
+            var countIcons = 0;
+            for (var column in iconCols) {
+                if (!iconCols.hasOwnProperty(column)) {
+                    continue;
+                }
+
+                if (isCellphoneShown && (column == 9 || column == 10 || column == 11)) {
+                    continue;
+                }
+
+                if (data.getValue(row, parseInt(column)) !== 'x') {
+                    continue;
+                }
+
+                if (column == 9 || column == 10 || column == 11) {
+                    isCellphoneShown = true;
+                }
+
+                if (countIcons == 0) {
+                    html += "<div class='icon'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                    countIcons++;
+                    continue;
+                }
+
+                html += "<div class='iconMargin'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";margin-left: 10px !important;' /></div>";
+                countIcons++;
+
+            }
+            if(countIcons == 0){
+            	html += "<div class='noIcons'></div>";
+            }
+
+            html += "</div>";
+            html += "<div class='clearBoth'></div>";
+            return html;
+        }
+
+  </script>
+    ]]>
+  </Content>
+
+</Module>
