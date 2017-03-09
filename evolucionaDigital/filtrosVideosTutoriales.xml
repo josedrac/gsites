@@ -253,8 +253,8 @@
             <div class="element">
                 <label class="name">Fecha publicación</label>
                 <select name="type" id="recentSelector">
-                    <option value="R">Recientes</option>
                     <option value="0">Todos</option>
+                    <option value="R">Recientes</option>
                 </select>
             </div>
         </div>
@@ -265,7 +265,7 @@
         var arrayType = ['0', 'G', 'H', 'I'];
         var arrayReason = ['0', 'J', 'K', 'L', 'M', 'N'];
         var arrayChannel = ['0', 'O', 'P', 'Q'];
-        var arrayRecent = ['R', '0'];
+        var arrayRecent = ['0', 'R'];
 
         setDefaultSelectOption();
 
