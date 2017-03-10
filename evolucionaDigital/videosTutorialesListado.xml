@@ -469,7 +469,7 @@
 				html += "<div class='comboVideo'>";
 				// html += getIcons(data, i);
 				html += "<div class='video-container'><div class='infoVideo'>";
-				html += "<div class='urlVideo'>";
+				html += "<div class='urlVideo'></div>";
 
 				// if (data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != "") {
                     // if(data.getValue(i,7).startsWith('https://www.youtube.com'))

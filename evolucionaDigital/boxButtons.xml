@@ -139,6 +139,7 @@
               if(digitalizar) {
                   return "<div id='content_div' class='caja'><div class='titulo'>Más información</div> \
                               <ul id='botonera'>\
+                                <li id='protocol'>Protocolo de Digitalización</li>\
                                 <li id='validMobile'>¿El cliente tiene un smartphone válido?</li>\
                                 <li id='validate'>Cómo validar un móvil</li>\
                                 <li id='downloadapp'>Cómo descargar la app de BBVA</li>\
@@ -175,19 +176,55 @@
 
           function addURL(digitalizar) {
                if(digitalizar) {
-                  document.getElementById("tour").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3RlVZeU5LME1CY0k/view?usp=sharing');};
-                  document.getElementById("login").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MmU5YzAyMWIzMWQ3NmMzMA');};
-                  document.getElementById("confirmuser").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3aXdDRjZIbnhGNTg');};
-                  document.getElementById("downloadapp").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWViYWFkZmEzODQ3ZDRiYQ');};
-                  document.getElementById("validate").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3N1AzUXVVSnNzMHM');};
-                  document.getElementById("register").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3QTd5THRSOHBpMkk/view?usp=sharing');};
-                  document.getElementById("appMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NjAxYzE3NjEwMDRiNTAxZg');};
-                  document.getElementById("validMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWI4NWI5MGEyYTlhYjcxNw');};
+                    if(document.getElementById("tour")) {
+                        document.getElementById("protocol").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3eWpUUXN4Ty16a2M/view?usp=sharing');};
+                    }
+
+                    if(document.getElementById("tour")) {
+                        document.getElementById("tour").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3RlVZeU5LME1CY0k/view?usp=sharing');};
+                    }
+
+                    if(document.getElementById("login")) {
+                        document.getElementById("login").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6MmU5YzAyMWIzMWQ3NmMzMA');};
+                    }
+
+                    if(document.getElementById("confirmuser")) {
+                        document.getElementById("confirmuser").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3aXdDRjZIbnhGNTg');};
+                    }
+
+                    if(document.getElementById("downloadapp")) {
+                        document.getElementById("downloadapp").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWViYWFkZmEzODQ3ZDRiYQ');};
+                    }
+
+                    if(document.getElementById("validate")) {
+                        document.getElementById("validate").onclick = function(){ Go('https://drive.google.com/open?id=0Bz5c4zIocZp3N1AzUXVVSnNzMHM');};
+                    }
+
+                    if(document.getElementById("register")) {
+                        document.getElementById("register").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3QTd5THRSOHBpMkk/view?usp=sharing');};
+                    }
+
+                    if(document.getElementById("appMobile")) {
+                        document.getElementById("appMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NjAxYzE3NjEwMDRiNTAxZg');};
+                    }
+
+                    if(document.getElementById("validMobile")) {
+                        document.getElementById("validMobile").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NWI4NWI5MGEyYTlhYjcxNw');};
+                    }
               } else {
-                  document.getElementById("cbc").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NGQ1ZWUwZWJiMzkyYjk0ZQ');};
-                  document.getElementById("cbcplus").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6Nzg2MWE4OTg4ZGZjZDhlNA');};
-                  document.getElementById("profile").onclick = function(){ Go('https://drive.google.com/file/d/0Bz5c4zIocZp3NHAza2pjU1hTQlE/view');};
+                    if(document.getElementById("cbc")) {
+                        document.getElementById("cbc").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6NGQ1ZWUwZWJiMzkyYjk0ZQ');};
+                    }
+
+                    if(document.getElementById("cbcplus")) {
+                        document.getElementById("cbcplus").onclick = function(){ Go('https://docs.google.com/a/bbva.com/viewer?a=v&pid=sites&srcid=YmJ2YS5jb218ZXZvbHVjaW9uYWRpZ2l0YWx8Z3g6Nzg2MWE4OTg4ZGZjZDhlNA');};
+                    }
+
+                    if(document.getElementById("profile")) {
+                        document.getElementById("profile").onclick = function(){ Go('https://drive.google.com/file/d/0Bz5c4zIocZp3NHAza2pjU1hTQlE/view');};
+                    }
               }
+
 
           }
           addLinks();
