@@ -489,7 +489,7 @@
 					// html += "</div>";
 				// } else {
 					html += "<div class='tag'>";
-					html += "<div class='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
+					html += "<div class='dateVideo'>" + data.getFormattedValue(i,1) + "</div>";
 					// html += "<div class='userVideo'> "+data.getValue(i,5)+"</div>";
 					html += "</div>"
 				// }
