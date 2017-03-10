@@ -363,8 +363,7 @@
         var urlTable = prefs.getString("_table_query_url");
         _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
-	 	function loadVisualizationAPI()
-		{
+	 	function loadVisualizationAPI() {
 			google.load("visualization", "1", {"packages": ["table"]});
 			google.setOnLoadCallback(sendQuery);
 		}
@@ -373,15 +372,16 @@
         	if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
             	return true;
         	}
-        	return false;
+
+			return false;
     	}
 
     	function getParam(p){
     		var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
     		for(var i=0; i<params.length; i++){
-    			if(params[i].split("=")[0] == p)
-    				return params[i].split("=")[1];
+    			if(params[i].split("=")[0] == p) return params[i].split("=")[1];
     		}
+
     		return "";
     	}
 
@@ -438,15 +438,14 @@
      		return filter;
      	}
 
-        function sendQuery(){
-
+        function sendQuery() {
             var request = function (authorized_url){
                 gadgetHelper = new google.visualization.GadgetHelper();
                 var opts = {dataType:'jsonp'};
                 var query = new google.visualization.Query(authorized_url, opts);
-                var querytosend = "select * where A <> 'IdNovedad' AND P <> 'x' ";
-    			querytosend = querytosend.concat(getQueryParameters());
-    			querytosend = querytosend.concat(" order by C desc");
+                var querytosend = "select * where A <> 'Id'";
+    			// querytosend = querytosend.concat(getQueryParameters());
+    			// querytosend = querytosend.concat(" order by C desc");
                 query.setQuery(querytosend);
                 query.send(handleQueryResponse);
             }
@@ -459,12 +458,13 @@
             var filas = data.getNumberOfRows();
 			var html = "";
 
-			if(filas<1)
+			if (filas<1) {
     			html += '<p class="text">No hay ningún contenido disponible.</p>';
-        	else
+        	} else {
           		html += '<div id="paginas" class="paginaNueva" style=" display: block;width: auto;">';
+			}
 
-        	for(var i=0;i<filas;i++) {
+        	for (var i=0;i<filas;i++) {
 
 				html += "<div class='comboVideo'>";
 				html += getIcons(data, i);
@@ -501,8 +501,11 @@
 			html += "<div id='pagination' style='margin: auto;'></div>";
 
 			document.getElementById('listportales').innerHTML += html;
-			if(filas > 0)
+
+			if (filas > 0) {
 				pagination(filas);
+			}
+
 			gadgets.window.adjustHeight();
 		}
 
@@ -511,31 +514,30 @@
 		    return false;
 		}
 
-		//delay loading
+		// Delay loading
 		delayRender();
-	    function delayRender(){
+
+		function delayRender(){
 	    	window.setTimeout('showIframes()',2000);
 	    }
-	 	function showIframes() {
-	 		//console.log('debugg');
-		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
 
-		 	for (var i=0;i<iframes;i++)
-			{
-			document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+		function showIframes() {
+		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+		 	for (var i=0;i<iframes;i++) {
+				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
 			}
         }
 
         function getIcons(data, row) {
             var html = "<div class='icons'>";
-                var iconCols = {
+			var iconCols = {
                 9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
                 10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
                 11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
                 12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
                 13: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
                 14: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/phone.png', 15, 15]
-                };
+			};
 
             var isCellphoneShown = false;
             var countIcons = 0;
