@@ -399,43 +399,15 @@
          function getQueryParameters() {
      		var filter = "";
      		if(isSearchDone()){
- 	    		var year = getParam("anyo");
- 	    		var month = getParam("mes");
- 	    		var channel = getParam("channel");
- 	    		var type = getParam("type");
- 	    		var marco = getParam("marco");
- 	    		var operativa = getParam("idOperativa");
- 				var text = getParam("text");
+ 	    		var type = getParam('type');
+				var reason = getParam('reason');
+				var channel = getParam('channel');
+				var recent = getParam('recent');
 
- 	    		if (channel == 'J')
- 	    			filter += " AND (J='x' OR K='x' OR L='x')";
- 	    		else if (channel != '0' && channel != '')
- 	    			filter += " AND "+channel+"='x'";
 
- 	    		if (year > 0)
- 	    			filter += " AND year(C) ="+ year;
- 	    		if (month > 0)
- 	    			filter += " AND month(C) = "+ (month-1);
-
- 	    		if (type != '0' && type != '')
- 	    			filter += " AND "+type+" is not null";
-
- 	    		if (marco != '0' && marco != '')
- 	    			filter += " AND "+marco+"='x'";
- 	    		else if (marco == '' && operativa == '')
- 	    			filter += " AND S='x'";
-
- 	    		if (operativa != '') {
- 	    			filter += " AND V="+operativa;
- 	    		}
- 				if (text != '') {
-				 	text = window.decodeURIComponent(text).replace(/\+/g, " ");
- 					filter += " AND (lower(B) like '%" + text + "%' OR lower(D) like '%" + text + "%' OR lower(E) like '%" + text + "%') ";
- 				}
- 			} else {
- 				filter += " AND S='x'";
  			}
-     		return filter;
+
+			 return filter;
      	}
 
         function sendQuery() {
