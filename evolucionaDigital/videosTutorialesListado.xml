@@ -405,19 +405,19 @@
 				var recent = getParam('recent');
 
 				if (type !== '0') {
-					filter += ' AND ' + type + '="x"';
+					filter += " AND " + type + "='x'";
 				}
 
 				if (reason !== '0') {
-					filter += ' AND ' + reason + '="x"';
+					filter += " AND " + reason + "='x'";
 				}
 
 				if (channel !== '0') {
-					filter += ' AND ' + channel + '="x"';
+					filter += " AND " + channel + "='x'";
 				}
 
 				if (recent !== '0') {
-					filter += ' AND ' + recent + '="x"';
+					filter += " AND " + recent + "='x'";
 				}
  			}
 
@@ -429,7 +429,7 @@
                 gadgetHelper = new google.visualization.GadgetHelper();
                 var opts = {dataType:'jsonp'};
                 var query = new google.visualization.Query(authorized_url, opts);
-                var querytosend = "select *";
+                var querytosend = "select * where A <> 'IdNovedad' ";
     			querytosend = querytosend.concat(getQueryParameters());
     			// querytosend = querytosend.concat(" order by C desc");
                 query.setQuery(querytosend);
