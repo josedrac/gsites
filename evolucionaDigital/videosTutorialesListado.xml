@@ -405,19 +405,19 @@
 				var recent = getParam('recent');
 
 				if (type !== '0') {
-					filter += 'AND ' + type + '="x")';
+					filter += ' AND ' + type + '="x"';
 				}
 
 				if (reason !== '0') {
-					filter += 'AND ' + reason + '="x")';
+					filter += ' AND ' + reason + '="x"';
 				}
 
 				if (channel !== '0') {
-					filter += 'AND ' + channel + '="x")';
+					filter += ' AND ' + channel + '="x"';
 				}
 
 				if (recent !== '0') {
-					filter += 'AND ' + recent + '="x")';
+					filter += ' AND ' + recent + '="x"';
 				}
  			}
 
