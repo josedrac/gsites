@@ -484,7 +484,7 @@
 			}
 
 			html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
-			html += "</div></div></div></div>";
+			html += "</div>";
 			html += "<div id='pagination' style='margin: auto;'></div>";
 
 			document.getElementById('listportales').innerHTML += html;
