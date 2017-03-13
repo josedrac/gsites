@@ -294,10 +294,10 @@
 			var reasonSelector = document.getElementById('reasonSelector');
 			var channelSelector = document.getElementById('channelSelector');
 			var recentSelector = document.getElementById('recentSelector');
-			var type = getParam('type');
-			var reason = getParam('reason');
-			var channel = getParam('channel');
-			var recent = getParam('recent');
+			var type = getParam('type') || '0';
+			var reason = getParam('reason') || '0';
+			var channel = getParam('channel') || 'O'; // Mobile channel by default
+			var recent = getParam('recent') || 'R'; // Recent
 			typeSelector.selectedIndex = getIndex(type, arrayType);
 			reasonSelector.selectedIndex = getIndex(reason, arrayReason);
 			channelSelector.selectedIndex = getIndex(channel, arrayChannel);
