@@ -301,7 +301,7 @@
 			typeSelector.selectedIndex = getIndex(type, arrayType);
 			reasonSelector.selectedIndex = getIndex(reason, arrayReason);
 			channelSelector.selectedIndex = getIndex(channel, arrayChannel);
-			recentSelector.selectedIndex = getIndex(reason, arrayReason);
+			recentSelector.selectedIndex = getIndex(reason, arrayRecent);
         }
 
         function Go() {
