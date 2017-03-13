@@ -447,6 +447,7 @@
                 var querytosend = "select * where A <> 'IdNovedad' AND P <> 'x' ";
     			querytosend = querytosend.concat(getQueryParameters());
     			querytosend = querytosend.concat(" order by C desc");
+				console.debug(querytosend);
                 query.setQuery(querytosend);
                 query.send(handleQueryResponse);
             }

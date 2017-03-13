@@ -430,8 +430,8 @@
                 var opts = {dataType:'jsonp'};
                 var query = new google.visualization.Query(authorized_url, opts);
                 var querytosend = "select * where A <> 'IdNovedad' ";
-    			querytosend = querytosend.concat(getQueryParameters());
-    			// querytosend = querytosend.concat(" order by C desc");
+    			querytosend += getQueryParameters();
+				console.debug(querytosend);
                 query.setQuery(querytosend);
                 query.send(handleQueryResponse);
             }
