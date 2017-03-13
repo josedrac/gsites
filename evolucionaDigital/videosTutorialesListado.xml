@@ -397,8 +397,8 @@
 	     }
 
 		function getQueryWord(first) {
-			if (first) return 'WHERE';
-			return 'AND';
+			if (first) return 'WHERE ';
+			return 'AND ';
 		}
 
          function getQueryParameters() {
