@@ -430,7 +430,7 @@
                 var opts = {dataType:'jsonp'};
                 var query = new google.visualization.Query(authorized_url, opts);
                 var querytosend = "select * where A <> 'IdNovedad' ";
-    			querytosend += getQueryParameters();
+    			querytosend = querytosend.concat(getQueryParameters());
 				console.debug(querytosend);
                 query.setQuery(querytosend);
                 query.send(handleQueryResponse);
