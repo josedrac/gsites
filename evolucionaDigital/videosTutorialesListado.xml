@@ -470,19 +470,21 @@
 				html += "<div class='video-container'><div class='infoVideo'>";
 				html += "<div class='urlVideo'></div>";
 				html += "<div class='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,2)+"</a></div>";
-				html += "<div class='tag' <div class='dateVideo'>" + data.getFormattedValue(i,1) + "</div></div>";
+				html += "<div class='tag'>";
+				html += "<div class='dateVideo'>" + data.getFormattedValue(i,1) + "</div>";
+				html += "</div>";
 				html += "<div class='textVideo'>"+data.getValue(i,3)+"</div>";
 
 				if (data.getValue(i,5) === 'x') {
 					var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
 					html += '</div><button type="button" class="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
-					html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 				} else {
-					html += '</div></div>';
+					html += '</div>';
 				}
 			}
 
-			html += "</div>";
+			html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
+			html += "</div></div></div></div>";
 			html += "<div id='pagination' style='margin: auto;'></div>";
 
 			document.getElementById('listportales').innerHTML += html;
