@@ -397,7 +397,10 @@
 	     }
 
 		function getQueryWord(first) {
-			if (first) return 'WHERE ';
+			if (first) {
+			  return 'WHERE ';
+			}
+
 			return 'AND ';
 		}
 
