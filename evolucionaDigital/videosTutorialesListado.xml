@@ -499,11 +499,13 @@
 				if (data.getValue(i,5) === 'x') {
 					var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
 					html += '</div><button type="button" class="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
-					html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 				} else {
-					html += '</div></div></div>';
+					html += '</div>';
 				}
+
+				html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 			}
+
 			html += "</div>";
 			html += "<div id='pagination' style='margin: auto;'></div>";
 
