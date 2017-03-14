@@ -472,11 +472,11 @@
 				html += "<div class='video-container'><div class='infoVideo'>";
 				html += "<div class='urlVideo'></div>";
 
-				if (data.getValue(i,19) != null && typeof data.getValue(i,19) != 'undefined' && data.getValue(i,19) !== undefined && data.getValue(i,19) != "") {
-                    if(data.getValue(i,19).startsWith('https://www.youtube.com'))
-		            	html += "<iframe src='"+data.getValue(i,19)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+				if (data.getValue(i,18) != null && typeof data.getValue(i,18) != 'undefined' && data.getValue(i,18) !== undefined && data.getValue(i,18) != "") {
+                    if(data.getValue(i,18).startsWith('https://www.youtube.com'))
+		            	html += "<iframe src='"+data.getValue(i,18)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
                     else
-                        html += "<video src='"+data.getValue(i,19)+"' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
+                        html += "<video src='"+data.getValue(i,18)+"' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
 				} else {
 				  	html += "<img class='urlVideo imgArt' src='"+data.getValue(i,6)+"'></img></div>";
 				}
