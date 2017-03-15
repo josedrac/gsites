@@ -175,7 +175,7 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion2
  {
-	width: 100px;
+	width: 140px;
 }
 .cabeceramenu ul li.opcion3
  {
@@ -191,7 +191,7 @@ margin-top:-19px;
 }
 .cabeceramenu ul li.opcion6
  {
-	width: 117px;
+	width: 99px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
 }
@@ -200,7 +200,7 @@ border-bottom-right-radius: 5px;
 border-top-right-radius: 5px;
 }
 .cabeceramenu  ul li.homefirst {
-	width: 75px;
+	width: 56px;
 	border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
@@ -211,7 +211,7 @@ border-top-right-radius: 5px;
 }
 
 .cabeceramenu  ul li.homefirst a{
-	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/ico-spritegraficos24.png') no-repeat scroll 28px -3150px;
+	background: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/ico-spritegraficos24.png') no-repeat scroll 17px -3150px;
 	border-bottom-left-radius: 5px;
     border-top-left-radius: 5px;
 }
@@ -303,7 +303,7 @@ border-top-right-radius: 5px;
 
 	<li id="opcion1" class="opcion1"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar" target="_parent">Digitalizar y remotizar</a></span></span></li>
 
-	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo"  target="_parent">Decálogo</a></span></span></li>
+	<li id="opcion2" class="opcion2"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/videos-y-tutoriales"  target="_parent">Videos y Tutoriales</a></span></span></li>
 
 	<li id="opcion3" class="opcion3"><span class="enlace" tabindex="0"><span><a href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades"  target="_parent" >Novedades y Archivo</a></span></span></li>
 
@@ -441,7 +441,7 @@ if (!Array.prototype.indexOf) {
 	{
 		if(destination=='home'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/";}
 		else if(destination=='opcion1'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/digitalizar-y-remotizar";}
-		else if(destination=='opcion2'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/decalogo";}
+		else if(destination=='opcion2'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/videos-y-tutoriales";}
 		else if(destination=='opcion3'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/novedades";}
 		else if(destination=='opcion4'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/operativa-por-canal";}
 		else if(destination=='opcion5'){window.parent.location.href="https://sites.google.com/a/bbva.com/evolucionadigital/pruebalo-antes";}
@@ -481,7 +481,7 @@ if (!Array.prototype.indexOf) {
 		}else if(parametros.indexOf("digitalizar-y-remotizar")!=-1){
 			jQuery('.opcion1').addClass("selected");
 			return;
-		} else if(parametros.indexOf("decalogo")!=-1){
+		} else if(parametros.indexOf("videos-y-tutoriales")!=-1){
 			jQuery('.opcion2').addClass("selected");
 			return;
 		} else if(parametros.indexOf("novedades")!=-1){
