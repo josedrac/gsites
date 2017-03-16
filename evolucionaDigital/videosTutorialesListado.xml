@@ -480,7 +480,7 @@
 				  	html += "<img class='urlVideo imgArt' src='"+data.getValue(i,6)+"'></img></div>";
 				}
 
-				html += "<div class='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,2)+"</a></div>";
+				html += "<div class='titleVideo'><a target='_blank' href='" + data.getValue(i,18) + "'>"+data.getValue(i,2)+"</a></div>";
 
 				// if(data.getValue(i,17) != null && data.getValue(i,17) == 'x'){
 					// html += "<div class='tagFuture'>";
