@@ -159,7 +159,7 @@
 		        }
 
 		        .contact {
-
+					height: 67px;
 		        }
 
 				.comite {
@@ -202,35 +202,21 @@
 		        </a>
 		    </div>
 
-			<div class="card-container pink short">
-				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/guias')">
-					<div class="content">
-						<div class="icon">
-							<img src="https://raw.githubusercontent.com/josedrac/gsites/master/actividadtyc/img/new-home-icons/communication.png" alt="">
-						</div>
-						<div class="text">
-							<p class="title small">Hitos de comunicación</p>
-							<span class="subtitle">Un espacio para consultar</span>
-						</div>
-					</div>
-				</a>
-			</div>
-
-			<div class="card-container green short">
+			<div class="card-container green large">
 				<a onclick="javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/publicaciones')">
 					<div class="content">
 						<div class="icon">
 							<img src="https://raw.githubusercontent.com/josedrac/gsites/master/actividadtyc/img/new-home-icons/downloads.png" alt="">
 						</div>
 						<div class="text">
-							<p class="title small">Publicaciones y presentaciones</p>
-							<span class="subtitle"></span>
+							<p class="title big">Publicaciones y presentaciones</p>
+							<span class="subtitle">Un espacio para la divulgación</span>
 						</div>
 					</div>
 				</a>
 			</div>
 
-			<div class="card-container yellow short">
+			<div class="card-container yellow large">
 				<a id="enlaceComite" onclick="">
 					<div class="content">
 						<div class="contact">
