@@ -126,7 +126,7 @@
 		        }
 
 		        .text .big {
-		        	font-size: 30px;
+		        	font-size: 28px;
 		        	margin-top: 5px;
 		        	font-weight: normal;
 		        	height: 35px;
