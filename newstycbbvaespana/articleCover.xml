@@ -231,8 +231,8 @@
 				//	query.send(handleQueryResponse);
 				//}
 
-                function getCoverUrl() {
-                    console.log('TEST6');
+                function getPreAuthUrl() {
+                    console.log('TEST7');
                     return "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreadsheetKey + "/edit";
                 }
 
@@ -241,14 +241,14 @@
                     var request = function (authorized_url){
                         gadgetHelper = new google.visualization.GadgetHelper();
                         var opts = {dataType:'jsonp'};
-                        var query = new google.visualization.Query(authorized_url, opts);
-                        var querytosend = 'SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"&sheet=' + 'article content';
-                        console.log('querytosend',querytosend);
+                        var url = authorized_url + '&sheet=' + encodeURIComponent('article content');
+                        var query = new google.visualization.Query(url, opts);
+                        var querytosend = 'SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"';
                         query.setQuery(querytosend);
                         query.send(handleQueryResponse);
                     }
 
-                    window.Environment.sendAuthorizedQuery(getCoverUrl(), request);
+                    window.Environment.sendAuthorizedQuery(getPreAuthUrl(), request);
                 }
 
 				function handleQueryResponse(response) {
