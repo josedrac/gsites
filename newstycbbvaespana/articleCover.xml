@@ -232,7 +232,7 @@
 				//}
 
                 function getCoverUrl() {
-                    return "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreadsheetKey + "/edit?sheet=" + sheetName;
+                    return "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreadsheetKey + "/edit";
                 }
 
                 function getSpreadsheet(){
@@ -241,7 +241,7 @@
                         gadgetHelper = new google.visualization.GadgetHelper();
                         var opts = {dataType:'jsonp'};
                         var query = new google.visualization.Query(authorized_url, opts);
-                        var querytosend = 'SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"';
+                        var querytosend = 'SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"?sheet=' + sheetName;
                         query.setQuery(querytosend);
                         query.send(handleQueryResponse);
                     }
