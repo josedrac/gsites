@@ -159,7 +159,7 @@
 
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
+            <script src="https://cdn.rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
 
 			<script type="text/javascript">
 
@@ -227,9 +227,27 @@
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
-				function getSpreadsheet() {
-					query.send(handleQueryResponse);
-				}
+				//function getSpreadsheet() {
+				//	query.send(handleQueryResponse);
+				//}
+
+                function getCoverUrl() {
+                    return "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreadsheetKey + "/edit?sheet=" + sheetName;
+                }
+
+                function getSpreadsheet(){
+
+                    var request = function (authorized_url){
+                        gadgetHelper = new google.visualization.GadgetHelper();
+                        var opts = {dataType:'jsonp'};
+                        var query = new google.visualization.Query(authorized_url, opts);
+                        var querytosend = 'SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"';
+                        query.setQuery(querytosend);
+                        query.send(handleQueryResponse);
+                    }
+
+                    window.Environment.sendAuthorizedQuery(getCoverUrl(), request);
+                }
 
 				function handleQueryResponse(response) {
 					if (response.isError()) {
