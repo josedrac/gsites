@@ -232,6 +232,7 @@
 				//}
 
                 function getCoverUrl() {
+                    console.log('TEST2');
                     return "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreadsheetKey + "/edit";
                 }
 
