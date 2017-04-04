@@ -243,6 +243,7 @@
                         var opts = {dataType:'jsonp'};
                         var query = new google.visualization.Query(authorized_url, opts);
                         var querytosend = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"') + '&sheet=' + encodeURIComponent('article content');
+                        console.log('querytosend',querytosend);
                         query.setQuery(querytosend);
                         query.send(handleQueryResponse);
                     }
