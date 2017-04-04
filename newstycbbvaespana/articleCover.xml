@@ -227,12 +227,7 @@
 					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
 					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
-				//function getSpreadsheet() {
-				//	query.send(handleQueryResponse);
-				//}
-
                 function getPreAuthUrl() {
-                    console.log('TEST7');
                     return "https://docs.google.com/a/bbva.com/spreadsheets/d/" + spreadsheetKey + "/edit";
                 }
 
