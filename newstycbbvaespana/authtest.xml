@@ -57,7 +57,7 @@
                     spreadsheetKey = prefs.getString('spreadsheetKey'),
                     sectionId = prefs.getString('sectionId'),
                     queryString = encodeURIComponent('SELECT *'),
-                    query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString + '&access_token=' + encodeURIComponent(gapi.auth.getToken().access_token));
+                    query = new google.visualization.Query("https://spreadsheets.google.com/tq?key=" + spreadsheetKey + "&tq='" + queryString + "'&access_token=" + encodeURIComponent(gapi.auth.getToken().access_token));
                     console.log(query);
                     query.send(handleQueryResponse);
 
