@@ -6,7 +6,7 @@
 		<Require feature="dynamic-height"/>
         <Require feature="setprefs" />
   	</ModulePrefs>
-    <UserPref name="_table_query_url"  display_name="URL Spreadsheet" required="true" />
+    <UserPref name="spreadsheetKey"  display_name="URL Spreadsheet" required="true" />
 
     <Content type="html" charset="UTF-8">
     <![CDATA[
@@ -14,6 +14,26 @@
     	<div class="container">
     		Esto es un test!
     	</div>
+
+        <script type="text/javascript">
+
+            var prefs = new gadgets.Prefs(),
+                spreadsheetKey = prefs.getString('spreadsheetKey'),
+                sectionId = prefs.getString('sectionId'),
+                queryString = encodeURIComponent('SELECT *'),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString);
+
+            function getSpreadsheet() {
+                query.send(handleQueryResponse);
+            }
+
+            function handleQueryResponse(response) {
+                console.log(response);
+            }
+
+            google.setOnLoadCallback(getSpreadsheet);
+
+        </script>
     ]]>
   	</Content>
 </Module>
