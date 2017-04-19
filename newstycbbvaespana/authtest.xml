@@ -31,6 +31,7 @@
           var authorizeButton = document.getElementById('authorize-button');
           if (authResult && !authResult.error) {
             authorizeButton.style.visibility = 'hidden';
+            ejecutarQuery();
           } else {
             authorizeButton.style.visibility = '';
             authorizeButton.onclick = handleAuthClick;
@@ -51,26 +52,23 @@
         </script>
 
         <script type="text/javascript">
+            function ejecutarQuery() {
+                var prefs = new gadgets.Prefs(),
+                    spreadsheetKey = prefs.getString('spreadsheetKey'),
+                    sectionId = prefs.getString('sectionId'),
+                    queryString = encodeURIComponent('SELECT *'),
+                    query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString + '&access_token=' + encodeURIComponent(gapi.auth.getToken().access_token));
 
-            var prefs = new gadgets.Prefs(),
-                spreadsheetKey = prefs.getString('spreadsheetKey'),
-                sectionId = prefs.getString('sectionId'),
-                queryString = encodeURIComponent('SELECT *'),
-                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString + '&access_token=' + encodeURIComponent(gapi.auth.getToken().access_token));
+                    query.send(handleQueryResponse);
 
-            function getSpreadsheet() {
-                query.send(handleQueryResponse);
-            }
-
-            function handleQueryResponse(response) {
-                console.log('llega');
-                if (response.isError()) {
-                    console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-                    return;
+                function handleQueryResponse(response) {
+                    console.log('llega');
+                    if (response.isError()) {
+                        console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                        return;
+                    }
                 }
             }
-
-            google.setOnLoadCallback(getSpreadsheet);
 
         </script>
 
