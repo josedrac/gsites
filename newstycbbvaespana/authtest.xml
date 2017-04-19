@@ -16,9 +16,11 @@
     	</div>
 
         <script type="text/javascript">
-
             google.load('visualization', '1', {packages: ['table']});
+        </script>
 
+        <script type="text/javascript">
+            
             var prefs = new gadgets.Prefs(),
                 spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sectionId = prefs.getString('sectionId'),
