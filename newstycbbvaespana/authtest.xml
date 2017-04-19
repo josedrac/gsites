@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+ 	<ModulePrefs title="NB-test.xml">
+    	<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+  	</ModulePrefs>
+
+ <Content type="html" charset="UTF-8">
+    <![CDATA[
+    	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    	<div class="container">
+    		Esto es un test!
+    	</div>
+    ]]>
+  	</Content>
+</Module>
