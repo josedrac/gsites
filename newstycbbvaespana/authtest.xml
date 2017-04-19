@@ -4,7 +4,6 @@
     	<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
-		<Require feature="setprefs" />
   	</ModulePrefs>
 
  <Content type="html" charset="UTF-8">
