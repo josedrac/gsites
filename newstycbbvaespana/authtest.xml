@@ -60,7 +60,7 @@
                     query.send(handleQueryResponse);
 
                 function handleQueryResponse(response) {
-                    console.log('llega');
+                    console.log(response);
                     if (response.isError()) {
                         console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
                         return;
