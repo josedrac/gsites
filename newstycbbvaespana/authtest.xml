@@ -4,9 +4,11 @@
     	<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
+        <Require feature="setprefs" />
   	</ModulePrefs>
+    <UserPref name="_table_query_url"  display_name="URL Spreadsheet" required="true" />
 
- <Content type="html" charset="UTF-8">
+    <Content type="html" charset="UTF-8">
     <![CDATA[
     	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
     	<div class="container">
