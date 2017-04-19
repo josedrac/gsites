@@ -20,7 +20,7 @@
         </script>
 
         <script type="text/javascript">
-            
+
             var prefs = new gadgets.Prefs(),
                 spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sectionId = prefs.getString('sectionId'),
@@ -32,7 +32,11 @@
             }
 
             function handleQueryResponse(response) {
-                console.log(response);
+                console.log('llega');
+                if (response.isError()) {
+                    console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+                    return;
+                }
             }
 
             google.setOnLoadCallback(getSpreadsheet);
