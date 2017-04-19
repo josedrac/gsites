@@ -39,7 +39,7 @@ function handleAuthClick(event) {
       handleAuthResult);
   return false;
 }
-<script>
+</script>
 
 
 
