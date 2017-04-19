@@ -13,10 +13,6 @@
     	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
         <script src="https://apis.google.com/js/auth.js?onload=init"></script>
 
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="890384802796-6k5nag1u5pd1pu219s0341ceko4rd9ui.apps.googleusercontent.com">
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-
     	<div class="container">
     		Esto es un test!
             <button id="authorize-button" onclick=handleAuthClick>Authorize</button>
@@ -32,6 +28,7 @@
         }
 
         function handleAuthResult(authResult) {
+        console.log('entra');
           var authorizeButton = document.getElementById('authorize-button');
           if (authResult && !authResult.error) {
             authorizeButton.style.visibility = 'hidden';
