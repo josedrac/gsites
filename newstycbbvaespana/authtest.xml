@@ -11,7 +11,6 @@
     <Content type="html" charset="UTF-8">
     <![CDATA[
     	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-        <script src="https://apis.google.com/js/auth.js?onload=init"></script>
 
     	<div class="container">
     		Esto es un test!
@@ -74,6 +73,8 @@
             google.setOnLoadCallback(getSpreadsheet);
 
         </script>
+
+        <script src="https://apis.google.com/js/auth.js?onload=init"></script>
     ]]>
   	</Content>
 </Module>
