@@ -17,6 +17,8 @@
 
         <script type="text/javascript">
 
+            google.load('visualization', '1', {packages: ['table']});
+
             var prefs = new gadgets.Prefs(),
                 spreadsheetKey = prefs.getString('spreadsheetKey'),
                 sectionId = prefs.getString('sectionId'),
