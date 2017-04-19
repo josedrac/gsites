@@ -15,8 +15,8 @@
 
     	<div class="container">
     		Esto es un test!
-            <button id="authorize-button" onclick=handleAuthClick>Authorize</button>
     	</div>
+        <button id="authorize-button" onclick=handleAuthClick>Authorize</button>
 
         <script>
         // NOTE: You must replace the client id on the following line.
@@ -28,7 +28,7 @@
         }
 
         function handleAuthResult(authResult) {
-        console.log('entra');
+        console.log('entra2');
           var authorizeButton = document.getElementById('authorize-button');
           if (authResult && !authResult.error) {
             authorizeButton.style.visibility = 'hidden';
@@ -39,6 +39,7 @@
         }
 
         function handleAuthClick(event) {
+        console.log('entra1');
           gapi.auth.authorize(
               {client_id: clientId, scope: scopes, immediate: false},
               handleAuthResult);
