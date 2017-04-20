@@ -317,6 +317,8 @@
 
 			</script>
 
+			<script src="https://apis.google.com/js/auth.js?onload=init"></script>
+
 	    ]]>
 	</Content>
 
