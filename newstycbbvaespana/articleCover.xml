@@ -160,6 +160,34 @@
 			<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
+			<script>
+	            // NOTE: You must replace the client id on the following line.
+	            var clientId = '890384802796-6k5nag1u5pd1pu219s0341ceko4rd9ui.apps.googleusercontent.com';
+	            var scopes = 'https://spreadsheets.google.com/feeds';
+
+	            function init() {
+	              gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true},handleAuthResult);
+	            }
+
+	            function handleAuthResult(authResult) {
+	              var authorizeButton = document.getElementById('authorize-button');
+	              if (authResult && !authResult.error) {
+	                authorizeButton.style.visibility = 'hidden';
+	                ejecutarQuery();
+	              } else {
+	                authorizeButton.style.visibility = '';
+	                authorizeButton.onclick = handleAuthClick;
+	              }
+	            }
+
+	            function handleAuthClick(event) {
+	              gapi.auth.authorize(
+	                  {client_id: clientId, scope: scopes, immediate: false},
+	                  handleAuthResult);
+	              return false;
+	            }
+	        </script>
+
 
 			<script type="text/javascript">
 
@@ -189,6 +217,7 @@
 		 	</div>
 
 		 	<div id="functionsContainer"></div>
+			<button id="authorize-button" onclick=handleAuthClick>Authorize</button>
 
 			<script type="text/javascript">
 
@@ -204,85 +233,87 @@
 			</script>
 
 			<script type="text/javascript">
+				function ejecutarQuery() {
 
-				function getUrlParameter(parameterName) {
+					function getUrlParameter(parameterName) {
 
-					var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
+						var params = gadgets.util.getUrlParameters()["parent"].split("?")[1].split('&');
 
-					for (var i = 0; i < params.length; i++) {
-						var p = params[i].split('=');
-						if (p[0] == parameterName) {
-							return decodeURIComponent(p[1]);
+						for (var i = 0; i < params.length; i++) {
+							var p = params[i].split('=');
+							if (p[0] == parameterName) {
+								return decodeURIComponent(p[1]);
+							}
 						}
-					}
-					return false;
-				}
-
-				var prefs = new gadgets.Prefs(),
-					spreadsheetKey = prefs.getString('spreadsheetKey'),
-					siteName = prefs.getString('siteName'),
-					sectionId = prefs.getString('sectionId'),
-					date = getUrlParameter("date"),
-					sheetName = encodeURIComponent('article content'),
-					queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
-					query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-
-				function getSpreadsheet() {
-					query.send(handleQueryResponse);
-				}
-
-				function handleQueryResponse(response) {
-					if (response.isError()) {
-						console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-						return;
-					}
-					var dataTable = response.getDataTable();
-					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
-				}
-
-				function printDataTable(dataTable) {
-					var data = {
-							title: dataTable.getValue(0, 1),
-							subtitle: dataTable.getValue(0, 2),
-							date: dataTable.getValue(0, 3),
-							author: dataTable.getValue(0, 4),
-							sortDescription: dataTable.getValue(0, 7)
-						},
-						coverImage = dataTable.getValue(0, 9),
-						coverVideo = dataTable.getValue(0, 10);
-
-
-					if(coverImage != null && coverImage != undefined) {
-						data.coverMedia = '<img src="' + coverImage + '" alt="image"/>';;
-					} else if(coverVideo != null && coverVideo != undefined) {
-						data.coverMedia = coverVideo;
+						return false;
 					}
 
-					document.getElementById("title").innerHTML = data.title;
-					document.getElementById("subtitle").innerHTML = data.subtitle;
+					var prefs = new gadgets.Prefs(),
+						spreadsheetKey = prefs.getString('spreadsheetKey'),
+						siteName = prefs.getString('siteName'),
+						sectionId = prefs.getString('sectionId'),
+						date = getUrlParameter("date"),
+						sheetName = encodeURIComponent('article content'),
+						queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
+						query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/" + spreadsheetKey + "/gviz/tq?sheet=" + sheetName + "&tq=" + queryString + "&access_token=" + encodeURIComponent(gapi.auth.getToken().access_token));
 
-					if(data.author != null && data.author != undefined) {
-						var authorSignature = '';
-						authorSignature += '<p class="author-signature">';
-						authorSignature += data.date + ' - ' + data.author;
-						authorSignature += '</p>';
-						document.getElementById("authorSignature").innerHTML = authorSignature;
+					function getSpreadsheet() {
+						query.send(handleQueryResponse);
 					}
 
-					document.getElementById("sortDescription").innerHTML = data.sortDescription;
-					document.getElementById("coverMedia").innerHTML = data.coverMedia;
+					function handleQueryResponse(response) {
+						if (response.isError()) {
+							console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+							return;
+						}
+						var dataTable = response.getDataTable();
+						dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+					}
 
+					function printDataTable(dataTable) {
+						var data = {
+								title: dataTable.getValue(0, 1),
+								subtitle: dataTable.getValue(0, 2),
+								date: dataTable.getValue(0, 3),
+								author: dataTable.getValue(0, 4),
+								sortDescription: dataTable.getValue(0, 7)
+							},
+							coverImage = dataTable.getValue(0, 9),
+							coverVideo = dataTable.getValue(0, 10);
+
+
+						if(coverImage != null && coverImage != undefined) {
+							data.coverMedia = '<img src="' + coverImage + '" alt="image"/>';;
+						} else if(coverVideo != null && coverVideo != undefined) {
+							data.coverMedia = coverVideo;
+						}
+
+						document.getElementById("title").innerHTML = data.title;
+						document.getElementById("subtitle").innerHTML = data.subtitle;
+
+						if(data.author != null && data.author != undefined) {
+							var authorSignature = '';
+							authorSignature += '<p class="author-signature">';
+							authorSignature += data.date + ' - ' + data.author;
+							authorSignature += '</p>';
+							document.getElementById("authorSignature").innerHTML = authorSignature;
+						}
+
+						document.getElementById("sortDescription").innerHTML = data.sortDescription;
+						document.getElementById("coverMedia").innerHTML = data.coverMedia;
+
+					}
+
+					function goArticle() {
+						window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '&key=' + spreadsheetKey + '&siteName=' + siteName;
+						return false;
+					}
+
+					//google.setOnLoadCallback(getSpreadsheet);
+
+					var buttonLabel = prefs.getString('buttonLabel');
+					document.getElementById('buttonArticle').innerHTML = buttonLabel;
 				}
-
-				function goArticle() {
-					window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '&key=' + spreadsheetKey + '&siteName=' + siteName;
-					return false;
-				}
-
-				google.setOnLoadCallback(getSpreadsheet);
-
-				var buttonLabel = prefs.getString('buttonLabel');
-				document.getElementById('buttonArticle').innerHTML = buttonLabel;
 
 			</script>
 
