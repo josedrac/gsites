@@ -198,7 +198,7 @@
 				google.load('visualization', '1', {packages: ['table']});
 
 			</script>
-
+			<button id="authorize-button" onclick=handleAuthClick>Authorize</button>
 		 	<div id="container" class="article-cover bordered-button">
 		 		<div class="content-wrapper">
 					<div class="article-cover-wrapper">
@@ -221,7 +221,6 @@
 		 	</div>
 
 		 	<div id="functionsContainer"></div>
-			<button id="authorize-button" onclick=handleAuthClick>Authorize</button>
 
 			<script type="text/javascript">
 
