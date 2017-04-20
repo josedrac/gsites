@@ -161,8 +161,8 @@
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
 			<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="47008971999-g18pvgc3vh1t5ojoqg2ls1ev7kcn2a9u.apps.googleusercontent.com">
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<meta name="google-signin-client_id" content="890384802796-6k5nag1u5pd1pu219s0341ceko4rd9ui.apps.googleusercontent.com">
+<div class="g-signin2" data-onsuccess="onSignIn"></div
 
 			<script>
 	            // NOTE: You must replace the client id on the following line.
