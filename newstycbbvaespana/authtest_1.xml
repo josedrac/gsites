@@ -13,7 +13,7 @@
     	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
     	<div id="section" class="container">
-    		Esto es un componente!
+    		Esto es otro componente!
     	</div>
         <!-- <button id="authorize-button" onclick=handleAuthClick>Authorize</button> -->
 
@@ -55,7 +55,7 @@
                     spreadsheetKey = prefs.getString('spreadsheetKey'),
                     sectionId = prefs.getString('sectionId'),
                     queryString = encodeURIComponent('SELECT *'),
-                    query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/1drprpJWppUaHhn8ViWA-0Q-cnwk6M5MD_sGpnvVn1q8/gviz/tq?sheet=Sheet1&headers=1&tq=" + queryString + "&access_token=" + encodeURIComponent(gapi.auth.getToken().access_token));
+                    query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/1zI4Kztsob5SPvLKZQKCE3QNg7sRxclRBywDt4uD001U/gviz/tq?sheet=Sheet1&headers=1&tq=" + queryString + "&access_token=" + encodeURIComponent(gapi.auth.getToken().access_token));
                     console.log(query);
                     query.send(handleQueryResponse);
 
