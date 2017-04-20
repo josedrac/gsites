@@ -69,10 +69,9 @@
                 }
 
                 function printDataTable(dataTable) {
-					var index = hasAnotherDate(dataTable);
 
-					var aux1 = dataTable.getValue(index, 1),
-					    aux2 = dataTable.getValue(index, 2);
+					var aux1 = dataTable.getValue(0, 1),
+					    aux2 = dataTable.getValue(0, 2);
 
 					var html = "";
 					html += '<p>' + aux1 + '</p>';

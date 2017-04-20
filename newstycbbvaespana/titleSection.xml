@@ -106,9 +106,11 @@
 				}
 
 				function printDataTable(dataTable) {
+					var index = hasAnotherDate(dataTable);
 
-					var name = dataTable.getValue(0, 1),
-					image = dataTable.getValue(0, 2);
+
+					var name = dataTable.getValue(index, 1),
+					image = dataTable.getValue(index, 2);
 
 					var html = "";
 
