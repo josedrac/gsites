@@ -15,7 +15,7 @@
     	<div id="section" class="container">
     		Esto es un test!
     	</div>
-        // <button id="authorize-button" onclick=handleAuthClick>Authorize</button>
+        <!-- <button id="authorize-button" onclick=handleAuthClick>Authorize</button> -->
 
         <script>
             // NOTE: You must replace the client id on the following line.
@@ -72,7 +72,7 @@
 					var index = hasAnotherDate(dataTable);
 
 					var aux1 = dataTable.getValue(index, 1),
-					var aux2 = dataTable.getValue(index, 2);
+					    aux2 = dataTable.getValue(index, 2);
 
 					var html = "";
 					html += '<p>' + aux1 + '</p>';
