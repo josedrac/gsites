@@ -50,7 +50,7 @@
         </script>
 
         <script type="text/javascript">
-            function ejecutarQuery() {
+            //function ejecutarQuery() {
                 var prefs = new gadgets.Prefs(),
                     spreadsheetKey = prefs.getString('spreadsheetKey'),
                     sectionId = prefs.getString('sectionId'),
@@ -79,7 +79,7 @@
 
 					document.getElementById("section").innerHTML = html;
 				}
-            }
+            //}
 
         </script>
 
