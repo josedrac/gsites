@@ -319,6 +319,10 @@
 
 			<script src="https://apis.google.com/js/auth.js?onload=init"></script>
 
+			<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="47008971999-g18pvgc3vh1t5ojoqg2ls1ev7kcn2a9u.apps.googleusercontent.com">
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+
 	    ]]>
 	</Content>
 
