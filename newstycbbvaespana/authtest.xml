@@ -12,37 +12,37 @@
     <![CDATA[
     	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
 
-    	<div class="container">
+    	<div id="section" class="container">
     		Esto es un test!
     	</div>
-        <button id="authorize-button" onclick=handleAuthClick>Authorize</button>
+        // <button id="authorize-button" onclick=handleAuthClick>Authorize</button>
 
         <script>
-        // NOTE: You must replace the client id on the following line.
-        var clientId = '890384802796-6k5nag1u5pd1pu219s0341ceko4rd9ui.apps.googleusercontent.com';
-        var scopes = 'https://spreadsheets.google.com/feeds';
+            // NOTE: You must replace the client id on the following line.
+            var clientId = '890384802796-6k5nag1u5pd1pu219s0341ceko4rd9ui.apps.googleusercontent.com';
+            var scopes = 'https://spreadsheets.google.com/feeds';
 
-        function init() {
-          gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true},handleAuthResult);
-        }
+            function init() {
+              gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true},handleAuthResult);
+            }
 
-        function handleAuthResult(authResult) {
-          var authorizeButton = document.getElementById('authorize-button');
-          if (authResult && !authResult.error) {
-            authorizeButton.style.visibility = 'hidden';
-            ejecutarQuery();
-          } else {
-            authorizeButton.style.visibility = '';
-            authorizeButton.onclick = handleAuthClick;
-          }
-        }
+            function handleAuthResult(authResult) {
+              // var authorizeButton = document.getElementById('authorize-button');
+              if (authResult && !authResult.error) {
+                // authorizeButton.style.visibility = 'hidden';
+                ejecutarQuery();
+              } else {
+                // authorizeButton.style.visibility = '';
+                // authorizeButton.onclick = handleAuthClick;
+              }
+            }
 
-        function handleAuthClick(event) {
-          gapi.auth.authorize(
-              {client_id: clientId, scope: scopes, immediate: false},
-              handleAuthResult);
-          return false;
-        }
+            function handleAuthClick(event) {
+              gapi.auth.authorize(
+                  {client_id: clientId, scope: scopes, immediate: false},
+                  handleAuthResult);
+              return false;
+            }
         </script>
 
         <script type="text/javascript">
@@ -60,12 +60,26 @@
                     query.send(handleQueryResponse);
 
                 function handleQueryResponse(response) {
-                    console.log(response);
                     if (response.isError()) {
                         console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
                         return;
                     }
+                    var dataTable = response.getDataTable();
+					dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
                 }
+
+                function printDataTable(dataTable) {
+					var index = hasAnotherDate(dataTable);
+
+					var aux1 = dataTable.getValue(index, 1),
+					var aux2 = dataTable.getValue(index, 2);
+
+					var html = "";
+					html += '<p>' + aux1 + '</p>';
+					html += '<p>'+ aux2 +'</p>';
+
+					document.getElementById("section").innerHTML = html;
+				}
             }
 
         </script>
