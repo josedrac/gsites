@@ -151,8 +151,8 @@
               return "<div id='content_div' class='caja'>\
                           <div class='titulo'>Más información</div>\
                           <ul id='botonera'>\
-                            <li id='cbc'>Remotización en CBC 2.0</li>\
-                            <li id='cbcplus'>Remotización en CBC 2.0+</li>\
+                            <!-- <li id='cbc'>Remotización en CBC 2.0</li>\
+                            <li id='cbcplus'>Remotización en CBC 2.0+</li>\ -->
                             <li id='profile'>¿Es apto para Contigo el cliente?</li>\
                           </ul>\
                       </div>";
@@ -221,7 +221,7 @@
                     }
 
                     if(document.getElementById("profile")) {
-                        document.getElementById("profile").onclick = function(){ Go('https://drive.google.com/file/d/0Bz5c4zIocZp3NHAza2pjU1hTQlE/view');};
+                        document.getElementById("profile").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3T2JKbmpDMFhUSGs/view?usp=sharing');};
                     }
               }
 
