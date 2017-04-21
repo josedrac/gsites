@@ -151,8 +151,6 @@
               return "<div id='content_div' class='caja'>\
                           <div class='titulo'>Más información</div>\
                           <ul id='botonera'>\
-                            <!-- <li id='cbc'>Remotización en CBC 2.0</li>\
-                            <li id='cbcplus'>Remotización en CBC 2.0+</li>\ -->
                             <li id='profile'>¿Es apto para Contigo el cliente?</li>\
                           </ul>\
                       </div>";
