@@ -255,10 +255,7 @@
 						sheetName = encodeURIComponent('article content'),
 						queryString = encodeURIComponent('SELECT * where A = "' + sectionId + '" and D ends with "' + date + '"'),
 						query = new google.visualization.Query("https://docs.google.com/spreadsheets/d/" + spreadsheetKey + "/gviz/tq?sheet=" + sheetName + "&tq=" + queryString + "&access_token=" + encodeURIComponent(gapi.auth.getToken().access_token));
-
-					<!-- function getSpreadsheet() { -->
 						query.send(handleQueryResponse);
-					<!-- } -->
 
 					function handleQueryResponse(response) {
 						if (response.isError()) {
