@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="ED-carousel-month.xml" height ="20">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+		<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+		<head>
+			<style type="text/css">
+				@font-face {
+					font-family: 'BBVA Web Light';
+					src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+					src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				@font-face {
+					font-family: 'BBVA Web Book';
+					src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
+					src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+						url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+					font-style: normal;
+					font-weight: normal;
+				}
+
+				.article-cover {
+					display: table;
+					width: 100%;
+				}
+
+				.article-cover.bordered-button {
+					background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
+					background-position: bottom;
+					background-repeat: repeat-x;
+				}
+
+				.article-cover .article-cover-wrapper {
+				    margin-right: 20px;
+					padding-left: 20px;
+					width: 280px;
+				}
+
+				.article-cover .content-wrapper {
+					display: table-cell;
+					vertical-align: top;
+				}
+
+				.article-cover .media-wrapper {
+					display: table-cell;
+					vertical-align: middle;
+				}
+
+	            #title {
+		  			font-family: BBVA Web Book, Arial;
+		  			font-size: 18px;
+		  			font-weight: normal;
+			        color: #0078D2;
+		  			text-decoration: none;
+		  			word-spacing: -2px;
+		  			margin: 0;
+				}
+
+	            #subtitle {
+					font-family: BBVA Web Light, Arial;
+					font-size: 16px;
+					font-weight: normal;
+					text-transform: uppercase;
+	    		    word-spacing: 2px;
+					color: #000;
+					margin-top: 0;
+					margin-bottom: 5px;
+				}
+
+				.author-signature {
+					font-family: arial;
+					font-size: 11px;
+					color: #71777F;
+					margin-top: 2px;
+		  			margin-bottom: 19px;
+				}
+
+				p,
+				dl {
+					font-family: arial;
+					font-size: 13px;
+					color: #434A58;
+				}
+
+				button {
+					background: #0079C1;
+					background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+					background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+					background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+					background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+					-webkit-border-radius: .3em;
+					-moz-border-radius: .3em;
+					border-radius: .3em;
+					font-size: 11px;
+					font-weight: bolder;
+					word-spacing: 2px;
+					height: 20px;
+					padding-left: .9em;
+					padding-right: .9em;
+					border: .1em solid #00559D;
+					color: white;
+					cursor: pointer;
+					margin: 20px 0;
+				}
+
+				button:hover {
+					background: #004C99;
+				}
+
+				.cover-media {
+				    text-align: right;  /* align the inline(-block) elements horizontally */
+				    font: 0/0 a;         /* remove the gap between inline(-block) elements */
+				}
+
+				.cover-media:before {    /* create a full-height inline block pseudo=element */
+				    content: ' ';
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    height: 100%;
+				}
+
+				.cover-media img,
+				.cover-media iframe {
+				    display: inline-block;
+				    vertical-align: middle;  /* vertical alignment of the inline element */
+				    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+			        max-height: 100%;
+	    			max-width: 320px;
+	    			position: relative;
+	    			bottom: 5px;
+				}
+
+				dl {
+				    margin-top: 14px;
+				    margin-bottom: 16px;
+				}
+
+				dt {
+					float: left;
+				}
+				dt:after {
+					content: "\003A";
+					margin-right: 3px;
+				}
+				dd {
+					color: #0078D2;
+				    margin-bottom: 4px;
+				}
+		    </style>
+		</head>
+
+		<div class="article-cover bordered-button">
+	 		<div class="content-wrapper">
+				<div class="article-cover-wrapper">
+                    <h3 id="subtitle">Formación para embajadores digitales</h3>
+		 			<h2 id="title">Embajadores digitales</h2>
+					<div id="authorSignature">
+                        <p class="author-signature">18/02/2016</p>
+                    </div>
+					<div id="sortDescription">
+                        <p>
+                            Para resolver cuantas cuestiones o incidencias puedan suscitarse en relación
+                            con la contratación de trabajadores temporales, tanto las que se den en el
+                            ámbito de las oficinas de la Red como las que pueda tener el propio ETT o
+                            profesional Eventual, se ha puesto marcha el Centro de Atención Directa
+                            (CAD), al que se puede acceder a través del número de teléfono <b>91 334 21 61
+                            (Ibercom 78326)</b>.
+                        </p>
+                    </div>
+					<button type="button" onclick="javascript:goArticle()">Saber más</button>
+				</div>
+	 		</div>
+	 		<div class="media-wrapper">
+	 			<div id="coverMedia" class="cover-media">
+                    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/Blog_cover.png?attachauth=ANoY7cqSylZGTQfBBmk4vCFTmw4n7723oIsi84x2WPsz_sSVP24hDn4Eu4_2870xmABwgBG_tm5OYLkUObYNqlxOhffQkYOeSBSFv8nwLodIHlFlx62Z_cA5sHv2IQ-6PamnQ01AT89fknXwcpSEH1VT2sPKPw_7su-Bccinayy74iiePC6vswY8524mPE1CiNFviruMxRUuUiunox8ZS9pVbR-WutzCqA%3D%3D&attredirects=0" alt="image"/>
+                </div>
+	 		</div>
+	 	</div>
+
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load('visualization', '1', {packages: ['table']});
+		</script>
+		<script type="text/javascript">
+			function goArticle() {
+				window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '&key=' + spreadsheetKey + '&siteName=' + siteName;
+				return false;
+			}
+		</script>
+
+    ]]>
+   </Content>
+</Module>
