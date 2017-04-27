@@ -102,16 +102,16 @@
 			var TitleFooter = "News T&C BBVA España";
 			var html = "";
 
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-canarias.html")>Canarias</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-catalunya.html")>Catalunya</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-centro.html")>Centro</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-este.html")>Este</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-noroeste.html")>Noroeste</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-norte.html")>Norte</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-portugal.html")>Portugal</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-seguros.html")>Seguros</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-seervicios.html")>Servicios Centrales</a></li>';
-			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-sur.html")>Sur</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-canarias")>Canarias</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-catalunya")>Catalunya</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-centro")>Centro</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-este")>Este</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-noroeste")>Noroeste</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-norte")>Norte</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-portugal")>Portugal</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-seguros")>Seguros</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-servicios")>Servicios Centrales</a></li>';
+			html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentstable-sur")>Sur</a></li>';
 
 			document.getElementById("title").innerHTML = TitleFooter;
 	 		document.getElementById("list").innerHTML = html;
