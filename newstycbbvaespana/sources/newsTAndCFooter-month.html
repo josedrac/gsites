@@ -1,0 +1,111 @@
+	<style type="text/css">
+
+		@font-face {
+			font-family: 'BBVA Web Light';
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
+
+		.footer {
+			background-color: #36b6bc;
+			display: inline-block;
+			width: 100%;
+			color: #fff;
+		}
+
+		.footer img, .footer div {
+			float: left;
+		}
+
+		.footer img {
+		    margin-top: 6px;
+	        margin-right: 30px;
+			margin-left: 16px;
+		}
+
+		.footer div h2 {
+			font-family: 'BBVA Web Book';
+			font-size: 42.25px;
+			text-transform: uppercase;
+			margin-bottom: 20px;
+		}
+
+		.footer div ul {
+			list-style-type: none;
+			columns: 3;
+			-webkit-columns: 3;
+			-moz-columns: 3;
+			padding: 0;
+			font-family: 'BBVA Web Light';
+		}
+
+		.footer div ul li {
+			line-height: 30px;
+		}
+
+		.footer div ul li a {
+			text-decoration: none;
+			color: inherit;
+	    cursor: pointer;
+		}
+
+
+
+	</style>
+
+	<div id="newsTAndCFooter">
+
+		<div class="footer">
+
+		 	<img src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/map-bg-green.png" alt="map-bg-green"/>
+		 	<div>
+			 	<h2 id="title"></h2>
+			 	<ul id="list">
+				</ul>
+		 	</div>
+		</div>
+	</div>
+
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script type="text/javascript">google.load('visualization', '1', {packages: ['table']});</script>
+	<script type="text/javascript">
+
+		var TitleFooter = "News T&C BBVA España";
+		var html = "";
+
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-canarias.html")>Canarias</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-catalunya.html")>Catalunya</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-centro.html")>Centro</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-este.html")>Este</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-noroeste.html")>Noroeste</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-norte.html")>Norte</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-portugal.html")>Portugal</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-seguros.html")>Seguros</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-seervicios.html")>Servicios Centrales</a></li>';
+		html += '<li><a onclick=javascript:Go("https://sites.google.com/a/bbva.com/newstycbbvaespana/appointmentsTable-sur.html")>Sur</a></li>';
+
+		document.getElementById("title").innerHTML = TitleFooter;
+ 		document.getElementById("list").innerHTML = html;
+
+	 	function Go(destination){
+	    	window.open(destination, '_parent');
+	    	return false;
+	    }
+
+	</script>
