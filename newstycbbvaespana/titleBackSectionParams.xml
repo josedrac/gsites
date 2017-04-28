@@ -104,7 +104,7 @@
 			<table width="100%" border="0" id="tablaconfig">
 				<tr>
 					<td>
-						Site name: <input type="text" id="titleBack" value="__UP_titleBack__"   onchange="register('titleBack')"/>
+						Title: <input type="text" id="titleBack" value="__UP_titleBack__"   onchange="register('titleBack')"/>
 					</td>
 				</tr>
 			</table>
