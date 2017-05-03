@@ -56,9 +56,7 @@
             <label for="">Nombre del centro</label>
             <input id="nameCenter" type="text" name="name" value="">
             <button id="search" type="button" name="button" disabled="disabled">Buscar</button>
-            <div class="listado">
-
-            </div>
+            <div class="listado"></div>
         </form>
 
         <script type="text/javascript">
@@ -102,7 +100,6 @@
                         resultFilter.forEach(function(elem) {
                             $('.listado').append('<p>' + elem + '</p>');
                         });
-
                     }
                 });
 
