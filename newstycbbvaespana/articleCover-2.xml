@@ -172,10 +172,10 @@
 		<div class="article-cover bordered-button">
 	 		<div class="content-wrapper">
 				<div class="article-cover-wrapper">
-		 			<h2 id="title">BBVA, premio Prever 2016 a la innovación y el diseño</h2>
+		 			<h2 id="title">Seguridad extra con la doble autenticación</h2>
 					<div id="sortDescription">
                         <p>
-                            BBVA ha sido galardonada con el premio nacional Prever 2016 en la categoría i+D+i, por la metodología BBVA-Psico desarrollada para la evaluación y el estudio de los riesgos psicosociales.
+                            Desde el 28 de abril, en BBVA contamos con el doble factor de autenticación, un sistema doble de validación de contraseña cuando accedes a la intranet o al email corporativo desde fuera de la red del Banco, con tu ordenador, tablet y/o móvil.
                         </p>
                     </div>
 					<button type="button" onclick="javascript:goArticle()">Saber más</button>
@@ -183,7 +183,7 @@
 	 		</div>
 	 		<div class="media-wrapper">
 	 			<div id="coverMedia" class="cover-media">
-                    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/PORTADA_PREMISO_PREVER.jpg?attachauth=ANoY7crCbsrtauQSx4zLtEYR7Ct-8g5k4K6H3u8J1lv-sxJ49vf-5mDfbUQX2lInrlp7K-pZGuMeMsR2k8GVGM0zMn9djLqxoaWjOoZ0pqm7CUC90gxLZVwLWfAbis-C58nNdPo3X73mzi7YjbK8T1VHi_xkWTxYszJhvhdPvJAkNsNGMNNN75eyD82q48E9eUNXfBXWu4cJLYBgb6Hbc9_ZeroRPkr-ibytDHOsmxU0JgLC6vHxd1w%3D&attredirects=0" alt="image"/>
+                    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/Banner-lateral-interior_doble-autenticacio%CC%81n.jpg?attachauth=ANoY7cqaL2G45C5VLYlWMH2kO81moRW3OPfK37IuYlLD5-vgJPrF9zboTZKCL9AgGlJ6LfzbSwwCSX7cl2nkBwg3zqX0uWfFPTmm5miZRYncvAYuYgfoyyc4I8WtVY8RQqlBf1Z-cgtfnQuYCItkaCzi0KeSP70cT5omb8N2phseqKAh61GT5oReCtl0OkS2dUjxa89ID4gg497OLrVOUj4CwiB15NuilvAPzI1eH1BzBiaygtiHgR-qMo8o-tOTMkZotckDmfbpv9D43lf49RDrqrX9WY7uuA%3D%3D&attredirects=0" alt="image"/>
                 </div>
 	 		</div>
 	 	</div>
