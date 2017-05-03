@@ -104,8 +104,8 @@
 				}
 
 				.banner ul li .content {
-					width: 273px;
-					height: 195px;
+					width: 303px;
+					height: 216px;
 					background-color: white;
 					margin-left: 80px;
 					margin-top: 20px;
