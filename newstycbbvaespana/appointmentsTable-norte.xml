@@ -171,30 +171,35 @@
     		template += '<td>OLIVERAS IBAÑEZ,CARLES</td>';
     		template += '<td>UTEBO</td>';
     		template += '<td>DIRECTOR ASOCIADO</td>';
+            template += '<td></td>';
     		template += '</tr>';
 
             template += '<tr>';
     		template += '<td>SORIANO RODRIGUEZ,HECTOR</td>';
     		template += '<td>ZARAGOZA-EMPRESAS</td>';
     		template += '<td>GESTOR RELACION</td>';
+            template += '<td></td>';
     		template += '</tr>';
 
             template += '<tr>';
     		template += '<td>MIGUEL PASTOR,JAVIER</td>';
     		template += '<td>HUESCA-EMPRESAS</td>';
     		template += '<td>GESTOR RELACION</td>';
+            template += '<td></td>';
     		template += '</tr>';
 
             template += '<tr>';
     		template += '<td>ALDABALDETREKU GABIRONDO,NORA</td>';
     		template += '<td>DR NORTE EMPRESAS</td>';
     		template += '<td>GESTORA COMERCIO EXTERIOR</td>';
+            template += '<td></td>';
     		template += '</tr>';
 
             template += '<tr>';
     		template += '<td>GIMENEZ LARRIPA,SANDRA</td>';
     		template += '<td>CBC-BARBASTRO</td>';
     		template += '<td>GESTORA COMERCIAL CONTIGO CBC</td>';
+            template += '<td></td>';
     		template += '</tr>';
 
             template += '<tr>';
@@ -208,12 +213,14 @@
     		template += '<td>AMUCHASTEGUI GONZALEZ,NAIARA</td>';
     		template += '<td>S.SEB-AMARA</td>';
     		template += '<td>GESTORA BANCA PERSONAL OFICINA</td>';
+            template += '<td></td>';
     		template += '</tr>';
 
             template += '<tr>';
     		template += '<td>ROLDAN LANDA,MARIA</td>';
     		template += '<td>CBC-LOGROÑO SUR</td>';
     		template += '<td>GESTORA PYMES CBC</td>';
+            template += '<td></td>';
     		template += '</tr>';
 
     		document.getElementById("tableBody").innerHTML = template;
