@@ -52,14 +52,23 @@
         <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
         <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
 
+        <form class="">
+            <label for="">Nombre del centro</label>
+            <input id="nameCenter" type="text" name="name" value="">
+            <button id="search" type="button" name="button" disabled="disabled">Buscar</button>
+            <div class="listado">
+
+            </div>
+        </form>
+
         <script type="text/javascript">
             $(document).ready(function() {
 
+                var allData = [];
                 var dataForm = {
-                    'key': '1ujKcchroEQy37I8-dJheCXgINLbSpPncJJbLmMcl_ww'
+                    'key': '1qTNQNjRZbTrH5-Sv72I21Mq_BVjj-Td3p_zKXPNb23g'
                 };
 
-                console.log(dataForm);
                 $.ajax({
                     type: 'GET',
                     url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
@@ -68,12 +77,35 @@
                     crossDomain: true,
                     jsonpCallback: "on_result",
                     success: function(data) {
-                        console.log(data);
+                        allData = data;
+                        $('#search').removeAttr('disabled');
                     },
                     error: function() {
                         console.log('error');
                     }
                 });
+
+                function filterElements(elem) {
+                    var resultName = elem.filter(isName);
+                    if (resultName.length) {
+                        return elem;
+                    }
+                }
+
+                function isName(element, index) {
+                    return index === 2  && element.toLowerCase().includes($('#nameCenter').val().toLowerCase());
+                }
+
+                $('#search').on('click', function() {
+                    if ($('#nameCenter').val() !== '') {
+                        resultFilter = allData.filter(filterElements);
+                        resultFilter.forEach(function(elem) {
+                            $('.listado').append('<p>' + elem + '</p>');
+                        });
+
+                    }
+                });
+
             });
         </script>
     </body>
