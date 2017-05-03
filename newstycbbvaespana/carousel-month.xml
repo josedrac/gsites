@@ -181,8 +181,8 @@
 
 			html +="<li style='background-image: url(\"https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/home/imagenes/carrusel.png?attachauth=ANoY7cr_oMBIzs0DT44vi76xgikVqOgdl7qFe8eABGnU5lzFnMTSEdUOWrXkuWU-R_aA9YD_6JzD6T-6gvBhySshPLBrd3Pl_RB7hVk2PzP8TtINdwZG7YI0sbZUf5E8LO6d3Z5zSUjxlnwpT4SShiqiD9yqDHIV_KdVX4kfT8oc2ECg-q23xkVRCgUofzKgztrIJcnF-keI0O5rVpErovq6YVRG5c3MK0wuJiQRmtfoE6XDldESBSA%3D&attredirects=0\");'>";
 			html +="	<div class='content'>";
-			html +="		<h2>Titulo de la noticia del carrusel</h2>";
-			html +="    	<p>Contenido explicativo de la noticia del carrusel</p>";
+			html +="		<h2>BBVA se mantiene líder en certificaciones en España</h2>";
+			html +="    	<p>Gran éxito de nuestros compañeros en la última convocatoria de la certificación EIP</p>";
 			html +="		<button onclick=javascript:Go('https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=CAR&date=01/2016&key=1gWxfjBO4J5sKAWUjUE9x38TX-7t8lIkaoQpYiJGnEy4&siteName=servicios-centrales')>Mas info</button>";
 			html +="	</div>";
 			html +="</li>";
