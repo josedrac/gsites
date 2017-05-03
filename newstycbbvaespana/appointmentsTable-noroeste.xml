@@ -250,7 +250,7 @@
 
             template += '<tr>';
     		template += '<td>ORDEN RAMOS,MONICA</td>';
-    		template += '<td>SORIA-MARQUES DE VADILLO</td>';
+    		template += '<td>SORIA-MARQUES DE VADILLO</td>';<
     		template += '<td>GESTORA BANCA PERSONAL 2 OFICINA</td>';
             template += '<td>CBC-SORIA</td>';
             template += '<td>GESTORA COMERCIAL CONTIGO CBC A</td>';
@@ -263,11 +263,11 @@
     		function createTableHeader() {
     			var header = "";
 
-                header += 	'<th id="col-1" class="col-1">Felicitaciones a</th>' +
-    						'<th id="col-4" class="col-4">Cargo anterior</th>' +
-    						'<th id="col-5" class="col-5">Ubicación anterior</th>' +
+                header += 	'<th id="col-3" class="col-3">Felicitaciones a</th>' +
+    						'<th id="col-3" class="col-3">Cargo anterior</th>' +
+    						'<th id="col-3" class="col-3">Ubicación anterior</th>' +
                             '<th id="col-3" class="col-3">Nueva ubicación</th>' +
-                            '<th id="col-2" class="col-2">Nuevo Cargo</th>' +
+                            '<th id="col-3" class="col-3">Nuevo Cargo</th>' +
     						'<th class="col-5"><span id="sign-up" class="sign-up">apuntate<span>+</span></span></th>';
 
     			document.getElementById('table_header').innerHTML = header;
