@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  	<ModulePrefs title="NB-appointmentsTable-centro.xml">
+	    <Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+  	</ModulePrefs>
+
+ 	<Content type="html">
+    	<![CDATA[
+
+        <style type="text/css">
+
+            @font-face {
+    			font-family: 'BBVA Web Light';
+    			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+    			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+    				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+    				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+    				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    			font-style: normal;
+    			font-weight: normal;
+    		}
+    		p {
+    			font-family: arial;
+    			font-size: 12.25px;
+    			color: #434A58;
+    			line-height: 20px;
+    			padding: 0 20px;
+    		}
+    		table {
+    	    	border-collapse: collapse;
+    			background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
+    			background-position: bottom;
+    			background-repeat: repeat-x;
+    			width: 900px;
+    			margin: 0 auto;
+    			//margin-top: 40px;
+    		}
+    		table thead tr th {
+    			font-family: BBVA Web Light, Arial;
+    			font-weight: normal;
+    			font-size: 16px;
+    		    text-align: left;
+    			color: #0078D2;
+    			border-bottom: 1px solid #DDE3EA;
+    		    padding: 0 20px 6px;
+    		}
+    		.col-1 {
+    			width: 27%;
+    		}
+    		.col-2 {
+    			width: 15%;
+    		}
+
+    		.col-3 {
+    			width: 25%;
+    		}
+    		.col-4 {
+    			width: 36%;
+    		}
+
+    		.col-5 {
+    			width: 18%;
+    		}
+    		.six-cols .col-1 {
+    			width: 24%;
+    		}
+    		.six-cols .col-2 {
+    			width: 15%;
+    		}
+
+    		.six-cols .col-3 {
+    			width: 18%;
+    		}
+
+    		.six-cols .col-4 {
+    			width: 15%;
+    		}
+
+    		.six-cols .col-5 {
+    			width: 18%;
+    		}
+    		table tbody tr {
+    			height: 50px;
+    			border-top: 1px solid #DDE3EA;
+    			border-bottom: 1px solid #DDE3EA;
+    		}
+
+    		table tbody tr:nth-child(even) {
+    			background: #F7F7F7;
+    		}
+
+    		table tbody tr td {
+    			font-family: arial;
+    			font-size: 12.25px;
+    			color: #434A58;
+    		    padding: 7.25px 20px;
+    	        vertical-align: top;
+    		}
+
+    		table tbody tr:first-child td {
+    			padding-top: 26px;
+    		}
+
+    		table tbody tr:last-child td {
+    			padding-bottom: 25px;
+    		}
+
+    		table tbody tr td.text-right {
+    			text-align: right;;
+    		}
+
+    		table tbody tr td .sign-up {
+    			font-family: BBVA Web Light, Arial;
+    			font-size: 18px;
+    			color: #0078D2;
+    			position: relative;
+    		    top: -4px;
+    	        cursor: default
+    		}
+
+    		table tbody tr td .sign-up span {
+    			position: relative;
+    		    top: -4px;
+    		    font-weight: bold;
+    		    color: #0079C1;
+    		}
+    		table thead tr th:not(:first-child),
+    		table tbody tr td:not(:first-child) {
+    			padding-left: 0;
+    		}
+
+    		.text-center {
+    			text-align: center;
+    		}
+
+    	</style>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
+    	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
+    	<script type="text/javascript">
+    		google.load('visualization', '1', {packages: ['table']});
+    	</script>
+
+        <!-- --- HTML -------------------------------------------------------------------------------------------- -->
+
+        <div id='container'>
+    		<p id="text"></p>
+    		<table>
+    			<thead>
+    				<tr id="table_header">
+    				</tr>
+    			</thead>
+    			<tbody id="tableBody"></tbody>
+    		</table>
+    	</div>
+
+
+    	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
+
+        <script type="text/javascript">
+
+    		var template = '';
+    		createTableHeader();
+
+            template += '<tr>';
+    		template += '<td>ALSINA CAUBET,JORDI</td>';
+    		template += '<td>GESTOR  RED CONTENCIOSO</td>';
+    		template += '<td>GESTOR COMERCIAL CF </td>';
+            template += '<td>GESTOR COMERCIAL CF </td>';
+            template += '<td>RECUPERACIONES ESPAÑA</td>';
+            template += '<td>CONSUMER FINANCE</td>';
+            template += '<td>CONSUMER FINANCE</td>';
+            template += '<td></td>';
+    		template += '</tr>';
+
+            template += '<tr>';
+    		template += '<td>RIVERA HIDALGO,ALICIA LEONOR</td>';
+    		template += '<td>RIVERA HIDALGO,ALICIA LEONOR</td>';
+    		template += '<td>RESP SUBUNIDAD 2 DESAR COMERC</td>';
+            template += '<td>PRODUCTS</td>';
+            template += '<td>REC TRANSACC. & PROC PROD.</td>';
+            template += '<td>PRODUCTS</td>';
+            template += '<td>REC TRANSACC. & PROC PROD.</td>';
+            template += '<td></td>';
+    		template += '</tr>';
+
+            template += '<tr>';
+    		template += '<td>GARCIA GARCIA,PELAYO</td>';
+    		template += '<td>TECNICO 0 SOLUCIONES NEGOCIOS</td>';
+    		template += '<td>JEFE EQUIPO 2</td>';
+            template += '<td>PRODUCTS</td>';
+            template += '<td>FINANCIACION EMPRESARIAL E INS</td>';
+            template += '<td>PRODUCTS</td>';
+            template += '<td>FINANCIACION EMPRESARIAL E INS</td>';
+            template += '<td></td>';
+    		template += '</tr>';
+
+            template += '<tr>';
+    		template += '<td>ALVAREZ AVELLO,FERNANDO</td>';
+    		template += '<td>JF EQ 0 NUEVOS MODELOS NEG</td>';
+    		template += '<td>RESP SUBUNIDAD 2 MEDIOS PAGO</td>';
+            template += '<td>PRODUCTS</td>';
+            template += '<td>MEDIOS PAGO & FINANC. CONSUMO</td>';
+            template += '<td>PRODUCTS</td>';
+            template += '<td>MEDIOS PAGO & FINANC. CONSUMO</td>';
+            template += '<td></td>';
+    		template += '</tr>';
+
+            template += '<tr>';
+    		template += '<td>GARCIA PUERTA,DAVID</td>';
+    		template += '<td>ANALYST A</td>';
+    		template += '<td>MANAGER B</td>';
+            template += '<td>INGENIERIA ESPAÑA</td>';
+            template += '<td>SISTEMAS ESPAÑA</td>';
+            template += '<td>INGENIERIA ESPAÑA</td>';
+            template += '<td>ARQUITECTURA</td>';
+            template += '<td class="text-center"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/green-check.png"></td>';
+    		template += '</tr>';
+
+            template += '<tr>';
+    		template += '<td>CORREDOR PINILLA,JUAN</td>';
+    		template += '<td>SENIOR MANAGER A</td>';
+    		template += '<td>EXECUTIVE DIRECTOR</td>';
+            template += '<td>INGENIERIA ESPAÑA</td>';
+            template += '<td>SEG INFORMCN Y CONTROL OPERATV</td>';
+            template += '<td>INGENIERIA ESPAÑA</td>';
+            template += '<td>SEG INFORMCN Y CONTROL OPERATV</td>';
+            template += '<td></td>';
+    		template += '</tr>';
+
+            template += '<tr>';
+    		template += '<td>ALONSO LOPEZ,ANTONIO BALBINO</td>';
+    		template += '<td>SENIOR MANAGER TYO</td>';
+    		template += '<td>EXECUTIVE DIRECTOR</td>';
+            template += '<td>INGENIERIA ESPAÑA</td>';
+            template += '<td>SISTEMAS ESPAÑA</td>';
+            template += '<td>INGENIERIA ESPAÑA</td>';
+            template += '<td>SISTEMAS ESPAÑA</td>';
+            template += '<td></td>';
+    		template += '</tr>';
+
+            template += '<tr>';
+    		template += '<td>RODRIGUEZ MARTIN,SUSANA</td>';
+    		template += '<td>ANALYST A</td>';
+    		template += '<td>MANAGER B</td>';
+            template += '<td>MANAGER B</td>';
+            template += '<td>SISTEMAS ESPAÑA</td>';
+            template += '<td>MANAGER B</td>';
+            template += '<td>SISTEMAS ESPAÑA</td>';
+            template += '<td class="text-center"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/green-check.png"></td>';
+    		template += '</tr>';
+
+
+    		document.getElementById("tableBody").innerHTML = template;
+
+
+    		function createTableHeader() {
+    			var header = "";
+
+                header += 	'<th>Felicitaciones a</th>' +
+    						'<th>Puesto origen</th>' +
+                            '<th>Puesto destino</th>' +
+                            '<th>Area origen</th>' +
+                            '<th>Unidad origen</th>' +
+                            '<th>Area destino</th>' +
+                            '<th>Unidad destino</th>' +
+    						'<th><span id="sign-up" class="sign-up">apuntate<span>+</span></span></th>';
+
+    			document.getElementById('table_header').innerHTML = header;
+    			//document.getElementById('text').innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+    		}
+
+    	</script>
+
+    	<!-- --- END JAVASCRIPT ---------------------------------------------------------------------------------- -->
+
+
+   		]]>
+  	</Content>
+
+</Module>
