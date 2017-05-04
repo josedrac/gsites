@@ -77,10 +77,14 @@
 
         <div id="container" class="container">
             <button id="buttonLabel" type="button" onclick="javascript:goBack();">Volver</button>
-            <h2 id="title">Titulo de la sección</h2>
+            <h2 id="title"></h2>
         </div>
 
         <script type="text/javascript">
+
+			var titleBack = prefs.getString('titleBack');
+
+			document.getElementById("title").innerHTML = titleBack;
 
             function goBack() {
                 window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/abril-2017';
