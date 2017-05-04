@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="ED-articleContent-month.xml" height ="20">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load('visualization', '1', {packages: ['table']});
+		</script>
+
+		<head>
+            <style type="text/css">
+    			@font-face {
+    				font-family: 'BBVA Web Light';
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    				font-style: normal;
+    				font-weight: normal;
+    			}
+
+    			@font-face {
+    				font-family: 'BBVA Web Book';
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+    				font-style: normal;
+    				font-weight: normal;
+    			}
+
+    			.article-content {
+    				padding: 0 10px;
+    			}
+
+                #title {
+                    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 22px;
+                    font-weight: normal;
+                    word-spacing: -1px;
+                    color: #0078D2;
+                    padding: 0 10px 6px;
+                    border-bottom: 1px solid #DCDCDC;
+                    margin-top: 0;
+                    margin-bottom: 25px;
+                }
+
+                #subtitle {
+                    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 16.25px;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                    color: #000;
+                    margin: 0;
+                    padding: 0 10px;
+                }
+
+    			p.author-signature {
+    				font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    				font-size: 11px;
+    				color: #71777F;
+    				margin-top: 1px;
+    			}
+
+    			p {
+    				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    				font-size: 12px;
+    				color: #71777F;
+    			    line-height: 19px;
+    			    padding: 0 10px;
+    			}
+
+    			.media-wrapper {
+    				height: 315px;
+    				display: table;
+    				width: 100%;
+    			}
+
+    			.media-content {
+    			    display: table-cell;
+    			    vertical-align: middle;
+    			    text-align: center;
+    			}
+
+    			.media-content:before {
+    				content: ' ';
+    			    display: inline-block;
+    			    vertical-align: middle;  /* vertical alignment of the inline element */
+    			    height: 100%;
+    			}
+
+    			.media-content img,
+    			.media-content iframe {
+    			    display: inline-block;
+    			    vertical-align: middle;  /* vertical alignment of the inline element */
+    			    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+    		        max-height: 100%;
+        			max-width: 100%;
+    			}
+
+    			dl {
+    			    margin-top: 14px;
+    			    margin-bottom: 16px;
+    			    padding: 0 10px;
+    				font-family: arial;
+    				font-size: 13px;
+    				color: #434A58;
+    			}
+
+    			dt {
+    				float: left;
+    			}
+    			dt:after {
+    				content: "\003A";
+    				margin-right: 3px;
+    			}
+    			dd {
+    				color: #0078D2;
+    			    margin-bottom: 4px;
+    			}
+
+    			li {
+    				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    			    font-size: 12px;
+    			    color: #71777F;
+    			    line-height: 19px;
+    			}
+
+                a {
+                    font-family: arial,sans-serif;
+                    color: #0000cc;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+    		</style>
+		</head>
+
+        <div class="article-content">
+			<div class="media-wrapper">
+				<div id="media" class="media-content">
+				    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/CAMINOSANTIAGO_Interior.jpg?attachauth=ANoY7copP00iK2R-8Hc0vAZlMJPr16MFV1n_0iGixomSPIHtRLp5s5Za38krAsasHDeqhVs9a5GyBLxUEf_0_czfS8gtD8GKGC8RHVuKWM6wjikjdEh8lMBVvpmthmg5ju_FKbr8KOoT5cmTX1y0to6xNwkVGdOCZFGtiYOpTUTVGz-A6y9yrXqfpf4yLCiRYDTNVVfZXzqUmqA5UbH9HW2bs80FQOzg7EuJR4U5Bkx-AltLqJwPstc%3D&attredirects=0" alt="">
+				</div>
+			</div>
+			<div id="authorSignature"> J. Javier Arias Cubelos, DT Nororeste</div>
+			<div id="description">
+				<p>Cuando una piensa en “gente BBVA” ( me suena un viejo lema cuyos pines aún deben andar por ahí) se te vienen a la cabeza muchos valores: trabajo en equipo, coordinación, ilusión, esfuerzo, solidaridad, … en definitiva buenas personas que hacen cosas maravillosas.</p>
+				<p>Tú eres una de esas personas y ahora tienes la posibilidad de unirte a una iniciativa solidaria que aúna todas esas cosas. </p>
+				<p> Si además te gusta el ciclismo, no nos puedes fallar.</p>
+				<p>Te propongo participar en el reto de hacer el Camino de Santiago a relevos, por etapas y entre empleados de BBVA con tus amigos y familiares. Y todo ello en 30 etapas y en 56 horas. Puedes hacer la etapa o etapas que quieras, y el coste es de sólo 25 euros.</p>
+				<p> Es la primera vez que se intenta, al menos que tengamos constancia, y estoy seguro que nos lo vamos a pasar muy bien.  Además, contribuiremos con cuatro buenas causas: lo recaudado se destinará a financiar cuatro proyectos solidarios relacionados con la infancia.</p>
+				<p>A cambio te entregaremos un maillot, un bidón y tu dorsal conmemorativo. ¿Te parece poco?.</p>
+				<p>No me quiero enrollar más, tienes toda la información<a href="https://sites.google.com/a/contentsarea.com/am-solidarios-non-stop/home/"style="text-decoration:none" target="_blank"><b><font color=#02a5a5>haciendo clic en este enlace</font></b></a>, donde puedes encontrar los horarios de las diferentes etapas, información de las ONGs o el formulario de inscripción, entre otras muchas cosas.<p>
+				<p>¡Ah!, y no olvides que puedes hacerlo en compañía de tus compañeros de aventuras por los montes, aunque no sean empleados de BBVA; el único requisito es que seas tú quien les inscriba.</p>
+				<p>Y si no te coinciden bien las fechas también tenemos una pedalada cero para que hagas tu contribución, aunque nos gustaría verte dar pedales con nosotros.</p>
+				<p>Nos vemos en El Camino.</p>
+			</div>
+		</div>
+
+    ]]>
+   </Content>
+</Module>
