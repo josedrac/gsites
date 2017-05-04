@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="ED-articleContent-month.xml" height ="20">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load('visualization', '1', {packages: ['table']});
+		</script>
+
+		<head>
+            <style type="text/css">
+    			@font-face {
+    				font-family: 'BBVA Web Light';
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    				font-style: normal;
+    				font-weight: normal;
+    			}
+
+    			@font-face {
+    				font-family: 'BBVA Web Book';
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+    				font-style: normal;
+    				font-weight: normal;
+    			}
+
+    			.article-content {
+    				padding: 0 10px;
+    			}
+
+                #title {
+                    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 22px;
+                    font-weight: normal;
+                    word-spacing: -1px;
+                    color: #0078D2;
+                    padding: 0 10px 6px;
+                    border-bottom: 1px solid #DCDCDC;
+                    margin-top: 0;
+                    margin-bottom: 25px;
+                }
+
+                #subtitle {
+                    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 16.25px;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                    color: #000;
+                    margin: 0;
+                    padding: 0 10px;
+                }
+
+    			p.author-signature {
+    				font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    				font-size: 11px;
+    				color: #71777F;
+    				margin-top: 1px;
+    			}
+
+    			p {
+    				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    				font-size: 12px;
+    				color: #71777F;
+    			    line-height: 19px;
+    			    padding: 0 10px;
+    			}
+
+    			.media-wrapper {
+    				height: 315px;
+    				display: table;
+    				width: 100%;
+    			}
+
+    			.media-content {
+    			    display: table-cell;
+    			    vertical-align: middle;
+    			    text-align: center;
+    			}
+
+    			.media-content:before {
+    				content: ' ';
+    			    display: inline-block;
+    			    vertical-align: middle;  /* vertical alignment of the inline element */
+    			    height: 100%;
+    			}
+
+    			.media-content img,
+    			.media-content iframe {
+    			    display: inline-block;
+    			    vertical-align: middle;  /* vertical alignment of the inline element */
+    			    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+    		        max-height: 100%;
+        			max-width: 100%;
+    			}
+
+    			dl {
+    			    margin-top: 14px;
+    			    margin-bottom: 16px;
+    			    padding: 0 10px;
+    				font-family: arial;
+    				font-size: 13px;
+    				color: #434A58;
+    			}
+
+    			dt {
+    				float: left;
+    			}
+    			dt:after {
+    				content: "\003A";
+    				margin-right: 3px;
+    			}
+    			dd {
+    				color: #0078D2;
+    			    margin-bottom: 4px;
+    			}
+
+    			li {
+    				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    			    font-size: 12px;
+    			    color: #71777F;
+    			    line-height: 19px;
+    			}
+
+                a {
+                    font-family: arial,sans-serif;
+                    color: #0000cc;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+    		</style>
+		</head>
+
+        <div class="article-content">
+			<div class="media-wrapper">
+				<div id="media" class="media-content">
+				    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/DOBLE-AUTENTICACION_interior.jpg?attachauth=ANoY7crJwBKCqs88yZ59g76rh6jXNHfKW4cGmlrdAOcBSksXHrUTYQOOpnM58KHhA4KBekQDGyumCT0oaZRQocFppxsJvbuxVSgG-q9q_BCXD3PVvvsuvg3BdZVhi4-FsZXHi63mv7r37Al52MowJa5P8rBbFdWG081MZ67Cpgz6QiJPDs-lJudet2-mHpSB5KBXSO3OW4wylDyrexAnAza_F7Xy3P22ZAWtVw_B06xkqGXM8D-VLWg%3D&attredirects=0" alt="">
+				</div>
+			</div>
+			<div id="description">
+				<p>Desde el 28 de abril, en BBVA contamos con el doble factor de autenticación, un sistema doble de validación de contraseña cuando accedes a la intranet o al email corporativo desde fuera de la red del Banco, con tu ordenador, tablet y/o móvil.</p>
+				<p>¿Sabes por qué es necesario? Con esta medida te aseguras de que eres tú quien accedes a tus cuentas de correo electrónico, incrementando la seguridad que te ofrece una contraseña única.</p>
+				<p>Twitter, Google, LinkedIn, Dropbox o Apple son algunos ejemplos de servicios que ofrecen este extra de seguridad como opcional.</p>
+				<p>Accede ahora con más seguridad desde cualquier sitio. Para más info, <a href="https://drive.google.com/file/d/0B5U1eLdRkC3hdWJab3ZublhrakE/view/" style="text-decoration:none" target="_blank"><b><font color=#02a5a5>guía de uso</font></b></a></p>
+			</div>
+		</div>
+
+    ]]>
+   </Content>
+</Module>
