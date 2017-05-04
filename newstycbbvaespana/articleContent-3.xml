@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="ED-articleContent-month.xml" height ="20">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load('visualization', '1', {packages: ['table']});
+		</script>
+
+		<head>
+            <style type="text/css">
+    			@font-face {
+    				font-family: 'BBVA Web Light';
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    				font-style: normal;
+    				font-weight: normal;
+    			}
+
+    			@font-face {
+    				font-family: 'BBVA Web Book';
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+    				font-style: normal;
+    				font-weight: normal;
+    			}
+
+    			.article-content {
+    				padding: 0 10px;
+    			}
+
+                #title {
+                    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 22px;
+                    font-weight: normal;
+                    word-spacing: -1px;
+                    color: #0078D2;
+                    padding: 0 10px 6px;
+                    border-bottom: 1px solid #DCDCDC;
+                    margin-top: 0;
+                    margin-bottom: 25px;
+                }
+
+                #subtitle {
+                    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 16.25px;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                    color: #000;
+                    margin: 0;
+                    padding: 0 10px;
+                }
+
+    			p.author-signature {
+    				font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    				font-size: 11px;
+    				color: #71777F;
+    				margin-top: 1px;
+    			}
+
+    			p {
+    				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    				font-size: 12px;
+    				color: #71777F;
+    			    line-height: 19px;
+    			    padding: 0 10px;
+    			}
+
+    			.media-wrapper {
+    				height: 315px;
+    				display: table;
+    				width: 100%;
+    			}
+
+    			.media-content {
+    			    display: table-cell;
+    			    vertical-align: middle;
+    			    text-align: center;
+    			}
+
+    			.media-content:before {
+    				content: ' ';
+    			    display: inline-block;
+    			    vertical-align: middle;  /* vertical alignment of the inline element */
+    			    height: 100%;
+    			}
+
+    			.media-content img,
+    			.media-content iframe {
+    			    display: inline-block;
+    			    vertical-align: middle;  /* vertical alignment of the inline element */
+    			    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+    		        max-height: 100%;
+        			max-width: 100%;
+    			}
+
+    			dl {
+    			    margin-top: 14px;
+    			    margin-bottom: 16px;
+    			    padding: 0 10px;
+    				font-family: arial;
+    				font-size: 13px;
+    				color: #434A58;
+    			}
+
+    			dt {
+    				float: left;
+    			}
+    			dt:after {
+    				content: "\003A";
+    				margin-right: 3px;
+    			}
+    			dd {
+    				color: #0078D2;
+    			    margin-bottom: 4px;
+    			}
+
+    			li {
+    				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    			    font-size: 12px;
+    			    color: #71777F;
+    			    line-height: 19px;
+    			}
+
+                a {
+                    font-family: arial,sans-serif;
+                    color: #0000cc;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+    		</style>
+		</head>
+
+        <div class="article-content">
+			<div class="media-wrapper">
+				<div id="media" class="media-content">
+				    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/CAR_Interior_Certficaciones.jpg?attachauth=ANoY7cqrUW7Ug_cl6UyHJAvnW_zq_sNW8UrIvhvnxlCsG3YPowSfmvATvD22RIKzdJ5qG1jxnxp9n_7fv3QxAdmE8aw4MWJ8D9F1CKLC3wrGHHVDstW_nks9xCviXLNuQCJ0WmT2DMjVIkY1r9TMIS0lYs7yc99nMDxD0PpDgOrheC-MPvSSP1Cc4PYGuWRf6qcTshqXM-BjRzO4Tr2RbscT32Jm7dM8EpM_QRJypmLo6ueZxFPB0Qo%3D&attredirects=0" alt="">
+				</div>
+			</div>
+			<div id="description">
+				<p>El pasado 30 de marzo se celebró la última convocatoria de la certificación EIP <i>(European Investment Practitioner)</i>, en la que <b> 569 compañeros aprobaron (un 83% de los presentados)</b>. Los exámenes se celebraron en Barcelona, Bilbao, Madrid, Málaga, Sevilla, Baleares, Murcia, Valencia, Alicante, A Coruña, Vigo y Valladolid.</p>
+				<p>Certificarse supone un gran esfuerzo, muchas horas de estudio que hay que combinar con nuestro día a día, laboral y familiar. Pero merece la pena, porque es la nueva forma de ser profesional en el sector financiero, y te permitirá, no solo diferenciarte profesionalmente, sino también ofrecer un servicio de calidad a tus clientes.</p>
+				<p>En <b>Formación España</b> no pueden estudiar por ti, pero sí hacértelo más fácil. En este sentido, se están potenciando todas las iniciativas que dan soporte y apoyan a quienes deciden certificarse:</p>
+				<ul>
+					<li>Tutorías</li>
+					<li>Citas previas temáticas</li>
+					<li>Site Certificaciones EFPA</li>
+					<li>Curso de apoyo, con materiales de consulta</li>
+					<li>Un nuevo curso con contenidos multimedia que favorecen la preparación de los exámenes<li>
+				</ul>
+				<p>Hoy, más que nunca, certificarse es una apuesta segura. Y con tu centro de formación lo tienes un poco más fácil. Recuerda que <b>MiFID II</b> exige, a partir de 2018, que todas las personas que quieran trabajar como asesores financieros acrediten una cualificación mínima que certifique sus conocimientos y competencias en la Unión Europea.</p>
+				<p>Las próximas convocatorias de exámenes de las certificaciones EFPA se celebrarán:</p>
+				<ul>
+					<li>29 de junio</li>
+					<li26 de octubre</li>
+					<li>14 de diciembre</li>
+				</ul>
+				<p>Consulta toda la información en el <a href="https://sites.google.com/a/bbva.com/certificaciones-efpa/"style="text-decoration:none" target="_blank"><b><font color=#02a5a5>site Certificaciones EFPA</font></b></a> y en tu centro de formación.</p>
+			</div>
+		</div>
+
+    ]]>
+   </Content>
+</Module>
