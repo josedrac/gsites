@@ -36,6 +36,7 @@
                 background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
                 background-position: bottom;
                 background-repeat: repeat-x;
+				display: flex;
             }
             .container h2 {
                 display: inline-block;
@@ -57,7 +58,8 @@
                 color: #0078D2;
                 font-size: 15px;
                 font-weight: bold;
-                padding-left: 10px;
+                padding-left: 14px;
+				padding-right: 14px;
             }
             .printer-container {
                 display: inline-block;
