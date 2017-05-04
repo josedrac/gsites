@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="ED-articleContent-month.xml" height ="20">
+		<Require feature="idi"/>
+	    <Require feature="locked-domain" />
+		<Require feature="dynamic-height"/>
+		<Require feature="setprefs" />
+	</ModulePrefs>
+
+	<Content type="html">
+	    <![CDATA[
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript">
+			google.load('visualization', '1', {packages: ['table']});
+		</script>
+
+		<head>
+            <style type="text/css">
+    			@font-face {
+    				font-family: 'BBVA Web Light';
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    				font-style: normal;
+    				font-weight: normal;
+    			}
+
+    			@font-face {
+    				font-family: 'BBVA Web Book';
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
+    				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
+    					url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+    				font-style: normal;
+    				font-weight: normal;
+    			}
+
+    			.article-content {
+    				padding: 0 10px;
+    			}
+
+                #title {
+                    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 22px;
+                    font-weight: normal;
+                    word-spacing: -1px;
+                    color: #0078D2;
+                    padding: 0 10px 6px;
+                    border-bottom: 1px solid #DCDCDC;
+                    margin-top: 0;
+                    margin-bottom: 25px;
+                }
+
+                #subtitle {
+                    font-family: BBVA Web Light, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+                    font-size: 16.25px;
+                    font-weight: normal;
+                    text-transform: uppercase;
+                    color: #000;
+                    margin: 0;
+                    padding: 0 10px;
+                }
+
+    			p.author-signature {
+    				font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    				font-size: 11px;
+    				color: #71777F;
+    				margin-top: 1px;
+    			}
+
+    			p {
+    				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    				font-size: 12px;
+    				color: #71777F;
+    			    line-height: 19px;
+    			    padding: 0 10px;
+    			}
+
+    			.media-wrapper {
+    				height: 315px;
+    				display: table;
+    				width: 100%;
+    			}
+
+    			.media-content {
+    			    display: table-cell;
+    			    vertical-align: middle;
+    			    text-align: center;
+    			}
+
+    			.media-content:before {
+    				content: ' ';
+    			    display: inline-block;
+    			    vertical-align: middle;  /* vertical alignment of the inline element */
+    			    height: 100%;
+    			}
+
+    			.media-content img,
+    			.media-content iframe {
+    			    display: inline-block;
+    			    vertical-align: middle;  /* vertical alignment of the inline element */
+    			    font: 16px/1 Arial sans-serif;        /* <-- reset the font property */
+    		        max-height: 100%;
+        			max-width: 100%;
+    			}
+
+    			dl {
+    			    margin-top: 14px;
+    			    margin-bottom: 16px;
+    			    padding: 0 10px;
+    				font-family: arial;
+    				font-size: 13px;
+    				color: #434A58;
+    			}
+
+    			dt {
+    				float: left;
+    			}
+    			dt:after {
+    				content: "\003A";
+    				margin-right: 3px;
+    			}
+    			dd {
+    				color: #0078D2;
+    			    margin-bottom: 4px;
+    			}
+
+    			li {
+    				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+    			    font-size: 12px;
+    			    color: #71777F;
+    			    line-height: 19px;
+    			}
+
+                a {
+                    font-family: arial,sans-serif;
+                    color: #0000cc;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+    		</style>
+		</head>
+
+        <div class="article-content">
+			<h3 id="title">BBVA, premio Prever 2016 a la innovación y el diseño</h3>
+			<div id="authorSignature"></div>
+			<div id="sortDescription"></div>
+			<div class="media-wrapper">
+				<div id="media" class="media-content">
+				    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/PREMIOS-PREVER_INTERIOR.jpg?attachauth=ANoY7cpWdlDvjpEeT8vpZD37Ft2pqNW-94A9PXQPzQs1bsuf3sGlMObxCXGgVj52Qqe71zezOb8btrKZW92q1MDzglFnmcUHMuBt2P-pTkZk4s_lDE7BAGBWrrEdyzAUxeHd-CDCMnLKMS5LovBH5thalFcvXAaQjS68gh2dT7zx52pZqK5KEljT789u0hLWiWn0E7-TkgUrf51KrnBs8CL4-bp-zTFKSQeP4cMcIuBmaweQ2oOoYmQ%3D&attredirects=0" alt="">
+				</div>
+			</div>
+			<div id="description">
+                <p>BBVA ha sido galardonada con el premio nacional Prever 2016 en la categoría i+D+i, por la metodología BBVA-Psico desarrollada para la evaluación y el estudio de los riesgos psicosociales. </p>
+                <p>El jurado ha valorado el esfuerzo en la innovación y el diseño desarrollado por el equipo del Servicio  de Prevención de Riesgos Laborales (Talento y Cultura), factores considerados esenciales para aumentar la seguridad y la salud laboral,  así como para aportar calidad de vida a los trabajadores.</p>
+                <p>Además, nuestra compañera <b>Mª Dolores Rodríguez Sanz</b> ha recibido la Mención de Honor por por su trayectoria como técnico de Prevención de Riesgos Laborales, del Servicio de Prevención de Riesgos Laborales de BBVA.</p>
+                <p>Los premios Prever, otorgados por el Consejo General de Relaciones Industriales y Ciencias del Trabajo, se han convertido se han convertido en todo un referente dentro de la prevención de los riesgos laborales a nivel nacional e internacional, desde su nacimiento en 1998.</p>
+                <p>Nuestra más sincera enhorabuena y agradecimientos por su labor en la prevención de riesgos al equipo del Servicio de Prevención de Riesgos Laborales, y muy especialmente a nuestra compañera Lola Rodríguez.</p>
+			</div>
+		</div>
+
+    ]]>
+   </Content>
+</Module>
