@@ -37,6 +37,7 @@
                 background-position: bottom;
                 background-repeat: repeat-x;
 				display: flex;
+				align-items: center;
             }
             .container h2 {
                 display: inline-block;
