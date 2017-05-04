@@ -194,7 +194,7 @@
 		</script>
 		<script type="text/javascript">
 			function goArticle() {
-				window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + sectionId + '&date=' + date + '&key=' + spreadsheetKey + '&siteName=' + siteName;
+				window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articulo-seguridad';
 				return false;
 			}
 		</script>
