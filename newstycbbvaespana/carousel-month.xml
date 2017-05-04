@@ -183,7 +183,7 @@
 			html +="	<div class='content'>";
 			html +="		<h2>BBVA se mantiene líder en certificaciones en España</h2>";
 			html +="    	<p>Gran éxito de nuestros compañeros en la última convocatoria de la certificación EIP</p>";
-			html +="		<button onclick=javascript:Go('https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=CAR&date=01/2016&key=1gWxfjBO4J5sKAWUjUE9x38TX-7t8lIkaoQpYiJGnEy4&siteName=servicios-centrales')>Mas info</button>";
+			html +="		<button onclick=javascript:Go('https://sites.google.com/a/bbva.com/newstycbbvaespana/article-certificaciones')>Mas info</button>";
 			html +="	</div>";
 			html +="</li>";
 
