@@ -82,6 +82,7 @@
 
         <script type="text/javascript">
 
+			var prefs = new gadgets.Prefs();
 			var titleBack = prefs.getString('titleBack');
 
 			document.getElementById("title").innerHTML = titleBack;
