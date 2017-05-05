@@ -145,16 +145,16 @@
 		</head>
 
         <div class="article-content">
-			<div class="media-wrapper">
-				<div id="media" class="media-content">
-				    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/DOBLE-AUTENTICACION_interior.jpg?attachauth=ANoY7crJwBKCqs88yZ59g76rh6jXNHfKW4cGmlrdAOcBSksXHrUTYQOOpnM58KHhA4KBekQDGyumCT0oaZRQocFppxsJvbuxVSgG-q9q_BCXD3PVvvsuvg3BdZVhi4-FsZXHi63mv7r37Al52MowJa5P8rBbFdWG081MZ67Cpgz6QiJPDs-lJudet2-mHpSB5KBXSO3OW4wylDyrexAnAza_F7Xy3P22ZAWtVw_B06xkqGXM8D-VLWg%3D&attredirects=0" alt="">
-				</div>
-			</div>
 			<div id="description">
 				<p>Desde el 28 de abril, en BBVA contamos con el doble factor de autenticación, un sistema doble de validación de contraseña cuando accedes a la intranet o al email corporativo desde fuera de la red del Banco, con tu ordenador, tablet y/o móvil.</p>
 				<p>¿Sabes por qué es necesario? Con esta medida te aseguras de que eres tú quien accedes a tus cuentas de correo electrónico, incrementando la seguridad que te ofrece una contraseña única.</p>
 				<p>Twitter, Google, LinkedIn, Dropbox o Apple son algunos ejemplos de servicios que ofrecen este extra de seguridad como opcional.</p>
-				<p>Accede ahora con más seguridad desde cualquier sitio. Para más info, <a href="https://drive.google.com/file/d/0B5U1eLdRkC3hdWJab3ZublhrakE/view/" style="text-decoration:none" target="_blank"><b><font color=#02a5a5>guía de uso</font></b></a></p>
+				<div class="media-wrapper">
+					<div id="media" class="media-content">
+					    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/DOBLE-AUTENTICACION_interior.jpg?attachauth=ANoY7crJwBKCqs88yZ59g76rh6jXNHfKW4cGmlrdAOcBSksXHrUTYQOOpnM58KHhA4KBekQDGyumCT0oaZRQocFppxsJvbuxVSgG-q9q_BCXD3PVvvsuvg3BdZVhi4-FsZXHi63mv7r37Al52MowJa5P8rBbFdWG081MZ67Cpgz6QiJPDs-lJudet2-mHpSB5KBXSO3OW4wylDyrexAnAza_F7Xy3P22ZAWtVw_B06xkqGXM8D-VLWg%3D&attredirects=0" alt="">
+					</div>
+				</div>
+				<p>Accede ahora con más seguridad desde cualquier sitio. Para más info, accede a esta <a href="https://drive.google.com/file/d/0B5U1eLdRkC3hdWJab3ZublhrakE/view/" style="text-decoration:none" target="_blank"><b><font color=#02a5a5>guía de uso</font></b></a></p>
 			</div>
 		</div>
 
