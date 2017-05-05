@@ -73,7 +73,7 @@
 
     			p {
     				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    				font-size: 12px;
+    				font-size: 14px;
     				color: #71777F;
     			    line-height: 19px;
     			    padding: 0 10px;
@@ -130,7 +130,7 @@
 
     			li {
     				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    			    font-size: 12px;
+    			    font-size: 14px;
     			    color: #71777F;
     			    line-height: 19px;
     			}
