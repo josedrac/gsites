@@ -180,7 +180,7 @@
 
             template += '<tr>';
     		template += '<td>RIVERA HIDALGO,ALICIA LEONOR</td>';
-    		template += '<td>RIVERA HIDALGO,ALICIA LEONOR</td>';
+    		template += '<td>JF. Q. DESARROLLO COMERCIAL Y PRODUCTIVIDAD</td>';
     		template += '<td>RESP SUBUNIDAD 2 DESAR COMERC</td>';
             template += '<td>PRODUCTS</td>';
             template += '<td>REC TRANSACC. & PROC PROD.</td>';
