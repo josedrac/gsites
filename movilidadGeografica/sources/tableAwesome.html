@@ -96,6 +96,7 @@
 
                 $('#search').on('click', function() {
                     if ($('#nameCenter').val() !== '') {
+                        $('.listado').html('');
                         resultFilter = allData.filter(filterElements);
                         resultFilter.forEach(function(elem) {
                             $('.listado').append('<p>' + elem + '</p>');
