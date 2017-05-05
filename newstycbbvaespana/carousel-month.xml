@@ -182,7 +182,7 @@
 			html +="<li style='background-image: url(\"https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/CAR_PORTADA.jpg?attachauth=ANoY7cqru61is39ZYRiDrD97JLwL4GqHdVjo7XJkHXykcn78bkNHU1uqwdIZxJmkFqtG347AQ1H2-lhFRbV1urM2tnPJ-VtWeENQZ5ZEyAwQlUTwKqvhBdj84IVG3-b6kDalBGpDmy3suw-v0qXg6csw3ZItxf3KGWwuWhJBGmzDZZUio1fg1jZm8XW9X4IPISKGEgvb5WCPiTnp9yRLrtkrSDxVoVevqw%3D%3D&attredirects=0\");'>";
 			html +="	<div class='content'>";
 			html +="		<h2>BBVA se mantiene líder en certificaciones en España</h2>";
-			html +="    	<p>Gran éxito de nuestros compañeros en la última convocatoria de la certificación EIP</p>";
+			html +="    	<p>Gran éxito de nuestros compañeros en la convocatoria de la certificación EIP</p>";
 			html +="		<button onclick=javascript:Go('https://sites.google.com/a/bbva.com/newstycbbvaespana/article-certificaciones')>Mas info</button>";
 			html +="	</div>";
 			html +="</li>";
