@@ -73,7 +73,7 @@
 
     			p {
     				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    				font-size: 12px;
+    				font-size: 14px;
     				color: #71777F;
     			    line-height: 19px;
     			    padding: 0 10px;
@@ -130,7 +130,7 @@
 
     			li {
     				font-family: BBVA Web Book, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-    			    font-size: 12px;
+    			    font-size: 14px;
     			    color: #71777F;
     			    line-height: 19px;
     			}
@@ -145,16 +145,16 @@
 		</head>
 
         <div class="article-content">
-			<div class="media-wrapper">
-				<div id="media" class="media-content">
-				    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/PREMIOS-PREVER_INTERIOR.jpg?attachauth=ANoY7cpWdlDvjpEeT8vpZD37Ft2pqNW-94A9PXQPzQs1bsuf3sGlMObxCXGgVj52Qqe71zezOb8btrKZW92q1MDzglFnmcUHMuBt2P-pTkZk4s_lDE7BAGBWrrEdyzAUxeHd-CDCMnLKMS5LovBH5thalFcvXAaQjS68gh2dT7zx52pZqK5KEljT789u0hLWiWn0E7-TkgUrf51KrnBs8CL4-bp-zTFKSQeP4cMcIuBmaweQ2oOoYmQ%3D&attredirects=0" alt="">
-				</div>
-			</div>
 			<div id="description">
                 <p>BBVA ha sido galardonada con el premio nacional Prever 2016 en la categoría i+D+i, por la metodología BBVA-Psico desarrollada para la evaluación y el estudio de los riesgos psicosociales. </p>
                 <p>El jurado ha valorado el esfuerzo en la innovación y el diseño desarrollado por el equipo del Servicio  de Prevención de Riesgos Laborales (Talento y Cultura), factores considerados esenciales para aumentar la seguridad y la salud laboral,  así como para aportar calidad de vida a los trabajadores.</p>
-                <p>Además, nuestra compañera <b>Mª Dolores Rodríguez Sanz</b> ha recibido la Mención de Honor por por su trayectoria como técnico de Prevención de Riesgos Laborales, del Servicio de Prevención de Riesgos Laborales de BBVA.</p>
-                <p>Los premios Prever, otorgados por el Consejo General de Relaciones Industriales y Ciencias del Trabajo, se han convertido se han convertido en todo un referente dentro de la prevención de los riesgos laborales a nivel nacional e internacional, desde su nacimiento en 1998.</p>
+                <p>Además, nuestra compañera <b>Mª Dolores Rodríguez Sanz</b> ha recibido la Mención de Honor por su trayectoria como técnico de Prevención de Riesgos Laborales, del Servicio de Prevención de Riesgos Laborales de BBVA.</p>
+				<div class="media-wrapper">
+					<div id="media" class="media-content">
+					    <img src="https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/PREMIOS-PREVER_INTERIOR.jpg?attachauth=ANoY7cpWdlDvjpEeT8vpZD37Ft2pqNW-94A9PXQPzQs1bsuf3sGlMObxCXGgVj52Qqe71zezOb8btrKZW92q1MDzglFnmcUHMuBt2P-pTkZk4s_lDE7BAGBWrrEdyzAUxeHd-CDCMnLKMS5LovBH5thalFcvXAaQjS68gh2dT7zx52pZqK5KEljT789u0hLWiWn0E7-TkgUrf51KrnBs8CL4-bp-zTFKSQeP4cMcIuBmaweQ2oOoYmQ%3D&attredirects=0" alt="">
+					</div>
+				</div>
+				<p>Los premios Prever, otorgados por el Consejo General de Relaciones Industriales y Ciencias del Trabajo, se han convertido en todo un referente dentro de la prevención de los riesgos laborales a nivel nacional e internacional, desde su nacimiento en 1998.</p>
                 <p>Nuestra más sincera enhorabuena y agradecimientos por su labor en la prevención de riesgos al equipo del Servicio de Prevención de Riesgos Laborales, y muy especialmente a nuestra compañera Lola Rodríguez.</p>
 			</div>
 		</div>
