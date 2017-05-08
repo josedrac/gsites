@@ -169,7 +169,7 @@
 
             template += '<tr>';
     		template += '<td>OLIVERAS IBAÑEZ,CARLES</td>';
-    		template += '<td>UTEBO</td>';
+    		template += '<td>CBC-FRAGA</td>';
     		template += '<td>DIRECTOR ASOCIADO</td>';
             template += '<td></td>';
     		template += '</tr>';
