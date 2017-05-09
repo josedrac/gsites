@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs
+    title="ED-remote-video.xml"
+    description="">
+    <!--<Require feature="idi"/>-->
+    <!--<Require feature="locked-domain" />-->
+	  <Require feature="dynamic-height"/>
+	  <!--<Require feature="setprefs" />-->
+  </ModulePrefs>
+
+  <UserPref
+    name="spreadsheetKey"
+    default_value=""
+    display_name="spreadsheetKey (example: 1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8)"
+    required="false"
+  />
+
+  <Content view="canvas" preferred_height="200px">
+    <![CDATA[
+      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
+      <style type="text/css">
+        /* @group fonts */
+        @font-face {
+          font-family: 'BBVA Web Light';
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.eot');
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.woff') format("woff"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.ttf') format("truetype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+          font-style: normal;
+          font-weight: normal;
+        }
+
+        @font-face {
+          font-family: 'BBVA Web Book';
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.eot');
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.woff') format("woff"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.ttf') format("truetype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+          font-style: normal;
+          font-weight: normal;
+        }
+
+        @font-face {
+          font-family: 'BBVA Web Medium';
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.eot');
+          src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.woff') format("woff"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.ttf') format("truetype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+          font-style: normal;
+          font-weight: normal;
+        }
+        /* @end */
+
+        .clearfix {
+          overflow: auto;
+        }
+
+        #container {
+          width: 300px;
+        }
+      </style>
+
+      <div class="container" id="container"></div>
+
+      <script type="text/javascript">
+
+          var dataForm = {
+              'key': '14a-VGCKxkoQt-mpRohC6QUJe23sE-lk5yj6_nOTE-88'
+          };
+
+          $.ajax({
+              type: 'GET',
+              url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
+              data: dataForm,
+              dataType: 'jsonp',
+              crossDomain: true,
+              jsonpCallback: "on_result",
+              success: function(data) {
+                  handleQueryResponse(data);
+              },
+              error: function() {
+                  console.log('error');
+              }
+          });
+
+          function handleQueryResponse(response) {
+              var videoUrl = response[0][0];
+              var embedUrl = videoUrl.replace('watch?v=', 'embed/');
+              document
+                  .getElementById('container')
+                  .innerHTML = '<iframe allowScriptAccess="always" width="300" height="233" src="' + embedUrl + '" frameborder="0" allowfullscreen></iframe>';
+          }
+
+          </script>
+    ]]>
+  </Content>
+
+</Module>
