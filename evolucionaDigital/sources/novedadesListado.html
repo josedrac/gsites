@@ -307,12 +307,150 @@
 
 <div id="listportales" class="novedades"></div>
 
-   <script type="text/javascript">
-        var gadgetHelper = null;
-        var urlTable = "https://docs.google.com/a/bbva.com/spreadsheets/d/1jt3inBP2qB5ux0frU0ktViDuiqfgOi7_CU0fRf8gIxc/edit?usp=sharing"
-        google.load('visualization', '1', {packages: ['table']});
-        google.setOnLoadCallback(sendQuery);
+   	<script type="text/javascript">
 
+	   	var dataForm = {
+		   'key': '1jt3inBP2qB5ux0frU0ktViDuiqfgOi7_CU0fRf8gIxc'
+	   	};
+
+		$.ajax({
+            type: 'GET',
+            url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
+            data: dataForm,
+            dataType: 'jsonp',
+            crossDomain: true,
+            jsonpCallback: "on_result",
+            success: function(data) {
+                handleQueryResponse(data);
+            },
+            error: function() {
+                console.log('error');
+            }
+        });
+
+		function handleQueryResponse(data) {
+
+			var html = "";
+			if (!data.length) {
+				html += '<p class="text">No hay ningún contenido disponible.</p>';
+			} else {
+				html += '<div id="paginas" class="paginaNueva" style=" display: block;width: auto;">';
+			}
+
+			//Eliminamos la primera fila ya que no es necesaria
+			data.splice(0,1);
+			//Ordenamos el array por fecha
+			console.log(data.length);
+			data.sort(function(x, y){
+		    	return new Date(x[2]) - new Date(y[2]);
+			});
+
+			data = valueParameters(data);
+			console.log(data.length);
+
+
+			data.forEach(function(elem, index) {
+				html += "<div class='comboVideo'>";
+				html += getIcons(elem, index);
+				html += "<div class='video-container'><div class='infoVideo'>";
+				html += "<div class='urlVideo'>";
+				if(elem[7] != null && typeof elem[7] != 'undefined' && elem[7] !== undefined && elem[7] != ""){
+                    if(elem[7].startsWith('https://www.youtube.com'))
+		                html += "<iframe src='"+elem[7]+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
+                    else
+                        html += "<video src='"+elem[7]+"' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
+				} else {
+					html += "<img class='urlVideo imgArt' src='"+elem[6]+"'></img></div>";
+				}
+
+				html += "<div class='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+elem[0]+"'>"+elem[1]+"</a></div>";
+				if(elem[17] != null && elem[17] == 'x'){
+					html += "<div class='tagFuture'>";
+					html += "<div class='dateVideoFuture'>Previsto "+elem[20]+" - </div>";
+					html += "<div class='userVideoFuture'> "+elem[5]+"</div>";
+					html += "</div>";
+				}
+				else{
+					html += "<div class='tag'>";
+					html += "<div class='dateVideo'>" + getDate(elem[2]) + " - </div>";
+					html += "<div class='userVideo'> "+elem[5]+"</div>";
+					html += "</div>"
+				}
+				html += "<div class='textVideo'>"+elem[3]+"</div>";
+				var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+elem[0];
+				html += '</div><button type="button" class="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
+				html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
+			});
+
+
+			html += "</div>";
+			html += "<div id='pagination' style='margin: auto;'></div>";
+
+			document.getElementById('listportales').innerHTML += html;
+			if(data.length > 0) {
+				pagination(data.length);
+			}
+
+		}
+
+		function getDate(date) {
+			return parseInt(new Date(date).getDate()) + '/' + parseInt(new Date(date).getMonth() + 1) + '/' + parseInt(new Date(date).getFullYear());
+		}
+
+		function getIcons(elem, row) {
+			var html = "<div class='icons'>";
+				var iconCols = {
+				9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+				10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+				11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+				12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
+				13: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
+				14: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/phone.png', 15, 15]
+				};
+
+			var isCellphoneShown = false;
+			var countIcons = 0;
+			for (var column in iconCols) {
+				if (!iconCols.hasOwnProperty(column)) {
+					continue;
+				}
+				if (isCellphoneShown && (column == 9 || column == 10 || column == 11)) {
+					continue;
+				}
+
+				if (elem[parseInt(column)] !== 'x') {
+					continue;
+				}
+				if (column == 9 || column == 10 || column == 11) {
+					isCellphoneShown = true;
+				}
+				if (countIcons == 0) {
+					html += "<div class='icon'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+					countIcons++;
+					continue;
+				}
+				html += "<div class='iconMargin'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";margin-left: 10px !important;' /></div>";
+				countIcons++;
+			}
+			if(countIcons == 0){
+				html += "<div class='noIcons'></div>";
+			}
+
+			html += "</div>";
+			html += "<div class='clearBoth'></div>";
+			return html;
+		}
+
+		function pagination(elements) {
+	       	$('#pagination').smartpaginator({
+	           	totalrecords: elements,
+	           	recordsperpage: 4,
+	           	length: 4,
+	           	datacontainer: 'paginas',
+	           	dataelement: 'div.comboVideo',
+	           	initval: 0,
+	       	});
+	    }
 
 		function isSearchDone() {
         	if (location.href.split("?").length > 1) {
@@ -321,7 +459,7 @@
         	return false;
     	}
 
-    	function getParam(p){
+		function getParam(p){
             var params;
             if(location.href.split("?").length > 1){
             //if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
@@ -335,186 +473,78 @@
             return "";
     	}
 
-        function pagination(elements) {
-	        $('#pagination').smartpaginator({
-		        totalrecords: elements,
-		        recordsperpage: 4,
-		        length: 4,
-		        datacontainer: 'paginas',
-		        dataelement: 'div.comboVideo',
-		        initval: 0,
-	        });
-	     }
-
-    	function getQueryParameters() {
-    		var filter = "";
-    		if(isSearchDone()){
-	    		var year = getParam("anyo");
-	    		var month = getParam("mes");
-	    		var channel = getParam("channel");
-	    		var type = getParam("type");
-	    		var marco = getParam("marco");
-	    		var operativa = getParam("idOperativa");
-				var text = getParam("text");
-
-	    		if (channel == 'J')
-	    			filter += " AND (J='x' OR K='x' OR L='x')";
-	    		else if (channel != '0' && channel != '')
-	    			filter += " AND "+channel+"='x'";
-
-	    		if (year > 0)
-	    			filter += " AND year(C) ="+ year;
-	    		if (month > 0)
-	    			filter += " AND month(C) = "+ (month-1);
-
-	    		if (type != '0' && type != '')
-	    			filter += " AND "+type+" is not null";
-
-	    		if (marco != '0' && marco != '')
-	    			filter += " AND "+marco+"='x'";
-	    		else if (marco == '' && operativa == '')
-	    			filter += " AND S='x'";
-
-	    		if (operativa != '') {
-	    			filter += " AND V="+operativa;
-	    		}
-				if (text != '') {
-					filter += " AND (lower(B) like '%" + text + "%' OR lower(D) like '%" + text + "%' OR lower(E) like '%" + text + "%') ";
-				}
+		function valueParameters(data) {
+			if (isSearchDone()) {
+				data = data
+					.filter(function(elem) {
+						if (elem[15] !== 'x') {
+							return true;
+						}
+					})
+					.filter(function(elem) {
+						var type = getParam("type");
+						if (type === 'G' && elem[6] !== '' || type === 'H' && elem[7] !== '' || type === '' || type == 0 ) {
+							return true;
+						}
+					})
+					.filter(function(elem) {
+						var channel = getParam("channel");
+						if (channel === 'J' && (elem[9] !== '' || elem[10] !== '' || elem[11] !== '') || channel === 'M' && elem[12] !== '' || channel === 'N' && elem[13] !== '' || channel === 'O' && elem[14] !== '' || channel === '' || channel == 0) {
+							return true;
+						}
+					})
+					.filter(function(elem) {
+						var marco = getParam("marco");
+						var operativa = getParam("idOperativa");
+						if (marco === 'R' && elem[17] === 'x'  || marco === 'S' && elem[18] === 'x' || (marco == '' && operativa == '') && elem[18] === 'x') {
+							return true;
+						}
+					})
+					.filter(function(elem) {
+						var operativa = getParam("idOperativa");
+						if (operativa !== '' && elem[21] == operativa || operativa === '' || operativa == 0) {
+							return true;
+						}
+					})
+					.filter(function(elem) {
+						var text = getParam("text");
+						if (text !== '' && (elem[1].includes(text) || elem[3].includes(text) || elem[4].includes(text)) || text === '') {
+							return true;
+						}
+					})
+					.filter(function(elem) {
+						var year = getParam("anyo");
+						if (year > 0 && parseInt(new Date(elem[2]).getFullYear()) == year || year === '' || year == 0) {
+							return true;
+						}
+					})
+					.filter(function(elem) {
+						var month = getParam("mes");
+						if (month > 0 && parseInt(new Date(elem[2]).getMonth()) == month - 1 || month === '' || month == 0) {
+							return true;
+						}
+					});
 			} else {
-				filter += " AND S='x'";
+				data = data.filter(function(elem) {
+					if (elem[18] === 'x') {
+						return true;
+					}
+				})
 			}
-
-    		return filter;
-    	}
-
-		function sendQuery() {
-
-            var spreadsheetKey = '1jt3inBP2qB5ux0frU0ktViDuiqfgOi7_CU0fRf8gIxc',
-                queryString = encodeURIComponent("select * where A <> 'IdNovedad' AND P <> 'x' " + getQueryParameters() + " order by C desc"),
-                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&tq=' + queryString);
-                query.send(handleQueryResponse);
+			return data;
 		}
 
+		function Go(destination){
+	    	window.parent.location.href = destination;
+	    	return false;
+	  	}
 
-		function handleQueryResponse(response) {
-            data = response.getDataTable();
-            var filas = data.getNumberOfRows();
-			var html = "";
-
-			if(filas<1)
-    			html += '<p class="text">No hay ningún contenido disponible.</p>';
-        	else
-          		html += '<div id="paginas" class="paginaNueva" style=" display: block;width: auto;">';
-
-        	for (var i = 0; i < filas; i++) {
-
-				html += "<div class='comboVideo'>";
-				html += getIcons(data, i);
-				html += "<div class='video-container'><div class='infoVideo'>";
-				html += "<div class='urlVideo'>";
-				if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
-                    if(data.getValue(i,7).startsWith('https://www.youtube.com'))
-		                html += "<iframe src='"+data.getValue(i,7)+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
-                    else
-                        html += "<video src='"+data.getValue(i,7)+"' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
-				} else {
-					html += "<img class='urlVideo imgArt' src='"+data.getValue(i,6)+"'></img></div>";
-				}
-
-				html += "<div class='titleVideo'><a target='_parent' href='https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0)+"'>"+data.getValue(i,1)+"</a></div>";
-				if(data.getValue(i,17) != null && data.getValue(i,17) == 'x'){
-					html += "<div class='tagFuture'>";
-					html += "<div class='dateVideoFuture'>Previsto "+data.getFormattedValue(i,20)+" - </div>";
-					html += "<div class='userVideoFuture'> "+data.getValue(i,5)+"</div>";
-					html += "</div>";
-				}
-				else{
-					html += "<div class='tag'>";
-					html += "<div class='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
-					html += "<div class='userVideo'> "+data.getValue(i,5)+"</div>";
-					html += "</div>"
-				}
-				html += "<div class='textVideo'>"+data.getValue(i,3)+"</div>";
-				var url = "https://sites.google.com/a/bbva.com/evolucionaDigital/novedades/novedad?noticia="+data.getValue(i,0);
-				html += '</div><button type="button" class="allcontent" onclick="javascript:Go(\''+url+'\')">Ver más</button>';
-				html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
-			}
-			html += "</div>";
-			html += "<div id='pagination' style='margin: auto;'></div>";
-
-			document.getElementById('listportales').innerHTML += html;
-			if(filas > 0)
-				pagination(filas);
-			gadgets.window.adjustHeight();
-		}
-
-	    function Go(destination){
-		    window.parent.location.href = destination;
-		    return false;
-		}
-
-		//delay loading
-		delayRender();
-	    function delayRender(){
-	    	window.setTimeout('showIframes()',2000);
-	    }
-	 	function showIframes() {
+		function showIframes() {
 		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
 
-		 	for (var i=0;i<iframes;i++)
-			{
+		 	for (var i = 0; i < iframes; i++) {
 			document.getElementsByClassName('youtubeIframe')[i].style.display='block';
 			}
-        }
-
-        function getIcons(data, row) {
-            var html = "<div class='icons'>";
-                var iconCols = {
-                9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
-                13: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
-                14: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/phone.png', 15, 15]
-                };
-
-            var isCellphoneShown = false;
-            var countIcons = 0;
-            for (var column in iconCols) {
-                if (!iconCols.hasOwnProperty(column)) {
-                    continue;
-                }
-
-                if (isCellphoneShown && (column == 9 || column == 10 || column == 11)) {
-                    continue;
-                }
-
-                if (data.getValue(row, parseInt(column)) !== 'x') {
-                    continue;
-                }
-
-                if (column == 9 || column == 10 || column == 11) {
-                    isCellphoneShown = true;
-                }
-
-                if (countIcons == 0) {
-                    html += "<div class='icon'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
-                    countIcons++;
-                    continue;
-                }
-
-                html += "<div class='iconMargin'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";margin-left: 10px !important;' /></div>";
-                countIcons++;
-
-            }
-            if(countIcons == 0){
-            	html += "<div class='noIcons'></div>";
-            }
-
-            html += "</div>";
-            html += "<div class='clearBoth'></div>";
-            return html;
         }
 
   </script>
