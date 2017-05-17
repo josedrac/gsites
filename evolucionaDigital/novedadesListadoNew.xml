@@ -558,9 +558,9 @@
                     })
                     .filter(function(elem) {
                         var text = getParam("text");
-                        if (text !== '' && (elem[1].includes(text) || elem[3].includes(text) || elem[4].includes(text)) || text === '') {
-                            return true;
-                        }
+                        if (text !== '' && (elem[1].toLowerCase().includes(text) || elem[3].toLowerCase().includes(text) || elem[4].toLowerCase().includes(text)) || text === '') {
+							return true;
+						}
                     })
                     .filter(function(elem) {
                         var year = getParam("anyo");
