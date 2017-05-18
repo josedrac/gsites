@@ -1,4 +1,5 @@
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
 
 	<style type="text/css">
 	  /* @group fonts */
@@ -358,65 +359,87 @@
 
 	</style>
 
-<div id="listportales"></div>
+	<div id="listportales"></div>
 
-   <script type="text/javascript">
-	    var gadgetHelper = null;
-	    var urlTable = "https://docs.google.com/a/bbva.com/spreadsheets/d/1jt3inBP2qB5ux0frU0ktViDuiqfgOi7_CU0fRf8gIxc/edit?usp=sharing";
-	    var portalContenido = location.href.split("?")[1].split("=");
+   	<script type="text/javascript">
 
+		var dataForm = {
+			'key': '1jt3inBP2qB5ux0frU0ktViDuiqfgOi7_CU0fRf8gIxc'
+		};
 
-	    google.load("visualization", "1", {"packages": ["table"]});
-	    google.setOnLoadCallback(sendQuery);
-
-
-		function sendQuery()
-			{
-				gadgetHelper = new google.visualization.GadgetHelper();
-				var opts = {dataType:'jsonp'};
-				var query = new google.visualization.Query(urlTable, opts);
-				var querytosend = "select * where A like '"+portalContenido[1]+"' ";
-				query.setQuery(querytosend);
-				query.send(handleQueryResponse);
-
-
+		$.ajax({
+			type: 'GET',
+			url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
+			data: dataForm,
+			dataType: 'jsonp',
+			crossDomain: true,
+			jsonpCallback: "on_result",
+			success: function(data) {
+				handleQueryResponse(data);
+			},
+			error: function() {
+				console.log('error');
 			}
-		function handleQueryResponse(response) {
-			   data = response.getDataTable();
-			   var filas = data.getNumberOfRows();
-			   var html = "";
-			   html += "<div id='titlecomboVideo'><h2>"+data.getValue(0,1)+"</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
+		});
 
-			for(var i=0; i<filas;i++){
-                html +="<div id='userBBVA'>";
-                html += getIcons(data, i);
-                html +="<div id='dateVideo'>"+data.getFormattedValue(i,2)+" - </div>";
-                html +="<div id='userVideo'>"+data.getValue(i,5)+"</div>";
-                html +="<div class='smalldescription'>"+data.getValue(i,3)+"</div>";
-                html +="<div id='video'>";
-                if(data.getValue(i,7) != null && typeof data.getValue(i,7) != 'undefined' && data.getValue(i,7) !== undefined && data.getValue(i,7) != ""){
-                    if(data.getValue(i,7).startsWith('https://www.youtube.com'))
-		                html += "<iframe src='"+data.getValue(i,7)+"'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:575px; height:400px; '></iframe>";
-                    else
-                        html += "<video src='"+data.getValue(i,7)+"' style='border:0px solid #AAA; width:575px; height:400px; ' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
-				}else{
-                    html +="<img src='"+data.getValue(i,16)+"' />";
-			    }
-                html += "</div>";
-                html += "<div class='description'>"+data.getValue(i,4)+"</div>";
+		function handleQueryResponse(data) {
 
-                if(data.getValue(i,8) != null  &&  data.getValue(i,8) != ""){
-                  html += "<div class='button-container'>";
-                  html += " <button onclick=\"javascript:Go('"+data.getValue(i,8)+"')\">Más info</button>";
-                  html += "</div>";
-                }
+			//Eliminamos la primera fila ya que no es necesaria
+			data.splice(0,1);
 
-			    html +="</div>";
+			data = valueParameters(data);
+
+			var html = "";
+			html += "<div id='titlecomboVideo'><h2>" + data[1] + "</h2></div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linetitle'/>";
+			html += "<div id='userBBVA'>";
+			html += getIcons(data);
+			html += "<div id='dateVideo'>" + getDate(data[2]) + " - </div>";
+			html += "<div id='userVideo'>" + data[5] + "</div>";
+			html += "<div class='smalldescription'>" + data[3] + "</div>";
+			html += "<div id='video'>";
+			if (data[7] != null && typeof data[7] != 'undefined' && data[7] !== undefined && data[7] != "") {
+				if (data[7].startsWith('https://www.youtube.com'))
+					html += "<iframe src='" + data[7] + "'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:575px; height:400px; '></iframe>";
+				else
+					html += "<video src='" + data[7] + "' style='border:0px solid #AAA; width:575px; height:400px; ' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
+			} else {
+			 html += "<img src='" + data[16] + "'/>";
 			}
-				document.getElementById('listportales').innerHTML = html;
-                }
+			html += "</div>";
+			html += "<div class='description'>" + data[4] + "</div>";
 
-        function getIcons(data, row) {
+			if (data[8] != null  &&  data[8] != "") {
+				html += "<div class='button-container'>";
+				html += "<button onclick=\"javascript:Go('"+data[8]+"')\">Más info</button>";
+				html += "</div>";
+			}
+			html += "</div>";
+
+			document.getElementById('listportales').innerHTML = html;
+		}
+
+		function getDate(date) {
+			return parseInt(new Date(date).getDate()) + '/' + parseInt(new Date(date).getMonth() + 1) + '/' + parseInt(new Date(date).getFullYear());
+		}
+
+		function valueParameters(data) {
+			console.log(location.href.split("?")[1].split("=")[1].toLowerCase());
+			data = data.filter(function(elem) {
+				var content = location.href.split("?")[1].split("=")[1].toLowerCase();
+				//var content =  gadgets.util.getUrlParameters()["parent"].split("=")[1].toLowerCase();
+				if (content !== '' && (elem[0].toLowerCase().includes(content))) {
+					return true;
+				}
+			});
+			return data[0];
+		}
+
+		function Go(destination){
+			window.open(destination,'_blank');
+		    return false;
+		}
+
+        function getIcons(data) {
             var html = "<div class='icons'>";
                 var iconCols = {
                 9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
@@ -437,7 +460,7 @@
                     continue;
                 }
 
-                if (data.getValue(row, parseInt(column)) !== 'x') {
+                if (data[parseInt(column)] !== 'x') {
                     continue;
                 }
 
@@ -459,12 +482,5 @@
             html += "<div class='clearBoth'></div>";
             return html;
         }
-
-        function Go(destination){
-				window.open(destination,'_blank');
-			    //window.parent.location.href = destination;
-			    return false;
-			}
-
 
   </script>
