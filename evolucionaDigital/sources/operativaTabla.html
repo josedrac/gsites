@@ -1,448 +1,485 @@
-<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-<script src="https://www.google-analytics.com/analytics.js" type="text/javascript"></script>
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous">
-</script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://www.google-analytics.com/analytics.js" type="text/javascript"></script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous">
+    </script>
 
-<head>
-    <style type="text/css">
-        /* @group fonts */
-        @font-face {
-            font-family: 'BBVA Web Light';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: 'BBVA Web Book';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: 'BBVA Web Medium';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
-            font-style: normal;
-            font-weight: normal;
-        }
-        /* @end */
-
-        button{
-            background: #0079C1;
-            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
-            background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
-            -webkit-border-radius: .3em;
-            -moz-border-radius: .3em;
-            border-radius: .3em;
-            font-size: 10px;
-            text-align: center;
-            vertical-align: middle;
-            height: 2em;
-            padding-left: .9em;
-            padding-right: .9em;
-            border: .1em solid #00559D;
-            color: white;
-            cursor: pointer;
-            position: relative;
-            overflow: visible;
-        }
-
-        .container-table {
-            width: 100%;
-        }
-
-        #tableHeader {
-            margin-top: 10px;
-        }
-
-        .headerText {
-            margin-top: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            text-align: center;
-            color: #434a58;
-        }
-
-        .headerImg {
-            margin-top: 10px;
-            margin: 10px 3px 0;
-        }
-
-        .colHeader {
-            width: 8%;
-            height: 85px;
-            float: left;
-            border-right: 1px solid #E5E5E5;
-            border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        .firstcol {
-            width: 36% !important;
-            border-left: 0;
-        }
-
-        .firstcol img {
-            display: none;
-        }
-
-        .text {
-            line-height: 15px;
-            vertical-align: middle;
-            display: table-cell;
-            text-align: left;
-        }
-
-        .colBody {
-            width: 8%;
-            float:left;
-            color: #434a58;
-            display: table;
-            height: 36px;
-            border-bottom: 1px solid #E5E5E5;
-            text-align: center;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        .colBodyIcon {
-            height: 25px;
-        }
-
-        .colBodyIcon .center {
-            width: 100%;
-        }
-
-        .row {
-            clear: both;
-            font-size: 12px;
-            width: 100%;
-            border-bottom: 1px solid #E5E5E5;
-            overflow: hidden;
-        }
-
-        .rowTitle {
-            clear: both;
-            width: 100%;
-            margin-top: 20px;
-            font-weight: bold;
-            font-size: 13px;
-            color: #434a58;
-            margin-bottom: 5px;
-        }
-
-        .rowTitle td{
-            padding-top: 20px;
-        }
-
-        #lastcol {
-            border-right: 0 !important;
-            margin-bottom: 10px;
-        }
-
-        .centerText {
-            text-align:center;
-            margin-top:11px;
-        }
-
-        span.click {
-            color: #0078d2;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .controls {
-            text-align: right;
-            max-width: 969px;
-            padding: 0 10px 5px 0;
-        }
-    </style>
-
-</head>
-
-<div class="controls">
-    <a href="javascript:imprSelec('listportales')">
-        <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/impresora.png" alt="">
-    </a>
-</div>
-<div id="listportales"></div>
-
-<script type="text/javascript">
-
-    var data;
-    var html = "";
-    var flagHeader = false;
-    var flagFooter = true;
-    var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch', 'Center', 'Cajeros'];
-    //var prefs = new _IG_Prefs();
-    //var urlTable = prefs.getString("_table_query_url");
-    var urlTable = "https://docs.google.com/a/bbva.com/spreadsheets/d/15-Fu9a9tPRm_XPbu4XoJ56pVEz3ymVRwkgJe15A4CuI/edit?usp=sharing";
-    var urlTableDest = "https://docs.google.com/a/bbva.com/spreadsheets/d/1cbYnBCLJjs4K6AJMOqdoA0DP1Q3wGEd5OujuLuOl-h4/edit?usp=sharing";
-    //_IG_RegisterOnloadHandler(loadVisualizationAPI);
-    loadVisualizationAPI();
-
-    function loadVisualizationAPI()
-    {
-        google.load("visualization", "1", {"packages": ["table"]});
-        google.setOnLoadCallback(sendQuery);
-    }
-
-    function sendQuery(){
-
-        var request = function (authorized_url){
-            gadgetHelper = new google.visualization.GadgetHelper();
-            var opts = {dataType:'jsonp'};
-            var query = new google.visualization.Query(authorized_url, opts);
-            var querytosend;
-            if (isSearchDone()) {
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
-                if (product != "Ver tabla completa" && product != "Destacados") {
-                    querytosend = querytosend.concat(" AND A like '" + product + "' ");
-                }
-                if (channel != channels[0]) {
-                    querytosend += getChannelCondition(channel);
-                }
-                if (product != "Destacados") {
-                   querytosend = querytosend.concat(" order by B");
-               }
-            }
-            else {
-                querytosend = "select * where A <> 'GRUPO FUNCIONAL'";
-            }
-            query.setQuery(querytosend);
-            query.send(handleQueryResponse);
-        }
-
-        if (!isSearchDone()) {
-            request(urlTableDest);
-        } else {
-            var product = getSelectedProduct();
-            var channel = getSelectedChannel();
-            if (product == "Destacados") {
-                request(urlTableDest);
-                //window.Environment.sendAuthorizedQuery(urlTableDest, request);
-            } else {
-                request(urlTable);
-                //window.Environment.sendAuthorizedQuery(urlTable, request);
-            }
-        }
-    }
-
-    function getChannelCondition(channel) {
-        var sql="";
-        if (channel == channels[1]) {
-            sql += " AND (D like 'x' OR E like 'x' OR F like 'x' OR G like 'x' OR H like 'x') ";
-        }
-
-        if (channel == channels[2]) {
-            sql += " AND (I like 'x') ";
-        }
-
-        if (channel == channels[3]) {
-            sql += " AND (J like 'x' OR K like 'x') ";
-        }
-
-        if (channel == channels[4]) {
-            sql += " AND (L like 'x' OR M like 'x') ";
-        }
-
-        if (channel == channels[5]) {
-            sql += " AND (P like 'x') ";
-        }
-
-        if (channel == channels[6]) {
-            sql += " AND (Q like 'x') ";
-        }
-
-        return sql;
-    }
-
-    function handleQueryResponse(response) {
-        data = response.getDataTable();
-        createBody();
-        document.getElementById('listportales').innerHTML = html;
-    }
-
-    function createHeader() {
-        html += "<table class='container-table'><thead>";
-        html += "<tr id='tableHeader'>";
-        html +=     "<td class='colHeader firstcol'><img src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/bbva.png'/></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA</div></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA WALLET</div></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>bbva.es</div></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Contact Center</div></td>";
-        html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></td>";
-        html +=     "<td class='colHeader' align='center' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></td>";
-        html += "</tr></thead>";
-   }
-
-   function createBody() {
-        var filas = data.getNumberOfRows();
-        var previousAction = "";
-        if (!flagHeader) {
-            createHeader();
-        }
-        flagHeader = true;
-        for (var i =0 ; i < filas; i++) {
-            if (data.getValue(i,1) == 'null' || data.getValue(i,1) == null) continue;
-            if (data.getValue(i,2) == 'null' || data.getValue(i,2) == null) continue;
-
-            if (previousAction != data.getValue(i,1)) {
-                previousAction = data.getValue(i,1);
-                html += "<tr class='rowTitle'><td>"+data.getValue(i,1)+"</td></tr>";
+    <head>
+        <style type="text/css">
+            /* @group fonts */
+            @font-face {
+                font-family: 'BBVA Web Light';
+                src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+                src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+                font-style: normal;
+                font-weight: normal;
             }
 
-            html +=  "<tr class='row'>";
-            html +=     "<td class='colBody firstcol'><div class='text'>";
-            if(data.getValue(i,13) == 'x') {
-                html += "<span class='click' onclick=javascript:Go('https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"')>";
+            @font-face {
+                font-family: 'BBVA Web Book';
+                src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+                src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+                font-style: normal;
+                font-weight: normal;
             }
-            html +=         data.getValue(i,2);
-            if(data.getValue(i,13) == 'x') {
-                html += "</span>";
+
+            @font-face {
+                font-family: 'BBVA Web Medium';
+                src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
+                src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+                    url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+                font-style: normal;
+                font-weight: normal;
             }
-            html +=     "</div></td>";
-            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 3, 4)+"</td>";
-            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 6, 7)+"</td>";
-            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 5)+"</td>";
-            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 8)+"</td>";
-            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 9, 10)+"</td>";
-            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 15)+"</td>";
-            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 16)+"</td>";
-            html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 11, 12)+"</td>";
-            html +=  "</tr>";
-            previousAction = data.getValue(i,1);
-        }
-        if (!flagFooter) {
-            html += "</table>";
-        } else {
-            flagFooter = false;
-        }
-   }
+            /* @end */
 
-    function getSelectedChannel() {
-        //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
-        return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
-    }
+            button{
+                background: #0079C1;
+                background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+                background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+                background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+                background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+                background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+                background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+                -webkit-border-radius: .3em;
+                -moz-border-radius: .3em;
+                border-radius: .3em;
+                font-size: 10px;
+                text-align: center;
+                vertical-align: middle;
+                height: 2em;
+                padding-left: .9em;
+                padding-right: .9em;
+                border: .1em solid #00559D;
+                color: white;
+                cursor: pointer;
+                position: relative;
+                overflow: visible;
+            }
 
-    function getSelectedProduct() {
-        //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
-        return decodeURI(location.href.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
-    }
+            .container-table {
+                width: 100%;
+            }
 
-    function isSearchDone() {
-        //if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-        if (location.href.split("=").length >= 2) {
-            return true;
-        }
-        return false;
-    }
+            #tableHeader {
+                margin-top: 10px;
+            }
 
-    function getIcon(data, row, column, columnb) {
-        var htmlIcon="";
+            .headerText {
+                margin-top: 5px;
+                font-size: 12px;
+                font-weight: bold;
+                text-align: center;
+                color: #434a58;
+            }
 
-        var iconCols = {
-            3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
-            4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
-            5: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-            6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
-            7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
-            8: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
-            9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
-            10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
-            11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
-            12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
-            15: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonops.png', 15, 15],
-            16: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerop.png', 16, 15],
+            .headerImg {
+                margin-top: 10px;
+                margin: 10px 3px 0;
+            }
+
+            .colHeader {
+                width: 8%;
+                height: 85px;
+                float: left;
+                border-right: 1px solid #E5E5E5;
+                border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .firstcol {
+                width: 36% !important;
+                border-left: 0;
+            }
+
+            .firstcol img {
+                display: none;
+            }
+
+            .text {
+                line-height: 15px;
+                vertical-align: middle;
+                display: table-cell;
+                text-align: left;
+            }
+
+            .colBody {
+                width: 8%;
+                float:left;
+                color: #434a58;
+                display: table;
+                height: 36px;
+                border-bottom: 1px solid #E5E5E5;
+                text-align: center;
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+
+            .colBodyIcon {
+                height: 25px;
+            }
+
+            .colBodyIcon .center {
+                width: 100%;
+            }
+
+            .row {
+                clear: both;
+                font-size: 12px;
+                width: 100%;
+                border-bottom: 1px solid #E5E5E5;
+                overflow: hidden;
+            }
+
+            .rowTitle {
+                clear: both;
+                width: 100%;
+                margin-top: 20px;
+                font-weight: bold;
+                font-size: 13px;
+                color: #434a58;
+                margin-bottom: 5px;
+            }
+
+            .rowTitle td{
+                padding-top: 20px;
+            }
+
+            #lastcol {
+                border-right: 0 !important;
+                margin-bottom: 10px;
+            }
+
+            .centerText {
+                text-align:center;
+                margin-top:11px;
+            }
+
+            span.click {
+                color: #0078d2;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .controls {
+                text-align: right;
+                max-width: 969px;
+                padding: 0 10px 5px 0;
+            }
+        </style>
+
+    </head>
+
+    <div class="controls">
+        <a href="javascript:imprSelec('listportales')">
+            <img src="https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/impresora.png" alt="">
+        </a>
+    </div>
+    <div id="listportales"></div>
+
+    <script type="text/javascript">
+
+        // if (isSearchDone()) {
+        //     if (product == "Destacados") {
+        //         if (channel != channels[0]) {
+        //             querytosend += getChannelCondition(channel);
+        //         }
+        //         //window.Environment.sendAuthorizedQuery(urlTableDest, request);
+        //     } else {
+        //         if (product != "Ver tabla completa" && product != "Destacados") {
+        //             querytosend = querytosend.concat(" AND A like '" + product + "' ");
+        //         }
+        //         if (channel != channels[0]) {
+        //             querytosend += getChannelCondition(channel);
+        //         }
+        //         if (product != "Destacados") {
+        //            querytosend = querytosend.concat(" order by B");
+        //        }
+        //         //window.Environment.sendAuthorizedQuery(urlTable, request);
+        //     }
+        // }
+
+
+
+        /******************************************************************************************************************************/
+
+        var flagHeader = false;
+        var flagFooter = true;
+        var html = '';
+        var product = '';
+        var channel = '';
+        var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch', 'Center', 'Cajeros'];
+        var dataForm = {
+            'key': '1cbYnBCLJjs4K6AJMOqdoA0DP1Q3wGEd5OujuLuOl-h4'
         };
 
-
-        if (typeof columnb == "undefined") {
-            if (data.getValue(row, column) != 'x') {
-                htmlIcon = "<div class='centerText'>-</div>";
-                return htmlIcon;
-            }
-            else{
-                htmlIcon += "<div class='colBodyIcon center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
-                return htmlIcon;
-            }
-        }
-        else {
-            if (data.getValue(row, column) != 'x' && data.getValue(row,columnb) != 'x') {
-                htmlIcon = "<div class='centerText'>-</div>";
-                return htmlIcon;
+        if (isSearchDone()) {
+            product = getSelectedProduct();
+            channel = getSelectedChannel();
+            if (product != "Destacados") {
+                dataForm.key = '15-Fu9a9tPRm_XPbu4XoJ56pVEz3ymVRwkgJe15A4CuI';
             }
         }
 
-        var s = 0;
-        if(data.getValue(row, column) == 'x')
-            s++;
-        if(data.getValue(row, columnb) == 'x')
-            s++;
+		$.ajax({
+			type: 'GET',
+			url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
+			data: dataForm,
+			dataType: 'jsonp',
+			crossDomain: true,
+			jsonpCallback: "on_result",
+			success: function(data) {
+				handleQueryResponse(data);
+			},
+			error: function() {
+				console.log('error');
+			}
+		});
 
-        if (typeof column != "undefined" && data.getValue(row, column) == 'x') {
-            htmlIcon += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
+        function valueParameters(data) {
+            if (isSearchDone()) {
+                console.log(channels[0]);
+                if (product != "Ver tabla completa" && product != "Destacados") {
+                    data = data
+                        .filter(function(elem) {
+                            if (elem[0].toLowerCase().includes(product.toLowerCase())) {
+                                return true;
+                            }
+                        });
+                }
+                if (channel != channels[0]) {
+                    data = data
+                        .filter(function(elem) {
+                            return getChannelCondition(elem, channel);
+                        });
+                }
+            }
+            data.sort(compareSecondColumn);
+
+            function compareSecondColumn(a, b) {
+                if (a[1] === b[1]) {
+                    return 0;
+                }
+                else {
+                    return (a[1] < b[1]) ? -1 : 1;
+                }
+            }
+            return data;
+		}
+
+        function getChannelCondition(elem, channel) {
+            var sql="";
+            if (channel == channels[1]) {
+                if (elem[3].toLowerCase().includes('x') && elem[4].toLowerCase().includes('x') && elem[5].toLowerCase().includes('x') && elem[6].toLowerCase().includes('x') && elem[7].toLowerCase().includes('x')) {
+                    return true;
+                }
+            }
+            if (channel == channels[2]) {
+                if (elem[8].toLowerCase().includes('x')) {
+                    return true;
+                }
+            }
+            if (channel == channels[3]) {
+                if (elem[9].toLowerCase().includes('x') && elem[10].toLowerCase().includes('x')) {
+                    return true;
+                }
+            }
+            if (channel == channels[4]) {
+                if (elem[11].toLowerCase().includes('x') && elem[12].toLowerCase().includes('x')) {
+                    return true;
+                }
+            }
+            if (channel == channels[5]) {
+                if (elem[15].toLowerCase().includes('x')) {
+                    return true;
+                }
+            }
+            if (channel == channels[6]) {
+                if (elem[16].toLowerCase().includes('x')) {
+                    return true;
+                }
+            }
+            return false;
         }
 
-        if (typeof columnb != "undefined" && data.getValue(row, columnb) == 'x') {
-            htmlIcon += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
+        function handleQueryResponse(data) {
+
+            //Eliminamos la primera fila ya que no es necesaria
+			data.splice(0,1);
+
+            data = valueParameters(data);
+            createBody(data);
+            document.getElementById('listportales').innerHTML = html;
         }
-        return htmlIcon;
 
-    }
+        function createBody(data) {
+            var previousAction = "";
+            if (!flagHeader) {
+                createHeader();
+            }
+            flagHeader = true;
+            data.forEach(function(elem, index) {
+                if (elem[1] == 'null' || elem[1] == null) return;
+                if (elem[2] == 'null' || elem[2] == null) return;
 
-    function Go(destination){
-        window.open(destination,'_parent');
-        return false;
-    }
+                if (previousAction != elem[1]) {
+                    previousAction = elem[1];
+                    html += "<tr class='rowTitle'><td>"+elem[1]+"</td></tr>";
+                }
 
-    function imprSelec(id){
-        var contents = $("#listportales").html();
-        var frame1 = $('<iframe />');
-        frame1[0].name = "frame1";
-        frame1.css({ "position": "absolute", "top": "-1000000px" });
-        $("body").append(frame1);
-        var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
-        frameDoc.document.open();
-        //Create a new HTML document.
-        frameDoc.document.write('<html><head><title>Operativa por canal</title>');
-        frameDoc.document.write('<style>@media print{.colHeader{padding-bottom: 4mm; padding-top: 4mm;} thead {display: table-header-group; break-inside: avoid;} thead td {margin-bottom: 3mm;} body {font-family: \'BBVA Web Light\', Arial, \'Times New Roman\', serif;} .headerImg {margin: 0mm 1mm 2mm;} table td {border-bottom:1px solid #e5e5e5; font-size: 8pt;} table tr.rowTitle td{font-weight: bolder; border: none; padding-top: 5mm;}} </style>');
-        frameDoc.document.write('</head><body>');
-        //Append the DIV contents.
-        frameDoc.document.write(contents);
-        frameDoc.document.write('</body></html>');
-        frameDoc.document.close();
-        setTimeout(function () {
-            window.frames["frame1"].focus();
-            window.frames["frame1"].print();
-            frame1.remove();
-        }, 500);
-    }
+                html +=  "<tr class='row'>";
+                html +=     "<td class='colBody firstcol'><div class='text'>";
+                if(elem[13] == 'x') {
+                    html += "<span class='click' onclick=javascript:Go('https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ elem[14] +"')>";
+                }
+                html +=         elem[2];
+                if(elem[13] == 'x') {
+                    html += "</span>";
+                }
+                html +=     "</div></td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 3, 4)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 6, 7)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 5)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 8)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 9, 10)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 15)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 16)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 11, 12)+"</td>";
+                html +=  "</tr>";
+                previousAction = elem[1];
+            });
+            if (!flagFooter) {
+                html += "</table>";
+            } else {
+                flagFooter = false;
+            }
+        }
 
-</script>
+        function createHeader() {
+            html += "<table class='container-table'><thead>";
+            html += "<tr id='tableHeader'>";
+            html +=     "<td class='colHeader firstcol'><img src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/bbva.png'/></td>";
+            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA</div></td>";
+            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>APP BBVA WALLET</div></td>";
+            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphoneb.png' /></div><div class='headerText'>bbva.es</div></td>";
+            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouseb.png' /></div><div class='headerText'>PC bbva.es</div></td>";
+            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tabletb.png' /></div><div class='headerText'>Tablet APP BBVA</div></td>";
+            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonog.png' /></div><div class='headerText'>Contact Center</div></td>";
+            html +=     "<td class='colHeader' align='center'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerog.png' /></div><div class='headerText'>Red de cajeros BBVA</div></td>";
+            html +=     "<td class='colHeader' align='center' id='lastcol'><div><img class='headerImg' src='https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png' /></div><div class='headerText'>SmartWatch</div></td>";
+            html += "</tr></thead>";
+        }
+
+        function getIcon(elem, column, columnb) {
+            var htmlIcon="";
+
+            var iconCols = {
+                3: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
+                4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
+                5: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+                6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
+                7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
+                8: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
+                9: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
+                10: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
+                11: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/android.png', 14, 16],
+                12: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/ios.png', 13, 16],
+                15: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/telefonops.png', 15, 15],
+                16: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerop.png', 16, 15],
+            };
+
+            if (typeof columnb == "undefined") {
+                if (elem[column] != 'x') {
+                    htmlIcon = "<div class='centerText'>-</div>";
+                    return htmlIcon;
+                }
+                else{
+                    htmlIcon += "<div class='colBodyIcon center'><img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
+                    return htmlIcon;
+                }
+            }
+            else {
+                if (elem[column] != 'x' && elem[columnb] != 'x') {
+                    htmlIcon = "<div class='centerText'>-</div>";
+                    return htmlIcon;
+                }
+            }
+
+            var s = 0;
+            if(elem[column] == 'x') { s++; }
+            if(elem[columnb] == 'x') { s++; }
+
+            if (typeof column != "undefined" && elem[column] == 'x') {
+                htmlIcon += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
+            }
+
+            if (typeof columnb != "undefined" && elem[columnb] == 'x') {
+                htmlIcon += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
+            }
+            return htmlIcon;
+        }
+
+        function isSearchDone() {
+            //if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            if (location.href.split("=").length >= 2) {
+                return true;
+            }
+            return false;
+        }
+
+        function getSelectedProduct() {
+            //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(location.href.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+        }
+
+        function getSelectedChannel() {
+            console.log(location.href);
+            //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+        }
+
+        function Go(destination){
+            window.open(destination,'_parent');
+            return false;
+        }
+
+        function imprSelec(id){
+            var contents = $("#listportales").html();
+            var frame1 = $('<iframe />');
+            frame1[0].name = "frame1";
+            frame1.css({ "position": "absolute", "top": "-1000000px" });
+            $("body").append(frame1);
+            var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+            frameDoc.document.open();
+            //Create a new HTML document.
+            frameDoc.document.write('<html><head><title>Operativa por canal</title>');
+            frameDoc.document.write('<style>@media print{.colHeader{padding-bottom: 4mm; padding-top: 4mm;} thead {display: table-header-group; break-inside: avoid;} thead td {margin-bottom: 3mm;} body {font-family: \'BBVA Web Light\', Arial, \'Times New Roman\', serif;} .headerImg {margin: 0mm 1mm 2mm;} table td {border-bottom:1px solid #e5e5e5; font-size: 8pt;} table tr.rowTitle td{font-weight: bolder; border: none; padding-top: 5mm;}} </style>');
+            frameDoc.document.write('</head><body>');
+            //Append the DIV contents.
+            frameDoc.document.write(contents);
+            frameDoc.document.write('</body></html>');
+            frameDoc.document.close();
+            setTimeout(function () {
+                window.frames["frame1"].focus();
+                window.frames["frame1"].print();
+                frame1.remove();
+            }, 500);
+        }
+
+        /******************************************************************************************************************************/
+
+    </script>
