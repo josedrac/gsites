@@ -232,7 +232,6 @@
 
         function valueParameters(data) {
             if (isSearchDone()) {
-                console.log(channels[0]);
                 if (product != "Ver tabla completa" && product != "Destacados") {
                     data = data
                         .filter(function(elem) {
@@ -297,6 +296,7 @@
         }
 
         function handleQueryResponse(data) {
+            console.log(data);
 
             //Eliminamos la primera fila ya que no es necesaria
 			data.splice(0,1);
