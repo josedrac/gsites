@@ -100,27 +100,6 @@
       </div>
 
       <script type="text/javascript">
-  var dataForm = {
-    'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-    'numberTab': 2
-  };
-
-  $.ajax({
-    type: 'GET',
-    url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
-    data: dataForm,
-    dataType: 'jsonp',
-    crossDomain: true,
-    jsonpCallback: "on_result",
-    success: function (data) {
-      /*handleQueryResponse(data);*/
-      console.log(data);
-      handleQueryResponse(data);
-    },
-    error: function () {
-      console.log('error');
-    }
-  });
 
   function handleQueryResponse(data) {
     // adjustGadgetHeight('container');
