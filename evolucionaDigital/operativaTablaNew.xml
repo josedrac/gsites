@@ -197,6 +197,7 @@
     <div id="listportales"></div>
 
     <script type="text/javascript">
+
         var flagHeader = false;
         var flagFooter = true;
         var html = '';
@@ -247,7 +248,12 @@
                         });
                 }
             }
-            data.sort(compareSecondColumn);
+
+            console.log(product);
+
+            if(product != ""  && product != undefined && product != "Destacados") {
+                data.sort(compareSecondColumn);
+            }
 
             function compareSecondColumn(a, b) {
                 if (a[1] === b[1]) {
@@ -296,7 +302,6 @@
         }
 
         function handleQueryResponse(data) {
-            console.log(data);
 
             //Eliminamos la primera fila ya que no es necesaria
 			data.splice(0,1);
@@ -427,7 +432,6 @@
         }
 
         function getSelectedChannel() {
-            console.log(location.href);
             return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
             //return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
         }
@@ -460,7 +464,7 @@
             }, 500);
         }
 
-  </script>
+    </script>
     ]]>
   </Content>
 
