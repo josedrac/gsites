@@ -123,28 +123,40 @@
   });
 
   function handleQueryResponse(data) {
-    var html = "";
-    if (!data.length) {
-      html += '<p class="text">No hay ningún enlace de interes disponible.</p>';
-    } else {
-      html += '<div id="paginas" class="paginaNueva" style=" display: block;width: auto;">';
+    // adjustGadgetHeight('container');
+  // var gadgetHelper = null;
+/*  google.load('visualization', '1', { packages: ['table'] });
+  google.setOnLoadCallback(sendQuery);
+  var prefs = new gadgets.Prefs();
+
+  function sendQuery() {
+    var spreadsheetKey = prefs.getString('spreadsheetKey');
+    var sheetName = encodeURIComponent('links');
+    var queryString = encodeURIComponent('SELECT *');
+    var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+    query.send(function (response) { handleQueryResponse(response); });
+  }
+
+  function handleQueryResponse(response) {
+    var data = response.getDataTable();
+    var rows = data.getNumberOfRows();
+
+    var html = '';
+    for (var i = 0; i < rows; i++) {
+      var link = data.getFormattedValue(i, 0);
+      var href = data.getFormattedValue(i, 1);
+      html += '<div class="link-wrapper"><a class="link" href="' + href + '" target="_blank">' + link + '</a></div>';
     }
 
-    //Eliminamos la primera fila ya que no es necesaria
-    data.splice(0, 1);
-    //Ordenamos el array por fecha
-    data.sort(function (y, x) {
-      return new Date(x[2]) - new Date(y[2]);
-    });
+    document
+      .getElementById('useful-links-list')
+      .innerHTML = html;
 
-    data.forEach(function(elem, index) {
-      var title = elem[0];
-      var href = elem[2];
-      html += '<div class="link-wrapper"><a class="link" href="' + href + '" target="_blank">' + title + '</a></div>';
-		});
-
-    $('#useful-links-list').html(html);
-  }
+    try {
+      gadgets.window.adjustHeight();
+    } catch (err) {
+      console.error(err);
+    }
   </script>
     ]]>
   </Content>
