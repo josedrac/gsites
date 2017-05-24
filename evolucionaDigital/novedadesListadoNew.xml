@@ -527,25 +527,27 @@
     	}
 
 			function valueOperative(data) {
-				if (isSearchDone()) {
-					data = data
-						.filter(function (elem) {
-							var operativa = getParam("idOperativa");
-							if (operativa !== '' && elem[21] == operativa || operativa === '' || operativa == 0) {
-								return true;
-							}
-						})
-				}else {
-						data = data.filter(function (elem) {
-							if (elem[18] === 'x') {
-								return true;
-							}
-						})
-					}
-					return data;
+			console.log("Entra en valueOperative");
+			if (isSearchDone()) {
+				data = data
+					.filter(function (elem) {
+						var operativa = getParam("idOperativa");
+						if (operativa !== '' && elem[21] == operativa || operativa === '' || operativa == 0) {
+							return true;
+						}
+					})
+			}else {
+					data = data.filter(function (elem) {
+						if (elem[18] === 'x') {
+							return true;
+						}
+					})
+				}
+				return data;
 			}
 
 			function valueParameters(data) {
+				console.log("Entra en valueParameters");
 				if (isSearchDone()) {
 					data = data
 						.filter(function (elem) {
@@ -599,7 +601,7 @@
 				}
 				return data;
 			}
-
+			
 		function Go(destination){
 	    	window.parent.location.href = destination;
 	    	return false;
