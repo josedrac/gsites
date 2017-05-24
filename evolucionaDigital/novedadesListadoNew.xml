@@ -395,7 +395,12 @@
 		    	return new Date(x[2]) - new Date(y[2]);
 			});
 
-			data = valueParameters(data);
+			var operativa = getParam("idOperativa");
+			if(operativa != ''){
+				data = valueOperative(data);
+			}else{
+				data = valueParameters(data);
+			}
 
 			data.forEach(function(elem, index) {
 				html += "<div class='comboVideo'>";
@@ -509,10 +514,10 @@
 
 		function getParam(p){
             var params;
-            if(location.href.split("?").length > 1){
-            //if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
-                //params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-                params = location.href.split("?")[1].split("&");
+            //if(location.href.split("?").length > 1){
+            if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+                params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+                //params = location.href.split("?")[1].split("&");
                 for(var i=0; i<params.length; i++){
                     if(params[i].split("=")[0] == p)
                         return params[i].split("=")[1];
@@ -521,66 +526,81 @@
             return "";
     	}
 
-		function valueParameters(data) {
+			function valueOperative(data) {
+			console.log("Entra en valueOperative");
 			if (isSearchDone()) {
 				data = data
-					.filter(function(elem) {
-						if (elem[15] !== 'x') {
-							return true;
-						}
-					})
-					.filter(function(elem) {
-						var type = getParam("type");
-						if (type === 'G' && elem[6] !== '' || type === 'H' && elem[7] !== '' || type === '' || type == 0 ) {
-							return true;
-						}
-					})
-					.filter(function(elem) {
-						var channel = getParam("channel");
-						if (channel === 'J' && (elem[9] !== '' || elem[10] !== '' || elem[11] !== '') || channel === 'M' && elem[12] !== '' || channel === 'N' && elem[13] !== '' || channel === 'O' && elem[14] !== '' || channel === '' || channel == 0) {
-							return true;
-						}
-					})
-					.filter(function(elem) {
-						var marco = getParam("marco");
-						var operativa = getParam("idOperativa");
-						if (marco === 'R' && elem[17] === 'x'  || marco === 'S' && elem[18] === 'x' || (marco == '' && operativa == '') && elem[18] === 'x') {
-							return true;
-						}
-					})
-					.filter(function(elem) {
+					.filter(function (elem) {
 						var operativa = getParam("idOperativa");
 						if (operativa !== '' && elem[21] == operativa || operativa === '' || operativa == 0) {
 							return true;
 						}
 					})
-					.filter(function(elem) {
-						var text = getParam("text").toLowerCase();
-						if (text !== '' && (elem[1].toLowerCase().includes(text) || elem[3].toLowerCase().includes(text) || elem[4].toLowerCase().includes(text)) || text === '') {
+			}else {
+					data = data.filter(function (elem) {
+						if (elem[18] === 'x') {
 							return true;
 						}
 					})
-					.filter(function(elem) {
-						var year = getParam("anyo");
-						if (year > 0 && parseInt(new Date(elem[2]).getFullYear()) == year || year === '' || year == 0) {
-							return true;
-						}
-					})
-					.filter(function(elem) {
-						var month = getParam("mes");
-						if (month > 0 && parseInt(new Date(elem[2]).getMonth()) == month - 1 || month === '' || month == 0) {
-							return true;
-						}
-					});
-			} else {
-				data = data.filter(function(elem) {
-					if (elem[18] === 'x') {
-						return true;
-					}
-				})
+				}
+				return data;
 			}
-			return data;
-		}
+
+			function valueParameters(data) {
+				console.log("Entra en valueParameters");
+				if (isSearchDone()) {
+					data = data
+						.filter(function (elem) {
+							if (elem[15] !== 'x') {
+								return true;
+							}
+						})
+						.filter(function (elem) {
+							var type = getParam("type");
+							if (type === 'G' && elem[6] !== '' || type === 'H' && elem[7] !== '' || type === '' || type == 0) {
+								return true;
+							}
+						})
+						.filter(function (elem) {
+							var channel = getParam("channel");
+							if (channel === 'J' && (elem[9] !== '' || elem[10] !== '' || elem[11] !== '') || channel === 'M' && elem[12] !== '' || channel === 'N' && elem[13] !== '' || channel === 'O' && elem[14] !== '' || channel === '' || channel == 0) {
+								return true;
+							}
+						})
+						.filter(function (elem) {
+							var marco = getParam("marco");
+							var operativa = getParam("idOperativa");
+							if (marco === 'R' && elem[17] === 'x' || marco === 'S' && elem[18] === 'x' || (marco == '' && operativa == '') && elem[18] === 'x') {
+								return true;
+							}
+						})
+						.filter(function (elem) {
+							var text = getParam("text").toLowerCase();
+							if (text !== '' && (elem[1].toLowerCase().includes(text) || elem[3].toLowerCase().includes(text) || elem[4].toLowerCase().includes(text)) || text === '') {
+								return true;
+							}
+						})
+						.filter(function (elem) {
+							var year = getParam("anyo");
+							if (year > 0 && parseInt(new Date(elem[2]).getFullYear()) == year || year === '' || year == 0) {
+								return true;
+							}
+						})
+						.filter(function (elem) {
+							var month = getParam("mes");
+							if (month > 0 && parseInt(new Date(elem[2]).getMonth()) == month - 1 || month === '' || month == 0) {
+								return true;
+							}
+						});
+				} else {
+					data = data.filter(function (elem) {
+						if (elem[18] === 'x') {
+							return true;
+						}
+					})
+				}
+				return data;
+			}
 
 		function Go(destination){
 	    	window.parent.location.href = destination;
