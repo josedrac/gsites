@@ -197,6 +197,7 @@
     <div id="listportales"></div>
 
     <script type="text/javascript">
+
         var flagHeader = false;
         var flagFooter = true;
         var html = '';
@@ -232,6 +233,7 @@
 
         function valueParameters(data) {
             if (isSearchDone()) {
+                console.log(channels[0]);
                 if (product != "Ver tabla completa" && product != "Destacados") {
                     data = data
                         .filter(function(elem) {
@@ -247,7 +249,12 @@
                         });
                 }
             }
-            data.sort(compareSecondColumn);
+
+            console.log(product);
+
+            if(product != ""  && product != undefined && product != "Destacados") {
+                data.sort(compareSecondColumn);
+            }
 
             function compareSecondColumn(a, b) {
                 if (a[1] === b[1]) {
@@ -296,7 +303,6 @@
         }
 
         function handleQueryResponse(data) {
-            console.log(data);
 
             //Eliminamos la primera fila ya que no es necesaria
 			data.splice(0,1);
@@ -414,22 +420,22 @@
         }
 
         function isSearchDone() {
-            if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-            //if (location.href.split("=").length >= 2) {
+            //if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            if (location.href.split("=").length >= 2) {
                 return true;
             }
             return false;
         }
 
         function getSelectedProduct() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
-            //return decodeURI(location.href.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+            //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(location.href.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
         }
 
         function getSelectedChannel() {
             console.log(location.href);
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
-            //return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+            //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
         }
 
         function Go(destination){
@@ -460,7 +466,7 @@
             }, 500);
         }
 
-  </script>
+    </script>
     ]]>
   </Content>
 
