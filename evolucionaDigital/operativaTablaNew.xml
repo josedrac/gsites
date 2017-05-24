@@ -233,7 +233,6 @@
 
         function valueParameters(data) {
             if (isSearchDone()) {
-                console.log(channels[0]);
                 if (product != "Ver tabla completa" && product != "Destacados") {
                     data = data
                         .filter(function(elem) {
@@ -420,22 +419,21 @@
         }
 
         function isSearchDone() {
-            //if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-            if (location.href.split("=").length >= 2) {
+            if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            //if (location.href.split("=").length >= 2) {
                 return true;
             }
             return false;
         }
 
         function getSelectedProduct() {
-            //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
-            return decodeURI(location.href.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+            //return decodeURI(location.href.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
         }
 
         function getSelectedChannel() {
-            console.log(location.href);
-            //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
-            return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+            //return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
         }
 
         function Go(destination){
