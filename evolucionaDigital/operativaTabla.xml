@@ -197,94 +197,159 @@
     <div id="listportales"></div>
 
     <script type="text/javascript">
-        var data;
-        var html = "";
         var flagHeader = false;
         var flagFooter = true;
+        var html = '';
+        var product = '';
+        var channel = '';
         var channels = ['Todos', 'Smartphone', 'PC', 'Tablet', 'Smartwatch', 'Center', 'Cajeros'];
-        var prefs = new _IG_Prefs();
-        var urlTable = prefs.getString("_table_query_url");
-        var urlTableDest = prefs.getString("_table2_query_url");
-        _IG_RegisterOnloadHandler(loadVisualizationAPI);
+        var dataForm = {
+            'key': '1cbYnBCLJjs4K6AJMOqdoA0DP1Q3wGEd5OujuLuOl-h4'
+        };
 
-        function loadVisualizationAPI()
-        {
-            google.load("visualization", "1", {"packages": ["table"]});
-            google.setOnLoadCallback(sendQuery);
+        if (isSearchDone()) {
+            product = getSelectedProduct();
+            channel = getSelectedChannel();
+            if (product != "Destacados") {
+                dataForm.key = '15-Fu9a9tPRm_XPbu4XoJ56pVEz3ymVRwkgJe15A4CuI';
+            }
         }
 
-        function sendQuery(){
+		$.ajax({
+			type: 'GET',
+			url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
+			data: dataForm,
+			dataType: 'jsonp',
+			crossDomain: true,
+			jsonpCallback: "on_result",
+			success: function(data) {
+				handleQueryResponse(data);
+			},
+			error: function() {
+				console.log('error');
+			}
+		});
 
-            var request = function (authorized_url){
-                gadgetHelper = new google.visualization.GadgetHelper();
-                var opts = {dataType:'jsonp'};
-                var query = new google.visualization.Query(authorized_url, opts);
-                var querytosend;
-                if (isSearchDone()) {
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL' ";
-                    if (product != "Ver tabla completa" && product != "Destacados") {
-                        querytosend = querytosend.concat(" AND A like '" + product + "' ");
-                    }
-                    if (channel != channels[0]) {
-                        querytosend += getChannelCondition(channel);
-                    }
-                    if (product != "Destacados") {
-                       querytosend = querytosend.concat(" order by B");
-                   }
+        function valueParameters(data) {
+            if (isSearchDone()) {
+                console.log(channels[0]);
+                if (product != "Ver tabla completa" && product != "Destacados") {
+                    data = data
+                        .filter(function(elem) {
+                            if (elem[0].toLowerCase().includes(product.toLowerCase())) {
+                                return true;
+                            }
+                        });
+                }
+                if (channel != channels[0]) {
+                    data = data
+                        .filter(function(elem) {
+                            return getChannelCondition(elem, channel);
+                        });
+                }
+            }
+
+            if(product == "Destacados"){
+                data.sort(compareSecondColumn);
+            }
+
+            function compareSecondColumn(a, b) {
+                if (a[1] === b[1]) {
+                    return 0;
                 }
                 else {
-                    querytosend = "select * where A <> 'GRUPO FUNCIONAL'";
-                }
-                query.setQuery(querytosend);
-                query.send(handleQueryResponse);
-            }
-
-            if (!isSearchDone()) {
-                request(urlTableDest);
-            } else {
-                var product = getSelectedProduct();
-                var channel = getSelectedChannel();
-                if (product == "Destacados") {
-                    window.Environment.sendAuthorizedQuery(urlTableDest, request);
-                } else {
-                    window.Environment.sendAuthorizedQuery(urlTable, request);
+                    return (a[1] < b[1]) ? -1 : 1;
                 }
             }
-        }
+            return data;
+		}
 
-        function getChannelCondition(channel) {
+        function getChannelCondition(elem, channel) {
             var sql="";
             if (channel == channels[1]) {
-                sql += " AND (D like 'x' OR E like 'x' OR F like 'x' OR G like 'x' OR H like 'x') ";
+                if (elem[3].toLowerCase().includes('x') && elem[4].toLowerCase().includes('x') && elem[5].toLowerCase().includes('x') && elem[6].toLowerCase().includes('x') && elem[7].toLowerCase().includes('x')) {
+                    return true;
+                }
             }
-
             if (channel == channels[2]) {
-                sql += " AND (I like 'x') ";
+                if (elem[8].toLowerCase().includes('x')) {
+                    return true;
+                }
             }
-
             if (channel == channels[3]) {
-                sql += " AND (J like 'x' OR K like 'x') ";
+                if (elem[9].toLowerCase().includes('x') && elem[10].toLowerCase().includes('x')) {
+                    return true;
+                }
             }
-
             if (channel == channels[4]) {
-                sql += " AND (L like 'x' OR M like 'x') ";
+                if (elem[11].toLowerCase().includes('x') && elem[12].toLowerCase().includes('x')) {
+                    return true;
+                }
             }
-
             if (channel == channels[5]) {
-                sql += " AND (P like 'x') ";
+                if (elem[15].toLowerCase().includes('x')) {
+                    return true;
+                }
             }
-
             if (channel == channels[6]) {
-                sql += " AND (Q like 'x') ";
+                if (elem[16].toLowerCase().includes('x')) {
+                    return true;
+                }
             }
-
-            return sql;
+            return false;
         }
 
-        function handleQueryResponse(response) {
-            data = response.getDataTable();
-            createBody();
+        function handleQueryResponse(data) {
+
+            //Eliminamos la primera fila ya que no es necesaria
+			data.splice(0,1);
+
+            data = valueParameters(data);
+            createBody(data);
             document.getElementById('listportales').innerHTML = html;
+        }
+
+        function createBody(data) {
+            var previousAction = "";
+            if (!flagHeader) {
+                createHeader();
+            }
+            flagHeader = true;
+            data.forEach(function(elem, index) {
+                if (elem[1] == 'null' || elem[1] == null) return;
+                if (elem[2] == 'null' || elem[2] == null) return;
+
+                if (previousAction != elem[1]) {
+                    previousAction = elem[1];
+                    html += "<tr class='rowTitle'><td>"+elem[1]+"</td></tr>";
+                }
+
+                html +=  "<tr class='row'>";
+                html +=     "<td class='colBody firstcol'><div class='text'>";
+                if(elem[13] == 'x') {
+                    html += "<span class='click' onclick=javascript:Go('https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ elem[14] +"')>";
+                }
+                html +=         elem[2];
+                if(elem[13] == 'x') {
+                    html += "</span>";
+                }
+                html +=     "</div></td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 3, 4)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 6, 7)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 5)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 8)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 9, 10)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 15)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 16)+"</td>";
+                html +=     "<td class='colBody' align='center'>"+getIcon(elem, 11, 12)+"</td>";
+                html +=  "</tr>";
+                previousAction = elem[1];
+            });
+            if (!flagFooter) {
+                html += "</table>";
+            } else {
+                flagFooter = false;
+            }
         }
 
         function createHeader() {
@@ -302,66 +367,7 @@
             html += "</tr></thead>";
         }
 
-        function createBody() {
-            var filas = data.getNumberOfRows();
-            var previousAction = "";
-            if (!flagHeader) {
-                createHeader();
-            }
-            flagHeader = true;
-            for (var i =0 ; i < filas; i++) {
-                if (data.getValue(i,1) == 'null' || data.getValue(i,1) == null) continue;
-                if (data.getValue(i,2) == 'null' || data.getValue(i,2) == null) continue;
-
-                if (previousAction != data.getValue(i,1)) {
-                    previousAction = data.getValue(i,1);
-                    html += "<tr class='rowTitle'><td>"+data.getValue(i,1)+"</td></tr>";
-                }
-
-                html +=  "<tr class='row'>";
-                html +=     "<td class='colBody firstcol'><div class='text'>";
-                if(data.getValue(i,13) == 'x') {
-                    html += "<span class='click' onclick=javascript:Go('https://sites.google.com/a/bbva.com/evolucionadigital/novedades?idOperativa="+ data.getValue(i,14) +"')>";
-                }
-                html +=         data.getValue(i,2);
-                if(data.getValue(i,13) == 'x') {
-                    html += "</span>";
-                }
-                html +=     "</div></td>";
-                html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 3, 4)+"</td>";
-                html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 6, 7)+"</td>";
-                html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 5)+"</td>";
-                html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 8)+"</td>";
-                html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 9, 10)+"</td>";
-                html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 15)+"</td>";
-                html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 16)+"</td>";
-                html +=     "<td class='colBody' align='center'>"+getIcon(data, i, 11, 12)+"</td>";
-                html +=  "</tr>";
-                previousAction = data.getValue(i,1);
-            }
-            if (!flagFooter) {
-                html += "</table>";
-            } else {
-                flagFooter = false;
-            }
-        }
-
-        function getSelectedChannel() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
-        }
-
-        function getSelectedProduct() {
-            return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
-        }
-
-        function isSearchDone() {
-            if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
-                return true;
-            }
-            return false;
-        }
-
-        function getIcon(data, row, column, columnb) {
+        function getIcon(elem, column, columnb) {
             var htmlIcon="";
 
             var iconCols = {
@@ -379,9 +385,8 @@
                 16: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cajerop.png', 16, 15],
             };
 
-
             if (typeof columnb == "undefined") {
-                if (data.getValue(row, column) != 'x') {
+                if (elem[column] != 'x') {
                     htmlIcon = "<div class='centerText'>-</div>";
                     return htmlIcon;
                 }
@@ -391,27 +396,43 @@
                 }
             }
             else {
-                if (data.getValue(row, column) != 'x' && data.getValue(row,columnb) != 'x') {
+                if (elem[column] != 'x' && elem[columnb] != 'x') {
                     htmlIcon = "<div class='centerText'>-</div>";
                     return htmlIcon;
                 }
             }
 
             var s = 0;
-            if(data.getValue(row, column) == 'x')
-                s++;
-            if(data.getValue(row, columnb) == 'x')
-                s++;
+            if(elem[column] == 'x') { s++; }
+            if(elem[columnb] == 'x') { s++; }
 
-            if (typeof column != "undefined" && data.getValue(row, column) == 'x') {
+            if (typeof column != "undefined" && elem[column] == 'x') {
                 htmlIcon += "<img class='headerImg' src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' />";
             }
 
-            if (typeof columnb != "undefined" && data.getValue(row, columnb) == 'x') {
+            if (typeof columnb != "undefined" && elem[columnb] == 'x') {
                 htmlIcon += "<img class='headerImg' src='"+iconCols[columnb][0]+"' style='width:"+iconCols[columnb][1]+"; height:"+iconCols[columnb][2]+";' />";
             }
             return htmlIcon;
+        }
 
+        function isSearchDone() {
+            //if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+            if (location.href.split("=").length >= 2) {
+                return true;
+            }
+            return false;
+        }
+
+        function getSelectedProduct() {
+            //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(location.href.split("=")[1].split("&")[0]).replace(/\+/g, ' ');
+        }
+
+        function getSelectedChannel() {
+            console.log(location.href);
+            //return decodeURI(gadgets.util.getUrlParameters().parent.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
+            return decodeURI(location.href.split("=")[2].split("&")[0]).replace(/\+/g, ' ');
         }
 
         function Go(destination){
@@ -442,7 +463,8 @@
             }, 500);
         }
 
-  </script>
+
+    </script>
     ]]>
   </Content>
 
