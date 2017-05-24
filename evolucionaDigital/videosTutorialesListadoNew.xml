@@ -390,7 +390,7 @@
            //Eliminamos la primera fila ya que no es necesaria
            data.splice(0,1);
            //Ordenamos el array por fecha
-           data.sort(function(x, y){
+           data.sort(function(y, x){
                return new Date(x[1]) - new Date(y[1]);
            });
 
