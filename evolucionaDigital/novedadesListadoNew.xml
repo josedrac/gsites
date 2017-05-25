@@ -570,7 +570,7 @@
 						.filter(function (elem) {
 							var marco = getParam("marco");
 							var operativa = getParam("idOperativa");
-							if (marco === 'R' && elem[17] === 'x' || marco === 'S' && elem[18] === 'x' || (marco == '' && operativa == '') && elem[18] === 'x') {
+							if (marco === 'R' && elem[17] === 'x' || marco === 'S' && elem[18] == 'x' || marco === 'T' && elem[19] == 'x' || (marco == '' && operativa == '') && elem[18] === 'x' || marco == 0) {
 								return true;
 							}
 						})
