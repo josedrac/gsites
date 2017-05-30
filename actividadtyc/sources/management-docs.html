@@ -1,0 +1,250 @@
+<script src="https://www.google.com/jsapi" type="text/javascript"></script>
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+<!--<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>-->
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
+<style type="text/css">
+  /* @group fonts */
+  
+  @font-face {
+    font-family: 'BBVA Web Light';
+    src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.eot');
+    src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  @font-face {
+    font-family: 'BBVA Web Book';
+    src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.eot');
+    src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  @font-face {
+    font-family: 'BBVA Web Medium';
+    src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.eot');
+    src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+    font-style: normal;
+    font-weight: normal;
+  }
+  /* @end */
+  
+  button {
+    background: #0079C1;
+    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+    background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+    background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+    background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+    background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+    background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+    -webkit-border-radius: .3em;
+    -moz-border-radius: .3em;
+    border-radius: .3em;
+    font-size: 11px;
+    font-weight: bolder;
+    word-spacing: 2px;
+    height: 30px;
+    width: 80px;
+    padding-left: .9em;
+    padding-right: .9em;
+    border: .1em solid #00559D;
+    color: white;
+    cursor: pointer;
+    margin: 0px 0px 20px 0;
+    float: right;
+    position: absolute;
+    right: 23px;
+    top: 100px;
+  }
+  
+  button:hover {
+    background: #004C99;
+  }
+  
+  .container {
+    font-family: BBVA Web Book, Arial;
+    float: left;
+    width: 610px;
+    background-color: #F3F7F6;
+    padding: 5px;
+  }
+  
+  .card,
+  .pCard {
+    float: left;
+    list-style: outside none none;
+    background-color: #FFF;
+    margin: 1%;
+    padding: 20px 2.5% 10px;
+    width: 43%;
+    height: 120px;
+    position: relative;
+  }
+  
+  .pCard {
+    height: 150px;
+  }
+  
+  .icon {
+    float: left;
+    display: table-cell;
+    margin-right: 15px;
+    max-width: 80px;
+  }
+  
+  .innerText {
+    margin-left: 15px;
+    display: table;
+  }
+  
+  .contact {
+    color: #71777F;
+    font-size: 11px;
+    font-family: Arial;
+    line-height: 18px;
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  
+  .title,
+  .pTitle {
+    float: left;
+    font-family: BBVA Web Light, Arial;
+    color: #0078D2;
+    font-size: 19px;
+    margin-bottom: 15px;
+  }
+  
+  .pTitle {
+    margin-bottom: 0px;
+  }
+  
+  .text {
+    float: left;
+    height: 100%;
+    font-size: 13px;
+    color: #434a48;
+    text-align: left;
+  }
+  
+  .pretitle {
+    margin-top: 7px;
+    margin-bottom: 40px;
+  }
+  
+  .pretitle p {
+    margin: 0;
+    color: #71777F;
+    font-size: 12px;
+    font-family: arial;
+  }
+</style>
+
+<div id="pretitle" class="pretitle"></div>
+<div id="container" class="container"></div>
+
+<script type="text/javascript">
+  // adjustGadgetHeight('container');
+  /*google.load('visualization', '1', {packages: ['table']});
+  google.setOnLoadCallback(sendQuery);
+  var prefs = new gadgets.Prefs();*/
+
+  var dataForm = {
+    'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8'
+  };
+
+  $.ajax({
+    type: 'GET',
+    url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwCX4Zk9LdOGjUinuU7bPKFVCVkNtKqRJPlqcZf87MECPgfT3cs/exec',
+    data: dataForm,
+    dataType: 'jsonp',
+    crossDomain: true,
+    jsonpCallback: "on_result",
+    success: function (data) {
+      //Eliminamos la primera fila ya que no es necesaria 
+      data.splice(0, 1);
+
+      handleQueryResponse(data);
+    },
+    error: function () {
+      console.log('error');
+    }
+  });
+
+ /* function sendQuery() {
+    var tab = 'management-docs';
+    var spreadsheetKey = prefs.getString('spreadsheetKey'),
+      sheetName = encodeURIComponent(tab),
+      queryString = encodeURIComponent('SELECT * where B <> "Texto"'),
+      query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+    query.send(handleQueryResponse);
+
+  }*/
+
+  function handleQueryResponse(data) {
+    /*var data = response.getDataTable();*/
+    var data = data;
+    var filas = data.length;
+    var pages = Math.ceil(filas / 8);
+    var html = "";
+    var page = 0;
+    var display = '';
+    var classBorder = '';
+    if (filas < 1) {
+      html += '<p class="not-found">No hay ningún contenido disponible.</p>';
+    }
+
+    for (var i = 0; i < filas; i++) {
+      html += getElement(elem[0], elem[1], elem[2], elem[3]);
+    }
+
+    document.getElementById('container').innerHTML = html;
+
+    var pretitleText = elem[4];
+    document.getElementById('pretitle').innerHTML = "<p>" + pretitleText + "</p>";
+
+    gadgets.window.adjustHeight();
+  }
+
+  function Go(destination) {
+    /*window.parent.location.href = destination;*/
+    return false;
+  }
+
+  function getElement(title, text, link, icon) {
+    var html = "";
+    html += '<li class="card">';
+    html += '   <img class="icon" src="' + icon + '"/>';
+    html += '   <div class="innerText">';
+    html += '       <span class="title">' + title + '</span>';
+    // html += '       <span class="text">'+text+'</span>';
+    html += '   </div>';
+    html += '   <button class="btn" type="button" onclick="javascript:Go(\'' + link + '\')">Acceder</button>';
+    html += '</li>';
+    return html;
+  }
+
+  function getElementContact(title, text, link, icon, contact) {
+    var html = "";
+
+    if (contact == null) {
+      contact = "";
+    }
+
+    html += '<li class="pCard">';
+    html += '   <img class="icon" src="' + icon + '"/>';
+    html += '   <div class="innerText">';
+    html += '       <span class="pTitle">' + title + '</span>';
+    html += '       <span class="contact" onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/contactos\')">' + contact + '</span>';
+    html += '       <span class="text">' + text + '</span>';
+    html += '   </div>';
+    html += '   <button class="btn" type="button" onclick="javascript:Go(\'' + link + '\')">Acceder</button>';
+    html += '</li>';
+    return html;
+  }
+</script>
