@@ -155,12 +155,13 @@
   var prefs = new gadgets.Prefs();*/
 
   var dataForm = {
-    'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8'
+    'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+    'numberTab': 7
   };
 
   $.ajax({
     type: 'GET',
-    url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwCX4Zk9LdOGjUinuU7bPKFVCVkNtKqRJPlqcZf87MECPgfT3cs/exec',
+    url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
     data: dataForm,
     dataType: 'jsonp',
     crossDomain: true,
@@ -176,18 +177,8 @@
     }
   });
 
- /* function sendQuery() {
-    var tab = 'management-docs';
-    var spreadsheetKey = prefs.getString('spreadsheetKey'),
-      sheetName = encodeURIComponent(tab),
-      queryString = encodeURIComponent('SELECT * where B <> "Texto"'),
-      query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-    query.send(handleQueryResponse);
-
-  }*/
 
   function handleQueryResponse(data) {
-    /*var data = response.getDataTable();*/
     var data = data;
     var filas = data.length;
     var pages = Math.ceil(filas / 8);
@@ -199,20 +190,21 @@
       html += '<p class="not-found">No hay ningún contenido disponible.</p>';
     }
 
-    for (var i = 0; i < filas; i++) {
+    data.forEach(function (elem) {
       html += getElement(elem[0], elem[1], elem[2], elem[3]);
-    }
+    });
+
 
     document.getElementById('container').innerHTML = html;
 
-    var pretitleText = elem[4];
+    var pretitleText = data[0][4];
     document.getElementById('pretitle').innerHTML = "<p>" + pretitleText + "</p>";
 
-    gadgets.window.adjustHeight();
+    
   }
 
   function Go(destination) {
-    /*window.parent.location.href = destination;*/
+    window.parent.location.href = destination;
     return false;
   }
 
@@ -247,4 +239,5 @@
     html += '</li>';
     return html;
   }
+
 </script>
