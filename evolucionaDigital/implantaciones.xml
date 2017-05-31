@@ -295,15 +295,14 @@
       data.map(function (value) {
         value.push(new Date(value[6], value[5]));
       });
-      /* console.log (data);*/ //podemos ver que se ha creado 1 campo nuevo [8] donde aparece toda la fecha
+      
       /*Ordeno por la fecha que he creado:*/
       data.sort(function (y, x) {
         return x[8] - y[8];
       });
+      
       data = getQueryParameters(data);
-      console.log(data);
       handleQueryResponse(data);
-      console.log(data);
     },
     error: function () {
       console.log('error');
@@ -359,35 +358,29 @@
   function getQueryParameters(data) {
     if (isSearchDone()) {
       var firstParam = getSelectedFirstParameter();
-      console.log("getSelectedFirstParameter: " + firstParam);  //return: anyo || inputText
 
       var first = getSelectedFirstValue();
-      console.log("getSelectedFirstValue: " + first);           //return: '2013' || 'inicio'
 
       if (firstParam == "anyo" && first > 0) {
         /*filter = " AND (G = " + first + ")";*/
         data = data.filter(function (elem) {
           if (elem[6] == first) {
-            console.log("EL AÑO ES: " + elem[6] + " / " + first);
             return true;
           }
         })
       } else if (firstParam == "inputText") {                   //Search text
         first = first.toLowerCase();
-        console.log("BUSCADOR: " + first);
         data = data.filter(function(elem){
-          if (elem[1].toLowerCase().match(first) || elem[2].toLowerCase().match(first) || elem[3].toLowerCase().match(first) || elem[4].toLowerCase().match(first)){                 console.log("BUSCADOR2: " + first);
+          if (elem[1].toLowerCase().match(first) || elem[2].toLowerCase().match(first) || elem[3].toLowerCase().match(first) || elem[4].toLowerCase().match(first)){       
             return true;
           }
         })
       }
       var second = getSelectedSecondValue();          //return month
-      console.log("getSelectedSecondValue: " + second);
       if (second > 0) {
         /*filter = filter.concat(" AND (F = " + second + ")");*/
         data = data.filter(function (elem){
           if (elem[5] == second){
-            console.log("EL MES ES: " + elem[5] + " " + second);
             return true;
           }
         })
