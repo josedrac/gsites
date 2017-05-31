@@ -359,23 +359,30 @@
   function getQueryParameters(data) {
     if (isSearchDone()) {
       var firstParam = getSelectedFirstParameter();
-      console.log("getSelectedFirstParameter: " + firstParam);  //return: anyo
+      console.log("getSelectedFirstParameter: " + firstParam);  //return: anyo || inputText
 
       var first = getSelectedFirstValue();
-      console.log("getSelectedFirstValue: " + first);           //return: 2013
+      console.log("getSelectedFirstValue: " + first);           //return: '2013' || 'inicio'
 
       if (firstParam == "anyo" && first > 0) {
         /*filter = " AND (G = " + first + ")";*/
         data = data.filter(function (elem) {
           if (elem[6] == first) {
-            console.log("EL AÑO ES: " + elem[6] + " " + first);
+            console.log("EL AÑO ES: " + elem[6] + " / " + first);
             return true;
           }
         })
-      } /*else if (firstParam != "anyo") {
+      } else if (firstParam == "inputText") {                   //Search text
         first = first.toLowerCase();
-        filter = " AND (lower(B) like '%" + first + "%' OR lower(C) like '%" + first + "%' OR lower(D) like '%" + first + "%' OR lower(E) like '%" + first + "%')";
-      }*/
+        console.log("BUSCADOR: " + first);
+        data = data.filter(function(elem){
+          /*elem[1] = elem.toLowerCase();*/
+          if (elem[1].toLowerCase().match(first) || elem[2].toLowerCase().match(first) || elem[3].toLowerCase().match(first) || elem[4].toLowerCase().match(first)){                            
+            console.log("BUSCADOR2: " + first);
+            return true;
+          }
+        })
+      }
       var second = getSelectedSecondValue();          //return month
       console.log("getSelectedSecondValue: " + second);
       if (second > 0) {
