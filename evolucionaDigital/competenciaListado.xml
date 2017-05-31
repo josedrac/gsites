@@ -234,7 +234,7 @@
 <div id="listNovedades" class="competencia"></div>
 <div id="functionsContainer"></div>
 
-<!--<script type="text/javascript">
+<script type="text/javascript">
   $.ajax({
 			  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 				success: function(result){
@@ -244,7 +244,7 @@
 				}
 			});
 
-</script>-->
+</script>
 
 <script type="text/javascript">
   var month = new Array();
