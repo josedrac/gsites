@@ -292,15 +292,18 @@
       data.splice(0, 1);
 
       //Ordenamos el array G(AÑO: elem[6]) desc, F(MES: elem[5]) desc
-        data.map(function(value){
-          value.push(new Date(value[6], value[5]));
-        });
-        
-        data.sort(function (y, x) {
-          return x[8] - y[8];
-        });
-
+      data.map(function (value) {
+        value.push(new Date(value[6], value[5]));
+      });
+      /* console.log (data);*/ //podemos ver que se ha creado 1 campo nuevo [8] donde aparece toda la fecha
+      /*Ordeno por la fecha que he creado:*/
+      data.sort(function (y, x) {
+        return x[8] - y[8];
+      });
+      data = getQueryParameters(data);
+      console.log(data);
       handleQueryResponse(data);
+      console.log(data);
     },
     error: function () {
       console.log('error');
@@ -322,7 +325,9 @@
   month[12] = "Dic";
 
   function isSearchDone() {
-    if (gadgets.util.getUrlParameters().parent.split("=").length >= 2) {
+    //Gets year of filter
+    /*if (location.href.getUrlParameters().parent.split("=").length >= 2) {*/
+    if (location.href.split("=").length >= 2) {
       return true;
     }
     return false;
@@ -330,41 +335,60 @@
 
 
 
-  function getSelectedSecondValue() {
-    return gadgets.util.getUrlParameters().parent.split("=")[2];
+  function getSelectedSecondValue() {   //return: number of month
+    /*return gadgets.util.getUrlParameters().parent.split("=")[2];*/
+    return location.href.split("=")[2];
   }
 
 
 
-  function getSelectedFirstValue() {
-    return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];
+  function getSelectedFirstValue() {  //return: 2013
+    /*return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];*/
+    return location.href.split("=")[1].split("&")[0];
   }
 
 
 
-  function getSelectedFirstParameter() {
-    return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1];
+  function getSelectedFirstParameter() {  //return: anyo
+    /*return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1];*/
+    return location.href.split("=")[0].split("?")[1];
   }
 
 
 
-  function getQueryParameters() {
-    var filter = "";
+  function getQueryParameters(data) {
     if (isSearchDone()) {
       var firstParam = getSelectedFirstParameter();
+      console.log("getSelectedFirstParameter: " + firstParam);  //return: anyo
+
       var first = getSelectedFirstValue();
+      console.log("getSelectedFirstValue: " + first);           //return: 2013
+
       if (firstParam == "anyo" && first > 0) {
-        filter = " AND (G = " + first + ")";
-      } else if (firstParam == "inputText") {
+        /*filter = " AND (G = " + first + ")";*/
+        data = data.filter(function (elem) {
+          if (elem[6] == first) {
+            console.log("EL AÑO ES: " + elem[6] + " " + first);
+            return true;
+          }
+        })
+      } /*else if (firstParam != "anyo") {
         first = first.toLowerCase();
         filter = " AND (lower(B) like '%" + first + "%' OR lower(C) like '%" + first + "%' OR lower(D) like '%" + first + "%' OR lower(E) like '%" + first + "%')";
-      }
-      var second = getSelectedSecondValue();
+      }*/
+      var second = getSelectedSecondValue();          //return month
+      console.log("getSelectedSecondValue: " + second);
       if (second > 0) {
-        filter = filter.concat(" AND (F = " + second + ")");
+        /*filter = filter.concat(" AND (F = " + second + ")");*/
+        data = data.filter(function (elem){
+          if (elem[5] == second){
+            console.log("EL MES ES: " + elem[5] + " " + second);
+            return true;
+          }
+        })
       }
     }
-    return filter;
+    return data;
   }
 
 
@@ -381,7 +405,6 @@
 
 
   function handleQueryResponse(data) {
-    data = data;
     var filas = data.length;
     var html = "";
 
@@ -398,6 +421,8 @@
     }
 
     html += "<div id='pagination' style='margin: auto;'></div>";
+
+    /*data = getQueryParameters(data);*/
 
     document.getElementById('listImplantaciones').innerHTML += html;
     if (filas > 0)
