@@ -13,7 +13,10 @@
     }
 </style>
 
-<div id="container" class="container"></div>
+<div id="container" class="container">
+    <div id="not-found">
+    </div>
+</div>
 
 <script type="text/javascript">
     google.load('visualization', '1', { packages: ['table'] });
@@ -21,13 +24,15 @@
 </script>
 
 <script type="text/javascript">
+    /*var prefs = new gadgets.Prefs();
+    var subpage = prefs.getBool('subpage');*/
     var subpage = true;
 
     if (subpage) {
         var siteName = getParam('siteName'),
             fullDate = getReversedFullDate(getParam('date'));
-        console.log("siteName: " + siteName + " fullDate: " + fullDate);
-     
+        /*console.log("siteName: " + siteName + " fullDate: " + fullDate);*/
+
         /*var spreadsheetKey = '1GgolxvASZkQt6RDB-lH_2WhPE7GtNM0VUFbkrY0eZWo',
             sheetName = encodeURIComponent('territoriales'),
             queryString = encodeURIComponent('SELECT * where B ends with "' + siteName + '" and date "' + fullDate + '" >= E and date "' + fullDate + '" <= F'),
@@ -50,8 +55,7 @@
                 //Eliminamos la primera fila ya que no es necesaria 
                 data.splice(0, 1);
 
-                //pendiente: where B ends with "' + siteName + '" and date "' + fullDate + '" >= E and date "' + fullDate + '" <= F'
-
+                data = getQueryParameters(data);
                 handleQueryResponse(data);
             },
             error: function () {
@@ -60,7 +64,7 @@
         });
 
     } else {
-       /* var imageUrl = "https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/home/imagenes/Logo%20Servicios%20Centrales.png?attachauth=ANoY7coOie9q5o64tnwlOBU01wlf1Cmk3BAKJ5hQlnmzXNtDErKjhaiCtGuOJ-uLsRzaX5N3Wxzdv6CYGSxn-bT6VOXqdPSxG6ONESR2Rc3twkX2967A3WtyVO9XGihW48OOM4CbS0rBAkXhaYWcFEly-OK__Z8uOPmMYhOrf-CnvIVetWTmMJFfVJ-NfjNzNkMw2yhY_BRHgNPo4SfYrGoGtow8UV7BvSoAC4rf-f8OV2tmNewz4ki9wy-pK4xD3EgBA9vQX_Ke&attredirects=0";*/
+        /* var imageUrl = "https://448a7b55-a-8e9718e0-s-sites.googlegroups.com/a/bbva.com/newstycbbvaespana/home/imagenes/Logo%20Servicios%20Centrales.png?attachauth=ANoY7coOie9q5o64tnwlOBU01wlf1Cmk3BAKJ5hQlnmzXNtDErKjhaiCtGuOJ-uLsRzaX5N3Wxzdv6CYGSxn-bT6VOXqdPSxG6ONESR2Rc3twkX2967A3WtyVO9XGihW48OOM4CbS0rBAkXhaYWcFEly-OK__Z8uOPmMYhOrf-CnvIVetWTmMJFfVJ-NfjNzNkMw2yhY_BRHgNPo4SfYrGoGtow8UV7BvSoAC4rf-f8OV2tmNewz4ki9wy-pK4xD3EgBA9vQX_Ke&attredirects=0";*/
         /*var siteName = "servicios-centrales";
         var datePath = getDate();*/
         //var imageUrl = prefs.getString("imageUrl");
@@ -74,33 +78,36 @@
 
 
     function handleQueryResponse(data) {
+        var html = "";
         if (!data.length) {
-            console.log('Error in query: ' + data.getMessage() + ' ' + data.getDetailedMessage());
+            /*console.log('Error in query: ' + data.getMessage() + ' ' + data.getDetailedMessage());*/
+            console.log("Lo sentimos no hay noticias disponibles");
+            html += '<p class="not-found">No hay ningún contenido disponible.</p>';
+            document.getElementById('not-found').innerHTML = html;
             return;
         }
 
         /*var dataTable = data.getDataTable();*/
         var dataTable = data;
 
-        if (dataTable.length) {
-            var imageUrl = dataTable[0][2];
-            var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" + getParam('siteName') + '/' + getDate() + "?date=" + getParam('date');
-            document.getElementById('container').innerHTML = '<img src="' + imageUrl + '" onclick="javascript:Go(\'' + url + '\');"/>';
+        dataTable = dataTable.forEach(function(elem) {
+            var imageUrl = elem[2];
+            var url = "https://sites.google.com/a/bbva.com/newstycbbvaespana/" +
+                ('siteName') + '/' + getDate() + "?date=" + getParam('date');
+            document.getElementById('container').innerHTML = '<img src="' + imageUrl + '" onclick="javascript:Go(\'' + elem[1] + '\');"/>';
 
-            console.log("url: " + url);
-        } else {
-            console.log('spreadsheet is empty');
-        }
+            /*console.log("url: " + url);*/
+        
+        });
     }
-
-
+    
 
     function getParam(p) {
         var params;
         /*if(gadgets.util.getUrlParameters().parent.split("?").length > 1){*/    //xml
         if (location.href.split("?").length > 1) {                      //local
             params = location.href.split("?")[1].split("&");
-            console.log("param: " + params);
+            /* console.log("param: " + params);*/
             for (var i = 0; i < params.length; i++) {
                 if (params[i].split("=")[0] == p)
                     return params[i].split("=")[1];
@@ -109,6 +116,75 @@
         return "";
     }
 
+
+    function getSelectedFirstValue(data) {  //return: siteName -> 'norte'
+        /*return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];*/     //xml
+        lista = location.href.split("?")[1].split("?");                                   //local
+        return lista;
+    }
+
+    function getSelectedSecondValue(data) {   //return: month&year -> 03/2017
+        /*return gadgets.util.getUrlParameters().parent.split("=")[2];*/              //xml
+        listSecond = location.href.split("?");                            //local
+        listSecond = listSecond[listSecond.length - 1].split("=")[1].split("/");
+        day = 1;
+        return new Date(listSecond[1], listSecond[0], day);
+    }
+
+
+    function isSearchDone() {
+        //Gets year of filter
+        /*if(gadgets.util.getUrlParameters().parent.split("=").length >= 2) {*/              //xml
+        if (location.href.split("=").length >= 2) {                                        //local
+            return true;
+        }
+        return false;
+    }
+
+
+    function getQueryParameters(data) {
+        if (isSearchDone()) {
+
+            var first = getSelectedFirstValue(data);                    //return: 'centro' 
+            first = first[0].toLowerCase();
+
+            var second = getSelectedSecondValue(data);                   //return: '01/2016'
+            
+            data = data.filter(function (elem) {
+                if (first == elem[0].toLowerCase()) {
+                    return true;
+                }
+            });
+
+            data = data.filter(function (elem){
+                //GET DATE OF SPREEDSHEET: firstDate & lastDate
+                //first Date:
+                    var day = 1;
+                    var mon = new Date(elem[4]).getMonth() + 1;
+                    var year = new Date(elem[4]).getFullYear();
+                    //concat mon + year
+                    /*var firstDateSpreed1 = mon + "/" + year;*/
+                    var firstDateSpreed1 = new Date(year, mon, day);
+
+                //last Date
+                    var mon2 = new Date(elem[5]).getMonth() + 1;
+                    var year2 = new Date(elem[5]).getFullYear();
+                    //concat mon2 + year2
+                    /*var firstDateSpreed2 = mon2 + "/" + year2;*/
+                    var firstDateSpreed2 = new Date (year2, mon2, day);
+
+                console.log(second);
+                console.log(firstDateSpreed1);
+                console.log(firstDateSpreed2);
+                console.log("***********");
+                if (second >=firstDateSpreed1 && second <= firstDateSpreed2) {
+                    console.log("esta entre esas fechas");
+                    return true;
+                }
+            });
+        }
+        return data;
+    }
 
 
     function getReversedFullDate(date) {
@@ -127,7 +203,6 @@
 
     function getSiteName() {
         var url_array = window.location.href.split('?')[0].split('/');
-        console.log("url_array: " + url_array);
         return url_array[url_array.length - 2];
     }
 
