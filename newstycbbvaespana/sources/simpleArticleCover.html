@@ -117,7 +117,8 @@
 
 		<script type="text/javascript">
 			var dataForm = {
-				'key': '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
+				/*'key': prefs.getString('spreadsheetKey'),*/								//xml
+				'key': '1mWS9MUphhwt3CQCRF_q_FMGzPnyYioChMUbrs5giHcY',			//local - norte
 				'numberTab': 1
 			};
 
@@ -190,8 +191,9 @@
 				listSecond = location.href.split("&")[1].split("&");                          //local
 				listSecond = listSecond[listSecond.length - 1].split("=")[1].split("/");
 				day = '01';
-				formatedDate = new Date(listSecond[1], listSecond[0], day);
-				return formatedDate.toISOString().substring(0, 10);
+				/*formatedDate = new Date(listSecond[1], (listSecond[0] -1), day);*/
+				/*return formatedDate.toISOString().substring(0, 10);*/
+					return new Date(listSecond[1], (listSecond[0] -1), day);
 			}
 
 			function getSelectedThirdValue(data) {   //return: key= 1uFsgtAioJmZlNeBKATb
@@ -237,15 +239,15 @@
 						//GET DATE OF SPREEDSHEET
 						//first Date: 
 						var day = 1;
-						var mon = elem[3].split("/")[1];
+						var mon = (elem[3].split("/")[1]) -1;
 						var year = elem[3].split("/")[2];
 						var firstDateSpreed1 = new Date(year, mon, day);
 
 						//last Date:
 						var day2 = 31;
 						var firstDateSpreed2 = new Date(year, mon, day2);
-						second = new Date(second);
-						second.setHours(0);
+						/*second = new Date(second);
+						second.setHours(0);*/
 
 						if (second >= firstDateSpreed1 && second <= firstDateSpreed2) {
 							return true;
@@ -274,7 +276,9 @@
 
 				var date = getSelectedSecondValue(data);            //return: '01/2016'
 				date = new Date(date);
-				formatedDate = date.getMonth() + '/' + date.getFullYear();
+				console.log("date: " + date);
+				formatedDate = (date.getMonth())+1 + '/' + date.getFullYear();
+				console.log("formatedDate: " + formatedDate);
 
 				var spreadsheetKey = getSelectedThirdValue(data);		//return: '1uFsgtAioJmZBK'
 
