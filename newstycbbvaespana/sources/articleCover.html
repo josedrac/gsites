@@ -189,7 +189,7 @@
 			<div id="container" class="container">
 				<div id="not-found">
 				</div>
-		</div>
+			</div>
 
 			<!--<button id="authorize-button" onclick=handleAuthClick(event)>Authorize</button>-->
 		 	<div id="container" class="article-cover bordered-button">
@@ -300,8 +300,9 @@
 						/*return gadgets.util.getUrlParameters().parent.split("=")[2];*/              //xml
 						listSecond = location.href.split("&")[1].split("&");                          //local
 						listSecond = listSecond[listSecond.length - 1].split("=")[1].split("/");
-						day = 1;
-						return new Date(listSecond[1], listSecond[0], day);
+						day = '01';
+						formatedDate = new Date(listSecond[1], listSecond[0], day);
+						return formatedDate.toISOString().substring(0, 10);
 					}
 
 				 function getSelectedThirdValue(data) {   //return: key= 1uFsgtAioJmZlNeBKATb
@@ -345,6 +346,8 @@
 								//last Date:
 								var day2 = 31;
 								var firstDateSpreed2 = new Date(year, mon, day2);
+								second = new Date(second);
+								second.setHours(0);
 
 								if (second >= firstDateSpreed1 && second <= firstDateSpreed2) {
 									console.log("esta entre esas fechas");
@@ -415,14 +418,17 @@
 						var sectionId = getSelectedFirstValue(data);               //return: 'CAR' 
 						sectionId = sectionId[0].toLowerCase();
 
-						var date = getSelectedSecondValue(data);             //return: '01/2016'
+						var date = getSelectedSecondValue(data);            //return: '01/2016'
+						date = new Date(date);
+						formatedDate = date.getMonth() + '/' + date.getFullYear();
+
 
 						var spreadsheetKey = getSelectedThirdValue(data);							//return: '1uFsgtAioJmZlNeBK'
 
 						var siteName = getSelectedFourthValue(data);						// return: 'canarias'
 
 
-						window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + encodeURIComponent(sectionId) + '&date=' + encodeURIComponent(date) + '&key=' + spreadsheetKey + '&siteName=' + siteName;
+						window.parent.location.href = 'https://sites.google.com/a/bbva.com/newstycbbvaespana/articlecontent?id=' + encodeURIComponent(sectionId) + '&date=' + formatedDate + '&key=' + spreadsheetKey + '&siteName=' + siteName;
 						return false;
 					}
 
