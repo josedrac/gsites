@@ -183,7 +183,8 @@
 		query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);*/
 
 	var dataForm = {
-		'key': '1uFsgtAioJmZlNeBKAyTfQfBAxIUQpTbRD47ZlTRBCTY',
+		/*'key': prefs.getString('spreadsheetKey'),*/								//xml
+		'key': '1Yw8PugMDa2BA3nfC9Ri7dvUvVDa2cpW2U97gAuKx4QQ',			//local - centro
 		'numberTab': 1
 	};
 
@@ -216,8 +217,9 @@
 		/*return gadgets.util.getUrlParameters().parent.split("=")[2];*/              //xml
 		listSecond = location.href.split("&")[1].split("&");                          //local
 		listSecond = listSecond[listSecond.length - 1].split("=")[1].split("/");
-		day = 1;
-		return new Date(listSecond[1], listSecond[0], day);
+		day = '01';
+
+		return new Date(listSecond[1], (listSecond[0] -1), day);
 	}
 
 	function getSelectedThirdValue(data) {   //return: key= -> 1uFsgtAioJmZlNeBKAyTfQfBAxIUQpTb
@@ -256,6 +258,7 @@
 
 			data = data.filter(function (elem) {
 				if (first == elem[0].toLowerCase()) {
+					console.log("FIRST: " +first);
 					return true;
 				}
 			});
@@ -263,14 +266,16 @@
 			data = data.filter(function (elem) {
 				//GET DATE OF SPREEDSHEET
 				//first Date: 
-				var day = 1;
-				var mon = elem[3].split("/")[1]; 
+				var day = '01';
+				var mon = (elem[3].split("/")[1]) -1; 
 				var year = elem[3].split("/")[2];
 				var firstDateSpreed1 = new Date(year, mon, day);
+				console.log("SPREADSHEET 1: " + firstDateSpreed1);
 
 				//last Date:
-				var day2 = 31;
+				var day2 = '31';
 				var firstDateSpreed2 = new Date(year, mon, day2);
+				console.log("SPREADSHEET 2: " + firstDateSpreed2);
 
 				if (second >= firstDateSpreed1 && second <= firstDateSpreed2) {
 					console.log("esta entre esas fechas");
@@ -336,7 +341,7 @@
 		document.getElementById("subtitle").innerHTML = data.subtitle;
 
 		if (data.author != null && data.author != undefined) {
-			console.log(data.date);
+		/*	console.log(data.date);*/
 						var authorSignature = '';
 						authorSignature += '<p class="author-signature">';
 						authorSignature += data.date + ' - ' + data.author;
