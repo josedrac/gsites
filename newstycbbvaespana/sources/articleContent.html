@@ -336,6 +336,7 @@
 		document.getElementById("subtitle").innerHTML = data.subtitle;
 
 		if (data.author != null && data.author != undefined) {
+			console.log(data.date);
 						var authorSignature = '';
 						authorSignature += '<p class="author-signature">';
 						authorSignature += data.date + ' - ' + data.author;
