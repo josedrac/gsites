@@ -63,9 +63,15 @@
 		google.load('visualization', '1', { packages: ['table'] });
 	</script>
 
-	<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
+	<div id="appoinments" class="appoinments" onclick="javascript:Go()">
+		<!--<h2 id="head"></h2>
+		<p>Descubre las últimas novedades de tu territorio</p>-->
+		<h2 id="title"></h2>
+		<p id="subtitle"></p>
+	</div>
 
-	<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
+	<div id="functionsContainer"></div>
+
 
 	<script type="text/javascript">
 		/*var spreadsheetKey = '1Iv72DC3co0yfP70TaxSxru6BFNfXkBjGss_8LMDwZ_Q',
@@ -81,7 +87,9 @@
 			'title' : prefs.getString('title'),
 			'subtitle' :' prefs.getString('subtitle');*/
 			'key': '1mWS9MUphhwt3CQCRF_q_FMGzPnyYioChMUbrs5giHcY',			//local - norte
-			'numberTab': 3
+			'numberTab': 3,
+			'title' : 'Nombramientos Norte',
+			'subtitle' :'Descubre las últimas novedades '
 		};
 
 		$.ajax({
@@ -102,6 +110,10 @@
 			}
 		});
 
+		var title = dataForm.title;
+		var subtitle = dataForm.subtitle;
+		document.getElementById('title').innerHTML = title;
+		document.getElementById('subtitle').innerHTML = subtitle;
 
 		function isSearchDone() {
 			/*if(gadgets.util.getUrlParameters().parent.split("=").length >= 2) {*/         //xml
@@ -165,7 +177,7 @@
 				return false;*/
 			}
 			console.log(data);
-			document.getElementById("head").innerHTML = "Nombramientos en DT " + fourth;
+			/*document.getElementById("head").innerHTML = title + fourth*/;
 			return data;
 		}
 
@@ -198,28 +210,50 @@
 			
 			return false;
 		}
-
-	
 	</script>
 
-	<!-- --- END JAVASCRIPT ---------------------------------------------------------------------------------- -->
 
 </head>
 
-<!-- --- HTML -------------------------------------------------------------------------------------------- -->
+<!--<style type="text/css">
 
-<body>
+				table td {
+					color: #000;
+					font-size: 11px;
+					font-weight: bold;
+				}
 
-	<div class="appoinments" id="tab" onclick="javascript:Go()">
-		<h2 id="head"></h2>
-		<p>Descubre las últimas novedades de tu territorio</p>
-		<!--<h2 id="title"></h2>
-		<p id="subtitle"></p>-->
-	</div>
+			</style>
 
-</body>
+			<table width="100%" border="0">
+				<tr>
+					<td>
+						Site name: <input type="text" id="siteName" value="__UP_siteName__"   onchange="register('siteName')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Title: <input type="text" id="title" value="__UP_title__"   onchange="register('title')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Subtitle: <input type="text" id="subtitle" value="__UP_subtitle__"   onchange="register('subtitle')"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Spreadsheet key: <input type="text" id="key" value="__UP_key__"   onchange="register('key')"/>
+					</td>
+				</tr>
+			</table>
 
+			<script type="text/javascript">
 
-<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
+				var prefs = new gadgets.Prefs();
+					function register(variable) {
+					prefs.set(variable, document.getElementById(variable).value);
+				}
 
+			</script>-->
 </html>
