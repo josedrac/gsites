@@ -1,282 +1,294 @@
-	<!-- --- STYLES ------------------------------------------------------------------------------------------ -->
+<!-- --- STYLES ------------------------------------------------------------------------------------------ -->
 
-	<style type="text/css">
+<style type="text/css">
+	@font-face {
+		font-family: 'BBVA Web Light';
+		src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+		src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
+	
+	p {
+		font-family: arial;
+		font-size: 12.25px;
+		color: #434A58;
+		line-height: 20px;
+		padding: 0 20px;
+	}
+	
+	table {
+		border-collapse: collapse;
+		background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
+		background-position: bottom;
+		background-repeat: repeat-x;
+		width: 900px;
+		margin: 0 auto;
+		//margin-top: 40px;
+	}
+	
+	table thead tr th {
+		font-family: BBVA Web Light, Arial;
+		font-weight: normal;
+		font-size: 16px;
+		text-align: left;
+		color: #0078D2;
+		border-bottom: 1px solid #DDE3EA;
+		padding: 0 20px 6px;
+	}
+	
+	.col-1 {
+		width: 27%;
+	}
+	
+	.col-2 {
+		width: 15%;
+	}
+	
+	.col-3 {
+		width: 25%;
+	}
+	
+	.col-4 {
+		width: 36%;
+	}
+	
+	.col-5 {
+		width: 18%;
+	}
+	
+	.six-cols .col-1 {
+		width: 24%;
+	}
+	
+	.six-cols .col-2 {
+		width: 15%;
+	}
+	
+	.six-cols .col-3 {
+		width: 18%;
+	}
+	
+	.six-cols .col-4 {
+		width: 15%;
+	}
+	
+	.six-cols .col-5 {
+		width: 18%;
+	}
+	
+	table tbody tr {
+		height: 50px;
+		border-top: 1px solid #DDE3EA;
+		border-bottom: 1px solid #DDE3EA;
+	}
+	
+	table tbody tr:nth-child(even) {
+		background: #F7F7F7;
+	}
+	
+	table tbody tr td {
+		font-family: arial;
+		font-size: 12.25px;
+		color: #434A58;
+		padding: 7.25px 20px;
+		vertical-align: top;
+	}
+	
+	table tbody tr:first-child td {
+		padding-top: 26px;
+	}
+	
+	table tbody tr:last-child td {
+		padding-bottom: 25px;
+	}
+	
+	table tbody tr td.text-right {
+		text-align: right;
+		;
+	}
+	
+	table tbody tr td .sign-up {
+		font-family: BBVA Web Light, Arial;
+		font-size: 18px;
+		color: #0078D2;
+		position: relative;
+		top: -4px;
+		cursor: default
+	}
+	
+	table tbody tr td .sign-up span {
+		position: relative;
+		top: -4px;
+		font-weight: bold;
+		color: #0079C1;
+	}
+	
+	table thead tr th:not(:first-child),
+	table tbody tr td:not(:first-child) {
+		padding-left: 0;
+	}
+	
+	.text-center {
+		text-align: center;
+	}
+</style>
 
-		@font-face {
-			font-family: 'BBVA Web Light';
-			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
-			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-			font-style: normal;
-			font-weight: normal;
+<div id='container'>
+	<p id="text"></p>
+	<table>
+		<thead>
+			<tr id="table_header">
+			</tr>
+		</thead>
+		<tbody id="tableBody"></tbody>
+	</table>
+</div>
+
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	google.load('visualization', '1', { packages: ['table'] });
+
+</script>
+
+<script type="text/javascript">
+
+	var dataForm = {
+		/*'key': prefs.getString('spreadsheetKey'),*/			 //xml
+		'key': getParam('key'),														//local - get key in url
+		'numberTab': 3
+	};
+
+	$.ajax({
+		type: 'GET',
+		url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+		data: dataForm,
+		dataType: 'jsonp',
+		crossDomain: true,
+		jsonpCallback: "on_result",
+		success: function (data) {
+			//Delete the first row as it is not necessary
+			data.splice(0, 1);
+
+			handleQueryResponse(data);
+		},
+		error: function () {
+			console.log('error');
 		}
+	});
 
-		p {
-			font-family: arial;
-			font-size: 12.25px;
-			color: #434A58;
-			line-height: 20px;
-			padding: 0 20px;
-		}
-
-		table {
-	    	border-collapse: collapse;
-			background-image: url(https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/img/border-bottom-shaded.png);
-			background-position: bottom;
-			background-repeat: repeat-x;
-			width: 900px;
-			margin: 0 auto;
-			//margin-top: 40px;
-		}
-
-		table thead tr th {
-			font-family: BBVA Web Light, Arial;
-			font-weight: normal;
-			font-size: 16px;
-		    text-align: left;
-			color: #0078D2;
-			border-bottom: 1px solid #DDE3EA;
-		    padding: 0 20px 6px;
-		}
-
-		.col-1 {
-			width: 27%;
-		}
-
-		.col-2 {
-			width: 15%;
-		}
-
-		.col-3 {
-			width: 25%;
-		}
-
-		.col-4 {
-			width: 36%;
-		}
-
-		.col-5 {
-			width: 18%;
-		}
-
-
-		.six-cols .col-1 {
-			width: 24%;
-		}
-
-		.six-cols .col-2 {
-			width: 15%;
-		}
-
-		.six-cols .col-3 {
-			width: 18%;
-		}
-
-		.six-cols .col-4 {
-			width: 15%;
-		}
-
-		.six-cols .col-5 {
-			width: 18%;
-		}
-
-		table tbody tr {
-			height: 50px;
-			border-top: 1px solid #DDE3EA;
-			border-bottom: 1px solid #DDE3EA;
-
-		}
-
-		table tbody tr:nth-child(even) {
-			background: #F7F7F7;
-		}
-
-		table tbody tr td {
-			font-family: arial;
-			font-size: 12.25px;
-			color: #434A58;
-		    padding: 7.25px 20px;
-	        vertical-align: top;
-		}
-
-		table tbody tr:first-child td {
-			padding-top: 26px;
-		}
-
-		table tbody tr:last-child td {
-			padding-bottom: 25px;
-		}
-
-		table tbody tr td.text-right {
-			text-align: right;;
-		}
-
-		table tbody tr td .sign-up {
-			font-family: BBVA Web Light, Arial;
-			font-size: 18px;
-			color: #0078D2;
-			position: relative;
-		    top: -4px;
-	        cursor: default
-		}
-
-		table tbody tr td .sign-up span {
-			position: relative;
-		    top: -4px;
-		    font-weight: bold;
-		    color: #0079C1;
-		}
-
-		table thead tr th:not(:first-child),
-		table tbody tr td:not(:first-child) {
-			padding-left: 0;
-		}
-
-		.text-center {
-			text-align: center;
-		}
-
-
-	</style>
-
-	<!-- --- END STYLES -------------------------------------------------------------------------------------- -->
-
-	<!-- --- HTML -------------------------------------------------------------------------------------------- -->
-
-	<div id='container'>
-
-		<p id="text"></p>
-
-		<table>
-			<thead>
-				<tr id="table_header">
-				</tr>
-			</thead>
-			<tbody id="tableBody"></tbody>
-		</table>
-
-	</div>
-
-	<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
-
-	<!-- --- JAVASCRIPT -------------------------------------------------------------------------------------- -->
-
-	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
-	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
-
-	<script type="text/javascript">
-		google.load('visualization', '1', {packages: ['table']});
-	</script>
-
-	<script type="text/javascript">
-
-		function getParam(p){
-			var params;
-			if(window.location.href.split("?").length > 1){
-				params = window.location.href.split("?")[1].split("&");
-				for(var i=0; i<params.length; i++){
-					if(params[i].split("=")[0] == p)
-						return params[i].split("=")[1];
+		function getParam(p) {
+				var params;
+				if (window.location.href.split("?").length > 1) {
+					params = window.location.href.split("?")[1].split("&");
+					for (var i = 0; i < params.length; i++) {
+						if (params[i].split("=")[0] == p)
+							return params[i].split("=")[1];
+					}
 				}
+				return "";
 			}
-			return "";
-		}
 
-		var isSixColumns = false,
-			date = getParam("date"),
-			queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"');
+			var isSixColumns = false,
+				date = getParam("date"),
+				queryString = encodeURIComponent('SELECT * where F = "' + getParam("date") + '"');
 
-		if(parseInt(date.split('/')[0]) > 2) {
-			isSixColumns = true;
-			queryString = encodeURIComponent('SELECT * where G = "' + getParam("date") + '"')
-		}
+			if (parseInt(date.split('/')[0]) > 2) {
+				isSixColumns = true;
+				queryString = encodeURIComponent('SELECT * where G = "' + getParam("date") + '"')
+			}
 
-		var spreadsheetKey = getParam('key');
+			var spreadsheetKey = getParam('key');
 			sheetName = encodeURIComponent('appointments'),
-			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+				query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
-		function getSpreadsheet() {
-			query.send(handleQueryResponse);
+		function getSpreadsheet(data) {
+			/*query.send(handleQueryResponse);*/
+			handleQueryResponse(data);
 		}
 
-		function handleQueryResponse(response) {
-			if (response.isError()) {
-				console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-				return;
-			}
-			var dataTable = response.getDataTable();
-
-			if(dataTable.getNumberOfRows()){
-				printDataTable(dataTable);
-			}
-			else{
-				console.log('spreadsheet is empty');
-			}
+		function handleQueryResponse(data) {
+				var html = "";
+				if (!data.length) {
+					/*console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());*/
+					console.log("Lo sentimos no hay noticias disponibles");
+					html += '<p class="not-found">No hay ningún contenido disponible.</p>';
+					document.getElementById('not-found').innerHTML = html;
+					return;
+				}
+				var dataTable = data;
+				dataTable.length ? printDataTable(dataTable) : console.log('spreadsheet is empty');
 		}
 
 		function printDataTable(dataTable) {
-			var rows = dataTable.getNumberOfRows(),
-				column11 = dataTable.getValue(0, 11),
-				template = '',
-				url,
-				urlIndex = 4;
+				var rows = dataTable.length,
+					column11 = dataTable[0][11],
+					template = '',
+					url,
+					urlIndex = 4;
 
-			if(isSixColumns)
-				urlIndex = 5;
+				if (isSixColumns)
+					urlIndex = 5;
 
-			createTableHeader(dataTable);
+				createTableHeader(dataTable);
 
-			for(i = 0; i < rows; i++) {
-				template += '<tr>';
-				template += '<td>' + dataTable.getValue(i, 0) + '</td>';
-				template += '<td>' + dataTable.getValue(i, 1) + '</td>';
-				template += '<td>' + dataTable.getValue(i, 2) + '</td>';
-				template += '<td>' + dataTable.getValue(i, 3) + '</td>';
-				if(isSixColumns)
-					template += '<td>' + dataTable.getValue(i, 4) + '</td>';
+				/*for(i = 0; i < rows; i++) {*/
+				var data = dataTable.forEach(function (elem) {
+					template += '<tr>';
+					template += '<td>' + elem[0] + '</td>';
+					template += '<td>' + elem[1] + '</td>';
+					template += '<td>' + elem[2] + '</td>';
+					template += '<td>' + elem[3] + '</td>';
 
-				url = dataTable.getValue(i, urlIndex);
-				template += '<td class="text-center">';
-				if(url !== null && url !== undefined && url !== ''){
-					template += '<img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/green-check.png">';
-				}
-				template += '</td></tr>';
-			}
+					if (isSixColumns) {
+						template += '<td>' + elem[4] + '</td>';
+					}
 
-			document.getElementById("tableBody").innerHTML = template;
+					url = elem[urlIndex];
+					template += '<td class="text-center">';
+					if (url !== null && url !== undefined && url !== '') {
+						template += '<img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/green-check.png">';
+					}
+					template += '</td></tr>';
+				})
+
+				/*}*/
+
+				document.getElementById("tableBody").innerHTML = template;
 		}
 
 
 		function createTableHeader(dataTable) {
-			var header = "",
-				decrement = 1,
-				textIndex = 11;
+				var header = "",
+					decrement = 1,
+					textIndex = 11;
 
-			if(isSixColumns) {
-				textIndex = 12;
-				decrement = 0;
-				$('#table_header').addClass('six-cols');
-			}
+				if (isSixColumns) {
+					textIndex = 12;
+					decrement = 0;
+					$('#table_header').addClass('six-cols');
+				}
 
-			header += 		'<th id="col-1" class="col-1">'+ dataTable.getValue(0, 7 - decrement) +'</th>' +
-							'<th id="col-2" class="col-2">'+ dataTable.getValue(0, 8 - decrement) +'</th>' +
-							'<th id="col-3" class="col-3">'+ dataTable.getValue(0, 9 - decrement) +'</th>' +
-							'<th id="col-4" class="col-4">'+ dataTable.getValue(0, 10 - decrement) +'</th>';
+				header += '<th id="col-1" class="col-1">' + dataTable[0][7 - decrement] + '</th>' +
+					'<th id="col-2" class="col-2">' + dataTable[0][8 - decrement] + '</th>' +
+					'<th id="col-3" class="col-3">' + dataTable[0][9 - decrement] + '</th>' +
+					'<th id="col-4" class="col-4">' + dataTable[0][10 - decrement] + '</th>';
 
-			if(isSixColumns)
-				header += 	'<th id="col-5" class="col-5">'+ dataTable.getValue(0, 11) +'</th>';
+				if (isSixColumns)
+					header += '<th id="col-5" class="col-5">' + [0][11] + '</th>';
 
-			header +=		'<th class="col-5"><span id="sign-up" class="sign-up">apuntate<span>+</span></span></th>';
+				header += '<th class="col-5"><span id="sign-up" class="sign-up">apuntate<span>+</span></span></th>';
 
-			document.getElementById('table_header').innerHTML = header;
-			document.getElementById('text').innerHTML = dataTable.getValue(0, textIndex);
+				document.getElementById('table_header').innerHTML = header;
+				document.getElementById('text').innerHTML = dataTable[0][textIndex];
 		}
 
-		google.setOnLoadCallback(getSpreadsheet);
+		/*google.setOnLoadCallback(getSpreadsheet);*/
 
-	</script>
+</script>
 
-	<!-- --- END JAVASCRIPT ---------------------------------------------------------------------------------- -->
+<!-- --- END JAVASCRIPT ---------------------------------------------------------------------------------- -->
