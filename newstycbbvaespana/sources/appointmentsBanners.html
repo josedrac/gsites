@@ -1,82 +1,101 @@
-        <style type="text/css">
+<style type="text/css">
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    
+    ul li {
+        padding: 0 5px;
+        cursor: pointer;
+        display: inline;
+    }
+</style>
 
-            ul {
-                margin: 0;
-                padding: 0;
-                list-style-type: none;
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
+<script <script type="text/javascript">
+    google.load('visualization', '1', { packages: ['table'] });
+</script>
+
+<!-- --- HTML -------------------------------------------------------------------------------------------- -->
+
+<div>
+    <ul id="appointmentsBanners"></ul>
+</div>
+
+<!-- --- END HTML ---------------------------------------------------------------------------------------- -->
+
+<script type="text/javascript">
+    var dataForm = {
+        /*'key': prefs.getString('spreadsheetKey'),*/			 //xml
+        'key': getParam('key'),														//local - get key in url
+        'numberTab': 3
+    };
+
+    $.ajax({
+        type: 'GET',
+        url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+        data: dataForm,
+        dataType: 'jsonp',
+        crossDomain: true,
+        jsonpCallback: "on_result",
+        success: function (data) {
+            //Delete the first row as it is not necessary
+            data.splice(0, 1);
+
+            handleQueryResponse(data);
+        },
+        error: function () {
+            console.log('error');
+        }
+    });
+
+    function getParam(p) {
+        var params;
+        if (window.location.href.split("?").length > 1) {
+            params = window.location.href.split("?")[1].split("&");
+            for (var i = 0; i < params.length; i++) {
+                if (params[i].split("=")[0] == p)
+                    return params[i].split("=")[1];
             }
+        }
+        return "";
+    }
 
-            ul li {
-                padding: 0 5px;
-                cursor: pointer;
-                display: inline;
-            }
+    var spreadsheetKey = getParam('key');
+    sheetName = encodeURIComponent('appointments banners'),
+        queryString = encodeURIComponent('SELECT * where C = "' + getParam("date") + '"'),
+        query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
-        </style>
+    function getSpreadsheet() {
+        query.send(handleQueryResponse);
+    }
 
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    function handleQueryResponse(data) {
+        if (!data.length) {
+            /*console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());*/
+            console.log("Lo sentimos no hay noticias disponibles");
+            html += '<p class="not-found">No hay ningún contenido disponible.</p>';
+            document.getElementById('not-found').innerHTML = html;
+            return;
+        }
+        var dataTable = data;
 
-        <script type="text/javascript">
-            google.load('visualization', '1', {packages: ['table']});
-        </script>
+        dataTable.length ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+    }
 
-        <!-- --- HTML -------------------------------------------------------------------------------------------- -->
+    function printDataTable(dataTable) {
+        var rows = dataTable.length,
+            template = '';
 
-        <div>
-            <ul id="appointmentsBanners"></ul>
-        </div>
+        /*for(i = 0; i < rows; i++) {*/
+        var data = dataTable.forEach(function (elem) {
+            template += '<li><a target="_blank" href="' + elem[1] + '"><img src="' + elem[0] + '"></a></li>\n';
+        })
 
-        <!-- --- END HTML ---------------------------------------------------------------------------------------- -->
+        document.getElementById("appointmentsBanners").innerHTML = template;
+    }
 
-        <script type="text/javascript">
-
-            function getParam(p){
-                var params;
-                if(window.location.href.split("?").length > 1){
-                    params = window.location.href.split("?")[1].split("&");
-                    for(var i=0; i<params.length; i++){
-                        if(params[i].split("=")[0] == p)
-                            return params[i].split("=")[1];
-                    }
-                }
-                return "";
-            }
-
-            var spreadsheetKey = getParam('key');
-                sheetName = encodeURIComponent('appointments banners'),
-                queryString = encodeURIComponent('SELECT * where C = "' + getParam("date") + '"'),
-                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-
-            function getSpreadsheet() {
-                query.send(handleQueryResponse);
-            }
-
-            function handleQueryResponse(response) {
-                if (response.isError()) {
-                    console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-                    return;
-                }
-                var dataTable = response.getDataTable();
-
-                if(dataTable.getNumberOfRows()){
-                    printDataTable(dataTable);
-                }
-                else{
-                    console.log('spreadsheet is empty');
-                }
-            }
-
-            function printDataTable(dataTable) {
-                var rows = dataTable.getNumberOfRows(),
-                    template = '';
-
-                for(i = 0; i < rows; i++) {
-                    template += '<li><a target="_blank" href="' + dataTable.getValue(i, 1) + '"><img src="' + dataTable.getValue(i, 0) + '"></a></li>\n';
-                }
-
-                document.getElementById("appointmentsBanners").innerHTML = template;
-            }
-
-            google.setOnLoadCallback(getSpreadsheet);
-
-        </script>
+    google.setOnLoadCallback(getSpreadsheet);
+</script>
