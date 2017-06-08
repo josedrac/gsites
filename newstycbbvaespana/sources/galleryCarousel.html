@@ -1,317 +1,347 @@
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-	<style type="text/css">
-        /* @group fonts */
-		@font-face {
-            font-family: 'BBVA Web Light';
-            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
-            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"),
-                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"),
-                url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
-            font-style: normal;
-            font-weight: normal;
-        }
+<style type="text/css">
+	/* @group fonts */
+	
+	@font-face {
+		font-family: 'BBVA Web Light';
+		src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot');
+		src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.woff') format("woff"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light/web-light.ttf') format("truetype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-light//web-light.svg#BBVA Web Light') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
+	
+	@font-face {
+		font-family: 'BBVA Web Book';
+		src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
+		src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
+	
+	@font-face {
+		font-family: 'BBVA Web Medium';
+		src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.eot');
+		src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.woff') format("woff"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.ttf') format("truetype"), url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+		font-style: normal;
+		font-weight: normal;
+	}
+	/* @end */
+	
+	button {
+		background: #0079C1;
+		background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+		background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
+		background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
+		background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
+		-webkit-border-radius: .3em;
+		-moz-border-radius: .3em;
+		border-radius: .3em;
+		font-size: 11px;
+		font-weight: bolder;
+		word-spacing: 2px;
+		height: 20px;
+		padding-left: .9em;
+		padding-right: .9em;
+		border: .1em solid #00559D;
+		color: white;
+		cursor: pointer;
+		margin-left: 15px;
+	}
+	
+	button:hover {
+		background: #004C99;
+	}
+	
+	.banner {
+		position: relative;
+		margin: 0 auto;
+		border-radius: 1px;
+		max-width: 960px!important;
+		width: auto!important;
+		min-height: 418px!important;
+		border: 1px solid #D1D1D1;
+	}
+	
+	.banner #titleCarousel {
+		font-size: 20px;
+		padding: 20px 15px;
+		color: #0072c9;
+		font-family: 'BBVA Web Light';
+	}
+	
+	.banner ul {
+		margin: 0;
+		padding: 0;
+		min-height: 418px!important;
+	}
+	
+	.banner ul li {
+		position: relative;
+		display: block;
+		float: left;
+		margin: 0;
+		background-size: cover;
+		background-position: center;
+	}
+	
+	.pointer {
+		cursor: pointer;
+	}
+	
+	.banner ul li .image {
+		width: 100%;
+		max-width: 650px;
+		margin: 0 auto;
+	}
+	
+	.banner ul li .image .background {
+		margin: 0 15px;
+		height: 185px;
+		background-size: cover;
+		background-position: center;
+	}
+	
+	.banner ul li .content {
+		overflow: hidden;
+		margin-bottom: 50px;
+		max-width: 650px;
+		margin: 0 auto;
+	}
+	
+	.banner ul li .content h2 {
+		margin: 0;
+		font-size: 13px;
+		font-family: BBVA Web Book;
+		font-weight: normal;
+		color: #0072c9;
+		padding: 15px 15px 0;
+	}
+	
+	.banner ul li .content p {
+		font-size: 13px;
+		margin: 13px 0 15px;
+		font-family: BBVA Web Light;
+		padding: 0 15px;
+	}
+	
+	.banner .dots {
+		display: inline-block;
+		padding: 0;
+		margin-bottom: 10px;
+		padding-top: 3px;
+	}
+	
+	.banner .dots li {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin: 0 7px;
+		text-indent: -999em;
+		background: #4096d7;
+		border-radius: 6px;
+		cursor: pointer;
+	}
+	
+	.banner .dots li.active {
+		background: #003f8d;
+		opacity: 1;
+	}
+	
+	.control {
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		bottom: 0;
+		border-top: 1px solid #E6EEF5;
+		margin-bottom: 8px;
+	}
+	
+	.control .prev {
+		margin-right: 13px;
+	}
+	
+	.control .next {
+		margin-left: 13px;
+	}
+</style>
 
-		@font-face {
-			font-family: 'BBVA Web Book';
-			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot');
-			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.woff') format("woff"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.ttf') format("truetype"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-			font-style: normal;
-			font-weight: normal;
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+	google.load('visualization', '1', { packages: ['table'] });
+
+</script>
+
+
+<div class="banner">
+	<div id="titleCarousel"></div>
+	<ul id="carousel"></ul>
+	<div id="carouselControls"></div>
+</div>
+
+
+
+<script type="text/javascript">
+	var dataForm = {
+		/*'key': prefs.getString('spreadsheetKey'),*/	 //xml
+		'key': getParam('key'),			                //local - get key in url
+		'numberTab': 5
+	};
+
+	$.ajax({
+		type: 'GET',
+		url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+		data: dataForm,
+		dataType: 'jsonp',
+		crossDomain: true,
+		jsonpCallback: "on_result",
+		success: function (data) {
+			//Delete the first row as it is not necessary
+			data.splice(0, 1);
+
+			handleQueryResponse(data);
+		},
+		error: function () {
+			console.log('error');
 		}
-		@font-face {
-			font-family: 'BBVA Web Medium';
-			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.eot');
-			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.woff') format("woff"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.ttf') format("truetype"),
-				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
-		/* @end */
+	});
 
-        button {
-                background: #0079C1;
-                background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-                background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0079C1), color-stop(100%, #00559D));
-                background: -webkit-linear-gradient(top, #0079C1 0%, #00559D 100%);
-                background: -o-linear-gradient(top, #0079C1 0%, #00559D 100%);
-                background: -ms-linear-gradient(top, #0079C1 0%, #00559D 100%);
-                background: linear-gradient(to bottom, #0079C1 0%, #00559D 100%);
-                -webkit-border-radius: .3em;
-                -moz-border-radius: .3em;
-                border-radius: .3em;
-                font-size: 11px;
-                font-weight: bolder;
-                word-spacing: 2px;
-                height: 20px;
-                padding-left: .9em;
-                padding-right: .9em;
-                border: .1em solid #00559D;
-                color: white;
-                cursor: pointer;
-                margin-left: 15px;
-            }
-
-            button:hover {
-                background: #004C99;
-            }
-
-		.banner {
-		  position: relative;
-		  margin: 0 auto;
-		  border-radius: 1px;
-		  max-width: 960px!important;
-		  width: auto!important;
-		  min-height: 418px!important;
-		  border: 1px solid #D1D1D1;
-		}
-
-		.banner #titleCarousel {
-			font-size: 20px;
-			padding: 20px 15px;
-			color: #0072c9;
-			font-family: 'BBVA Web Light';
-		}
-
-		.banner ul {
-		  margin: 0;
-		  padding: 0;
-		  min-height: 418px!important;
-		}
-
-		.banner ul li {
-		  position: relative;
-		  display: block;
-		  float: left;
-		  margin: 0;
-		  background-size: cover;
-		  background-position: center;
-		}
-
-		.pointer {
-			cursor: pointer;
-		}
-
-		.banner ul li .image {
-			width: 100%;
-			max-width: 650px;
-    		margin: 0 auto;
-
-		}
-
-		.banner ul li .image .background {
-			margin: 0 15px;
-			height: 185px;
-			background-size: cover;
-    		background-position: center;
-		}
-
-		.banner ul li .content {
-			overflow: hidden;
-			margin-bottom: 50px;
-			max-width: 650px;
-    		margin: 0 auto;
-		}
-
-		.banner ul li .content h2 {
-			margin: 0;
-			font-size: 13px;
-			font-family: BBVA Web Book;
-			font-weight: normal;
-			color: #0072c9;
-			padding: 15px 15px 0;
-		}
-
-		.banner ul li .content p {
-			font-size: 13px;
-			margin: 13px 0 15px;
-			font-family: BBVA Web Light;
-			padding: 0 15px;
-		}
-
-		.banner .dots {
-			display: inline-block;
-    		padding: 0;
-    		margin-bottom: 10px;
-    		padding-top: 3px;
-		}
-
-		.banner .dots li {
-			display: inline-block;
-			width: 10px;
-			height: 10px;
-			margin: 0 7px;
-			text-indent: -999em;
-			background: #4096d7;
-			border-radius: 6px;
-			cursor: pointer;
-		}
-
-		.banner .dots li.active {
-			background: #003f8d;
-			opacity: 1;
-		}
-
-		.control {
-			position: absolute;
-		    width: 100%;
-		    text-align: center;
-		    bottom: 0;
-		    border-top: 1px solid #E6EEF5;
-		    margin-bottom: 8px;
-		}
-
-		.control .prev {
-			margin-right: 13px;
-		}
-		.control .next {
-			margin-left: 13px;
-		}
-
-    </style>
-
-	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
-    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
-
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
-	<script type="text/javascript">
-
-		google.load('visualization', '1', {packages: ['table']});
-
-	</script>
-
-
-    <div class="banner">
-    	<div id="titleCarousel"></div>
-	    <ul id="carousel"></ul>
-	    <div id="carouselControls"></div>
-	</div>
-
-
-
-   <script type="text/javascript">
-   		var titleHtml="";
-	   	var html="";
-	   	var gadgetHelper = null;
-	   	//var prefs = new gadgets.Prefs();
+	var titleHtml = "";
+	var html = "";
+	var gadgetHelper = null;
+	//var prefs = new gadgets.Prefs();
 
 		//var TitleCarousel = prefs.getString("TitleCarousel");
-		var TitleCarousel = "title";
+		var TitleCarousel = "";
 
-        var html="";
-	   	var gadgetHelper = null;
-
-
+	var html = "";
+	var gadgetHelper = null;
 
 
+	var spreadsheetKey = getParam('key'),
+		queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
+		sheetName = encodeURIComponent('carousel territorial'),
+		query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
-			var spreadsheetKey = '18tFNC590Jj6pk1_Bii5AtcZxKCIO-U6u68g3N3yeogs',
-	   		queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
-			sheetName = encodeURIComponent('carousel territorial'),
-			query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-
-		function getUrlParameter(parameterName) {
-			var params = window.location.search.substr(1).split('&');
+	function getParam(p) {
+		var params;
+		/*if (gadgets.util.getUrlParameters().parent.split("?").length > 1) {*/
+		if (window.location.href.split("?").length > 1) {
+			/*params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");*/
+			params = window.location.href.split("?")[1].split("&");
 			for (var i = 0; i < params.length; i++) {
-				var p = params[i].split('=');
-				if (p[0] == parameterName) {
-					return decodeURIComponent(p[1]);
+				if (params[i].split("=")[0] == p)
+					return params[i].split("=")[1];
+			}
+		}
+		return "";
+	}
+
+	function getUrlParameter(parameterName) {
+		var params = window.location.search.substr(1).split('&');
+		for (var i = 0; i < params.length; i++) {
+			var p = params[i].split('=');
+			if (p[0] == parameterName) {
+				return decodeURIComponent(p[1]);
+			}
+		}
+		return false;
+	}
+
+	function getSpreadsheet() {
+		query.send(handleQueryResponse);
+	}
+
+	function handleQueryResponse(data) {
+		var html = "";
+		//alert(response.getDetailedMessage());
+		if (!data.length) {
+			/*console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());*/
+			console.log("Lo sentimos no hay noticias disponibles");
+			html += '<p class="not-found">No hay ningún contenido disponible.</p>';
+			document.getElementById('not-found').innerHTML = html;
+			return;
+		}
+		var dataTable = data;
+
+		dataTable.length ? printDataTable(dataTable) : console.log('spreadsheet is empty');
+	}
+
+	function printDataTable(dataTable) {
+
+		var title, subtitle, image, html = "", buttonLabel, buttonLabelValue;
+
+		/*for (var i = 0; i < dataTable.getNumberOfRows(); i++) {*/
+		var data = dataTable.forEach(function (elem) {
+			buttonLabel = "Más info";
+			title = elem[0];
+			subtitle = elem[1];
+			image = elem[2];
+			link = elem[3];
+
+			if (dataTable.length > 5) {
+				buttonLabelValue = elem[5];
+				if (buttonLabelValue !== "" && buttonLabelValue !== null && buttonLabelValue !== undefined) {
+					buttonLabel = buttonLabelValue;
 				}
 			}
-			return false;
+
+			html += "<li>";
+			html += "	<div class='image'>"
+			html += "		<div class='background' style='background-image: url(\"" + image + "\");'></div>";
+			html += "	</div>";
+			html += "	<div class='content'>";
+			html += "		<h2>" + title + "</h2>";
+			html += "    	<p>" + subtitle + "</p>";
+			if (link != '' && link != null)
+				html += "       <button type='button' onclick=\"javascript:Go('" + link + "')\">" + buttonLabel + "</button>";
+			html += "	</div>";
+			html += "</li>";
+
+		})
+
+		if (dataTable.length > 1) {
+
+			var carouselControls = '';
+			carouselControls += '<div class="control">';
+			carouselControls += '<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>';
+			carouselControls += '<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png"></a>';
+			carouselControls += '</div>';
+			document.getElementById('carouselControls').innerHTML += carouselControls;
+
 		}
 
-		function getSpreadsheet() {
-			query.send(handleQueryResponse);
-		}
+		document.getElementById('carousel').innerHTML += html;
+		document.getElementById('titleCarousel').innerHTML += TitleCarousel;
 
-		function handleQueryResponse(response) {
-			//alert(response.getDetailedMessage());
-			if (response.isError()) {
-				console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-				return;
-			}
-			var dataTable = response.getDataTable();
-			dataTable.getNumberOfRows() ? printDataTable(dataTable) : console.log('spreadsheet is empty');
-		}
+		var unslider = $('.banner').unslider({
+			speed: 500,
+			delay: 5000,
+			dots: true,
+		});
 
-		function printDataTable(dataTable) {
+		$('.unslider-arrow').click(function () {
+			var fn = this.className.split(' ')[1];
+			unslider.data('unslider')[fn]();
+		});
 
-			var title, subtitle, image, html = "", buttonLabel, buttonLabelValue;
-
-			for(var i=0; i<dataTable.getNumberOfRows() ;i++) {
-
-				buttonLabel = "Más info";
-				title = dataTable.getValue(i, 0);
-				subtitle = dataTable.getValue(i, 1);
-				image = dataTable.getValue(i, 2);
-				link = dataTable.getValue(i, 3);
-
-				if(dataTable.getNumberOfColumns() > 5) {
-					buttonLabelValue = dataTable.getValue(i, 5);
-					if(buttonLabelValue !== "" && buttonLabelValue !== null && buttonLabelValue !== undefined) {
-						buttonLabel = buttonLabelValue;
-					}
-				}
-
-				html += "<li>";
-	        	html += "	<div class='image'>"
-		        html += "		<div class='background' style='background-image: url(\"" + image + "\");'></div>";
-		        html += "	</div>";
-				html += "	<div class='content'>";
-				html += "		<h2>" + title + "</h2>";
-				html += "    	<p>" + subtitle + "</p>";
-                if(link != '' && link != null)
-                    html += "       <button type='button' onclick=\"javascript:Go('" + link + "')\">"+ buttonLabel +"</button>";
-				html += "	</div>";
-				html += "</li>";
-
-			}
-
-			if(dataTable.getNumberOfRows() > 1) {
-
-	     		var carouselControls = '';
-	     		carouselControls += '<div class="control">';
-	     		carouselControls += '<a href="#" class="unslider-arrow prev"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/anterior.png"></a>';
-	     		carouselControls += '<a href="#" class="unslider-arrow next"><img src="https://raw.githubusercontent.com/sopraux/gsites/master/newstycbbvaespana/img/siguiente.png"></a>';
-	     		carouselControls += '</div>';
-	     		document.getElementById('carouselControls').innerHTML += carouselControls;
-
-	     	}
-
-			document.getElementById('carousel').innerHTML += html;
-     		document.getElementById('titleCarousel').innerHTML += TitleCarousel;
-
-			var unslider = $('.banner').unslider({
-				speed: 500,
-				delay: 5000,
-				dots: true,
-			});
-
-		    $('.unslider-arrow').click(function() {
-		        var fn = this.className.split(' ')[1];
-		        unslider.data('unslider')[fn]();
-		    });
-
-		    $('.prev').after($('.dots'));
+		$('.prev').after($('.dots'));
 
 		}
 
 
+	function Go(destination) {
+		window.parent.location.href = destination;
+		return false;
+	}
 
-		function Go(destination){
-        	window.parent.location.href = destination;
-        	return false;
-    	}
+	google.setOnLoadCallback(getSpreadsheet);
 
-    	google.setOnLoadCallback(getSpreadsheet);
-
-	</script>
+</script>
