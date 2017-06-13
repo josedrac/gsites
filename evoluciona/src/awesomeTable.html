@@ -37,13 +37,13 @@
 		overflow: auto;
 	}
 	
-	.container {
+/*	.container {
 		font-family: arial, sans-serif;
 		font-size: 12px;
 		margin-bottom: 16px;
 		position: relative;
 		width: 460px;
-	}
+	}*/
 	
 	.datesandtags {
 		display: inline-block;
@@ -249,16 +249,15 @@
 	}
 	
 	.pager ul li a {
-		text-decoration: none;
-		font-weight: bold;
-		display: inline-table;
-		width: 20px;
-		height: 18px;
-		text-align: center;
-		border-radius: 4px;
-		-moz-border-radius: 4px;
-		font-size: 16px;
-	}
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-table;
+    width: 20px;
+    height: 18px;
+    text-align: center;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+  }
 	
 	.pager span {
 		margin-left: 4px;
@@ -349,18 +348,12 @@
     margin-left: 13px;
   }
   
-  .container {
+/*  .container {
     font-family: arial, sans-serif;
     font-size: 12px;
     margin-bottom: 16px;
     position: relative;
     width: 460px;
-  }
-/*  
-  .paginationContainer {
-    text-align: center;
-    width: 100%;
-    float: left;
   }*/
   
   .headerTable {
@@ -391,12 +384,12 @@
     padding: 8px;
   }
   
-  tr:hover {
-    background-color: skyblue;
+  tr:nth-child(2n+1) {
+    background-color: #dddddd;
   }
   
-  tr:nth-child(even) {
-    background-color: #dddddd;
+  tr:hover {
+    background-color: skyblue;
   }
   
   #myInput {
@@ -439,9 +432,6 @@
     height: 31px;
     width: 166px;
 }
-.filerF{
-  
-}
 
 #myUL {
     /* Remove default list styling */
@@ -482,8 +472,19 @@
     border: 1px solid #DDD;
     border-radius: 2px;
     width: 9.7%;
-    /*float: left;*/
     margin-left: 178px;
+    float: right;
+    margin-right: 79%;
+    margin-top: 2px;
+    height: 31px;
+    width: 149px;
+    border: 1px solid rgba(0,0,0,.1);
+    background-color: #f5f5f5;
+    color: #444;
+    display: flex;
+    padding: 3px 8px;
+    vertical-align: middle;
+    margin-bottom: 5px;
 }
 
 .style-filter-button:hover{
@@ -524,7 +525,7 @@
 
 
 <!--<div id="container" class="container">-->
-  <div id="pages"></div>
+  <div id="listImplantaciones"></div>
   <!--<div id="not-found"></div>-->
 <!--</div>-->
 
@@ -575,32 +576,27 @@
   function handleQueryResponse(dataIni) {
     var html = "";
     var filas = dataIni.length;
-    console.log("filas: " + filas);
-    var page = 0;
-    var pages = Math.ceil(filas / 8);
 
     //alert(response.getDetailedMessage());
-    if (!dataIni.length) {
+    if (filas < 1) {
       /*console.log('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());*/
       console.log("Lo sentimos no hay noticiaxs disponibles");
       html += '<p class="not-found">No hay ningún contenido disponible.</p>';
       /*   document.getElementById('not-found').innerHTML = html;*/
       return;
+    }else{
+      html += '<div id="paginas" class="paginaNueva" style=" display: block; overflow: hidden;">';
+    
+      data = dataIni.slice();
+      data.length ? printDataTable(data) : console.log('spreadsheet is empty');
+
+      html += '</div>';
     }
-
-  /*  pages = Math.ceil(filas / 8);*/
-    html += '<div id="paginas" class="paginaNueva" style=" display: block;">';
-      console.log("DataIni (handle): " + dataIni.length);
-    data = dataIni.slice();
-    data.length ? printDataTable(data) : console.log('spreadsheet is empty');
-
     html += "<div id='pagination' style='margin: auto;'></div>";
 
-    document.getElementById('pages').innerHTML = html;
-
-    if (filas > 0) {
-      pagination(pages);
-    }
+    document.getElementById('listImplantaciones').innerHTML += html;
+    if (filas > 0) 
+      pagination(filas);
   }
 
 
@@ -644,6 +640,7 @@ function filterF(){
     });
     /*Filter:*/
     printDataTable(dataIni);
+    pagination(dataIni.length);
   } 
 }
 
@@ -662,6 +659,7 @@ function remove(i){
   }
   data = dataIni.slice();
   printDataTable(dataIni);
+  pagination(dataIni.length);
 }
 
 
@@ -684,10 +682,10 @@ function getParam(p) {
 function pagination(elements) {
   $('#pagination').smartpaginator({
     totalrecords: elements,
-    recordsperpage: 2,
+    recordsperpage: 10,
     length: 4,
-    datacontainer: 'pages',
-    dataelement: 'div.eventContainer',
+    datacontainer: 'myTable',
+    dataelement: 'tr.hover-style',
     initval: 0,
   });
 }
@@ -715,14 +713,16 @@ function pagination(elements) {
     var title, subtitle, html = "";
     var dataFilter = [];
     data = [];
-
+    
+    //Header:
     html += "<div class='eventContainer'>";
     html += "<table id='myTable'>";
     html += " <tr class='headerTable'>";
     html += "   <th style='width:60%' class='headerTable'>Nombre</th>";
     html += "   <th style='width:40%' class='headerTable'>Alcance</th>";
     html += " <tr>";
-
+    //Data according filters
+   
     data = filterData(dataTable, listF);
    
     /*for (var i = 0; i < dataTable.getNumberOfRows(); i++) {*/
@@ -731,6 +731,7 @@ function pagination(elements) {
     });
 
     html += "</table>";
+    html += '</div>';
     document.getElementById('carousel').innerHTML = html;
   }
   
@@ -752,11 +753,12 @@ function pagination(elements) {
 
 
   function printRow(title, subtitle) {
-    var html = '';
+    var html = "";
     html += "<tr id='myUL' class='hover-style'>";
     html += "		<td class='style-text'>" + capitalLetter(title.toLowerCase()); +/*+ " <br>" + subtitle + */"</td>";
     html += "   <td class='style-text1'>" + subtitle + "</td>";
     html += "</tr>";
+    
     return html;
   }
 
