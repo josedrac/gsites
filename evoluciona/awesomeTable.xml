@@ -406,7 +406,7 @@
 <script type="text/javascript">
   var dataForm = {
     /*'key': prefs.getString('spreadsheetKey'),*/	 //xml
-    <!--'key': getParam('key'),	-->		                  //local - get key in url
+    /*'key': getParam('key'),	*/		                  //local - get key in url
     key:'1PiobvQZCL-eKaaThatdOH7Da_JYrheIIIhoyeoX95u8',
     'numberTab': 0
   };
@@ -419,10 +419,10 @@
   var listF = [];
   var dataIni;
   var data = [];
-  var spreadsheetKey = getParam('key'),
+ /* var spreadsheetKey = getParam('key'),
     queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
     sheetName = encodeURIComponent('carousel territorial'),
-    query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+    query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);*/
 
 
   $.ajax({
