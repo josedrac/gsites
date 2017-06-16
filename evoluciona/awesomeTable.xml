@@ -404,11 +404,7 @@
       <div id="listImplantaciones"></div>
 
     <script type="text/javascript">
-      var gadgetHelper = null;
-			var prefs = new _IG_Prefs();
-	        var urlTable = prefs.getString("_table_query_url");
-	        _IG_RegisterOnloadHandler(loadVisualizationAPI);
-
+    
       var dataForm = {
         'key': prefs.getString('spreadsheetKey'),	 //xml
         /*'key': getParam('key'),*/			                  //local - get key in url
@@ -423,6 +419,8 @@
       var listF = [];
       var dataIni;
       var data = [];
+      var prefs = new gadgets.Prefs();
+      
       var spreadsheetKey = getParam('key'),
         queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
         sheetName = encodeURIComponent('carousel territorial'),
