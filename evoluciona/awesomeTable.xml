@@ -399,6 +399,7 @@
 
       <div id="title-carousel"></div>
       <ul id="carousel"></ul>
+      <div id="not-found"></div>
 
       <div id="listImplantaciones"></div>
 
@@ -409,9 +410,9 @@
         'numberTab': 0
       };
       var gadgetHelper = null;
-      var prefs = new gadgets.Prefs();
-      var TitleCarousel = prefs.getString("TitleCarousel");
-      //var TitleCarousel = "";
+      //var prefs = new gadgets.Prefs();
+      //var TitleCarousel = prefs.getString("TitleCarousel");
+      var TitleCarousel = "";
       var html = "";
       var gadgetHelper = null;
       var listF = [];
@@ -535,10 +536,10 @@
 
       function getParam(p) {
         var params;
-        if (gadgets.util.getUrlParameters().parent.split("?").length > 1) {
-        /*if (window.location.href.split("?").length > 1) {*/
-          params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-          /*params = window.location.href.split("?")[1].split("&");*/
+        /*if (gadgets.util.getUrlParameters().parent.split("?").length > 1) {*/
+        if (window.location.href.split("?").length > 1) {
+          /*params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");*/
+          params = window.location.href.split("?")[1].split("&");
           for (var i = 0; i < params.length; i++) {
             if (params[i].split("=")[0] == p)
               return params[i].split("=")[1];
@@ -603,10 +604,10 @@
       }
 
 
-        function Go(destination) {
+      /*  function Go(destination) {
           window.parent.location.href = destination;
           return false;
-        }
+        }*/
 
     </script>
 
