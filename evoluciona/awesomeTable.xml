@@ -407,9 +407,7 @@
 
 <script type="text/javascript">
   var dataForm = {
-    'key': prefs.getString('spreadsheetKey'),	 //xml
-    /*'key': getParam('key'),	*/		                  //local - get key in url
-    /*key:'1PiobvQZCL-eKaaThatdOH7Da_JYrheIIIhoyeoX95u8',*/
+    'key': prefs.getString('spreadsheetKey'),
     'numberTab': 0
   };
   var gadgetHelper = null;
