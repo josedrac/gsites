@@ -9,6 +9,10 @@
   <Content type="html">
     <![CDATA[
 
+    <html style="
+      margin-left: 10px;
+      margin-right: 10px;
+    ">
 
       <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/jquery.min.js" type="text/javascript"></script>
       <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
@@ -606,7 +610,6 @@
 
     </script>
 
-
-    ]]>
-    </Content>
+		]]>
+	 </Content>
 </Module>
