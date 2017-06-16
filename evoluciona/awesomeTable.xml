@@ -404,7 +404,7 @@
 
     <script type="text/javascript">
       var dataForm = {
-        'key': prefs.getString('spreadsheetKey'),
+        'key': prefs.getString('key'),
         'numberTab': 0
       };
       var prefs = new gadgets.Prefs();
@@ -414,12 +414,7 @@
       var listF = [];
       var dataIni;
       var data = [];
-      var spreadsheetKey = getParam('key'),
-        queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
-        sheetName = encodeURIComponent('carousel territorial'),
-        query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-
-
+      
       $.ajax({
         type: 'GET',
         url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
