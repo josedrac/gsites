@@ -420,7 +420,8 @@
       var dataIni;
       var data = [];
       var prefs = new gadgets.Prefs();
-      
+      _IG_RegisterOnloadHandler(loadVisualizationAPI);
+
       var spreadsheetKey = getParam('key'),
         queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
         sheetName = encodeURIComponent('carousel territorial'),
@@ -445,6 +446,11 @@
           console.log('error');
         }
       });
+
+      function loadVisualizationAPI() {
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
 
       function handleQueryResponse(dataIni) {
         var html = "";
