@@ -411,15 +411,15 @@
         'numberTab': 0
       };
       var gadgetHelper = null;
-      //var prefs = new gadgets.Prefs();
-      //var TitleCarousel = prefs.getString("TitleCarousel");
-      var TitleCarousel = "";
+      var prefs = new gadgets.Prefs();
+      var TitleCarousel = prefs.getString("TitleCarousel");
+      //var TitleCarousel = "";
       var html = "";
       var gadgetHelper = null;
       var listF = [];
       var dataIni;
       var data = [];
-      var prefs = new gadgets.Prefs();
+      
       _IG_RegisterOnloadHandler(loadVisualizationAPI);
 
       var spreadsheetKey = getParam('key'),
