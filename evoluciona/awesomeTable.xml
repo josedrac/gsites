@@ -404,10 +404,11 @@
 
     <script type="text/javascript">
       var dataForm = {
-        'key': prefs.getString('spreadsheetKey')
+        'key': prefs.getString('spreadsheetKey'),
+        'numberTab': 0
       };
       var prefs = new gadgets.Prefs();
-      var TitleCarousel = prefs.getString("TitleCarousel");
+      //var TitleCarousel = prefs.getString("TitleCarousel");
       var TitleCarousel = "";
       var html = "";
       var listF = [];
