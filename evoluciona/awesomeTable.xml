@@ -404,14 +404,12 @@
     <script type="text/javascript">
     
       var dataForm = {
-        //'key': prefs.getString('spreadsheetKey'),	 //xml
-        'key': getParam('key'),			                  //local - get key in url
+        'key': prefs.getString('spreadsheetKey'),	
         'numberTab': 0
       };
       var gadgetHelper = null;
       var prefs = new gadgets.Prefs();
       var TitleCarousel = prefs.getString("TitleCarousel");
-      //var TitleCarousel = "";
       var html = "";
       var gadgetHelper = null;
       var listF = [];
