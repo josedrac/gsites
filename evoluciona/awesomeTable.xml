@@ -404,7 +404,7 @@
 
     <script type="text/javascript">
       var dataForm = {
-        'key': prefs.getString('key'),
+        'key': getParam('key'),	
         'numberTab': 0
       };
       var prefs = new gadgets.Prefs();
