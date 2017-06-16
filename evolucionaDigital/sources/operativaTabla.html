@@ -193,30 +193,6 @@
 
     <script type="text/javascript">
 
-        // if (isSearchDone()) {
-        //     if (product == "Destacados") {
-        //         if (channel != channels[0]) {
-        //             querytosend += getChannelCondition(channel);
-        //         }
-        //         //window.Environment.sendAuthorizedQuery(urlTableDest, request);
-        //     } else {
-        //         if (product != "Ver tabla completa" && product != "Destacados") {
-        //             querytosend = querytosend.concat(" AND A like '" + product + "' ");
-        //         }
-        //         if (channel != channels[0]) {
-        //             querytosend += getChannelCondition(channel);
-        //         }
-        //         if (product != "Destacados") {
-        //            querytosend = querytosend.concat(" order by B");
-        //        }
-        //         //window.Environment.sendAuthorizedQuery(urlTable, request);
-        //     }
-        // }
-
-
-
-        /******************************************************************************************************************************/
-
         var flagHeader = false;
         var flagFooter = true;
         var html = '';
@@ -268,7 +244,12 @@
                         });
                 }
             }
-            data.sort(compareSecondColumn);
+
+            console.log(product);
+
+            if(product != ""  && product != undefined && product != "Destacados") {
+                data.sort(compareSecondColumn);
+            }
 
             function compareSecondColumn(a, b) {
                 if (a[1] === b[1]) {

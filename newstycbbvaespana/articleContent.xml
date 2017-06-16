@@ -7,6 +7,8 @@
 		<Require feature="setprefs" />
   	</ModulePrefs>
 
+		<UserPref name="spreadsheetKey" display_name="spreadsheet key" required="true" />
+
  	<Content type="html">
     	<![CDATA[
 

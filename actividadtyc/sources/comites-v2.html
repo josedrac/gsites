@@ -149,19 +149,7 @@
 <div id="container" class="container"></div>
 
 <script type="text/javascript">
-  // adjustGadgetHeight('container');
-  /* google.load('visualization', '1', {packages: ['table']});
-   google.setOnLoadCallback(sendQuery);
-   var prefs = new gadgets.Prefs();*/
 
-  /*  function sendQuery() {
-        var tab = 'Comites v2';
-        var spreadsheetKey = prefs.getString('spreadsheetKey'),
-            sheetName = encodeURIComponent(tab),
-            queryString = encodeURIComponent('SELECT * where B <> "Texto"'),
-            query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-            query.send(handleQueryResponse);
-    }*/
   var dataForm = {
     'key': '1rdg4lCIycwTMx-lgBS_1fIuczuYkNlMvktpWT16eyOM',
     'numberTab': 2
@@ -202,7 +190,6 @@
     })
       
     
-
     document.getElementById('container').innerHTML = html;
 
     var pretitleText = data[0][4];

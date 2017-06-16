@@ -358,7 +358,7 @@
 
 			data = valueParameters(data);
 
-	        data.forEach(function(elem, index) {
+	    data.forEach(function(elem, index) {
 				html += "<div class='comboVideo'>";
 	 			html += "<div class='video-container'><div class='infoVideo'>";
 	 			html += "<div class='urlVideo'>";
@@ -368,7 +368,7 @@
 	 		               html += "<iframe src='"+elem[18]+"'  allowScriptAccess='always' frameborder='0' class='youtubeIframe' ></iframe></div>";
 	                } else {
 	                	html += "<video src='"+elem[18]+"' controls>Tu navegador no implementa el elemento <code>video</code></video></div>";
-					}
+									}
 	 			} else {
 	 				html += "<img class='urlVideo imgArt' src='"+elem[6]+"'></img></div>";
 	 			}
@@ -388,6 +388,7 @@
 
 	 			html +="</div><img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='linevideo'/></div>";
 	 		});
+			 
  			html += "</div>";
  			html += "<div id='pagination' style='margin: auto;'></div>";
 

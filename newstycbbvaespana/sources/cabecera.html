@@ -52,7 +52,7 @@
             crossDomain: true,
             jsonpCallback: "on_result",
             success: function (data) {
-                //Eliminamos la primera fila ya que no es necesaria 
+                //Delete the first row as it is not necessary
                 data.splice(0, 1);
 
                 data = getQueryParameters(data);

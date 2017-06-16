@@ -231,20 +231,6 @@
         google.load('visualization', '1', {packages: ['table']});
         google.setOnLoadCallback(sendQuery);
         var prefs = new gadgets.Prefs();*/
-    var month = new Array();
-    month[1] = "Ene";
-    month[2] = "Feb";
-    month[3] = "Mar";
-    month[4] = "Abr";
-    month[5] = "May";
-    month[6] = "Jun";
-    month[7] = "Jul";
-    month[8] = "Agt";
-    month[9] = "Sep";
-    month[10] = "Oct";
-    month[11] = "Nov";
-    month[12] = "Dic";
-
     var dataForm = {
         'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
         'numberTab': 4
@@ -261,10 +247,7 @@
             //Eliminamos la primera fila ya que no es necesaria 
             data.splice(0, 1);
 
-            //NO HAY BUSQUEDA Y SOLO DEBE EJECUTAR LOS VALORES DEL SLIDER:
-            if (location.href.split("?")[1] === undefined) {
-                data = getQueryParameters(data);
-            }
+            getQueryParameters();
             handleQueryResponse(data);
         },
         error: function () {
@@ -281,8 +264,6 @@
         return false;
     }
 
-
-
     function getParam(p) {
         var params;
         //XML:
@@ -294,7 +275,6 @@
             }
         }
         return "";*/
-
         //LOCAL:
         if (window.location.href.split("?").length > 1) {
             params = window.location.href.split("?")[1].split("&");
@@ -304,21 +284,6 @@
             }
         }
         return "";
-    }
-
-    function getSelectedSecondValue() {   //return: number of month
-        /*return gadgets.util.getUrlParameters().parent.split("=")[2];*/                   //xml
-        return location.href.split("=")[2];                                                //local
-    }
-
-    function getSelectedFirstValue() {  //return: 2013
-        /*return gadgets.util.getUrlParameters().parent.split("=")[1].split("&")[0];*/      //xml
-        return location.href.split("=")[1].split("&")[0];                                   //local
-    }
-
-    function getSelectedFirstParameter() {  //return: anyo
-        /*return gadgets.util.getUrlParameters().parent.split("=")[0].split("?")[1];*/     //xml
-        return location.href.split("=")[0].split("?")[1];                                  //local
     }
 
     function urldecode(str) {
@@ -336,54 +301,25 @@
         });
     }
 
-    function getQueryParameters(data) {
+    function getQueryParameters() {
+        var filter = "";
 
         /*var slider = prefs.getString("slider");*/     //XML
-        var slider = "3";                               //local
-
-        /* var month = getParam("mes");
-            console.log("SLIDER-month: " + month);
-
-            var year = getParam("anyo");
-            console.log("SLIDER-year: " + year);
-
-            var inputText = urldecode(getParam("inputText").toLowerCase());
-            console.log("SLIDER-inputText: " + inputText);
-
-            var tag = urldecode(getParam("tag").toLowerCase());
-            console.log("SLIDER-tag: " + tag);*/
-
-        /*if (!(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != ""))) {*/
-        switch (slider) {
-            case "1":
-                var date = getMonthAndYear(slider);
-                break;
-            case "2":
-                var date = getMonthAndYear(slider);
-                break;
-            case "3":
-                var date = getMonthAndYear(slider);
-                break;
-        }
-        months = date.split(" ")[0];
-        year = date.split(" ")[1];
-        console.log("SLIDER - Month: " + months);
-        console.log("FECHA --> " + date);
-        inputText = "";
+        var slider = "1";                               //local
+        var month = getParam("mes");
+        var year = getParam("anyo");
+        var inputText = urldecode(getParam("inputText").toLowerCase());
         var tag = urldecode(getParam("tag").toLowerCase());
-        data = data.filter(function (elem) {
-            var mon2 = new Date(elem[1]).getMonth() + 1;
-            console.log("slider-mon2: " + mon2);
-            var year2 = new Date(elem[1]).getFullYear();
 
-            if (mon2 == months && year2 == year) {
-                console.log(mon2 + " = " + months + " " + year2 + " = " + year);
-                mon2 = month[new Date(elem[1]).getMonth() + 1];
-                console.log("mes actu: " + mon2);
-                return true;
-            }
-        })
-        /* if (year > 0)
+        if (!(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != ""))) {
+            var date = getMonthAndYear(slider);
+
+            inputText = "";
+            month = date.split(" ")[0];
+            year = date.split(" ")[1];
+        }
+
+        if (year > 0)
             filter += " AND year(B) =" + year;
         if (month > 0)
             filter += " AND month(B) = " + (month - 1);
@@ -391,10 +327,21 @@
             filter += " AND lower(A) like '%" + inputText + "%'";
 
         if (tag != "")
-            filter += " AND lower(D) like '%" + tag + "%'";*/
+            filter += " AND lower(D) like '%" + tag + "%'";
 
-        return data;
+
+        return filter;
     }
+
+
+    /*    function sendQuery() {
+            tab = prefs.getString('tab');
+            var spreadsheetKey = prefs.getString('spreadsheetKey'),
+                sheetName = encodeURIComponent(tab),
+                queryString = encodeURIComponent('SELECT * where C <> "Link"' + getQueryParameters()),
+                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+            query.send(handleQueryResponse);
+        }*/
 
 
     function handleQueryResponse(data) {
@@ -407,7 +354,7 @@
         var classBorder = '';
 
         /*var slider = prefs.getString("slider");*/     //xml
-        var slider = "3";                               //local
+        var slider = "1";                               //local
         var mes = "";
         var month = getParam("mes");
         var year = getParam("anyo");
@@ -447,13 +394,10 @@
             document.getElementById('title').innerHTML = 'Texto buscado: ' + inputText;
         }
 
-        if (location.href.split("?")[1] != undefined) {
-            data = valueParameters(data);
-        }
-
 
         //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
         var aux = data/*.clone()*/;
+
         if (tag != "") {
             var x = 0;
             while (1) {
@@ -476,7 +420,6 @@
         if (filas < 1)
             html += '<p class="not-found">No hay ningún contenido disponible.</p>';
 
-        console.log(data);
         //if (i % 8 < 4) {
         /*html += getElement(i + 1, data.getValue(i, 0), data.getFormattedValue(i, 1), data.getValue(i, 2), classBorder);*/
         data.forEach(function (elem, i) {
@@ -497,8 +440,7 @@
                 html += '   <ul id="column1" class="column">';
             }
             if (i % 8 < 4) {
-                /*html += getElement(i + 1, elem[0], elem[1], elem[2], classBorder);*/
-                html += getElement(i + 1, classBorder, elem, data);
+                html += getElement(i + 1, elem[0], elem[1], elem[2], classBorder);
             }
             if (filas < 4 && i == filas - 1) {
                 html += '   </ul>';
@@ -512,9 +454,7 @@
             if (i % 8 > 3) {
                 /* html += getElement(i + 1, data.getValue(i, 0), data.getFormattedValue(i, 1), data.getValue(i, 2), classBorder);*/
                 //data.forEach(function (elem) {
-
-                /*html += getElement(i + 1, elem[0], elem[1], elem[2], classBorder);*/
-                html += getElement(i + 1, classBorder, elem, data);
+                html += getElement(i + 1, elem[0], elem[1], elem[2], classBorder);
                 //});
             }
 
@@ -530,49 +470,8 @@
 
         if (filas > 0)
             pagination(pages);
-    }
+        //gadgets.window.adjustHeight();
 
-    function valueParameters(data) {
-
-        var firstParam = getSelectedFirstParameter();
-        console.log("getSelectedFirstParameter: " + firstParam);  //return: anyo  || inptText
-
-        var first = getSelectedFirstValue();
-        console.log("getSelectedFirstValue: " + first);           //return: '2013' || 'inicio'
-
-        if (firstParam == "anyo" && first > 0) {
-            data = data.filter(function (elem) {
-                var year = new Date(elem[1]).getFullYear();
-                if (year == first) {
-                    console.log("EL AÑO ES: " + year + " / " + first);
-                    return true;
-                }
-            })
-        } else if (firstParam == "inputText") {                   //Search text
-            first = first.toLowerCase();
-            data = data.filter(function (elem) {
-                if (elem[0].toLowerCase().match(first) || elem[3].toLowerCase().match(first)) {
-                    console.log("BUSCADOR2: " + first);
-                    return true;
-                }
-            })
-        }
-        var second = getSelectedSecondValue();          //return month --> 2
-        console.log("getSelectedSecondValue: " + second);
-        console.log("*********************************");
-        if (second > 0) {
-            /*filter = filter.concat(" AND (F = " + second + ")");*/
-            data = data.filter(function (elem) {
-                var mon2 = new Date(elem[1]).getMonth() + 1;
-                if (mon2 == second) {
-                    console.log("EL MES ES: " + mon2 + " " + second);
-                    return true;
-                }
-            })
-        }
-
-
-        return data;
     }
 
     function Go(destination) {
@@ -580,37 +479,22 @@
         return false;
     }
 
-    /*function getElement(number, text, date, link, clase) {*/
-    function getElement(number, clase, elem) {
+    function getElement(number, text, date, link, clase) {
         var html = "";
-        //LO LEE DEL SPREEDSHEET:
-        var date = elem[1].split('/');
-
-        var day = new Date(elem[1]).getDate();
-        console.log("DAY: " + day);
-
-        var mon = month[new Date(elem[1]).getMonth() + 1];
-        console.log("getElemen-mon: " + mon);
-
-        var mon2 = new Date(elem[1]).getMonth() + 1;
-        console.log("getElemen-mon2: " + mon2);
-        var year = new Date(elem[1]).getFullYear();
 
         html += '<li class="' + clase + '">';
-        html += '   <a onclick="javascript:Go(\'' + elem[2] + '\')">'
+        html += '   <a onclick="javascript:Go(\'' + link + '\')">'
         html += '       <span class="number">' + number + '.</span>';
         html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
         html += '       <div class="text">';
-        html += '           <span class="subtitle">' + elem[0] + '</span>';
-        html += '           <span class="date">' + day + " " + mon + " " + year + '</span>';
+        html += '           <span class="subtitle">' + text + '</span>';
+        html += '           <span class="date">' + date + '</span>';
         html += '       </div>';
         html += '   </a>';
         html += '</li>';
 
         return html;
     }
-
-
 
     function getMonth(index) {
         var month = '';
@@ -642,7 +526,6 @@
         }
         return month;
     }
-
 
     function getMonthAndYear(slider) {
         var dateObj = new Date();
