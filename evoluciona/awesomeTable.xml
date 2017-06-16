@@ -404,8 +404,7 @@
 
     <script type="text/javascript">
       var dataForm = {
-        'key': prefs.getString('spreadsheetKey'),
-        'numberTab': 0
+        'key': prefs.getString('spreadsheetKey')
       };
       var prefs = new gadgets.Prefs();
       var TitleCarousel = prefs.getString("TitleCarousel");
