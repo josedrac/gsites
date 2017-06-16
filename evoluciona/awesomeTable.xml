@@ -18,6 +18,7 @@
       <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/newstycbbvaespana/js/unslider.min.js" type="text/javascript"></script>
       <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
 
+
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <style type="text/css">
@@ -404,12 +405,14 @@
     <script type="text/javascript">
     
       var dataForm = {
-        'key': prefs.getString('spreadsheetKey'),
+        'key': prefs.getString('spreadsheetKey'),	 //xml
+        /*'key': getParam('key'),*/			                  //local - get key in url
         'numberTab': 0
       };
       var gadgetHelper = null;
       var prefs = new gadgets.Prefs();
-      var TitleCarousel = prefs.getString("TitleCarousel");
+      //var TitleCarousel = prefs.getString("TitleCarousel");
+      var TitleCarousel = "";
       var html = "";
       var gadgetHelper = null;
       var listF = [];
@@ -441,6 +444,11 @@
           console.log('error');
         }
       });
+
+      function loadVisualizationAPI() {
+				google.load("visualization", "1", {"packages": ["table"]});
+				google.setOnLoadCallback(sendQuery);
+			}
 
       function handleQueryResponse(dataIni) {
         var html = "";
