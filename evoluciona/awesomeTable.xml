@@ -409,9 +409,9 @@
         'numberTab': 0
       };
       var gadgetHelper = null;
-      //var prefs = new gadgets.Prefs();
-      //var TitleCarousel = prefs.getString("TitleCarousel");
-      var TitleCarousel = "";
+      var prefs = new gadgets.Prefs();
+      var TitleCarousel = prefs.getString("TitleCarousel");
+      //var TitleCarousel = "";
       var html = "";
       var gadgetHelper = null;
       var listF = [];
