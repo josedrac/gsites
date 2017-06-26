@@ -406,11 +406,7 @@
   <div id="listImplantaciones"></div>
 
 <script type="text/javascript">
-  var dataForm = {
-    'key': prefs.getString('spreadsheetKey'),
-    'numberTab': 0
-  };
-  var gadgetHelper = null;
+    var gadgetHelper = null;
   //var prefs = new gadgets.Prefs();
   //var TitleCarousel = prefs.getString("TitleCarousel");
   var TitleCarousel = "";
@@ -425,6 +421,11 @@
     query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
 
 
+ var dataForm = {
+    'key': prefs.getString('spreadsheetKey'),
+    'numberTab': 0
+  };
+  
   $.ajax({
     type: 'GET',
     url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
