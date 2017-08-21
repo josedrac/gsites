@@ -500,7 +500,7 @@
 		   	html += "		</div>";
 		   	html += "		<div class='place'>Lugar: <span>" + elem[3] + "</span></div>";
 		   	html += "		<div class='description'>" + elem[2] + "</div>";
-		    html += "		<button type='button' onclick=javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/eventos/detalles?id="+ data.getValue(i, 0) +"')>Saber más</button>";
+		    html += "		<button type='button' onclick=javascript:Go('https://sites.google.com/a/bbva.com/actividadtyc/eventos/detalles?id="+ elem[0] +"')>Saber más</button>";
 		    html += "	</div>";
 
 			//Separación
