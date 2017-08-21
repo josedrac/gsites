@@ -305,28 +305,22 @@
 
 	</div>
 
-   	<script type="text/javascript">
-   		adjustGadgetHeight('container');
-		var gadgetHelper = null;
-		google.load('visualization', '1', {packages: ['table']});
-        google.setOnLoadCallback(sendQuery);
-        var prefs = new gadgets.Prefs();
+  <script type="text/javascript">
+   	var dataGlobal;
 
-        var dataGlobal;
-
-        var month = new Array();
-			month[1] = "Ene";
-			month[2] = "Feb";
-			month[3] = "Mar";
-			month[4] = "Abr";
-			month[5] = "May";
-			month[6] = "Jun";
-			month[7] = "Jul";
-			month[8] = "Agt";
-			month[9] = "Sep";
-			month[10] = "Oct";
-			month[11] = "Nov";
-			month[12] = "Dic";
+    var month = new Array();
+		month[1] = "Ene";
+		month[2] = "Feb";
+		month[3] = "Mar";
+		month[4] = "Abr";
+		month[5] = "May";
+		month[6] = "Jun";
+		month[7] = "Jul";
+		month[8] = "Agt";
+		month[9] = "Sep";
+		month[10] = "Oct";
+		month[11] = "Nov";
+		month[12] = "Dic";
 
     var dataForm = {
   		'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
@@ -445,7 +439,6 @@
   			document.getElementById('container').innerHTML += html;
   			if (filas > 0)
   				pagination(filas);
-          gadgets.window.adjustHeight(); //nose si va
   		  }
   	}
 
@@ -468,14 +461,14 @@
 			else 							  icon = "https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/icono%20radio%20eventos.png";
 
 
-		   html += "<div class='eventContainer'>";
-		   html += "	<div class='datesandtags'>";
-		   	//Fecha inicio
-		   	html += "		<div class='start'>";
-		   	html += "			<div class='day'>" + day + "</div>";
+		  html += "<div class='eventContainer'>";
+		  html += "	<div class='datesandtags'>";
+	   	//Fecha inicio
+	   	html += "		<div class='start'>";
+	   	html += "			<div class='day'>" + day + "</div>";
 			html += "			<div class='month'>" + mon + "</div>";
 			html += "			<div class='year'>" + year + "</div>";
-		    html += "		</div>";
+		  html += "		</div>";
 
 		    if(date2 != "" && date2 != 'undefined' && date2 != null){
 
