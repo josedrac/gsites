@@ -389,17 +389,31 @@
   		var gadgetHelper = null;
   		var dataUser;
   		var eventDate;
-  		google.load('visualization', '1', {packages: ['table']});
-      google.setOnLoadCallback(sendQuery);
-      // google.setOnLoadCallback(sendQueryUsers);
-      google.setOnLoadCallback(sendQueryDocs);
-      var prefs = new gadgets.Prefs();
 
+      var dataForm = {
+  		'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+  		'numberTab': 0
+  		};
 
-	 	function loadVisualizationAPI() {
-			google.load("visualization", "1", {"packages": ["table"]});
-			google.setOnLoadCallback(sendQuery);
-		}
+  		$.ajax({
+  		type: 'GET',
+  		url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwCX4Zk9LdOGjUinuU7bPKFVCVkNtKqRJPlqcZf87MECPgfT3cs/exec',
+  		data: dataForm,
+  		dataType: 'jsonp',
+  		crossDomain: true,
+  		jsonpCallback: "on_result",
+  		success: function (data) {
+  			//Eliminamos la primera fila ya que no es necesaria
+  			data.splice(0, 1);
+
+  			getQueryParameters();
+  			handleQueryResponse(data, 0);
+  		},
+  		error: function () {
+  			console.log('error');
+  		}
+  		});
+
 
     function getParam(p){
       var params;
@@ -425,32 +439,6 @@
 
         return filter;
     }
-
-		function sendQuery(){
-      var dataForm = {
-        'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-        'numberTab': 0
-      };
-
-      $.ajax({
-        type: 'GET',
-        url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwCX4Zk9LdOGjUinuU7bPKFVCVkNtKqRJPlqcZf87MECPgfT3cs/exec',
-        data: dataForm,
-        dataType: 'jsonp',
-        crossDomain: true,
-        jsonpCallback: "on_result",
-        success: function (data) {
-          //Eliminamos la primera fila ya que no es necesaria
-          data.splice(0, 1);
-
-          getQueryParameters();
-          handleQueryResponse(data, 0);
-        },
-        error: function () {
-          console.log('error');
-        }
-      });
-		}
 
 
 		function handleQueryResponse(data, index) {
