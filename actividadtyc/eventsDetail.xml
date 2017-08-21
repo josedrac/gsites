@@ -455,11 +455,7 @@
 
 		function handleQueryResponse(data, index) {
       dataGlobal = data;
-      console.log("data" + data);
-
       var operativa = getParam("id");
-  		console.log("OPERATIVA- >" + operativa);
-
   		var address;
   		var contact;
   		var contactEmail;
@@ -489,7 +485,6 @@
           image = elem[14];
           video = elem[15];
           description = elem[2];
-          console.log(address);
         }
       });
 
@@ -619,7 +614,6 @@
 					jsonpCallback: "on_result",
 					success: function(data) {
 						var result = JSON.parse(data);
-						console.log(result);
 						var htm = document.getElementById('docsContainer').innerHTML;
 						if(htm == "" || htm == null)
 							htm += '<span class="header">Documentación:</span>';
