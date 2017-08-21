@@ -384,278 +384,277 @@
 	</div>
 
    	<script type="text/javascript">
-    		var dataUser;
-    		var eventDate;
 
-    		var dataForm = {
-      		'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-      		'numberTab': 0
-    		};
-
-    		$.ajax({
-      		type: 'GET',
-      		url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwCX4Zk9LdOGjUinuU7bPKFVCVkNtKqRJPlqcZf87MECPgfT3cs/exec',
-      		data: dataForm,
-      		dataType: 'jsonp',
-      		crossDomain: true,
-      		jsonpCallback: "on_result",
-      		success: function (data) {
-      			//Eliminamos la primera fila ya que no es necesaria
-      			data.splice(0, 1);
-
-      			getQueryParameters();
-      			handleQueryResponse(data, 0);
-      		},
-      		error: function () {
-      			console.log('error');
-      		}
-    		});
-
-    	function getParam(p) {
-    		var params;
-    		//if (location.href.split("?").length > 1) {
-    		if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
-    		params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-    		//params = location.href.split("?")[1].split("&");
-    			for (var i = 0; i < params.length; i++) {
-    				if (params[i].split("=")[0] == p)
-    					return params[i].split("=")[1];
-    			}
-    		}
-    		return "";
-    	}
-
-    	function getQueryParameters() {
-    		var filter = "";
-
-    		var id = getParam('id');
-
-    		if (id != "" && id > 0)
-    			filter += " AND A =" + id;
-
-    		return filter;
-    	}
-
-    		function sendQuery() {
-    		//var spreadsheetKey = prefs.getString('spreadsheetKey'),
-    		/*var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-    							sheetName = encodeURIComponent('events'),
-    							queryString = encodeURIComponent('SELECT * where B <> "title"' + getQueryParameters()),
-    							query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-    							query.send(function (response) {
-    								handleQueryResponse(response, 0);
-    						});*/
-    		}
+   		//adjustGadgetHeight('container');
+  		var gadgetHelper = null;
+  		var dataUser;
+  		var eventDate;
+  		google.load('visualization', '1', {packages: ['table']});
+      google.setOnLoadCallback(sendQuery);
+      // google.setOnLoadCallback(sendQueryUsers);
+      google.setOnLoadCallback(sendQueryDocs);
+      var prefs = new gadgets.Prefs();
 
 
-    		function handleQueryResponse(data, index) {
-    		/*	data = response.getDataTable();*/
-    		//dataGlobal -> data = 1º spreedSheet -> 1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8
-    		var operativa = getParam("id");
-    		console.log("OPERATIVA- >" + operativa);
-    		/*if (operativa != '') {
-    			data = valueOperative(data);
-    		}*/
+	 	function loadVisualizationAPI() {
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
 
-    		dataGlobal = data;
-    		var address;
-    		var contact;
-    		var contactEmail;
-    		var schedule;
-    		var transport;
-    		var web;
-    		var map;
-    		var image;
-    		var video;
-    		var description;
+    function getParam(p){
+      var params;
+      if(window.location.href.split("?").length > 1){
+      //if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+          //params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+          params = window.location.href.split("?")[1].split("&");
+          for(var i=0; i<params.length; i++){
+              if(params[i].split("=")[0] == p)
+                  return params[i].split("=")[1];
+          }
+      }
+      return "";
+    }
 
-    		if (index == 0) {
-    			dataGlobal.find(function (elem) {
-    				eventDate = elem[5];
-    				if (eventDate == 'undefined' || eventDate == null || eventDate == '')
-    					eventDate = elem[4];
+    function getQueryParameters() {
+        var filter = "";
 
-    				if (elem[0] == operativa) {
-    					title = elem[1];
-    					address = elem[7];
-    					contact = elem[8];
-    					contactEmail = elem[9];
-    					schedule = elem[10];
-    					transport = elem[11];
-    					web = elem[12];
-    					map = elem[13];
-    					image = elem[14];
-    					video = elem[15];
-    					description = elem[2];
-    					console.log(address);
-    				}
-    			});
+        var id = getParam('id');
 
-    			var tagConfirm = "";
+        if(id != "" && id > 0)
+        	filter += " AND A ="+ id;
 
-    			$('#title').html(title);
-    			document.getElementById('place').innerHTML = address;
-    			document.getElementById('contactName').innerHTML = contact;
-    			document.getElementById('contactEmail').innerHTML = contactEmail;
-    			document.getElementById('schedule').innerHTML = schedule;
-    			document.getElementById('transport').innerHTML = transport;
-    			document.getElementById('web').innerHTML = web;
-    			document.getElementById('description').innerHTML = description;
+        return filter;
+    }
 
-    			if (map != '' && map != 'undefined' && map != null) {
-    				var iframeMap = "";
-    				iframeMap += '<iframe id="map" src="' + map + '" style="height: 300px;" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>';
-    				document.getElementById('mapContainer').innerHTML = iframeMap;
-    			}
+		function sendQuery(){
+      var dataForm = {
+        'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+        'numberTab': 0
+      };
 
-    			if (image != '' && image != 'undefined' && image != null) {
-    				document.getElementById('image').src = image;
-    			}
+      $.ajax({
+        type: 'GET',
+        url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwCX4Zk9LdOGjUinuU7bPKFVCVkNtKqRJPlqcZf87MECPgfT3cs/exec',
+        data: dataForm,
+        dataType: 'jsonp',
+        crossDomain: true,
+        jsonpCallback: "on_result",
+        success: function (data) {
+          //Eliminamos la primera fila ya que no es necesaria
+          data.splice(0, 1);
 
-    			if (video != '' && video != 'undefined' && video != null) {
-    				document.getElementById('videoContainer').innerHTML = "<iframe src='" + video + "'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:100%; height:300px; '></iframe>";
-    			}
-
-    		} else if (index == 2) {
-    			sendQueryDocs();
-    			var filas = data.length;
-    			html = "";
-    			if (filas > 0)
-    				html += '<span class="header">Documentación:</span>';
-    			for (var i = 0; i < filas; i++) {
-    				html += '<div class="docContent">';
-    				html += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
-    				html += '	<a class="docLink" onclick=javascript:Go("' + elem[2] + '")>' + elem[1] + '</a>';
-    				html += '</div>';
-    			}
-    			document.getElementById('docsContainer').innerHTML = html;
-    		}
-
-    		}
-
-    		function getQueryParametersUsers() {
-    		var filter = "";
-
-    		var id = getParam('id');
-
-    		if (id != "" && id > 0)
-    			filter += " AND A =" + id;
-
-    		filter += " AND C ='x'";
-
-    		return filter;
-    	}
-
-    		function getQueryParametersDocs() {
-    		var filter = "";
-
-    		var id = getParam('id');
-
-    		if (id != "" && id > 0)
-    			filter += " AND A =" + id;
-
-    		return filter;
-    	}
-
-    		function sendQueryDocs() {
-    		var dataForm = {
-    			'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-    			'numberTab': 0
-    		};
-
-    		$.ajax({
-    			type: 'GET',
-    			url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
-    			data: dataForm,
-    			dataType: 'jsonp',
-    			crossDomain: true,
-    			jsonpCallback: "on_result",
-    			success: function (data) {
-    				//Eliminamos la primera fila ya que no es necesaria
-    				data.splice(0, 1);
-
-    				getQueryParametersDocs();
-    				handleQueryResponse(data, 2);
-    			},
-    			error: function () {
-    				console.log('error');
-    			}
-    		});
-
-    		}
+          getQueryParameters();
+          handleQueryResponse(data, 0);
+        },
+        error: function () {
+          console.log('error');
+        }
+      });
+		}
 
 
-    	function Go(destination) {
-    		window.open(destination, '_blank');
-    		//window.parent.location.href = destination;
-    		return false;
-    		}
+		function handleQueryResponse(data, index) {
+      console.log("data" + data);
 
-    		//delay loading
-    		delayRender();
-    	function delayRender() {
-    		window.setTimeout('showIframes()', 2000);
-    	}
+      var operativa = getParam("id");
+  		console.log("OPERATIVA- >" + operativa);
 
-    	function showIframes() {
-    		 	var iframes = document.getElementsByClassName('youtubeIframe').length;
-    		 	for (var i = 0; i < iframes; i++) {
-    			document.getElementsByClassName('youtubeIframe')[i].style.display = 'block';
-    		}
-    	}
+      dataGlobal = data;
+  		var address;
+  		var contact;
+  		var contactEmail;
+  		var schedule;
+  		var transport;
+  		var web;
+  		var map;
+  		var image;
+  		var video;
+  		var description;
+
+			if(index == 0){
+      dataGlobal.find(function (elem) {
+        eventDate = elem[5];
+        if (eventDate == 'undefined' || eventDate == null || eventDate == '')
+          eventDate = elem[4];
+
+        if (elem[0] == operativa) {
+          title = elem[1];
+          address = elem[7];
+          contact = elem[8];
+          contactEmail = elem[9];
+          schedule = elem[10];
+          transport = elem[11];
+          web = elem[12];
+          map = elem[13];
+          image = elem[14];
+          video = elem[15];
+          description = elem[2];
+          console.log(address);
+        }
+      });
+
+      var tagConfirm = "";
+
+      $('#title').html(title);
+      document.getElementById('place').innerHTML = address;
+      document.getElementById('contactName').innerHTML = contact;
+      document.getElementById('contactEmail').innerHTML = contactEmail;
+      document.getElementById('schedule').innerHTML = schedule;
+      document.getElementById('transport').innerHTML = transport;
+      document.getElementById('web').innerHTML = web;
+      document.getElementById('description').innerHTML = description;
+
+      if (map != '' && map != 'undefined' && map != null) {
+        var iframeMap = "";
+        iframeMap += '<iframe id="map" src="' + map + '" style="height: 300px;" width="100%" frameborder="0" style="border:0" allowfullscreen></iframe>';
+        document.getElementById('mapContainer').innerHTML = iframeMap;
+      }
+
+      if (image != '' && image != 'undefined' && image != null) {
+        document.getElementById('image').src = image;
+      }
+
+      if (video != '' && video != 'undefined' && video != null) {
+        document.getElementById('videoContainer').innerHTML = "<iframe src='" + video + "'   allowfullscreen='true' allowScriptAccess='always' style='border:0px solid #AAA; width:100%; height:300px; '></iframe>";
+      }
+
+    } else if (index == 2) {
+      sendQueryDocs();
+      var filas = data.length;
+      html = "";
+      if (filas > 0)
+        html += '<span class="header">Documentación:</span>';
+      for (var i = 0; i < filas; i++) {
+        html += '<div class="docContent">';
+        html += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
+        html += '	<a class="docLink" onclick=javascript:Go("' + elem[2] + '")>' + elem[1] + '</a>';
+        html += '</div>';
+      }
+      document.getElementById('docsContainer').innerHTML = html;
+    }
+
+		}
+
+		function getQueryParametersUsers() {
+      var filter = "";
+
+      var id = getParam('id');
+
+      if(id != "" && id > 0)
+      	filter += " AND A ="+ id;
+
+      filter += " AND C ='x'";
+
+      return filter;
+    }
+
+		function getQueryParametersDocs() {
+      var filter = "";
+
+      var id = getParam('id');
+
+      if(id != "" && id > 0)
+      	filter += " AND A ="+ id;
+
+      return filter;
+    }
+
+		function sendQueryDocs(){
+      var dataForm = {
+        'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+        'numberTab': 0
+      };
+
+      $.ajax({
+        type: 'GET',
+        url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+        data: dataForm,
+        dataType: 'jsonp',
+        crossDomain: true,
+        jsonpCallback: "on_result",
+        success: function (data) {
+          //Eliminamos la primera fila ya que no es necesaria
+          data.splice(0, 1);
+
+          getQueryParametersDocs();
+          handleQueryResponse(data, 2);
+        },
+        error: function () {
+          console.log('error');
+        }
+      });
+		}
 
 
-    	function uploadDoc() {
-    		var link = document.getElementById("docLink").value;
-    		var name = document.getElementById("docName").value;
-    		var id = getParam('id');
+    function Go(destination){
+    	//window.open(destination,'_blank');
+      window.parent.location.href = destination;
+      return false;
+		}
 
-    		if (name != '' && name != null) {
-    			if (link != "" && link != null && link.startsWith("http")) {
-    				$.ajax({
-    					type: 'GET',
-    					url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwBnJc-wVyxF4xZ9kcibmEiNTKzi9bfkWqrjVZLtXiGPP2OAME/exec?id=' + id + '&link=' + link + '&name=' + name,
-    					dataType: 'jsonp',
-    					jsonpCallback: "on_result",
-    					success: function (data) {
-    						var result = JSON.parse(data);
-    						console.log(result);
-    						var htm = document.getElementById('docsContainer').innerHTML;
-    						if (htm == "" || htm == null)
-    							htm += '<span class="header">Documentación:</span>';
+		//delay loading
+		delayRender();
+    function delayRender(){
+    	window.setTimeout('showIframes()', 2000);
+    }
 
-    						htm += '<div class="docContent">';
-    						htm += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
-    						htm += '	<a class="docLink" onclick=javascript:Go("' + link + '")>' + name + '</a>';
-    						htm += '</div>';
-    						document.getElementById('docsContainer').innerHTML = htm;
-    						document.getElementById("docLink").value = '';
-    						document.getElementById("docName").value = '';
-    					}
-    				});
-    			}
-    			else {
-    				alert("El enlace no es válido");
-    			}
-    		}
-    		else
-    			alert("El nombre esta vacío");
-    	}
+	 	function showIframes() {
+		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
+		 	for (var i=0;i<iframes;i++) {
+				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
+			}
+	 	}
+
+		function uploadDoc() {
+			var link = document.getElementById("docLink").value;
+			var name = document.getElementById("docName").value;
+			var id = getParam('id');
+
+			if(name != '' && name != null){
+  			if(link != "" && link != null && link.startsWith("http")){
+	  			$.ajax({
+		            type      	: 'GET',
+		            url 		: 'https://script.google.com/a/macros/bbva.com/s/AKfycbwBnJc-wVyxF4xZ9kcibmEiNTKzi9bfkWqrjVZLtXiGPP2OAME/exec?id='+id+'&link='+link+'&name='+name,
+		            dataType	: 'jsonp',
+					jsonpCallback: "on_result",
+					success: function(data) {
+						var result = JSON.parse(data);
+						console.log(result);
+						var htm = document.getElementById('docsContainer').innerHTML;
+						if(htm == "" || htm == null)
+							htm += '<span class="header">Documentación:</span>';
+
+						htm += '<div class="docContent">';
+						htm += '	<img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/pdf.png"/>';
+						htm += '	<a class="docLink" onclick=javascript:Go("'+ link +'")>'+name+'</a>';
+						htm += '</div>';
+						document.getElementById('docsContainer').innerHTML = htm;
+						document.getElementById("docLink").value = '';
+							document.getElementById("docName").value = '';
+					}
+				});
+  			}
+  			else {
+  				alert("El enlace no es válido");
+  			}
+  		}
+  		else
+  			alert("El nombre esta vacío");
+  		}
 
 
-    	function pastDate(eventDate) {
-    		var ed = eventDate.split('/');
+  		function pastDate(eventDate){
+  			var ed = eventDate.split('/');
 
-    		var eDate = Date.UTC(ed[2], ed[1], ed[0]);
-    		var dateObj = new Date();
-    		var actDate = dateObj.getTime();
+  			var eDate = Date.UTC(ed[2], ed[1], ed[0]);
+  			var dateObj = new Date();
+			var actDate = dateObj.getTime();
 
-    		if (actDate > eDate)
-    			return true;
-    		else
-    			return false;
-    	}
-
+  			if(actDate > eDate)
+  				return true;
+  			else
+  				return false;
+  		}
   	</script>
 
     ]]>
