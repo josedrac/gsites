@@ -101,43 +101,42 @@
 
       <script type="text/javascript">
 
-        // adjustGadgetHeight('container');
-        // var gadgetHelper = null;
-        google.load('visualization', '1', {packages: ['table']});
-        google.setOnLoadCallback(sendQuery);
-        var prefs = new gadgets.Prefs();
+  function handleQueryResponse(data) {
+    // adjustGadgetHeight('container');
+  // var gadgetHelper = null;
+/*  google.load('visualization', '1', { packages: ['table'] });
+  google.setOnLoadCallback(sendQuery);
+  var prefs = new gadgets.Prefs();
 
-        function sendQuery(){
-          var spreadsheetKey = prefs.getString('spreadsheetKey');
-          var sheetName = encodeURIComponent('links');
-          var queryString = encodeURIComponent('SELECT *');
-          var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-          query.send(function (response) { handleQueryResponse(response); });
-        }
+  function sendQuery() {
+    var spreadsheetKey = prefs.getString('spreadsheetKey');
+    var sheetName = encodeURIComponent('links');
+    var queryString = encodeURIComponent('SELECT *');
+    var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+    query.send(function (response) { handleQueryResponse(response); });
+  }
 
-        function handleQueryResponse(response) {
-          var data = response.getDataTable();
-          var rows = data.getNumberOfRows();
+  function handleQueryResponse(response) {
+    var data = response.getDataTable();
+    var rows = data.getNumberOfRows();
 
-          var html = '';
-          for (var i = 0; i < rows; i++) {
-            var link = data.getFormattedValue(i, 0);
-            var href = data.getFormattedValue(i, 1);
-            html += '<div class="link-wrapper"><a class="link" href="' + href + '" target="_blank">' + link + '</a></div>';
-          }
+    var html = '';
+    for (var i = 0; i < rows; i++) {
+      var link = data.getFormattedValue(i, 0);
+      var href = data.getFormattedValue(i, 1);
+      html += '<div class="link-wrapper"><a class="link" href="' + href + '" target="_blank">' + link + '</a></div>';
+    }
 
-          document
-            .getElementById('useful-links-list')
-            .innerHTML = html;
+    document
+      .getElementById('useful-links-list')
+      .innerHTML = html;
 
-          try {
-            gadgets.window.adjustHeight();
-          } catch(err) {
-            console.error(err);
-          }
-        }
-
-      </script>
+    try {
+      gadgets.window.adjustHeight();
+    } catch (err) {
+      console.error(err);
+    }
+  </script>
     ]]>
   </Content>
 

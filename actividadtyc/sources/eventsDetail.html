@@ -155,33 +155,6 @@
 		display: inline-block;
 		width: 420px;
 	}
-	/*
-		.assistantsContainer {
-		    font-size: 13px;
-		    font-family: Arial;
-			margin-bottom: 15px;
-		    line-height: 18px;
-		    float: left;
-		    width: 100%;
-		}
-
-		.assistantHeader {
-			float: left;
-		}
-
-		.assistantsColumn {
-			font-size: 11px;
-			color: #434A58;
-			display: inline-block;
-			width: 80%;
-			margin-left: 10px;
-		}
-
-		.assistant {
-			display: inline-block;
-			width: 100%;
-		}
-*/
 
 	.place {
 		color: #434A58;
@@ -257,7 +230,6 @@
 		color: #0065B7;
 		display: inline-block;
 	}
-
 	.uploadDocButton:hover {
 		background: #CCCCCC;
 	}
@@ -339,14 +311,6 @@
 	<div class="descriptionContainer">
 		<div class="header">Descripción</div>
 		<div id="description" class="description"></div>
-		<!--
-			<div class="assistantsContainer">
-				<span class="assistantHeader">Asistentes:</span>
-				<div id="assistants" class="assistantsColumn">
-
-				</div>
-			</div>
-			 -->
 		<div id="docsContainer" class="docsContainer">
 		</div>
 		<div id="uploadDocsContainer" class="uploadDocsContainer">
@@ -385,6 +349,7 @@
 		crossDomain: true,
 		jsonpCallback: "on_result",
 		success: function (data) {
+
 			//Eliminamos la primera fila ya que no es necesaria
 			data.splice(0, 1);
 
@@ -401,7 +366,6 @@
 		// google.setOnLoadCallback(sendQueryUsers);
 		google.setOnLoadCallback(sendQueryDocs);
 		//var prefs = new gadgets.Prefs();
-
 
 		function loadVisualizationAPI() {
 			google.load("visualization", "1", { "packages": ["table"] });

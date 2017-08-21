@@ -13,212 +13,217 @@
   <Content view="canvas" preferred_height="20px">
     <![CDATA[
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
-	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
 
-	<style type="text/css">
-	  	/* @group fonts */
-		@font-face {
-			font-family: 'BBVA Web Light';
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
-
-		@font-face {
-			font-family: 'BBVA Web Book';
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
-
-		@font-face {
-			font-family: 'BBVA Web Medium';
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
-			src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-				url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
-		/* @end */
-		
-		.competencia {
-			max-width:620px;
-		}
-
-		.container{
-			width:620px;
-			float:left;
-		}
-
-		.content {
-			float: left;
-		    width: 600px;
-		    margin-left: 20px;
-		    margin-top: 5px;
-		}
-
-		a.title, p.title {
-			color: #0078D2;
-		    font-family: BBVA Web Book, Arial;
-		    font-size: 18px;
-		    width: 100%;
-		    font-weight: normal;
-		    text-decoration: none;
-		    text-overflow: ellipsis;
-		    display: block;
-		    display: -webkit-box;
-		    overflow: hidden;
-		    /*-webkit-line-clamp: 2;*/
-		    -webkit-box-orient: vertical;
-		}
-		p.title {
-			color: #434a58;
-			margin: 0;
-		}
-
-		.dateVideo {
-		    color: #71777F;
-		    font-size: 11px;
-		    float: left;
-		    margin-top: 5px;
-		}
-
-		#allcontent{
-			-webkit-border-radius: .2em;
-			-moz-border-radius: .2em;
-			border-radius: .2em;
-			height: 1.75em;
-			padding-left: .7em;
-			padding-bottom:2px;
-			float:left;
-			margin-left: 27px;
-			width:90px;
-			margin-top:0px;
-			font-family: BBVA Web Medium, Arial;
-			font-size:12px;
-		}
-
-		#allcontent:hover{
-			background: #004C99;
-		}
-
-		.novedades {
-			margin: 2px 0px 0px;
-		}
-
-		.lineSeparator {
-		    width: 610px;
-		    height: 4px;
-		    display: block;
-		    margin-bottom: 20px;
-		    padding-top: 20px;
-		}
-
-		.oculto {
-			visibility: hidden;
-		}
-
-		.sites-embed-align-left-wrapping-off{
-			display: block;
-			clear: both;
-			text-align: left;
-			margin: 5px auto 5px 0;
-			width: 650px;
-		}
-
-		p.text {
-            font-size: 0.8em;
-            color: #3B3B3B;
-        }
-
-		.youtubeIframe{
-			display:none;
-		}
-
-		.icons {
-        	margin-left: 20px;
-    	}
-    	.icons img {
-        	margin: 0 0 5px 0 !important;
-    	}
-	    .icon {
-	        float:left;
-	        height: 21px;
-	    }
-	    .iconMargin {
-	    	margin-left: 10px !important;
-	    }
-	    .clearBoth {
-	        clear:both;
-	    }
-
-	    .pager {
-		    height: 30px;
-		    text-align: center;
-		    width: 175px;
-		    display: table;
-		}
-		.pager ul {
-		    list-style: none;
-		    padding: 0;
-		    margin: 0;
-		    text-aling: center;
-		    display: table-cell;
-		    vertical-align: middle;
-		}
-		.pager ul li {
-		    display: inline;
-		    margin-left: 2px;
-		}
-		.pager ul li a {
-		    text-decoration: none;
-		    font-weight: bold;
-		    display: inline-table;
-		    width: 20px;
-		    height: 18px;
-		    text-align: center;
-		    border-radius: 4px;
-		    -moz-border-radius: 4px;
-		}
-		.pager span {
-		    margin-left: 4px;
-		    color: White;
-		    float: left;
-		}
-		.pager .btn {
-		    width: 40px;
-		    text-align: center;
-		    display: table-cell;
-		    vertical-align: middle;
-		}
-		.pager .disabled {
-		    color: #A0A0A0 !important;
-		    text-shadow: 1px 1px 1px #FFFFFF;
-		}
-		.black.normal {
-		    background-color: #FFFFFF;
-		    color: #0072C9;
-		    border: solid 1px #d2e5eb;
-		}
-		.black.active {
-		    background-color: #0072C9;
-		    color: #FFFFFF;
-		    border: solid 1px #0072C9;
-		}
-	</style>
-
-	<!--[if IE]>
+<style type="text/css">
+  /* @group fonts */
+  
+  @font-face {
+    font-family: 'BBVA Web Light';
+    src: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
+    src: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  @font-face {
+    font-family: 'BBVA Web Book';
+    src: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
+    src: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+    font-style: normal;
+    font-weight: normal;
+  }
+  
+  @font-face {
+    font-family: 'BBVA Web Medium';
+    src: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
+    src: url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"), url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+    font-style: normal;
+    font-weight: normal;
+  }
+  /* @end */
+  
+  .competencia {
+    max-width: 620px;
+  }
+  
+  .container {
+    width: 620px;
+    float: left;
+  }
+  
+  .content {
+    float: left;
+    width: 600px;
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+  
+  a.title,
+  p.title {
+    color: #0078D2;
+    font-family: BBVA Web Book, Arial;
+    font-size: 18px;
+    width: 100%;
+    font-weight: normal;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    display: block;
+    display: -webkit-box;
+    overflow: hidden;
+    /*-webkit-line-clamp: 2;*/
+    -webkit-box-orient: vertical;
+  }
+  
+  p.title {
+    color: #434a58;
+    margin: 0;
+  }
+  
+  .dateVideo {
+    color: #71777F;
+    font-size: 11px;
+    float: left;
+    margin-top: 5px;
+  }
+  
+  #allcontent {
+    -webkit-border-radius: .2em;
+    -moz-border-radius: .2em;
+    border-radius: .2em;
+    height: 1.75em;
+    padding-left: .7em;
+    padding-bottom: 2px;
+    float: left;
+    margin-left: 27px;
+    width: 90px;
+    margin-top: 0px;
+    font-family: BBVA Web Medium, Arial;
+    font-size: 12px;
+  }
+  
+  #allcontent:hover {
+    background: #004C99;
+  }
+  
+  .novedades {
+    margin: 2px 0px 0px;
+  }
+  
+  .lineSeparator {
+    width: 610px;
+    height: 4px;
+    display: block;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+  
+  .oculto {
+    visibility: hidden;
+  }
+  
+  .sites-embed-align-left-wrapping-off {
+    display: block;
+    clear: both;
+    text-align: left;
+    margin: 5px auto 5px 0;
+    width: 650px;
+  }
+  
+  p.text {
+    font-size: 0.8em;
+    color: #3B3B3B;
+  }
+  
+  .youtubeIframe {
+    display: none;
+  }
+  
+  .icons {
+    margin-left: 20px;
+  }
+  
+  .icons img {
+    margin: 0 0 5px 0 !important;
+  }
+  
+  .icon {
+    float: left;
+    height: 21px;
+  }
+  
+  .iconMargin {
+    margin-left: 10px !important;
+  }
+  
+  .clearBoth {
+    clear: both;
+  }
+  
+  .pager {
+    height: 30px;
+    text-align: center;
+    width: 175px;
+    display: table;
+  }
+  
+  .pager ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-aling: center;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .pager ul li {
+    display: inline;
+    margin-left: 2px;
+  }
+  
+  .pager ul li a {
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-table;
+    width: 20px;
+    height: 18px;
+    text-align: center;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+  }
+  
+  .pager span {
+    margin-left: 4px;
+    color: White;
+    float: left;
+  }
+  
+  .pager .btn {
+    width: 40px;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .pager .disabled {
+    color: #A0A0A0 !important;
+    text-shadow: 1px 1px 1px #FFFFFF;
+  }
+  
+  .black.normal {
+    background-color: #FFFFFF;
+    color: #0072C9;
+    border: solid 1px #d2e5eb;
+  }
+  
+  .black.active {
+    background-color: #0072C9;
+    color: #FFFFFF;
+    border: solid 1px #0072C9;
+  }
+</style>
+<!--[if IE]>
 		<style type="text/css">
 			button{
 				background: #0079C1;
@@ -226,12 +231,11 @@
 		</style>
 	<![endif]-->
 
-	<div id="listNovedades" class="competencia"></div>
-	<div id="functionsContainer"></div>
+<div id="listNovedades" class="competencia"></div>
+<div id="functionsContainer"></div>
 
-	<script type="text/javascript">
-		
-		$.ajax({
+<script type="text/javascript">
+  $.ajax({
 			  	url: 'https://raw.githubusercontent.com/sopraux/gsites/master/gsites-components/js/functionHelpers.js',
 				success: function(result){
 					var e = document.getElementById('functionsContainer');
@@ -239,172 +243,176 @@
 		            eval(document.getElementById('sc1').innerHTML);
 				}
 			});
-	</script>
 
-   	<script type="text/javascript">
+</script>
 
-        var gadgetHelper = null;
-        var prefs = new _IG_Prefs();
-        var urlTable = prefs.getString("_table_query_url");
-        _IG_RegisterOnloadHandler(loadVisualizationAPI);
+<script type="text/javascript">
+  var month = new Array();
+  month[1] = "Ene";
+  month[2] = "Feb";
+  month[3] = "Mar";
+  month[4] = "Abr";
+  month[5] = "May";
+  month[6] = "Jun";
+  month[7] = "Jul";
+  month[8] = "Agt";
+  month[9] = "Sep";
+  month[10] = "Oct";
+  month[11] = "Nov";
+  month[12] = "Dic";
 
-	 	function loadVisualizationAPI() {
-			google.load("visualization", "1", {"packages": ["table"]});
-			google.setOnLoadCallback(sendQuery);
-		}
+  var dataForm = {
+    'key': '13d4SDmIV-5LggP2pudUzNDFPZYppNSX03n2kU5Q6-Xs'
+  };
 
-		function sendQuery() {
-			gadgetHelper = new google.visualization.GadgetHelper();
-			var opts = {dataType:'jsonp'};
-			var query = new google.visualization.Query(urlTable, opts);
-			var querytosend = "select * where A <> 'ID'";
-			querytosend = querytosend.concat(" order by C desc");
-			query.setQuery(querytosend);
-			query.send(handleQueryResponse);
-		}
+  $.ajax({
+    type: 'GET',
+    url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
+    data: dataForm,
+    dataType: 'jsonp',
+    crossDomain: true,
+    jsonpCallback: "on_result",
+    success: function (data, elem) {
+      //Eliminamos la primera fila ya que no es necesaria 
+      data.splice(0, 1);
 
-		function pagination(elements) {
-	        $('#pagination').smartpaginator({ 
-		        totalrecords: elements, 
-		        recordsperpage: 4, 
-		        length: 4, 
-		        datacontainer: 'paginas', 
-		        dataelement: 'div.container', 
-		        initval: 0,
-	        });
-	    }
+      //Ordenamos el array por fecha
+      data.sort(function (y, x) {
+        return new Date(x[2]) - new Date(y[2]);
+      });
 
-
-
-		function handleQueryResponse(response) {
-            data = response.getDataTable();
-			var filas = data.getNumberOfRows();
-			var html = "";
-
-			if (filas < 1)
-    			html += '<p class="text">No hay ningún contenido.</p>';
-            else
-            	html += '<div id="paginas" class="paginaNueva" style=" display: block; overflow: hidden;">';
-
-            for(var i=0; i<filas; i++) {
-				html += "<div class='container'>";
-				html += getIcons(data, i);
-				html += "<div class='content'>";
-				if(data.getValue(i,3) != null && typeof data.getValue(i,3) != 'undefined' && data.getValue(i,3) !== undefined && data.getValue(i,3) != "") {
-					html += '<div><a href="javascript:void(0)" onclick="javascript:Go(\''+data.getValue(i,3)+'\')" class="title">'+data.getValue(i,1)+'</a></div>';
-				} else {
-					html += "<div><p class='title'>" + data.getValue(i,1) + "</p></div>";
-				}
-				html += "	<span class='dateVideo'>" + data.getFormattedValue(i,2) + "</span>";
-				html += "</div>";
-				html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
-			}
-          
-            html += '</div>';
-			html += "<div id='pagination' style='margin: auto;'></div>";
-
-			document.getElementById('listNovedades').innerHTML += html;
-			if(filas > 0)
-				pagination(filas);
-			gadgets.window.adjustHeight();
-		}
-
-		function continuacion() {
-        	var pagAct = parseInt(document.getElementById("pagActual").value);
-        	changePage(pagAct+1);
-        }
-
-    	function anterior(num) {
-        	var pagAct = parseInt(document.getElementById("pagActual").value);
-        	changePage(pagAct-1);
-        }
-
-		function changePage(pagAct) {
-
-			var pagAnt = parseInt(document.getElementById("pagActual").value);
-			var pagTotales = parseInt(document.getElementById("pagTotales").value);
-
-			document.getElementById("pagAnterior").value = pagAnt;
-			document.getElementById("pagActual").value = pagAct;
-
-			changeImage(pagAct, pagAnt);
+      handleQueryResponse(data);
+    },
+    error: function () {
+      console.log('error');
+    }
+  });
 
 
-			if(pagAct == 1)
-				document.getElementById("bloqueEnlaces1").style.visibility = 'hidden';
-			else
-				document.getElementById("bloqueEnlaces1").style.visibility = 'visible';
-
-			if(pagAct == pagTotales)
-				document.getElementById("bloqueEnlaces").style.visibility = 'hidden';
-			else
-				document.getElementById("bloqueEnlaces").style.visibility = 'visible';
-
-
-		    var bloque_anterior = "pagina"+pagAnt;
-			var bloque = "pagina"+ pagAct;
-
-		    document.getElementById(bloque_anterior).style.display='none';
-            document.getElementById(bloque).style.display='block';
-		}
-
-		function changeImage(pagina, old){
-		    document.getElementById('pagination'+old).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/pagina.png";
-		    document.getElementById('pagination'+pagina).src="https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/paginaHover.png";
-		}
-
-	    function Go(destination){
-	    	window.open(destination,'_blank');
-		    //window.parent.location.href = destination;
-		    return false;
-		}
-
-		delayRender();
-	    function delayRender() {
-	    	window.setTimeout('showIframes()',2000);
-	    }
-
-	 	function showIframes() {
-		 	var iframes =document.getElementsByClassName('youtubeIframe').length;
-		 	for (var i=0;i<iframes;i++) {
-				document.getElementsByClassName('youtubeIframe')[i].style.display='block';
-			}
-        }
-
-        function getIcons(data, row) {
-            var html = "<div class='icons'>";
-            var countIcons = 0;
-            var iconMargin = "";
-            var iconCols = {
-                4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
-                5: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
-                6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
-                7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png', 10, 16]
-            };
-
-            for (var column in iconCols) {
-                if (!iconCols.hasOwnProperty(column)) {
-                    continue;
-                }
-
-                if (data.getValue(row, parseInt(column)) !== 'x') {
-                    continue;
-                }
-
-                if (countIcons != 0) {
-                	iconMargin = "iconMargin";
-                }
-
-                html += "<div class='icon "+iconMargin+"'><img src='"+iconCols[column][0]+"' style='width:"+iconCols[column][1]+"; height:"+iconCols[column][2]+";' /></div>";
-                countIcons++;
-            }
-
-            html += "</div><div class='clearBoth'></div>";
-            return html;
-        }
+  function pagination(elements) {
+    $('#pagination').smartpaginator({
+      totalrecords: elements,
+      recordsperpage: 4,
+      length: 4,
+      datacontainer: 'paginas',
+      dataelement: 'div.container',
+      initval: 0,
+    });
+  }
 
 
-  </script>
+  function handleQueryResponse(data) {
+    data = data;
+    var filas = data.length;
+    var html = "";
+
+    if (filas < 1)
+      html += '<p class="text">No hay ningún contenido.</p>';
+    else {
+      html += '<div id="paginas" class="paginaNueva" style=" display: block; overflow: hidden;">';
+
+      //Get all the data  
+      data.forEach(function (elem) {
+        html += getEvent(elem);
+      });
+
+      html += '</div>';
+    }
+    html += "<div id='pagination' style='margin: auto;'></div>";
+
+    document.getElementById('listNovedades').innerHTML += html;
+    if (filas > 0)
+      pagination(filas);
+  }
+
+
+  function getEvent(elem) {
+    var html = "";
+
+   //DATE:
+    var date = elem[2].split('/');
+    var day = new Date(elem[2]).getDate();
+    var mon = month[new Date(elem[2]).getMonth() + 1];
+    var year = new Date(elem[2]).getFullYear();
+
+   //ICONS:
+    html += "<div class='container'>";
+    html += getIcons(elem);
+    html += "<div class='content'>";
+
+   //URL:
+    if (elem[3] != null && typeof elem[3] != 'undefined' && elem[3] !== undefined && elem[3] != "") {
+      html += '<div><a href="javascript:void(0)" onclick="javascript:Go(\'' + elem[3] + '\')" class="title">' + elem[1] + '</a></div>';
+    } else {
+      html += "<div><p class='title'>" + elem[1] + "</p></div>";
+    }
+    
+   //Show date:
+    html += "	<span class='dateVideo'>" + day + " " + mon + " " + year + "</span>";
+    html += "</div>";
+    html += "<img src='https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/img/lineborder.png' class='lineSeparator'/></div>";
+
+    return html;
+  }
+
+
+  function Go(destination) {
+    window.open(destination, '_blank');
+    //window.parent.location.href = destination;
+    return false;
+  }
+
+
+  delayRender();
+
+
+  function delayRender() {
+    window.setTimeout('showIframes()', 2000);
+  }
+
+
+
+  function showIframes() {
+    var iframes = document.getElementsByClassName('youtubeIframe').length;
+    for (var i = 0; i < iframes; i++) {
+      document.getElementsByClassName('youtubeIframe')[i].style.display = 'block';
+    }
+  }
+
+//GET ICONS:
+  function getIcons(row) {
+    var html = "<div class='icons'>";
+    var countIcons = 0;
+    var iconMargin = "";
+    var iconCols = {
+      4: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/cellphone.png', 10, 16],
+      5: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/tablet.png', 13, 16],
+      6: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/mouse.png', 11, 16],
+      7: ['https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/smartwatch.png', 10, 16]
+    };
+
+    for (var column in iconCols) {
+      if (!iconCols.hasOwnProperty(column)) {
+        continue;
+      }
+
+      if (row[column] !== 'x') {
+        continue;
+      }
+
+      if (countIcons != 0) {
+        iconMargin = "iconMargin";
+      }
+
+      html += "<div class='icon " + iconMargin + "'><img src='" + iconCols[column][0] + "' style='width:" + iconCols[column][1] + "; height:" + iconCols[column][2] + ";' /></div>";
+      countIcons++;
+    }
+
+    html += "</div><div class='clearBoth'></div>";
+    return html;
+  }
+
+</script>
     ]]>
   </Content>
 
