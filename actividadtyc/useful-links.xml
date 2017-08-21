@@ -126,7 +126,6 @@
       var href = data.getFormattedValue(i, 1);
       html += '<div class="link-wrapper"><a class="link" href="' + href + '" target="_blank">' + link + '</a></div>';
     }
-
     document
       .getElementById('useful-links-list')
       .innerHTML = html;
