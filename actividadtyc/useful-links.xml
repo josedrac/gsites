@@ -18,9 +18,9 @@
 
   <Content view="canvas" preferred_height="200px">
     <![CDATA[
-      <script src="https://www.google.com/jsapi" type="text/javascript"></script>
-      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
-      <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
 
       <style type="text/css">
         /* @group fonts */
@@ -101,40 +101,51 @@
 
       <script type="text/javascript">
 
+      var dataForm = {
+        'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+        'numberTab': 2
+      };
+
+      $.ajax({
+        type: 'GET',
+        url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+        data: dataForm,
+        dataType: 'jsonp',
+        crossDomain: true,
+        jsonpCallback: "on_result",
+        success: function (data) {
+          /*handleQueryResponse(data);*/
+          console.log(data);
+          handleQueryResponse(data);
+        },
+        error: function () {
+          console.log('error');
+        }
+      });
+
   function handleQueryResponse(data) {
-    // adjustGadgetHeight('container');
-  // var gadgetHelper = null;
-/*  google.load('visualization', '1', { packages: ['table'] });
-  google.setOnLoadCallback(sendQuery);
-  var prefs = new gadgets.Prefs();
+    var html = "";
+    if (!data.length) {
+      html += '<p class="text">No hay ningún enlace de interes disponible.</p>';
+    } else {
+      html += '<div id="paginas" class="paginaNueva" style=" display: block;width: auto;">';
+    }
 
-  function sendQuery() {
-    var spreadsheetKey = prefs.getString('spreadsheetKey');
-    var sheetName = encodeURIComponent('links');
-    var queryString = encodeURIComponent('SELECT *');
-    var query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-    query.send(function (response) { handleQueryResponse(response); });
+    //Eliminamos la primera fila ya que no es necesaria
+    data.splice(0, 1);
+    //Ordenamos el array por fecha
+    data.sort(function (y, x) {
+      return new Date(x[2]) - new Date(y[2]);
+    });
+
+    data.forEach(function(elem, index) {
+      var title = elem[0];
+      var href = elem[2];
+      html += '<div class="link-wrapper"><a class="link" href="' + href + '" target="_blank">' + title + '</a></div>';
+    });
+
+    $('#useful-links-list').html(html);
   }
-
-  function handleQueryResponse(response) {
-    var data = response.getDataTable();
-    var rows = data.getNumberOfRows();
-
-    var html = '';
-    for (var i = 0; i < rows; i++) {
-      var link = data.getFormattedValue(i, 0);
-      var href = data.getFormattedValue(i, 1);
-      html += '<div class="link-wrapper"><a class="link" href="' + href + '" target="_blank">' + link + '</a></div>';
-    }
-    document
-      .getElementById('useful-links-list')
-      .innerHTML = html;
-
-    try {
-      gadgets.window.adjustHeight();
-    } catch (err) {
-      console.error(err);
-    }
   </script>
     ]]>
   </Content>
