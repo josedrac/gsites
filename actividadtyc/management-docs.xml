@@ -169,81 +169,90 @@
     <div id="container" class="container"></div>
 
     <script type="text/javascript">
+      var dataForm = {
+        'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+        'numberTab': 7
+      };
 
-        // adjustGadgetHeight('container');
-        google.load('visualization', '1', {packages: ['table']});
-        google.setOnLoadCallback(sendQuery);
-        var prefs = new gadgets.Prefs();
+      $.ajax({
+        type: 'GET',
+        url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+        data: dataForm,
+        dataType: 'jsonp',
+        crossDomain: true,
+        jsonpCallback: "on_result",
+        success: function (data) {
+          //Eliminamos la primera fila ya que no es necesaria
+          data.splice(0, 1);
 
-        function sendQuery() {
-            var tab = 'management-docs';
-            var spreadsheetKey = prefs.getString('spreadsheetKey'),
-                sheetName = encodeURIComponent(tab),
-                queryString = encodeURIComponent('SELECT * where B <> "Texto"'),
-                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-                query.send(handleQueryResponse);
+          handleQueryResponse(data);
+        },
+        error: function () {
+          console.log('error');
         }
+      });
 
-        function handleQueryResponse(response) {
-            var data = response.getDataTable();
-            var filas = data.getNumberOfRows();
-            var pages = Math.ceil(filas / 8);
-            var html = "";
-            var page = 0;
-            var display = '';
-            var classBorder = '';
-            if (filas < 1) {
-                html += '<p class="not-found">No hay ningún contenido disponible.</p>';
-            }
+      function handleQueryResponse(data) {
+      var data = data;
+      var filas = data.length;
+      var pages = Math.ceil(filas / 8);
+      var html = "";
+      var page = 0;
+      var display = '';
+      var classBorder = '';
+      if (filas < 1) {
+        html += '<p class="not-found">No hay ningún contenido disponible.</p>';
+      }
 
-            for (var i=0;i<filas;i++) {
-                html += getElement(data.getValue(i, 0), data.getValue(i, 1), data.getValue(i, 2), data.getValue(i, 3));
-            }
+      data.forEach(function (elem) {
+        html += getElement(elem[0], elem[1], elem[2], elem[3]);
+      });
 
-            document.getElementById('container').innerHTML = html;
 
-            var pretitleText = data.getValue(0,4);
-            document.getElementById('pretitle').innerHTML = "<p>" + pretitleText + "</p>";
+      document.getElementById('container').innerHTML = html;
 
-            gadgets.window.adjustHeight();
-        }
+      var pretitleText = data[0][4];
+      document.getElementById('pretitle').innerHTML = "<p>" + pretitleText + "</p>";
 
-        function Go(destination){
-            window.parent.location.href = destination;
-            return false;
-        }
 
-        function getElement(title, text, link, icon){
-            var html = "";
-            html += '<li class="card">';
-            html += '   <img class="icon" src="'+icon+'"/>';
-            html += '   <div class="innerText">';
-            html += '       <span class="title">'+title+'</span>';
-            // html += '       <span class="text">'+text+'</span>';
-            html += '   </div>';
-            html += '   <button class="btn" type="button" onclick="javascript:Go(\''+link+'\')">Acceder</button>';
-            html += '</li>';
-            return html;
-        }
+    }
 
-        function getElementContact(title, text, link, icon, contact){
-            var html = "";
+    function Go(destination) {
+      window.parent.location.href = destination;
+      return false;
+    }
 
-            if (contact == null) {
-                contact = "";
-            }
+    function getElement(title, text, link, icon) {
+      var html = "";
+      html += '<li class="card">';
+      html += '   <img class="icon" src="' + icon + '"/>';
+      html += '   <div class="innerText">';
+      html += '       <span class="title">' + title + '</span>';
+      // html += '       <span class="text">'+text+'</span>';
+      html += '   </div>';
+      html += '   <button class="btn" type="button" onclick="javascript:Go(\'' + link + '\')">Acceder</button>';
+      html += '</li>';
+      return html;
+    }
 
-            html += '<li class="pCard">';
-            html += '   <img class="icon" src="'+icon+'"/>';
-            html += '   <div class="innerText">';
-            html += '       <span class="pTitle">'+title+'</span>';
-            html += '       <span class="contact" onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/contactos\')">'+contact+'</span>';
-            html += '       <span class="text">'+text+'</span>';
-            html += '   </div>';
-            html += '   <button class="btn" type="button" onclick="javascript:Go(\''+link+'\')">Acceder</button>';
-            html += '</li>';
-            return html;
-        }
+    function getElementContact(title, text, link, icon, contact) {
+      var html = "";
+
+      if (contact == null) {
+        contact = "";
+      }
+
+      html += '<li class="pCard">';
+      html += '   <img class="icon" src="' + icon + '"/>';
+      html += '   <div class="innerText">';
+      html += '       <span class="pTitle">' + title + '</span>';
+      html += '       <span class="contact" onclick="javascript:Go(\'https://sites.google.com/a/bbva.com/actividadtyc/contactos\')">' + contact + '</span>';
+      html += '       <span class="text">' + text + '</span>';
+      html += '   </div>';
+      html += '   <button class="btn" type="button" onclick="javascript:Go(\'' + link + '\')">Acceder</button>';
+      html += '</li>';
+      return html;
+    }
     </script>
     ]]>
   </Content>
