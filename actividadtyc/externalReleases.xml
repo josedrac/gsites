@@ -256,7 +256,7 @@
       var prefs = new gadgets.Prefs();
 
       var dataForm = {
-        'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+        'key': prefs.getString('spreadsheetKey'),
         'numberTab': 2
       };
 
@@ -288,13 +288,18 @@
       }
 
       function getParam(p){
-    		var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-    		for(var i=0; i<params.length; i++){
-    			if(params[i].split("=")[0] == p)
-    				return params[i].split("=")[1];
-    		}
-    		return "";
-    	}
+          var params;
+          if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
+          <!-- if (location.href.split("?").length > 1) { -->
+              params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+              <!-- params = location.href.split("?")[1].split("&"); -->
+              for(var i=0; i<params.length; i++){
+                  if(params[i].split("=")[0] == p)
+                      return params[i].split("=")[1];
+              }
+          }
+          return "";
+      }
 
       function urldecode(str) {
          return decodeURIComponent((str+'').replace(/\+/g, '%20'));
@@ -313,13 +318,10 @@
 
       function getQueryParameters() {
           var filter = "";
-          debugger
-          //var slider = prefs.getString("slider");
-          var slider = 1;
+
+          var slider = prefs.getString("slider");
           var month = getParam("mes");
-          console.log("mes: " +month);
           var year = getParam("anyo");
-          console.log("año: " +year);
           var inputText = urldecode(getParam("inputText").toLowerCase());
           var tag = urldecode(getParam("tag").toLowerCase());
 
@@ -337,6 +339,7 @@
               filter += " AND month(B) = "+ (month-1);
           if(inputText != "")
               filter += " AND lower(A) like '%"+inputText+"%'";
+
           if(tag != "")
               filter += " AND lower(D) like '%"+tag+"%'";
 
@@ -344,7 +347,6 @@
           return filter;
       }
 
-      //header with Month + year
       function handleQueryResponse(data) {
           data = data;
           var filas;
@@ -354,8 +356,7 @@
           var display = '';
           var classBorder = '';
 
-          <!-- var slider = prefs.getString("slider"); -->
-          var slider = 1;
+          var slider = prefs.getString("slider");
           var mes = "";
           var month = getParam("mes");
           var year = getParam("anyo");
@@ -365,7 +366,9 @@
 
 
           if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
+
               var date = getMonthAndYear(slider);
+
               inputText = "";
               mes = date.split(" ")[0];
               month = getMonth(mes);
@@ -393,6 +396,7 @@
               document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
           }
 
+
           //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
           var aux = data;
 
@@ -410,20 +414,25 @@
           }
 
           data = aux;
+
           filas = data.length;
+
           pages = Math.ceil(filas / 8);
 
           if(filas<1)
               html += '<p class="not-found">No hay ningún contenido disponible.</p>';
 
           for(var i=0;i<filas;i++) {
+
               if(i % 8 == 3 || i % 8 == 7)
                   classBorder = 'content last';
               else
                   classBorder = 'content';
 
-              if(i % 8 == 0){
+              if(i % 8 == 0)
+              {
                   page++;
+
                   if(page == 1)   display = 'block';
                   else            display = 'none';
 
@@ -438,10 +447,13 @@
               }
 
 
-              if(filas < 4 && i == filas-1){
+              if(filas < 4 && i == filas-1)
+              {
                   html += '   </ul>';
                   html += '</div>'
-              }else if(i % 8 == 3){
+              }
+              else if(i % 8 == 3)
+              {
                   html += '   </ul>';
                   html += '   <ul id="column2" class="column">'
               }
@@ -453,16 +465,20 @@
               }
 
 
-              if((filas < 8 && i == filas-1) || (i % 8 == 7)){
+              if((filas < 8 && i == filas-1) || (i % 8 == 7))
+              {
                   html += '   </ul>';
                   html += '</div>'
               }
 
           }
+
           document.getElementById('pages').innerHTML = html;
 
           if(filas > 0)
               pagination(pages);
+          <!-- gadgets.window.adjustHeight(); -->
+
       }
 
       function Go(destination){
@@ -474,6 +490,7 @@
           var html = "";
           var date = elem[1].split('/');
           var day = new Date(elem[1]).getDate();
+          console.log(elem[1]);
 
           var mon = month[new Date(elem[1]).getMonth() + 1];
           var year = new Date(elem[1]).getFullYear();
@@ -492,7 +509,6 @@
           return html;
       }
 
-      //header with Month + year
       function getMonth(index) {
           var month = '';
           switch(parseInt(index)) {
@@ -525,13 +541,9 @@
       }
 
       function getMonthAndYear(slider) {
-            console.log("slider getMonthAndYear: " + slider);
           var dateObj = new Date();
-            console.log("dateObj: " + dateObj);
           var month = dateObj.getUTCMonth() + 1; //months from 1-12
-            console.log("month fecha actual: "+ month );
           var year = dateObj.getUTCFullYear();
-            console.log("year fecha actual: "+ year );
 
           switch(parseInt(slider)) {
               case 2:
