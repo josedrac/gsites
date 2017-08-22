@@ -287,17 +287,14 @@
           return false;
       }
 
-      function getParam(p) {
-        var params;
-        if (window.location.href.split("?").length > 1) {
-          params = window.location.href.split("?")[1].split("&");
-          for (var i = 0; i < params.length; i++) {
-            if (params[i].split("=")[0] == p)
-              return params[i].split("=")[1];
-          }
-        }
-        return "";
-      }
+      function getParam(p){
+    		var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+    		for(var i=0; i<params.length; i++){
+    			if(params[i].split("=")[0] == p)
+    				return params[i].split("=")[1];
+    		}
+    		return "";
+    	}
 
       function urldecode(str) {
          return decodeURIComponent((str+'').replace(/\+/g, '%20'));
@@ -319,12 +316,12 @@
           debugger
           //var slider = prefs.getString("slider");
           var slider = 1;
-          var month = getParam('mes');
+          var month = getParam("mes");
           console.log("mes: " +month);
-          var year = getParam('anyo');
+          var year = getParam("anyo");
           console.log("año: " +year);
-          var inputText = urldecode(getParam('inputText').toLowerCase());
-          var tag = urldecode(getParam('tag').toLowerCase());
+          var inputText = urldecode(getParam("inputText").toLowerCase());
+          var tag = urldecode(getParam("tag").toLowerCase());
 
           if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
               var date = getMonthAndYear(slider);
@@ -360,10 +357,10 @@
           <!-- var slider = prefs.getString("slider"); -->
           var slider = 1;
           var mes = "";
-          var month = getParam('mes');
-          var year = getParam('anyo');
-          var inputText = urldecode(getParam('inputText'));
-          var tag = urldecode(getParam('tag'));
+          var month = getParam("mes");
+          var year = getParam("anyo");
+          var inputText = urldecode(getParam("inputText"));
+          var tag = urldecode(getParam("tag"));
           var tagText = "";
 
 
