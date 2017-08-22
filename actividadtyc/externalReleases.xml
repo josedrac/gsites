@@ -440,8 +440,11 @@
                   html += '   <ul id="column1" class="column">';
               }
 
-              if(i % 8 < 4)
-                  html += getElement(i+1, elem[0], elem, elem[2], classBorder);
+              if(i % 8 < 4){
+                data.forEach(function (elem) {
+                    html += getElement(i + 1, elem[0], elem, elem[2], classBorder);
+                });
+              }
 
 
               if(filas < 4 && i == filas-1)
@@ -455,8 +458,11 @@
                   html += '   <ul id="column2" class="column">'
               }
 
-              if(i % 8 > 3)
-                  html += getElement(i+1, elem[0], elem, elem[2], classBorder);
+              if(i % 8 > 3){
+                data.forEach(function (elem) {
+                    html += getElement(i + 1, elem[0], elem, elem[2], classBorder);
+                });
+              }
 
 
               if((filas < 8 && i == filas-1) || (i % 8 == 7))
