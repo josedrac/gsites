@@ -318,7 +318,7 @@
 
       function getQueryParameters() {
           var filter = "";
-
+          debugger
           var slider = prefs.getString("slider");
           var month = getParam("mes");
           var year = getParam("anyo");
@@ -494,7 +494,7 @@
 
           var mon = month[new Date(elem[1]).getMonth() + 1];
           var year = new Date(elem[1]).getFullYear();
-          
+
           html += '<li class="'+clase+'">';
           html += '   <a onclick="javascript:Go(\''+link+'\')">'
           html += '       <span class="number">'+number+'.</span>';
@@ -541,6 +541,7 @@
       }
 
       function getMonthAndYear(slider) {
+
           var dateObj = new Date();
           var month = dateObj.getUTCMonth() + 1; //months from 1-12
           var year = dateObj.getUTCFullYear();
