@@ -441,7 +441,7 @@
               }
 
               if(i % 8 < 4)
-                  html += getElement(i+1, , elem[0], elem, elem[2], classBorder);
+                  html += getElement(i+1, elem[0], elem, elem[2], classBorder);
 
 
               if(filas < 4 && i == filas-1)
