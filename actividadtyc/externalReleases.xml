@@ -254,11 +254,6 @@
     	month[12] = "Dic";
 
       var prefs = new gadgets.Prefs();
-      var spreadsheetKey = getParam('key'),
-        queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
-        sheetName = encodeURIComponent('External Releases'),
-        query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-
 
       var dataForm = {
         'key': prefs.getString('spreadsheetKey'),
