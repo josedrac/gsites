@@ -492,6 +492,9 @@
           var day = new Date(elem[1]).getDate();
           console.log(elem[1]);
 
+          var mon = month[new Date(elem[1]).getMonth() + 1];
+          var year = new Date(elem[1]).getFullYear();
+          
           html += '<li class="'+clase+'">';
           html += '   <a onclick="javascript:Go(\''+link+'\')">'
           html += '       <span class="number">'+number+'.</span>';
