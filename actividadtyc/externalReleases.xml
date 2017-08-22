@@ -319,7 +319,8 @@
       function getQueryParameters() {
           var filter = "";
           debugger
-          var slider = prefs.getString("slider");
+          //var slider = prefs.getString("slider");
+          var slider = 1;
           var month = getParam("mes");
           var year = getParam("anyo");
           var inputText = urldecode(getParam("inputText").toLowerCase());
