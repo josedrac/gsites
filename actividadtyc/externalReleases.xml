@@ -286,15 +286,18 @@
           }
           return false;
       }
-      
-      function getParam(p){
-    		var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-    		for(var i=0; i<params.length; i++){
-    			if(params[i].split("=")[0] == p)
-    				return params[i].split("=")[1];
-    		}
-    		return "";
-    	}
+
+      function getParam(p) {
+        var params;
+        if (window.location.href.split("?").length > 1) {
+          params = window.location.href.split("?")[1].split("&");
+          for (var i = 0; i < params.length; i++) {
+            if (params[i].split("=")[0] == p)
+              return params[i].split("=")[1];
+          }
+        }
+        return "";
+      }
 
       function urldecode(str) {
          return decodeURIComponent((str+'').replace(/\+/g, '%20'));
@@ -316,12 +319,12 @@
           debugger
           //var slider = prefs.getString("slider");
           var slider = 1;
-          var month = getParam("mes");
+          var month = getParam('mes');
           console.log("mes: " +month);
-          var year = getParam("anyo");
+          var year = getParam('anyo');
           console.log("año: " +year);
-          var inputText = urldecode(getParam("inputText").toLowerCase());
-          var tag = urldecode(getParam("tag").toLowerCase());
+          var inputText = urldecode(getParam('inputText').toLowerCase());
+          var tag = urldecode(getParam('tag').toLowerCase());
 
           if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
               var date = getMonthAndYear(slider);
@@ -344,6 +347,7 @@
           return filter;
       }
 
+      //header with Month + year
       function handleQueryResponse(data) {
           data = data;
           var filas;
@@ -356,10 +360,10 @@
           <!-- var slider = prefs.getString("slider"); -->
           var slider = 1;
           var mes = "";
-          var month = getParam("mes");
-          var year = getParam("anyo");
-          var inputText = urldecode(getParam("inputText"));
-          var tag = urldecode(getParam("tag"));
+          var month = getParam('mes');
+          var year = getParam('anyo');
+          var inputText = urldecode(getParam('inputText'));
+          var tag = urldecode(getParam('tag'));
           var tagText = "";
 
 
@@ -392,7 +396,6 @@
               document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
           }
 
-
           //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
           var aux = data;
 
@@ -410,25 +413,20 @@
           }
 
           data = aux;
-
           filas = data.length;
-
           pages = Math.ceil(filas / 8);
 
           if(filas<1)
               html += '<p class="not-found">No hay ningún contenido disponible.</p>';
 
           for(var i=0;i<filas;i++) {
-
               if(i % 8 == 3 || i % 8 == 7)
                   classBorder = 'content last';
               else
                   classBorder = 'content';
 
-              if(i % 8 == 0)
-              {
+              if(i % 8 == 0){
                   page++;
-
                   if(page == 1)   display = 'block';
                   else            display = 'none';
 
@@ -443,13 +441,10 @@
               }
 
 
-              if(filas < 4 && i == filas-1)
-              {
+              if(filas < 4 && i == filas-1){
                   html += '   </ul>';
                   html += '</div>'
-              }
-              else if(i % 8 == 3)
-              {
+              }else if(i % 8 == 3){
                   html += '   </ul>';
                   html += '   <ul id="column2" class="column">'
               }
@@ -461,20 +456,16 @@
               }
 
 
-              if((filas < 8 && i == filas-1) || (i % 8 == 7))
-              {
+              if((filas < 8 && i == filas-1) || (i % 8 == 7)){
                   html += '   </ul>';
                   html += '</div>'
               }
 
           }
-
           document.getElementById('pages').innerHTML = html;
 
           if(filas > 0)
               pagination(pages);
-          <!-- gadgets.window.adjustHeight(); -->
-
       }
 
       function Go(destination){
@@ -504,6 +495,7 @@
           return html;
       }
 
+      //header with Month + year
       function getMonth(index) {
           var month = '';
           switch(parseInt(index)) {
