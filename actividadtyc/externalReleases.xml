@@ -287,7 +287,7 @@
           return false;
       }
 
-      function getParam(p){
+      <!-- function getParam(p){
         console.log("p: " + p);
           var params;
           //if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
@@ -301,7 +301,16 @@
               }
           }
           return "";
-      }
+      } -->
+
+      function getParam(p){
+    		var params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
+    		for(var i=0; i<params.length; i++){
+    			if(params[i].split("=")[0] == p)
+    				return params[i].split("=")[1];
+    		}
+    		return "";
+    	}
 
       function urldecode(str) {
          return decodeURIComponent((str+'').replace(/\+/g, '%20'));
@@ -344,7 +353,6 @@
               filter += " AND month(B) = "+ (month-1);
           if(inputText != "")
               filter += " AND lower(A) like '%"+inputText+"%'";
-
           if(tag != "")
               filter += " AND lower(D) like '%"+tag+"%'";
 
@@ -361,7 +369,8 @@
           var display = '';
           var classBorder = '';
 
-          var slider = prefs.getString("slider");
+          <!-- var slider = prefs.getString("slider"); -->
+          var slider = 1;
           var mes = "";
           var month = getParam("mes");
           var year = getParam("anyo");
@@ -371,9 +380,7 @@
 
 
           if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
-
               var date = getMonthAndYear(slider);
-
               inputText = "";
               mes = date.split(" ")[0];
               month = getMonth(mes);
