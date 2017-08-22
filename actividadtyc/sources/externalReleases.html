@@ -482,7 +482,9 @@
         var yearsAll = allYear.indexOf("Todos");
 
         if( (dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year) ||
-            (yearsAll > -1 && monthsAll > -1)
+            (yearsAll > -1 && monthsAll > -1) ||
+            (yearsAll > -1 && dateSlider.substring(0,3) == mon.substring(0,3)) ||
+            (monthsAll> -1 && dateSlider.substring(countSlider,countSlider+4) == year)
         ){
           html += '<li class="' + clase + '">';
           html += '   <a onclick="javascript:Go(\'' + link + '\')">'
