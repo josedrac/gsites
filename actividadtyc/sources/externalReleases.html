@@ -6,7 +6,7 @@
 
 <style type="text/css">
     /* @group fonts */
-    
+
     @font-face {
         font-family: 'BBVA Web Light';
         src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-light/web-light.eot');
@@ -14,7 +14,7 @@
         font-style: normal;
         font-weight: normal;
     }
-    
+
     @font-face {
         font-family: 'BBVA Web Book';
         src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-book/web-book.eot');
@@ -22,7 +22,7 @@
         font-style: normal;
         font-weight: normal;
     }
-    
+
     @font-face {
         font-family: 'BBVA Web Medium';
         src: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/actividadtyc/fonts/web-medium/web-medium.eot');
@@ -31,7 +31,7 @@
         font-weight: normal;
     }
     /* @end */
-    
+
     .title {
         font-family: BBVA Web Light, Arial;
         color: #2F8ACB;
@@ -42,7 +42,7 @@
         margin-top: 0.4em;
         padding: 0;
     }
-    
+
     .line {
         display: block;
         height: 1px;
@@ -52,7 +52,7 @@
         margin-top: 0.4em;
         padding: 0;
     }
-    
+
     .line.strong {
         height: 2px;
         margin-bottom: 1.5em;
@@ -61,7 +61,7 @@
         width: 100%;
         float: left;
     }
-    
+
     .number {
         float: left;
         display: table-cell;
@@ -71,19 +71,19 @@
         text-align: right;
         width: 18px;
     }
-    
+
     .icon {
         float: left;
         display: table-cell;
         margin-right: 10px;
     }
-    
+
     .text {
         float: left;
         height: 100%;
         width: 80%;
     }
-    
+
     .subtitle {
         color: #2871AB;
         float: left;
@@ -95,19 +95,19 @@
         text-overflow: ellipsis;
         font-size: 12px;
     }
-    
+
     .date {
         display: inline-block;
         color: #71777F;
         margin-top: 6px;
         font-size: 11px;
     }
-    
+
     .column {
         width: 40%;
         float: left;
     }
-    
+
     .column .content {
         border-bottom: 1px solid #F2F2F2;
         margin-top: 8px;
@@ -116,36 +116,36 @@
         display: inline-block;
         width: 100%;
     }
-    
+
     .column .last {
         border-bottom: 0px;
     }
-    
+
     .container {
         font-family: BBVA Web Book, Arial;
         float: left;
         width: 100%;
     }
-    
+
     .paginationContainer {
         text-align: center;
         width: 100%;
         float: left;
     }
-    
+
     .page {}
-    
+
     .clearBoth {
         clear: both;
     }
-    
+
     .pager {
         height: 30px;
         text-align: center;
         width: 175px;
         display: inline-block;
     }
-    
+
     .pager ul {
         list-style: none;
         padding: 0;
@@ -154,12 +154,12 @@
         display: table-cell;
         vertical-align: middle;
     }
-    
+
     .pager ul li {
         display: inline;
         margin-left: 2px;
     }
-    
+
     .pager ul li a {
         text-decoration: none;
         font-weight: bold;
@@ -170,13 +170,13 @@
         border-radius: 4px;
         -moz-border-radius: 4px;
     }
-    
+
     .pager span {
         margin-left: 4px;
         color: White;
         float: left;
     }
-    
+
     .pager .btn {
         width: 40px;
         text-align: center;
@@ -184,24 +184,24 @@
         vertical-align: middle;
         cursor: pointer;
     }
-    
+
     .pager .disabled {
         color: #A0A0A0 !important;
         text-shadow: 1px 1px 1px #FFFFFF;
     }
-    
+
     .black.normal {
         background-color: #FFFFFF;
         color: #0072C9;
         border: solid 1px #d2e5eb;
     }
-    
+
     .black.active {
         background-color: #0072C9;
         color: #FFFFFF;
         border: solid 1px #0072C9;
     }
-    
+
     a {
         cursor: pointer;
     }
@@ -230,20 +230,21 @@
 <script type="text/javascript">
 
     var month = new Array();
-	month[1] = "Ene";
-	month[2] = "Feb";
-	month[3] = "Mar";
-	month[4] = "Abr";
-	month[5] = "May";
-	month[6] = "Jun";
-	month[7] = "Jul";
-	month[8] = "Agt";
-	month[9] = "Sep";
-	month[10] = "Oct";
-	month[11] = "Nov";
-	month[12] = "Dic";
+  	month[1] = "Ene";
+  	month[2] = "Feb";
+  	month[3] = "Mar";
+  	month[4] = "Abr";
+  	month[5] = "May";
+  	month[6] = "Jun";
+  	month[7] = "Jul";
+  	month[8] = "Agt";
+  	month[9] = "Sep";
+  	month[10] = "Oct";
+  	month[11] = "Nov";
+  	month[12] = "Dic";
 
     var dataForm = {
+      <!-- 'key': prefs.getString('spreadsheetKey'), //XML -->
         'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
         'numberTab': 2
     };
@@ -256,7 +257,7 @@
         crossDomain: true,
         jsonpCallback: "on_result",
         success: function (data) {
-            //Eliminamos la primera fila ya que no es necesaria 
+            //Eliminamos la primera fila ya que no es necesaria
             data.splice(0, 1);
 
             getQueryParameters();
@@ -304,31 +305,30 @@
 
     function getQueryParameters() {
         var filter = "";
-
         var slider = "1";
         var month = getParam("mes");
         var year = getParam("anyo");
         var inputText = urldecode(getParam("inputText").toLowerCase());
         var tag = urldecode(getParam("tag").toLowerCase());
-        
-                    if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
-                        var date = getMonthAndYear(1);
-        
-                        inputText = "";
-                        month = date.split(" ")[0];
-                        year = date.split(" ")[1];
-                    }
-        
-                    if (year > 0)
-                        filter += " AND year(B) ="+ year;
-                    if (month > 0)
-                        filter += " AND month(B) = "+ (month-1);
-                    if(inputText != "")
-                        filter += " AND lower(A) like '%"+inputText+"%'";
-        
-                    if(tag != "")
-                        filter += " AND lower(D) like '%"+tag+"%'";
-        
+
+        if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
+            var date = getMonthAndYear(1);
+
+            inputText = "";
+            month = date.split(" ")[0];
+            year = date.split(" ")[1];
+        }
+
+        if (year > 0)
+            filter += " AND year(B) ="+ year;
+        if (month > 0)
+            filter += " AND month(B) = "+ (month-1);
+        if(inputText != "")
+            filter += " AND lower(A) like '%"+inputText+"%'";
+
+        if(tag != "")
+            filter += " AND lower(D) like '%"+tag+"%'";
+
 
         return filter;
     }
@@ -354,7 +354,7 @@
 
         if (!(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != ""))) {
 
-            var date = getMonthAndYear(1);
+            var date = getMonthAndYear(slider);
 
             inputText = "";
             mes = date.split(" ")[0];
@@ -426,9 +426,7 @@
             }
 
             if (i % 8 < 4) {
-                data.forEach(function (elem) {
-                    html += getElement(i + 1, elem[0], elem, elem[2], classBorder);
-                });
+                html += getElement(data[i][0], data[i], data[i][2], classBorder);
             }
 
 
@@ -442,9 +440,7 @@
             }
 
             if (i % 8 > 3) {
-                data.forEach(function (elem) {
-                    html += getElement(i + 1, elem[0], elem, elem[2], classBorder);
-                });
+                html += getElement(data[i][0], data[i], data[i][2], classBorder);
             }
 
             if ((filas < 8 && i == filas - 1) || (i % 8 == 7)) {
@@ -467,25 +463,29 @@
         return false;
     }
 
-    function getElement(number, text, elem, link, clase) {
+    function getElement(text, elem, link, clase) {
         var html = "";
         var date = elem[1].split('/');
         var day = new Date(elem[1]).getDate();
         console.log(elem[1]);
 
-        var mon = month[new Date(elem[1]).getMonth() + 1];
+        var mon = getMonth(new Date(elem[1]).getMonth() + 1);
         var year = new Date(elem[1]).getFullYear();
 
-        html += '<li class="' + clase + '">';
-        html += '   <a onclick="javascript:Go(\'' + link + '\')">'
-        html += '       <span class="number">' + number + '.</span>';
-        html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
-        html += '       <div class="text">';
-        html += '           <span class="subtitle">' + text + '</span>';
-        html += '           <span class="date">'+ day + " " + mon + " " + year +'</span>';
-        html += '       </div>';
-        html += '   </a>';
-        html += '</li>';
+        var dateSlider = document.getElementById('title').innerHTML;
+        var countSlider = dateSlider.length -4;
+
+        if( dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year){
+          html += '<li class="' + clase + '">';
+          html += '   <a onclick="javascript:Go(\'' + link + '\')">'
+          html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
+          html += '       <div class="text">';
+          html += '           <span class="subtitle">' + text + '</span>';
+          html += '           <span class="date">'+ day + " " + mon + " " + year +'</span>';
+          html += '       </div>';
+          html += '   </a>';
+          html += '</li>';
+        }
 
         return html;
     }
