@@ -253,15 +253,10 @@
     	month[11] = "Nov";
     	month[12] = "Dic";
 
-      <!-- adjustGadgetHeight('container');
-      google.load('visualization', '1', {packages: ['table']});
-      google.setOnLoadCallback(sendQuery); -->
-
       var prefs = new gadgets.Prefs();
 
       var dataForm = {
         'key': prefs.getString('spreadsheetKey'),
-        <!-- 'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8', -->
         'numberTab': 2
       };
 
@@ -351,15 +346,6 @@
 
           return filter;
       }
-
-      <!-- function sendQuery() {
-          var spreadsheetKey = prefs.getString('spreadsheetKey'),
-              sheetName = encodeURIComponent('External Releases'),
-              queryString = encodeURIComponent('SELECT * where C <> "Enlace"' + getQueryParameters()),
-              query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-              query.send(handleQueryResponse);
-      } -->
-
 
       function handleQueryResponse(data) {
           data = data;
