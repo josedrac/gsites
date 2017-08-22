@@ -398,7 +398,7 @@
 
 
           //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
-          var aux = data.clone();
+          var aux = data;
 
           if(tag != ""){
               var x = 0;
