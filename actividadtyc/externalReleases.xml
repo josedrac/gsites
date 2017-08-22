@@ -288,11 +288,13 @@
       }
 
       function getParam(p){
+        console.log("p: " + p);
           var params;
           //if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
           if (location.href.split("?").length > 1) {
               //params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
               params = location.href.split("?")[1].split("&");
+              console.log("params: " +params);
               for(var i=0; i<params.length; i++){
                   if(params[i].split("=")[0] == p)
                       return params[i].split("=")[1];
@@ -322,7 +324,9 @@
           //var slider = prefs.getString("slider");
           var slider = 1;
           var month = getParam("mes");
+          console.log("mes: " +month);
           var year = getParam("anyo");
+          console.log("año: " +year);
           var inputText = urldecode(getParam("inputText").toLowerCase());
           var tag = urldecode(getParam("tag").toLowerCase());
 
@@ -491,7 +495,6 @@
           var html = "";
           var date = elem[1].split('/');
           var day = new Date(elem[1]).getDate();
-          console.log(elem[1]);
 
           var mon = month[new Date(elem[1]).getMonth() + 1];
           var year = new Date(elem[1]).getFullYear();
@@ -542,10 +545,13 @@
       }
 
       function getMonthAndYear(slider) {
-
+            console.log("slider getMonthAndYear: " + slider);
           var dateObj = new Date();
+            console.log("dateObj: " + dateObj);
           var month = dateObj.getUTCMonth() + 1; //months from 1-12
+            console.log("month fecha actual: "+ month );
           var year = dateObj.getUTCFullYear();
+            console.log("year fecha actual: "+ year );
 
           switch(parseInt(slider)) {
               case 2:
