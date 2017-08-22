@@ -220,7 +220,10 @@
 
     <hr class="line strong" />
 
-    
+    <div class="paginationContainer">
+        <div id="pagination" class="pagination">
+        </div>
+    </div>
 
 </div>
 
@@ -471,8 +474,16 @@
 
         var dateSlider = document.getElementById('title').innerHTML;
         var countSlider = dateSlider.length -4;
+        var allMonth = dateSlider.substring(0,5);
+        var monthsAll=allMonth.indexOf("Todos");
 
-        if( dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year){
+        var countSliderAboutMonth = dateSlider.length - 14;
+        var allYear = dateSlider.substring(countSliderAboutMonth,countSliderAboutMonth +14);
+        var yearsAll = allYear.indexOf("Todos");
+
+        if( (dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year) ||
+            (yearsAll > -1 && monthsAll > -1)
+        ){
           html += '<li class="' + clase + '">';
           html += '   <a onclick="javascript:Go(\'' + link + '\')">'
           html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
@@ -483,7 +494,6 @@
           html += '   </a>';
           html += '</li>';
         }
-
         return html;
     }
 

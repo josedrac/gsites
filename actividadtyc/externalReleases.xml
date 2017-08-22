@@ -473,30 +473,34 @@
       }
 
       function getElement(text, elem, link, clase){
-          var html = "";
-          var date = elem[1].split('/');
-          var day = new Date(elem[1]).getDate();
+        var html = "";
+        var date = elem[1].split('/');
+        var day = new Date(elem[1]).getDate();
+        var mon = getMonth(new Date(elem[1]).getMonth() + 1);
+        var year = new Date(elem[1]).getFullYear();
+        var dateSlider = document.getElementById('title').innerHTML;
+        var countSlider = dateSlider.length -4;
+        var allMonth = dateSlider.substring(0,5);
+        var monthsAll=allMonth.indexOf("Todos");
+        var countSliderAboutMonth = dateSlider.length - 14;
+        var allYear = dateSlider.substring(countSliderAboutMonth,countSliderAboutMonth +14);
+        var yearsAll = allYear.indexOf("Todos");
 
-          var mon = getMonth(new Date(elem[1]).getMonth() + 1);
-          var year = new Date(elem[1]).getFullYear();
-
-          var dateSlider = document.getElementById('title').innerHTML;
-          var countSlider = dateSlider.length -4;
-
-          if( dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year){
-            html += '<li class="'+clase+'">';
-            html += '   <a onclick="javascript:Go(\''+link+'\')">'
-            html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
-            html += '       <div class="text">';
-            html += '           <span class="subtitle">'+text+'</span>';
-            html += '           <span class="date">'+ day + " " + mon + " " + year +'</span>';
-            html += '       </div>';
-            html += '   </a>';
-            html += '</li>';
-          }
-
-          return html;
-      }
+        if( (dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year) ||
+            (yearsAll > -1 && monthsAll > -1)
+        ){
+          html += '<li class="' + clase + '">';
+          html += '   <a onclick="javascript:Go(\'' + link + '\')">'
+          html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
+          html += '       <div class="text">';
+          html += '           <span class="subtitle">' + text + '</span>';
+          html += '           <span class="date">'+ day + " " + mon + " " + year +'</span>';
+          html += '       </div>';
+          html += '   </a>';
+          html += '</li>';
+        }
+        return html;
+    }
 
       //header with Month + year
           function getMonth(index) {
