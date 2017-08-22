@@ -476,16 +476,12 @@
         var html = "";
         var date = elem[1].split('/');
         var day = new Date(elem[1]).getDate();
-        console.log(elem[1]);
-
         var mon = getMonth(new Date(elem[1]).getMonth() + 1);
         var year = new Date(elem[1]).getFullYear();
-
         var dateSlider = document.getElementById('title').innerHTML;
         var countSlider = dateSlider.length -4;
         var allMonth = dateSlider.substring(0,5);
         var monthsAll=allMonth.indexOf("Todos");
-
         var countSliderAboutMonth = dateSlider.length - 14;
         var allYear = dateSlider.substring(countSliderAboutMonth,countSliderAboutMonth +14);
         var yearsAll = allYear.indexOf("Todos");
