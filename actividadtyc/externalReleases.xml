@@ -486,7 +486,7 @@
           return false;
       }
 
-      function getElement(number, text, date, link, clase){
+      function getElement(number, text, elem, link, clase){
           var html = "";
           var date = elem[1].split('/');
           var day = new Date(elem[1]).getDate();
