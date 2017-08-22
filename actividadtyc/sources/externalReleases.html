@@ -480,10 +480,11 @@
         var countSliderAboutMonth = dateSlider.length - 14;
         var allYear = dateSlider.substring(countSliderAboutMonth,countSliderAboutMonth +14);
         var yearsAll = allYear.indexOf("Todos");
-
-        if( (dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year) ||
-            (yearsAll > -1 && monthsAll > -1)
-        ){
+        var obtainSLiderData = dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year;
+        var showAllDataWithRespectToYearAndMonth = yearsAll > -1 && monthsAll > -1;
+        var showDataAllYearAndMonth = yearsAll > -1 && dateSlider.substring(0,3) == mon.substring(0,3);
+        var showDataAllMonthAndYear = monthsAll> -1 && dateSlider.substring(countSlider,countSlider+4) == year;
+        if( obtainSLiderData || showAllDataWithRespectToYearAndMonth || showDataAllYearAndMonth || showDataAllMonthAndYear){
           html += '<li class="' + clase + '">';
           html += '   <a onclick="javascript:Go(\'' + link + '\')">'
           html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
