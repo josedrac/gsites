@@ -405,7 +405,7 @@
               while(1){
                   if(aux.length <= x)
                       break;
-                  if(data.getValue(x, 3).split(',').indexOf(tag) == -1) {
+                  if(item[x][3].split(',').indexOf(tag) == -1) {
                       aux.removeRow(x);
                       x--;
                   }
@@ -441,7 +441,7 @@
               }
 
               if(i % 8 < 4)
-                  html += getElement(i+1, data.getValue(i, 0), data.getFormattedValue(i, 1), data.getValue(i, 2), classBorder);
+                  html += getElement(i+1, , elem[0], elem, elem[2], classBorder);
 
 
               if(filas < 4 && i == filas-1)
@@ -456,7 +456,7 @@
               }
 
               if(i % 8 > 3)
-                  html += getElement(i+1, data.getValue(i, 0), data.getFormattedValue(i, 1), data.getValue(i, 2), classBorder);
+                  html += getElement(i+1, elem[0], elem, elem[2], classBorder);
 
 
               if((filas < 8 && i == filas-1) || (i % 8 == 7))
