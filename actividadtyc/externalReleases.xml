@@ -254,6 +254,11 @@
     	month[12] = "Dic";
 
       var prefs = new gadgets.Prefs();
+      var spreadsheetKey = getParam('key'),
+        queryString = encodeURIComponent('SELECT * where E = "' + getUrlParameter("date") + '"'),
+        sheetName = encodeURIComponent('External Releases'),
+        query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+
 
       var dataForm = {
         'key': prefs.getString('spreadsheetKey'),
@@ -290,9 +295,7 @@
       function getParam(p){
           var params;
           if(gadgets.util.getUrlParameters().parent.split("?").length > 1){
-          <!-- if (location.href.split("?").length > 1) { -->
               params = gadgets.util.getUrlParameters().parent.split("?")[1].split("&");
-              <!-- params = location.href.split("?")[1].split("&"); -->
               for(var i=0; i<params.length; i++){
                   if(params[i].split("=")[0] == p)
                       return params[i].split("=")[1];
@@ -316,6 +319,7 @@
           });
        }
 
+      //Obtener parametros de consulta
       function getQueryParameters() {
           var filter = "";
 
@@ -347,157 +351,161 @@
           return filter;
       }
 
-      function handleQueryResponse(data) {
-          data = data;
-          var filas;
-          var pages;
-          var html = "";
-          var page = 0;
-          var display = '';
-          var classBorder = '';
+      //header with Month + year
+          function handleQueryResponse(data) {
+              data = data;
+              var filas;
+              var pages;
+              var html = "";
+              var page = 0;
+              var display = '';
+              var classBorder = '';
 
-          var slider = prefs.getString("slider");
-          var mes = "";
-          var month = getParam("mes");
-          var year = getParam("anyo");
-          var inputText = urldecode(getParam("inputText"));
-          var tag = urldecode(getParam("tag"));
-          var tagText = "";
-
-
-          if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
-
-              var date = getMonthAndYear(slider);
-
-              inputText = "";
-              mes = date.split(" ")[0];
-              month = getMonth(mes);
-              year = date.split(" ")[1];
-          }
-          else{
-
-              if(month > 0)
-                  month = getMonth(month);
-              else
-                  month = "Todos los meses";
-
-              if(year == 0)
-                  year = "Todos los años";
-
-              if(tag != "")
-                  tagText = "Etiqueta "+tag;
-          }
-
-          if(tagText != "")
-              document.getElementById('title').innerHTML = tagText;
-          else if(inputText == "")
-              document.getElementById('title').innerHTML = month +" "+ year;
-          else {
-              document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
-          }
+              var slider = prefs.getString("slider");
+              var mes = "";
+              var month = getParam("mes");
+              var year = getParam("anyo");
+              var inputText = urldecode(getParam("inputText"));
+              var tag = urldecode(getParam("tag"));
+              var tagText = "";
 
 
-          //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
-          var aux = data;
+              if( !(slider == "1" && ((month != "" || year != "") || inputText != "" || tag != "")) ) {
 
-          if(tag != ""){
-              var x = 0;
-              while(1){
-                  if(aux.length <= x)
-                      break;
-                  if(item[x][3].split(',').indexOf(tag) == -1) {
-                      aux.removeRow(x);
-                      x--;
+                  var date = getMonthAndYear(slider);
+
+                  inputText = "";
+                  mes = date.split(" ")[0];
+                  month = getMonth(mes);
+                  year = date.split(" ")[1];
+              }
+              else{
+
+                  if(month > 0)
+                      month = getMonth(month);
+                  else
+                      month = "Todos los meses";
+
+                  if(year == 0)
+                      year = "Todos los años";
+
+                  if(tag != "")
+                      tagText = "Etiqueta "+tag;
+              }
+
+              if(tagText != "")
+                  document.getElementById('title').innerHTML = tagText;
+              else if(inputText == "")
+                  document.getElementById('title').innerHTML = month +" "+ year;
+              else {
+                  document.getElementById('title').innerHTML = 'Texto buscado: '+inputText;
+              }
+
+
+              //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
+              var aux = data;
+
+              if(tag != ""){
+                  var x = 0;
+                  while(1){
+                      if(aux.length <= x)
+                          break;
+                      if(item[x][3].split(',').indexOf(tag) == -1) {
+                          aux.removeRow(x);
+                          x--;
+                      }
+                      x++;
                   }
-                  x++;
               }
+
+              data = aux;
+
+              filas = data.length;
+
+              pages = Math.ceil(filas / 8);
+
+              if(filas<1)
+                  html += '<p class="not-found">No hay ningún contenido disponible.</p>';
+
+              for(var i=0;i<filas;i++) {
+
+                  if(i % 8 == 3 || i % 8 == 7)
+                      classBorder = 'content last';
+                  else
+                      classBorder = 'content';
+
+                  if(i % 8 == 0)
+                  {
+                      page++;
+
+                      if(page == 1)   display = 'block';
+                      else            display = 'none';
+
+                      html += '<div id="page'+page+'" class="page" style="display:'+display+'">';
+                      html += '   <ul id="column1" class="column">';
+                  }
+
+                  if(i % 8 < 4){
+                    data.forEach(function (elem) {
+                        html += getElement(elem[0], elem, elem[2], classBorder);
+                    });
+                  }
+
+
+                  if(filas < 4 && i == filas-1)
+                  {
+                      html += '   </ul>';
+                      html += '</div>'
+                  }
+                  else if(i % 8 == 3)
+                  {
+                      html += '   </ul>';
+                      html += '   <ul id="column2" class="column">'
+                  }
+
+                  if(i % 8 > 3){
+                    data.forEach(function (elem) {
+                        html += getElement(elem[0], elem, elem[2], classBorder);
+                    });
+                  }
+
+
+                  if((filas < 8 && i == filas-1) || (i % 8 == 7))
+                  {
+                      html += '   </ul>';
+                      html += '</div>'
+                  }
+
+              }
+
+              document.getElementById('pages').innerHTML = html;
+
+              if(filas > 0)
+                  pagination(pages);
+              <!-- gadgets.window.adjustHeight(); -->
+
           }
-
-          data = aux;
-
-          filas = data.length;
-
-          pages = Math.ceil(filas / 8);
-
-          if(filas<1)
-              html += '<p class="not-found">No hay ningún contenido disponible.</p>';
-
-          for(var i=0;i<filas;i++) {
-
-              if(i % 8 == 3 || i % 8 == 7)
-                  classBorder = 'content last';
-              else
-                  classBorder = 'content';
-
-              if(i % 8 == 0)
-              {
-                  page++;
-
-                  if(page == 1)   display = 'block';
-                  else            display = 'none';
-
-                  html += '<div id="page'+page+'" class="page" style="display:'+display+'">';
-                  html += '   <ul id="column1" class="column">';
-              }
-
-              if(i % 8 < 4){
-                data.forEach(function (elem) {
-                    html += getElement(i + 1, elem[0], elem, elem[2], classBorder);
-                });
-              }
-
-
-              if(filas < 4 && i == filas-1)
-              {
-                  html += '   </ul>';
-                  html += '</div>'
-              }
-              else if(i % 8 == 3)
-              {
-                  html += '   </ul>';
-                  html += '   <ul id="column2" class="column">'
-              }
-
-              if(i % 8 > 3){
-                data.forEach(function (elem) {
-                    html += getElement(i + 1, elem[0], elem, elem[2], classBorder);
-                });
-              }
-
-
-              if((filas < 8 && i == filas-1) || (i % 8 == 7))
-              {
-                  html += '   </ul>';
-                  html += '</div>'
-              }
-
-          }
-
-          document.getElementById('pages').innerHTML = html;
-
-          if(filas > 0)
-              pagination(pages);
-          <!-- gadgets.window.adjustHeight(); -->
-
-      }
 
       function Go(destination){
           window.parent.location.href = destination;
           return false;
       }
 
-      function getElement(number, text, elem, link, clase){
+      function getElement(text, elem, link, clase){
           var html = "";
           var date = elem[1].split('/');
+          console.log("getElement: " +date);
           var day = new Date(elem[1]).getDate();
+          console.log("getElement: " +day);
           console.log(elem[1]);
 
           var mon = month[new Date(elem[1]).getMonth() + 1];
+          console.log(mon);
           var year = new Date(elem[1]).getFullYear();
+          console.log(year);
 
           html += '<li class="'+clase+'">';
           html += '   <a onclick="javascript:Go(\''+link+'\')">'
-          html += '       <span class="number">'+number+'.</span>';
           html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
           html += '       <div class="text">';
           html += '           <span class="subtitle">'+text+'</span>';
@@ -509,36 +517,37 @@
           return html;
       }
 
-      function getMonth(index) {
-          var month = '';
-          switch(parseInt(index)) {
-              case 1: month = 'Enero';
-                      break;
-              case 2: month = 'Febrero';
-                      break;
-              case 3: month = 'Marzo';
-                      break;
-              case 4: month = 'Abril';
-                      break;
-              case 5: month = 'Mayo';
-                      break;
-              case 6: month = 'Junio';
-                      break;
-              case 7: month = 'Julio';
-                      break;
-              case 8: month = 'Agosto';
-                      break;
-              case 9: month = 'Septiembre';
-                      break;
-              case 10: month = 'Octubre';
-                      break;
-              case 11: month = 'Noviembre';
-                      break;
-              case 12: month = 'Diciembre';
-                      break;
+      //header with Month + year
+          function getMonth(index) {
+              var month = '';
+              switch(parseInt(index)) {
+                  case 1: month = 'Enero';
+                          break;
+                  case 2: month = 'Febrero';
+                          break;
+                  case 3: month = 'Marzo';
+                          break;
+                  case 4: month = 'Abril';
+                          break;
+                  case 5: month = 'Mayo';
+                          break;
+                  case 6: month = 'Junio';
+                          break;
+                  case 7: month = 'Julio';
+                          break;
+                  case 8: month = 'Agosto';
+                          break;
+                  case 9: month = 'Septiembre';
+                          break;
+                  case 10: month = 'Octubre';
+                          break;
+                  case 11: month = 'Noviembre';
+                          break;
+                  case 12: month = 'Diciembre';
+                          break;
+              }
+              return month;
           }
-          return month;
-      }
 
       function getMonthAndYear(slider) {
           var dateObj = new Date();
