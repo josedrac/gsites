@@ -611,9 +611,7 @@
       <script type="text/javascript">
 
         var prefs = new gadgets.Prefs();
-        function register(variable) {
-          prefs.set(variable, document.getElementById(variable).value);
-        }
+
 
         gadgets.window.adjustHeight();
 
