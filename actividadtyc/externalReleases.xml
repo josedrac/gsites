@@ -382,7 +382,7 @@
                       year = "Todos los años";
 
                   if(tag != "")
-                      tagText = "Etiqueta "+tag;
+                      tagText = tag;
               }
 
               if(tagText != "")
@@ -397,16 +397,11 @@
               //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
               var aux = data;
 
-              if(tag != ""){
-                  var x = 0;
-                  while(1){
-                      if(aux.length <= x)
-                          break;
-                      if(item[x][3].split(',').indexOf(tag) == -1) {
-                          aux.removeRow(x);
-                          x--;
+              if (tag != "") {
+                  for (var i=0; i<aux.length; i++){
+                      if (aux[i][3].split(',').indexOf(tag) == -1) {
+                          aux.slice(i, 1);
                       }
-                      x++;
                   }
               }
 
@@ -505,8 +500,11 @@
             var comprobationSearch = textToSearch.indexOf(search);
             var showDataWithRespectInputText = comprobationSearch > -1;
 
+          //Filter in Tag:
+            var searchTag = elem[3].indexOf(dateSlider);
+
           if( obtainSLiderData || showAllDataWithRespectToYearAndMonth || showDataAllYearAndMonth || showDataAllMonthAndYear ||
-              showDataWithRespectInputText){
+          showDataWithRespectInputText || searchTag > -1 ){
             html += '<li class="' + clase + '">';
             html += '   <a onclick="javascript:Go(\'' + link + '\')">'
             html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';

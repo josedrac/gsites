@@ -56,7 +56,7 @@
             border-top: 1px solid #EAEAEA;
             margin-bottom: 2em;
             margin-top: 0.4em;
-            padding: 0; 
+            padding: 0;
         }
 
         .line.strong {
@@ -211,13 +211,13 @@
 
 
 <div id="container" class="container">
-    
+
     <div class="title-container">
         <span id="title" class="title"></span>
     </div>
     <hr class="line" />
-    
-    <div id="pages">    
+
+    <div id="pages">
     </div>
 
     <hr class="line strong" />
@@ -261,12 +261,12 @@
         }
 
         function pagination(elements) {
-            $('#pagination').smartpaginator({ 
-                totalrecords: elements, 
-                recordsperpage: 1, 
-                length: 4, 
-                datacontainer: 'pages', 
-                dataelement: 'div.page', 
+            $('#pagination').smartpaginator({
+                totalrecords: elements,
+                recordsperpage: 1,
+                length: 4,
+                datacontainer: 'pages',
+                dataelement: 'div.page',
                 initval: 0,
             });
          }
@@ -349,10 +349,10 @@
                     month = "Todos los meses";
 
                 if(year == 0)
-                    year = "Todos los años"; 
+                    year = "Todos los años";
 
                 if(tag != "")
-                    tagText = "Etiqueta "+tag;
+                    tagText = tag;
             }
 
             if(tagText != "")
@@ -383,7 +383,7 @@
 
             filas = data.getNumberOfRows();
 
-            pages = Math.ceil(filas / 8); 
+            pages = Math.ceil(filas / 8);
 
             if(filas<1)
                 html += '<p class="not-found">No hay ningún contenido disponible.</p>';
@@ -527,7 +527,7 @@
 
         function hasPrivilegies() {
             $.ajax({
-                type        : 'GET', 
+                type        : 'GET',
                 url         : 'https://script.google.com/a/macros/bbva.com/s/AKfycbxpgrsc57zL21jou9TTimODGUht1DOGmTJSJHPjp2XooEdivck/exec',
                 dataType    : 'jsonp',
                 jsonpCallback: "on_result",
@@ -545,4 +545,3 @@
         }
 
     </script>
-
