@@ -380,7 +380,7 @@
         else if (inputText == "")
             document.getElementById('title').innerHTML = month + " " + year;
         else {
-            document.getElementById('title').innerHTML = 'Texto buscado: ' + inputText;
+            document.getElementById('title').innerHTML = inputText;
         }
 
         //Como al hacer la query sql puede darse el caso que la etiqueta a buscar sea Desa, puede pillar Desa y Desarrollo, por lo que hay que quedarse con la etiqueta exacta.
@@ -409,7 +409,6 @@
             html += '<p class="not-found">No hay ningún contenido disponible.</p>';
 
         for (var i = 0; i < filas; i++) {
-
             if (i % 8 == 3 || i % 8 == 7)
                 classBorder = 'content last';
             else
@@ -426,7 +425,7 @@
             }
 
             if (i % 8 < 4) {
-                html += getElement(data[i][0], data[i], data[i][2], classBorder);
+                html += getElement(data[i][0], data[i], data[i][2], classBorder, data);
             }
 
 
@@ -440,7 +439,7 @@
             }
 
             if (i % 8 > 3) {
-                html += getElement(data[i][0], data[i], data[i][2], classBorder);
+                html += getElement(data[i][0], data[i], data[i][2], classBorder, data);
             }
 
             if ((filas < 8 && i == filas - 1) || (i % 8 == 7)) {
@@ -458,33 +457,47 @@
 
     }
 
+    function paginationLength(data) {
+      filas = data.length;
+      if (filas > 0)
+          pagination(pages);
+    }
+
     function Go(destination) {
         window.parent.location.href = destination;
         return false;
     }
 
-    function getElement(text, elem, link, clase) {
+    function getElement(text, elem, link, clase, data) {
+        data = data;
         var html = "";
         var date = elem[1].split('/');
         var day = new Date(elem[1]).getDate();
-        console.log(elem[1]);
 
         var mon = getMonth(new Date(elem[1]).getMonth() + 1);
         var year = new Date(elem[1]).getFullYear();
 
-        var dateSlider = document.getElementById('title').innerHTML;
-        var countSlider = dateSlider.length -4;
-        var allMonth = dateSlider.substring(0,5);
-        var monthsAll=allMonth.indexOf("Todos");
+        //Filters month and year:
+          var dateSlider = document.getElementById('title').innerHTML;
+          var countSlider = dateSlider.length -4;
+          var allMonth = dateSlider.substring(0,5);
+          var monthsAll=allMonth.indexOf("Todos");
+          var countSliderAboutMonth = dateSlider.length - 14;
+          var allYear = dateSlider.substring(countSliderAboutMonth,countSliderAboutMonth +14);
+          var yearsAll = allYear.indexOf("Todos");
+          var obtainSLiderData = dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year;
+          var showAllDataWithRespectToYearAndMonth = yearsAll > -1 && monthsAll > -1;
+          var showDataAllYearAndMonth = yearsAll > -1 && dateSlider.substring(0,3) == mon.substring(0,3);
+          var showDataAllMonthAndYear = monthsAll> -1 && dateSlider.substring(countSlider,countSlider+4) == year;
 
-        var countSliderAboutMonth = dateSlider.length - 14;
-        var allYear = dateSlider.substring(countSliderAboutMonth,countSliderAboutMonth +14);
-        var yearsAll = allYear.indexOf("Todos");
-        var obtainSLiderData = dateSlider.substring(0,3) == mon.substring(0,3) && dateSlider.substring(countSlider,countSlider+4) == year;
-        var showAllDataWithRespectToYearAndMonth = yearsAll > -1 && monthsAll > -1;
-        var showDataAllYearAndMonth = yearsAll > -1 && dateSlider.substring(0,3) == mon.substring(0,3);
-        var showDataAllMonthAndYear = monthsAll> -1 && dateSlider.substring(countSlider,countSlider+4) == year;
-        if( obtainSLiderData || showAllDataWithRespectToYearAndMonth || showDataAllYearAndMonth || showDataAllMonthAndYear){
+        //Filter in search:
+          var search = dateSlider.toLowerCase();
+          var textToSearch = text.toLowerCase();
+          var comprobationSearch = textToSearch.indexOf(search);
+          var showDataWithRespectInputText = comprobationSearch > -1;
+
+        if( obtainSLiderData || showAllDataWithRespectToYearAndMonth || showDataAllYearAndMonth || showDataAllMonthAndYear ||
+            showDataWithRespectInputText){
           html += '<li class="' + clase + '">';
           html += '   <a onclick="javascript:Go(\'' + link + '\')">'
           html += '       <img class="icon" src="https://raw.githubusercontent.com/sopraux/gsites/master/actividadtyc/img/libro.png"/>';
