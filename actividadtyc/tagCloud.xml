@@ -201,7 +201,6 @@
             document.getElementById('tagsContainer').innerHTML = html;
         }
 
-
         function Go(selectedTag){
           var url = document.referrer.split('?')[0].split('/resultados')[0] + "/resultados";
 
