@@ -142,111 +142,118 @@
 
     <script type="text/javascript">
 
-        adjustGadgetHeight('container');
+      var dataForm = {
+          'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+          'numberTab': 2
+      };
+
+      $.ajax({
+          type: 'GET',
+          url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+          data: dataForm,
+          dataType: 'jsonp',
+          crossDomain: true,
+          jsonpCallback: "on_result",
+          success: function (data) {
+              //Eliminamos la primera fila ya que no es necesaria
+              data.splice(0, 1);
+
+              handleQueryResponse(data, 0);
+          },
+          error: function () {
+              console.log('error');
+          }
+      });
+
         var gadgetHelper = null;
         var encontrados = [];
         var releases;
         var maxNumber = 0;
-        google.load('visualization', '1', {packages: ['table']});
-        google.setOnLoadCallback(sendQuery);
-        var prefs = new gadgets.Prefs();
-
 
         function loadVisualizationAPI() {
             google.load("visualization", "1", {"packages": ["table"]});
-            google.setOnLoadCallback(sendQuery);
         }
 
 
-        function sendQuery(){
-            var sheetName = prefs.getString('sheetName');
-            sheetName = encodeURIComponent(sheetName);
-            var spreadsheetKey = prefs.getString('spreadsheetKey'),
-            //var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-                queryString = encodeURIComponent('SELECT * where C <> "Link"'),
-                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-                query.send(function (response) {
-                    handleQueryResponse(response, 0);
-                });
-        }
 
+        function handleQueryResponse(data, index) {
+        data = data;
 
-        function handleQueryResponse(response, index) {
-            data = response.getDataTable();
+              getTagValues(data);
+              var html = "";
+              var clase = "";
+              var claseText = "";
 
-            getTagValues(data);
-            var html = "";
-            var clase = "";
-            var claseText = "";
-            for(var i=0; i<encontrados.length; i++){
+              for(var i=0; i<encontrados.length; i++){
 
-                claseText = "tagText";
-                if(releases[i].length < 0.75 * maxNumber){
-                    if(releases[i].length < 0.5 * maxNumber){
-                        claseText = "tagTextBlue";
-                        if(releases[i].length > 0.25 * maxNumber)
-                            clase = "some";
-                        else
-                            clase = "almost";
-                    }
-                    else
-                        clase = "many";
-                }
-                else
-                    clase = "all";
+                  claseText = "tagText";
+                  if(releases[i].length < 0.75 * maxNumber){
+                      if(releases[i].length < 0.5 * maxNumber){
+                          claseText = "tagTextBlue";
+                          if(releases[i].length > 0.25 * maxNumber)
+                              clase = "some";
+                          else
+                              clase = "almost";
+                      }
+                      else
+                          clase = "many";
+                  }
+                  else
+                      clase = "all";
 
-                html += '<div class="tag '+clase+'" onclick="javascript:Go(\''+encodeURIComponent(encontrados[i])+'\')">';
-                html += '<span class="'+claseText+'">'+encontrados[i]+' ('+releases[i].length+')</span></div>';
-            }
-            document.getElementById('tagsContainer').innerHTML = html;
-        }
+                  html += '<div class="tag '+clase+'" onclick="javascript:Go(\''+encodeURIComponent(encontrados[i])+'\')">';
+                  html += '<span class="'+claseText+'">'+encontrados[i]+' ('+releases[i].length+')</span></div>';
+              }
+              document.getElementById('tagsContainer').innerHTML = html;
+      }
 
 
         function Go(selectedTag){
-            var url = document.referrer.split('?')[0].split('/resultados')[0] + "/resultados";
+              var url = document.referrer.split('?')[0].split('/resultados')[0] + "/resultados";
 
-            window.open(url + "?tag="+selectedTag, "_parent");
-            return false;
-        }
+              window.open(url + "?tag="+selectedTag, "_parent");
+              return false;
+      }
 
-        function getTagValues(data) {
+          function getTagValues(data) {
 
-            var index = parseInt(prefs.getString('indexTag'));
-            var aux;
-            var s = 0;
-            var fin = false;
-            var rows = data.getNumberOfRows();
+              var index = 3;
+              var aux;
+              var s = 0;
+              var fin = false;
+              var rows = data.length;
 
-            for(var i=0; i<rows; i++){
-                if(data.getValue(i,index) != null && data.getValue(i,index).split(',').length > 1){
-                    aux = data.getValue(i,index).split(',');
-                    for(var j=0; j<aux.length; j++)
-                        if(encontrados.indexOf(aux[j]) == -1)
-                            encontrados[s++] = aux[j];
-                }
-                else if( encontrados.indexOf(data.getValue(i, index)) == -1  &&  data.getValue(i, index)!=null ) {
-                    encontrados[s++] = data.getValue(i, index);
-                }
-            }
+              for(var i=0; i<rows; i++){
+                  if(data[i][index] != null && data[i][index].split(',').length > 1){
+                      aux = data[i][index].split(',');
+                      for(var j=0; j<aux.length; j++)
+                          if(encontrados.indexOf(aux[j]) == -1)
+                              encontrados[s++] = aux[j];
+                  }
+                  else if( encontrados.indexOf(data[i][index]) == -1  &&  data[i][index]!=null ) {
+                      encontrados[s++] = data[i][index];
+                  }
+              }
 
-            releases = [];
-            for(var i=0; i<encontrados.length; i++)
-                releases[i] = [];
+              releases = [];
+              for(var i=0; i<encontrados.length; i++)
+                  releases[i] = [];
 
-            for(var i=0; i<encontrados.length; i++){
-                for(var j=0; j<rows; j++){
+              for(var i=0; i<encontrados.length; i++){
+                  for(var j=0; j<rows; j++){
 
-                    if(data.getValue(j, index)!=null && data.getValue(j, index).split(',').indexOf(encontrados[i]) >= 0)
-                        releases[i].push(data.getValue(j, 0));
-                }
-            }
-            maxNumber = 0;
-            for(var i=0; i<encontrados.length; i++){
-                if(releases[i].length > maxNumber)
-                    maxNumber = releases[i].length;
-            }
+                      if(data[j][index]!=null && data[j][index].split(',').indexOf(encontrados[i]) >= 0)
+                          releases[i].push(data[j][0]);
+                  }
+              }
 
-        }
+              maxNumber = 0;
+              for(var i=0; i<encontrados.length; i++){
+                  if(releases[i].length > maxNumber)
+                      maxNumber = releases[i].length;
+              }
+
+          }
 
 
     </script>
