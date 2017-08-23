@@ -1,6 +1,6 @@
 <script src="https://www.google.com/jsapi" type="text/javascript"></script>
 	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
-	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>	
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/js/functionHelpers.js" type="text/javascript"></script>
 
 	<style type="text/css">
 	  	/* @group fonts */
@@ -112,7 +112,7 @@
         .almost {
             background-color: rgba(0, 115, 201, 0.1);
         }
-        
+
 
 	</style>
 
@@ -120,44 +120,66 @@
 	<div class="container">
         <div class="title">Etiquetas</div>
         <div id="tagsContainer" class="tagsContainer">
-            
+
         </div>
     </div>
     </div>
 
    	<script type="text/javascript">
-   		
+		var dataForm = {
+				'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+				'numberTab': 2
+		};
+
+		$.ajax({
+        type: 'GET',
+        url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+        data: dataForm,
+        dataType: 'jsonp',
+        crossDomain: true,
+        jsonpCallback: "on_result",
+        success: function (data) {
+            //Eliminamos la primera fila ya que no es necesaria
+            data.splice(0, 1);
+
+            handleQueryResponse(data, 0);
+        },
+        error: function () {
+            console.log('error');
+        }
+    });
+
    		//adjustGadgetHeight('container');
 		var gadgetHelper = null;
         var encontrados = [];
         var releases;
         var maxNumber = 0;
-		google.load('visualization', '1', {packages: ['table']});
-        google.setOnLoadCallback(sendQuery);
+		// google.load('visualization', '1', {packages: ['table']});
+    //     google.setOnLoadCallback(sendQuery);
         //var prefs = new gadgets.Prefs();
 
 
-	 	function loadVisualizationAPI() {
-			google.load("visualization", "1", {"packages": ["table"]});
-			google.setOnLoadCallback(sendQuery);
-		}
+		// 	function loadVisualizationAPI() {
+		// 	google.load("visualization", "1", {"packages": ["table"]});
+		// 	google.setOnLoadCallback(sendQuery);
+		// }
 
 
-		function sendQuery(){
-			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
-            var sheetName = 'guides';
-            sheetName = encodeURIComponent(sheetName);
-			var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-                queryString = encodeURIComponent('SELECT * where C <> "Link"'),
-                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-                query.send(function (response) {
-                	handleQueryResponse(response, 0);
-            	});
-		}
+		// function sendQuery(){
+		// 	//var spreadsheetKey = prefs.getString('spreadsheetKey'),
+    //         var sheetName = 'guides';
+    //         sheetName = encodeURIComponent(sheetName);
+		// 	var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+    //             queryString = encodeURIComponent('SELECT * where C <> "Link"'),
+    //             query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
+    //             query.send(function (response) {
+    //             	handleQueryResponse(response, 0);
+    //         	});
+		// }
 
 
-		function handleQueryResponse(response, index) {
-			data = response.getDataTable();
+		function handleQueryResponse(data, index) {
+			data = data;
 
             getTagValues(data);
             var html = "";
@@ -165,7 +187,7 @@
             var claseText = "";
 
             for(var i=0; i<encontrados.length; i++){
-                
+
                 claseText = "tagText";
                 if(releases[i].length < 0.75 * maxNumber){
                     if(releases[i].length < 0.5 * maxNumber){
@@ -183,10 +205,10 @@
 
                 html += '<div class="tag '+clase+'" onclick="javascript:Go(\''+encodeURIComponent(encontrados[i])+'\')">';
                 html += '<span class="'+claseText+'">'+encontrados[i]+' ('+releases[i].length+')</span></div>';
-            }	
+            }
             document.getElementById('tagsContainer').innerHTML = html;
 		}
-		
+
 
 	    function Go(selectedTag){
             var url = document.referrer.split('?')[0].split('/resultados')[0] + "/resultados";
@@ -201,17 +223,17 @@
             var aux;
             var s = 0;
             var fin = false;
-            var rows = data.getNumberOfRows();
-            
+            var rows = data.length;
+
             for(var i=0; i<rows; i++){
-                if(data.getValue(i,index) != null && data.getValue(i,index).split(',').length > 1){
-                    aux = data.getValue(i,index).split(',');
+                if(data[i][index] != null && data[i][index].split(',').length > 1){
+                    aux = data[i][index].split(',');
                     for(var j=0; j<aux.length; j++)
                         if(encontrados.indexOf(aux[j]) == -1)
                             encontrados[s++] = aux[j];
                 }
-                else if( encontrados.indexOf(data.getValue(i, index)) == -1  &&  data.getValue(i, index)!=null ) {
-                    encontrados[s++] = data.getValue(i, index);
+                else if( encontrados.indexOf(data[i][index]) == -1  &&  data[i][index]!=null ) {
+                    encontrados[s++] = data[i][index];
                 }
             }
 
@@ -222,8 +244,8 @@
             for(var i=0; i<encontrados.length; i++){
                 for(var j=0; j<rows; j++){
 
-                    if(data.getValue(j, index)!=null && data.getValue(j, index).split(',').indexOf(encontrados[i]) >= 0)
-                        releases[i].push(data.getValue(j, 0));
+                    if(data[j][index]!=null && data[j][index].split(',').indexOf(encontrados[i]) >= 0)
+                        releases[i].push(data[j][0]);
                 }
             }
 
