@@ -259,7 +259,7 @@
       month[12] = "Dic";
 
       var prefs = new gadgets.Prefs();
-      
+
       var dataForm = {
         //  'key': prefs.getString('spreadsheetKey'), //XML
           'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
@@ -701,10 +701,9 @@
       <script type="text/javascript">
 
         var prefs = new gadgets.Prefs();
-        function register(variable) {
+        <!-- function register(variable) {
           prefs.set(variable, document.getElementById(variable).value);
-        }
-
+        } -->
         gadgets.window.adjustHeight();
 
       </script>
