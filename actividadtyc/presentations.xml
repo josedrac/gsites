@@ -704,7 +704,6 @@
         <!-- function register(variable) {
           prefs.set(variable, document.getElementById(variable).value);
         } -->
-
         gadgets.window.adjustHeight();
 
       </script>
