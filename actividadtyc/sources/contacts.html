@@ -108,50 +108,61 @@
 
 
 	<div class="container" id="container">
-		
+
 
 	</div>
 
    	<script type="text/javascript">
+			var dataForm = {
+	      //  'key': prefs.getString('spreadsheetKey'), //XML
+	        'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
+	        'numberTab': 5
+	    };
+
+	    $.ajax({
+	        type: 'GET',
+	        url: 'https://script.google.com/a/macros/bbva.com/s/AKfycbyPKcDJzBWVSlwWOugDVov87-_xXlEFfWXa7adIswtNXNtM-mdv/exec',
+	        data: dataForm,
+	        dataType: 'jsonp',
+	        crossDomain: true,
+	        jsonpCallback: "on_result",
+	        success: function (data) {
+	            //Eliminamos la primera fila ya que no es necesaria
+	            data.splice(0, 1);
+
+	            handleQueryResponse(data);
+	        },
+	        error: function () {
+	            console.log('error');
+	        }
+	    });
+
    		//adjustGadgetHeight('container');
-		var gadgetHelper = null;
-		google.load('visualization', '1', {packages: ['table']});
-        google.setOnLoadCallback(sendQuery);
-        var prefs = new gadgets.Prefs();
-
-	 	function loadVisualizationAPI() {
-			google.load("visualization", "1", {"packages": ["table"]});
-			google.setOnLoadCallback(sendQuery);
-		}
-
-
-		function sendQuery(){
-			//var spreadsheetKey = prefs.getString('spreadsheetKey'),
-			var spreadsheetKey = '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-                sheetName = encodeURIComponent('contacts'),
-                queryString = encodeURIComponent('SELECT * where A <> "name"'),
-                query = new google.visualization.Query('https://spreadsheets.google.com/tq?key=' + spreadsheetKey + '&sheet=' + sheetName + '&tq=' + queryString);
-                query.send(function (response) {
-                	handleQueryResponse(response);
-            	});
-		}
-
+		// var gadgetHelper = null;
+		// google.load('visualization', '1', {packages: ['table']});
+    //     google.setOnLoadCallback(sendQuery);
+    //     var prefs = new gadgets.Prefs();
+		//
+		// 	function loadVisualizationAPI() {
+		// 	google.load("visualization", "1", {"packages": ["table"]});
+		// 	google.setOnLoadCallback(sendQuery);
+		// }
 
 
 		function handleQueryResponse(response) {
 
-			var data = response.getDataTable();
-			var filas = data.getNumberOfRows();
+			var data = response;
+			var filas = data.length;
 			var html = "";
 
 			for(var i=0; i < filas; i++) {
 				html += getContact(data, i);
-            }
+      }
 
 			document.getElementById('container').innerHTML += html;
 
 			gadgets.window.adjustHeight();
-			
+
 		}
 
 		function getContact(data, i) {
@@ -159,15 +170,15 @@
 
 			html += '<div class="contactContainer">';
 			html += '	<div class="imgContainer">';
-			html += '		<img class="image" src="'+data.getValue(i, 2)+'"/>';
+			html += '		<img class="image" src="'+data[i][2]+'"/>';
 			html += '	</div>';
 			html += '	<div class="textContainer">';
-			html += '		<span class="name">'+data.getValue(i, 0)+'</span>';
+			html += '		<span class="name">'+data[i][0]+'</span>';
 			html += '		<hr>';
-			html += '		<span class="description">'+data.getValue(i, 1)+'</span>';
+			html += '		<span class="description">'+data[i][1]+'</span>';
 			html += '	</div>'
 			html += '</div>'
-					
+
 		    return html;
 		}
 
