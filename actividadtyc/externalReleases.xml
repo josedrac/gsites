@@ -393,10 +393,10 @@
                   document.getElementById('title').innerHTML = inputText;
               }
 
-              // Create Pagination about results
-                var aux = [];
+            // Create Pagination about results
+              var aux = [];
 
-                //Si se selecciona etiqueta
+              //Si se selecciona etiqueta
                 if (tag != "") {
                     for (var i=0; i<data.length; i++){
                         if (data[i][3].split(',').indexOf(tag) > -1)
@@ -405,15 +405,17 @@
                 }
                 console.log(aux);
 
-                //Si se introduce un buscador
+              //Si se introduce un buscador
                 if (inputText != "") {
-                    for (var i=0; i<data.length; i++){
-                        if (data[i][0].indexOf(inputText) > -1)
-                            aux.push(data[i]);
-                    }
+                  inputText = inputText.toLowerCase();
+                  for (var i=0; i<data.length; i++){
+                    var searchedText = data[i][0].toLowerCase();
+                    if (searchedText.indexOf(inputText) > -1)
+                        aux.push(data[i]);
+                  }
                 }
 
-                //Si introducimos mes=05 y año=2017 se muestran segun dicho filtrado
+              //Si introducimos mes=05 y año=2017 se muestran segun dicho filtrado
                 month = getParam("mes");
                 year = getParam("anyo");
                 if (month != "" && year != "") {
@@ -423,7 +425,7 @@
                     }
                 }
 
-                //Si el mes=0 y año=0 se muestran TODOS
+              //Si el mes=0 y año=0 se muestran TODOS
                 month = getParam("mes");
                 year = getParam("anyo");
                 if (month == '0' && year == '0') {
@@ -432,7 +434,7 @@
                     }
                 }
 
-                //Si introduce mes pero año no:
+              //Si introduce mes pero año no:
                 month = getParam("mes");
                 year = getParam("anyo");
                 if (month != "" && year == '0') {
@@ -442,7 +444,7 @@
                     }
                 }
 
-                //Si introduce año pero mes no:
+              //Si introduce año pero mes no:
                 month = getParam("mes");
                 year = getParam("anyo");
                 if (month == '0' && year != "") {
@@ -452,10 +454,16 @@
                     }
                 }
 
-                //Sino se hace filtrado, ni mes ni año, debe mostrarlos todos
+              //Sino se hace filtrado, ni mes ni año, debe mostrarlos todos
                 var date = getMonthAndYear(slider);
                 var dateHeader = date.split(' ');
-                var monthHeader = '0' + dateHeader[0];
+                var monthHeader;
+                if(dateHeader[0].length == 1){
+                  monthHeader = '0' + dateHeader[0];
+                }else {
+                  var monthHeader = dateHeader[0];
+                }
+
                 var yearHeader = dateHeader[1];
                 if (month == "" && year == "") {
                     for (var i=0; i<data.length; i++){
