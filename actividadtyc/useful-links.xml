@@ -133,14 +133,11 @@
 
     //Eliminamos la primera fila ya que no es necesaria
     data.splice(0, 1);
-    //Ordenamos el array por fecha
-    data.sort(function (y, x) {
-      return new Date(x[2]) - new Date(y[2]);
-    });
+
 
     data.forEach(function(elem, index) {
       var title = elem[0];
-      var href = elem[2];
+      var href = elem[1];
       html += '<div class="link-wrapper"><a class="link" href="' + href + '" target="_blank">' + title + '</a></div>';
     });
 
