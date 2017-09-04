@@ -246,7 +246,7 @@
     var dataForm = {
       <!-- 'key': prefs.getString('spreadsheetKey'), //XML -->
         'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-        'numberTab': 2
+        'numberTab': 4
     };
 
     $.ajax({
@@ -257,9 +257,7 @@
         crossDomain: true,
         jsonpCallback: "on_result",
         success: function (data) {
-            //Eliminamos la primera fila ya que no es necesaria
-            data.splice(0, 1);
-
+          
             getQueryParameters();
             handleQueryResponse(data);
         },
