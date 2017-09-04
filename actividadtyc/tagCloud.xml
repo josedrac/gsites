@@ -144,7 +144,7 @@
 
       var dataForm = {
           'key': '1hZ2TFoq3ihf7d9lVT7hx3P3cSui7kaG5s7zR781GnL8',
-          'numberTab': 2
+          'numberTab': 4
       };
 
       $.ajax({
