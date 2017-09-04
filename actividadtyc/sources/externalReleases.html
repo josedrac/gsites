@@ -257,7 +257,8 @@
         crossDomain: true,
         jsonpCallback: "on_result",
         success: function (data) {
-          
+          //Eliminamos la primera fila ya que no es necesaria
+          data.splice(0, 1);
             getQueryParameters();
             handleQueryResponse(data);
         },
@@ -334,6 +335,7 @@
     //header with Month + year
     function handleQueryResponse(data) {
         data = data;
+        console.log(data);
         var filas;
         var pages;
         var html = "";
@@ -406,9 +408,16 @@
         //Si introducimos mes=05 y año=2017 se muestran segun dicho filtrado
           month = getParam("mes");
           year = getParam("anyo");
-          if (month != "" && year != "") {
+
+          if (month.length == 1){
+            var monthCompare = '0' + month;
+          } else {
+            var monthCompare = month;
+          }
+
+          if (monthCompare != "" && year != "") {
               for (var i=0; i<data.length; i++){
-                if ((data[i][1].split('-').indexOf(month) > -1) && (data[i][1].split('-').indexOf(year) > -1))
+                if ((data[i][1].split('-').indexOf(monthCompare) > -1) && (data[i][1].split('-').indexOf(year) > -1))
                     aux.push(data[i]);
               }
           }
@@ -425,9 +434,15 @@
         //Si introduce mes pero año no:
           month = getParam("mes");
           year = getParam("anyo");
-          if (month != "" && year == '0') {
+          if (month.length == 1){
+            var monthCompare = '0' + month;
+          } else {
+            var monthCompare = month;
+          }
+
+          if (monthCompare != "" && year == '0') {
               for (var i=0; i<data.length; i++){
-                if (data[i][1].split('-').indexOf(month) > -1)
+                if (data[i][1].split('-').indexOf(monthCompare) > -1)
                     aux.push(data[i]);
               }
           }
@@ -442,7 +457,7 @@
               }
           }
 
-        //Sino se hace filtrado, ni mes ni año, debe mostrarlos todos
+        //Sino se hace filtrado, ni mes ni año, debe mostrarlos todos segun el slider
           var date = getMonthAndYear(slider);
           var dateHeader = date.split(' ');
           var monthHeader;
@@ -455,7 +470,16 @@
           var yearHeader = dateHeader[1];
           if (month == "" && year == "") {
               for (var i=0; i<data.length; i++){
-                if((data[i][1].split('-').indexOf(monthHeader) > -1) && (data[i][1].split('-').indexOf(yearHeader) > -1)) {
+                var fech = new Date(data[i][1]).toLocaleDateString();
+                var month = fech.split('/');
+                if (month[1].length == 1){
+                  var monthCompare = '0' + month[1];
+                } else {
+                  var monthCompare = month[1];
+                }
+
+
+                if((monthHeader.indexOf(monthCompare) > -1) && (fech.split('/').indexOf(yearHeader) > -1)) {
                   aux.push(data[i]);
                 }
               }
