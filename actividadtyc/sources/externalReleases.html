@@ -417,7 +417,15 @@
 
           if (monthCompare != "" && year != "") {
               for (var i=0; i<data.length; i++){
-                if ((data[i][1].split('-').indexOf(monthCompare) > -1) && (data[i][1].split('-').indexOf(year) > -1))
+                var fech = new Date(data[i][1]).toLocaleDateString();
+                var monthD = fech.split('/');
+
+                if( monthD[1].length == 1 ){
+                  var monthDate = '0' + monthD[1];
+                }else {
+                  var monthDate = monthD[1];
+                }
+                if ((monthCompare.indexOf(monthDate) > -1) && (fech.split('/').indexOf(year) > -1))
                     aux.push(data[i]);
               }
           }
@@ -468,7 +476,7 @@
           }
 
           var yearHeader = dateHeader[1];
-          if (month == "" && year == "") {
+          if (month == "" && year == "" && tag == "") {
               for (var i=0; i<data.length; i++){
                 var fech = new Date(data[i][1]).toLocaleDateString();
                 var month = fech.split('/');
