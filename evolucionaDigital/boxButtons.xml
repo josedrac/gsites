@@ -175,9 +175,8 @@
           function addURL(digitalizar) {
                if(digitalizar) {
                     if(document.getElementById("tour")) {
-                        document.getElementById("protocol").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3eWpUUXN4Ty16a2M/view?usp=sharing');};
+                        document.getElementById("protocol").onclick = function(){ Go('https://drive.google.com/file/d/0Bz5c4zIocZp3NGVHM2FYUmtCOXc/view?usp=sharing');};
                     }
-
 
                     if(document.getElementById("tour")) {
                         document.getElementById("tour").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3RlVZeU5LME1CY0k/view?usp=sharing');};
