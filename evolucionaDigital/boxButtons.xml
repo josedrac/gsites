@@ -178,6 +178,7 @@
                         document.getElementById("protocol").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3eWpUUXN4Ty16a2M/view?usp=sharing');};
                     }
 
+
                     if(document.getElementById("tour")) {
                         document.getElementById("tour").onclick = function(){ Go('https://drive.google.com/a/bbva.com/file/d/0Bz5c4zIocZp3RlVZeU5LME1CY0k/view?usp=sharing');};
                     }
