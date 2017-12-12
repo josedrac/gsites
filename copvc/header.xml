@@ -51,15 +51,15 @@
 			}
 		</style>
 
-        <header>
+        <div>
             <div class="title-container">
-                <h2 id="title" class="title"></h2>
-                <hr class="title-bar" />
-            </div>
-            <div class="subtitle-container">
-                <h2 id="subtitle" class="subtitle"></h2>
-            </div>
-        </header>
+		        <h1 id="title" class="title"></h1>
+				<hr class="title-bar" />
+		    </div>
+		    <div class="subtitle-container">
+		        <span id="subtitle" class="subtitle"></span>
+		    </div>
+        </div>
 
         <script type="text/javascript">
 
