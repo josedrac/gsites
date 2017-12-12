@@ -1,0 +1,377 @@
+<html>
+	<head>
+    	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
+
+		<style type="text/css">
+	        /* @group fonts */
+	        @font-face {
+	            font-family: 'BBVA Web Light';
+	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
+	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
+	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
+	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
+	            url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
+	            font-style: normal;
+	            font-weight: normal;
+	        }
+
+	        @font-face {
+	            font-family: 'BBVA Web Book';
+	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
+	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+	                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
+	                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
+	                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	            font-style: normal;
+	            font-weight: normal;
+	        }
+
+	        @font-face {
+	            font-family: 'BBVA Web Medium';
+	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
+	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
+	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
+	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
+	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
+	            font-style: normal;
+	            font-weight: normal;
+	        }
+	        /* @end */
+
+			.btn-container {
+				padding: 20px 60px;
+    			text-align: right;
+			}
+
+	        .btn {
+	            background: #0079C1;
+	            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+	            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+	            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+	            background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+	            background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+	            background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+	            background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+	            -webkit-border-radius: .1em;
+	            -moz-border-radius: .1em;
+	            font-size: 13px;
+	            border: 0.1em solid #00559D;
+	            color: #FFF;
+	            cursor: pointer;
+	            margin: 0;
+	            border-radius: 0.4em;
+	            font-weight: bold;
+	            vertical-align: middle;
+	            text-align: center;
+	            position: relative;
+	            padding: 0.5em 2em;
+	        }
+
+	        .btn:hover {
+	            background: #004C99;
+	        }
+
+	        select {
+	            width: 100%;
+	        }
+
+	        .ui-widget-content {
+	            background: white;
+	        }
+
+	        .ui-selectmenu-button {
+	            background: white;
+	            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+	            background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffffff), color-stop(200%, #d2e5eb));
+	            background: -moz-linear-gradient(top, #ffffff 40%, #d2e5eb 200%);
+	            background: -webkit-linear-gradient(top, #ffffff 40%, #d2e5eb 200%);
+	            background: linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+	            border-color: #d2e5eb;
+	            border: 1px solid #d5e2ee;
+	            -moz-border-radius: 4px;
+	            -webkit-border-radius: 4px;
+	            border-radius: 4px;
+	            color: #0078d2;
+	            font-size: 13px;
+	            overflow: hidden;
+	            padding: 6px;
+	            padding-left: 10px;
+	            padding-right: 40px;
+	            position: relative;
+	            text-align: left;
+	            width: 100%;
+	            line-height: 14px;
+	            margin-bottom: 10px;
+	            padding: 3px 40px 3px 10px;
+	        }
+	        .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
+	            color: #0078d2;
+	        }
+	        .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus  {
+	            background: #e2fafe none repeat scroll 0 0;
+	            color: #003f8c;
+	            border: 1px solid #e1e1e1;
+	        }
+	        .ui-widget-content {
+	            border: 1px solid rgb(213, 226, 238);
+	            color: rgb(34, 34, 34);
+	        }
+	        .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus {
+	            background-image: none;
+	        }
+	        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	            background: white;
+	        }
+	        .ui-selectmenu-button span.ui-icon {
+	            right: 0;
+	        }
+	        .ui-selectmenu-button.ui-corner-top .ui-icon {
+	            background-position: 3px -9.2em;
+	        }
+	        .ui-state-default .ui-icon {
+	            border: 0;
+	            border-left: 1px solid #d2e5eb;
+	            background: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+	            background-position: 3px 0px;
+	            width: 35px;
+	            height: 30px;
+	            position: absolute;
+	            top: 0;
+	            right: 0;
+	        }
+	        .ui-selectmenu-button span.ui-selectmenu-text {
+	            padding: 0;
+	        }
+	        .ui-selectmenu-button span.ui-icon {
+	            top: 25%;
+	        }
+	        .ui-selectmenu-menu .ui-menu {
+	            height: 90px;
+	        }
+	        .element-year {
+	            padding-top: 20px;
+	            padding-bottom: 5px
+	        }
+	        .element-month {
+	            padding-top: 5px;
+	            padding-bottom: 20px
+	        }
+	        .name {
+	            color: #434a58;
+	            float: left;
+	            font-family: Arial;
+	            font-size: 13px;
+	            padding-top: 10px;
+	            display: table-cell;
+	            margin-bottom: 5px;
+	            width: 100%;
+	        }
+	        input {
+	            border-radius: 4px;
+	            border: 1px solid #d5e2ee;
+	            width: 190px;
+	            padding: 4px;
+	            color: #0078d2;
+	            font-size: 13px;
+	            font-weight: bold;
+	        }
+			input.input-large {
+				width: 500px;
+			}
+	        .ui-menu-item {
+	            color: #003f8c;
+	            padding: 0 0 0 1.25em;
+	            border-top: 1px solid #e1e1e1;
+	            font-size: 13px;
+	            font-weight: normal;
+	        }
+
+	        .form {
+	            display: table-cell;
+	            width: 25%;
+	            padding-left: 10px;
+	            padding-right: 10px;
+	            vertical-align: top;
+	        }
+	        .form_bottom {
+	            vertical-align: bottom;
+	        }
+			.filter-title {
+				padding: 0 10px;
+			}
+	    </style>
+        <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+        <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+    	<div class="container">
+            <div class="form">
+                <div class="element">
+                    <label class="name">Búsqueda global</label>
+                    <input class="input-large" type='text' name="global" id='globalSearch' value=''/>
+                </div>
+            </div>
+
+			<h2 class="filter-title">Filtros</h2>
+
+			<div class="form">
+				<div class="element">
+                	<label class="name">Objetivo</label>
+                    <select name="goal" id="goalSelector">
+                        <option default value="0">Todos</option>
+                        <option>Difundir los V&C</option>
+						<option>Inculcar los V&C (políticas de T&C)</option>
+                        <option>Vivir los V&C</option>
+                    </select>
+                </div>
+				<div class="element">
+					<label class="name">Estado</label>
+					<select name="status" id="statusSelector">
+						<option default value="0">Todos</option>
+						<option>Implementada</option>
+						<option>Planificada</option>
+						<option>En ejecución</option>
+					</select>
+				</div>
+            </div>
+            <div class="form">
+                <div class="element">
+                    <label class="name">Categoría</label>
+                    <select name="category" id="categorySelector">
+                        <option default value="0">Todos</option>
+                        <option>Comunicación Digital e Impresa</option>
+                        <option>Programas de Viralización</option>
+                        <option>Eventos</option>
+                        <option>Espacios físicos</option>
+                        <option>Selección</option>
+                        <option>Desarrollo profesional</option>
+						<option>Formación</option>
+						<option>Compensación</option>
+						<option>Diversidad y Conciliación</option>
+						<option>Bienestar y salud</option>
+                        <option>Procesos y Metodología</option>
+                        <option>Herramientas de trabajo</option>
+                        <option>Comités, Reuniones y Sentadas</option>
+                        <option>Reconocimientos</option>
+                    </select>
+                </div>
+				<div class="element">
+					<label class="name">Nombre de la iniciativa</label>
+					<input type='text' name="nameInitiative" id='nameInitiativeSearch' value=''/>
+				</div>
+            </div>
+            <div class="form">
+                <div class="element">
+                    <label class="name">Valor relacionado</label>
+                    <select name="valueRelated" id="valueRelatedSelector">
+                        <option default value="0">Todos</option>
+                        <option>Aplica para todos</option>
+                        <option>Somos un solo equipo</option>
+                        <option>Pensamos en grande</option>
+                        <option>El cliente es lo primero</option>
+                    </select>
+                </div>
+                <div class="element">
+                    <label class="name">Descripción</label>
+					<input type='text' name="description" id='descriptionSearch' value=''/>
+                </div>
+            </div>
+			<div class="btn-container">
+				<button onclick='javascript:Go();' class="btn">Ver resultados</button>
+			</div>
+        </div>
+
+        <script type="text/javascript">
+			var $globalSearch	= $('#globalSearch'),
+				$nameInitiative	= $('#nameInitiativeSearch'),
+				$description	= $('#descriptionSearch'),
+
+				$goal 			= $('#goalSelector'),
+				$status 		= $('#statusSelector'),
+	            $category 		= $('#categorySelector'),
+	            $valueRelated 	= $('#valueRelatedSelector');
+
+
+            setDefaultFields();
+
+            function getParam(p){
+                var url = document.referrer;
+                if (url.split('?').length > 1) {
+                    var params = document.referrer.split('?')[1].split('&');
+                    for (var i=0; i<params.length; i++) {
+                        if (params[i].split('=')[0] == p) {
+							return window.decodeURIComponent( params[i].split('=')[1] );
+						}
+                    }
+                }
+                return '';
+            }
+
+            function setIndex(value, $select) {
+				var options 		= $.makeArray( $select.find('option') ),
+					optionValues 	= $.map(options, function(option) {
+						return option.value;
+					}),
+					index = optionValues.indexOf(value);
+
+                $select.prop('selectedIndex', index > 0 ? index : 0);
+            }
+
+    		function setDefaultFields() {
+                var globalSearch	= getParam('globalSearch'),
+					nameInitiative	= getParam('nameInitiative'),
+					description		= getParam('description'),
+
+					goal 			= getParam('goal'),
+	                status 			= getParam('status'),
+	                category 		= getParam('category'),
+	                valueRelated 	= getParam('valueRelated');
+
+				$globalSearch.val(globalSearch);
+				$nameInitiative.val(nameInitiative);
+				$description.val(description);
+                setIndex(goal, $goal);
+                setIndex(status, $status);
+                setIndex(category, $category);
+                setIndex(valueRelated, $valueRelated);
+            }
+
+            function Go() {
+                var globalSearch	= $globalSearch.val(),
+					nameInitiative	= $nameInitiative.val(),
+					description		= $description.val(),
+					goal 			= $goal.val(),
+                	status 			= $status.val(),
+                	category 		= $category.val(),
+                	valueRelated 	= $valueRelated.val(),
+                	url = document.referrer.split('?')[0];
+
+    			url += 	'?goal=' + goal +
+						'&status=' + status +
+						'&category=' + category +
+						'&valueRelated=' + valueRelated;
+
+    			if (globalSearch && globalSearch.length) {
+    				url += '&globalSearch=' + globalSearch;
+    			}
+    			if (nameInitiative && nameInitiative.length) {
+    				url += '&nameInitiative=' + nameInitiative;
+    			}
+    			if (description && description.length) {
+    				url += '&description=' + description;
+    			}
+
+    			window.open(url, '_parent');
+                return false;
+            }
+
+            $goal.selectmenu({width: 240});
+			$status.selectmenu({width: 240});
+            $category.selectmenu({width: 240});
+            $valueRelated.selectmenu({width: 240});
+
+        </script>
+    </body>
+
+</html>
