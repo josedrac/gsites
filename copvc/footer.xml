@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-    <ModulePrefs title="COPVC-header.xml" height="50">
+    <ModulePrefs title="COPVC-footer.xml" height="50">
         <Require feature="idi"/>
         <Require feature="locked-domain" />
         <Require feature="dynamic-height"/>
@@ -47,7 +47,7 @@
                 linkText    = prefs.getString('linkText'),
                 linkHref    = prefs.getString('linkHref');
 
-            document.getElementById("text").innerHTML =  text + '<a href="'+ linkHref +'" id="link" class="footer__link">'+ linkText +'</a>';
+            document.getElementById("text").innerHTML =  text + ' <a href="'+ linkHref +'" id="link" class="footer__link">'+ linkText +'</a>';
 
         </script>
 
@@ -71,17 +71,17 @@
         <table width="100%" border="0" id="tablaconfig">
             <tr>
                 <td>
-                    Text: <input type="text" id="title" value="__UP_text__"   onchange="register('text')"/>
+                    Text: <input type="text" id="text" value="__UP_text__"   onchange="register('text')"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Link text: <input type="text" id="subtitle" value="__UP_linkText__"   onchange="register('linkText')"/>
+                    Link text: <input type="text" id="linkText" value="__UP_linkText__"   onchange="register('linkText')"/>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Link url: <input type="text" id="subtitle" value="__UP_linkHref__"   onchange="register('linkHref')"/>
+                    Link url: <input type="text" id="linkHref" value="__UP_linkHref__"   onchange="register('linkHref')"/>
                 </td>
             </tr>
         </table>
