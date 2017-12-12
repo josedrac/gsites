@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="COPVC-header.xml" height="50">
+        <Require feature="idi"/>
+        <Require feature="locked-domain" />
+        <Require feature="dynamic-height"/>
+        <Require feature="setprefs" />
+    </ModulePrefs>
+    <UserPref name="text" display_name="text" required="true" />
+    <UserPref name="linkText" display_name="linkText" required="true" />
+    <UserPref name="linkHref" display_name="linkHref" required="false" />
+    <Content type="html">
+        <![CDATA[
+        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <style type="text/css">
+			@font-face {
+				font-family: 'BBVA Web Book';
+				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
+				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+		    .footer {
+				background-color: #00487F;
+				padding: 30px;
+		    }
+			.footer__text {
+				font-family:"BBVA Web Book", arial, sans-serif;
+				color: #FFF;
+			}
+			.footer__link {
+				color: #C1DFEA;
+			}
+		</style>
+
+        <div class="footer">
+            <span id="text" class="footer__text"></span>
+        </div>
+
+        <script type="text/javascript">
+
+            var prefs       = new gadgets.Prefs(),
+                text        = prefs.getString('text'),
+                linkText    = prefs.getString('linkText'),
+                linkHref    = prefs.getString('linkHref');
+
+            document.getElementById("text").innerHTML =  text + '<a href="'+ linkHref +'" id="link" class="footer__link">'+ linkText +'</a>';
+
+        </script>
+
+        ]]>
+    </Content>
+
+    <Content type="html" view="configuration">
+
+        <![CDATA[
+
+        <style type="text/css">
+
+            table td {
+                color: #000;
+                font-size: 11px;
+                font-weight: bold;
+            }
+
+        </style>
+
+        <table width="100%" border="0" id="tablaconfig">
+            <tr>
+                <td>
+                    Text: <input type="text" id="title" value="__UP_text__"   onchange="register('text')"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Link text: <input type="text" id="subtitle" value="__UP_linkText__"   onchange="register('linkText')"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Link url: <input type="text" id="subtitle" value="__UP_linkHref__"   onchange="register('linkHref')"/>
+                </td>
+            </tr>
+        </table>
+
+        <script type="text/javascript">
+
+            var prefs = new gadgets.Prefs();
+                function register(variable) {
+                prefs.set(variable, document.getElementById(variable).value);
+            }
+
+            gadgets.window.adjustHeight();
+
+        </script>
+
+        ]]>
+    </Content>
+
+</Module>
