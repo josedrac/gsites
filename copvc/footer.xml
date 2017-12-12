@@ -47,6 +47,10 @@
                 linkText    = prefs.getString('linkText'),
                 linkHref    = prefs.getString('linkHref');
 
+            if (!linkHref || !linkHref.length) {
+                linkHref = '#';
+            }
+
             document.getElementById("text").innerHTML =  text + ' <a href="'+ linkHref +'" id="link" class="footer__link">'+ linkText +'</a>';
 
         </script>
