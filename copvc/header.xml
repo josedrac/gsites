@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-    <ModulePrefs title="MG-backPageTitle.xml" height ="50">
+    <ModulePrefs title="COPVC-header.xml" height="250">
         <Require feature="idi"/>
         <Require feature="locked-domain" />
         <Require feature="dynamic-height"/>
