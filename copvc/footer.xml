@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-    <ModulePrefs title="COPVC-footer.xml" height="50">
+    <ModulePrefs title="COPVC-footer.xml" height="100">
         <Require feature="idi"/>
         <Require feature="locked-domain" />
         <Require feature="dynamic-height"/>
@@ -31,7 +31,7 @@
 				font-family:"BBVA Web Book", arial, sans-serif;
 				color: #FFF;
 			}
-			.footer__link {
+            .footer__link, .footer__link:visited {
 				color: #C1DFEA;
 			}
 		</style>
