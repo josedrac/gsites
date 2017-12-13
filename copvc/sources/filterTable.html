@@ -3,41 +3,6 @@
     	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
 
 		<style type="text/css">
-	        /* @group fonts */
-	        @font-face {
-	            font-family: 'BBVA Web Light';
-	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot');
-	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-	            url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-	            font-style: normal;
-	            font-weight: normal;
-	        }
-
-	        @font-face {
-	            font-family: 'BBVA Web Book';
-	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot');
-	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-	                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-	                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-	                url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-	            font-style: normal;
-	            font-weight: normal;
-	        }
-
-	        @font-face {
-	            font-family: 'BBVA Web Medium';
-	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot');
-	            src: url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-	                 url('https://github.com/sopraux/gsites/raw/master/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
-	            font-style: normal;
-	            font-weight: normal;
-	        }
-	        /* @end */
-
 			.btn-container {
 				padding: 20px 60px;
     			text-align: right;
@@ -146,7 +111,7 @@
 	            top: 25%;
 	        }
 	        .ui-selectmenu-menu .ui-menu {
-	            height: 90px;
+	            max-height: 87px;
 	        }
 	        .element-year {
 	            padding-top: 20px;
@@ -155,16 +120,6 @@
 	        .element-month {
 	            padding-top: 5px;
 	            padding-bottom: 20px
-	        }
-	        .name {
-	            color: #434a58;
-	            float: left;
-	            font-family: Arial;
-	            font-size: 13px;
-	            padding-top: 10px;
-	            display: table-cell;
-	            margin-bottom: 5px;
-	            width: 100%;
 	        }
 	        input {
 	            border-radius: 4px;
@@ -187,16 +142,35 @@
 	        }
 
 	        .form {
-	            display: table-cell;
-	            width: 25%;
+	            display: inline-block;
+				width: 25%;
 	            padding-left: 10px;
 	            padding-right: 10px;
 	            vertical-align: top;
 	        }
+			.form_top {
+				width: 100%;
+			}
 	        .form_bottom {
 	            vertical-align: bottom;
 	        }
+			.form__label {
+	            color: #9F9F9F;
+	            float: left;
+	            font-family: Arial;
+	            font-size: 16px;
+	            padding-top: 10px;
+	            display: table-cell;
+	            margin-bottom: 5px;
+	            width: 100%;
+	        }
 			.filter-title {
+				font-family: Arial;
+				font-weight: lighter;
+				font-size: 30px;
+				color: #666666;
+				margin-top: 35px;
+				margin-bottom: 20px;
 				padding: 0 10px;
 			}
 	    </style>
@@ -206,9 +180,9 @@
 
     <body>
     	<div class="container">
-            <div class="form">
+            <div class="form form_top">
                 <div class="element">
-                    <label class="name">Búsqueda global</label>
+                    <label class="form__label">Búsqueda global</label>
                     <input class="input-large" type='text' name="global" id='globalSearch' value=''/>
                 </div>
             </div>
@@ -217,7 +191,7 @@
 
 			<div class="form">
 				<div class="element">
-                	<label class="name">Objetivo</label>
+                	<label class="form__label">Objetivo</label>
                     <select name="goal" id="goalSelector">
                         <option default value="0">Todos</option>
                         <option>Difundir los V&C</option>
@@ -226,7 +200,7 @@
                     </select>
                 </div>
 				<div class="element">
-					<label class="name">Estado</label>
+					<label class="form__label">Estado</label>
 					<select name="status" id="statusSelector">
 						<option default value="0">Todos</option>
 						<option>Implementada</option>
@@ -237,7 +211,7 @@
             </div>
             <div class="form">
                 <div class="element">
-                    <label class="name">Categoría</label>
+                    <label class="form__label">Categoría</label>
                     <select name="category" id="categorySelector">
                         <option default value="0">Todos</option>
                         <option>Comunicación Digital e Impresa</option>
@@ -257,13 +231,13 @@
                     </select>
                 </div>
 				<div class="element">
-					<label class="name">Nombre de la iniciativa</label>
+					<label class="form__label">Nombre de la iniciativa</label>
 					<input type='text' name="nameInitiative" id='nameInitiativeSearch' value=''/>
 				</div>
             </div>
             <div class="form">
                 <div class="element">
-                    <label class="name">Valor relacionado</label>
+                    <label class="form__label">Valor relacionado</label>
                     <select name="valueRelated" id="valueRelatedSelector">
                         <option default value="0">Todos</option>
                         <option>Aplica para todos</option>
@@ -273,7 +247,7 @@
                     </select>
                 </div>
                 <div class="element">
-                    <label class="name">Descripción</label>
+                    <label class="form__label">Descripción</label>
 					<input type='text' name="description" id='descriptionSearch' value=''/>
                 </div>
             </div>
@@ -366,10 +340,10 @@
                 return false;
             }
 
-            $goal.selectmenu({width: 240});
-			$status.selectmenu({width: 240});
-            $category.selectmenu({width: 240});
-            $valueRelated.selectmenu({width: 240});
+            $goal.selectmenu({width: 200});
+			$status.selectmenu({width: 200});
+            $category.selectmenu({width: 200});
+            $valueRelated.selectmenu({width: 200});
 
         </script>
     </body>
