@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="ED-filtrosNovedades.xml" height="275">
+	<ModulePrefs title="COPVC-filterTable.xml" height="300">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
-		<Require feature="setprefs" />
 	</ModulePrefs>
 
 	<Content type="html">
