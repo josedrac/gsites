@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="COPVC-filterTable.xml" height="300">
+	<ModulePrefs title="COPVC-filterTable.xml" height="370">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -149,7 +149,9 @@
 	            font-size: 13px;
 	            font-weight: normal;
 	        }
-
+			.container {
+				padding-left: 20px;
+			}
 	        .form {
 	            display: inline-block;
 				width: 25%;
