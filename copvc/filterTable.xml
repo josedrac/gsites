@@ -280,12 +280,12 @@
 		setDefaultFields();
 
 		function getParam(p){
-			var url = document.referrer;
-			if (url.split('?').length > 1) {
-				var params = document.referrer.split('?')[1].split('&');
+			var url = getUrl().split('?');
+			if (url.length > 1) {
+				var params = url[1].split('&');
 				for (var i=0; i<params.length; i++) {
 					if (params[i].split('=')[0] == p) {
-						return window.decodeURIComponent( params[i].split('=')[1] );
+						return decodeURIComponent( params[i].split('=')[1].split('+').join(' ') );
 					}
 				}
 			}
@@ -321,30 +321,35 @@
 			setIndex(valueRelated, $valueRelated);
 		}
 
+		function removeEmptyParams(params) {
+			Object.keys(params).forEach( function(key) {
+				var param = params[key];
+				if (param == 0 || (!$.isNumeric(param) && !param.length) ) {
+					delete params[key];
+				}
+			});
+		}
+
+		function getUrl() {
+			return document.referrer;
+			//return location.href;
+		}
+
 		function Go() {
-			var globalSearch	= $globalSearch.val(),
-				nameInitiative	= $nameInitiative.val(),
-				description		= $description.val(),
-				goal 			= $goal.val(),
-				status 			= $status.val(),
-				category 		= $category.val(),
-				valueRelated 	= $valueRelated.val(),
-				url = document.referrer.split('?')[0];
+			var params = {
+					globalSearch	: $globalSearch.val(),
+					nameInitiative	: $nameInitiative.val(),
+					description		: $description.val(),
+					goal 			: $goal.val(),
+					status 			: $status.val(),
+					category 		: $category.val(),
+					valueRelated 	: $valueRelated.val()
+				},
+				url = getUrl().split('?')[0] + '?';
 
-			url += 	'?goal=' + goal +
-					'&status=' + status +
-					'&category=' + category +
-					'&valueRelated=' + valueRelated;
+			removeEmptyParams(params);
 
-			if (globalSearch && globalSearch.length) {
-				url += '&globalSearch=' + globalSearch;
-			}
-			if (nameInitiative && nameInitiative.length) {
-				url += '&nameInitiative=' + nameInitiative;
-			}
-			if (description && description.length) {
-				url += '&description=' + description;
-			}
+			url += $.param(params);
 
 			window.open(url, '_parent');
 			return false;
