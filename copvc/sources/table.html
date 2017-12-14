@@ -5,65 +5,6 @@
 	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
 
     <style type="text/css">
-        /* @group fonts */
-        @font-face {
-            font-family: 'BBVA Web Light';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-light/web-light.svg#BBVA Web Light') format("svg");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: 'BBVA Web Book';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-            font-style: normal;
-            font-weight: normal;
-        }
-
-        @font-face {
-            font-family: 'BBVA Web Medium';
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot');
-            src:url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.eot?iefix') format("embedded-opentype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.woff') format("woff"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.ttf') format("truetype"),
-                url('https://github.com/sopraux/gsites/raw/menu/evolucionaDigital/fonts/web-medium/web-medium.svg#BBVA Web Medium') format("svg");
-            font-style: normal;
-            font-weight: normal;
-        }
-        /* @end */
-
-        button{
-            background: #0079C1;
-            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwNzljMSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMDU1OWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
-            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
-            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
-            background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
-            background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
-            -webkit-border-radius: .3em;
-            -moz-border-radius: .3em;
-            border-radius: .3em;
-            font-size: 10px;
-            text-align: center;
-            vertical-align: middle;
-            height: 2em;
-            padding-left: .9em;
-            padding-right: .9em;
-            border: .1em solid #00559D;
-            color: white;
-            cursor: pointer;
-            position: relative;
-            overflow: visible;
-        }
 
         .container-table {
             width: 100%;
@@ -73,28 +14,34 @@
             margin-top: 10px;
         }
 
-        .headerText {
-            margin-top: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            text-align: center;
-            color: #434a58;
-        }
-
         .headerImg {
             margin-top: 10px;
             margin: 10px 3px 0;
         }
 
-        .colHeader {
-            width: 8%;
+        .table__header-col {
+			width: 8%;
             height: 85px;
-            float: left;
-            border-right: 1px solid #E5E5E5;
-            border-top: 1px solid #E5E5E5; border-bottom: 1px solid #E5E5E5; background-color: #F8F8F5;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
+			border: 1px solid #E5E5E5;
+            border-left: 0;
+			background-color: #F8F8F5;
+        }
+		.table__header-col:last-child {
+			border-right: 0;
+		}
+		.table__header-col_large {
+			width: 20%;
+		}
+		.table__header-col_small {
+			width: 1%;
+		}
+
+		.table__header-text {
+            margin-top: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            color: #434a58;
         }
 
         .firstcol {
@@ -106,41 +53,36 @@
             display: none;
         }
 
-        .text {
-            line-height: 15px;
-            vertical-align: middle;
-            display: table-cell;
-            text-align: left;
-        }
+		.table__row {
+			clear: both;
+			font-size: 12px;
+			width: 100%;
+			border-bottom: 1px solid #E5E5E5;
+			overflow: hidden;
+		}
 
-        .colBody {
-            width: 8%;
-            float:left;
+        .table__cell {
             color: #434a58;
-            display: table;
-            height: 36px;
+			padding: 10px;
             border-bottom: 1px solid #E5E5E5;
             text-align: center;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
         }
+		.table__cell_implemented {
+			background-color: lightgreen;
+		}
+		.table__cell_planified {
+			background-color: lightblue;
+		}
+		.table__cell_executing {
+			background-color: lightyellow;
+		}
 
-        .colBodyIcon {
-            height: 25px;
-        }
-
-        .colBodyIcon .center {
-            width: 100%;
-        }
-
-        .row {
-            clear: both;
-            font-size: 12px;
-            width: 100%;
-            border-bottom: 1px solid #E5E5E5;
-            overflow: hidden;
-        }
+		.table__cell-text {
+			line-height: 15px;
+			vertical-align: middle;
+			display: table-cell;
+			text-align: left;
+		}
 
         .rowTitle {
             clear: both;
@@ -154,16 +96,6 @@
 
         .rowTitle td{
             padding-top: 20px;
-        }
-
-        #lastcol {
-            border-right: 0 !important;
-            margin-bottom: 10px;
-        }
-
-        .centerText {
-            text-align:center;
-            margin-top:11px;
         }
 
         span.click {
@@ -180,7 +112,7 @@
     </style>
 
     <div class="table-container">
-        <table id="initiatives_table" class="table">
+        <table id="initiatives_table" class="table" cellspacing="0">
             <thead id="initiatives_table_header" class="table__header">
 
             </thead>
@@ -194,8 +126,7 @@
     </div>
 
     <script type="text/javascript">
-        var html = '',
-            params = {
+        var params = {
 				globalSearch: {	},
 				nameInitiative: {
 					col: 'D'
@@ -219,7 +150,8 @@
 			tableCols = [
 				{
 					header: 'País',
-					sheetIndex: 17
+					class: 'table__header-col_small',
+					sheetIndex: 15
 				},
 				{
 					header: 'Nombre',
@@ -227,6 +159,7 @@
 				},
 				{
 					header: 'Descripción',
+					class: 'table__header-col_large',
 					sheetIndex: 4
 				},
 				{
@@ -243,16 +176,15 @@
 				},
 				{
 					header: 'Enlace al repositorio',
-					sheetIndex: 9
+					sheetIndex: 8
 				}
 			],
-			gadgetHelper = null,
-	        urlTable = prefs.getString('_table_query_url'),
-            imgRootPath = 'https://raw.githubusercontent.com/sopraux/gsites/master/evolucionaDigital/img/'
+			gadgetHelper = null;
+			//prefs = new _IG_Prefs();
 
 
 		initFilterParams();
-		_IG_RegisterOnloadHandler(loadVisualizationAPI);
+		loadVisualizationAPI();
 
 
 	 	function loadVisualizationAPI() {
@@ -271,9 +203,9 @@
 	        });
 	     }
 
-         function getQueryParameters() {
-     		var filter 	= '',
-				cols 	= 'BCDEFGHIJPQRST';
+        function getQueryParameters() {
+     		var filter 	= 'select * where C IS NOT NULL',
+				cols 	= 'BCDEFGHIJPQRST'.split('');
 
      		if (isSearchDone()) {
 				Object.keys(params).forEach(function(key) {
@@ -288,31 +220,25 @@
 					}
                 });
  			}
-
-			return filter;
+			return encodeURIComponent(filter);
      	}
 
         function sendQuery() {
 
-            var request = function (authorized_url){
-                var opts = { dataType: 'jsonp' },
-                	query = new google.visualization.Query(authorized_url, opts),
-                	querytosend = "select * where A == ''";
+            var queryUrl = 'https://spreadsheets.google.com/tq?key=' + getSpreadsheetKey() + '&sheet=Catálogo&tq=' + getQueryParameters(),
+				query = new google.visualization.Query(queryUrl);
 
-    			querytosend = querytosend.concat(getQueryParameters());
-    			querytosend = querytosend.concat("offset 4 order by D desc");
-                query.setQuery(querytosend);
-                query.send(handleQueryResponse);
-				gadgetHelper = new google.visualization.GadgetHelper();
-            }
+            query.send(handleQueryResponse);
+			gadgetHelper = new google.visualization.GadgetHelper();
 
-            window.Environment.sendAuthorizedQuery(urlTable, request);
         }
 
         function handleQueryResponse(response) {
 			data = response.getDataTable();
-			createHeader();
-            createBody(data);
+			if (data) {
+				createHeader();
+				createBody(data);
+			}
         }
 
         function createBody(data) {
@@ -320,38 +246,57 @@
 				html = '';
 
             for (var i = 0; i < numberOfRows; i++) {
-                html += '<tr class="row">';
+                html += '<tr class="table__row">';
 
 				tableCols.forEach(function(col) {
-					html +=	'<td class="colBody"><span class="text">'+ data.getValue(i, col.sheetIndex) +'</span></td>';
+					var value = data.getValue(i, col.sheetIndex) || '-',
+						cssClass = '';
+
+					if (col.header === 'Enlace al repositorio' && value !== '-') {
+						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="'+ value +'">Enlace</a></td>';
+						return;
+					}
+					if (col.header === 'Estado' && value) {
+						cssClass = getStatusCssClass(value);
+					}
+					html +=	'<td class="table__cell '+ cssClass +'"><span class="table__cell-text">'+ value +'</span></td>';
 				});
 
                 html += '</tr>';
             }
 
-			$('#initiatives_table_body').innerHTML = html;
+			$('#initiatives_table_body').html(html);
         }
 
         function createHeader() {
-            var headerHtml = '';
-
+            var html = '',
+				classCss;
 
             tableCols.forEach(function(item, index) {
-                var headerClassModifier = '';
-                if (!index) { headerClassModifier = 'table__header-col_first'; }
-                if (index === headers.length-1) { headerClassModifier = 'table__header-col_last'; }
-
-                headerHtml += 	'<th class="table__header-col '+ headerClassModifier +'">' +
-                    			'	<span class="table__header-text">'+ item.header +'</span>' +
-                				'</th>';
+				classCss = item.class ? item.class : '';
+                html += '<th class="table__header-col '+ classCss +'">' +
+                    	'	<span class="table__header-text">'+ item.header +'</span>' +
+                		'</th>';
             });
 
-            $('#initiatives_table_header').html(headerHtml);
+            $('#initiatives_table_header').html(html);
         }
+
+		function getStatusCssClass(value) {
+			if (value === 'Implementada / Implemented') { return 'table__cell_implemented' }
+			if (value === 'Planificada / Planned') { return 'table__cell_planified' }
+			if (value === 'En ejecución / In execution') { return 'table__cell_executing' }
+			return '';
+		}
 
 		function getUrl() {
 			//return document.referrer;
 			return location.href;
+		}
+
+		function getSpreadsheetKey() {
+	        //return prefs.getString('spreadsheet_key');
+			return '1x6jqj87_YNN0IV36f8O1qt2sn_-hM8lXPWvNrklE0kI';
 		}
 
         function isSearchDone() {
@@ -363,8 +308,10 @@
                 listParams = getUrl().split('?')[1].split('&');
 
             listParams.forEach(function(item) {
-                urlParam = item.split('=');
-                params[ urlParam[0] ].value = urlParam[1];
+                urlParam = decodeURIComponent(item).split('+').join(' ').split('=');
+				if (item.length > 1){
+					params[ urlParam[0] ].value = urlParam[1];
+				}
             });
         }
 
