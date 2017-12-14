@@ -211,20 +211,37 @@
 		        dataelement: 'div.comboVideo',
 		        initval: 0,
 	        });
-	     }
+	    }
+
+		function getGlobalSearchConditions(param) {
+			var words 	= param.value.split(' '),
+				cols 	= 'BCDEFGHIPQRST'.split(''),
+				filter 	= '';
+
+			cols.forEach(function(col, index) {
+				if (index !== 0) { filter += ' OR '; }
+				filter += '(';
+
+				words.forEach(function(word, wordIndex) {
+					if (wordIndex !== 0) { filter += ' AND '; }
+					filter += '(lower('+ col +') contains lower("' + word + '"))';
+				});
+
+				filter += ')';
+			});
+			return ' AND ('+ filter +')';
+		}
 
         function getQueryParameters() {
-     		var filter 	= 'select * where C IS NOT NULL',
-				cols 	= 'BCDEFGHIJPQRST'.split('');
+     		var filter 	= 'select * where C IS NOT NULL';
 
      		if (isSearchDone()) {
 				Object.keys(params).forEach(function(key) {
 					var param = params[key];
 					if (param.value) {
 						if (key === 'globalSearch') {
-							return cols.forEach(function(col) {
-								filter += ' AND (lower('+ col +') contains lower("' + param.value + '"))';
-							});
+							filter += getGlobalSearchConditions(param);
+							return;
 						}
 						filter += ' AND (lower('+ param.col +') contains lower("' + param.value + '"))';
 					}
