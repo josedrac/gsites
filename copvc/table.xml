@@ -34,6 +34,10 @@
 			overflow-y: scroll;
 		}
 
+        .table {
+            font-family: arial, sans-serif;
+        }
+
         .table__header-col {
 			width: 8%;
             height: 85px;
