@@ -326,7 +326,7 @@
                 listParams = getUrl().split('?')[1].split('&');
 
             listParams.forEach(function(item) {
-                urlParam = decodeURIComponent(item).split('+').join(' ').split('=');
+                urlParam = decodeURIComponent(item).split('+').join(' ').trim().split('=');
 				if (item.length > 1){
 					params[ urlParam[0] ].value = urlParam[1];
 				}
