@@ -238,34 +238,8 @@
 			if (data) {
 				createHeader();
 				createBody(data);
+				gadgets.window.adjustHeight();
 			}
-        }
-
-        function createBody(data) {
-            var numberOfRows = data.getNumberOfRows(),
-				html = '';
-
-            for (var i = 0; i < numberOfRows; i++) {
-                html += '<tr class="table__row">';
-
-				tableCols.forEach(function(col) {
-					var value = data.getValue(i, col.sheetIndex) || '-',
-						cssClass = '';
-
-					if (col.header === 'Enlace al repositorio' && value !== '-') {
-						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="'+ value +'">Enlace</a></td>';
-						return;
-					}
-					if (col.header === 'Estado' && value) {
-						cssClass = getStatusCssClass(value);
-					}
-					html +=	'<td class="table__cell '+ cssClass +'"><span class="table__cell-text">'+ value +'</span></td>';
-				});
-
-                html += '</tr>';
-            }
-
-			$('#initiatives_table_body').html(html);
         }
 
         function createHeader() {
@@ -281,6 +255,33 @@
 
             $('#initiatives_table_header').html(html);
         }
+
+		function createBody(data) {
+			var numberOfRows = data.getNumberOfRows(),
+			html = '';
+
+			for (var i = 0; i < numberOfRows; i++) {
+				html += '<tr class="table__row">';
+
+				tableCols.forEach(function(col) {
+					var value = data.getValue(i, col.sheetIndex) || '-',
+					cssClass = '';
+
+					if (col.header === 'Enlace al repositorio' && value !== '-') {
+						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="'+ value +'">Enlace</a></td>';
+						return;
+					}
+					if (col.header === 'Estado' && value) {
+						cssClass = getStatusCssClass(value);
+					}
+					html +=	'<td class="table__cell '+ cssClass +'"><span class="table__cell-text">'+ value +'</span></td>';
+				});
+
+				html += '</tr>';
+			}
+
+			$('#initiatives_table_body').html(html);
+		}
 
 		function getStatusCssClass(value) {
 			if (value === 'Implementada / Implemented') { return 'table__cell_implemented' }
