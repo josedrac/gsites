@@ -31,10 +31,26 @@
 	            position: relative;
 	            padding: 0.5em 2em;
 	        }
-
 	        .btn:hover {
 	            background: #004C99;
 	        }
+			.btn_reset {
+				background: #AAA;
+	            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+	            background: -moz-linear-gradient(top, #AAA 0%, #777 100%);
+	            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #AAA), color-stop(100%, #777));
+	            background: -webkit-linear-gradient(top, #AAA 0%, #777 100%);
+	            background: -o-linear-gradient(top, #AAA 0%, #777 100%);
+	            background: -ms-linear-gradient(top, #AAA 0%, #777 100%);
+	            background: linear-gradient(to bottom, #AAA 0%, #777 100%);
+				border: 0.1em solid #333;
+			}
+			.btn_reset:hover {
+	            background: #777;
+	        }
+			.btn_spaced {
+				margin-right: 30px;
+			}
 
 	        select {
 	            width: 100%;
@@ -157,12 +173,11 @@
 	            vertical-align: bottom;
 	        }
 			.form__label {
-	            color: #9F9F9F;
 	            float: left;
 	            font-family: Arial;
-	            font-size: 16px;
+				font-size: 16px;
+				font-weight: bold;
 	            padding-top: 10px;
-	            display: table-cell;
 	            margin-bottom: 5px;
 	            width: 100%;
 	        }
@@ -239,13 +254,23 @@
             </div>
             <div class="form">
                 <div class="element">
-                    <label class="form__label">Valor relacionado</label>
-                    <select name="valueRelated" id="valueRelatedSelector">
+                    <label class="form__label">País o área</label>
+                    <select name="country" id="countrySelector">
                         <option default value="0">Todos</option>
-                        <option>Aplica para todos</option>
-                        <option>Somos un solo equipo</option>
-                        <option>Pensamos en grande</option>
-                        <option>El cliente es lo primero</option>
+						<option>España</option>
+						<option>USA</option>
+						<option>México</option>
+						<option>Turquía</option>
+						<option>Colombia</option>
+						<option>Paraguay</option>
+						<option>Uruguay</option>
+						<option>Argentina</option>
+						<option>Perú</option>
+						<option>Venezuela</option>
+						<option>CIB</option>
+						<option>Engineering</option>
+						<option>Customer Solutions</option>
+						<option>Centro Corporativo</option>
                     </select>
                 </div>
                 <div class="element">
@@ -254,6 +279,7 @@
                 </div>
             </div>
 			<div class="btn-container">
+				<button onclick='javascript:ResetFilters();' class="btn btn_reset btn_spaced">Limpiar filtros</button>
 				<button onclick='javascript:Go();' class="btn">Ver resultados</button>
 			</div>
         </div>
@@ -266,7 +292,8 @@
 				$goal 			= $('#goalSelector'),
 				$status 		= $('#statusSelector'),
 	            $category 		= $('#categorySelector'),
-	            $valueRelated 	= $('#valueRelatedSelector');
+	            $country 		= $('#countrySelector'),
+				$selects		= $goal.add($status).add($category).add($country);
 
 
             setDefaultFields();
@@ -302,7 +329,7 @@
 					goal 			= getParam('goal'),
 	                status 			= getParam('status'),
 	                category 		= getParam('category'),
-	                valueRelated 	= getParam('valueRelated');
+	                country 		= getParam('country');
 
 				$globalSearch.val(globalSearch);
 				$nameInitiative.val(nameInitiative);
@@ -310,7 +337,7 @@
                 setIndex(goal, $goal);
                 setIndex(status, $status);
                 setIndex(category, $category);
-                setIndex(valueRelated, $valueRelated);
+                setIndex(country, $country);
             }
 
 			function removeEmptyParams(params) {
@@ -327,6 +354,14 @@
 				return location.href;
 			}
 
+			function ResetFilters() {
+				$globalSearch.val('');
+				$nameInitiative.val('');
+				$description.val('');
+				$selects.prop('selectedIndex', 0);
+				$selects.selectmenu('refresh');
+			}
+
             function Go() {
                 var params = {
 						globalSearch	: $globalSearch.val(),
@@ -335,7 +370,7 @@
 						goal 			: $goal.val(),
 						status 			: $status.val(),
 						category 		: $category.val(),
-						valueRelated 	: $valueRelated.val()
+						country 		: $country.val()
 					},
                 	url = getUrl().split('?')[0] + '?';
 
@@ -347,10 +382,7 @@
                 return false;
             }
 
-            $goal.selectmenu({width: 200});
-			$status.selectmenu({width: 200});
-            $category.selectmenu({width: 200});
-            $valueRelated.selectmenu({width: 200});
+            $selects.selectmenu({width: 200});
 
         </script>
     </body>
