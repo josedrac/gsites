@@ -27,15 +27,21 @@
 		</style>
 	</head>
 
-	<body>
-		<div height="100">
-		    <div class="footer">
-		        <span id="text" class="footer__text">Si deseas acceder al Catálogo de Iniciativas en el documento Spreadsheet <a href="#" onclick="javascript:OpenLink('https://docs.google.com/spreadsheets/d/1x6jqj87_YNN0IV36f8O1qt2sn_-hM8lXPWvNrklE0kI'" id="link" class="footer__link">pincha aquí</a></span>
-		    </div>
-		</div>
-	</body>
+	<div class="footer">
+		<span id="text" class="footer__text"></span>
+	</div>
 
-	<script>
+	<script type="text/javascript">
+
+		var text        = 'lorem ipsum cogito ergo sum',
+			linkText    = 'click',
+			linkHref    = 'https://docs.google.com/spreadsheets/d/1x6jqj87_YNN0IV36f8O1qt2sn_-hM8lXPWvNrklE0kI';
+
+		if (!linkHref || !linkHref.length) {
+			linkHref = '#';
+		}
+
+		document.getElementById("text").innerHTML =  text + ' <a href="#" onclick="javascript:OpenLink(\''+ linkHref +'\');" id="link" class="footer__link">'+ linkText +'</a>';
 
 		function OpenLink(link) {
 			window.open(link,'_new');

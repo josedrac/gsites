@@ -52,7 +52,7 @@
                 linkHref = '#';
             }
 
-            document.getElementById("text").innerHTML =  text + ' <a href="#" onclick="javascript:OpenLink(/'+linkHref+/');" id="link" class="footer__link">'+ linkText +'</a>';
+            document.getElementById("text").innerHTML =  text + ' <a href="#" onclick="javascript:OpenLink(\''+ linkHref +'\');" id="link" class="footer__link">'+ linkText +'</a>';
 
             function OpenLink(link) {
     			window.open(link,'_new');
