@@ -1,0 +1,524 @@
+<html>
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
+
+	<style type="text/css">
+		.btn-container {
+			padding: 20px 60px;
+			text-align: right;
+		}
+
+        .btn {
+            background: #0079C1;
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+            background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+            -webkit-border-radius: .1em;
+            -moz-border-radius: .1em;
+            font-size: 13px;
+            border: 0.1em solid #00559D;
+            color: #FFF;
+            cursor: pointer;
+            margin: 0;
+            border-radius: 0.4em;
+            font-weight: bold;
+            vertical-align: middle;
+            text-align: center;
+            position: relative;
+            padding: 0.5em 2em;
+        }
+        .btn:hover {
+            background: #004C99;
+        }
+		.btn_reset {
+			background: #AAA;
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+            background: -moz-linear-gradient(top, #AAA 0%, #777 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #AAA), color-stop(100%, #777));
+            background: -webkit-linear-gradient(top, #AAA 0%, #777 100%);
+            background: -o-linear-gradient(top, #AAA 0%, #777 100%);
+            background: -ms-linear-gradient(top, #AAA 0%, #777 100%);
+            background: linear-gradient(to bottom, #AAA 0%, #777 100%);
+			border: 0.1em solid #333;
+		}
+		.btn_reset:hover {
+            background: #777;
+        }
+		.btn_spaced {
+			margin-right: 30px;
+		}
+
+        select {
+            width: 100%;
+        }
+
+        .ui-widget-content {
+            background: white;
+        }
+
+        .ui-selectmenu-button {
+            background: white;
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi…3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyYWQpIiAvPjwvc3ZnPiA=');
+            background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(40%, #ffffff), color-stop(200%, #d2e5eb));
+            background: -moz-linear-gradient(top, #ffffff 40%, #d2e5eb 200%);
+            background: -webkit-linear-gradient(top, #ffffff 40%, #d2e5eb 200%);
+            background: linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+            border-color: #d2e5eb;
+            border: 1px solid #d5e2ee;
+            -moz-border-radius: 4px;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            color: #0078d2;
+            font-size: 13px;
+            overflow: hidden;
+            padding: 6px;
+            padding-left: 10px;
+            padding-right: 40px;
+            position: relative;
+            text-align: left;
+            width: 100%;
+            line-height: 14px;
+            margin-bottom: 10px;
+            padding: 3px 40px 3px 10px;
+        }
+        .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
+            color: #0078d2;
+        }
+        .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus  {
+            background: #e2fafe none repeat scroll 0 0;
+            color: #003f8c;
+            border: 1px solid #e1e1e1;
+        }
+        .ui-widget-content {
+            border: 1px solid rgb(213, 226, 238);
+            color: rgb(34, 34, 34);
+        }
+        .ui-state-hover,.ui-widget-content .ui-state-hover,.ui-widget-header .ui-state-hover,.ui-state-focus,.ui-widget-content .ui-state-focus,.ui-widget-header .ui-state-focus {
+            background-image: none;
+        }
+        .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+            background: white;
+        }
+        .ui-selectmenu-button span.ui-icon {
+            right: 0;
+        }
+        .ui-selectmenu-button.ui-corner-top .ui-icon {
+            background-position: 3px -9.2em;
+        }
+        .ui-state-default .ui-icon {
+            border: 0;
+            border-left: 1px solid #d2e5eb;
+            background: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
+            background-position: 3px 0px;
+            width: 35px;
+            height: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .ui-selectmenu-button span.ui-selectmenu-text {
+            padding: 0;
+        }
+        .ui-selectmenu-button span.ui-icon {
+            top: 25%;
+        }
+        .ui-selectmenu-menu .ui-menu {
+            max-height: 87px;
+        }
+        .element-year {
+            padding-top: 20px;
+            padding-bottom: 5px
+        }
+        .element-month {
+            padding-top: 5px;
+            padding-bottom: 20px
+        }
+        input {
+            border-radius: 4px;
+            border: 1px solid #d5e2ee;
+            width: 190px;
+            padding: 4px;
+            color: #0078d2;
+            font-size: 13px;
+            font-weight: bold;
+        }
+		input.input-large {
+			width: 500px;
+		}
+        .ui-menu-item {
+            color: #003f8c;
+            padding: 0 0 0 1.25em;
+            border-top: 1px solid #e1e1e1;
+            font-size: 13px;
+            font-weight: normal;
+        }
+		.container {
+			padding-left: 20px;
+		}
+        .form {
+            display: inline-block;
+			width: 25%;
+            padding-left: 10px;
+            padding-right: 10px;
+            vertical-align: top;
+        }
+		.form_top {
+			width: 100%;
+		}
+        .form_bottom {
+            vertical-align: bottom;
+        }
+		.form__label {
+            float: left;
+            font-family: Arial;
+			font-size: 16px;
+			font-weight: bold;
+            padding-top: 10px;
+            margin-bottom: 5px;
+            width: 100%;
+        }
+		.filter-title {
+			font-family: Arial;
+			font-weight: lighter;
+			font-size: 30px;
+			color: #666666;
+			margin-top: 35px;
+			margin-bottom: 20px;
+			padding: 0 10px;
+		}
+    </style>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
+
+	<div class="container">
+        <div class="form form_top">
+            <div class="element js-search">
+                <label class="form__label">Búsqueda global</label>
+                <input class="input-large" type='text' name="global" id='globalSearch' value=''/>
+            </div>
+        </div>
+
+		<h2 class="filter-title js-title">Filtros</h2>
+
+		<div class="form">
+			<div class="element js-select">
+            	<label class="form__label">Objetivo</label>
+                <select name="goal" id="goalSelector"></select>
+            </div>
+			<div class="element js-select">
+				<label class="form__label">Estado</label>
+				<select name="status" id="statusSelector"></select>
+			</div>
+        </div>
+        <div class="form">
+            <div class="element js-select">
+                <label class="form__label">Categoría</label>
+                <select name="category" id="categorySelector"></select>
+            </div>
+			<div class="element js-search">
+				<label class="form__label">Nombre de la iniciativa</label>
+				<input type='text' name="nameInitiative" id='nameInitiativeSearch' value=''/>
+			</div>
+        </div>
+        <div class="form">
+            <div class="element js-select">
+                <label class="form__label">País o área</label>
+                <select name="country" id="countrySelector"></select>
+            </div>
+            <div class="element js-search">
+                <label class="form__label">Descripción</label>
+				<input type='text' name="description" id='descriptionSearch' value=''/>
+            </div>
+        </div>
+		<div class="btn-container">
+			<button onclick='javascript:ResetFilters();' class="btn btn_reset btn_spaced js-reset">Limpiar filtros</button>
+			<button onclick='javascript:Go();' class="btn js-go">Ver resultados</button>
+		</div>
+	</div>
+
+    <script type="text/javascript">
+		var //prefs = new _IG_Prefs(),
+			contextLangs = {
+				es: {
+					title: 'Filtros',
+					searchersLabels: [
+						'Búsqueda global',
+						'Nombre de la iniciativa',
+						'Descripción'
+					],
+					selects: [
+						{
+							label: 'Objetivo',
+							options: [
+								'Todos',
+		                        'Difundir los V&C',
+								'Inculcar los V&C (políticas de T&C)',
+		                        'Vivir los V&C'
+							]
+						},
+						{
+							label: 'Estado',
+							options: [
+								'Todos',
+								'Implementada',
+								'Planificada',
+								'En ejecución'
+							]
+						},
+						{
+							label: 'Categoría',
+							options: [
+								'Todos',
+		                        'Comunicación Digital e Impresa',
+		                        'Programas de Viralización',
+		                        'Eventos',
+		                        'Espacios físicos',
+		                        'Selección',
+		                        'Desarrollo profesional',
+								'Formación',
+								'Compensación',
+								'Diversidad y Conciliación',
+								'Bienestar y salud',
+		                        'Procesos y Metodología',
+		                        'Herramientas de trabajo',
+		                        'Comités, Reuniones y Sentadas',
+		                        'Reconocimientos'
+							]
+						},
+						{
+							label: 'País o área',
+							options: [
+								'Todos',
+								'España',
+								'USA',
+								'México',
+								'Turquía',
+								'Colombia',
+								'Paraguay',
+								'Uruguay',
+								'Argentina',
+								'Perú',
+								'Venezuela',
+								'CIB',
+								'Engineering',
+								'Customer Solutions',
+								'Centro Corporativo'
+							]
+						}
+					],
+					resetFilters: 'Limpiar filtros',
+					results: 'Ver resultados'
+				},
+				en: {
+					title: 'Filters',
+					searchersLabels: [
+						'Global search',
+						'Name of the initiative',
+						'Description'
+					],
+					selects: [
+						{
+							label: 'Objective',
+							options: [
+								'All',
+								'Spread our V&B',
+								'Inculcate our V&B (T&C politics)',
+								'Live our V&B'
+							]
+						},
+						{
+							label: 'Status',
+							options: [
+								'All',
+								'Implemented',
+								'Planned',
+								'In execution',
+							]
+						},
+						{
+							label: 'Category',
+							options: [
+								'All',
+								'Digital and Print Media',
+								'Viralization Programs',
+								'Events',
+								'Physical Spaces',
+								'Recruitment',
+								'Professional Development',
+								'Training',
+								'Compensation',
+								'Diversity and Conciliation',
+								'Health and Wellness',
+								'Processes and Methodology',
+								'Work Tools',
+								'Committees and Meetings',
+								'Recognitions'
+							]
+						},
+						{
+							label: 'Country or area',
+							options: [
+								'All',
+								'Spain',
+								'USA',
+								'Mexico',
+								'Turquía',
+								'Colombia',
+								'Paraguay',
+								'Uruguay',
+								'Argentina',
+								'Perú',
+								'Venezuela',
+								'CIB',
+								'Engineering',
+								'Customer Solutions',
+								'Centro Corporativo'
+							]
+						}
+					],
+					resetFilters: 'Reset filters',
+					results: 'Show results'
+				}
+			},
+			contextVars = contextLangs[ getLang() ],
+
+			$globalSearch		= $('#globalSearch'),
+			$nameInitiative		= $('#nameInitiativeSearch'),
+			$description		= $('#descriptionSearch'),
+			$searchersContainer = $('.js-search'),
+			$searchers 			= $searchersContainer.find('input'),
+
+			$goal 				= $('#goalSelector'),
+			$status 			= $('#statusSelector'),
+            $category 			= $('#categorySelector'),
+            $country 			= $('#countrySelector'),
+			$selectsContainer	= $('.js-select'),
+			$selects 			= $selectsContainer.find('select');
+
+
+		setContextVars();
+        setDefaultFields();
+
+        function getParam(p){
+            var url = getUrl().split('?');
+            if (url.length > 1) {
+                var params = url[1].split('&');
+                for (var i=0; i<params.length; i++) {
+                    if (params[i].split('=')[0] == p) {
+						return decodeURIComponent( params[i].split('=')[1].split('+').join(' ') );
+					}
+                }
+            }
+            return '';
+        }
+
+        function setIndex(value, $select) {
+			var options 		= $.makeArray( $select.find('option') ),
+				optionValues 	= $.map(options, function(option) {
+					return option.value;
+				}),
+				index = optionValues.indexOf(value);
+
+            $select.prop('selectedIndex', index > 0 ? index : 0);
+        }
+
+		function setDefaultFields() {
+            var globalSearch	= getParam('globalSearch'),
+				nameInitiative	= getParam('nameInitiative'),
+				description		= getParam('description'),
+
+				goal 			= getParam('goal'),
+                status 			= getParam('status'),
+                category 		= getParam('category'),
+                country 		= getParam('country');
+
+			$globalSearch.val(globalSearch);
+			$nameInitiative.val(nameInitiative);
+			$description.val(description);
+            setIndex(goal, $goal);
+            setIndex(status, $status);
+            setIndex(category, $category);
+            setIndex(country, $country);
+        }
+
+		function removeEmptyParams(params) {
+			Object.keys(params).forEach( function(key) {
+				var param = params[key];
+				if (param == 0 || (!$.isNumeric(param) && !param.length) ) {
+					delete params[key];
+				}
+			});
+		}
+
+		function setContextVars() {
+			var searchersLabels = contextVars.searchersLabels,
+				selectsVars 	= contextVars.selects,
+				select,
+				html;
+
+			$('.js-title').text(contextVars.title);
+
+			$searchersContainer.find('label').each(function(index) {
+				$(this).text(searchersLabels[ index ]);
+			});
+
+			$selectsContainer.each(function(index) {
+				select = selectsVars[index];
+				$(this).find('label').text( select.label );
+				select.options.forEach(function(option, optIndex) {
+					if (optIndex === 0) {
+						return html = '<option default value="0">'+ option +'</option>';
+					}
+					html += '<option>'+ option +'</option>';
+				});
+				$(this).find('select').html( html );
+			});
+
+			$('.js-reset').text(contextVars.resetFilters);
+			$('.js-go').text(contextVars.results);
+		}
+
+		function getLang() {
+			//return prefs.getString('lang');
+			return 'en';
+		}
+
+		function getUrl() {
+			//return document.referrer;
+			return location.href;
+		}
+
+		function ResetFilters() {
+			$searchers.val('');
+			$selects.prop('selectedIndex', 0);
+			$selects.selectmenu('refresh');
+		}
+
+        function Go() {
+            var params = {
+					globalSearch	: $globalSearch.val(),
+					nameInitiative	: $nameInitiative.val(),
+					description		: $description.val(),
+					goal 			: $goal.val(),
+					status 			: $status.val(),
+					category 		: $category.val(),
+					country 		: $country.val()
+				},
+            	url = getUrl().split('?')[0] + '?';
+
+			removeEmptyParams(params);
+
+			url += $.param(params);
+
+			window.open(url, '_parent');
+            return false;
+        }
+
+        $selects.selectmenu({width: 200});
+
+    </script>
+
+</html>

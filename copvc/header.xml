@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+    <ModulePrefs title="COPVC-header.xml" height="250">
+        <Require feature="idi"/>
+        <Require feature="locked-domain" />
+        <Require feature="dynamic-height"/>
+        <Require feature="setprefs" />
+    </ModulePrefs>
+    <UserPref name="title" display_name="title" required="true" />
+    <UserPref name="subtitle" display_name="subtitle" required="true" />
+    <Content type="html">
+        <![CDATA[
+        <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+        <style type="text/css">
+		    @font-face {
+		        font-family: 'BBVA Web Book';
+		        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
+		        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+		        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
+		        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
+		        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+		        font-style: normal;
+		        font-weight: normal;
+		    }
+		    .title-container {
+				padding: 50px 0;
+				text-align: center;
+		    }
+		    .subtitle-container {
+				background-color: #00487F;
+				padding: 30px;
+		    }
+			.title, .subtitle {
+				font-family:"BBVA Web Book", arial, sans-serif;
+				margin: 0;
+			}
+		    .title {
+		        color: #00487F;
+				font-weight: lighter;
+				font-size: 40px;
+		    }
+		    .title-bar {
+				width: 80px;
+				margin-top: 15px;
+				border: 5px solid #00487F;
+				border-top: 0;
+		    }
+			.subtitle {
+		        color: #FFF;
+                font-size: 15px;
+				font-weight: bold;
+			}
+		</style>
+
+        <div>
+            <div class="title-container">
+		        <h1 id="title" class="title"></h1>
+				<hr class="title-bar" />
+		    </div>
+		    <div class="subtitle-container">
+		        <span id="subtitle" class="subtitle"></span>
+		    </div>
+        </div>
+
+        <script type="text/javascript">
+
+            var prefs = new gadgets.Prefs();
+
+            document.getElementById("title").innerHTML      = prefs.getString('title');
+            document.getElementById("subtitle").innerHTML   = prefs.getString('subtitle');
+
+        </script>
+
+        ]]>
+    </Content>
+
+    <Content type="html" view="configuration">
+
+        <![CDATA[
+
+        <style type="text/css">
+
+            table td {
+                color: #000;
+                font-size: 11px;
+                font-weight: bold;
+            }
+
+        </style>
+
+        <table width="100%" border="0" id="tablaconfig">
+            <tr>
+                <td>
+                    Title: <input type="text" id="title" value="__UP_title__"   onchange="register('title')"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subtitle: <input type="text" id="subtitle" value="__UP_subtitle__"   onchange="register('subtitle')"/>
+                </td>
+            </tr>
+        </table>
+
+        <script type="text/javascript">
+
+            var prefs = new gadgets.Prefs();
+            function register(variable) {
+            prefs.set(variable, document.getElementById(variable).value);
+            }
+
+            gadgets.window.adjustHeight();
+
+        </script>
+
+        ]]>
+    </Content>
+
+</Module>

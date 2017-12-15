@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<style type="text/css">
+			@font-face {
+				font-family: 'BBVA Web Book';
+				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
+				src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
+				url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+				font-style: normal;
+				font-weight: normal;
+			}
+		    .footer {
+				background-color: #00487F;
+				padding: 30px;
+		    }
+			.footer__text {
+				font-family:"BBVA Web Book", arial, sans-serif;
+			    font-size: 15px;
+				color: #FFF;
+			}
+			.footer__link, .footer__link:visited {
+				color: #C1DFEA;
+			}
+		</style>
+	</head>
+
+	<div class="footer">
+		<span id="text" class="footer__text"></span>
+	</div>
+
+	<script type="text/javascript">
+
+		var text        = 'lorem ipsum cogito ergo sum',
+			linkText    = 'click',
+			linkHref    = 'https://docs.google.com/spreadsheets/d/1x6jqj87_YNN0IV36f8O1qt2sn_-hM8lXPWvNrklE0kI';
+
+		if (!linkHref || !linkHref.length) {
+			linkHref = '#';
+		}
+
+		document.getElementById("text").innerHTML =  text + ' <a href="#" onclick="javascript:OpenLink(\''+ linkHref +'\');" id="link" class="footer__link">'+ linkText +'</a>';
+
+		function OpenLink(link) {
+			window.open(link,'_new');
+			return false;
+		}
+
+	</script>
+</html>

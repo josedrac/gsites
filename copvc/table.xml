@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="COPVC-table.xml">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+  <UserPref name="spreadsheet_key" default_value="" display_name="Spreadsheet key" required="true" />
+  <UserPref name="lang" display_name="Language (es|en)" default_value="es" datatype="enum" >
+    <EnumValue value="es" />
+    <EnumValue value="en" />
+  </UserPref>
+  <Content type="html">
+    <![CDATA[
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+
+    <style type="text/css">
+
+        .container-table {
+            width: 100%;
+        }
+
+        #tableHeader {
+            margin-top: 10px;
+        }
+
+        .headerImg {
+            margin-top: 10px;
+            margin: 10px 3px 0;
+        }
+
+		.table-container {
+			max-height: 800px;
+			overflow-y: auto;
+		}
+
+        .table {
+            font-family: arial, sans-serif;
+        }
+
+        .table__header-col {
+			width: 8%;
+            height: 85px;
+			border: 1px solid #E5E5E5;
+            border-left: 0;
+			background: #0079C1;
+			background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+			background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+			background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+			background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+        }
+		.table__header-col:last-child {
+			border-right: 0;
+		}
+		.table__header-col_large {
+			width: 20%;
+		}
+		.table__header-col_small {
+			width: 1%;
+		}
+
+		.table__header-text {
+            margin-top: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            color: #FFF;
+        }
+
+        .firstcol {
+            width: 36% !important;
+            border-left: 0;
+        }
+
+        .firstcol img {
+            display: none;
+        }
+
+		.table__row {
+			clear: both;
+			font-size: 12px;
+			width: 100%;
+			border-bottom: 1px solid #E5E5E5;
+			overflow: hidden;
+		}
+		.table__row_implemented {
+			background-color: lightgreen;
+		}
+		.table__row_planified {
+			background-color: lightblue;
+		}
+		.table__row_executing {
+			background-color: lightyellow;
+		}
+
+        .table__cell {
+            color: #434a58;
+			padding: 10px;
+            border-bottom: 1px solid #E5E5E5;
+            text-align: center;
+        }
+
+		.table__cell-text {
+			line-height: 15px;
+			vertical-align: middle;
+			display: table-cell;
+			text-align: left;
+		}
+
+        .rowTitle {
+            clear: both;
+            width: 100%;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 13px;
+            color: #434a58;
+            margin-bottom: 5px;
+        }
+
+        .rowTitle td{
+            padding-top: 20px;
+        }
+
+        span.click {
+            color: #0078d2;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .controls {
+            text-align: right;
+            max-width: 969px;
+            padding: 0 10px 5px 0;
+        }
+
+        .empty-results {
+            font-family: arial, sans-serif;
+        }
+    </style>
+
+    <div class="table-container">
+        <table id="initiatives_table" class="table" cellspacing="0">
+            <thead id="initiatives_table_header" class="table__header">
+
+            </thead>
+
+            <tbody  id="initiatives_table_body" class="table__body">
+
+            </tbody>
+        </table>
+
+		<div id='pagination' class="pagination" style='margin: auto;'></div>
+    </div>
+
+	<div id="empty_results" class="empty-results"></div>
+
+    <script type="text/javascript">
+        var prefs = new _IG_Prefs(),
+			contextLangs = {
+				es: {
+					tableColsHeaders: [
+						'País',
+						'Nombre',
+						'Descripción',
+						'Objetivo',
+						'Categoría',
+						'Estado',
+						'Enlace al repositorio'
+					],
+					sheetId: '361022424',
+					implemented: 'Implementada',
+					planned: 'Planificada',
+					inExecution: 'En ejecución'
+				},
+				en: {
+					tableColsHeaders: [
+						'Country',
+						'Name',
+						'Description',
+						'Goal',
+						'Category',
+						'Status',
+						'Link to the Repository'
+					],
+					sheetId: '2113943508',
+					implemented: 'Implemented',
+					planned: 'Planned',
+					inExecution: 'In execution'
+				}
+			},
+			contextVars = contextLangs[ getLang() ],
+			params = {
+				globalSearch: {	},
+				nameInitiative: {
+					col: 'D'
+				},
+				description: {
+					col: 'E'
+				},
+				goal: {
+					col: 'B'
+				},
+				status: {
+					col: 'H'
+				},
+				category: {
+					col: 'C'
+				},
+				country: {
+					col: 'P'
+				}
+			},
+			tableCols = [
+				{
+					class: 'table__header-col_small',
+					sheetIndex: 15
+				},
+				{
+					sheetIndex: 3
+				},
+				{
+					class: 'table__header-col_large',
+					sheetIndex: 4
+				},
+				{
+					sheetIndex: 1
+				},
+				{
+					sheetIndex: 2
+				},
+				{
+					sheetIndex: 7
+				},
+				{
+					sheetIndex: 8
+				}
+			],
+			gadgetHelper = null;
+
+		setContextVars();
+		initFilterParams();
+		loadVisualizationAPI();
+
+
+	 	function loadVisualizationAPI() {
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
+
+        function pagination(elements) {
+	        $('#pagination').smartpaginator({
+		        totalrecords: elements,
+		        recordsperpage: 4,
+		        length: 4,
+		        datacontainer: 'paginas',
+		        dataelement: 'div.comboVideo',
+		        initval: 0,
+	        });
+	    }
+
+		function getGlobalSearchConditions(param) {
+			var words 	= param.value.split(' '),
+				cols 	= 'BCDEFGHIPQRST'.split(''),
+				filter 	= '';
+
+			cols.forEach(function(col, index) {
+				if (index !== 0) { filter += ' OR '; }
+				filter += '(';
+
+				words.forEach(function(word, wordIndex) {
+					if (wordIndex !== 0) { filter += ' AND '; }
+					filter += '(lower('+ col +') contains lower("' + word + '"))';
+				});
+
+				filter += ')';
+			});
+			return ' AND ('+ filter +')';
+		}
+
+        function getQueryParameters() {
+     		var filter 	= 'select * where C IS NOT NULL';
+
+     		if (isSearchDone()) {
+				Object.keys(params).forEach(function(key) {
+					var param = params[key];
+					if (param.value) {
+						if (key === 'globalSearch') {
+							filter += getGlobalSearchConditions(param);
+							return;
+						}
+						filter += ' AND (lower('+ param.col +') contains lower("' + param.value + '"))';
+					}
+                });
+ 			}
+			return encodeURIComponent(filter);
+     	}
+
+        function sendQuery() {
+
+            var queryUrl = 'https://spreadsheets.google.com/tq?key=' + getSpreadsheetKey() + '&gid=' + contextVars.sheetId + '&tq=' + getQueryParameters(),
+				query = new google.visualization.Query(queryUrl);
+
+            query.send(handleQueryResponse);
+			gadgetHelper = new google.visualization.GadgetHelper();
+
+        }
+
+        function handleQueryResponse(response) {
+			data = response.getDataTable();
+			if (data) {
+				createHeader();
+				createBody(data);
+				gadgets.window.adjustHeight();
+			}
+        }
+
+        function createHeader() {
+            var html = '',
+				classCss;
+
+			if (data.getNumberOfRows()) {
+				tableCols.forEach(function(item, index) {
+					classCss = item.class ? item.class : '';
+					html += '<th class="table__header-col '+ classCss +'">' +
+					'	<span class="table__header-text">'+ item.header +'</span>' +
+					'</th>';
+				});
+				$('#initiatives_table_header').html(html);
+				return;
+			}
+
+			html += '<span class="empty-results__text">No se han encontrado resultados para los filtros seleccionados.</span>';
+			$('#empty_results').html(html);
+
+        }
+
+		function createBody(data) {
+			var numberOfRows = data.getNumberOfRows(),
+				statusIndex = tableCols[5].sheetIndex,
+				cssClass = '',
+				html = '';
+
+			for (var i = 0; i < numberOfRows; i++) {
+				cssClass = getStatusCssClass( data.getValue(i, statusIndex) );
+				html += '<tr class="table__row '+ cssClass +'">';
+
+				tableCols.forEach(function(col) {
+					var value = data.getValue(i, col.sheetIndex) || '-';
+
+					if (col.header === 'Enlace al repositorio' && value !== '-') {
+						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">Enlace</a></td>';
+						return;
+					}
+					html +=	'<td class="table__cell"><span class="table__cell-text">'+ value +'</span></td>';
+				});
+
+				html += '</tr>';
+			}
+
+			$('#initiatives_table_body').html(html);
+		}
+
+		function getStatusCssClass(value) {
+			if (value === contextVars.implemented) { return 'table__row_implemented' }
+			if (value === contextVars.planned) 	{ return 'table__row_planified' }
+			if (value === contextVars.inExecution) { return 'table__row_executing' }
+			return '';
+		}
+
+		function setContextVars() {
+			contextVars.tableColsHeaders.forEach(function(headerText, index) {
+				tableCols[index].header = headerText;
+			});
+		}
+
+		function getLang() {
+			return prefs.getString('lang');
+		}
+
+		function getUrl() {
+			return document.referrer;
+		}
+
+		function getSpreadsheetKey() {
+	        return prefs.getString('spreadsheet_key');
+		}
+
+        function isSearchDone() {
+            return getUrl().split("=").length >= 2;
+        }
+
+        function initFilterParams() {
+            var urlParam,
+				url = getUrl().split('?'),
+                listParams = url.length > 1 ? url[1].split('&') : [];
+
+            listParams.forEach(function(item) {
+                urlParam = decodeURIComponent(item).split('+').join(' ').trim().split('=');
+				if (urlParam.length > 1 && params.hasOwnProperty( urlParam[0] )){
+					params[ urlParam[0] ].value = urlParam[1];
+				}
+            });
+        }
+
+		function OpenLink(link) {
+			window.open(link,'_new');
+            return false;
+		}
+
+    </script>
+    ]]>
+  </Content>
+
+</Module>
