@@ -7,6 +7,10 @@
 	<Require feature="setprefs" />
   </ModulePrefs>
   <UserPref name="spreadsheet_key" default_value="" display_name="Spreadsheet key" required="true" />
+  <UserPref name="lang" display_name="Language (es|en)" default_value="es" datatype="enum" >
+    <EnumValue value="es" />
+    <EnumValue value="en" />
+  </UserPref>
   <Content type="html">
     <![CDATA[
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
@@ -158,7 +162,41 @@
 	<div id="empty_results" class="empty-results"></div>
 
     <script type="text/javascript">
-        var params = {
+        var prefs = new _IG_Prefs(),
+			contextLangs = {
+				es: {
+					tableColsHeaders: [
+						'País',
+						'Nombre',
+						'Descripción',
+						'Objetivo',
+						'Categoría',
+						'Estado',
+						'Enlace al repositorio'
+					],
+					sheetId: '361022424',
+					implemented: 'Implementada',
+					planned: 'Planificada',
+					inExecution: 'En ejecución'
+				},
+				en: {
+					tableColsHeaders: [
+						'Country',
+						'Name',
+						'Description',
+						'Goal',
+						'Category',
+						'Status',
+						'Link to the Repository'
+					],
+					sheetId: '2113943508',
+					implemented: 'Implemented',
+					planned: 'Planned',
+					inExecution: 'In execution'
+				}
+			},
+			contextVars = contextLangs[ getLang() ],
+			params = {
 				globalSearch: {	},
 				nameInitiative: {
 					col: 'D'
@@ -181,40 +219,32 @@
 			},
 			tableCols = [
 				{
-					header: 'País',
 					class: 'table__header-col_small',
 					sheetIndex: 15
 				},
 				{
-					header: 'Nombre',
 					sheetIndex: 3
 				},
 				{
-					header: 'Descripción',
 					class: 'table__header-col_large',
 					sheetIndex: 4
 				},
 				{
-					header: 'Objetivo',
 					sheetIndex: 1
 				},
 				{
-					header: 'Categoría',
 					sheetIndex: 2
 				},
 				{
-					header: 'Estado',
 					sheetIndex: 7
 				},
 				{
-					header: 'Enlace al repositorio',
 					sheetIndex: 8
 				}
 			],
-			gadgetHelper = null,
-			prefs = new _IG_Prefs();
+			gadgetHelper = null;
 
-
+		setContextVars();
 		initFilterParams();
 		loadVisualizationAPI();
 
@@ -274,7 +304,7 @@
 
         function sendQuery() {
 
-            var queryUrl = 'https://spreadsheets.google.com/tq?key=' + getSpreadsheetKey() + '&sheet=Catálogo&tq=' + getQueryParameters(),
+            var queryUrl = 'https://spreadsheets.google.com/tq?key=' + getSpreadsheetKey() + '&gid=' + contextVars.sheetId + '&tq=' + getQueryParameters(),
 				query = new google.visualization.Query(queryUrl);
 
             query.send(handleQueryResponse);
@@ -338,15 +368,24 @@
 		}
 
 		function getStatusCssClass(value) {
-			if (value === 'Implementada / Implemented') { return 'table__row_implemented' }
-			if (value === 'Planificada / Planned') { return 'table__row_planified' }
-			if (value === 'En ejecución / In execution') { return 'table__row_executing' }
+			if (value === contextVars.implemented) { return 'table__row_implemented' }
+			if (value === contextVars.planned) 	{ return 'table__row_planified' }
+			if (value === contextVars.inExecution) { return 'table__row_executing' }
 			return '';
+		}
+
+		function setContextVars() {
+			contextVars.tableColsHeaders.forEach(function(headerText, index) {
+				tableCols[index].header = headerText;
+			});
+		}
+
+		function getLang() {
+			return prefs.getString('lang');
 		}
 
 		function getUrl() {
 			return document.referrer;
-			//return location.href;
 		}
 
 		function getSpreadsheetKey() {
