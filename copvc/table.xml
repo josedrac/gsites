@@ -359,7 +359,8 @@
 
         function initFilterParams() {
             var urlParam,
-                listParams = getUrl().split('?')[1].split('&');
+				url = getUrl().split('?'),
+                listParams = url.length > 1 ? url[1].split('&') : [];
 
             listParams.forEach(function(item) {
                 urlParam = decodeURIComponent(item).split('+').join(' ').trim().split('=');
