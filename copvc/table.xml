@@ -341,9 +341,10 @@
 
         }
 
-		function createBody(data) {
+        function createBody(data) {
 			var numberOfRows = data.getNumberOfRows(),
 				statusIndex = tableCols[5].sheetIndex,
+				linkHeader = tableCols[6].header,
 				cssClass = '',
 				html = '';
 
@@ -354,7 +355,7 @@
 				tableCols.forEach(function(col) {
 					var value = data.getValue(i, col.sheetIndex) || '-';
 
-					if (col.header === 'Enlace al repositorio' && value !== '-') {
+					if (col.header === linkHeader && value !== '-') {
 						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">Enlace</a></td>';
 						return;
 					}
