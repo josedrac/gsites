@@ -1,57 +1,118 @@
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<style type="text/css">
-		    @font-face {
-		        font-family: 'BBVA Web Book';
-		        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
-		        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-		        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
-		        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
-		        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-		        font-style: normal;
-		        font-weight: normal;
-		    }
-		    .title-container {
-				padding: 50px 0;
-				text-align: center;
-		    }
-		    .subtitle-container {
-				background-color: #00487F;
-				padding: 30px;
-		    }
-			.title, .subtitle {
-				font-family:"BBVA Web Book", arial, sans-serif;
-				margin: 0;
-			}
-		    .title {
-		        color: #00487F;
-				font-weight: lighter;
-				font-size: 40px;
-		    }
-		    .title-bar {
-				width: 75px;
-				margin-top: 15px;
-				border: 6px solid #00487F;
-				border-top: 0;
-		    }
-			.subtitle {
-		        color: #FFF;
-			    font-size: 15px;
-				font-weight: bold;
-			}
-		</style>
-	</head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style type="text/css">
+	    @font-face {
+	        font-family: 'BBVA Web Book';
+	        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
+	        src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+	        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
+	        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
+	        url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+	        font-style: normal;
+	        font-weight: normal;
+	    }
+	    .title-container {
+			padding: 50px 0;
+			text-align: center;
+	    }
+	    .subtitle-container {
+			background-color: #00487F;
+			padding: 30px;
+	    }
+		.title, .subtitle {
+			font-family: "BBVA Web Book", arial, sans-serif;
+			margin: 0;
+		}
+	    .title {
+	        color: #00487F;
+			font-weight: lighter;
+			font-size: 40px;
+	    }
+	    .title-bar {
+			width: 75px;
+			margin-top: 15px;
+			border: 6px solid #00487F;
+			border-top: 0;
+	    }
+		.subtitle {
+	        color: #FFF;
+		    font-size: 15px;
+			font-weight: bold;
+		}
+		.link-container {
+			text-align: right;
+			padding: 0 20px;
+		}
+		.link {
+			text-decoration: none;
+			display: inline-block;
+		}
+		.link_spaced {
+			margin-right: 20px;
+		}
+		.link__text,
+		.link__icon {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.link__text {
+			color: #686E70;
+			font-family: "BBVA Web Book", arial, sans-serif;
+		}
+		.link__icon {
+			position: relative;
+			padding-left: 5px;
+		}
+		.link__icon:after, .link__icon:before {
+			border: solid transparent;
+			content: " ";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+		}
 
-	<body>
-		<div height="250">
-		    <div class="title-container">
-		        <h1 id="title" class="title">Buscar iniciativas</h1>
-				<hr class="title-bar" />
-		    </div>
-		    <div class="subtitle-container">
-		        <span id="subtitle" class="subtitle">Inspírate o investiga sobre las iniciativas llevadas a cabo en otros países y áreas</span>
-		    </div>
+		.link__icon:after {
+			border-top-color: white;
+			border-width: 3px;
+			margin-left: 3px;
+		}
+		.link__icon:before {
+			border-color: transparent;
+			border-top-color: #686E70;
+			border-width: 6px;
+			margin-left: 0px;
+		}
+	</style>
+
+	<div height="250">
+		<div class="link-container">
+			<a href="#" class="link link_spaced" onclick="javascript:OpenLink('https://sites.google.com/a/bbva.com/copvc_es/')">
+				<span class="link__text">Español</span>
+				<span class="link__icon"></span>
+			</a>
+			<a href="#" class="link" onclick="javascript:OpenLink('https://sites.google.com/a/bbva.com/copvc_en/')">
+				<span class="link__text">English</span>
+				<span class="link__icon"></span>
+			</a>
 		</div>
-	</body>
+
+	    <div class="title-container">
+	        <h1 id="title" class="title">Buscar iniciativas</h1>
+			<hr class="title-bar" />
+	    </div>
+
+	    <div class="subtitle-container">
+	        <span id="subtitle" class="subtitle">Inspírate o investiga sobre las iniciativas llevadas a cabo en otros países y áreas</span>
+	    </div>
+	</div>
+
+	<script type="text/javascript">
+
+		function OpenLink(url) {
+			window.open(url, '_parent');
+            return false;
+		}
+
+	</script>
 </html>
