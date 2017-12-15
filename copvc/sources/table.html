@@ -165,7 +165,7 @@
 				category: {
 					col: 'C'
 				},
-				valueRelated: {
+				country: {
 					col: 'F'
 				}
 			},
@@ -354,7 +354,7 @@
 
             listParams.forEach(function(item) {
                 urlParam = decodeURIComponent(item).split('+').join(' ').trim().split('=');
-				if (item.length > 1){
+				if (urlParam.length > 1 && params.hasOwnProperty( urlParam[0] )){
 					params[ urlParam[0] ].value = urlParam[1];
 				}
             });
