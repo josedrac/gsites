@@ -5,6 +5,10 @@
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
 	</ModulePrefs>
+	<UserPref name="lang" display_name="Language (es|en)" default_value="es" datatype="enum" >
+	  <EnumValue value="es" />
+	  <EnumValue value="en" />
+	</UserPref>
 
 	<Content type="html">
 	<![CDATA[
