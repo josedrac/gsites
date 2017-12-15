@@ -175,8 +175,8 @@
 				category: {
 					col: 'C'
 				},
-				valueRelated: {
-					col: 'F'
+				country: {
+					col: 'P'
 				}
 			},
 			tableCols = [
