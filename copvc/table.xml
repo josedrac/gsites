@@ -159,20 +159,6 @@
 		<div id='pagination' class="pagination" style='margin: auto;'></div>
     </div>
 
-    <div class="table-container">
-        <table id="initiatives_table" class="table" cellspacing="0">
-            <thead id="initiatives_table_header" class="table__header">
-
-            </thead>
-
-            <tbody  id="initiatives_table_body" class="table__body">
-
-            </tbody>
-        </table>
-
-		<div id='pagination' class="pagination" style='margin: auto;'></div>
-    </div>
-
 	<div id="empty_results" class="empty-results"></div>
 
     <script type="text/javascript">
