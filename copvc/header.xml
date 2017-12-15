@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-    <ModulePrefs title="COPVC-header.xml" height="250">
+    <ModulePrefs title="COPVC-header.xml" height="280">
         <Require feature="idi"/>
         <Require feature="locked-domain" />
         <Require feature="dynamic-height"/>
