@@ -159,6 +159,20 @@
 		<div id='pagination' class="pagination" style='margin: auto;'></div>
     </div>
 
+    <div class="table-container">
+        <table id="initiatives_table" class="table" cellspacing="0">
+            <thead id="initiatives_table_header" class="table__header">
+
+            </thead>
+
+            <tbody  id="initiatives_table_body" class="table__body">
+
+            </tbody>
+        </table>
+
+		<div id='pagination' class="pagination" style='margin: auto;'></div>
+    </div>
+
 	<div id="empty_results" class="empty-results"></div>
 
     <script type="text/javascript">
@@ -177,7 +191,9 @@
 					sheetId: '361022424',
 					implemented: 'Implementada',
 					planned: 'Planificada',
-					inExecution: 'En ejecución'
+					inExecution: 'En ejecución',
+					linkText: 'Enlace',
+					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
 				},
 				en: {
 					tableColsHeaders: [
@@ -192,7 +208,9 @@
 					sheetId: '2113943508',
 					implemented: 'Implemented',
 					planned: 'Planned',
-					inExecution: 'In execution'
+					inExecution: 'In execution',
+					linkText: 'Link',
+					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
 				}
 			},
 			contextVars = contextLangs[ getLang() ],
@@ -336,12 +354,12 @@
 				return;
 			}
 
-			html += '<span class="empty-results__text">No se han encontrado resultados para los filtros seleccionados.</span>';
+			html += '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
 			$('#empty_results').html(html);
 
         }
 
-        function createBody(data) {
+		function createBody(data) {
 			var numberOfRows = data.getNumberOfRows(),
 				statusIndex = tableCols[5].sheetIndex,
 				linkHeader = tableCols[6].header,
@@ -356,7 +374,7 @@
 					var value = data.getValue(i, col.sheetIndex) || '-';
 
 					if (col.header === linkHeader && value !== '-') {
-						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">Enlace</a></td>';
+						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">'+ contextVars.linkText +'</a></td>';
 						return;
 					}
 					html +=	'<td class="table__cell"><span class="table__cell-text">'+ value +'</span></td>';

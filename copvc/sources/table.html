@@ -163,7 +163,9 @@
 					sheetId: '361022424',
 					implemented: 'Implementada',
 					planned: 'Planificada',
-					inExecution: 'En ejecución'
+					inExecution: 'En ejecución',
+					linkText: 'Enlace',
+					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
 				},
 				en: {
 					tableColsHeaders: [
@@ -178,7 +180,9 @@
 					sheetId: '2113943508',
 					implemented: 'Implemented',
 					planned: 'Planned',
-					inExecution: 'In execution'
+					inExecution: 'In execution',
+					linkText: 'Link',
+					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
 				}
 			},
 			contextVars = contextLangs[ getLang() ],
@@ -322,7 +326,7 @@
 				return;
 			}
 
-			html += '<span class="empty-results__text">No se han encontrado resultados para los filtros seleccionados.</span>';
+			html += '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
 			$('#empty_results').html(html);
 
         }
@@ -342,7 +346,7 @@
 					var value = data.getValue(i, col.sheetIndex) || '-';
 
 					if (col.header === linkHeader && value !== '-') {
-						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">Enlace</a></td>';
+						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">'+ contextVars.linkText +'</a></td>';
 						return;
 					}
 					html +=	'<td class="table__cell"><span class="table__cell-text">'+ value +'</span></td>';
