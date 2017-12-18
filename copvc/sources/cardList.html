@@ -28,8 +28,14 @@
 
 		.card {
 			font-size: 14px;
+			padding: 20px 0;
 			border-bottom: 1px solid #E5E5E5;
 		}
+		.card:nth-child(4n),
+		.card:last-child {
+			border-bottom: 0;
+		}
+
 		.implemented {
 			background-color: lightgreen;
 		}
@@ -38,10 +44,6 @@
 		}
 		.executing {
 			background-color: lightyellow;
-		}
-
-		.card {
-			padding: 20px 0;
 		}
 
 		.card__content {
@@ -77,26 +79,90 @@
 
 		}
 
-        span.click {
-            color: #0078d2;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .controls {
-            text-align: right;
-            max-width: 969px;
-            padding: 0 10px 5px 0;
-        }
-
         .empty-results {
             font-family: arial, sans-serif;
         }
+
+		span.click {
+			color: #0078d2;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.controls {
+			text-align: right;
+			max-width: 969px;
+			padding: 0 10px 5px 0;
+		}
+
+		.pager {
+		    height: 30px;
+		    text-align: center;
+		    width: 175px;
+		    display: table;
+		}
+		.pager ul {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    text-aling: center;
+		    display: table-cell;
+		    vertical-align: middle;
+		}
+		.pager ul li {
+		    display: inline;
+		    margin-left: 2px;
+		}
+		.pager ul li a {
+		    text-decoration: none;
+		    font-weight: bold;
+		    display: inline-table;
+		    width: 20px;
+		    height: 18px;
+		    text-align: center;
+		    border-radius: 4px;
+		    -moz-border-radius: 4px;
+		}
+		.pager span {
+		    margin-left: 4px;
+		    color: White;
+		    float: left;
+		}
+		.pager .btn {
+		    width: 40px;
+		    text-align: center;
+		    display: table-cell;
+		    vertical-align: middle;
+		    cursor: pointer;
+		}
+		.pager .disabled {
+		    color: #A0A0A0 !important;
+		    text-shadow: 1px 1px 1px #FFFFFF;
+		}
+		.black.normal {
+		    background-color: #FFFFFF;
+		    color: #0072C9;
+		    border: solid 1px #d2e5eb;
+		}
+		.black.active {
+		    background-color: #0072C9;
+		    color: #FFFFFF;
+		    border: solid 1px #0072C9;
+		}
+		.checkpage img,
+		.checkpage1 img,
+		.bloqueAnterior img,
+		.bloqueSiguiente img{
+			border: 0;
+		}
+		button{
+			background: #0079C1;
+		}
     </style>
 
 	<div class="cards">
 
-	    <ul id="cardsList" class="cards__list"></ul>
+	    <div id="cardsList" class="cards__list"></div>
 
 		<div id='pagination' class="pagination" style='margin: auto;'></div>
 
@@ -189,8 +255,8 @@
 		        totalrecords: elements,
 		        recordsperpage: 4,
 		        length: 4,
-		        datacontainer: 'paginas',
-		        dataelement: 'div.comboVideo',
+		        datacontainer: 'cardsList',
+		        dataelement: '.card',
 		        initval: 0,
 	        });
 	    }
@@ -267,7 +333,7 @@
 				status = data.getValue(rowIndex, colIndex.status);
 				cssClass = getStatusCssClass( status );
 
-				html += '<li class="card">' +
+				html += '<div class="card">' +
 						'	<div class="card__content '+ cssClass +'">' +
 						'		<label class="card__name">'+ data.getValue(rowIndex, colIndex.name) +'</label>' +
 						'		<span class="card__country">'+ data.getValue(rowIndex, colIndex.country) +'</span>' +
@@ -281,10 +347,12 @@
 					html += '	<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ data.getValue(rowIndex, colIndex.link) +'\')">'+ linkText +'</a>';
 				}
 				html +=	'	</div>' +
-						'</li>';
+						'</div>';
 			}
 
 			$('#cardsList').html(html);
+
+			if (numberOfRows) {	pagination(numberOfRows); }
 		}
 
 		function getStatusCssClass(value) {
