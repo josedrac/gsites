@@ -62,6 +62,17 @@
 			right: 20px;
 		}
 
+		.card__description {
+			display: block;
+			/* Fallback for non-webkit */
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			height: 47px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+
 		.card__properties {
 			padding-left: 15px;
     		list-style: disc;
@@ -77,6 +88,11 @@
 		}
 		.card__property-value {
 
+		}
+
+		.card__link {
+			display: inline-block;
+			height: 15px;
 		}
 
         .empty-results {
@@ -98,7 +114,6 @@
 		.pager {
 		    height: 30px;
 		    text-align: center;
-		    width: 175px;
 		    display: table;
 		}
 		.pager ul {
@@ -345,6 +360,9 @@
 						'		</ul>';
 				if (status) {
 					html += '	<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ data.getValue(rowIndex, colIndex.link) +'\')">'+ linkText +'</a>';
+				}
+				else {
+					html += '	<a href="#" class="card__link"></a>';
 				}
 				html +=	'	</div>' +
 						'</div>';
