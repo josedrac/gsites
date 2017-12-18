@@ -370,7 +370,13 @@
 
 			$('#cardsList').html(html);
 
-			if (numberOfRows) {	pagination(numberOfRows); }
+			if (numberOfRows) {
+				pagination(numberOfRows);
+				return;
+			}
+
+			html += '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
+			$('#empty_results').html(html);
 		}
 
 		function getStatusCssClass(value) {
