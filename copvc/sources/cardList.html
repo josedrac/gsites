@@ -16,6 +16,10 @@
 			font-weight: normal;
 		}
 
+		.hidden {
+			display: none;
+		}
+
         .cards {
             width: 100%;
         }
@@ -175,15 +179,16 @@
 		}
     </style>
 
-	<div class="cards">
+	<div class="cards hidden">
 
 	    <div id="cardsList" class="cards__list"></div>
 
 		<div id='pagination' class="pagination" style='margin: auto;'></div>
 
+		<div id="empty_results" class="empty-results"></div>
+
 	</div>
 
-	<div id="empty_results" class="empty-results"></div>
 
     <script type="text/javascript">
         var //prefs = new _IG_Prefs(),
@@ -407,13 +412,22 @@
 
         function initFilterParams() {
             var urlParam,
+				key,
+				value,
 				url = getUrl().split('?'),
                 listParams = url.length > 1 ? url[1].split('&') : [];
 
             listParams.forEach(function(item) {
                 urlParam = decodeURIComponent(item).split('+').join(' ').trim().split('=');
-				if (urlParam.length > 1 && params.hasOwnProperty( urlParam[0] )){
-					params[ urlParam[0] ].value = urlParam[1];
+				if (urlParam.length < 2) { return; }
+
+				key = urlParam[0];
+				value = urlParam[1];
+				if (params.hasOwnProperty( key )){
+					params[ key ].value = value;
+				}
+				if (key === 'showCardList' && value === 'true') {
+					$('.cards').removeClass('hidden');
 				}
             });
         }
