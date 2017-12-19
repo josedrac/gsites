@@ -2,6 +2,10 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
 
 	<style type="text/css">
+		.hidden {
+			display: none;
+		}
+
 		.btn-container {
 			padding: 20px 60px;
 			text-align: right;
@@ -234,6 +238,8 @@
             </div>
         </div>
 		<div class="btn-container">
+			<button onclick='javascript:SwitchDisplay();' class="btn btn_spaced hidden js-switch-cards"></button>
+			<button onclick='javascript:SwitchDisplay();' class="btn btn_spaced hidden js-switch-table"></button>
 			<button onclick='javascript:ResetFilters();' class="btn btn_reset btn_spaced js-reset">Limpiar filtros</button>
 			<button onclick='javascript:Go();' class="btn js-go">Ver resultados</button>
 		</div>
@@ -309,6 +315,10 @@
 							]
 						}
 					],
+					rootUrl: 'copvc_es',
+					cardsUrl: 'fichas',
+					switchCards: 'Cambiar a fichas',
+					switchTable: 'Cambiar a tabla',
 					resetFilters: 'Limpiar filtros',
 					results: 'Ver resultados'
 				},
@@ -379,11 +389,20 @@
 							]
 						}
 					],
+					rootUrl: 'copvc_en',
+					cardsUrl: 'cards',
+					switchCards: 'Switch to cards',
+					switchTable: 'Switch to table',
 					resetFilters: 'Reset filters',
 					results: 'Show results'
 				}
 			},
 			contextVars = contextLangs[ getLang() ],
+
+			$resetFiltersBtn = $('.js-reset'),
+			$goBtn = $('.js-go'),
+			$switchCardsBtn = $('.js-switch-cards'),
+			$switchTableBtn = $('.js-switch-table'),
 
 			$globalSearch		= $('#globalSearch'),
 			$nameInitiative		= $('#nameInitiativeSearch'),
@@ -415,6 +434,11 @@
             return '';
         }
 
+		function getPage() {
+			var url = getUrl().split('/');
+			return url[ url.length - 1 ].split('?')[0];
+		}
+
         function setIndex(value, $select) {
 			var options 		= $.makeArray( $select.find('option') ),
 				optionValues 	= $.map(options, function(option) {
@@ -426,7 +450,9 @@
         }
 
 		function setDefaultFields() {
-            var globalSearch	= getParam('globalSearch'),
+            var showCards		= getPage() == contextVars.cardsUrl,
+
+				globalSearch	= getParam('globalSearch'),
 				nameInitiative	= getParam('nameInitiative'),
 				description		= getParam('description'),
 
@@ -442,6 +468,9 @@
             setIndex(status, $status);
             setIndex(category, $category);
             setIndex(country, $country);
+
+			$switchCardsBtn.toggleClass('hidden', showCards);
+			$switchTableBtn.toggleClass('hidden', !showCards);
         }
 
 		function removeEmptyParams(params) {
@@ -477,8 +506,10 @@
 				$(this).find('select').html( html );
 			});
 
-			$('.js-reset').text(contextVars.resetFilters);
-			$('.js-go').text(contextVars.results);
+			$resetFiltersBtn.text(contextVars.resetFilters);
+			$goBtn.text(contextVars.results);
+			$switchCardsBtn.text(contextVars.switchCards);
+			$switchTableBtn.text(contextVars.switchTable);
 		}
 
 		function getLang() {
@@ -489,6 +520,20 @@
 		function getUrl() {
 			//return document.referrer;
 			return location.href;
+		}
+
+		function SwitchDisplay() {
+			var url = getUrl(),
+				query = url.split('?')[1];
+
+			if (url.indexOf(contextVars.cardsUrl) !== -1) {
+				url = url.split('/').slice(url.length - 1).join('/') + '?' + query;
+				window.open(url, '_parent');
+	            return false;
+			}
+			url = url.split('?')[0] + '/' + contextVars.cardsUrl + '?' + query;
+			window.open(url, '_parent');
+			return false;
 		}
 
 		function ResetFilters() {
