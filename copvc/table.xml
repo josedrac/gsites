@@ -163,42 +163,42 @@
 
     <script type="text/javascript">
         var prefs = new _IG_Prefs(),
-			contextLangs = {
-				es: {
-					tableColsHeaders: [
-						'País',
-						'Nombre',
-						'Descripción',
-						'Objetivo',
-						'Categoría',
-						'Estado',
-						'Enlace al repositorio'
-					],
-					sheetId: '361022424',
-					implemented: 'Implementada',
-					planned: 'Planificada',
-					inExecution: 'En ejecución',
-					linkText: 'Enlace',
-					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
-				},
-				en: {
-					tableColsHeaders: [
-						'Country',
-						'Name',
-						'Description',
-						'Goal',
-						'Category',
-						'Status',
-						'Link to the Repository'
-					],
-					sheetId: '2113943508',
-					implemented: 'Implemented',
-					planned: 'Planned',
-					inExecution: 'In execution',
-					linkText: 'Link',
-					emptyResults: 'No results found for the selected filters.'
-				}
-			},
+            contextLangs = {
+                es: {
+                    tableColsHeaders: [
+                        'País',
+                        'Nombre',
+                        'Descripción',
+                        'Objetivo',
+                        'Categoría',
+                        'Estado',
+                        'Enlace al repositorio'
+                    ],
+                    sheetId: '361022424',
+                    implemented: 'Implementada',
+                    planned: 'Planificada',
+                    inExecution: 'En ejecución',
+                    linkText: 'Ver más',
+                    emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
+                },
+                en: {
+                    tableColsHeaders: [
+                        'Country',
+                        'Name',
+                        'Description',
+                        'Goal',
+                        'Category',
+                        'Status',
+                        'Link to the Repository'
+                    ],
+                    sheetId: '2113943508',
+                    implemented: 'Implemented',
+                    planned: 'Planned',
+                    inExecution: 'In execution',
+                    linkText: 'More info',
+                    emptyResults: 'No results found for the selected filters.'
+                }
+            },
 			contextVars = contextLangs[ getLang() ],
 			params = {
 				globalSearch: {	},
