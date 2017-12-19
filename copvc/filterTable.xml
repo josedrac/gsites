@@ -258,7 +258,7 @@
 			</div>
 		</div>
 
-	    <script type="text/javascript">
+		<script type="text/javascript">
 			var prefs = new _IG_Prefs(),
 				contextLangs = {
 					es: {
@@ -328,8 +328,8 @@
 								]
 							}
 						],
-						rootUrl: 'copvc_es',
-						cardsUrl: 'fichas',
+						rootPage: 'copvc_es',
+						cardsPage: 'fichas',
 						switchCards: 'Cambiar a fichas',
 						switchTable: 'Cambiar a tabla',
 						resetFilters: 'Limpiar filtros',
@@ -402,8 +402,8 @@
 								]
 							}
 						],
-						rootUrl: 'copvc_en',
-						cardsUrl: 'cards',
+						rootPage: 'copvc_en',
+						cardsPage: 'cards',
 						switchCards: 'Switch to cards',
 						switchTable: 'Switch to table',
 						resetFilters: 'Reset filters',
@@ -448,7 +448,13 @@
 	        }
 
 			function getPage() {
-				var url = getUrl().split('/');
+				var url =
+						getUrl()
+						.split('/')
+						.filter(function(n) {
+							return n;
+						});
+
 				return url[ url.length - 1 ].split('?')[0];
 			}
 
@@ -463,7 +469,7 @@
 	        }
 
 			function setDefaultFields() {
-	            var showCards		= getPage() == contextVars.cardsUrl,
+	            var showCards		= getPage() == contextVars.cardsPage,
 
 					globalSearch	= getParam('globalSearch'),
 					nameInitiative	= getParam('nameInitiative'),
@@ -534,16 +540,16 @@
 			}
 
 			function SwitchDisplay() {
-				var url = getUrl(),
-					urlSplited = url.split('?'),
-					query = urlSplited[1] || '',
-					newUrl = urlSplited[0] + '/' + contextVars.cardsUrl + '?' + query;
+				var url 		= getUrl(),
+					urlSplited 	= url.split('?'),
+					query 		= '?' + (urlSplited[1] || ''),
+					rootUrl 	= 'https://sites.google.com/a/bbva.com/' + contextVars.rootPage + '/',
+					newUrl 		= rootUrl + contextVars.cardsPage + query;
 
-				if (url.indexOf(contextVars.cardsUrl) !== -1) {
-					newUrl = url.split('/');
-					newUrl = newUrl.splice(0, newUrl.length - 1).join('/') + '?' + query;
+				if (url.indexOf(contextVars.cardsPage) !== -1) {
+					newUrl = rootUrl + query;
 				}
-				window.open(url, '_parent');
+				window.open(newUrl, '_parent');
 				return false;
 			}
 
