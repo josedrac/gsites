@@ -535,14 +535,14 @@
 
 			function SwitchDisplay() {
 				var url = getUrl(),
-					query = url.split('?')[1];
+					urlSplited = url.split('?'),
+					query = urlSplited[1] || '',
+					newUrl = urlSplited[0] + '/' + contextVars.cardsUrl + '?' + query;
 
 				if (url.indexOf(contextVars.cardsUrl) !== -1) {
-					url = url.split('/').slice(url.length - 1).join('/') + '?' + query;
-					window.open(url, '_parent');
-		            return false;
+					newUrl = url.split('/');
+					newUrl = newUrl.splice(0, newUrl.length - 1).join('/') + '?' + query;
 				}
-				url = url.split('?')[0] + '/' + contextVars.cardsUrl + '?' + query;
 				window.open(url, '_parent');
 				return false;
 			}
