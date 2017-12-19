@@ -111,6 +111,7 @@
 
         .empty-results {
             font-family: arial, sans-serif;
+		    padding: 0 30px;
         }
 
 		span.click {
