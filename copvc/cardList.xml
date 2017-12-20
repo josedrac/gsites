@@ -111,6 +111,8 @@
 		}
 
 		.card__property {
+			float: left;
+			width: 100%;
 		    margin-bottom: 8px;
 		}
 
@@ -119,7 +121,8 @@
 			float: left;
 		}
 		.card__property-value {
-
+		    width: calc(100% - 80px);
+			float: left;
 		}
 
 		.card__link {
