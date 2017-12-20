@@ -17,7 +17,7 @@
         OpenLink( prefs.getString('url') );
 
 		function OpenLink(link) {
-			window.open(link,'_new');
+			window.open(link,'_parent');
             return false;
 		}
     </script>
