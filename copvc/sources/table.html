@@ -1,8 +1,11 @@
 <html>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.2/css/theme.blue.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
 	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.2/js/jquery.tablesorter.min.js" type="text/javascript"></script>
 
     <style type="text/css">
 
@@ -29,6 +32,8 @@
         }
 
         .table__header-col {
+			position: relative;
+			cursor: pointer;
 			width: 8%;
             height: 85px;
 			border: 1px solid #E5E5E5;
@@ -41,6 +46,12 @@
 			background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
 			background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
 			background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+
+			margin-top: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            color: #FFF;
         }
 		.table__header-col:last-child {
 			border-right: 0;
@@ -52,13 +63,22 @@
 			width: 1%;
 		}
 
-		.table__header-text {
-            margin-top: 5px;
-            font-size: 12px;
-            font-weight: bold;
-            text-align: center;
-            color: #FFF;
-        }
+		.table__header-icon {
+			position: absolute;
+			padding-right: 10px;
+		    right: 0;
+		    padding-top: 1px;
+		}
+
+		.tablesorter-header .table__header-icon:before {
+			content: "\f0dc";
+		}
+		.tablesorter-headerAsc .table__header-icon:before {
+			content: "\f0de";
+		}
+		.tablesorter-headerDesc .table__header-icon:before {
+			content: "\f0dd";
+		}
 
         .firstcol {
             width: 36% !important;
@@ -308,26 +328,26 @@
 			if (data) {
 				createHeader();
 				createBody(data);
+				$("#initiatives_table").tablesorter();
 				gadgets.window.adjustHeight();
 			}
         }
 
         function createHeader() {
-            var html = '',
+            var html = '<tr>',
 				classCss;
 
 			if (data.getNumberOfRows()) {
 				tableCols.forEach(function(item, index) {
 					classCss = item.class ? item.class : '';
-					html += '<th class="table__header-col '+ classCss +'">' +
-					'	<span class="table__header-text">'+ item.header +'</span>' +
-					'</th>';
+					html += '<th class="table__header-col '+ classCss +'">' + item.header +'<div class="table__header-icon fa"></div></th>';
 				});
+				html += '</tr>';
 				$('#initiatives_table_header').html(html);
 				return;
 			}
 
-			html += '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
+			html = '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
 			$('#empty_results').html(html);
 
         }
