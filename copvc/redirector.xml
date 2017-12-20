@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="COPVC-refirector.xml">
+    <Require feature="idi"/>
+    <Require feature="locked-domain" />
+	<Require feature="dynamic-height"/>
+	<Require feature="setprefs" />
+  </ModulePrefs>
+  <UserPref name="url" default_value="" display_name="Url" required="true" />
+  <Content type="html">
+    <![CDATA[
+    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var prefs = new _IG_Prefs();
+
+        OpenLink( prefs.getString('url') );
+
+		function OpenLink(link) {
+			window.open(link,'_new');
+            return false;
+		}
+    </script>
+    ]]>
+  </Content>
+</Module>
