@@ -1,5 +1,6 @@
 <html>
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<style type="text/css">
 		.hidden {
@@ -238,10 +239,16 @@
             </div>
         </div>
 		<div class="btn-container">
-			<button onclick='javascript:SwitchDisplay();' class="btn btn_spaced hidden js-switch-cards"></button>
-			<button onclick='javascript:SwitchDisplay();' class="btn btn_spaced hidden js-switch-table"></button>
 			<button onclick='javascript:ResetFilters();' class="btn btn_reset btn_spaced js-reset">Limpiar filtros</button>
-			<button onclick='javascript:Go();' class="btn js-go">Ver resultados</button>
+
+			<button onclick='javascript:Go(true);' class="btn btn_spaced js-switch-cards">
+				<i class="fa fa-th-list"></i>
+				<span></span>
+			</button>
+			<button onclick='javascript:Go();' class="btn js-switch-table">
+				<i class="fa fa-table"></i>
+				<span></span>
+			</button>
 		</div>
 	</div>
 
@@ -317,10 +324,9 @@
 					],
 					rootPage: 'copvc_es',
 					cardsPage: 'fichas',
-					switchCards: 'Cambiar a fichas',
-					switchTable: 'Cambiar a tabla',
-					resetFilters: 'Limpiar filtros',
-					results: 'Ver resultados'
+					switchCards: 'Ver resultados en fichas',
+					switchTable: 'Ver resultados en tabla',
+					resetFilters: 'Limpiar filtros'
 				},
 				en: {
 					title: 'Filters',
@@ -391,10 +397,9 @@
 					],
 					rootPage: 'copvc_en',
 					cardsPage: 'cards',
-					switchCards: 'Switch to cards',
-					switchTable: 'Switch to table',
-					resetFilters: 'Reset filters',
-					results: 'Show results'
+					switchCards: 'Show results in cards',
+					switchTable: 'Show results in table',
+					resetFilters: 'Reset filters'
 				}
 			},
 			contextVars = contextLangs[ getLang() ],
@@ -474,9 +479,6 @@
             setIndex(status, $status);
             setIndex(category, $category);
             setIndex(country, $country);
-
-			$switchCardsBtn.toggleClass('hidden', showCards);
-			$switchTableBtn.toggleClass('hidden', !showCards);
         }
 
 		function removeEmptyParams(params) {
@@ -513,9 +515,8 @@
 			});
 
 			$resetFiltersBtn.text(contextVars.resetFilters);
-			$goBtn.text(contextVars.results);
-			$switchCardsBtn.text(contextVars.switchCards);
-			$switchTableBtn.text(contextVars.switchTable);
+			$switchCardsBtn.find('span').text(contextVars.switchCards);
+			$switchTableBtn.find('span').text(contextVars.switchTable);
 		}
 
 		function getLang() {
@@ -528,18 +529,15 @@
 			return location.href;
 		}
 
-		function SwitchDisplay() {
+		function getDisplayUrl(showCards) {
 			var url 		= getUrl(),
-				urlSplited 	= url.split('?'),
-				query 		= '?' + (urlSplited[1] || ''),
-				rootUrl 	= 'https://sites.google.com/a/bbva.com/' + contextVars.rootPage + '/',
-				newUrl 		= rootUrl + contextVars.cardsPage + query;
+				query 		= url.split('?')[1] || '',
+				displayUrl 	= 'https://sites.google.com/a/bbva.com/' + contextVars.rootPage + '/';
 
-			if (url.indexOf(contextVars.cardsPage) !== -1) {
-				newUrl = rootUrl + query;
+			if (showCards) {
+				displayUrl += contextVars.cardsPage;
 			}
-			window.open(newUrl, '_parent');
-			return false;
+			return displayUrl;
 		}
 
 		function ResetFilters() {
@@ -548,7 +546,7 @@
 			$selects.selectmenu('refresh');
 		}
 
-        function Go() {
+        function Go(showCards) {
             var params = {
 					globalSearch	: $globalSearch.val(),
 					nameInitiative	: $nameInitiative.val(),
@@ -558,7 +556,7 @@
 					category 		: $category.val(),
 					country 		: $country.val()
 				},
-            	url = getUrl().split('?')[0] + '?';
+            	url = getDisplayUrl(showCards) + '?';
 
 			removeEmptyParams(params);
 
