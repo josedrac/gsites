@@ -335,7 +335,6 @@
 							]
 						}
 					],
-					rootPage: 'copvc_es',
 					cardsPage: 'fichas',
 					switchCards: 'Ver resultados en fichas',
 					switchTable: 'Ver resultados en tabla',
@@ -408,7 +407,6 @@
 							]
 						}
 					],
-					rootPage: 'copvc_en',
 					cardsPage: 'cards',
 					switchCards: 'Show results in cards',
 					switchTable: 'Show results in table',
@@ -543,7 +541,7 @@
 		function getDisplayUrl(showCards) {
 			var url 		= getUrl(),
 				query 		= url.split('?')[1] || '',
-				displayUrl 	= 'https://sites.google.com/a/bbva.com/' + contextVars.rootPage + '/';
+				displayUrl 	= 'https://sites.google.com/a/bbva.com/copvc/' + getLang() + '/';
 
 			if (showCards) {
 				displayUrl += contextVars.cardsPage;
