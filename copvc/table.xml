@@ -60,7 +60,7 @@
 			background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
 			background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
 			background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
-
+			outline: none;
 			margin-top: 5px;
             font-size: 12px;
             font-weight: bold;
@@ -77,7 +77,7 @@
 			width: 1%;
 		}
 
-        .tablesorter-header-inner {
+		.tablesorter-header-inner {
 			padding: 0 15px;
 		}
 		.table__header-icon {
@@ -85,14 +85,32 @@
 			right: 6px;
 			top: 35px;
 		}
+		.table__header-icon:after {
+			position: absolute;
+			display: inline-block;
+			font-family: arial, sans-serif;
+			font-weight: bold;
+			right: -5px;
+			top: 13px;
+			width: 28px;
+		}
 		.tablesorter-header .table__header-icon:before {
 			content: "\f0dc";
+		}
+		.tablesorter-header .table__header-icon:after {
+			content: "";
 		}
 		.tablesorter-headerAsc .table__header-icon:before {
 			content: "\f0de";
 		}
+		.tablesorter-headerAsc .table__header-icon:after {
+			content: "(A-Z)";
+		}
 		.tablesorter-headerDesc .table__header-icon:before {
 			content: "\f0dd";
+		}
+		.tablesorter-headerDesc .table__header-icon:after {
+			content: "(Z-A)";
 		}
 
         .firstcol {
