@@ -106,7 +106,11 @@
 			float: left;
 		}
 		.card__property-value {
-
+			white-space: nowrap;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		    display: inline-block;
+		    width: calc(100% - 80px);
 		}
 
 		.card__link {
