@@ -98,11 +98,11 @@
 
         <div>
             <div class="link-container">
-    			<a href="#" class="link link_spaced" onclick="javascript:OpenLink('https://sites.google.com/a/bbva.com/copvc_es/')">
+    			<a href="#" class="link link_spaced" onclick="javascript:OpenLink('https://sites.google.com/a/bbva.com/copvc/es/')">
     				<span class="link__text">Español</span>
     				<span class="link__icon"></span>
     			</a>
-    			<a href="#" class="link" onclick="javascript:OpenLink('https://sites.google.com/a/bbva.com/copvc_en/')">
+    			<a href="#" class="link" onclick="javascript:OpenLink('https://sites.google.com/a/bbva.com/copvc/en/')">
     				<span class="link__text">English</span>
     				<span class="link__icon"></span>
     			</a>
