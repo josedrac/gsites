@@ -113,9 +113,9 @@
 				<hr class="title-bar" />
 		    </div>
 
-            <div class="subtitle-container">
+            <!--<div class="subtitle-container">
 		        <span id="subtitle" class="subtitle"></span>
-		    </div>
+		    </div>-->
         </div>
 
         <script type="text/javascript">
@@ -123,7 +123,7 @@
             var prefs = new gadgets.Prefs();
 
             document.getElementById("title").innerHTML      = prefs.getString('title');
-            document.getElementById("subtitle").innerHTML   = prefs.getString('subtitle');
+            //document.getElementById("subtitle").innerHTML   = prefs.getString('subtitle');
 
             function OpenLink(url) {
     			window.open(url, '_parent');
