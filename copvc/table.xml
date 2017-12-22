@@ -90,6 +90,7 @@
 			display: inline-block;
 			font-family: arial, sans-serif;
 			font-weight: bold;
+            font-size: 11px;
 			right: -5px;
 			top: 13px;
 			width: 28px;
