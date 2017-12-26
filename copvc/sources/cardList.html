@@ -16,6 +16,69 @@
 			font-weight: normal;
 		}
 
+		.flag:before {
+			content: "";
+			position: absolute;
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			left: -20px;
+		    background-size: contain;
+		    background-position: 50%;
+		    background-repeat: no-repeat;
+		}
+		.flag-spain:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/es.svg);
+		}
+		.flag-usa:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/us.svg);
+		}
+		.flag-mexico:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/mx.svg);
+		}
+		.flag-turkey:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/tr.svg);
+		}
+		.flag-colombia:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/co.svg);
+		}
+		.flag-paraguay:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/py.svg);
+		}
+		.flag-uruguay:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/uy.svg);
+		}
+		.flag-argentina:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ar.svg);
+		}
+		.flag-peru:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/pe.svg);
+		}
+		.flag-venezuela:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
+		}
+
+		.implemented:before,
+		.planned:before,
+		.executing:before {
+			content: '';
+			border-radius: 50%;
+			height: 7px;
+			width: 7px;
+			border: 0.5px solid grey;
+			display: inline-block;
+			margin-right: 5px;
+		}
+		.implemented:before {
+			background: lightgreen;
+		}
+		.planned:before {
+			background: #fbc97f;
+		}
+		.executing:before {
+			background: yellow;
+		}
+
         .cards {
             width: 100%;
         }
@@ -50,20 +113,15 @@
 			padding-right: 0;
 		}
 
-		.implemented {
-			background-color: lightgreen;
-		}
-		.planified {
-			background-color: lightblue;
-		}
-		.executing {
-			background-color: lightyellow;
-		}
-
 		.card__content {
 			position: relative;
 			padding: 20px;
 			border: 1px solid darkgrey;
+			background: #99dbff;
+			background: -moz-linear-gradient(bottom, #cdedff 57%, #0079C1 100%);
+			background: -webkit-linear-gradient(bottom, #cdedff 57%, #0079C1 100%);
+			background: linear-gradient(to top, #cdedff 57%, #0079C1 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdedff', endColorstr='#0079C1',GradientType=0 );
 		}
 
 		.card__name {
@@ -222,6 +280,18 @@
 						status: 'Estado',
 						link: 'Enlace al repositorio'
 					},
+					countries: {
+						spain: 'España',
+						usa: 'USA',
+						mexico: 'México',
+						turkey: 'Turquía',
+						colombia: 'Colombia',
+						paraguay: 'Paraguay',
+						uruguay: 'Uruguay',
+						argentina: 'Argentina',
+						peru: 'Perú',
+						venezuela: 'Venezuela'
+					},
 					sheetId: '361022424',
 					implemented: 'Implementada',
 					planned: 'Planificada',
@@ -238,6 +308,18 @@
 						category: 'Category',
 						status: 'Status',
 						link: 'Link to the Repository'
+					},
+					countries: {
+						spain: 'Spain',
+						usa: 'USA',
+						mexico: 'Mexico',
+						turkey: 'Turkey',
+						colombia: 'Colombia',
+						paraguay: 'Paraguay',
+						uruguay: 'Uruguay',
+						argentina: 'Argentina',
+						peru: 'Peru',
+						venezuela: 'Venezuela'
 					},
 					sheetId: '2113943508',
 					implemented: 'Implemented',
@@ -355,39 +437,45 @@
 			}
         }
 
-		function getPropertyRow(rowIndex, key) {
+		function getDataValue(rowIndex, key) {
+			return data.getValue(rowIndex, colIndex[key]);
+		}
+
+		function getPropertyRow(rowIndex, key, cssClass) {
+			cssClass = cssClass || '';
 			var html = 	'<label class="card__property-name">'+ contextVars.cardProperties[key] +':</label>' +
-						'<span class="card__property-value">'+ (data.getValue(rowIndex, colIndex[key]) || '-') +'</span>';
+						'<span class="card__property-value '+ cssClass +'">'+ (getDataValue(rowIndex, key) || '-') +'</span>';
 			return html;
 		}
 
 		function createCards(data) {
-			var numberOfRows = data.getNumberOfRows(),
-				linkText = contextVars.cardProperties.link,
-				cssClass = '',
-				html = '',
-				status;
+			var numberOfRows 	= data.getNumberOfRows(),
+				linkText 		= contextVars.cardProperties.link,
+				html 			= '',
+				statusCss, countryCss, status, country;
 
 			for (var rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-				status = data.getValue(rowIndex, colIndex.status);
-				cssClass = getStatusCssClass( status );
+				status = getDataValue(rowIndex, 'status');
+				country = getDataValue(rowIndex, 'country');
+				statusCss = getItemCssClass( status );
+				countryCss = 'card__country ' + getItemCssClass( country );
 
 				if (rowIndex % 2 === 0) {
 					html += '<div class="card-block">';
 				}
 
 				html += '<div class="card">' +
-						'	<div class="card__content '+ cssClass +'">' +
-						'		<label class="card__name">'+ data.getValue(rowIndex, colIndex.name) +'</label>' +
-						'		<span class="card__country">'+ data.getValue(rowIndex, colIndex.country) +'</span>' +
-						'		<p class="card__description">'+ data.getValue(rowIndex, colIndex.description) +'</p>' +
+						'	<div class="card__content">' +
+						'		<label class="card__name">'+ getDataValue(rowIndex, 'name') +'</label>' +
+						'		<span class="'+ countryCss +'">'+ country +'</span>' +
+						'		<p class="card__description">'+ getDataValue(rowIndex, 'description') +'</p>' +
 						'		<ul class="card__properties">' +
 						'			<li class="card__property">'+ getPropertyRow(rowIndex, 'goal') +'</li>' +
 						'			<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
-						'			<li class="card__property">'+ getPropertyRow(rowIndex, 'status') +'</li>' +
+						'			<li class="card__property">'+ getPropertyRow(rowIndex, 'status', statusCss) +'</li>' +
 						'		</ul>';
 				if (status) {
-					html += '	<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ data.getValue(rowIndex, colIndex.link) +'\')">'+ linkText +'</a>';
+					html += '	<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ getDataValue(rowIndex, 'link') +'\')">'+ linkText +'</a>';
 				}
 				else {
 					html += '	<a href="#" class="card__link"></a>';
@@ -411,10 +499,24 @@
 			$('#empty_results').html(html);
 		}
 
-		function getStatusCssClass(value) {
-			if (value === contextVars.implemented) { return 'implemented' }
-			if (value === contextVars.planned) 	{ return 'planified' }
-			if (value === contextVars.inExecution) { return 'executing' }
+		function getItemCssClass(value) {
+			if (value === contextVars.implemented) 	{ return 'implemented'; }
+			if (value === contextVars.planned) 		{ return 'planned'; }
+			if (value === contextVars.inExecution)	{ return 'executing'; }
+
+			countries = contextVars.countries;
+
+			if (value === countries.spain) 		{ return 'flag flag-spain'; }
+			if (value === countries.usa) 		{ return 'flag flag-usa'; }
+			if (value === countries.mexico) 	{ return 'flag flag-mexico'; }
+			if (value === countries.turkey) 	{ return 'flag flag-turkey'; }
+			if (value === countries.colombia) 	{ return 'flag flag-colombia'; }
+			if (value === countries.paraguay) 	{ return 'flag flag-paraguay'; }
+			if (value === countries.uruguay) 	{ return 'flag flag-uruguay'; }
+			if (value === countries.argentina) 	{ return 'flag flag-argentina'; }
+			if (value === countries.peru) 		{ return 'flag flag-peru'; }
+			if (value === countries.venezuela) 	{ return 'flag flag-venezuela'; }
+
 			return '';
 		}
 

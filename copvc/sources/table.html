@@ -100,6 +100,47 @@
 			content: "(Z-A)";
 		}
 
+		.flag:before {
+			content: "";
+		    background-size: contain;
+		    background-position: 50%;
+		    background-repeat: no-repeat;
+		    width: 12px;
+		    height: 12px;
+		    margin-right: 5px;
+		    display: inline-block;
+		}
+		.flag-spain:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/es.svg);
+		}
+		.flag-usa:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/us.svg);
+		}
+		.flag-mexico:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/mx.svg);
+		}
+		.flag-turkey:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/tr.svg);
+		}
+		.flag-colombia:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/co.svg);
+		}
+		.flag-paraguay:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/py.svg);
+		}
+		.flag-uruguay:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/uy.svg);
+		}
+		.flag-argentina:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ar.svg);
+		}
+		.flag-peru:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/pe.svg);
+		}
+		.flag-venezuela:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
+		}
+
         .firstcol {
             width: 36% !important;
             border-left: 0;
@@ -116,14 +157,14 @@
 			border-bottom: 1px solid #E5E5E5;
 			overflow: hidden;
 		}
-		.table__row_implemented {
+		.implemented {
 			background-color: lightgreen;
 		}
-		.table__row_planified {
-			background-color: lightblue;
+		.planned {
+			background-color: #fbc97f;
 		}
-		.table__row_executing {
-			background-color: lightyellow;
+		.executing {
+			background-color: yellow;
 		}
 
         .table__cell {
@@ -201,6 +242,18 @@
 						'Estado',
 						'Enlace al repositorio'
 					],
+					countries: {
+						spain: 'España',
+						usa: 'USA',
+						mexico: 'México',
+						turkey: 'Turquía',
+						colombia: 'Colombia',
+						paraguay: 'Paraguay',
+						uruguay: 'Uruguay',
+						argentina: 'Argentina',
+						peru: 'Perú',
+						venezuela: 'Venezuela'
+					},
 					sheetId: '361022424',
 					implemented: 'Implementada',
 					planned: 'Planificada',
@@ -218,6 +271,18 @@
 						'Status',
 						'Link to the Repository'
 					],
+					countries: {
+						spain: 'Spain',
+						usa: 'USA',
+						mexico: 'Mexico',
+						turkey: 'Turkey',
+						colombia: 'Colombia',
+						paraguay: 'Paraguay',
+						uruguay: 'Uruguay',
+						argentina: 'Argentina',
+						peru: 'Peru',
+						venezuela: 'Venezuela'
+					},
 					sheetId: '2113943508',
 					implemented: 'Implemented',
 					planned: 'Planned',
@@ -373,24 +438,29 @@
         }
 
 		function createBody(data) {
-			var numberOfRows = data.getNumberOfRows(),
-				statusIndex = tableCols[5].sheetIndex,
-				linkHeader = tableCols[6].header,
-				cssClass = '',
-				html = '';
+			var numberOfRows 	= data.getNumberOfRows(),
+				statusIndex 	= tableCols[5].sheetIndex,
+				countryHeader 	= tableCols[0].header,
+				linkHeader 		= tableCols[6].header,
+				cssClass 		= '',
+				html 			= '';
 
 			for (var i = 0; i < numberOfRows; i++) {
-				cssClass = getStatusCssClass( data.getValue(i, statusIndex) );
+				cssClass = getItemCssClass( data.getValue(i, statusIndex) );
 				html += '<tr class="table__row '+ cssClass +'">';
 
 				tableCols.forEach(function(col) {
 					var value = data.getValue(i, col.sheetIndex) || '-';
+					cssClass = '';
 
+					if (col.header === countryHeader) {
+						cssClass = getItemCssClass(value);
+					}
 					if (col.header === linkHeader && value !== '-') {
 						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">'+ contextVars.linkText +'</a></td>';
 						return;
 					}
-					html +=	'<td class="table__cell"><span class="table__cell-text">'+ value +'</span></td>';
+					html +=	'<td class="table__cell"><span class="table__cell-text '+ cssClass +'">'+ value +'</span></td>';
 				});
 
 				html += '</tr>';
@@ -399,10 +469,24 @@
 			$('#initiatives_table_body').html(html);
 		}
 
-		function getStatusCssClass(value) {
-			if (value === contextVars.implemented) { return 'table__row_implemented' }
-			if (value === contextVars.planned) 	{ return 'table__row_planified' }
-			if (value === contextVars.inExecution) { return 'table__row_executing' }
+		function getItemCssClass(value) {
+			if (value === contextVars.implemented) 	{ return 'implemented'; }
+			if (value === contextVars.planned) 		{ return 'planned'; }
+			if (value === contextVars.inExecution)	{ return 'executing'; }
+
+			countries = contextVars.countries;
+
+			if (value === countries.spain) 		{ return 'flag flag-spain'; }
+			if (value === countries.usa) 		{ return 'flag flag-usa'; }
+			if (value === countries.mexico) 	{ return 'flag flag-mexico'; }
+			if (value === countries.turkey) 	{ return 'flag flag-turkey'; }
+			if (value === countries.colombia) 	{ return 'flag flag-colombia'; }
+			if (value === countries.paraguay) 	{ return 'flag flag-paraguay'; }
+			if (value === countries.uruguay) 	{ return 'flag flag-uruguay'; }
+			if (value === countries.argentina) 	{ return 'flag flag-argentina'; }
+			if (value === countries.peru) 		{ return 'flag flag-peru'; }
+			if (value === countries.venezuela) 	{ return 'flag flag-venezuela'; }
+
 			return '';
 		}
 
