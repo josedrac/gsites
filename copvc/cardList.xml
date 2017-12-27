@@ -135,7 +135,6 @@
 
 		.card__top-content {
 			padding: 20px;
-			padding-bottom: 15px;
 			background: #00487d;
 			color: #fff;
 		}
