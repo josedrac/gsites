@@ -170,12 +170,11 @@
 			height: 48px;
 			text-overflow: ellipsis;
 			overflow: hidden;
-			margin-bottom: 0;
+			margin-top: 0;
 		}
 
 		.card__properties {
 			padding-left: 15px;
-			margin-top: 0;
     		list-style: disc;
 		}
 
@@ -502,9 +501,9 @@
 						'		<div class="card__top-content">' +
 						'			<label class="card__name">'+ getDataValue(rowIndex, 'name') +'</label>' +
 						'			<span class="'+ countryCss +'">'+ country +'</span>' +
-						'			<p class="card__description">'+ getDataValue(rowIndex, 'description') +'</p>' +
 						'		</div>' +
 						'		<div class="card__bottom-content">' +
+						'			<p class="card__description">'+ getDataValue(rowIndex, 'description') +'</p>' +
 						'			<ul class="card__properties">' +
 						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'goal') +'</li>' +
 						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
