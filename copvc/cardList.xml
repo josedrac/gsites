@@ -13,262 +13,280 @@
   </UserPref>
   <Content type="html">
     <![CDATA[
-    <script src="https://www.google.com/jsapi" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
-    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
 
     <style type="text/css">
-        @font-face {
-            font-family: 'BBVA Web Book';
-            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
-            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
-            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
-            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-            font-style: normal;
-            font-weight: normal;
-        }
+		@font-face {
+			font-family: 'BBVA Web Book';
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
+			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
+			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+			font-style: normal;
+			font-weight: normal;
+		}
 
-        .flag:before {
-            content: "";
-            position: absolute;
-            display: inline-block;
-            width: 15px;
-            height: 15px;
-            left: -20px;
-            background-size: contain;
-            background-position: 50%;
-            background-repeat: no-repeat;
-        }
-        .flag-spain:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/es.svg);
-        }
-        .flag-usa:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/us.svg);
-        }
-        .flag-mexico:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/mx.svg);
-        }
-        .flag-turkey:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/tr.svg);
-        }
-        .flag-colombia:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/co.svg);
-        }
-        .flag-paraguay:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/py.svg);
-        }
-        .flag-uruguay:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/uy.svg);
-        }
-        .flag-argentina:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ar.svg);
-        }
-        .flag-peru:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/pe.svg);
-        }
-        .flag-venezuela:before {
-            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
-        }
+		.flag:before {
+			content: "";
+			position: absolute;
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			left: -20px;
+		    background-size: contain;
+		    background-position: 50%;
+		    background-repeat: no-repeat;
+		}
+		.flag-spain:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/es.svg);
+		}
+		.flag-usa:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/us.svg);
+		}
+		.flag-mexico:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/mx.svg);
+		}
+		.flag-turkey:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/tr.svg);
+		}
+		.flag-colombia:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/co.svg);
+		}
+		.flag-paraguay:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/py.svg);
+		}
+		.flag-uruguay:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/uy.svg);
+		}
+		.flag-argentina:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ar.svg);
+		}
+		.flag-peru:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/pe.svg);
+		}
+		.flag-venezuela:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
+		}
 
-        .implemented:before,
-        .planned:before,
-        .executing:before {
-            content: '';
-            border-radius: 50%;
-            height: 7px;
-            width: 7px;
-            border: 0.5px solid grey;
-            display: inline-block;
-            margin-right: 5px;
-        }
-        .implemented:before {
-            background: lightgreen;
-        }
-        .planned:before {
-            background: #fbc97f;
-        }
-        .executing:before {
-            background: yellow;
-        }
+		.implemented:before,
+		.planned:before,
+		.executing:before {
+			content: '';
+			border-radius: 50%;
+			height: 7px;
+			width: 7px;
+			border: 0.5px solid grey;
+			display: inline-block;
+			margin-right: 5px;
+		}
+		.implemented:before {
+			background: lightgreen;
+		}
+		.planned:before {
+			background: #fbc97f;
+		}
+		.executing:before {
+			background: yellow;
+		}
 
         .cards {
             width: 100%;
         }
 
-        .cards__list {
-            font-family: 'BBVA Web Book';
-            padding: 0;
-            list-style: none;
-        }
-
-        .card-block {
-            border-bottom: 1px solid #E5E5E5;
-            display: inline-block;
-            width: 100%;
-            float: left;
-        }
-        .card-block:nth-child(4n),
-        .card-block:last-child {
-            border-bottom: 0;
-        }
-
-        .card {
-            font-size: 14px;
-            padding: 20px 10px;
-            float: left;
-            width: calc(50% - 10px);
-        }
-        .card:first-child {
-            padding-left: 0;
-        }
-        .card:last-child {
-            padding-right: 0;
-        }
-
-        .card__content {
-			position: relative;
-			padding: 20px;
-			border: 1px solid darkgrey;
-			background: #cdedff;
-			background: -moz-linear-gradient(bottom, #fff -5%, #cdedff, #0079C1 105%);
-			background: -webkit-linear-gradient(bottom, #fff -5%, #cdedff, #0079C1 105%);
-			background: linear-gradient(to top, #fff -5%, #cdedff, #0079C1 105%);
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdedff', endColorstr='#0079C1',GradientType=0 );
+		.cards__list {
+			font-family: 'BBVA Web Book';
+			padding: 0;
+			list-style: none;
 		}
 
-        .card__name {
-            font-weight: bold;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            width: calc(100% - 135px);
-            display: inline-block;
-        }
+		.card-block {
+		    border-bottom: 1px solid #E5E5E5;
+		    display: inline-block;
+		    width: 100%;
+		    float: left;
+		}
+		.card-block:nth-child(4n),
+		.card-block:last-child {
+			border-bottom: 0;
+		}
 
-        .card__country {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-        }
+		.card {
+			font-size: 14px;
+			padding: 20px 10px;
+			float: left;
+			width: calc(50% - 10px);
+		}
+		.card:first-child {
+			padding-left: 0;
+		}
+		.card:last-child {
+			padding-right: 0;
+		}
 
-        .card__description {
-            display: block;
-            /* Fallback for non-webkit */
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            height: 48px;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
+		.card__content {
+			position: relative;
+			border: 1px solid darkgrey;
+		}
 
-        .card__properties {
-            padding-left: 15px;
-            list-style: disc;
-        }
+		.card__top-content {
+			padding: 20px;
+			padding-bottom: 15px;
+			background: #00487d;
+			color: #fff;
+		}
 
-        .card__property {
-            margin-bottom: 8px;
-        }
+		.card__bottom-content {
+			padding: 20px;
+			padding-top: 15px;
+			background: #d0edf8;
+		}
 
-        .card__property-name {
-            width: 80px;
-            float: left;
-        }
-        .card__property-value {
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            display: inline-block;
-            width: calc(100% - 80px);
-        }
+		.card__name {
+			font-weight: bold;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			width: calc(100% - 135px);
+			display: inline-block;
+		}
 
-        .card__link {
-            display: inline-block;
-            height: 15px;
-        }
+		.card__country {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+		}
+
+		.card__description {
+			display: block;
+			/* Fallback for non-webkit */
+			display: -webkit-box;
+			-webkit-line-clamp: 3;
+			-webkit-box-orient: vertical;
+			height: 48px;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			margin-bottom: 0;
+		}
+
+		.card__properties {
+			padding-left: 15px;
+			margin-top: 0;
+    		list-style: disc;
+		}
+
+		.card__property {
+		    margin-bottom: 8px;
+		}
+
+		.card__property-name {
+			width: 80px;
+			float: left;
+		}
+		.card__property-value {
+			white-space: nowrap;
+		    text-overflow: ellipsis;
+		    overflow: hidden;
+		    display: inline-block;
+		    width: calc(100% - 80px);
+		}
+
+		.card__link {
+			position: relative;
+			display: inline-block;
+			height: 15px;
+			font-family: arial, sans-serif;
+			text-decoration: none;
+		}
+		.card__link .fa {
+			position: absolute;
+			padding-left: 5px;
+			top: 2px;
+		}
 
         .empty-results {
             font-family: arial, sans-serif;
-            padding: 0 30px;
+		    padding: 0 30px;
         }
 
-        span.click {
-            color: #0078d2;
-            text-decoration: none;
-            cursor: pointer;
-        }
+		span.click {
+			color: #0078d2;
+			text-decoration: none;
+			cursor: pointer;
+		}
 
-        .controls {
-            text-align: right;
-            max-width: 969px;
-            padding: 0 10px 5px 0;
-        }
+		.controls {
+			text-align: right;
+			max-width: 969px;
+			padding: 0 10px 5px 0;
+		}
 
-        .pager {
-            height: 30px;
-            text-align: center;
-            display: table;
-        }
-        .pager ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            text-aling: center;
-            display: table-cell;
-            vertical-align: middle;
-        }
-        .pager ul li {
-            display: inline;
-            margin-left: 2px;
-        }
-        .pager ul li a {
-            text-decoration: none;
-            font-weight: bold;
-            display: inline-table;
-            width: 20px;
-            height: 18px;
-            text-align: center;
-            border-radius: 4px;
-            -moz-border-radius: 4px;
-        }
-        .pager span {
-            margin-left: 4px;
-            color: White;
-            float: left;
-        }
-        .pager .btn {
-            width: 40px;
-            text-align: center;
-            display: table-cell;
-            vertical-align: middle;
-            cursor: pointer;
-        }
-        .pager .disabled {
-            color: #A0A0A0 !important;
-            text-shadow: 1px 1px 1px #FFFFFF;
-        }
-        .black.normal {
-            background-color: #FFFFFF;
-            color: #0072C9;
-            border: solid 1px #d2e5eb;
-        }
-        .black.active {
-            background-color: #0072C9;
-            color: #FFFFFF;
-            border: solid 1px #0072C9;
-        }
-        .checkpage img,
-        .checkpage1 img,
-        .bloqueAnterior img,
-        .bloqueSiguiente img{
-            border: 0;
-        }
-        button{
-            background: #0079C1;
-        }
+		.pager {
+		    height: 30px;
+		    text-align: center;
+		    display: table;
+		}
+		.pager ul {
+		    list-style: none;
+		    padding: 0;
+		    margin: 0;
+		    text-aling: center;
+		    display: table-cell;
+		    vertical-align: middle;
+		}
+		.pager ul li {
+		    display: inline;
+		    margin-left: 2px;
+		}
+		.pager ul li a {
+		    text-decoration: none;
+		    font-weight: bold;
+		    display: inline-table;
+		    width: 20px;
+		    height: 18px;
+		    text-align: center;
+		    border-radius: 4px;
+		    -moz-border-radius: 4px;
+		}
+		.pager span {
+		    margin-left: 4px;
+		    color: White;
+		    float: left;
+		}
+		.pager .btn {
+		    width: 40px;
+		    text-align: center;
+		    display: table-cell;
+		    vertical-align: middle;
+		    cursor: pointer;
+		}
+		.pager .disabled {
+		    color: #A0A0A0 !important;
+		    text-shadow: 1px 1px 1px #FFFFFF;
+		}
+		.black.normal {
+		    background-color: #FFFFFF;
+		    color: #0072C9;
+		    border: solid 1px #d2e5eb;
+		}
+		.black.active {
+		    background-color: #0072C9;
+		    color: #FFFFFF;
+		    border: solid 1px #0072C9;
+		}
+		.checkpage img,
+		.checkpage1 img,
+		.bloqueAnterior img,
+		.bloqueSiguiente img{
+			border: 0;
+		}
+		button{
+			background: #0079C1;
+		}
     </style>
 
     <div class="cards">
@@ -463,55 +481,59 @@
         }
 
         function createCards(data) {
-            var numberOfRows 	= data.getNumberOfRows(),
-                linkText 		= contextVars.cardProperties.link,
-                html 			= '',
-                statusCss, countryCss, status, country;
+			var numberOfRows 	= data.getNumberOfRows(),
+				linkText 		= contextVars.cardProperties.link,
+				html 			= '',
+				statusCss, countryCss, status, country;
 
-            for (var rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-                status = getDataValue(rowIndex, 'status');
-                country = getDataValue(rowIndex, 'country');
-                statusCss = getItemCssClass( status );
-                countryCss = 'card__country ' + getItemCssClass( country );
+			for (var rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
+				status = getDataValue(rowIndex, 'status');
+				country = getDataValue(rowIndex, 'country');
+				statusCss = getItemCssClass( status );
+				countryCss = 'card__country ' + getItemCssClass( country );
 
-                if (rowIndex % 2 === 0) {
-                    html += '<div class="card-block">';
-                }
+				if (rowIndex % 2 === 0) {
+					html += '<div class="card-block">';
+				}
 
-                html += '<div class="card">' +
-                        '	<div class="card__content">' +
-                        '		<label class="card__name">'+ getDataValue(rowIndex, 'name') +'</label>' +
-                        '		<span class="'+ countryCss +'">'+ country +'</span>' +
-                        '		<p class="card__description">'+ getDataValue(rowIndex, 'description') +'</p>' +
-                        '		<ul class="card__properties">' +
-                        '			<li class="card__property">'+ getPropertyRow(rowIndex, 'goal') +'</li>' +
-                        '			<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
-                        '			<li class="card__property">'+ getPropertyRow(rowIndex, 'status', statusCss) +'</li>' +
-                        '		</ul>';
-                if (status) {
-                    html += '	<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ getDataValue(rowIndex, 'link') +'\')">'+ linkText +'</a>';
-                }
-                else {
-                    html += '	<a href="#" class="card__link"></a>';
-                }
-                html +=	'	</div>' +
-                        '</div>';
+				html += '<div class="card">' +
+						'	<div class="card__content">' +
+						'		<div class="card__top-content">' +
+						'			<label class="card__name">'+ getDataValue(rowIndex, 'name') +'</label>' +
+						'			<span class="'+ countryCss +'">'+ country +'</span>' +
+						'			<p class="card__description">'+ getDataValue(rowIndex, 'description') +'</p>' +
+						'		</div>' +
+						'		<div class="card__bottom-content">' +
+						'			<ul class="card__properties">' +
+						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'goal') +'</li>' +
+						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
+						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'status', statusCss) +'</li>' +
+						'			</ul>';
+				if (status) {
+					html += '		<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ getDataValue(rowIndex, 'link') +'\')">'+ linkText +'<i class="fa fa-external-link"></i></a>';
+				}
+				else {
+					html += '		<a href="#" class="card__link"></a>';
+				}
+				html +=	'		</div>' +
+						'	</div>' +
+						'</div>';
 
-                if (rowIndex % 2 === 1) {
-                    html += '</div>';
-                }
-            }
+				if (rowIndex % 2 === 1) {
+					html += '</div>';
+				}
+			}
 
-            $('#cardsList').html(html);
+			$('#cardsList').html(html);
 
-            if (numberOfRows) {
-                pagination( Math.ceil(numberOfRows/2) );
-                return;
-            }
+			if (numberOfRows) {
+				pagination( Math.ceil(numberOfRows/2) );
+				return;
+			}
 
-            html += '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
-            $('#empty_results').html(html);
-        }
+			html += '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
+			$('#empty_results').html(html);
+		}
 
         function getItemCssClass(value) {
             if (value === contextVars.implemented) 	{ return 'implemented'; }

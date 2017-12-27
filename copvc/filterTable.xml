@@ -109,6 +109,7 @@
             background: #e2fafe none repeat scroll 0 0;
             color: #003f8c;
             border: 1px solid #e1e1e1;
+			font-weight: normal;
         }
         .ui-widget-content {
             border: 1px solid rgb(213, 226, 238);
@@ -119,6 +120,7 @@
         }
         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
             background: white;
+			font-weight: normal;
         }
         .ui-selectmenu-button span.ui-icon {
             right: 0;
@@ -157,7 +159,7 @@
         input {
             border-radius: 4px;
             border: 1px solid #d5e2ee;
-            width: 190px;
+            width: 260px;
             padding: 4px;
             color: #0078d2;
             font-size: 13px;
@@ -238,7 +240,7 @@
 		}
         .form {
             display: inline-block;
-			width: 25%;
+			width: 30%;
             padding-left: 10px;
             padding-right: 10px;
             vertical-align: top;
@@ -503,7 +505,7 @@
 		setContextVars();
         setDefaultFields();
 		$selects.selectmenu({
-			width: 200,
+			width: 260,
 			open: setMenuClassesAndIcons
 		});
 
