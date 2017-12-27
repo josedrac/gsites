@@ -73,8 +73,8 @@
 		.table__header-col_large {
 			width: 20%;
 		}
-		.table__header-col_small {
-			width: 1%;
+        .table__header-col_small {
+			width: 4%;
 		}
 
 		.tablesorter-header-inner {
