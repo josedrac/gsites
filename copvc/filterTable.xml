@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-	<ModulePrefs title="COPVC-filterTable.xml" height="370">
+	<ModulePrefs title="COPVC-filterTable.xml" height="400">
 		<Require feature="idi"/>
 	    <Require feature="locked-domain" />
 		<Require feature="dynamic-height"/>
@@ -93,14 +93,12 @@
             font-size: 13px;
             overflow: hidden;
             padding: 6px;
-            padding-left: 10px;
-            padding-right: 40px;
             position: relative;
             text-align: left;
             width: 100%;
             line-height: 14px;
             margin-bottom: 10px;
-            padding: 3px 40px 3px 10px;
+            padding: 7px 40px 7px 10px;
         }
         .ui-selectmenu-button.ui-state-hover, .ui-selectmenu-button.ui-state-focus {
             color: #0078d2;
@@ -109,6 +107,7 @@
             background: #e2fafe none repeat scroll 0 0;
             color: #003f8c;
             border: 1px solid #e1e1e1;
+			font-weight: normal;
         }
         .ui-widget-content {
             border: 1px solid rgb(213, 226, 238);
@@ -119,12 +118,14 @@
         }
         .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
             background: white;
+			font-weight: normal;
         }
         .ui-selectmenu-button span.ui-icon {
             right: 0;
         }
         .ui-selectmenu-button.ui-corner-top .ui-icon {
             background-position: 3px -9.2em;
+			background-repeat: no-repeat;
         }
         .ui-state-default .ui-icon {
             border: 0;
@@ -132,7 +133,7 @@
             background: url('https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/img/ico-combo30.png'), linear-gradient(to bottom, #ffffff 40%, #d2e5eb 200%);
             background-position: 3px 0px;
             width: 35px;
-            height: 30px;
+            height: 32px;
             position: absolute;
             top: 0;
             right: 0;
@@ -157,14 +158,15 @@
         input {
             border-radius: 4px;
             border: 1px solid #d5e2ee;
-            width: 190px;
-            padding: 4px;
+            width: 260px;
+			padding: 7px 10px;
             color: #0078d2;
             font-size: 13px;
             font-weight: bold;
+		    line-height: 1.4;
         }
 		input.input-large {
-			width: 500px;
+		    width: 568px;
 		}
         .ui-menu-item {
             color: #003f8c;
@@ -173,12 +175,73 @@
             font-size: 13px;
             font-weight: normal;
         }
+		.ui-menu-item.implemented:before,
+		.ui-menu-item.planned:before,
+		.ui-menu-item.executing:before {
+			content: '';
+			border-radius: 50%;
+			height: 7px;
+			width: 7px;
+			border: 0.5px solid grey;
+			display: inline-block;
+			margin-right: 5px;
+		}
+		.ui-menu-item.implemented:before {
+			background: lightgreen;
+		}
+		.ui-menu-item.planned:before {
+			background: #fbc97f;
+		}
+		.ui-menu-item.executing:before {
+			background: yellow;
+		}
+		.flag:before {
+			content: "";
+		    background-size: contain;
+		    background-position: 50%;
+		    background-repeat: no-repeat;
+		    width: 12px;
+		    height: 12px;
+		    margin-right: 5px;
+		    display: inline-block;
+		}
+		.flag-spain:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/es.svg);
+		}
+		.flag-usa:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/us.svg);
+		}
+		.flag-mexico:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/mx.svg);
+		}
+		.flag-turkey:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/tr.svg);
+		}
+		.flag-colombia:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/co.svg);
+		}
+		.flag-paraguay:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/py.svg);
+		}
+		.flag-uruguay:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/uy.svg);
+		}
+		.flag-argentina:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ar.svg);
+		}
+		.flag-peru:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/pe.svg);
+		}
+		.flag-venezuela:before {
+			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
+		}
 		.container {
+			height: 400px;
 			padding-left: 20px;
 		}
         .form {
             display: inline-block;
-			width: 25%;
+			width: 30%;
             padding-left: 10px;
             padding-right: 10px;
             vertical-align: top;
@@ -198,6 +261,12 @@
             margin-bottom: 5px;
             width: 100%;
         }
+		.form__status-select {
+
+		}
+		.form__status-select option:before {
+			border-radius: 50%;
+		}
 		.filter-title {
 			font-family: Arial;
 			font-weight: lighter;
@@ -228,7 +297,7 @@
             </div>
 			<div class="element js-select">
 				<label class="form__label">Estado</label>
-				<select name="status" id="statusSelector"></select>
+				<select name="status" id="statusSelector" class="form__status-select"></select>
 			</div>
         </div>
         <div class="form">
@@ -436,6 +505,11 @@
 
 		setContextVars();
         setDefaultFields();
+		$selects.selectmenu({
+			width: 260,
+			open: setMenuClassesAndIcons
+		});
+
 
         function getParam(p){
             var url = getUrl().split('?');
@@ -530,6 +604,51 @@
 			$switchTableBtn.find('span').text(contextVars.switchTable);
 		}
 
+		function setMenuClassesAndIcons(event, ui) {
+			var $options,
+				id 			= event.currentTarget.id,
+				statusId 	= 'statusSelector-button',
+				countryId 	= 'countrySelector-button',
+				key,
+				value;
+
+			if (id === statusId) {
+				key = 'status';
+			}
+			if (id === countryId) {
+				key = 'country';
+			}
+			if (key) {
+				$options = $('#'+ key +'Selector-menu li');
+
+				$options.each(function(index) {
+					value = $(this).text();
+					$(this).addClass( getItemCssClass(value) );
+				});
+			}
+		}
+
+		function getItemCssClass(value) {
+			var options = contextVars.selects[1].options;
+			if (value === options[1]) 	{ return 'implemented'; }
+			if (value === options[2]) 	{ return 'planned'; }
+			if (value === options[3]) 	{ return 'executing'; }
+
+			options = contextVars.selects[3].options;
+			if (value === options[1]) 	{ return 'flag flag-spain'; }
+			if (value === options[2]) 	{ return 'flag flag-usa'; }
+			if (value === options[3]) 	{ return 'flag flag-mexico'; }
+			if (value === options[4]) 	{ return 'flag flag-turkey'; }
+			if (value === options[5]) 	{ return 'flag flag-colombia'; }
+			if (value === options[6]) 	{ return 'flag flag-paraguay'; }
+			if (value === options[7]) 	{ return 'flag flag-uruguay'; }
+			if (value === options[8]) 	{ return 'flag flag-argentina'; }
+			if (value === options[9]) 	{ return 'flag flag-peru'; }
+			if (value === options[10]) 	{ return 'flag flag-venezuela'; }
+
+			return '';
+		}
+
 		function getLang() {
 			return prefs.getString('lang');
 		}
@@ -574,8 +693,6 @@
 			window.open(url, '_parent');
             return false;
         }
-
-        $selects.selectmenu({width: 200});
 
     </script>
 	]]>
