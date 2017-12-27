@@ -16,433 +16,535 @@
     <script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
-	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
 
     <style type="text/css">
-		@font-face {
-			font-family: 'BBVA Web Book';
-			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
-			src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
-			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
-			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
-			url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
-			font-style: normal;
-			font-weight: normal;
-		}
+        @font-face {
+            font-family: 'BBVA Web Book';
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot');
+            src:url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.eot?iefix') format("embedded-opentype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.woff') format("woff"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.ttf') format("truetype"),
+            url('https://cdn.rawgit.com/sopraux/gsites/v1.0/gsites-components/fonts/web-book/web-book.svg#BBVA Web Book') format("svg");
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        .flag:before {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            left: -20px;
+            background-size: contain;
+            background-position: 50%;
+            background-repeat: no-repeat;
+        }
+        .flag-spain:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/es.svg);
+        }
+        .flag-usa:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/us.svg);
+        }
+        .flag-mexico:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/mx.svg);
+        }
+        .flag-turkey:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/tr.svg);
+        }
+        .flag-colombia:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/co.svg);
+        }
+        .flag-paraguay:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/py.svg);
+        }
+        .flag-uruguay:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/uy.svg);
+        }
+        .flag-argentina:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ar.svg);
+        }
+        .flag-peru:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/pe.svg);
+        }
+        .flag-venezuela:before {
+            background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
+        }
+
+        .implemented:before,
+        .planned:before,
+        .executing:before {
+            content: '';
+            border-radius: 50%;
+            height: 7px;
+            width: 7px;
+            border: 0.5px solid grey;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .implemented:before {
+            background: lightgreen;
+        }
+        .planned:before {
+            background: #fbc97f;
+        }
+        .executing:before {
+            background: yellow;
+        }
 
         .cards {
             width: 100%;
         }
 
-		.cards__list {
-			font-family: 'BBVA Web Book';
-			padding: 0;
-			list-style: none;
-		}
+        .cards__list {
+            font-family: 'BBVA Web Book';
+            padding: 0;
+            list-style: none;
+        }
 
-		.card-block {
-		    border-bottom: 1px solid #E5E5E5;
-		    display: inline-block;
-		    width: 100%;
-		    float: left;
-		}
-		.card-block:nth-child(4n),
-		.card-block:last-child {
-			border-bottom: 0;
-		}
+        .card-block {
+            border-bottom: 1px solid #E5E5E5;
+            display: inline-block;
+            width: 100%;
+            float: left;
+        }
+        .card-block:nth-child(4n),
+        .card-block:last-child {
+            border-bottom: 0;
+        }
 
-		.card {
-			font-size: 14px;
-			padding: 20px 10px;
-			float: left;
-			width: calc(50% - 10px);
-		}
-		.card:first-child {
-			padding-left: 0;
-		}
-		.card:last-child {
-			padding-right: 0;
-		}
+        .card {
+            font-size: 14px;
+            padding: 20px 10px;
+            float: left;
+            width: calc(50% - 10px);
+        }
+        .card:first-child {
+            padding-left: 0;
+        }
+        .card:last-child {
+            padding-right: 0;
+        }
 
-		.implemented {
-			background-color: lightgreen;
-		}
-		.planified {
-			background-color: lightblue;
-		}
-		.executing {
-			background-color: lightyellow;
-		}
-
-		.card__content {
+        .card__content {
 			position: relative;
 			padding: 20px;
 			border: 1px solid darkgrey;
+			background: #cdedff;
+			background: -moz-linear-gradient(bottom, #fff -5%, #cdedff, #0079C1 105%);
+			background: -webkit-linear-gradient(bottom, #fff -5%, #cdedff, #0079C1 105%);
+			background: linear-gradient(to top, #fff -5%, #cdedff, #0079C1 105%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdedff', endColorstr='#0079C1',GradientType=0 );
 		}
 
-		.card__name {
-			font-weight: bold;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-			overflow: hidden;
-			width: calc(100% - 135px);
-			display: inline-block;
-		}
+        .card__name {
+            font-weight: bold;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: calc(100% - 135px);
+            display: inline-block;
+        }
 
-		.card__country {
-			position: absolute;
-			top: 20px;
-			right: 20px;
-		}
+        .card__country {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
 
-		.card__description {
-			display: block;
-			/* Fallback for non-webkit */
-			display: -webkit-box;
-			-webkit-line-clamp: 3;
-			-webkit-box-orient: vertical;
-			height: 48px;
-			text-overflow: ellipsis;
-			overflow: hidden;
-		}
+        .card__description {
+            display: block;
+            /* Fallback for non-webkit */
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            height: 48px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
 
-		.card__properties {
-			padding-left: 15px;
-    		list-style: disc;
-		}
+        .card__properties {
+            padding-left: 15px;
+            list-style: disc;
+        }
 
-		.card__property {
-		    margin-bottom: 8px;
-		}
+        .card__property {
+            margin-bottom: 8px;
+        }
 
-		.card__property-name {
-			width: 80px;
-			float: left;
-		}
-		.card__property-value {
+        .card__property-name {
+            width: 80px;
+            float: left;
+        }
+        .card__property-value {
             white-space: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
             display: inline-block;
             width: calc(100% - 80px);
-		}
+        }
 
-		.card__link {
-			display: inline-block;
-			height: 15px;
-		}
+        .card__link {
+            display: inline-block;
+            height: 15px;
+        }
 
         .empty-results {
             font-family: arial, sans-serif;
-		    padding: 0 30px;
+            padding: 0 30px;
         }
 
-		span.click {
-			color: #0078d2;
-			text-decoration: none;
-			cursor: pointer;
-		}
+        span.click {
+            color: #0078d2;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-		.controls {
-			text-align: right;
-			max-width: 969px;
-			padding: 0 10px 5px 0;
-		}
+        .controls {
+            text-align: right;
+            max-width: 969px;
+            padding: 0 10px 5px 0;
+        }
 
-		.pager {
-		    height: 30px;
-		    text-align: center;
-		    display: table;
-		}
-		.pager ul {
-		    list-style: none;
-		    padding: 0;
-		    margin: 0;
-		    text-aling: center;
-		    display: table-cell;
-		    vertical-align: middle;
-		}
-		.pager ul li {
-		    display: inline;
-		    margin-left: 2px;
-		}
-		.pager ul li a {
-		    text-decoration: none;
-		    font-weight: bold;
-		    display: inline-table;
-		    width: 20px;
-		    height: 18px;
-		    text-align: center;
-		    border-radius: 4px;
-		    -moz-border-radius: 4px;
-		}
-		.pager span {
-		    margin-left: 4px;
-		    color: White;
-		    float: left;
-		}
-		.pager .btn {
-		    width: 40px;
-		    text-align: center;
-		    display: table-cell;
-		    vertical-align: middle;
-		    cursor: pointer;
-		}
-		.pager .disabled {
-		    color: #A0A0A0 !important;
-		    text-shadow: 1px 1px 1px #FFFFFF;
-		}
-		.black.normal {
-		    background-color: #FFFFFF;
-		    color: #0072C9;
-		    border: solid 1px #d2e5eb;
-		}
-		.black.active {
-		    background-color: #0072C9;
-		    color: #FFFFFF;
-		    border: solid 1px #0072C9;
-		}
-		.checkpage img,
-		.checkpage1 img,
-		.bloqueAnterior img,
-		.bloqueSiguiente img{
-			border: 0;
-		}
-		button{
-			background: #0079C1;
-		}
+        .pager {
+            height: 30px;
+            text-align: center;
+            display: table;
+        }
+        .pager ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-aling: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .pager ul li {
+            display: inline;
+            margin-left: 2px;
+        }
+        .pager ul li a {
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-table;
+            width: 20px;
+            height: 18px;
+            text-align: center;
+            border-radius: 4px;
+            -moz-border-radius: 4px;
+        }
+        .pager span {
+            margin-left: 4px;
+            color: White;
+            float: left;
+        }
+        .pager .btn {
+            width: 40px;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .pager .disabled {
+            color: #A0A0A0 !important;
+            text-shadow: 1px 1px 1px #FFFFFF;
+        }
+        .black.normal {
+            background-color: #FFFFFF;
+            color: #0072C9;
+            border: solid 1px #d2e5eb;
+        }
+        .black.active {
+            background-color: #0072C9;
+            color: #FFFFFF;
+            border: solid 1px #0072C9;
+        }
+        .checkpage img,
+        .checkpage1 img,
+        .bloqueAnterior img,
+        .bloqueSiguiente img{
+            border: 0;
+        }
+        button{
+            background: #0079C1;
+        }
     </style>
 
-	<div class="cards">
+    <div class="cards">
 
-	    <div id="cardsList" class="cards__list"></div>
+        <div id="cardsList" class="cards__list"></div>
 
-		<div id='pagination' class="pagination" style='margin: auto;'></div>
+        <div id='pagination' class="pagination" style='margin: auto;'></div>
 
-	</div>
+    </div>
 
-	<div id="empty_results" class="empty-results"></div>
+    <div id="empty_results" class="empty-results"></div>
 
     <script type="text/javascript">
         var prefs = new _IG_Prefs(),
-			contextLangs = {
-				es: {
-					cardProperties: {
-						country: 'País',
-						name: 'Nombre',
-						description: 'Descripción',
-						goal: 'Objetivo',
-						category: 'Categoría',
-						status: 'Estado',
-						link: 'Enlace al repositorio'
-					},
-					sheetId: '361022424',
-					implemented: 'Implementada',
-					planned: 'Planificada',
-					inExecution: 'En ejecución',
-					linkText: 'Enlace',
-					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
-				},
-				en: {
-					cardProperties: {
-						country: 'Country',
-						name: 'Name',
-						description: 'Description',
-						goal: 'Goal',
-						category: 'Category',
-						status: 'Status',
-						link: 'Link to the Repository'
-					},
-					sheetId: '2113943508',
-					implemented: 'Implemented',
-					planned: 'Planned',
-					inExecution: 'In execution',
-					linkText: 'Link',
-					emptyResults: 'No results found for the selected filters.'
-				}
-			},
-			contextVars = contextLangs[ getLang() ],
-			params = {
-				globalSearch: {	},
-				nameInitiative: {
-					col: 'D'
-				},
-				description: {
-					col: 'E'
-				},
-				goal: {
-					col: 'B'
-				},
-				status: {
-					col: 'H'
-				},
-				category: {
-					col: 'C'
-				},
-				country: {
-					col: 'P'
-				}
-			},
-			colIndex = {
-				country: 15,
-				name: 3,
-				description: 4,
-				goal: 1,
-				category: 2,
-				status: 7,
-				link: 8
-			},
-			gadgetHelper = null;
+            contextLangs = {
+                es: {
+                    cardProperties: {
+                        country: 'País',
+                        name: 'Nombre',
+                        description: 'Descripción',
+                        goal: 'Objetivo',
+                        category: 'Categoría',
+                        status: 'Estado',
+                        link: 'Enlace al repositorio'
+                    },
+                    countries: {
+                        spain: 'España',
+                        usa: 'USA',
+                        mexico: 'México',
+                        turkey: 'Turquía',
+                        colombia: 'Colombia',
+                        paraguay: 'Paraguay',
+                        uruguay: 'Uruguay',
+                        argentina: 'Argentina',
+                        peru: 'Perú',
+                        venezuela: 'Venezuela'
+                    },
+                    sheetId: '361022424',
+                    implemented: 'Implementada',
+                    planned: 'Planificada',
+                    inExecution: 'En ejecución',
+                    linkText: 'Enlace',
+                    emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
+                },
+                en: {
+                    cardProperties: {
+                        country: 'Country',
+                        name: 'Name',
+                        description: 'Description',
+                        goal: 'Goal',
+                        category: 'Category',
+                        status: 'Status',
+                        link: 'Link to the Repository'
+                    },
+                    countries: {
+                        spain: 'Spain',
+                        usa: 'USA',
+                        mexico: 'Mexico',
+                        turkey: 'Turkey',
+                        colombia: 'Colombia',
+                        paraguay: 'Paraguay',
+                        uruguay: 'Uruguay',
+                        argentina: 'Argentina',
+                        peru: 'Peru',
+                        venezuela: 'Venezuela'
+                    },
+                    sheetId: '2113943508',
+                    implemented: 'Implemented',
+                    planned: 'Planned',
+                    inExecution: 'In execution',
+                    linkText: 'Link',
+                    emptyResults: 'No results found for the selected filters.'
+                }
+            },
+            contextVars = contextLangs[ getLang() ],
+            params = {
+                globalSearch: {	},
+                nameInitiative: {
+                    col: 'D'
+                },
+                description: {
+                    col: 'E'
+                },
+                goal: {
+                    col: 'B'
+                },
+                status: {
+                    col: 'H'
+                },
+                category: {
+                    col: 'C'
+                },
+                country: {
+                    col: 'P'
+                }
+            },
+            colIndex = {
+                country: 15,
+                name: 3,
+                description: 4,
+                goal: 1,
+                category: 2,
+                status: 7,
+                link: 8
+            },
+            gadgetHelper = null;
 
-		initFilterParams();
-		loadVisualizationAPI();
+        initFilterParams();
+        loadVisualizationAPI();
 
 
-	 	function loadVisualizationAPI() {
-			google.load("visualization", "1", {"packages": ["table"]});
-			google.setOnLoadCallback(sendQuery);
-		}
+        function loadVisualizationAPI() {
+            google.load("visualization", "1", {"packages": ["table"]});
+            google.setOnLoadCallback(sendQuery);
+        }
 
         function pagination(elements) {
-	        $('#pagination').smartpaginator({
-		        totalrecords: elements,
-		        recordsperpage: 4,
-		        length: 4,
-		        datacontainer: 'cardsList',
-		        dataelement: '.card-block',
-		        initval: 0,
-	        });
-	    }
+            $('#pagination').smartpaginator({
+                totalrecords: elements,
+                recordsperpage: 4,
+                length: 4,
+                datacontainer: 'cardsList',
+                dataelement: '.card-block',
+                initval: 0,
+            });
+        }
 
-		function getGlobalSearchConditions(param) {
-			var words 	= param.value.split(' '),
-				cols 	= 'BCDEFGHIPQRST'.split(''),
-				filter 	= '';
+        function getGlobalSearchConditions(param) {
+            var words 	= param.value.split(' '),
+                cols 	= 'BCDEFGHIPQRST'.split(''),
+                filter 	= '';
 
-			cols.forEach(function(col, index) {
-				if (index !== 0) { filter += ' OR '; }
-				filter += '(';
+            cols.forEach(function(col, index) {
+                if (index !== 0) { filter += ' OR '; }
+                filter += '(';
 
-				words.forEach(function(word, wordIndex) {
-					if (wordIndex !== 0) { filter += ' AND '; }
-					filter += '(lower('+ col +') contains lower("' + word + '"))';
-				});
+                words.forEach(function(word, wordIndex) {
+                    if (wordIndex !== 0) { filter += ' AND '; }
+                    filter += '(lower('+ col +') contains lower("' + word + '"))';
+                });
 
-				filter += ')';
-			});
-			return ' AND ('+ filter +')';
-		}
+                filter += ')';
+            });
+            return ' AND ('+ filter +')';
+        }
 
         function getQueryParameters() {
-     		var filter 	= 'select * where C IS NOT NULL';
+            var filter 	= 'select * where C IS NOT NULL';
 
-     		if (isSearchDone()) {
-				Object.keys(params).forEach(function(key) {
-					var param = params[key];
-					if (param.value) {
-						if (key === 'globalSearch') {
-							filter += getGlobalSearchConditions(param);
-							return;
-						}
-						filter += ' AND (lower('+ param.col +') contains lower("' + param.value + '"))';
-					}
+            if (isSearchDone()) {
+                Object.keys(params).forEach(function(key) {
+                    var param = params[key];
+                    if (param.value) {
+                        if (key === 'globalSearch') {
+                            filter += getGlobalSearchConditions(param);
+                            return;
+                        }
+                        filter += ' AND (lower('+ param.col +') contains lower("' + param.value + '"))';
+                    }
                 });
- 			}
-			return encodeURIComponent(filter);
-     	}
+            }
+            return encodeURIComponent(filter);
+        }
 
         function sendQuery() {
 
             var queryUrl = 'https://spreadsheets.google.com/tq?key=' + getSpreadsheetKey() + '&gid=' + contextVars.sheetId + '&tq=' + getQueryParameters(),
-				query = new google.visualization.Query(queryUrl);
+                query = new google.visualization.Query(queryUrl);
 
             query.send(handleQueryResponse);
-			gadgetHelper = new google.visualization.GadgetHelper();
+            gadgetHelper = new google.visualization.GadgetHelper();
 
         }
 
         function handleQueryResponse(response) {
-			data = response.getDataTable();
-			if (data) {
-				createCards(data);
-				gadgets.window.adjustHeight();
-			}
+            data = response.getDataTable();
+            if (data) {
+                createCards(data);
+                gadgets.window.adjustHeight();
+            }
         }
 
-		function getPropertyRow(rowIndex, key) {
-			var html = 	'<label class="card__property-name">'+ contextVars.cardProperties[key] +':</label>' +
-						'<span class="card__property-value">'+ (data.getValue(rowIndex, colIndex[key]) || '-') +'</span>';
-			return html;
-		}
+        function getDataValue(rowIndex, key) {
+            return data.getValue(rowIndex, colIndex[key]);
+        }
 
-		function createCards(data) {
-			var numberOfRows = data.getNumberOfRows(),
-				linkText = contextVars.cardProperties.link,
-				cssClass = '',
-				html = '',
-				status;
+        function getPropertyRow(rowIndex, key, cssClass) {
+            cssClass = cssClass || '';
+            var html = 	'<label class="card__property-name">'+ contextVars.cardProperties[key] +':</label>' +
+                        '<span class="card__property-value '+ cssClass +'">'+ (getDataValue(rowIndex, key) || '-') +'</span>';
+            return html;
+        }
 
-			for (var rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-				status = data.getValue(rowIndex, colIndex.status);
-				cssClass = getStatusCssClass( status );
+        function createCards(data) {
+            var numberOfRows 	= data.getNumberOfRows(),
+                linkText 		= contextVars.cardProperties.link,
+                html 			= '',
+                statusCss, countryCss, status, country;
 
-				if (rowIndex % 2 === 0) {
-					html += '<div class="card-block">';
-				}
+            for (var rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
+                status = getDataValue(rowIndex, 'status');
+                country = getDataValue(rowIndex, 'country');
+                statusCss = getItemCssClass( status );
+                countryCss = 'card__country ' + getItemCssClass( country );
 
-				html += '<div class="card">' +
-						'	<div class="card__content '+ cssClass +'">' +
-						'		<label class="card__name">'+ data.getValue(rowIndex, colIndex.name) +'</label>' +
-						'		<span class="card__country">'+ data.getValue(rowIndex, colIndex.country) +'</span>' +
-						'		<p class="card__description">'+ data.getValue(rowIndex, colIndex.description) +'</p>' +
-						'		<ul class="card__properties">' +
-						'			<li class="card__property">'+ getPropertyRow(rowIndex, 'goal') +'</li>' +
-						'			<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
-						'			<li class="card__property">'+ getPropertyRow(rowIndex, 'status') +'</li>' +
-						'		</ul>';
-				if (status) {
-					html += '	<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ data.getValue(rowIndex, colIndex.link) +'\')">'+ linkText +'</a>';
-				}
-				else {
-					html += '	<a href="#" class="card__link"></a>';
-				}
-				html +=	'	</div>' +
-						'</div>';
+                if (rowIndex % 2 === 0) {
+                    html += '<div class="card-block">';
+                }
 
-				if (rowIndex % 2 === 1) {
-					html += '</div>';
-				}
-			}
+                html += '<div class="card">' +
+                        '	<div class="card__content">' +
+                        '		<label class="card__name">'+ getDataValue(rowIndex, 'name') +'</label>' +
+                        '		<span class="'+ countryCss +'">'+ country +'</span>' +
+                        '		<p class="card__description">'+ getDataValue(rowIndex, 'description') +'</p>' +
+                        '		<ul class="card__properties">' +
+                        '			<li class="card__property">'+ getPropertyRow(rowIndex, 'goal') +'</li>' +
+                        '			<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
+                        '			<li class="card__property">'+ getPropertyRow(rowIndex, 'status', statusCss) +'</li>' +
+                        '		</ul>';
+                if (status) {
+                    html += '	<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ getDataValue(rowIndex, 'link') +'\')">'+ linkText +'</a>';
+                }
+                else {
+                    html += '	<a href="#" class="card__link"></a>';
+                }
+                html +=	'	</div>' +
+                        '</div>';
 
-			$('#cardsList').html(html);
+                if (rowIndex % 2 === 1) {
+                    html += '</div>';
+                }
+            }
 
-			if (numberOfRows) {
-				pagination( Math.ceil(numberOfRows/2) );
-				return;
-			}
+            $('#cardsList').html(html);
 
-			html += '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
-			$('#empty_results').html(html);
-		}
+            if (numberOfRows) {
+                pagination( Math.ceil(numberOfRows/2) );
+                return;
+            }
 
-		function getStatusCssClass(value) {
-			if (value === contextVars.implemented) { return 'implemented' }
-			if (value === contextVars.planned) 	{ return 'planified' }
-			if (value === contextVars.inExecution) { return 'executing' }
-			return '';
-		}
+            html += '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
+            $('#empty_results').html(html);
+        }
 
-		function getLang() {
-			return prefs.getString('lang');
-		}
+        function getItemCssClass(value) {
+            if (value === contextVars.implemented) 	{ return 'implemented'; }
+            if (value === contextVars.planned) 		{ return 'planned'; }
+            if (value === contextVars.inExecution)	{ return 'executing'; }
 
-		function getUrl() {
-			return document.referrer;
-		}
+            countries = contextVars.countries;
 
-		function getSpreadsheetKey() {
-	        return prefs.getString('spreadsheet_key');
-		}
+            if (value === countries.spain) 		{ return 'flag flag-spain'; }
+            if (value === countries.usa) 		{ return 'flag flag-usa'; }
+            if (value === countries.mexico) 	{ return 'flag flag-mexico'; }
+            if (value === countries.turkey) 	{ return 'flag flag-turkey'; }
+            if (value === countries.colombia) 	{ return 'flag flag-colombia'; }
+            if (value === countries.paraguay) 	{ return 'flag flag-paraguay'; }
+            if (value === countries.uruguay) 	{ return 'flag flag-uruguay'; }
+            if (value === countries.argentina) 	{ return 'flag flag-argentina'; }
+            if (value === countries.peru) 		{ return 'flag flag-peru'; }
+            if (value === countries.venezuela) 	{ return 'flag flag-venezuela'; }
+
+            return '';
+        }
+
+        function getLang() {
+            return prefs.getString('lang');
+        }
+
+        function getUrl() {
+            return document.referrer;
+        }
+
+        function getSpreadsheetKey() {
+            return prefs.getString('spreadsheet_key');
+        }
 
         function isSearchDone() {
             return getUrl().split("=").length >= 2;
@@ -450,21 +552,21 @@
 
         function initFilterParams() {
             var urlParam,
-				url = getUrl().split('?'),
+                url = getUrl().split('?'),
                 listParams = url.length > 1 ? url[1].split('&') : [];
 
             listParams.forEach(function(item) {
                 urlParam = decodeURIComponent(item).split('+').join(' ').trim().split('=');
-				if (urlParam.length > 1 && params.hasOwnProperty( urlParam[0] )){
-					params[ urlParam[0] ].value = urlParam[1];
-				}
+                if (urlParam.length > 1 && params.hasOwnProperty( urlParam[0] )){
+                    params[ urlParam[0] ].value = urlParam[1];
+                }
             });
         }
 
-		function OpenLink(link) {
-			window.open(link,'_new');
+        function OpenLink(link) {
+            window.open(link,'_new');
             return false;
-		}
+        }
 
     </script>
     ]]>
