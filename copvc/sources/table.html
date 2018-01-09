@@ -100,11 +100,11 @@
 			content: "(Z-A)";
 		}
 
-		.flag {
+		.cell-icon {
 			position: relative;
 			padding-left: 15px;
 		}
-		.flag:before {
+		.cell-icon:before {
 			content: "";
 			position: absolute;
 		    background-size: contain;
@@ -144,6 +144,15 @@
 		}
 		.flag-venezuela:before {
 			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
+		}
+		.icon-spread:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Difundir.png);
+		}
+		.icon-inculcate:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Inculcar.png);
+		}
+		.icon-live:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Vivir.png);
 		}
 
         .firstcol {
@@ -259,6 +268,11 @@
 						'Estado',
 						'Enlace al repositorio'
 					],
+					goals: {
+						spread: 'Difundir los V&C',
+						inculcate: 'Inculcar los V&C (políticas de T&C)',
+						live: 'Vivir los V&C'
+					},
 					countries: {
 						spain: 'España',
 						usa: 'USA',
@@ -288,6 +302,11 @@
 						'Status',
 						'Link to the Repository'
 					],
+					goals: {
+						spread: 'Spread our V&B',
+						inculcate: 'Inculcate our V&B (T&C politics)',
+						live: 'Live our V&B'
+					},
 					countries: {
 						spain: 'Spain',
 						usa: 'USA',
@@ -457,6 +476,7 @@
 		function createBody(data) {
 			var numberOfRows 	= data.getNumberOfRows(),
 				statusIndex 	= tableCols[5].sheetIndex,
+				goalHeader 		= tableCols[3].header,
 				countryHeader 	= tableCols[0].header,
 				linkHeader 		= tableCols[6].header,
 				cssClass 		= '',
@@ -470,7 +490,7 @@
 					var value = data.getValue(i, col.sheetIndex) || '-';
 					cssClass = '';
 
-					if (col.header === countryHeader) {
+					if (col.header === countryHeader || col.header === goalHeader) {
 						cssClass = getItemCssClass(value);
 					}
 					if (col.header === linkHeader && value !== '-') {
@@ -491,18 +511,24 @@
 			if (value === contextVars.planned) 		{ return 'planned'; }
 			if (value === contextVars.inExecution)	{ return 'executing'; }
 
-			countries = contextVars.countries;
+			var goals = contextVars.goals;
 
-			if (value === countries.spain) 		{ return 'flag flag-spain'; }
-			if (value === countries.usa) 		{ return 'flag flag-usa'; }
-			if (value === countries.mexico) 	{ return 'flag flag-mexico'; }
-			if (value === countries.turkey) 	{ return 'flag flag-turkey'; }
-			if (value === countries.colombia) 	{ return 'flag flag-colombia'; }
-			if (value === countries.paraguay) 	{ return 'flag flag-paraguay'; }
-			if (value === countries.uruguay) 	{ return 'flag flag-uruguay'; }
-			if (value === countries.argentina) 	{ return 'flag flag-argentina'; }
-			if (value === countries.peru) 		{ return 'flag flag-peru'; }
-			if (value === countries.venezuela) 	{ return 'flag flag-venezuela'; }
+			if (value === goals.spread) 	{ return 'cell-icon icon-spread'; }
+			if (value === goals.inculcate) 	{ return 'cell-icon icon-inculcate'; }
+			if (value === goals.live) 		{ return 'cell-icon icon-live'; }
+
+			var countries = contextVars.countries;
+
+			if (value === countries.spain) 		{ return 'cell-icon flag-spain'; }
+			if (value === countries.usa) 		{ return 'cell-icon flag-usa'; }
+			if (value === countries.mexico) 	{ return 'cell-icon flag-mexico'; }
+			if (value === countries.turkey) 	{ return 'cell-icon flag-turkey'; }
+			if (value === countries.colombia) 	{ return 'cell-icon flag-colombia'; }
+			if (value === countries.paraguay) 	{ return 'cell-icon flag-paraguay'; }
+			if (value === countries.uruguay) 	{ return 'cell-icon flag-uruguay'; }
+			if (value === countries.argentina) 	{ return 'cell-icon flag-argentina'; }
+			if (value === countries.peru) 		{ return 'cell-icon flag-peru'; }
+			if (value === countries.venezuela) 	{ return 'cell-icon flag-venezuela'; }
 
 			return '';
 		}
