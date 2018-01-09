@@ -72,6 +72,26 @@
 		.flag-venezuela:before {
 			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
 		}
+		.icon-spread:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Difundir.png);
+		}
+		.icon-inculcate:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Inculcar.png);
+		}
+		.icon-live:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Vivir.png);
+		}
+
+		.property-icon:before {
+			content: '';
+			background-size: contain;
+		    background-position: 50%;
+		    background-repeat: no-repeat;
+			height: 12px;
+			width: 12px;
+			display: inline-block;
+			margin-right: 5px;
+		}
 
 		.implemented:before,
 		.planned:before,
@@ -292,208 +312,220 @@
 		}
     </style>
 
-    <div class="cards">
+	<div class="cards">
 
-        <div id="cardsList" class="cards__list"></div>
+	    <div id="cardsList" class="cards__list"></div>
 
-        <div id='pagination' class="pagination" style='margin: auto;'></div>
+		<div id='pagination' class="pagination" style='margin: auto;'></div>
 
-    </div>
+	</div>
 
-    <div id="empty_results" class="empty-results"></div>
+	<div id="empty_results" class="empty-results"></div>
 
     <script type="text/javascript">
         var prefs = new _IG_Prefs(),
-            contextLangs = {
-                es: {
-                    cardProperties: {
-                        country: 'País',
-                        name: 'Nombre',
-                        description: 'Descripción',
-                        goal: 'Objetivo',
-                        category: 'Categoría',
-                        status: 'Estado',
-                        link: 'Enlace al repositorio'
-                    },
-                    countries: {
-                        spain: 'España',
-                        usa: 'USA',
-                        mexico: 'México',
-                        turkey: 'Turquía',
-                        colombia: 'Colombia',
-                        paraguay: 'Paraguay',
-                        uruguay: 'Uruguay',
-                        argentina: 'Argentina',
-                        peru: 'Perú',
-                        venezuela: 'Venezuela'
-                    },
-                    sheetId: '361022424',
-                    implemented: 'Implementada',
-                    planned: 'Planificada',
-                    inExecution: 'En ejecución',
-                    linkText: 'Enlace',
-                    emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
-                },
-                en: {
-                    cardProperties: {
-                        country: 'Country',
-                        name: 'Name',
-                        description: 'Description',
-                        goal: 'Goal',
-                        category: 'Category',
-                        status: 'Status',
-                        link: 'Link to the Repository'
-                    },
-                    countries: {
-                        spain: 'Spain',
-                        usa: 'USA',
-                        mexico: 'Mexico',
-                        turkey: 'Turkey',
-                        colombia: 'Colombia',
-                        paraguay: 'Paraguay',
-                        uruguay: 'Uruguay',
-                        argentina: 'Argentina',
-                        peru: 'Peru',
-                        venezuela: 'Venezuela'
-                    },
-                    sheetId: '2113943508',
-                    implemented: 'Implemented',
-                    planned: 'Planned',
-                    inExecution: 'In execution',
-                    linkText: 'Link',
-                    emptyResults: 'No results found for the selected filters.'
-                }
-            },
-            contextVars = contextLangs[ getLang() ],
-            params = {
-                globalSearch: {	},
-                nameInitiative: {
-                    col: 'D'
-                },
-                description: {
-                    col: 'E'
-                },
-                goal: {
-                    col: 'B'
-                },
-                status: {
-                    col: 'H'
-                },
-                category: {
-                    col: 'C'
-                },
-                country: {
-                    col: 'P'
-                }
-            },
-            colIndex = {
-                country: 15,
-                name: 3,
-                description: 4,
-                goal: 1,
-                category: 2,
-                status: 7,
-                link: 8
-            },
-            gadgetHelper = null;
+			contextLangs = {
+				es: {
+					cardProperties: {
+						country: 'País',
+						name: 'Nombre',
+						description: 'Descripción',
+						goal: 'Objetivo',
+						category: 'Categoría',
+						status: 'Estado',
+						link: 'Enlace al repositorio'
+					},
+					goals: {
+						spread: 'Difundir los V&C',
+						inculcate: 'Inculcar los V&C (políticas de T&C)',
+						live: 'Vivir los V&C'
+					},
+					countries: {
+						spain: 'España',
+						usa: 'USA',
+						mexico: 'México',
+						turkey: 'Turquía',
+						colombia: 'Colombia',
+						paraguay: 'Paraguay',
+						uruguay: 'Uruguay',
+						argentina: 'Argentina',
+						peru: 'Perú',
+						venezuela: 'Venezuela'
+					},
+					sheetId: '361022424',
+					implemented: 'Implementada',
+					planned: 'Planificada',
+					inExecution: 'En ejecución',
+					linkText: 'Enlace',
+					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
+				},
+				en: {
+					cardProperties: {
+						country: 'Country',
+						name: 'Name',
+						description: 'Description',
+						goal: 'Goal',
+						category: 'Category',
+						status: 'Status',
+						link: 'Link to the Repository'
+					},
+					goals: {
+						spread: 'Spread our V&B',
+						inculcate: 'Inculcate our V&B (T&C politics)',
+						live: 'Live our V&B'
+					},
+					countries: {
+						spain: 'Spain',
+						usa: 'USA',
+						mexico: 'Mexico',
+						turkey: 'Turkey',
+						colombia: 'Colombia',
+						paraguay: 'Paraguay',
+						uruguay: 'Uruguay',
+						argentina: 'Argentina',
+						peru: 'Peru',
+						venezuela: 'Venezuela'
+					},
+					sheetId: '2113943508',
+					implemented: 'Implemented',
+					planned: 'Planned',
+					inExecution: 'In execution',
+					linkText: 'Link',
+					emptyResults: 'No results found for the selected filters.'
+				}
+			},
+			contextVars = contextLangs[ getLang() ],
+			params = {
+				globalSearch: {	},
+				nameInitiative: {
+					col: 'D'
+				},
+				description: {
+					col: 'E'
+				},
+				goal: {
+					col: 'B'
+				},
+				status: {
+					col: 'H'
+				},
+				category: {
+					col: 'C'
+				},
+				country: {
+					col: 'P'
+				}
+			},
+			colIndex = {
+				country: 15,
+				name: 3,
+				description: 4,
+				goal: 1,
+				category: 2,
+				status: 7,
+				link: 8
+			},
+			gadgetHelper = null;
 
-        initFilterParams();
-        loadVisualizationAPI();
+		initFilterParams();
+		loadVisualizationAPI();
 
 
-        function loadVisualizationAPI() {
-            google.load("visualization", "1", {"packages": ["table"]});
-            google.setOnLoadCallback(sendQuery);
-        }
+	 	function loadVisualizationAPI() {
+			google.load("visualization", "1", {"packages": ["table"]});
+			google.setOnLoadCallback(sendQuery);
+		}
 
         function pagination(elements) {
-            $('#pagination').smartpaginator({
-                totalrecords: elements,
-                recordsperpage: 4,
-                length: 4,
-                datacontainer: 'cardsList',
-                dataelement: '.card-block',
-                initval: 0,
-            });
-        }
+	        $('#pagination').smartpaginator({
+		        totalrecords: elements,
+		        recordsperpage: 4,
+		        length: 4,
+		        datacontainer: 'cardsList',
+		        dataelement: '.card-block',
+		        initval: 0,
+	        });
+	    }
 
-        function getGlobalSearchConditions(param) {
-            var words 	= param.value.split(' '),
-                cols 	= 'BCDEFGHIPQRST'.split(''),
-                filter 	= '';
+		function getGlobalSearchConditions(param) {
+			var words 	= param.value.split(' '),
+				cols 	= 'BCDEFGHIPQRST'.split(''),
+				filter 	= '';
 
-            cols.forEach(function(col, index) {
-                if (index !== 0) { filter += ' OR '; }
-                filter += '(';
+			cols.forEach(function(col, index) {
+				if (index !== 0) { filter += ' OR '; }
+				filter += '(';
 
-                words.forEach(function(word, wordIndex) {
-                    if (wordIndex !== 0) { filter += ' AND '; }
-                    filter += '(lower('+ col +') contains lower("' + word + '"))';
-                });
+				words.forEach(function(word, wordIndex) {
+					if (wordIndex !== 0) { filter += ' AND '; }
+					filter += '(lower('+ col +') contains lower("' + word + '"))';
+				});
 
-                filter += ')';
-            });
-            return ' AND ('+ filter +')';
-        }
+				filter += ')';
+			});
+			return ' AND ('+ filter +')';
+		}
 
         function getQueryParameters() {
-            var filter 	= 'select * where C IS NOT NULL';
+     		var filter 	= 'select * where C IS NOT NULL';
 
-            if (isSearchDone()) {
-                Object.keys(params).forEach(function(key) {
-                    var param = params[key];
-                    if (param.value) {
-                        if (key === 'globalSearch') {
-                            filter += getGlobalSearchConditions(param);
-                            return;
-                        }
-                        filter += ' AND (lower('+ param.col +') contains lower("' + param.value + '"))';
-                    }
+     		if (isSearchDone()) {
+				Object.keys(params).forEach(function(key) {
+					var param = params[key];
+					if (param.value) {
+						if (key === 'globalSearch') {
+							filter += getGlobalSearchConditions(param);
+							return;
+						}
+						filter += ' AND (lower('+ param.col +') contains lower("' + param.value + '"))';
+					}
                 });
-            }
-            return encodeURIComponent(filter);
-        }
+ 			}
+			return encodeURIComponent(filter);
+     	}
 
         function sendQuery() {
 
             var queryUrl = 'https://spreadsheets.google.com/tq?key=' + getSpreadsheetKey() + '&gid=' + contextVars.sheetId + '&tq=' + getQueryParameters(),
-                query = new google.visualization.Query(queryUrl);
+				query = new google.visualization.Query(queryUrl);
 
             query.send(handleQueryResponse);
-            gadgetHelper = new google.visualization.GadgetHelper();
+			gadgetHelper = new google.visualization.GadgetHelper();
 
         }
 
         function handleQueryResponse(response) {
-            data = response.getDataTable();
-            if (data) {
-                createCards(data);
-                gadgets.window.adjustHeight();
-            }
+			data = response.getDataTable();
+			if (data) {
+				createCards(data);
+				gadgets.window.adjustHeight();
+			}
         }
 
-        function getDataValue(rowIndex, key) {
-            return data.getValue(rowIndex, colIndex[key]);
-        }
+		function getDataValue(rowIndex, key) {
+			return data.getValue(rowIndex, colIndex[key]);
+		}
 
-        function getPropertyRow(rowIndex, key, cssClass) {
-            cssClass = cssClass || '';
-            var html = 	'<label class="card__property-name">'+ contextVars.cardProperties[key] +':</label>' +
-                        '<span class="card__property-value '+ cssClass +'">'+ (getDataValue(rowIndex, key) || '-') +'</span>';
-            return html;
-        }
+		function getPropertyRow(rowIndex, key, cssClass) {
+			cssClass = cssClass || '';
+			var html = 	'<label class="card__property-name">'+ contextVars.cardProperties[key] +':</label>' +
+						'<span class="card__property-value '+ cssClass +'">'+ (getDataValue(rowIndex, key) || '-') +'</span>';
+			return html;
+		}
 
-        function createCards(data) {
+		function createCards(data) {
 			var numberOfRows 	= data.getNumberOfRows(),
 				linkText 		= contextVars.cardProperties.link,
 				html 			= '',
 				statusCss, countryCss, status, country;
 
 			for (var rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-				status = getDataValue(rowIndex, 'status');
-				country = getDataValue(rowIndex, 'country');
-				statusCss = getItemCssClass( status );
-				countryCss = 'card__country ' + getItemCssClass( country );
+				status	 	= getDataValue(rowIndex, 'status');
+				goal 		= getDataValue(rowIndex, 'goal');
+				country 	= getDataValue(rowIndex, 'country');
+				statusCss 	= getItemCssClass( status );
+				goalCss 	= getItemCssClass( goal );
+				countryCss 	= 'card__country ' + getItemCssClass( country );
 
 				if (rowIndex % 2 === 0) {
 					html += '<div class="card-block">';
@@ -508,7 +540,7 @@
 						'		<div class="card__bottom-content">' +
 						'			<p class="card__description">'+ getDataValue(rowIndex, 'description') +'</p>' +
 						'			<ul class="card__properties">' +
-						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'goal') +'</li>' +
+						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'goal', goalCss) +'</li>' +
 						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
 						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'status', statusCss) +'</li>' +
 						'			</ul>';
@@ -538,38 +570,44 @@
 			$('#empty_results').html(html);
 		}
 
-        function getItemCssClass(value) {
-            if (value === contextVars.implemented) 	{ return 'implemented'; }
-            if (value === contextVars.planned) 		{ return 'planned'; }
-            if (value === contextVars.inExecution)	{ return 'executing'; }
+		function getItemCssClass(value) {
+			if (value === contextVars.implemented) 	{ return 'implemented'; }
+			if (value === contextVars.planned) 		{ return 'planned'; }
+			if (value === contextVars.inExecution)	{ return 'executing'; }
 
-            countries = contextVars.countries;
+			var goals = contextVars.goals;
 
-            if (value === countries.spain) 		{ return 'flag flag-spain'; }
-            if (value === countries.usa) 		{ return 'flag flag-usa'; }
-            if (value === countries.mexico) 	{ return 'flag flag-mexico'; }
-            if (value === countries.turkey) 	{ return 'flag flag-turkey'; }
-            if (value === countries.colombia) 	{ return 'flag flag-colombia'; }
-            if (value === countries.paraguay) 	{ return 'flag flag-paraguay'; }
-            if (value === countries.uruguay) 	{ return 'flag flag-uruguay'; }
-            if (value === countries.argentina) 	{ return 'flag flag-argentina'; }
-            if (value === countries.peru) 		{ return 'flag flag-peru'; }
-            if (value === countries.venezuela) 	{ return 'flag flag-venezuela'; }
+			if (value === goals.spread) 	{ return 'property-icon icon-spread'; }
+			if (value === goals.inculcate) 	{ return 'property-icon icon-inculcate'; }
+			if (value === goals.live) 		{ return 'property-icon icon-live'; }
 
-            return '';
-        }
+			var countries = contextVars.countries;
 
-        function getLang() {
-            return prefs.getString('lang');
-        }
+			if (value === countries.spain) 		{ return 'flag flag-spain'; }
+			if (value === countries.usa) 		{ return 'flag flag-usa'; }
+			if (value === countries.mexico) 	{ return 'flag flag-mexico'; }
+			if (value === countries.turkey) 	{ return 'flag flag-turkey'; }
+			if (value === countries.colombia) 	{ return 'flag flag-colombia'; }
+			if (value === countries.paraguay) 	{ return 'flag flag-paraguay'; }
+			if (value === countries.uruguay) 	{ return 'flag flag-uruguay'; }
+			if (value === countries.argentina) 	{ return 'flag flag-argentina'; }
+			if (value === countries.peru) 		{ return 'flag flag-peru'; }
+			if (value === countries.venezuela) 	{ return 'flag flag-venezuela'; }
 
-        function getUrl() {
-            return document.referrer;
-        }
+			return '';
+		}
 
-        function getSpreadsheetKey() {
-            return prefs.getString('spreadsheet_key');
-        }
+		function getLang() {
+			return prefs.getString('lang');
+		}
+
+		function getUrl() {
+			return document.referrer;
+		}
+
+		function getSpreadsheetKey() {
+	        return prefs.getString('spreadsheet_key');
+		}
 
         function isSearchDone() {
             return getUrl().split("=").length >= 2;
@@ -577,21 +615,21 @@
 
         function initFilterParams() {
             var urlParam,
-                url = getUrl().split('?'),
+				url = getUrl().split('?'),
                 listParams = url.length > 1 ? url[1].split('&') : [];
 
             listParams.forEach(function(item) {
                 urlParam = decodeURIComponent(item).split('+').join(' ').trim().split('=');
-                if (urlParam.length > 1 && params.hasOwnProperty( urlParam[0] )){
-                    params[ urlParam[0] ].value = urlParam[1];
-                }
+				if (urlParam.length > 1 && params.hasOwnProperty( urlParam[0] )){
+					params[ urlParam[0] ].value = urlParam[1];
+				}
             });
         }
 
-        function OpenLink(link) {
-            window.open(link,'_new');
+		function OpenLink(link) {
+			window.open(link,'_new');
             return false;
-        }
+		}
 
     </script>
     ]]>

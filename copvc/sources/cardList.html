@@ -58,6 +58,26 @@
 		.flag-venezuela:before {
 			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
 		}
+		.icon-spread:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Difundir.png);
+		}
+		.icon-inculcate:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Inculcar.png);
+		}
+		.icon-live:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Vivir.png);
+		}
+
+		.property-icon:before {
+			content: '';
+			background-size: contain;
+		    background-position: 50%;
+		    background-repeat: no-repeat;
+			height: 12px;
+			width: 12px;
+			display: inline-block;
+			margin-right: 5px;
+		}
 
 		.implemented:before,
 		.planned:before,
@@ -301,6 +321,11 @@
 						status: 'Estado',
 						link: 'Enlace al repositorio'
 					},
+					goals: {
+						spread: 'Difundir los V&C',
+						inculcate: 'Inculcar los V&C (políticas de T&C)',
+						live: 'Vivir los V&C'
+					},
 					countries: {
 						spain: 'España',
 						usa: 'USA',
@@ -329,6 +354,11 @@
 						category: 'Category',
 						status: 'Status',
 						link: 'Link to the Repository'
+					},
+					goals: {
+						spread: 'Spread our V&B',
+						inculcate: 'Inculcate our V&B (T&C politics)',
+						live: 'Live our V&B'
 					},
 					countries: {
 						spain: 'Spain',
@@ -476,10 +506,12 @@
 				statusCss, countryCss, status, country;
 
 			for (var rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-				status = getDataValue(rowIndex, 'status');
-				country = getDataValue(rowIndex, 'country');
-				statusCss = getItemCssClass( status );
-				countryCss = 'card__country ' + getItemCssClass( country );
+				status	 	= getDataValue(rowIndex, 'status');
+				goal 		= getDataValue(rowIndex, 'goal');
+				country 	= getDataValue(rowIndex, 'country');
+				statusCss 	= getItemCssClass( status );
+				goalCss 	= getItemCssClass( goal );
+				countryCss 	= 'card__country ' + getItemCssClass( country );
 
 				if (rowIndex % 2 === 0) {
 					html += '<div class="card-block">';
@@ -494,7 +526,7 @@
 						'		<div class="card__bottom-content">' +
 						'			<p class="card__description">'+ getDataValue(rowIndex, 'description') +'</p>' +
 						'			<ul class="card__properties">' +
-						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'goal') +'</li>' +
+						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'goal', goalCss) +'</li>' +
 						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
 						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'status', statusCss) +'</li>' +
 						'			</ul>';
@@ -529,7 +561,13 @@
 			if (value === contextVars.planned) 		{ return 'planned'; }
 			if (value === contextVars.inExecution)	{ return 'executing'; }
 
-			countries = contextVars.countries;
+			var goals = contextVars.goals;
+
+			if (value === goals.spread) 	{ return 'property-icon icon-spread'; }
+			if (value === goals.inculcate) 	{ return 'property-icon icon-inculcate'; }
+			if (value === goals.live) 		{ return 'property-icon icon-live'; }
+
+			var countries = contextVars.countries;
 
 			if (value === countries.spain) 		{ return 'flag flag-spain'; }
 			if (value === countries.usa) 		{ return 'flag flag-usa'; }
