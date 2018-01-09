@@ -182,6 +182,7 @@
 		.ui-menu-item.executing:before {
 			background: yellow;
 		}
+		.icon:before,
 		.flag:before {
 			content: "";
 		    background-size: contain;
@@ -191,6 +192,10 @@
 		    height: 12px;
 		    margin-right: 5px;
 		    display: inline-block;
+		}
+		.icon:before {
+			float: left;
+			margin-top: 2px;
 		}
 		.flag-spain:before {
 			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/es.svg);
@@ -221,6 +226,15 @@
 		}
 		.flag-venezuela:before {
 			background-image: url(https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.9.0/flags/1x1/ve.svg);
+		}
+		.icon-spread:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Difundir.png);
+		}
+		.icon-inculcate:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Inculcar.png);
+		}
+		.icon-live:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Vivir.png);
 		}
 		.container {
 			height: 400px;
@@ -595,12 +609,16 @@
 			var $options,
 				id 			= event.currentTarget.id,
 				statusId 	= 'statusSelector-button',
+				goalId 		= 'goalSelector-button',
 				countryId 	= 'countrySelector-button',
 				key,
 				value;
 
 			if (id === statusId) {
 				key = 'status';
+			}
+			if (id === goalId) {
+				key = 'goal';
 			}
 			if (id === countryId) {
 				key = 'country';
@@ -620,6 +638,11 @@
 			if (value === options[1]) 	{ return 'implemented'; }
 			if (value === options[2]) 	{ return 'planned'; }
 			if (value === options[3]) 	{ return 'executing'; }
+
+			options = contextVars.selects[0].options;
+			if (value === options[1]) 	{ return 'icon icon-spread'; }
+			if (value === options[2]) 	{ return 'icon icon-inculcate'; }
+			if (value === options[3]) 	{ return 'icon icon-live'; }
 
 			options = contextVars.selects[3].options;
 			if (value === options[1]) 	{ return 'flag flag-spain'; }
