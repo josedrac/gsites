@@ -32,9 +32,9 @@ Podeis ver un ejemplo en el archivo:
 
 
 ### Como acceder a los datos de una spreadsheet en la que solo se tienen permisos de lectura
-* Hay que realizar la llamada a través de un script de GAS. Para ello se realizará una llamada ayax al script pasando los parámetros necesarios de la Spreadsheet.
+* Hay que realizar la llamada a través de un script de GAS. Para ello se realizará una llamada ajax al script pasando los parámetros necesarios de la Spreadsheet.
 * Un ejemplo de script sería:
-'''
+```
 function doGet(e) {
   return ContentService
     .createTextOutput('on_result(' + JSON.stringify(returnData(e)) + ')')
@@ -49,10 +49,10 @@ function returnData(e) {
       .getValues();
   return data;
 }
-'''
-* El doGet recibiria por GET la petición ayax y devolvería las celdas de la Spreadsheet mediante la función returnData.
-* Un ejemplo de petición por ayax sería:
-'''
+```
+* El doGet recibiria por GET la petición ajax y devolvería las celdas de la Spreadsheet mediante la función returnData.
+* Un ejemplo de petición por ajax sería:
+```
 function sendQuery() {
 
     var dataForm = {
@@ -87,5 +87,5 @@ function handleQueryResponse(response) {
         gadgets.window.adjustHeight();
     }
 }
-'''
+```
 * En la llamada pasariamos la key del Spreadsheet y el índice de la hoja si fuese necesario.
