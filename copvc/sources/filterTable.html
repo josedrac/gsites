@@ -350,9 +350,9 @@
 							label: 'Objetivo',
 							options: [
 								'Todos',
-		                        'Difundir los V&C',
-								'Inculcar los V&C (políticas de T&C)',
-		                        'Vivir los V&C'
+		                        'Difundir',
+								'Inculcar',
+		                        'Vivir'
 							]
 						},
 						{
@@ -360,8 +360,8 @@
 							options: [
 								'Todos',
 								'Implementada',
-								'Planificada',
-								'En ejecución'
+								'En ejecución',
+								'Planificada'
 							]
 						},
 						{
@@ -422,9 +422,9 @@
 							label: 'Goal',
 							options: [
 								'All',
-								'Spread our V&B',
-								'Inculcate our V&B (T&C politics)',
-								'Live our V&B'
+								'Spread',
+								'Inculcate',
+								'Live'
 							]
 						},
 						{
@@ -432,8 +432,8 @@
 							options: [
 								'All',
 								'Implemented',
-								'Planned',
 								'In execution',
+								'Planned',
 							]
 						},
 						{
@@ -636,8 +636,8 @@
 		function getItemCssClass(value) {
 			var options = contextVars.selects[1].options;
 			if (value === options[1]) 	{ return 'implemented'; }
-			if (value === options[2]) 	{ return 'planned'; }
-			if (value === options[3]) 	{ return 'executing'; }
+			if (value === options[2]) 	{ return 'executing'; }
+			if (value === options[3]) 	{ return 'planned'; }
 
 			options = contextVars.selects[0].options;
 			if (value === options[1]) 	{ return 'icon icon-spread'; }

@@ -185,7 +185,7 @@
 			border-bottom: 1px solid #E5E5E5;
 			overflow: hidden;
 		}
-        .implemented {
+		.implemented {
 			background-color: #1973B8;
 		}
 		.implemented .table__cell-text {
@@ -276,6 +276,7 @@
         var prefs = new _IG_Prefs(),
 			contextLangs = {
 				es: {
+					sheetIndex: 0,
 					tableColsHeaders: [
 						'País',
 						'Nombre',
@@ -286,9 +287,9 @@
 						'Enlace al repositorio'
 					],
 					goals: {
-						spread: 'Difundir los V&C',
-						inculcate: 'Inculcar los V&C (políticas de T&C)',
-						live: 'Vivir los V&C'
+						spread: 'Difundir',
+						inculcate: 'Inculcar',
+						live: 'Vivir'
 					},
 					countries: {
 						spain: 'España',
@@ -310,6 +311,7 @@
 					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
 				},
 				en: {
+					sheetIndex: 1,
 					tableColsHeaders: [
 						'Country',
 						'Name',
@@ -320,9 +322,9 @@
 						'Link to the Repository'
 					],
 					goals: {
-						spread: 'Spread our V&B',
-						inculcate: 'Inculcate our V&B (T&C politics)',
-						live: 'Live our V&B'
+						spread: 'Spread',
+						inculcate: 'Inculcate',
+						live: 'Live'
 					},
 					countries: {
 						spain: 'Spain',
@@ -348,22 +350,22 @@
 			params = {
 				globalSearch: {	},
 				nameInitiative: {
-					col: 'D'
+					col: 3
 				},
 				description: {
-					col: 'E'
+					col: 4
 				},
 				goal: {
-					col: 'B'
+					col: 1
 				},
 				status: {
-					col: 'H'
+					col: 7
 				},
 				category: {
-					col: 'C'
+					col: 2
 				},
 				country: {
-					col: 'P'
+					col: 15
 				}
 			},
 			tableCols = [
@@ -390,8 +392,7 @@
 				{
 					sheetIndex: 8
 				}
-			],
-			gadgetHelper = null;
+			];
 
 		setContextVars();
 		initFilterParams();
@@ -414,60 +415,93 @@
 	        });
 	    }
 
-		function getGlobalSearchConditions(param) {
-			var words 	= param.value.split(' '),
-				cols 	= 'BCDEFGHIPQRST'.split(''),
-				filter 	= '';
-
-			cols.forEach(function(col, index) {
-				if (index !== 0) { filter += ' OR '; }
-				filter += '(';
-
-				words.forEach(function(word, wordIndex) {
-					if (wordIndex !== 0) { filter += ' AND '; }
-					filter += '(lower('+ col +') contains lower("' + word + '"))';
-				});
-
-				filter += ')';
-			});
-			return ' AND ('+ filter +')';
-		}
-
-        function getQueryParameters() {
+        function getDataFiltered(dataRows) {
      		var filter 	= 'select * where C IS NOT NULL';
 
      		if (isSearchDone()) {
-				Object.keys(params).forEach(function(key) {
-					var param = params[key];
-					if (param.value) {
-						if (key === 'globalSearch') {
-							filter += getGlobalSearchConditions(param);
-							return;
-						}
-						filter += ' AND (lower('+ param.col +') contains lower("' + param.value + '"))';
-					}
-                });
+				dataRows = dataRows.filter(function(row) {
+					return hasAllFilters(row);
+				});
  			}
-			return encodeURIComponent(filter);
+
+			return dataRows;
      	}
+
+		function hasAllFilters(row) {
+			var hasAllFilters = true;
+			var globalSearch = true;
+
+			Object.keys(params).forEach(function(key) {
+				var param = params[key];
+				if (param.value) {
+					if (key === 'globalSearch') {
+						globalSearch = hasGlobalSearchConditions(row, param.value.toLowerCase());
+					}
+					else if (row[ param.col ].toLowerCase() !== param.value.toLowerCase()) {
+						return hasAllFilters = false;
+					}
+				}
+			});
+
+            return hasAllFilters && globalSearch;
+		}
+
+		function hasGlobalSearchConditions(row, value) {
+			var words 	= value.split(' '),
+				cols 	= [1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 17, 18, 19],
+				filter 	= '',
+				hasCondition = false,
+				haveAllWords;
+
+			cols.forEach(function(col, index) {
+				haveAllWords = true;
+				words.forEach(function(word, wordIndex) {
+					if (row[ col ].toLowerCase().indexOf(word) === -1) {
+						return haveAllWords = false;
+					}
+				});
+				if (haveAllWords) {
+					return hasCondition = true;
+				}
+			});
+			return hasCondition;
+		}
 
         function sendQuery() {
 
-            var queryUrl = 'https://spreadsheets.google.com/tq?key=' + getSpreadsheetKey() + '&gid=' + contextVars.sheetId + '&tq=' + getQueryParameters(),
-				query = new google.visualization.Query(queryUrl);
+			var dataForm = {
+				'key': getSpreadsheetKey(),
+				'sheetIndex': contextVars.sheetIndex
+			};
 
-            query.send(handleQueryResponse);
-			gadgetHelper = new google.visualization.GadgetHelper();
+			$.ajax({
+				type: 'GET',
+				url: 'https://script.google.com/a/bbva.com/macros/s/AKfycbyUHqliB455rjeTHt5m8OCXQtWSfiN1xP8aqGTUVcOddCzNOHU/exec',
+				data: dataForm,
+				dataType: 'jsonp',
+				crossDomain: true,
+				jsonpCallback: "on_result",
+				success: function (data) {
+					//Eliminamos las primeras filas ya que no son necesarias
+					data.splice(0, 7);
+
+					handleQueryResponse(data);
+				},
+				error: function () {
+					console.log('error');
+				}
+			});
 
         }
 
         function handleQueryResponse(response) {
-			data = response.getDataTable();
+			data = getDataFiltered(response);
+
 			if (data) {
 				createHeader();
 				createBody(data);
 				$("#initiatives_table").tablesorter();
-				gadgets.window.adjustHeight();
+				//gadgets.window.adjustHeight();
 			}
         }
 
@@ -475,7 +509,7 @@
             var html = '<tr>',
 				classCss;
 
-			if (data.getNumberOfRows()) {
+			if (data.length) {
 				tableCols.forEach(function(item, index) {
 					classCss = item.class ? item.class : '';
 					html += '<th class="table__header-col '+ classCss +'">' + item.header +'<div class="table__header-icon fa"></div></th>';
@@ -490,8 +524,8 @@
 
         }
 
-        function createBody(data) {
-			var numberOfRows 	= data.getNumberOfRows(),
+		function createBody(data) {
+			var numberOfRows 	= data.length,
 				statusHeader 	= tableCols[5].header,
 				goalHeader 		= tableCols[3].header,
 				countryHeader 	= tableCols[0].header,
@@ -503,7 +537,7 @@
 				html += '<tr class="table__row '+ cssClass +'">';
 
 				tableCols.forEach(function(col) {
-					var value = data.getValue(i, col.sheetIndex) || '-';
+					var value = data[i][col.sheetIndex] || '-';
 					cssClass = '';
 
 					if (col.header === countryHeader || col.header === goalHeader || col.header === statusHeader) {
