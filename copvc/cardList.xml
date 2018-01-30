@@ -461,7 +461,7 @@
 			return dataRows;
      	}
 
-		function hasAllFilters(row) {
+        function hasAllFilters(row) {
 			var hasAllFilters = true;
 			var globalSearch = true;
 
@@ -471,7 +471,7 @@
 					if (key === 'globalSearch') {
 						globalSearch = hasGlobalSearchConditions(row, param.value.toLowerCase());
 					}
-					else if (row[ param.col ].toLowerCase() !== param.value.toLowerCase()) {
+					else if (row[ param.col ].toLowerCase().indexOf( param.value.toLowerCase() ) === -1) {
 						return hasAllFilters = false;
 					}
 				}
