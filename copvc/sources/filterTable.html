@@ -346,15 +346,18 @@
 								},
 								{
 									label: 'Difundir',
-									cssClasses: 'icon icon-spread'
+									cssClasses: 'icon icon-spread',
+									categoryIndexes: [0, 1, 2, 3, 4]
 								},
 								{
 									label: 'Inculcar',
-									cssClasses: 'icon icon-inculcate'
+									cssClasses: 'icon icon-inculcate',
+									categoryIndexes: [0, 5, 6, 7, 8, 9, 10, 11, 12]
 								},
 								{
 									label: 'Vivir',
-									cssClasses: 'icon icon-live'
+									cssClasses: 'icon icon-live',
+									categoryIndexes: [0, 13, 14]
 								}
 							]
 						},
@@ -470,15 +473,18 @@
 								},
 								{
 									label: 'Spread',
-									cssClasses: 'icon icon-spread'
+									cssClasses: 'icon icon-spread',
+									categoryIndexes: [0, 1, 2, 3, 4]
 								},
 								{
 									label: 'Inculcate',
-									cssClasses: 'icon icon-inculcate'
+									cssClasses: 'icon icon-inculcate',
+									categoryIndexes: [0, 5, 6, 7, 8, 9, 10, 11, 12]
 								},
 								{
 									label: 'Live',
-									cssClasses: 'icon icon-live'
+									cssClasses: 'icon icon-live',
+									categoryIndexes: [0, 13, 14]
 								}
 							]
 						},
@@ -605,6 +611,7 @@
 		$selects.selectmenu({
 			open: setMenuClassesAndIcons
 		});
+		$goal.on('selectmenuchange', filterCategoriesByGoal);
 
 
         function getParam(p){
@@ -686,12 +693,7 @@
 					selectConfig = selectsVars[selectName];
 
 				$select.closest(_fieldContainerSelector).find('label').text(selectConfig.label);
-
-				selectConfig.options.forEach(function (optionConfig) {
-					$('<option>' + optionConfig.label + '</option>').appendTo($select);
-				});
-
-				$select.children('option').first().attr('value', 0);
+				updateSelect($select, selectConfig.options);
 			});
 
 			$resetFiltersBtn.text(contextVars.resetFilters);
@@ -708,6 +710,31 @@
 
 				$uiDropdownOptions.eq(index).addClass(cssClasses);
 			});
+		}
+
+		function filterCategoriesByGoal(event, ui) {
+			var selectedGoalIndexes = contextVars.selects.goal.options[ui.item.index].categoryIndexes,
+				categoryOptions = contextVars.selects.category.options,
+				filteredCategoryOptions = categoryOptions;
+
+			if (selectedGoalIndexes) {
+				filteredCategoryOptions = selectedGoalIndexes.map(function (categoryIndex) {
+					return categoryOptions[categoryIndex];
+				});
+			}
+
+			updateSelect($category, filteredCategoryOptions);
+			$category.selectmenu('refresh');
+		}
+
+		function updateSelect($select, options) {
+			$select.empty();
+
+			options.forEach(function (optionConfig) {
+				$('<option>' + optionConfig.label + '</option>').appendTo($select);
+			});
+
+			$select.children('option').first().attr('value', 0);
 		}
 
 		function getLang() {
