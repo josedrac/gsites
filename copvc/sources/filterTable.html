@@ -461,66 +461,118 @@
 						'Name of the initiative',
 						'Description'
 					],
-					selects: [
-						{
+					selects: {
+						goal: {
 							label: 'Goal',
 							options: [
-								'All',
-								'Spread',
-								'Inculcate',
-								'Live'
+								{
+									label: 'All'
+								},
+								{
+									label: 'Spread',
+									cssClasses: 'icon icon-spread'
+								},
+								{
+									label: 'Inculcate',
+									cssClasses: 'icon icon-inculcate'
+								},
+								{
+									label: 'Live',
+									cssClasses: 'icon icon-live'
+								}
 							]
 						},
-						{
+						category: {
 							label: 'Category',
 							options: [
-								'All',
-								'Digital and Print Media',
-								'Viralization Programs',
-								'Events',
-								'Physical Spaces',
-								'Recruitment',
-								'Professional Development',
-								'Training',
-								'Compensation',
-								'Diversity and Conciliation',
-								'Health and Wellness',
-								'Processes and Methodology',
-								'Work Tools',
-								'Committees and Meetings',
-								'Recognitions'
+								{ label: 'All' },
+								{ label: 'Digital and Print Media' },
+								{ label: 'Viralization Programs' },
+								{ label: 'Events' },
+								{ label: 'Physical Spaces' },
+								{ label: 'Recruitment' },
+								{ label: 'Professional Development' },
+								{ label: 'Training' },
+								{ label: 'Compensation' },
+								{ label: 'Diversity and Conciliation' },
+								{ label: 'Health and Wellness' },
+								{ label: 'Processes and Methodology' },
+								{ label: 'Work Tools' },
+								{ label: 'Committees and Meetings' },
+								{ label: 'Recognitions' }
 							]
 						},
-						{
+						country: {
 							label: 'Country or area',
 							options: [
-								'All',
-								'Spain',
-								'USA',
-								'Mexico',
-								'Turkey',
-								'Colombia',
-								'Paraguay',
-								'Uruguay',
-								'Argentina',
-								'Peru',
-								'Venezuela',
-								'CIB',
-								'Engineering',
-								'Customer Solutions',
-								'Centro Corporativo'
+								{
+									label: 'All'
+								},
+								{
+									label: 'Spain',
+									cssClasses: 'flag flag-spain'
+								},
+								{
+									label: 'USA',
+									cssClasses: 'flag flag-usa'
+								},
+								{
+									label: 'Mexico',
+									cssClasses: 'flag flag-mexico'
+								},
+								{
+									label: 'Turkey',
+									cssClasses: 'flag flag-turkey'
+								},
+								{
+									label: 'Colombia',
+									cssClasses: 'flag flag-colombia'
+								},
+								{
+									label: 'Paraguay',
+									cssClasses: 'flag flag-paraguay'
+								},
+								{
+									label: 'Uruguay',
+									cssClasses: 'flag flag-uruguay'
+								},
+								{
+									label: 'Argentina',
+									cssClasses: 'flag flag-argentina'
+								},
+								{
+									label: 'Peru',
+									cssClasses: 'flag flag-peru'
+								},
+								{
+									label: 'Venezuela',
+									cssClasses: 'flag flag-venezuela'
+								},
+								{ label: 'CIB' },
+								{ label: 'Engineering' },
+								{ label: 'Customer Solutions' },
+								{ label: 'Centro Corporativo' },
 							]
 						},
-						{
+						status: {
 							label: 'Status',
 							options: [
-								'All',
-								'Implemented',
-								'In execution',
-								'Planned',
+								{ label: 'All' },
+								{
+									label: 'Implemented',
+									cssClasses: 'implemented'
+								},
+								{
+									label: 'In execution',
+									cssClasses: 'executing'
+								},
+								{
+									label: 'Planned',
+									cssClasses: 'planned'
+								}
 							]
 						}
-					],
+					},
 					cardsPage: 'cards',
 					switchCards: 'Show results in cards',
 					switchTable: 'Show results in table',
@@ -660,7 +712,7 @@
 
 		function getLang() {
 			//return prefs.getString('lang');
-			return 'es';
+			return 'en';
 		}
 
 		function getUrl() {
