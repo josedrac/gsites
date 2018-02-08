@@ -279,7 +279,7 @@
     <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
 
-	<form class="table-filter">
+	<div class="table-filter">
 		<div class="table-filter__field js-search">
 			<label class="table-filter__label">Búsqueda global</label>
 			<input class="input_large" type='text' name="global" id='globalSearch' value=''/>
@@ -288,21 +288,21 @@
 		<h2 class="table-filter__title js-title">Filtros</h2>
 
 		<div class="field-grid">
-			<div class="field-grid__cell table-filter__field js-select">
+			<div class="field-grid__cell table-filter__field">
             	<label class="table-filter__label">Objetivo</label>
-                <select name="goal" id="goalSelector"></select>
+                <select name="goal" id="goal-selector"></select>
             </div>
-			<div class="field-grid__cell table-filter__field js-select">
+			<div class="field-grid__cell table-filter__field">
 				<label class="table-filter__label">Categoría</label>
-				<select name="category" id="categorySelector"></select>
+				<select name="category" id="category-selector"></select>
 			</div>
-			<div class="field-grid__cell table-filter__field js-select">
+			<div class="field-grid__cell table-filter__field">
 				<label class="table-filter__label">País o área</label>
-				<select name="country" id="countrySelector"></select>
+				<select name="country" id="country-selector"></select>
 			</div>
-			<div class="field-grid__cell table-filter__field js-select">
+			<div class="field-grid__cell table-filter__field">
 				<label class="table-filter__label">Estado</label>
-				<select name="status" id="statusSelector" class="form__status-select"></select>
+				<select name="status" id="status-selector"></select>
 			</div>
 			<div class="field-grid__cell table-filter__field js-search">
 				<label class="table-filter__label">Nombre de la iniciativa</label>
@@ -325,7 +325,7 @@
 				<span></span>
 			</button>
 		</div>
-	</form>
+	</div>
 
     <script type="text/javascript">
 		var //prefs = new _IG_Prefs(),
@@ -337,66 +337,118 @@
 						'Nombre de la iniciativa',
 						'Descripción'
 					],
-					selects: [
-						{
+					selects: {
+						goal: {
 							label: 'Objetivo',
 							options: [
-								'Todos',
-		                        'Difundir',
-								'Inculcar',
-		                        'Vivir'
+								{
+									label: 'Todos'
+								},
+								{
+									label: 'Difundir',
+									cssClasses: 'icon icon-spread'
+								},
+								{
+									label: 'Inculcar',
+									cssClasses: 'icon icon-inculcate'
+								},
+								{
+									label: 'Vivir',
+									cssClasses: 'icon icon-live'
+								}
 							]
 						},
-						{
+						category: {
 							label: 'Categoría',
 							options: [
-								'Todos',
-		                        'Comunicación Digital e Impresa',
-		                        'Programas de Viralización',
-		                        'Eventos',
-		                        'Espacios físicos',
-		                        'Selección',
-		                        'Desarrollo profesional',
-								'Formación',
-								'Compensación',
-								'Diversidad y Conciliación',
-								'Bienestar y salud',
-		                        'Procesos y Metodología',
-		                        'Herramientas de trabajo',
-		                        'Comités, Reuniones y Sentadas',
-		                        'Reconocimientos'
+								{ label: 'Todos' },
+								{ label: 'Comunicación Digital e Impresa' },
+								{ label: 'Programas de Viralización' },
+								{ label: 'Eventos' },
+								{ label: 'Espacios físicos' },
+								{ label: 'Selección' },
+								{ label: 'Desarrollo profesional' },
+								{ label: 'Formación' },
+								{ label: 'Compensación' },
+								{ label: 'Diversidad y Conciliación' },
+								{ label: 'Bienestar y salud' },
+								{ label: 'Procesos y Metodología' },
+								{ label: 'Herramientas de trabajo' },
+								{ label: 'Comités, Reuniones y Sentadas' },
+								{ label: 'Reconocimientos' }
 							]
 						},
-						{
+						country: {
 							label: 'País o área',
 							options: [
-								'Todos',
-								'España',
-								'USA',
-								'México',
-								'Turquía',
-								'Colombia',
-								'Paraguay',
-								'Uruguay',
-								'Argentina',
-								'Perú',
-								'Venezuela',
-								'CIB',
-								'Engineering',
-								'Customer Solutions',
-								'Centro Corporativo'
+								{
+									label: 'Todos'
+								},
+								{
+									label: 'España',
+									cssClasses: 'flag flag-spain'
+								},
+								{
+									label: 'USA',
+									cssClasses: 'flag flag-usa'
+								},
+								{
+									label: 'México',
+									cssClasses: 'flag flag-mexico'
+								},
+								{
+									label: 'Turquía',
+									cssClasses: 'flag flag-turkey'
+								},
+								{
+									label: 'Colombia',
+									cssClasses: 'flag flag-colombia'
+								},
+								{
+									label: 'Paraguay',
+									cssClasses: 'flag flag-paraguay'
+								},
+								{
+									label: 'Uruguay',
+									cssClasses: 'flag flag-uruguay'
+								},
+								{
+									label: 'Argentina',
+									cssClasses: 'flag flag-argentina'
+								},
+								{
+									label: 'Perú',
+									cssClasses: 'flag flag-peru'
+								},
+								{
+									label: 'Venezuela',
+									cssClasses: 'flag flag-venezuela'
+								},
+								{ label: 'CIB' },
+								{ label: 'Engineering' },
+								{ label: 'Customer Solutions' },
+								{ label: 'Centro Corporativo' }
 							]
 						},
-						{
+						status: {
 							label: 'Estado',
 							options: [
-								'Todos',
-								'Implementada',
-								'En ejecución',
-								'Planificada'
+								{ label: 'Todos' },
+								{
+									label: 'Implementada',
+									cssClasses: 'implemented'
+								},
+								{
+									label: 'En ejecución',
+									cssClasses: 'executing'
+								},
+								{
+									label: 'Planificada',
+									cssClasses: 'planned'
+								}
 							]
 						}
-					],
+					},
 					cardsPage: 'fichas',
 					switchCards: 'Ver resultados en fichas',
 					switchTable: 'Ver resultados en tabla',
@@ -481,6 +533,7 @@
 			$goBtn = $('.js-go'),
 			$switchCardsBtn = $('.js-switch-cards'),
 			$switchTableBtn = $('.js-switch-table'),
+			_fieldContainerSelector = '.table-filter__field',
 
 			$globalSearch		= $('#globalSearch'),
 			$nameInitiative		= $('#nameInitiativeSearch'),
@@ -488,12 +541,11 @@
 			$searchersContainer = $('.js-search'),
 			$searchers 			= $searchersContainer.find('input'),
 
-			$goal 				= $('#goalSelector'),
-			$status 			= $('#statusSelector'),
-            $category 			= $('#categorySelector'),
-            $country 			= $('#countrySelector'),
-			$selectsContainer	= $('.js-select'),
-			$selects 			= $selectsContainer.find('select');
+			$goal 		= $('#goal-selector'),
+			$status 	= $('#status-selector'),
+			$category 	= $('#category-selector'),
+			$country 	= $('#country-selector'),
+			$selects 	= $(_fieldContainerSelector).find('select');
 
 
 		setContextVars();
@@ -569,9 +621,7 @@
 
 		function setContextVars() {
 			var searchersLabels = contextVars.searchersLabels,
-				selectsVars 	= contextVars.selects,
-				select,
-				html;
+				selectsVars 	= contextVars.selects;
 
 			$('.js-title').text(contextVars.title);
 
@@ -579,16 +629,17 @@
 				$(this).text(searchersLabels[ index ]);
 			});
 
-			$selectsContainer.each(function(index) {
-				select = selectsVars[index];
-				$(this).find('label').text( select.label );
-				select.options.forEach(function(option, optIndex) {
-					if (optIndex === 0) {
-						return html = '<option default value="0">'+ option +'</option>';
-					}
-					html += '<option>'+ option +'</option>';
+			Object.keys(selectsVars).forEach(function (selectName) {
+				var $select = $('select[name="' + selectName + '"]'),
+					selectConfig = selectsVars[selectName];
+
+				$select.closest(_fieldContainerSelector).find('label').text(selectConfig.label);
+
+				selectConfig.options.forEach(function (optionConfig) {
+					$('<option>' + optionConfig.label + '</option>').appendTo($select);
 				});
-				$(this).find('select').html( html );
+
+				$select.children('option').first().attr('value', 0);
 			});
 
 			$resetFiltersBtn.text(contextVars.resetFilters);
@@ -597,57 +648,14 @@
 		}
 
 		function setMenuClassesAndIcons(event, ui) {
-			var $options,
-				id 			= event.currentTarget.id,
-				statusId 	= 'statusSelector-button',
-				goalId 		= 'goalSelector-button',
-				countryId 	= 'countrySelector-button',
-				key,
-				value;
+			var selectConfig = contextVars.selects[this.name],
+				$uiDropdownOptions = $('#' + this.id + '-menu').children('li');
 
-			if (id === statusId) {
-				key = 'status';
-			}
-			if (id === goalId) {
-				key = 'goal';
-			}
-			if (id === countryId) {
-				key = 'country';
-			}
-			if (key) {
-				$options = $('#'+ key +'Selector-menu li');
+			selectConfig.options.forEach(function (optionConfig, index) {
+				var cssClasses = optionConfig.cssClasses || '';
 
-				$options.each(function(index) {
-					value = $(this).text();
-					$(this).addClass( getItemCssClass(value) );
-				});
-			}
-		}
-
-		function getItemCssClass(value) {
-			var options = contextVars.selects[3].options;
-			if (value === options[1]) 	{ return 'implemented'; }
-			if (value === options[2]) 	{ return 'executing'; }
-			if (value === options[3]) 	{ return 'planned'; }
-
-			options = contextVars.selects[0].options;
-			if (value === options[1]) 	{ return 'icon icon-spread'; }
-			if (value === options[2]) 	{ return 'icon icon-inculcate'; }
-			if (value === options[3]) 	{ return 'icon icon-live'; }
-
-			options = contextVars.selects[2].options;
-			if (value === options[1]) 	{ return 'flag flag-spain'; }
-			if (value === options[2]) 	{ return 'flag flag-usa'; }
-			if (value === options[3]) 	{ return 'flag flag-mexico'; }
-			if (value === options[4]) 	{ return 'flag flag-turkey'; }
-			if (value === options[5]) 	{ return 'flag flag-colombia'; }
-			if (value === options[6]) 	{ return 'flag flag-paraguay'; }
-			if (value === options[7]) 	{ return 'flag flag-uruguay'; }
-			if (value === options[8]) 	{ return 'flag flag-argentina'; }
-			if (value === options[9]) 	{ return 'flag flag-peru'; }
-			if (value === options[10]) 	{ return 'flag flag-venezuela'; }
-
-			return '';
+				$uiDropdownOptions.eq(index).addClass(cssClasses);
+			});
 		}
 
 		function getLang() {
