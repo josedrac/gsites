@@ -621,7 +621,10 @@
 		$selects.selectmenu({
 			open: setMenuClassesAndIcons
 		});
-		$goal.on('selectmenuchange', filterCategoriesByGoal);
+		$goal.on('selectmenuchange', function (event, ui) {
+			filterCategoriesByGoal(ui.item.index);
+			$category.selectmenu('refresh');
+		});
 
 
         function getParam(p){
@@ -674,8 +677,9 @@
 			$nameInitiative.val(nameInitiative);
 			$description.val(description);
             setIndex(goal, $goal);
-            setIndex(status, $status);
+			filterCategoriesByGoal($goal.prop('selectedIndex'));
             setIndex(category, $category);
+            setIndex(status, $status);
             setIndex(country, $country);
         }
 
@@ -722,8 +726,8 @@
 			});
 		}
 
-		function filterCategoriesByGoal(event, ui) {
-			var selectedGoalIndexes = contextVars.selects.goal.options[ui.item.index].categoryIndexes,
+		function filterCategoriesByGoal(goalIndex) {
+			var selectedGoalIndexes = contextVars.selects.goal.options[goalIndex].categoryIndexes,
 				categoryOptions = contextVars.selects.category.options,
 				filteredCategoryOptions = categoryOptions;
 
@@ -734,7 +738,6 @@
 			}
 
 			updateSelect($category, filteredCategoryOptions);
-			$category.selectmenu('refresh');
 		}
 
 		function updateSelect($select, options) {
@@ -768,6 +771,7 @@
 
 		function ResetFilters() {
 			$searchers.val('');
+			updateSelect($category, contextVars.selects.category.options);
 			$selects.prop('selectedIndex', 0);
 			$selects.selectmenu('refresh');
 		}
