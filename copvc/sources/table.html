@@ -202,6 +202,10 @@
 			text-align: left;
 		}
 
+		.table__cell-text .fa {
+			color: #1271b5;
+		}
+
 		.table__cell-text_link {
 			position: relative;
 			text-decoration: none;
@@ -278,7 +282,8 @@
 						'Objetivo',
 						'Categoría',
 						'Estado',
-						'Enlace al repositorio'
+						'Enlace al repositorio',
+						'Contacto'
 					],
 					goals: {
 						spread: 'Difundir',
@@ -314,7 +319,8 @@
 						'Goal',
 						'Category',
 						'Status',
-						'Link to the Repository'
+						'Link to the Repository',
+						'Contact'
 					],
 					goals: {
 						spread: 'Spread',
@@ -388,7 +394,11 @@
 				},
 				{
 					sheetIndex: 8
-				}
+				},
+				{
+					class: 'table__header-col_small',
+					sheetIndex: 19
+				},
 			];
 
 		setContextVars();
@@ -527,6 +537,7 @@
 				goalHeader 		= tableCols[3].header,
 				statusHeader 	= tableCols[5].header,
 				linkHeader 		= tableCols[6].header,
+				contactHeader	= tableCols[7].header,
 				cssClass 		= '',
 				html 			= '';
 
@@ -546,6 +557,10 @@
 					}
 					if (col.header === linkHeader && value !== '-') {
 						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">'+ contextVars.linkText +'</a></td>';
+						return;
+					}
+					if (col.header === contactHeader && value !== '-') {
+						html +=	'<td class="table__cell"><a class="table__cell-text" href="mailto:' + value + '"><span class="fa fa-envelope"></span></a></td>';
 						return;
 					}
 					if (col.header === statusHeader) {
