@@ -62,9 +62,6 @@
 		.btn_spaced {
 			margin-right: 30px;
 		}
-        select {
-            width: 100%;
-        }
         .ui-widget-content {
             background: white;
         }
@@ -150,13 +147,16 @@
             border-radius: 4px;
             border: 1px solid #d5e2ee;
 			width: 100%;
-            max-width: 568px;
+            max-width: 600px;
 			padding: 7px 10px;
             color: #0078d2;
             font-size: 13px;
             font-weight: bold;
 		    line-height: 1.4;
         }
+		select {
+			width: 100%;
+		}
         .ui-menu-item {
             color: #003f8c;
             padding: 0 0 0 1.25em;
@@ -249,10 +249,11 @@
 		.field-grid {
 			margin-left: -15px;
 			margin-right: -15px;
+			max-width: 630px;
 		}
 		.field-grid:before,
 		.field-grid:after {
-			content: " ";
+			content: "";
 			display: table;
 		}
 		.field-grid:after {
@@ -261,7 +262,7 @@
         .field-grid__cell {
 			float: left;
 			box-sizing: border-box;
-			width: 33.3333%;
+			width: 50%;
             padding-left: 15px;
             padding-right: 15px;
         }
@@ -290,9 +291,9 @@
     <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery-ui.min.js" type="text/javascript"></script>
 
 	<div class="table-filter">
-		<div class="table-filter__field js-search">
+		<div class="table-filter__field">
 			<label class="table-filter__label">Búsqueda global</label>
-			<input class="input_large" type='text' name="global" id='globalSearch' value=''/>
+			<input class="input_large" type='text' name="global" id='global-search' value=''/>
 		</div>
 
 		<h2 class="table-filter__title js-title">Filtros</h2>
@@ -314,14 +315,6 @@
 				<label class="table-filter__label">Estado</label>
 				<select name="status" id="status-selector"></select>
 			</div>
-			<div class="field-grid__cell table-filter__field js-search">
-				<label class="table-filter__label">Nombre de la iniciativa</label>
-				<input type='text' name="nameInitiative" id='nameInitiativeSearch' value=''/>
-			</div>
-            <div class="field-grid__cell table-filter__field js-search">
-                <label class="table-filter__label">Descripción</label>
-				<input type='text' name="description" id='descriptionSearch' value=''/>
-            </div>
         </div>
 		<div class="table-filter__buttons">
 			<button onclick='javascript:ResetFilters();' class="btn btn_reset btn_spaced js-reset">Limpiar filtros</button>
@@ -342,11 +335,7 @@
 			contextLangs = {
 				es: {
 					title: 'Filtros',
-					searchersLabels: [
-						'Búsqueda global',
-						'Nombre de la iniciativa',
-						'Descripción'
-					],
+					searcherLabel: 'Búsqueda global',
 					selects: {
 						goal: {
 							label: 'Objetivo',
@@ -469,11 +458,7 @@
 				},
 				en: {
 					title: 'Filters',
-					searchersLabels: [
-						'Global search',
-						'Name of the initiative',
-						'Description'
-					],
+					searcherLabel: 'Global search',
 					selects: {
 						goal: {
 							label: 'Goal',
@@ -603,17 +588,12 @@
 			$switchTableBtn = $('.js-switch-table'),
 			_fieldContainerSelector = '.table-filter__field',
 
-			$globalSearch		= $('#globalSearch'),
-			$nameInitiative		= $('#nameInitiativeSearch'),
-			$description		= $('#descriptionSearch'),
-			$searchersContainer = $('.js-search'),
-			$searchers 			= $searchersContainer.find('input'),
-
-			$goal 		= $('#goal-selector'),
-			$status 	= $('#status-selector'),
-			$category 	= $('#category-selector'),
-			$country 	= $('#country-selector'),
-			$selects 	= $(_fieldContainerSelector).find('select');
+			$globalSearch 	= $('#global-search'),
+			$goal 			= $('#goal-selector'),
+			$status 		= $('#status-selector'),
+			$category 		= $('#category-selector'),
+			$country 		= $('#country-selector'),
+			$selects 		= $(_fieldContainerSelector).find('select');
 
 
 		setContextVars();
@@ -665,17 +645,12 @@
             var showCards		= getPage() == contextVars.cardsPage,
 
 				globalSearch	= getParam('globalSearch'),
-				nameInitiative	= getParam('nameInitiative'),
-				description		= getParam('description'),
-
 				goal 			= getParam('goal'),
                 status 			= getParam('status'),
                 category 		= getParam('category'),
                 country 		= getParam('country');
 
 			$globalSearch.val(globalSearch);
-			$nameInitiative.val(nameInitiative);
-			$description.val(description);
             setIndex(goal, $goal);
 			filterCategoriesByGoal($goal.prop('selectedIndex'));
             setIndex(category, $category);
@@ -693,14 +668,10 @@
 		}
 
 		function setContextVars() {
-			var searchersLabels = contextVars.searchersLabels,
-				selectsVars 	= contextVars.selects;
+			var selectsVars = contextVars.selects;
 
 			$('.js-title').text(contextVars.title);
-
-			$searchersContainer.find('label').each(function(index) {
-				$(this).text(searchersLabels[ index ]);
-			});
+			$globalSearch.closest(_fieldContainerSelector).find('label').text(contextVars.searcherLabel);
 
 			Object.keys(selectsVars).forEach(function (selectName) {
 				var $select = $('select[name="' + selectName + '"]'),
@@ -770,7 +741,7 @@
 		}
 
 		function ResetFilters() {
-			$searchers.val('');
+			$globalSearch.val('');
 			updateSelect($category, contextVars.selects.category.options);
 			$selects.prop('selectedIndex', 0);
 			$selects.selectmenu('refresh');
@@ -779,8 +750,6 @@
         function Go(showCards) {
             var params = {
 					globalSearch	: $globalSearch.val(),
-					nameInitiative	: $nameInitiative.val(),
-					description		: $description.val(),
 					goal 			: $goal.val(),
 					status 			: $status.val(),
 					category 		: $category.val(),
