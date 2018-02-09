@@ -1,11 +1,13 @@
 <html>
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.2/css/theme.blue.min.css" />
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/josedrac/gsites/COPVC-table/copvc/css/shorten.min.css" />
 	<script src="https://www.google.com/jsapi" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/josedrac/gsites/test-oauth/evolucionaDigital/js/environment.js" type="text/javascript"></script>
     <script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/jquery.min.js" type="text/javascript"></script>
 	<script src="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/js/smartpaginator.js" type="text/javascript"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.29.2/js/jquery.tablesorter.min.js" type="text/javascript"></script>
+	<script src="https://cdn.rawgit.com/josedrac/gsites/COPVC-table/copvc/js/jquery-shorten.min.js" type="text/javascript"></script>
 
     <style type="text/css">
 
@@ -241,7 +243,11 @@
         .empty-results {
             font-family: arial, sans-serif;
 		    padding: 0 30px;
-        }
+		}
+
+		.shorten_expand .shorten-toggle {
+			display: none;
+		}
     </style>
 
     <div class="table-container">
@@ -292,6 +298,7 @@
 						venezuela: 'Venezuela'
 					},
 					sheetId: '361022424',
+					seeMore: 'ver más',
 					implemented: 'Implementada',
 					planned: 'Planificada',
 					inExecution: 'En ejecución',
@@ -327,6 +334,7 @@
 						venezuela: 'Venezuela'
 					},
 					sheetId: '2113943508',
+					seeMore: 'see more',
 					implemented: 'Implemented',
 					planned: 'Planned',
 					inExecution: 'In execution',
@@ -514,9 +522,10 @@
 
 		function createBody(data) {
 			var numberOfRows 	= data.length,
-				statusHeader 	= tableCols[5].header,
-				goalHeader 		= tableCols[3].header,
 				countryHeader 	= tableCols[0].header,
+				descHeader 		= tableCols[2].header,
+				goalHeader 		= tableCols[3].header,
+				statusHeader 	= tableCols[5].header,
 				linkHeader 		= tableCols[6].header,
 				cssClass 		= '',
 				html 			= '';
@@ -530,6 +539,10 @@
 
 					if (col.header === countryHeader || col.header === goalHeader || col.header === statusHeader) {
 						cssClass = getItemCssClass(value);
+					}
+					if (col.header === descHeader) {
+						html +=	'<td class="table__cell"><span class="table__cell-text table__cell-text_collapsable">'+ value +'</span></td>';
+						return;
 					}
 					if (col.header === linkHeader && value !== '-') {
 						html +=	'<td class="table__cell"><a class="table__cell-text table__cell-text_link" href="#" onclick="javascript:OpenLink(\''+value+'\')">'+ contextVars.linkText +'</a></td>';
@@ -546,6 +559,10 @@
 			}
 
 			$('#initiatives_table_body').html(html);
+			$('.table__cell-text_collapsable').shorten({
+				chars: 90,
+				more: contextVars.seeMore
+			});
 		}
 
 		function getItemCssClass(value) {
