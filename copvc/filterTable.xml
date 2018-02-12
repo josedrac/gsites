@@ -429,7 +429,8 @@
 								{ label: 'CIB' },
 								{ label: 'Engineering' },
 								{ label: 'Customer Solutions' },
-								{ label: 'Centro Corporativo' }
+								{ label: 'Centro Corporativo' },
+								{ label: 'Holding' }
 							]
 						},
 						status: {
@@ -553,6 +554,7 @@
 								{ label: 'Engineering' },
 								{ label: 'Customer Solutions' },
 								{ label: 'Centro Corporativo' },
+								{ label: 'Holding' }
 							]
 						},
 						status: {
