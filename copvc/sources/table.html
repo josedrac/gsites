@@ -586,7 +586,7 @@
 						return;
 					}
 					if (col.header === contactHeader && value !== '-') {
-						html +=	'<td class="table__cell"><a class="table__cell-text" href="mailto:' + value + '"><span class="fa fa-envelope"></span></a></td>';
+						html +=	'<td class="table__cell"><a class="table__cell-text" target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=' + value + '"><span class="fa fa-envelope"></span></a></td>';
 						return;
 					}
 					if (col.header === statusHeader) {
