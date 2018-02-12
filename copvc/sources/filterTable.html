@@ -236,7 +236,6 @@
 		.field-grid {
 			margin-left: -15px;
 			margin-right: -15px;
-			max-width: 630px;
 		}
 		.field-grid:before,
 		.field-grid:after {
@@ -249,7 +248,7 @@
         .field-grid__cell {
 			float: left;
 			box-sizing: border-box;
-			width: 50%;
+			width: 33.3333%;
             padding-left: 15px;
             padding-right: 15px;
         }
@@ -295,12 +294,16 @@
 				<select name="category" id="category-selector"></select>
 			</div>
 			<div class="field-grid__cell table-filter__field">
+				<label class="table-filter__label">Estado</label>
+				<select name="status" id="status-selector"></select>
+			</div>
+			<div class="field-grid__cell table-filter__field">
 				<label class="table-filter__label">País o área</label>
 				<select name="country" id="country-selector"></select>
 			</div>
 			<div class="field-grid__cell table-filter__field">
-				<label class="table-filter__label">Estado</label>
-				<select name="status" id="status-selector"></select>
+				<label class="table-filter__label">Promotor</label>
+				<select name="promoter" id="promoter-selector"></select>
 			</div>
         </div>
 		<div class="table-filter__buttons">
@@ -437,6 +440,14 @@
 									cssClasses: 'planned'
 								}
 							]
+						},
+						promoter: {
+							label: 'Impulsado por',
+							options: [
+								{ label: 'Todos' },
+								{ label: 'Equipo de Cultura y/o Comunicación' },
+								{ label: 'Country Manager / Director de Área' }
+							]
 						}
 					},
 					cardsPage: 'fichas',
@@ -561,6 +572,14 @@
 									cssClasses: 'planned'
 								}
 							]
+						},
+						promoter: {
+							label: 'Promoted by',
+							options: [
+								{ label: 'All' },
+								{ label: 'Culture Team and/or Communications Team' },
+								{ label: 'Country Manager / Area Director' }
+							]
 						}
 					},
 					cardsPage: 'cards',
@@ -582,6 +601,7 @@
 			$status 		= $('#status-selector'),
 			$category 		= $('#category-selector'),
 			$country 		= $('#country-selector'),
+			$promoter 		= $('#promoter-selector'),
 			$selects 		= $(_fieldContainerSelector).find('select');
 
 
@@ -638,6 +658,7 @@
                 status 			= getParam('status'),
                 category 		= getParam('category'),
                 country 		= getParam('country');
+                promoter 		= getParam('promoter');
 
 			$globalSearch.val(globalSearch);
             setIndex(goal, $goal);
@@ -645,6 +666,7 @@
             setIndex(category, $category);
             setIndex(status, $status);
             setIndex(country, $country);
+            setIndex(promoter, $promoter);
         }
 
 		function removeEmptyParams(params) {
@@ -744,7 +766,8 @@
 					goal 			: $goal.val(),
 					status 			: $status.val(),
 					category 		: $category.val(),
-					country 		: $country.val()
+					country 		: $country.val(),
+					promoter 		: $promoter.val()
 				},
             	url = getDisplayUrl(showCards) + '?';
 
