@@ -202,6 +202,18 @@
 			text-align: left;
 		}
 
+		.table__cell-text_fa-icon {
+			position: relative;
+			padding-left: 15px;
+		}
+
+		.table__cell-text_fa-icon .fa {
+			position: absolute;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+		}
+
 		.table__cell-text .fa {
 			color: #1271b5;
 		}
@@ -303,6 +315,7 @@
 						venezuela: 'Venezuela'
 					},
 					sheetId: '361022424',
+					countryManagerLiteral: 'Country Manager / Director de Área',
 					seeMore: 'ver más',
 					implemented: 'Implementada',
 					planned: 'Planificada',
@@ -340,6 +353,7 @@
 						venezuela: 'Venezuela'
 					},
 					sheetId: '2113943508',
+					countryManagerLiteral: 'Country Manager / Area Director',
 					seeMore: 'see more',
 					implemented: 'Implemented',
 					planned: 'Planned',
@@ -376,7 +390,8 @@
 					sheetIndex: 15
 				},
 				{
-					sheetIndex: 3
+					sheetIndex: 3,
+					promoterSheetIndex: 16
 				},
 				{
 					class: 'table__header-col_large',
@@ -533,6 +548,7 @@
 		function createBody(data) {
 			var numberOfRows 	= data.length,
 				countryHeader 	= tableCols[0].header,
+				nameHeader 		= tableCols[1].header,
 				descHeader 		= tableCols[2].header,
 				goalHeader 		= tableCols[3].header,
 				statusHeader 	= tableCols[5].header,
@@ -550,6 +566,13 @@
 
 					if (col.header === countryHeader || col.header === goalHeader || col.header === statusHeader) {
 						cssClass = getItemCssClass(value);
+					}
+					if (col.header === nameHeader) {
+						var isCountryManager = data[i][col.promoterSheetIndex] === contextVars.countryManagerLiteral,
+							starMarkup = isCountryManager ? '<span class="fa fa-star"></span>' : '';
+
+						html +=	'<td class="table__cell"><span class="table__cell-text table__cell-text_fa-icon">' + starMarkup + value +'</span></td>';
+						return;
 					}
 					if (col.header === descHeader) {
 						html +=	'<td class="table__cell"><span class="table__cell-text table__cell-text_collapsable">'+ value +'</span></td>';
