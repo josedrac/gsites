@@ -140,9 +140,15 @@
 		}
 
 		.card__top-content {
-			padding: 20px;
+			padding: 20px 20px 20px 30px;
 			background: #00487d;
 			color: #fff;
+			position: relative;
+		}
+
+		.card__top-content .fa {
+			position: absolute;
+			left: 12px;
 		}
 
 		.card__bottom-content {
@@ -340,6 +346,7 @@
 						venezuela: 'Venezuela'
 					},
 					sheetId: '361022424',
+					countryManagerLiteral: 'Country Manager / Director de Área',
 					implemented: 'Implementada',
 					planned: 'Planificada',
 					inExecution: 'En ejecución',
@@ -375,6 +382,7 @@
 						venezuela: 'Venezuela'
 					},
 					sheetId: '2113943508',
+					countryManagerLiteral: 'Country Manager / Area Director',
 					implemented: 'Implemented',
 					planned: 'Planned',
 					inExecution: 'In execution',
@@ -402,11 +410,15 @@
 				},
 				country: {
 					col: 15
+				},
+				promoter: {
+					col: 16
 				}
 			},
 			colIndex = {
 				country: 15,
 				name: 3,
+				promoter: 16,
 				description: 4,
 				goal: 1,
 				category: 2,
@@ -547,6 +559,9 @@
 				goalCss 	= getItemCssClass( goal );
 				countryCss 	= 'card__country ' + getItemCssClass( country );
 
+				var isCountryManager = getDataValue(rowIndex, 'promoter') === contextVars.countryManagerLiteral,
+					starMarkup	= isCountryManager ? '<span class="fa fa-star"></span>' : '';
+
 				if (rowIndex % 2 === 0) {
 					html += '<div class="card-block">';
 				}
@@ -554,7 +569,7 @@
 				html += '<div class="card">' +
 						'	<div class="card__content">' +
 						'		<div class="card__top-content">' +
-						'			<label class="card__name">'+ getDataValue(rowIndex, 'name') +'</label>' +
+						'			<label class="card__name">' + starMarkup + getDataValue(rowIndex, 'name') + '</label>' +
 						'			<span class="'+ countryCss +'">'+ country +'</span>' +
 						'		</div>' +
 						'		<div class="card__bottom-content">' +
