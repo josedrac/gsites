@@ -158,6 +158,9 @@
 			background: #00487d;
 			color: #fff;
 			position: relative;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
 		}
 
 		.card__top-content .fa {
@@ -176,14 +179,12 @@
 			white-space: nowrap;
 			text-overflow: ellipsis;
 			overflow: hidden;
-			width: calc(100% - 135px);
-			display: inline-block;
+			margin-right: 20px;
 		}
 
 		.card__country {
-			position: absolute;
-			top: 20px;
-			right: 20px;
+			white-space: nowrap;
+			margin-left: auto;
 		}
 
 		.card__description {
