@@ -237,6 +237,13 @@
 			top: 2px;
 		}
 
+		a.card__contact {
+			color: #1271b5;
+			position: absolute;
+			right: 20px;
+			bottom: 20px;
+		}
+
         .empty-results {
             font-family: arial, sans-serif;
 		    padding: 0 30px;
@@ -437,7 +444,8 @@
 				goal: 1,
 				category: 2,
 				status: 7,
-				link: 8
+				link: 8,
+				contact: 19
 			},
 			gadgetHelper = null;
 
@@ -562,18 +570,17 @@
 		function createCards(data) {
 			var numberOfRows 	= data.length,
 				linkText 		= contextVars.cardProperties.link,
-				html 			= '',
-				statusCss, countryCss, status, country;
+				html 			= '';
 
 			for (var rowIndex = 0; rowIndex < numberOfRows; rowIndex++) {
-				status	 	= getDataValue(rowIndex, 'status');
-				goal 		= getDataValue(rowIndex, 'goal');
-				country 	= getDataValue(rowIndex, 'country');
-				statusCss 	= getItemCssClass( status );
-				goalCss 	= getItemCssClass( goal );
-				countryCss 	= 'card__country ' + getItemCssClass( country );
-
-				var isCountryManager = getDataValue(rowIndex, 'promoter') === contextVars.countryManagerLiteral,
+				var status	 	= getDataValue(rowIndex, 'status'),
+					goal 		= getDataValue(rowIndex, 'goal'),
+					country 	= getDataValue(rowIndex, 'country'),
+					contact 	= getDataValue(rowIndex, 'contact'),
+					statusCss 	= getItemCssClass( status ),
+					goalCss 	= getItemCssClass( goal ),
+					countryCss 	= 'card__country ' + getItemCssClass( country ),
+					isCountryManager = getDataValue(rowIndex, 'promoter') === contextVars.countryManagerLiteral,
 					starMarkup	= isCountryManager ? '<span class="fa fa-star"></span>' : '';
 
 				if (rowIndex % 2 === 0) {
@@ -593,6 +600,9 @@
 						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'category') +'</li>' +
 						'				<li class="card__property">'+ getPropertyRow(rowIndex, 'status', statusCss) +'</li>' +
 						'			</ul>';
+				if (contact) {
+					html += '		<a class="card__contact" target="_blank" title="' + contact + '" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=' + contact + '"><span class="fa fa-envelope"></span></a>';
+				}
 				if (status) {
 					html += '		<a href="#" class="card__link" onclick="javascript:OpenLink(\''+ getDataValue(rowIndex, 'link') +'\')">'+ linkText +'<i class="fa fa-external-link"></i></a>';
 				}
