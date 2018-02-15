@@ -126,7 +126,6 @@
 
 		.card-block {
 		    border-bottom: 1px solid #E5E5E5;
-		    display: inline-block;
 		    width: 100%;
 		    float: left;
 		}
@@ -218,7 +217,6 @@
 			white-space: nowrap;
 		    text-overflow: ellipsis;
 		    overflow: hidden;
-		    display: inline-block;
 		    width: calc(100% - 80px);
 		}
 
@@ -272,7 +270,6 @@
 		    list-style: none;
 		    padding: 0;
 		    margin: 0;
-		    text-aling: center;
 		    display: table-cell;
 		    vertical-align: middle;
 		}
