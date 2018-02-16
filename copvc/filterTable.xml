@@ -432,7 +432,7 @@
 								{ label: 'Engineering' },
 								{ label: 'Customer & Client Solutions' },
 								{ label: 'Centro Corporativo' },
-								{ label: 'Holding' }
+								{ label: 'T&C Holding' }
 							]
 						},
 						status: {
@@ -564,7 +564,7 @@
 								{ label: 'Engineering' },
 								{ label: 'Customer & Client Solutions' },
 								{ label: 'Centro Corporativo' },
-								{ label: 'Holding' }
+								{ label: 'T&C Holding' }
 							]
 						},
 						status: {
