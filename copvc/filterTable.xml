@@ -300,23 +300,23 @@
 		<div class="field-grid">
 			<div class="field-grid__cell table-filter__field">
             	<label class="table-filter__label">Objetivo</label>
-                <select name="goal" id="goal-selector" data-sheet-id="691421819"></select>
+                <select name="goal" id="goal-selector"></select>
             </div>
 			<div class="field-grid__cell table-filter__field">
 				<label class="table-filter__label">Categoría</label>
-				<select name="category" id="category-selector" data-sheet-id="1401129741"></select>
+				<select name="category" id="category-selector"></select>
 			</div>
 			<div class="field-grid__cell table-filter__field">
 				<label class="table-filter__label">Estado</label>
-				<select name="status" id="status-selector" data-sheet-id="645686924"></select>
+				<select name="status" id="status-selector"></select>
 			</div>
 			<div class="field-grid__cell table-filter__field">
 				<label class="table-filter__label">País o área</label>
-				<select name="country" id="country-selector" data-sheet-id="1259371606"></select>
+				<select name="country" id="country-selector"></select>
 			</div>
 			<div class="field-grid__cell table-filter__field">
 				<label class="table-filter__label">Promotor</label>
-				<select name="promoter" id="promoter-selector" data-sheet-id="106582270"></select>
+				<select name="promoter" id="promoter-selector"></select>
 			</div>
         </div>
 		<div class="table-filter__buttons">
@@ -339,42 +339,12 @@
 				es: {
 					title: 'Filtros',
 					searcherLabel: 'Búsqueda global',
-					selects: {
-						goal: {
-							label: 'Objetivo',
-							options: [
-								{
-									label: 'Todos'
-								},
-								{
-									label: 'Difundir',
-									cssClasses: 'icon icon-spread',
-									categoryIndexes: [0, 1, 2, 3, 4]
-								},
-								{
-									label: 'Inculcar',
-									cssClasses: 'icon icon-inculcate',
-									categoryIndexes: [0, 5, 6, 7, 8, 9, 10, 11, 12]
-								},
-								{
-									label: 'Vivir',
-									cssClasses: 'icon icon-live',
-									categoryIndexes: [0, 13, 14]
-								}
-							]
-						},
-						category: {
-							label: 'Categoría'
-						},
-						country: {
-							label: 'País o área'
-						},
-						status: {
-							label: 'Estado'
-						},
-						promoter: {
-							label: 'Impulsado por'
-						}
+					filterLabels: {
+						goal: 'Objetivo',
+						category: 'Categoría',
+						country: 'País o área',
+						status: 'Estado',
+						promoter: 'Impulsado por'
 					},
 					cardsPage: 'fichas',
 					switchCards: 'Ver resultados en fichas',
@@ -384,42 +354,12 @@
 				en: {
 					title: 'Filters',
 					searcherLabel: 'Global search',
-					selects: {
-						goal: {
-							label: 'Goal',
-							options: [
-								{
-									label: 'All'
-								},
-								{
-									label: 'Spread',
-									cssClasses: 'icon icon-spread',
-									categoryIndexes: [0, 1, 2, 3, 4]
-								},
-								{
-									label: 'Inculcate',
-									cssClasses: 'icon icon-inculcate',
-									categoryIndexes: [0, 5, 6, 7, 8, 9, 10, 11, 12]
-								},
-								{
-									label: 'Live',
-									cssClasses: 'icon icon-live',
-									categoryIndexes: [0, 13, 14]
-								}
-							]
-						},
-						category: {
-							label: 'Category'
-						},
-						country: {
-							label: 'Country or area'
-						},
-						status: {
-							label: 'Status'
-						},
-						promoter: {
-							label: 'Promoted by'
-						}
+					filterLabels: {
+						goal: 'Goal',
+						category: 'Category',
+						country: 'Country or area',
+						status: 'Status',
+						promoter: 'Promoted by'
 					},
 					cardsPage: 'cards',
 					switchCards: 'Show results in cards',
@@ -430,22 +370,33 @@
 			contextVars = contextLangs[ getLang() ],
 			filtersConfig = {
 				goal: {
-					cssPrefix: 'icon icon-',
-					options: []
+					sheetId: '691421819',
+					css: {
+						prefix: 'icon icon-',
+						iconSheetColumn: 2
+					},
+					valueSheetColumn: 3
 				},
 				category: {
-					options: []
+					sheetId: '1401129741',
+					relatedGoalSheetColumn: 2
 				},
 				status: {
-					cssPrefix: '',
-					options: []
+					sheetId: '645686924',
+					css: {
+						prefix: '',
+						iconSheetColumn: 2
+					}
 				},
 				country: {
-					cssPrefix: 'flag flag-',
-					options: []
+					sheetId: '1259371606',
+					css: {
+						prefix: 'flag flag-',
+						iconSheetColumn: 2
+					}
 				},
 				promoter: {
-					options: []
+					sheetId: '106582270'
 				}
 			},
 
@@ -469,16 +420,17 @@
 			open: setMenuClassesAndIcons
 		});
 		getSelectsData();
-		// $goal.on('selectmenuchange', function (event, ui) {
-		// 	filterCategoriesByGoal(ui.item.index);
-		// 	$category.selectmenu('refresh');
-		// });
 
 
 		function getSelectsData() {
-			var sheetIDs = $selects.map(function () {
-				return $(this).data('sheetId');
-			}).toArray();
+			var sheetIDs = Object.keys(filtersConfig).map(function (filterName) {
+				var sheetId = filtersConfig[filterName].sheetId;
+
+				$('select[name="' + filterName + '"]')
+					.attr('data-sheet-id', sheetId);
+
+				return sheetId;
+			});
 
 			var dataForm = {
 				key: getSpreadsheetKey(),
@@ -502,22 +454,29 @@
 		function populateSelects(selectsData) {
 			Object.keys(selectsData).forEach(function (sheetId) {
 				var $select = $('select[data-sheet-id="' + sheetId + '"]'),
+					selectConfig = filtersConfig[$select.attr('name')],
  					rawOptions = selectsData[sheetId].data.slice(1),
-					options = formatSelectOtions(rawOptions);
+					options = formatSelectOtions(rawOptions, selectConfig);
 
-				filtersConfig[$select.attr('name')].options = options;
+				selectConfig.options = options;
 				updateSelect($select, options);
-				setDefaultFields();
-				$select.selectmenu('refresh');
 			});
+
+			setDefaultFields();
+			$selects.selectmenu('refresh');
+
+			setFilterEvents();
 		}
 
-		function formatSelectOtions(rawOptions) {
+		function formatSelectOtions(rawOptions, selectConfig) {
 			return rawOptions.map(function (optionRow) {
-				var option = $.extend({}, {
-					label: optionRow[getLabelColumnByLanguage(getLang())],
-					iconId: optionRow[2] || undefined
-				});
+				var iconColumn = selectConfig.css ? selectConfig.css.iconSheetColumn : undefined,
+					option = $.extend({}, {
+						label: optionRow[getLabelColumnByLanguage(getLang())],
+						iconId: optionRow[iconColumn] || undefined,
+						value: optionRow[selectConfig.valueSheetColumn] || undefined,
+						relatedGoal: optionRow[selectConfig.relatedGoalSheetColumn] || undefined
+					});
 
 				return option;
 			});
@@ -530,6 +489,22 @@
 			};
 
 			return languageColumns[language] || 0;
+		}
+
+		function setFilterEvents() {
+			$goal.on('selectmenuchange', function (event, ui) {
+				filterCategoriesByGoal(ui.item.value);
+				$category.selectmenu('refresh');
+			});
+			$category.on('selectmenuchange', function (event, ui) {
+				var relatedGoal = ui.item.element.data('relatedGoal');
+
+				if (!relatedGoal) { return; }
+
+				$goal.val(relatedGoal).selectmenu('refresh');
+				filterCategoriesByGoal(relatedGoal);
+				$category.val(ui.item.value).selectmenu('refresh');
+			});
 		}
 
         function getParam(p){
@@ -557,13 +532,14 @@
 		}
 
         function setIndex(value, $select) {
-			var options 		= $.makeArray( $select.find('option') ),
-				optionValues 	= $.map(options, function(option) {
-					return option.value;
-				}),
-				index = optionValues.indexOf(value);
+			$select.find('option').toArray().some(function (optionElem, index) {
+				if ($(optionElem).text() === value) {
+					$select.prop('selectedIndex', index);
+					return true;
+				}
 
-            $select.prop('selectedIndex', index > 0 ? index : 0);
+				return false;
+			});
         }
 
 		function setDefaultFields() {
@@ -578,7 +554,7 @@
 
 			$globalSearch.val(globalSearch);
             setIndex(goal, $goal);
-			// filterCategoriesByGoal($goal.prop('selectedIndex'));
+			filterCategoriesByGoal($goal.val());
             setIndex(category, $category);
             setIndex(status, $status);
             setIndex(country, $country);
@@ -595,16 +571,16 @@
 		}
 
 		function setContextVars() {
-			var selectsVars = contextVars.selects;
+			var filterLabels = contextVars.filterLabels;
 
 			$('.js-title').text(contextVars.title);
 			$globalSearch.closest(_fieldContainerSelector).find('label').text(contextVars.searcherLabel);
 
-			Object.keys(selectsVars).forEach(function (selectName) {
-				var $select = $('select[name="' + selectName + '"]'),
-					selectConfig = selectsVars[selectName];
+			Object.keys(filterLabels).forEach(function (filterName) {
+				var $select = $('select[name="' + filterName + '"]'),
+					label = filterLabels[filterName];
 
-				$select.closest(_fieldContainerSelector).find('label').text(selectConfig.label);
+				$select.closest(_fieldContainerSelector).find('label').text(label);
 			});
 
 			$resetFiltersBtn.text(contextVars.resetFilters);
@@ -616,33 +592,39 @@
 			var filterConfig = filtersConfig[this.name],
 				$uiDropdownOptions = $('#' + this.id + '-menu').children('li');
 
+			if (!filterConfig.css) { return; }
+
 			filterConfig.options.forEach(function (optionConfig, index) {
 				if (!optionConfig.iconId) { return; }
 
-				var cssClasses = filterConfig.cssPrefix + optionConfig.iconId;
+				var cssClasses = filterConfig.css.prefix + optionConfig.iconId;
 				$uiDropdownOptions.eq(index).addClass(cssClasses);
 			});
 		}
 
-		function filterCategoriesByGoal(goalIndex) {
-			var selectedGoalIndexes = contextVars.selects.goal.options[goalIndex].categoryIndexes,
-				categoryOptions = contextVars.selects.category.options,
-				filteredCategoryOptions = categoryOptions;
+		function filterCategoriesByGoal(goalValue) {
+			var filteredOptions = filtersConfig.category.options;
 
-			if (selectedGoalIndexes) {
-				filteredCategoryOptions = selectedGoalIndexes.map(function (categoryIndex) {
-					return categoryOptions[categoryIndex];
+			if (goalValue !== '0') {
+				filteredOptions = filteredOptions.filter(function (optionConfig) {
+					return !optionConfig.relatedGoal || optionConfig.relatedGoal === goalValue;
 				});
 			}
 
-			updateSelect($category, filteredCategoryOptions);
+			updateSelect($category, filteredOptions);
 		}
 
 		function updateSelect($select, options) {
 			$select.empty();
 
 			options.forEach(function (optionConfig) {
-				$('<option>' + optionConfig.label + '</option>').appendTo($select);
+				var $option = $('<option>', {
+					text: optionConfig.label,
+					value: optionConfig.value,
+				});
+
+				$option.attr('data-related-goal', optionConfig.relatedGoal);
+				$option.appendTo($select);
 			});
 
 			$select.children('option').first().attr('value', 0);
@@ -681,11 +663,11 @@
         function Go(showCards) {
             var params = {
 					globalSearch	: $globalSearch.val(),
-					goal 			: $goal.val(),
-					status 			: $status.val(),
-					category 		: $category.val(),
-					country 		: $country.val(),
-					promoter 		: $promoter.val()
+					goal 			: $goal.val() 		=== '0' ? '0' : $goal.find('option:selected').text(),
+					status 			: $status.val() 	=== '0' ? '0' : $status.find('option:selected').text(),
+					category 		: $category.val() 	=== '0' ? '0' : $category.find('option:selected').text(),
+					country 		: $country.val() 	=== '0' ? '0' : $country.find('option:selected').text(),
+					promoter 		: $promoter.val() 	=== '0' ? '0' : $promoter.find('option:selected').text()
 				},
             	url = getDisplayUrl(showCards) + '?';
 
