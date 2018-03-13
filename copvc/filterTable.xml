@@ -238,6 +238,19 @@
 		.icon-live:before {
 			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Vivir.png);
 		}
+		.fa-icon:before {
+			display: inline-block;
+			font: normal normal normal 14px/1 FontAwesome;
+			font-size: inherit;
+			text-rendering: auto;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			color: #1271b5;
+			margin-right: 5px;
+		}
+		.fa-icon-star:before {
+			content: '\f005';
+		}
 		.table-filter {
 			margin-right: 30px;
 			margin-left: 30px;
@@ -396,7 +409,11 @@
 					}
 				},
 				promoter: {
-					sheetId: '106582270'
+					sheetId: '106582270',
+					css: {
+						prefix: 'fa-icon fa-icon-',
+						iconSheetColumn: 2
+					}
 				}
 			},
 
