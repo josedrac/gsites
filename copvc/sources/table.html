@@ -59,6 +59,10 @@
 		.table__header-col:last-child {
 			border-right: 0;
 		}
+
+		.tablesorter-header-inner {
+			padding: 0 5px;
+		}
 		.table__header-icon {
 			position: absolute;
 			right: 6px;
@@ -280,9 +284,13 @@
             position: relative;
             padding: 0.5em 1em;
         }
-        .btn:hover {
+        .btn:hover,
+		.btn:disabled {
             background: #004C99;
         }
+		.btn:disabled {
+			cursor: default;
+		}
     </style>
 
     <div class="table-container">
@@ -445,7 +453,9 @@
 				},
 				{
 					width: '90px',
+					sheetIndex: 3,
 					initiativeCodeSheetIndex: 20,
+					reusesSheetIndex: 33,
 					sortable: false
 				},
 			];
@@ -560,6 +570,39 @@
 			}
         }
 
+		function sendReuseClick() {
+
+			var $btn = $(this),
+				$btnIcon = $btn.find('.btn-reuse__icon'),
+				$btnClicks = $btn.find('.btn-reuse__clicks'),
+				dataForm = {
+					'initiativeName': $btn.data('initiativeName'),
+					'initiativeCode': $btn.data('initiativeCode')
+				};
+
+			$btn.prop('disabled', true);
+			$btnIcon.removeClass().addClass('fa fa-spinner fa-pulse');
+
+			$.ajax({
+				type: 'GET',
+				url: 'https://script.google.com/a/bbva.com/macros/s/AKfycbzu0N_PKeGoeZEJpRoNGWoKmiNGAntSt03D2kwlk7TAiRbIJQw/exec',
+				data: dataForm,
+				dataType: 'jsonp',
+				crossDomain: true,
+				jsonpCallback: "on_result",
+				success: function (data) {
+					var currentClicks = parseInt($btnClicks.text());
+
+					$btnClicks.text(currentClicks + 1);
+					$btnIcon.removeClass().addClass('fa fa-thumbs-up');
+				},
+				error: function (error) {
+					console.log(error);
+				}
+			});
+
+        }
+
         function createHeader() {
             var html = '<tr>',
 				classCss;
@@ -634,7 +677,7 @@
 						return;
 					}
 					if (col.header === reusedHeader) {
-						html +=	'<td class="table__cell"><button class="btn"><span class="fa fa-refresh"></span> 999</button></td>';
+						html +=	'<td class="table__cell"><button class="btn btn-reuse" data-initiative-name="' + value + '" data-initiative-code="' + data[i][col.initiativeCodeSheetIndex] + '"><span class="btn-reuse__icon fa fa-thumbs-up"></span> <span class="btn-reuse__clicks">0</span></button></td>';
 						return;
 					}
 					if (col.header === statusHeader) {
@@ -652,6 +695,7 @@
 				chars: 90,
 				more: contextVars.seeMore
 			});
+			$('.table__cell .btn-reuse').click(sendReuseClick);
 		}
 
 		function getItemCssClass(value) {
