@@ -383,7 +383,7 @@
 			contextVars = contextLangs[ getLang() ],
 			filtersConfig = {
 				goal: {
-					sheetId: '691421819',
+					sheetId: '442656050',
 					css: {
 						prefix: 'icon icon-',
 						iconSheetColumn: 2
@@ -391,25 +391,25 @@
 					valueSheetColumn: 3
 				},
 				category: {
-					sheetId: '1401129741',
+					sheetId: '1774294936',
 					relatedGoalSheetColumn: 2
 				},
 				status: {
-					sheetId: '645686924',
+					sheetId: '969141579',
 					css: {
 						prefix: '',
 						iconSheetColumn: 2
 					}
 				},
 				country: {
-					sheetId: '1259371606',
+					sheetId: '384426198',
 					css: {
 						prefix: 'flag flag-',
 						iconSheetColumn: 2
 					}
 				},
 				promoter: {
-					sheetId: '106582270',
+					sheetId: '451328647',
 					css: {
 						prefix: 'fa-icon fa-icon-',
 						iconSheetColumn: 2
