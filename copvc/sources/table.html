@@ -154,6 +154,15 @@
 		.icon-live:before {
 			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Vivir.png);
 		}
+		.icon-client:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/client.png);
+		}
+		.icon-team:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/team.png);
+		}
+		.icon-think:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/think.png);
+		}
 
         .firstcol {
             width: 36% !important;
@@ -343,6 +352,11 @@
 						peru: 'Perú',
 						venezuela: 'Venezuela'
 					},
+					values:{
+						team: 'Somos un solo equipo',
+						think: 'Pensamos en grande',
+						client: 'El cliente es lo primero'
+					},
 					sheetId: '361022424',
 					countryManagerLiteral: 'Country Manager / Director de Área',
 					seeMore: 'ver más',
@@ -383,6 +397,11 @@
 						peru: 'Peru',
 						venezuela: 'Venezuela'
 					},
+					values:{
+						team: 'We are one team',
+						think: 'We think big',
+						client: 'Customer comes first'
+					},
 					sheetId: '2113943508',
 					countryManagerLiteral: 'Country Manager / Area Director',
 					seeMore: 'see more',
@@ -416,6 +435,9 @@
 				},
 				promoter: {
 					col: 16
+				},
+				value: {
+					col: 5
 				}
 			},
 			tableCols = [
@@ -461,7 +483,7 @@
 					sortable: false
 				},
 				{
-					width: '80px',
+					width: '100px',
 					sheetIndex: 5,
 					sortable: false
 				},
@@ -652,17 +674,16 @@
 				contactHeader	= tableCols[7].header,
 				reusedHeader	= tableCols[8].header,
 				valueHeader		= tableCols[9].header,
-				cssClass 		= '',
 				html 			= '';
 
 			for (var i = 0; i < numberOfRows; i++) {
-				html += '<tr class="table__row '+ cssClass +'">';
+				html += '<tr class="table__row">';
 
 				tableCols.forEach(function(col) {
 					var value = data[i][col.sheetIndex] || '-';
-					cssClass = '';
+					var cssClass = '';
 
-					if (col.header === countryHeader || col.header === goalHeader || col.header === statusHeader) {
+					if (col.header === countryHeader || col.header === goalHeader || col.header === statusHeader || col.header === valueHeader) {
 						cssClass = getItemCssClass(value);
 					}
 					if (col.header === nameHeader) {
@@ -686,10 +707,6 @@
 					}
 					if (col.header === reusedHeader) {
 						html +=	'<td class="table__cell"><button class="btn btn-reuse" data-initiative-name="' + value + '" data-initiative-code="' + data[i][col.initiativeCodeSheetIndex] + '"><span class="btn-reuse__icon fa fa-thumbs-up"></span> <span class="btn-reuse__clicks">'+ data[i][col.reusesSheetIndex] +'</span></button></td>';
-						return;
-					}
-					if (col.header === valueHeader) {
-						html +=	'<td class="table__cell"><span class="table__cell-text table__cell-text_collapsable">'+ value +'</span></td>';
 						return;
 					}
 					if (col.header === statusHeader) {
@@ -733,6 +750,12 @@
 			if (value === countries.argentina) 	{ return 'cell-icon flag-argentina'; }
 			if (value === countries.peru) 		{ return 'cell-icon flag-peru'; }
 			if (value === countries.venezuela) 	{ return 'cell-icon flag-venezuela'; }
+			
+			var values = contextVars.values;
+			
+			if(value === values.think)	{ return 'cell-icon icon-think'; }
+			if(value === values.team)	{ return 'cell-icon icon-team'; }
+			if(value === values.client)	{ return 'cell-icon icon-client'; }
 
 			return '';
 		}
