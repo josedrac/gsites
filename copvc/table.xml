@@ -52,7 +52,6 @@
         .table__header-col {
 			position: relative;
 			cursor: pointer;
-			width: 8%;
             height: 85px;
 			border: 1px solid #E5E5E5;
             border-left: 0;
@@ -74,15 +73,9 @@
 		.table__header-col:last-child {
 			border-right: 0;
 		}
-		.table__header-col_large {
-			width: 15%;
-		}
-		.table__header-col_small {
-			width: 6%;
-		}
 
 		.tablesorter-header-inner {
-			padding: 0 15px;
+			padding: 0 5px;
 		}
 		.table__header-icon {
 			position: absolute;
@@ -116,6 +109,9 @@
 		}
 		.tablesorter-headerDesc .table__header-icon:after {
 			content: "(Z-A)";
+		}
+		.tablesorter-header.sorter-false .table__header-icon {
+			display: none;
 		}
 
 		.cell-icon {
@@ -214,7 +210,6 @@
 			vertical-align: middle;
 			display: table-cell;
 			text-align: left;
-			word-break: break-word;
 		}
 
 		.table__cell-text_fa-icon {
@@ -279,6 +274,37 @@
 		.shorten_expand .shorten-toggle {
 			display: none;
 		}
+
+		.btn {
+            background: #0079C1;
+            background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJo…iIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+');
+            background: -moz-linear-gradient(top, #0079C1 0%, #00559D 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#0079C1), color-stop(100%,#00559D));
+            background: -webkit-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: -o-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: -ms-linear-gradient(top, #0079C1 0%,#00559D 100%);
+            background: linear-gradient(to bottom, #0079C1 0%,#00559D 100%);
+            -webkit-border-radius: .1em;
+            -moz-border-radius: .1em;
+            font-size: 13px;
+            border: 0.1em solid #00559D;
+            color: #FFF;
+            cursor: pointer;
+            margin: 0;
+            border-radius: 0.4em;
+            font-weight: bold;
+            vertical-align: middle;
+            text-align: center;
+            position: relative;
+            padding: 0.5em 1em;
+        }
+        .btn:hover,
+		.btn:disabled {
+            background: #004C99;
+        }
+		.btn:disabled {
+			cursor: default;
+		}
     </style>
 
     <div class="table-container">
@@ -297,7 +323,7 @@
 
 	<div id="empty_results" class="empty-results"></div>
 
-    <script type="text/javascript">
+     <script type="text/javascript">
         var prefs = new _IG_Prefs(),
 			contextLangs = {
 				es: {
@@ -310,7 +336,8 @@
 						'Categoría',
 						'Estado',
 						'Enlace al repositorio',
-						'Contacto'
+						'Contacto',
+						'Marcar como reutilizada'
 					],
 					goals: {
 						spread: 'Difundir',
@@ -348,7 +375,8 @@
 						'Category',
 						'Status',
 						'Link to the Repository',
-						'Contact'
+						'Contact',
+						'Mark as reused'
 					],
 					goals: {
 						spread: 'Spread',
@@ -404,33 +432,45 @@
 			},
 			tableCols = [
 				{
-					class: 'table__header-col_small',
+					width: '90px',
 					sheetIndex: 15
 				},
 				{
+					width: '150px',
 					sheetIndex: 3,
 					promoterSheetIndex: 16
 				},
 				{
-					class: 'table__header-col_large',
 					sheetIndex: 4
 				},
 				{
-					class: 'table__header-col_small',
+					width: '80px',
 					sheetIndex: 1
 				},
 				{
+					width: '120px',
 					sheetIndex: 2
 				},
 				{
+					width: '95px',
 					sheetIndex: 7
 				},
 				{
-					sheetIndex: 8
+					width: '85px',
+					sheetIndex: 8,
+					sortable: false
 				},
 				{
-					class: 'table__header-col_small',
-					sheetIndex: 19
+					width: '65px',
+					sheetIndex: 19,
+					sortable: false
+				},
+				{
+					width: '90px',
+					sheetIndex: 3,
+					initiativeCodeSheetIndex: 20,
+					reusesSheetIndex: 33,
+					sortable: false
 				},
 			];
 
@@ -539,9 +579,42 @@
 			if (data) {
 				createHeader();
 				createBody(data);
-				$("#initiatives_table").tablesorter();
+				$("#initiatives_table").tablesorter(getSortingConfig());
 				//gadgets.window.adjustHeight();
 			}
+        }
+
+		function sendReuseClick() {
+
+			var $btn = $(this),
+				$btnIcon = $btn.find('.btn-reuse__icon'),
+				$btnClicks = $btn.find('.btn-reuse__clicks'),
+				dataForm = {
+					'initiativeName': $btn.data('initiativeName'),
+					'initiativeCode': $btn.data('initiativeCode')
+				};
+
+			$btn.prop('disabled', true);
+			$btnIcon.removeClass().addClass('fa fa-spinner fa-pulse');
+
+			$.ajax({
+				type: 'GET',
+				url: 'https://script.google.com/a/bbva.com/macros/s/AKfycbzu0N_PKeGoeZEJpRoNGWoKmiNGAntSt03D2kwlk7TAiRbIJQw/exec',
+				data: dataForm,
+				dataType: 'jsonp',
+				crossDomain: true,
+				jsonpCallback: "on_result",
+				success: function (data) {
+					var currentClicks = parseInt($btnClicks.text());
+
+					$btnClicks.text(currentClicks + 1);
+					$btnIcon.removeClass().addClass('fa fa-thumbs-up');
+				},
+				error: function (error) {
+					console.log(error);
+				}
+			});
+
         }
 
         function createHeader() {
@@ -550,8 +623,8 @@
 
 			if (data.length) {
 				tableCols.forEach(function(item, index) {
-					classCss = item.class ? item.class : '';
-					html += '<th class="table__header-col '+ classCss +'">' + item.header +'<div class="table__header-icon fa"></div></th>';
+					headerWidth = item.width ? ' style="width: ' + item.width + ';"' : '';
+					html += '<th class="table__header-col"' + headerWidth + '>' + item.header +'<div class="table__header-icon fa"></div></th>';
 				});
 				html += '</tr>';
 				$('#initiatives_table_header').html(html);
@@ -560,7 +633,19 @@
 
 			html = '<span class="empty-results__text">'+ contextVars.emptyResults +'</span>';
 			$('#empty_results').html(html);
+        }
 
+		function getSortingConfig() {
+			var config = {
+				headers: tableCols.reduce(function (obj, value, index) {
+					if (value.sortable === false) {
+						obj[index] = { sorter: false };
+					}
+					return obj;
+				}, {})
+			};
+
+			return config;
         }
 
 		function createBody(data) {
@@ -572,6 +657,7 @@
 				statusHeader 	= tableCols[5].header,
 				linkHeader 		= tableCols[6].header,
 				contactHeader	= tableCols[7].header,
+				reusedHeader	= tableCols[8].header,
 				cssClass 		= '',
 				html 			= '';
 
@@ -604,6 +690,10 @@
 						html +=	'<td class="table__cell"><a class="table__cell-text" target="_blank" title="' + value + '" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=' + value + '"><span class="fa fa-envelope"></span></a></td>';
 						return;
 					}
+					if (col.header === reusedHeader) {
+						html +=	'<td class="table__cell"><button class="btn btn-reuse" data-initiative-name="' + value + '" data-initiative-code="' + data[i][col.initiativeCodeSheetIndex] + '"><span class="btn-reuse__icon fa fa-thumbs-up"></span> <span class="btn-reuse__clicks">'+ data[i][col.reusesSheetIndex] +'</span></button></td>';
+						return;
+					}
 					if (col.header === statusHeader) {
 						html +=	'<td class="table__cell '+ cssClass +'"><span class="table__cell-text">'+ value +'</span></td>';
 						return;
@@ -616,9 +706,10 @@
 
 			$('#initiatives_table_body').html(html);
 			$('.table__cell-text_collapsable').shorten({
-				chars: 75,
+				chars: 90,
 				more: contextVars.seeMore
 			});
+			$('.table__cell .btn-reuse').click(sendReuseClick);
 		}
 
 		function getItemCssClass(value) {
