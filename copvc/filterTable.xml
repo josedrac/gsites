@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-	<style type="text/css">
+		<style type="text/css">
 		.hidden {
 			display: none;
 		}
@@ -246,6 +246,9 @@
 		}
 		.icon-think:before {
 			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/master/copvc/img/think.png);
+		}
+		.icon-impact:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/impact.png);
 		}
 		.fa-icon:before {
 			display: inline-block;
