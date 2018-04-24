@@ -337,7 +337,8 @@
 						'Estado',
 						'Enlace al repositorio',
 						'Contacto',
-						'Marcar como reutilizada'
+						'Marcar como reutilizada',
+						'Valor'
 					],
 					goals: {
 						spread: 'Difundir',
@@ -376,7 +377,8 @@
 						'Status',
 						'Link to the Repository',
 						'Contact',
-						'Mark as reused'
+						'Mark as reused',
+						'Value'
 					],
 					goals: {
 						spread: 'Spread',
@@ -470,6 +472,11 @@
 					sheetIndex: 3,
 					initiativeCodeSheetIndex: 20,
 					reusesSheetIndex: 33,
+					sortable: false
+				},
+				{
+					width: '80px',
+					sheetIndex: 5,
 					sortable: false
 				},
 			];
@@ -658,6 +665,7 @@
 				linkHeader 		= tableCols[6].header,
 				contactHeader	= tableCols[7].header,
 				reusedHeader	= tableCols[8].header,
+				valueHeader		= tableCols[9].header,
 				cssClass 		= '',
 				html 			= '';
 
@@ -692,6 +700,10 @@
 					}
 					if (col.header === reusedHeader) {
 						html +=	'<td class="table__cell"><button class="btn btn-reuse" data-initiative-name="' + value + '" data-initiative-code="' + data[i][col.initiativeCodeSheetIndex] + '"><span class="btn-reuse__icon fa fa-thumbs-up"></span> <span class="btn-reuse__clicks">'+ data[i][col.reusesSheetIndex] +'</span></button></td>';
+						return;
+					}
+					if (col.header === valueHeader) {
+						html +=	'<td class="table__cell"><span class="table__cell-text table__cell-text_collapsable">'+ value +'</span></td>';
 						return;
 					}
 					if (col.header === statusHeader) {
