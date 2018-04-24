@@ -332,7 +332,7 @@
 
 	<div id="empty_results" class="empty-results"></div>
 
-   <script type="text/javascript">
+     <script type="text/javascript">
         var prefs = new _IG_Prefs(),
 			contextLangs = {
 				es: {
@@ -452,6 +452,9 @@
 				},
 				value: {
 					col: 5
+				},
+				impact: {
+					col: 34
 				}
 			},
 			tableCols = [
