@@ -177,6 +177,9 @@
 		.icon-think:before {
 			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/think.png);
 		}
+		.icon-impact:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/impact.png);
+		}
 
         .firstcol {
             width: 36% !important;
@@ -378,7 +381,8 @@
 					planned: 'Planificada',
 					inExecution: 'En ejecución',
 					linkText: 'Ver más',
-					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
+					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.',
+					impact: 'Alto impacto'
 				},
 				en: {
 					sheetIndex: 1,
@@ -423,7 +427,8 @@
 					planned: 'Planned',
 					inExecution: 'In execution',
 					linkText: 'More info',
-					emptyResults: 'No results found for the selected filters.'
+					emptyResults: 'No results found for the selected filters.',
+					impact: 'High impact'
 				}
 			},
 			contextVars = contextLangs[ getLang() ],
@@ -465,7 +470,8 @@
 				{
 					width: '150px',
 					sheetIndex: 3,
-					promoterSheetIndex: 16
+					promoterSheetIndex: 16,
+					impactSheetIndex: 34
 				},
 				{
 					sheetIndex: 4
@@ -707,7 +713,10 @@
 						var isCountryManager = data[i][col.promoterSheetIndex] === contextVars.countryManagerLiteral,
 							starMarkup = isCountryManager ? '<span class="fa fa-star"></span>' : '';
 
-						html +=	'<td class="table__cell"><span class="table__cell-text table__cell-text_fa-icon">' + starMarkup + value +'</span></td>';
+						var isImpact = data[i][col.impactSheetIndex] === contextVars.impact,
+							impactMarkup = isImpact ? 'cell-icon icon-impact' : '';
+
+						html +=	'<td class="table__cell"><span class="table__cell-text '+ impactMarkup +'">' + '</span><span class="table__cell-text table__cell-text_fa-icon">' + starMarkup + value +'</span></td>';
 						return;
 					}
 					if (col.header === descHeader) {
