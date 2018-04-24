@@ -323,7 +323,7 @@
 
 	<div id="empty_results" class="empty-results"></div>
 
-    <script type="text/javascript">
+     <script type="text/javascript">
         var prefs = new _IG_Prefs(),
 			contextLangs = {
 				es: {
@@ -691,7 +691,7 @@
 						return;
 					}
 					if (col.header === reusedHeader) {
-						html +=	'<td class="table__cell"><button class="btn btn-reuse" data-initiative-name="' + value + '" data-initiative-code="' + data[i][col.initiativeCodeSheetIndex] + '"><span class="btn-reuse__icon fa fa-thumbs-up"></span> <span class="btn-reuse__clicks">0</span></button></td>';
+						html +=	'<td class="table__cell"><button class="btn btn-reuse" data-initiative-name="' + value + '" data-initiative-code="' + data[i][col.initiativeCodeSheetIndex] + '"><span class="btn-reuse__icon fa fa-thumbs-up"></span> <span class="btn-reuse__clicks">'+ data[i][col.reusesSheetIndex] +'</span></button></td>';
 						return;
 					}
 					if (col.header === statusHeader) {
