@@ -248,7 +248,7 @@
 			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/master/copvc/img/think.png);
 		}
 		.icon-impact:before {
-			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/impact.png);
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/master/copvc/img/impact.png);
 		}
 		.fa-icon:before {
 			display: inline-block;
