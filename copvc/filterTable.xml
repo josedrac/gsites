@@ -247,6 +247,9 @@
 		.icon-think:before {
 			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/master/copvc/img/think.png);
 		}
+		.icon-impact:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/master/copvc/img/impact.png);
+		}
 		.fa-icon:before {
 			display: inline-block;
 			font: normal normal normal 14px/1 FontAwesome;
@@ -283,7 +286,7 @@
         .field-grid__cell {
 			float: left;
 			box-sizing: border-box;
-			width: 33.3333%;
+			width: 25%;
             padding-left: 15px;
             padding-right: 15px;
         }
@@ -344,6 +347,10 @@
 				<label class="table-filter__label">Valor</label>
 				<select name="value" id="value-selector"></select>
 			</div>
+			<div class="field-grid__cell table-filter__field">
+				<label class="table-filter__label">Impacto</label>
+				<select name="impact" id="impact-selector"></select>
+			</div>
         </div>
 		<div class="table-filter__buttons">
 			<button onclick='javascript:ResetFilters();' class="btn btn_reset btn_spaced js-reset">Limpiar filtros</button>
@@ -371,7 +378,8 @@
 						country: 'País o área',
 						status: 'Estado',
 						promoter: 'Impulsado por',
-						value: 'Valor'
+						value: 'Valor',
+						impact: 'Iniciativas de alto impacto'
 					},
 					cardsPage: 'fichas',
 					switchCards: 'Ver resultados en fichas',
@@ -387,7 +395,8 @@
 						country: 'Country or area',
 						status: 'Status',
 						promoter: 'Promoted by',
-						value: 'Value'
+						value: 'Value',
+						impact: 'High impact initiatives'
 					},
 					cardsPage: 'cards',
 					switchCards: 'Show results in cards',
@@ -436,7 +445,13 @@
 						prefix: 'icon icon-',
 						iconSheetColumn: 2
 					},
-					valueSheetColumn: 3
+				},
+				impact: {
+					sheetId: '780360760',
+					css: {
+						prefix: 'icon icon-',
+						iconSheetColumn: 2
+					},
 				},
 			},
 
@@ -453,6 +468,7 @@
 			$country 		= $('#country-selector'),
 			$promoter 		= $('#promoter-selector'),
 			$value	 		= $('#value-selector'),
+			$impact	 		= $('#impact-selector'),
 			$selects 		= $(_fieldContainerSelector).find('select');
 
 
@@ -593,6 +609,7 @@
                 country 		= getParam('country');
                 promoter 		= getParam('promoter');
                 value 			= getParam('value');
+                impact 			= getParam('impact');
 
 			$globalSearch.val(globalSearch);
             setIndex(goal, $goal);
@@ -602,6 +619,7 @@
             setIndex(country, $country);
             setIndex(promoter, $promoter);
             setIndex(value, $value);
+            setIndex(impact, $impact);
         }
 
 		function removeEmptyParams(params) {
@@ -711,7 +729,8 @@
 					category 		: $category.val() 	=== '0' ? '0' : $category.find('option:selected').text(),
 					country 		: $country.val() 	=== '0' ? '0' : $country.find('option:selected').text(),
 					promoter 		: $promoter.val() 	=== '0' ? '0' : $promoter.find('option:selected').text(),
-					value 			: $value.val() 		=== '0' ? '0' : $value.find('option:selected').text()
+					value 			: $value.val() 		=== '0' ? '0' : $value.find('option:selected').text(),
+					impact 			: $impact.val() 	=== '0' ? '0' : $impact.find('option:selected').text()
 				},
             	url = getDisplayUrl(showCards) + '?';
 
