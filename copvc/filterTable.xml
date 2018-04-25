@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/sopraux/gsites/v1.0/evolucionaDigital/css/jquery-ui.min.css" media="all">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-		<style type="text/css">
+	<style type="text/css">
 		.hidden {
 			display: none;
 		}
@@ -155,7 +155,7 @@
 		    line-height: 1.4;
         }
 		select {
-			width: 60%;
+			width: 100%;
 		}
         .ui-menu-item {
             color: #003f8c;
