@@ -168,6 +168,18 @@
 		.icon-live:before {
 			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Vivir.png);
 		}
+		.icon-client:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/client.png);
+		}
+		.icon-team:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/team.png);
+		}
+		.icon-think:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/think.png);
+		}
+		.icon-impact:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/impact.png);
+		}
 
         .firstcol {
             width: 36% !important;
@@ -323,7 +335,7 @@
 
 	<div id="empty_results" class="empty-results"></div>
 
-     <script type="text/javascript">
+    <script type="text/javascript">
         var prefs = new _IG_Prefs(),
 			contextLangs = {
 				es: {
@@ -337,7 +349,8 @@
 						'Estado',
 						'Enlace al repositorio',
 						'Contacto',
-						'Marcar como reutilizada'
+						'Marcar como reutilizada',
+						'Valor'
 					],
 					goals: {
 						spread: 'Difundir',
@@ -356,6 +369,11 @@
 						peru: 'Perú',
 						venezuela: 'Venezuela'
 					},
+					values:{
+						team: 'Somos un solo equipo',
+						think: 'Pensamos en grande',
+						client: 'El cliente es lo primero'
+					},
 					sheetId: '361022424',
 					countryManagerLiteral: 'Country Manager / Director de Área',
 					seeMore: 'ver más',
@@ -363,7 +381,8 @@
 					planned: 'Planificada',
 					inExecution: 'En ejecución',
 					linkText: 'Ver más',
-					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.'
+					emptyResults: 'No se han encontrado resultados para los filtros seleccionados.',
+					impact: 'Alto impacto'
 				},
 				en: {
 					sheetIndex: 1,
@@ -376,7 +395,8 @@
 						'Status',
 						'Link to the Repository',
 						'Contact',
-						'Mark as reused'
+						'Mark as reused',
+						'Value'
 					],
 					goals: {
 						spread: 'Spread',
@@ -395,6 +415,11 @@
 						peru: 'Peru',
 						venezuela: 'Venezuela'
 					},
+					values:{
+						team: 'We are one team',
+						think: 'We think big',
+						client: 'Customer comes first'
+					},
 					sheetId: '2113943508',
 					countryManagerLiteral: 'Country Manager / Area Director',
 					seeMore: 'see more',
@@ -402,7 +427,8 @@
 					planned: 'Planned',
 					inExecution: 'In execution',
 					linkText: 'More info',
-					emptyResults: 'No results found for the selected filters.'
+					emptyResults: 'No results found for the selected filters.',
+					impact: 'High impact'
 				}
 			},
 			contextVars = contextLangs[ getLang() ],
@@ -428,6 +454,12 @@
 				},
 				promoter: {
 					col: 16
+				},
+				value: {
+					col: 5
+				},
+				impact: {
+					col: 34
 				}
 			},
 			tableCols = [
@@ -438,7 +470,8 @@
 				{
 					width: '150px',
 					sheetIndex: 3,
-					promoterSheetIndex: 16
+					promoterSheetIndex: 16,
+					impactSheetIndex: 34
 				},
 				{
 					sheetIndex: 4
@@ -470,6 +503,11 @@
 					sheetIndex: 3,
 					initiativeCodeSheetIndex: 20,
 					reusesSheetIndex: 33,
+					sortable: false
+				},
+				{
+					width: '100px',
+					sheetIndex: 5,
 					sortable: false
 				},
 			];
@@ -527,7 +565,7 @@
 
 		function hasGlobalSearchConditions(row, value) {
 			var words 	= value.split(' '),
-				cols 	= [1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 17, 18, 19],
+				cols 	= [1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 17, 18, 19, 34],
 				filter 	= '',
 				hasCondition = false,
 				haveAllWords;
@@ -658,24 +696,27 @@
 				linkHeader 		= tableCols[6].header,
 				contactHeader	= tableCols[7].header,
 				reusedHeader	= tableCols[8].header,
-				cssClass 		= '',
+				valueHeader		= tableCols[9].header,
 				html 			= '';
 
 			for (var i = 0; i < numberOfRows; i++) {
-				html += '<tr class="table__row '+ cssClass +'">';
+				html += '<tr class="table__row">';
 
 				tableCols.forEach(function(col) {
 					var value = data[i][col.sheetIndex] || '-';
-					cssClass = '';
+					var cssClass = '';
 
-					if (col.header === countryHeader || col.header === goalHeader || col.header === statusHeader) {
+					if (col.header === countryHeader || col.header === goalHeader || col.header === statusHeader || col.header === valueHeader) {
 						cssClass = getItemCssClass(value);
 					}
 					if (col.header === nameHeader) {
 						var isCountryManager = data[i][col.promoterSheetIndex] === contextVars.countryManagerLiteral,
 							starMarkup = isCountryManager ? '<span class="fa fa-star"></span>' : '';
 
-						html +=	'<td class="table__cell"><span class="table__cell-text table__cell-text_fa-icon">' + starMarkup + value +'</span></td>';
+						var isImpact = data[i][col.impactSheetIndex] === contextVars.impact,
+							impactMarkup = isImpact ? 'cell-icon icon-impact' : '';
+
+						html +=	'<td class="table__cell"><span class="table__cell-text '+ impactMarkup +'">' + '</span><span class="table__cell-text table__cell-text_fa-icon">' + starMarkup + value +'</span></td>';
 						return;
 					}
 					if (col.header === descHeader) {
@@ -735,6 +776,12 @@
 			if (value === countries.argentina) 	{ return 'cell-icon flag-argentina'; }
 			if (value === countries.peru) 		{ return 'cell-icon flag-peru'; }
 			if (value === countries.venezuela) 	{ return 'cell-icon flag-venezuela'; }
+			
+			var values = contextVars.values;
+			
+			if(value === values.think)	{ return 'cell-icon icon-think'; }
+			if(value === values.team)	{ return 'cell-icon icon-team'; }
+			if(value === values.client)	{ return 'cell-icon icon-client'; }
 
 			return '';
 		}

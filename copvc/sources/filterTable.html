@@ -224,6 +224,15 @@
 		.icon-live:before {
 			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/Vivir.png);
 		}
+		.icon-client:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/client.png);
+		}
+		.icon-team:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/team.png);
+		}
+		.icon-think:before {
+			background-image: url(https://raw.githubusercontent.com/josedrac/gsites/copvc/copvc/img/think.png);
+		}
 		.fa-icon:before {
 			display: inline-block;
 			font: normal normal normal 14px/1 FontAwesome;
@@ -317,6 +326,10 @@
 				<label class="table-filter__label">Promotor</label>
 				<select name="promoter" id="promoter-selector"></select>
 			</div>
+			<div class="field-grid__cell table-filter__field">
+				<label class="table-filter__label">Valor</label>
+				<select name="value" id="value-selector"></select>
+			</div>
         </div>
 		<div class="table-filter__buttons">
 			<button onclick='javascript:ResetFilters();' class="btn btn_reset btn_spaced js-reset">Limpiar filtros</button>
@@ -343,7 +356,8 @@
 						category: 'Categoría',
 						country: 'País o área',
 						status: 'Estado',
-						promoter: 'Impulsado por'
+						promoter: 'Impulsado por',
+						value: 'Valor'
 					},
 					cardsPage: 'fichas',
 					switchCards: 'Ver resultados en fichas',
@@ -358,7 +372,8 @@
 						category: 'Category',
 						country: 'Country or area',
 						status: 'Status',
-						promoter: 'Promoted by'
+						promoter: 'Promoted by',
+						value: 'Value'
 					},
 					cardsPage: 'cards',
 					switchCards: 'Show results in cards',
@@ -400,7 +415,15 @@
 						prefix: 'fa-icon fa-icon-',
 						iconSheetColumn: 2
 					}
-				}
+				},
+				value: {
+					sheetId: '1480401730',
+					css: {
+						prefix: 'icon icon-',
+						iconSheetColumn: 2
+					},
+					valueSheetColumn: 3
+				},
 			},
 
 			$resetFiltersBtn = $('.js-reset'),
@@ -415,6 +438,7 @@
 			$category 		= $('#category-selector'),
 			$country 		= $('#country-selector'),
 			$promoter 		= $('#promoter-selector'),
+			$value	 		= $('#value-selector'),
 			$selects 		= $(_fieldContainerSelector).find('select');
 
 
@@ -554,6 +578,7 @@
                 category 		= getParam('category'),
                 country 		= getParam('country');
                 promoter 		= getParam('promoter');
+                value 			= getParam('value');
 
 			$globalSearch.val(globalSearch);
             setIndex(goal, $goal);
@@ -562,6 +587,7 @@
             setIndex(status, $status);
             setIndex(country, $country);
             setIndex(promoter, $promoter);
+            setIndex(value, $value);
         }
 
 		function removeEmptyParams(params) {
@@ -673,7 +699,8 @@
 					status 			: $status.val() 	=== '0' ? '0' : $status.find('option:selected').text(),
 					category 		: $category.val() 	=== '0' ? '0' : $category.find('option:selected').text(),
 					country 		: $country.val() 	=== '0' ? '0' : $country.find('option:selected').text(),
-					promoter 		: $promoter.val() 	=== '0' ? '0' : $promoter.find('option:selected').text()
+					promoter 		: $promoter.val() 	=== '0' ? '0' : $promoter.find('option:selected').text(),
+					value 			: $value.val() 		=== '0' ? '0' : $value.find('option:selected').text()
 				},
             	url = getDisplayUrl(showCards) + '?';
 
