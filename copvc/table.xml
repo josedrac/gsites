@@ -433,79 +433,79 @@
 			params = {
 				globalSearch: {	},
 				nameInitiative: {
-					col: 3
+					col:2
 				},
 				description: {
-					col: 4
+					col: 3
 				},
 				goal: {
-					col: 1
+					col: 0
 				},
 				status: {
-					col: 7
+					col: 6
 				},
 				category: {
-					col: 2
+					col: 1
 				},
 				country: {
-					col: 15
+					col: 14
 				},
 				promoter: {
-					col: 16
+					col: 15
 				},
 				value: {
-					col: 5
+					col: 4
 				},
 				impact: {
-					col: 34
+					col: 33
 				}
 			},
 			tableCols = [
 				{
 					width: '90px',
-					sheetIndex: 15
+					sheetIndex: 14
 				},
 				{
 					width: '150px',
-					sheetIndex: 3,
-					promoterSheetIndex: 16,
-					impactSheetIndex: 34
+					sheetIndex: 2,
+					promoterSheetIndex: 15,
+					impactSheetIndex: 33
 				},
 				{
-					sheetIndex: 4
+					sheetIndex: 3
 				},
 				{
 					width: '80px',
-					sheetIndex: 1
+					sheetIndex: 0
 				},
 				{
 					width: '120px',
-					sheetIndex: 2
+					sheetIndex: 1
 				},
 				{
 					width: '95px',
-					sheetIndex: 7
+					sheetIndex: 6
 				},
 				{
 					width: '85px',
-					sheetIndex: 8,
+					sheetIndex: 7,
 					sortable: false
 				},
 				{
 					width: '65px',
-					sheetIndex: 19,
+					sheetIndex: 18,
 					sortable: false
 				},
 				{
 					width: '90px',
-					sheetIndex: 3,
-					initiativeCodeSheetIndex: 20,
-					reusesSheetIndex: 33,
+					sheetIndex: 2,
+					initiativeCodeSheetIndex: 19,
+					reusesSheetIndex: 32,
 					sortable: false
 				},
 				{
 					width: '100px',
-					sheetIndex: 5,
+					sheetIndex: 4,
 					sortable: false
 				},
 			];
@@ -563,7 +563,7 @@
 
 		function hasGlobalSearchConditions(row, value) {
 			var words 	= value.split(' '),
-				cols 	= [1, 2, 3, 4, 5, 6, 7, 8, 15, 16, 17, 18, 19, 34],
+				cols 	= [0, 1, 2, 3, 4, 5, 6, 7, 14, 15, 16, 17, 18, 33],
 				filter 	= '',
 				hasCondition = false,
 				haveAllWords;
@@ -598,7 +598,7 @@
 				jsonpCallback: "on_result",
 				success: function (data) {
 					//Eliminamos las primeras filas ya que no son necesarias
-					data.splice(0, 7);
+					data.splice(0, 2);
 
 					handleQueryResponse(data);
 				},
