@@ -89,3 +89,5 @@ function handleQueryResponse(response) {
 }
 ```
 * En la llamada pasariamos la key del Spreadsheet y el índice de la hoja si fuese necesario.
+
+* Si hay errores de cross-origin o not valid MIME-type revisar los permisos del script de GAS (ejecutar la función doGet)
