@@ -563,7 +563,7 @@
 
 		function hasGlobalSearchConditions(row, value) {
 			var words 	= value.split(' '),
-				cols 	= [0, 1, 2, 3, 4, 5, 6, 7, 14, 15, 16, 17, 18, 33],
+				cols 	= [0, 1, 2, 3, 4, 5, 6, 7, 14, 15, 16, 17, 18],
 				filter 	= '',
 				hasCondition = false,
 				haveAllWords;
