@@ -1,0 +1,155 @@
+<html>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"
+  />
+
+  <script
+    type="text/javascript"
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"
+  ></script>
+  <script
+    type="text/javascript"
+    src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"
+  ></script>
+
+  <div class="filters row">
+    <div class="col-auto">
+      <input
+        type="text"
+        id="global-filter"
+        class="form-control"
+        placeholder="Filtrar operativas"
+      />
+    </div>
+    <div class="col-auto form-check form-check-inline">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="formative-content-check"
+      />
+      <label class="form-check-label" for="formative-content-check">
+        Con contenido formativo
+      </label>
+    </div>
+  </div>
+  <table class="routes-table table table-striped table-bordered">
+    <thead>
+      <tr class="bg-primary text-light">
+        <th class="text-center align-middle">Operativa</th>
+        <th class="text-center align-middle">Contenido formativo</th>
+        <th class="text-center align-middle">+info</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+  </table>
+
+  <script type="text/javascript">
+    var //prefs = new _IG_Prefs(),
+      routesTableSel = '.routes-table',
+      globalFilterSel = '#global-filter',
+      formativeContentCheckSel = '#formative-content-check';
+
+    $(document).ready(function() {
+      loadRoutesTable();
+      $(globalFilterSel).keyup(applyGlobalFilter);
+      $(formativeContentCheckSel).click(applyFormativeContentFilter);
+    });
+
+    function loadRoutesTable() {
+      var routesTableAjaxRequest = {
+        type: 'GET',
+        url:
+          'https://script.google.com/a/bbva.com/macros/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
+        data: { key: getSpreadsheetKey() },
+        dataType: 'jsonp',
+        crossDomain: true,
+        jsonpCallback: 'on_result',
+        dataSrc: function(data) {
+          data.splice(0, 1);
+          return data;
+        },
+        error: function(error) {
+          console.log(error);
+        },
+      };
+
+      $(routesTableSel).DataTable({
+        columnDefs: [
+          {
+            targets: [1, 2],
+            className: 'text-center align-middle',
+          },
+          {
+            targets: 1,
+            render: function(data) {
+              return data.trim()
+                ? '<img src="https://picsum.photos/50" /><span style="display:none;">searchable</span>'
+                : data;
+            },
+          },
+          {
+            targets: 2,
+            searchable: false,
+            width: '60px',
+            render: renderSeeMoreColumn,
+          },
+          { targets: 3, visible: false },
+        ],
+        ajax: routesTableAjaxRequest,
+        pageLength: 7,
+        lengthChange: false,
+        ordering: false,
+        autoWidth: false,
+        dom:
+          "<'row'<'col-sm-12'tr>>" +
+          "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+        language: {
+          url: 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json',
+        },
+      });
+    }
+
+    function applyGlobalFilter() {
+      var filterValue = $(globalFilterSel).val();
+
+      $(routesTableSel)
+        .DataTable()
+        .search(filterValue)
+        .draw();
+    }
+
+    function applyFormativeContentFilter() {
+      var isFilterChecked = $(formativeContentCheckSel).prop('checked');
+      var regex = isFilterChecked ? 'searchable' : '';
+
+      $(routesTableSel)
+        .DataTable()
+        .column(1)
+        .search(regex)
+        .draw();
+    }
+
+    function renderSeeMoreColumn(link) {
+      var trimmedLink = link.trim();
+      return trimmedLink
+        ? '<a target="_blank" href="' + trimmedLink + '">ver más</a>'
+        : '';
+    }
+
+    function getSpreadsheetKey() {
+      //return prefs.getString('spreadsheet_key');
+      return '1657GYnIli1NLuCtZcdQuXZYtU6dN3Y4fBj_FOpoWiBo';
+    }
+  </script>
+</html>
