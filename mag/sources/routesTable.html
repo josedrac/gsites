@@ -47,6 +47,7 @@
     <thead>
       <tr class="bg-primary text-light">
         <th class="text-center align-middle">Operativa</th>
+        <th>Descripción</th>
         <th class="text-center align-middle">Contenido formativo</th>
         <th class="text-center align-middle">+info</th>
         <th>Tags</th>
@@ -59,6 +60,14 @@
       routesTableSel = '.routes-table',
       globalFilterSel = '#global-filter',
       formativeContentCheckSel = '#formative-content-check';
+
+    var ColumnIndexes = {
+      TITLE: 0,
+      DESCRIPTION: 1,
+      FORMATIVE_CONTENT: 2,
+      MORE_INFO: 3,
+      TAGS: 4,
+    };
 
     $(document).ready(function() {
       loadRoutesTable();
@@ -87,24 +96,33 @@
       $(routesTableSel).DataTable({
         columnDefs: [
           {
-            targets: [1, 2],
-            className: 'text-center align-middle',
-          },
-          {
-            targets: 1,
-            render: function(data) {
-              return data.trim()
-                ? '<img src="https://picsum.photos/50" /><span style="display:none;">searchable</span>'
-                : data;
+            targets: [ColumnIndexes.TITLE],
+            render: function(data, type, row) {
+              return renderOperativeColumn(
+                data,
+                row[ColumnIndexes.DESCRIPTION]
+              );
             },
           },
           {
-            targets: 2,
+            targets: [ColumnIndexes.FORMATIVE_CONTENT, ColumnIndexes.MORE_INFO],
+            className: 'text-center align-middle',
+          },
+          {
+            targets: [ColumnIndexes.FORMATIVE_CONTENT],
+            width: '120px',
+            render: renderFormativeContentColumn,
+          },
+          {
+            targets: [ColumnIndexes.MORE_INFO],
             searchable: false,
             width: '60px',
             render: renderSeeMoreColumn,
           },
-          { targets: 3, visible: false },
+          {
+            targets: [ColumnIndexes.DESCRIPTION, ColumnIndexes.TAGS],
+            visible: false,
+          },
         ],
         ajax: routesTableAjaxRequest,
         pageLength: 7,
@@ -135,9 +153,27 @@
 
       $(routesTableSel)
         .DataTable()
-        .column(1)
+        .column(ColumnIndexes.FORMATIVE_CONTENT)
         .search(regex)
         .draw();
+    }
+
+    function renderOperativeColumn(title, description) {
+      var descriptionWithLineBreaks = description.replace('\n', '<br/>');
+      return (
+        '<h6 class="text-primary">' +
+        title +
+        '</h6>' +
+        '<p>' +
+        descriptionWithLineBreaks +
+        '</p>'
+      );
+    }
+
+    function renderFormativeContentColumn(link) {
+      return link.trim()
+        ? '<img src="https://picsum.photos/50" /><span style="display:none;">searchable</span>'
+        : link;
     }
 
     function renderSeeMoreColumn(link) {
