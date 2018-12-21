@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <ModulePrefs title="routes-table.xml">
+    <Require feature="idi" />
+    <Require feature="locked-domain" />
+	  <Require feature="dynamic-height" />
+	  <Require feature="setprefs" />
+  </ModulePrefs>
+  <UserPref name="spreadsheet_key" default_value="" display_name="Spreadsheet key" required="true" />
+  <Content type="html">
+    <![CDATA[
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+  <style type="text/css">
+    .formative-content-cell img {
+      width: 64px;
+    }
+  </style>
+
+  <div class="filters row">
+    <div class="col-auto">
+      <input type="text" id="global-filter" class="form-control" placeholder="Filtrar operativas" />
+    </div>
+    <div class="col-auto form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="formative-content-check" />
+      <label class="form-check-label" for="formative-content-check">Con contenido formativo</label>
+    </div>
+  </div>
+  <table class="routes-table table table-striped table-bordered">
+    <thead>
+      <tr class="bg-primary text-light">
+        <th class="text-center align-middle">Operativa</th>
+        <th>Descripción</th>
+        <th class="text-center align-middle">Contenido formativo</th>
+        <th>Tipo de contenido</th>
+        <th class="text-center align-middle">+info</th>
+        <th>Tags</th>
+      </tr>
+    </thead>
+  </table>
+
+  <script type="text/javascript">
+    var prefs = new _IG_Prefs(),
+      routesTableSel = '.routes-table',
+      globalFilterSel = '#global-filter',
+      formativeContentCheckSel = '#formative-content-check';
+
+    // Use a symbol that is unlikely to be used in global searches
+    var formativeContentSearchSymbol = '┤';
+
+    var ColumnIndexes = {
+      TITLE: 0,
+      DESCRIPTION: 1,
+      FORMATIVE_CONTENT: 2,
+      CONTENT_TYPE: 3,
+      MORE_INFO: 4,
+      TAGS: 5,
+    };
+
+    $(document).ready(function() {
+      loadRoutesTable();
+      $(globalFilterSel).keyup(applyGlobalFilter);
+      $(formativeContentCheckSel).click(applyFormativeContentFilter);
+    });
+
+    function loadRoutesTable() {
+      var routesTableAjaxRequest = {
+        type: 'GET',
+        url:
+          'https://script.google.com/a/bbva.com/macros/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
+        data: { key: getSpreadsheetKey() },
+        dataType: 'jsonp',
+        crossDomain: true,
+        jsonpCallback: 'on_result',
+        dataSrc: function(data) {
+          data.splice(0, 1);
+          return data;
+        },
+        error: function(error) {
+          console.log(error);
+        },
+      };
+
+      $(routesTableSel).DataTable({
+        columnDefs: [
+          {
+            targets: [ColumnIndexes.TITLE],
+            render: renderOperativeColumn,
+          },
+          {
+            targets: [ColumnIndexes.FORMATIVE_CONTENT],
+            className: 'formative-content-cell text-center align-middle',
+            width: '120px',
+            render: renderFormativeContentColumn,
+          },
+          {
+            targets: [ColumnIndexes.MORE_INFO],
+            className: 'text-center align-middle',
+            width: '80px',
+            render: renderSeeMoreColumn,
+          },
+          {
+            targets: [ColumnIndexes.CONTENT_TYPE, ColumnIndexes.MORE_INFO],
+            searchable: false,
+          },
+          {
+            targets: [ColumnIndexes.DESCRIPTION, ColumnIndexes.CONTENT_TYPE, ColumnIndexes.TAGS],
+            visible: false,
+          },
+        ],
+        ajax: routesTableAjaxRequest,
+        pageLength: 20,
+        lengthChange: false,
+        ordering: false,
+        autoWidth: false,
+        dom: "<'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+        language: {
+          url: 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json',
+        },
+      });
+    }
+
+    function applyGlobalFilter() {
+      var filterValue = $(globalFilterSel).val();
+
+      $(routesTableSel)
+        .DataTable()
+        .search(filterValue)
+        .draw();
+    }
+
+    function applyFormativeContentFilter() {
+      var isFilterChecked = $(formativeContentCheckSel).prop('checked');
+      var regex = isFilterChecked ? formativeContentSearchSymbol : '';
+
+      $(routesTableSel)
+        .DataTable()
+        .column(ColumnIndexes.FORMATIVE_CONTENT)
+        .search(regex)
+        .draw();
+    }
+
+    function renderOperativeColumn(title, callType, row) {
+      var description = row[ColumnIndexes.DESCRIPTION];
+      return '<h6 class="text-primary">' + title + '</h6><p>' + description.replace('\n', '<br/>') + '</p>';
+    }
+
+    var contentTypeIconIds = {
+      'guia-rapida': '1Vdgm7LO2NLsCOYe0ZjoerlCzf4ylhxFy',
+      manual: '14O-NO_XM2bSOXPUbUDf4X5qz1VqovfJn',
+      'documentacion-adicional': '1bYvyPPpEZAnlRVlGtcBsSMceGsA1BaSY',
+      imagen: '1Ri0ltxKs-InQgzGdcUMrnlWwuTvxVeEy',
+      enlace: '14CB_PGKpma0CiVAw7EXt3O79Pz5XOkSp',
+      video: '1SrMG_zGP02KbhI1nR3SSCFS4HJmAoymQ',
+      default: '1bYvyPPpEZAnlRVlGtcBsSMceGsA1BaSY',
+    };
+
+    function renderFormativeContentColumn(link, callType, row) {
+      var contentType = row[ColumnIndexes.CONTENT_TYPE];
+
+      if (callType === 'filter') {
+        return getValueIfNotEmpty(link, formativeContentSearchSymbol);
+      }
+
+      var iconId = contentTypeIconIds[contentType] || contentTypeIconIds.default,
+        iconUrl = 'https://drive.google.com/a/bbva.com/uc?authuser=3&id=' + iconId + '&export=download',
+        contentLink = '<a target="_blank" href="' + link + '"><img src="' + iconUrl + '"/></a>';
+
+      return getValueIfNotEmpty(link, contentLink);
+    }
+
+    function renderSeeMoreColumn(link) {
+      return getValueIfNotEmpty(link, '<a target="_blank" href="' + link + '">ver más</a>');
+    }
+
+    function getValueIfNotEmpty(stringToCheck, value) {
+      return stringToCheck.trim() ? value : '';
+    }
+
+    function getSpreadsheetKey() {
+      return prefs.getString('spreadsheet_key');
+    }
+  </script>
+    ]]>
+  </Content>
+</Module>
