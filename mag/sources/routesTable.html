@@ -1,46 +1,24 @@
 <html>
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"
-  />
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
 
-  <script
-    type="text/javascript"
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"
-  ></script>
-  <script
-    type="text/javascript"
-    src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"
-  ></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+
+  <style type="text/css">
+    .formative-content-cell img {
+      width: 64px;
+    }
+  </style>
 
   <div class="filters row">
     <div class="col-auto">
-      <input
-        type="text"
-        id="global-filter"
-        class="form-control"
-        placeholder="Filtrar operativas"
-      />
+      <input type="text" id="global-filter" class="form-control" placeholder="Filtrar operativas" />
     </div>
     <div class="col-auto form-check form-check-inline">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        id="formative-content-check"
-      />
-      <label class="form-check-label" for="formative-content-check">
-        Con contenido formativo
-      </label>
+      <input class="form-check-input" type="checkbox" id="formative-content-check" />
+      <label class="form-check-label" for="formative-content-check">Con contenido formativo</label>
     </div>
   </div>
   <table class="routes-table table table-striped table-bordered">
@@ -49,6 +27,7 @@
         <th class="text-center align-middle">Operativa</th>
         <th>Descripción</th>
         <th class="text-center align-middle">Contenido formativo</th>
+        <th>Tipo de contenido</th>
         <th class="text-center align-middle">+info</th>
         <th>Tags</th>
       </tr>
@@ -61,12 +40,16 @@
       globalFilterSel = '#global-filter',
       formativeContentCheckSel = '#formative-content-check';
 
+    // Use a symbol that is unlikely to be used in global searches
+    var formativeContentSearchSymbol = '┤';
+
     var ColumnIndexes = {
       TITLE: 0,
       DESCRIPTION: 1,
       FORMATIVE_CONTENT: 2,
-      MORE_INFO: 3,
-      TAGS: 4,
+      CONTENT_TYPE: 3,
+      MORE_INFO: 4,
+      TAGS: 5,
     };
 
     $(document).ready(function() {
@@ -97,41 +80,35 @@
         columnDefs: [
           {
             targets: [ColumnIndexes.TITLE],
-            render: function(data, type, row) {
-              return renderOperativeColumn(
-                data,
-                row[ColumnIndexes.DESCRIPTION]
-              );
-            },
-          },
-          {
-            targets: [ColumnIndexes.FORMATIVE_CONTENT, ColumnIndexes.MORE_INFO],
-            className: 'text-center align-middle',
+            render: renderOperativeColumn,
           },
           {
             targets: [ColumnIndexes.FORMATIVE_CONTENT],
+            className: 'formative-content-cell text-center align-middle',
             width: '120px',
             render: renderFormativeContentColumn,
           },
           {
             targets: [ColumnIndexes.MORE_INFO],
-            searchable: false,
-            width: '60px',
+            className: 'text-center align-middle',
+            width: '80px',
             render: renderSeeMoreColumn,
           },
           {
-            targets: [ColumnIndexes.DESCRIPTION, ColumnIndexes.TAGS],
+            targets: [ColumnIndexes.CONTENT_TYPE, ColumnIndexes.MORE_INFO],
+            searchable: false,
+          },
+          {
+            targets: [ColumnIndexes.DESCRIPTION, ColumnIndexes.CONTENT_TYPE, ColumnIndexes.TAGS],
             visible: false,
           },
         ],
         ajax: routesTableAjaxRequest,
-        pageLength: 7,
+        pageLength: 20,
         lengthChange: false,
         ordering: false,
         autoWidth: false,
-        dom:
-          "<'row'<'col-sm-12'tr>>" +
-          "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+        dom: "<'row'<'col-sm-12'tr>><'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
         language: {
           url: 'https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json',
         },
@@ -149,7 +126,7 @@
 
     function applyFormativeContentFilter() {
       var isFilterChecked = $(formativeContentCheckSel).prop('checked');
-      var regex = isFilterChecked ? 'searchable' : '';
+      var regex = isFilterChecked ? formativeContentSearchSymbol : '';
 
       $(routesTableSel)
         .DataTable()
@@ -158,29 +135,41 @@
         .draw();
     }
 
-    function renderOperativeColumn(title, description) {
-      var descriptionWithLineBreaks = description.replace('\n', '<br/>');
-      return (
-        '<h6 class="text-primary">' +
-        title +
-        '</h6>' +
-        '<p>' +
-        descriptionWithLineBreaks +
-        '</p>'
-      );
+    function renderOperativeColumn(title, callType, row) {
+      var description = row[ColumnIndexes.DESCRIPTION];
+      return '<h6 class="text-primary">' + title + '</h6><p>' + description.replace('\n', '<br/>') + '</p>';
     }
 
-    function renderFormativeContentColumn(link) {
-      return link.trim()
-        ? '<img src="https://picsum.photos/50" /><span style="display:none;">searchable</span>'
-        : link;
+    var contentTypeIconIds = {
+      'guia-rapida': '1Vdgm7LO2NLsCOYe0ZjoerlCzf4ylhxFy',
+      manual: '14O-NO_XM2bSOXPUbUDf4X5qz1VqovfJn',
+      'documentacion-adicional': '1bYvyPPpEZAnlRVlGtcBsSMceGsA1BaSY',
+      imagen: '1Ri0ltxKs-InQgzGdcUMrnlWwuTvxVeEy',
+      enlace: '14CB_PGKpma0CiVAw7EXt3O79Pz5XOkSp',
+      video: '1SrMG_zGP02KbhI1nR3SSCFS4HJmAoymQ',
+      default: '1bYvyPPpEZAnlRVlGtcBsSMceGsA1BaSY',
+    };
+
+    function renderFormativeContentColumn(link, callType, row) {
+      var contentType = row[ColumnIndexes.CONTENT_TYPE];
+
+      if (callType === 'filter') {
+        return getValueIfNotEmpty(link, formativeContentSearchSymbol);
+      }
+
+      var iconId = contentTypeIconIds[contentType] || contentTypeIconIds.default,
+        iconUrl = 'https://drive.google.com/a/bbva.com/uc?authuser=3&id=' + iconId + '&export=download',
+        contentLink = '<a target="_blank" href="' + link + '"><img src="' + iconUrl + '"/></a>';
+
+      return getValueIfNotEmpty(link, contentLink);
     }
 
     function renderSeeMoreColumn(link) {
-      var trimmedLink = link.trim();
-      return trimmedLink
-        ? '<a target="_blank" href="' + trimmedLink + '">ver más</a>'
-        : '';
+      return getValueIfNotEmpty(link, '<a target="_blank" href="' + link + '">ver más</a>');
+    }
+
+    function getValueIfNotEmpty(stringToCheck, value) {
+      return stringToCheck.trim() ? value : '';
     }
 
     function getSpreadsheetKey() {
