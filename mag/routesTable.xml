@@ -66,6 +66,7 @@
       loadRoutesTable();
       $(globalFilterSel).keyup(applyGlobalFilter);
       $(formativeContentCheckSel).click(applyFormativeContentFilter);
+      $(routesTableSel).on('draw.dt', gadgets.window.adjustHeight);
     });
 
     function loadRoutesTable() {
