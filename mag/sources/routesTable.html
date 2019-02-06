@@ -7,24 +7,9 @@
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
   <style type="text/css">
-    .formative-content-cell img {
+    .formative-content-cell img.bbva-icon {
       width: 47px;
-    }
-
-    .default{
-      margin-left: 2px;
-    }
-
-    .documentacion-adicional{
-      margin-left: 2px;
-    }
-
-    .imagen {
-      margin-left: 2px;
-    }
-
-    .enlace {
-      width: 35px !important;
+      margin-right: 2px;
     }
 
   </style>
@@ -197,16 +182,6 @@
       default: '1bYvyPPpEZAnlRVlGtcBsSMceGsA1BaSY',
     };
 
-    var iconClasses = {
-      'guia-rapida': 'guia-rapida',
-      manual: 'manual',
-      'documentacion-adicional': 'documentacion-adicional',
-      imagen: 'imagen',
-      enlace: 'enlace',
-      video: 'video',
-      default: 'default',
-    }
-
     function renderFormativeContentColumnByList(link, callType, row) {
       if (callType === 'filter') {
         return getValueIfArrayNotEmpty(row[indexOf.OPERATIVE.FORMATIONS_ARRAY], formativeContentSearchSymbol);
@@ -216,13 +191,12 @@
       row[indexOf.OPERATIVE.FORMATIONS_ARRAY].forEach(function(formation) {
         var iconId = contentTypeIconIds[formation[indexOf.FORMATION.TYPE_CONTENT]] || contentTypeIconIds.default;
         var iconUrl = 'https://drive.google.com/a/bbva.com/uc?authuser=3&id=' + iconId + '&export=download';
-        var iconClass = iconClasses[formation[indexOf.FORMATION.TYPE_CONTENT]] || iconClasses.default;
         const existFormationLink = formation[indexOf.FORMATION.LINK] !== "";
 
         if(existFormationLink && contentLink === undefined){
-          contentLink = '<a target="_blank" href="' + formation[indexOf.FORMATION.LINK] + '"><img class="' + iconClass + '" src="' + iconUrl + '"/></a>';
+          contentLink = '<a target="_blank" href="' + formation[indexOf.FORMATION.LINK] + '"><img class="bbva-icon" src="' + iconUrl + '"/></a>';
         } else if (existFormationLink) {
-          contentLink = contentLink + '<a target="_blank" href="' + formation[indexOf.FORMATION.LINK] + '"><img class="' + iconClass + '" src="' + iconUrl + '"/></a>';
+          contentLink = contentLink + '<a target="_blank" href="' + formation[indexOf.FORMATION.LINK] + '"><img class="bbva-icon" src="' + iconUrl + '"/></a>';
         }
       });
 
