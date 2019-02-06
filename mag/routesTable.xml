@@ -62,7 +62,7 @@
   </table>
 
   <script type="text/javascript">
-    var //prefs = new _IG_Prefs(),
+    var prefs = new _IG_Prefs(),
       routesTableSel = '.routes-table',
       globalFilterSel = '#global-filter',
       formativeContentCheckSel = '#formative-content-check';
@@ -98,7 +98,7 @@
       loadRoutesTable();
       $(globalFilterSel).keyup(applyGlobalFilter);
       $(formativeContentCheckSel).click(applyFormativeContentFilter);
-      // $(routesTableSel).on('draw.dt', gadgets.window.adjustHeight);
+      $(routesTableSel).on('draw.dt', gadgets.window.adjustHeight);
     });
 
     function loadRoutesTable() {
@@ -252,9 +252,7 @@
     }
 
     function getSpreadsheetKey() {
-      //return prefs.getString('spreadsheet_key');
-      // return '1twUE1Uau5gScwU2ML86I_5jGlAG2aMWA20YMGUPjSO4';
-      return '1657GYnIli1NLuCtZcdQuXZYtU6dN3Y4fBj_FOpoWiBo';
+      return prefs.getString('spreadsheet_key');
     }
   </script>
     ]]>
