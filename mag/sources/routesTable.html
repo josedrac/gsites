@@ -104,7 +104,7 @@
           formationsArray = formations.filter(formation => formation[indexOf.FORMATION.ID_OPERATIVE] === operative[indexOf.OPERATIVE.ID]);
           operative[indexOf.OPERATIVE.FORMATIONS_ARRAY] = formationsArray;
         });
-
+        console.log(operatives);
         return operatives;
       }
 
@@ -169,7 +169,7 @@
 
     function renderOperativeColumn(title, callType, row) {
           var description = row[indexOf.OPERATIVE.DESCRIPTION];
-      return '<h6 class="text-primary">' + title + '</h6><p>' + description.replace('\n', '<br/>') + '</p>';
+      return '<h6 class="text-primary">' + title + '</h6><p>' + description.replace(/\n/g, '<br>') + '</p>';
     }
 
     var contentTypeIconIds = {
