@@ -7,9 +7,11 @@
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
   <style type="text/css">
-    .formative-content-cell img {
-      width: 64px;
+    .formative-content-cell img.bbva-icon {
+      width: 47px;
+      margin-right: 2px;
     }
+
   </style>
 
   <div class="filters row">
@@ -43,14 +45,29 @@
     // Use a symbol that is unlikely to be used in global searches
     var formativeContentSearchSymbol = '┤';
 
-    var ColumnIndexes = {
-      TITLE: 0,
-      DESCRIPTION: 1,
-      FORMATIVE_CONTENT: 2,
-      CONTENT_TYPE: 3,
-      MORE_INFO: 4,
-      TAGS: 5,
-    };
+    const indexOf = {
+      OPERATIVE:{
+        TITLE: 0,
+        DESCRIPTION: 1,
+        FORMATIVE_CONTENT: 2,
+        CONTENT_TYPE: 3,
+        MORE_INFO: 4,
+        TAGS: 5,
+        ID: 6,
+        FORMATIONS_ARRAY: 7
+      },
+      FORMATION: {
+        ID: 0,
+        TITLE: 1,
+        LINK: 2,
+        TYPE_CONTENT: 3,
+        ID_OPERATIVE: 4
+      },
+      PAGE:{
+        OPERATIVES: 0,
+        FORMATIONS: 831621540
+      }
+    }
 
     $(document).ready(function() {
       loadRoutesTable();
@@ -63,44 +80,58 @@
       var routesTableAjaxRequest = {
         type: 'GET',
         url:
-          'https://script.google.com/a/bbva.com/macros/s/AKfycbxlFg0YXhwWjduoNoLpcS52W05o7x2JbMO_RNkoTRb1Rg5pNmlm/exec',
-        data: { key: getSpreadsheetKey() },
+          'https://script.google.com/a/bbva.com/macros/s/AKfycbxVevzQgc7veASuhYIysBwkqR1QRxkkzrkU6rBVtLvIZo8eoqYT/exec',
+        data: { key: getSpreadsheetKey() , sheetIDs: JSON.stringify(["0","831621540"])},
         dataType: 'jsonp',
         crossDomain: true,
         jsonpCallback: 'on_result',
         dataSrc: function(data) {
-          data.splice(0, 1);
-          return data;
+          let formattedData = formatData(data);
+          return formattedData;
         },
         error: function(error) {
           console.log(error);
         },
       };
 
+      function formatData(data) {
+        var operatives = data[indexOf.PAGE.OPERATIVES].data;
+        var formations = data[indexOf.PAGE.FORMATIONS].data;
+        operatives.splice(0, 1);
+
+        operatives.forEach(function(operative) {
+          var formationsArray = [];
+          formationsArray = formations.filter(formation => formation[indexOf.FORMATION.ID_OPERATIVE] === operative[indexOf.OPERATIVE.ID]);
+          operative[indexOf.OPERATIVE.FORMATIONS_ARRAY] = formationsArray;
+        });
+        console.log(operatives);
+        return operatives;
+      }
+
       $(routesTableSel).DataTable({
         columnDefs: [
           {
-            targets: [ColumnIndexes.TITLE],
+            targets: [indexOf.OPERATIVE.TITLE],
             render: renderOperativeColumn,
           },
           {
-            targets: [ColumnIndexes.FORMATIVE_CONTENT],
+            targets: [indexOf.OPERATIVE.FORMATIVE_CONTENT],
             className: 'formative-content-cell text-center align-middle',
             width: '120px',
-            render: renderFormativeContentColumn,
+            render: renderFormativeContentColumnByList,
           },
           {
-            targets: [ColumnIndexes.MORE_INFO],
+            targets: [indexOf.OPERATIVE.MORE_INFO],
             className: 'text-center align-middle',
             width: '80px',
             render: renderSeeMoreColumn,
           },
           {
-            targets: [ColumnIndexes.CONTENT_TYPE, ColumnIndexes.MORE_INFO],
+            targets: [indexOf.OPERATIVE.CONTENT_TYPE, indexOf.OPERATIVE.MORE_INFO],
             searchable: false,
           },
           {
-            targets: [ColumnIndexes.DESCRIPTION, ColumnIndexes.CONTENT_TYPE, ColumnIndexes.TAGS],
+            targets: [indexOf.OPERATIVE.DESCRIPTION, indexOf.OPERATIVE.CONTENT_TYPE, indexOf.OPERATIVE.TAGS],
             visible: false,
           },
         ],
@@ -131,14 +162,14 @@
 
       $(routesTableSel)
         .DataTable()
-        .column(ColumnIndexes.FORMATIVE_CONTENT)
+        .column(indexOf.OPERATIVE.FORMATIVE_CONTENT)
         .search(regex)
         .draw();
     }
 
     function renderOperativeColumn(title, callType, row) {
-      var description = row[ColumnIndexes.DESCRIPTION];
-      return '<h6 class="text-primary">' + title + '</h6><p>' + description.replace('\n', '<br/>') + '</p>';
+          var description = row[indexOf.OPERATIVE.DESCRIPTION];
+      return '<h6 class="text-primary">' + title + '</h6><p>' + description.replace(/\n/g, '<br>') + '</p>';
     }
 
     var contentTypeIconIds = {
@@ -151,18 +182,25 @@
       default: '1bYvyPPpEZAnlRVlGtcBsSMceGsA1BaSY',
     };
 
-    function renderFormativeContentColumn(link, callType, row) {
-      var contentType = row[ColumnIndexes.CONTENT_TYPE];
-
+    function renderFormativeContentColumnByList(link, callType, row) {
       if (callType === 'filter') {
-        return getValueIfNotEmpty(link, formativeContentSearchSymbol);
+        return getValueIfArrayNotEmpty(row[indexOf.OPERATIVE.FORMATIONS_ARRAY], formativeContentSearchSymbol);
       }
 
-      var iconId = contentTypeIconIds[contentType] || contentTypeIconIds.default,
-        iconUrl = 'https://drive.google.com/a/bbva.com/uc?authuser=3&id=' + iconId + '&export=download',
-        contentLink = '<a target="_blank" href="' + link + '"><img src="' + iconUrl + '"/></a>';
+      var contentLink;  
+      row[indexOf.OPERATIVE.FORMATIONS_ARRAY].forEach(function(formation) {
+        var iconId = contentTypeIconIds[formation[indexOf.FORMATION.TYPE_CONTENT]] || contentTypeIconIds.default;
+        var iconUrl = 'https://drive.google.com/a/bbva.com/uc?authuser=3&id=' + iconId + '&export=download';
+        const existFormationLink = formation[indexOf.FORMATION.LINK] !== "";
 
-      return getValueIfNotEmpty(link, contentLink);
+        if(existFormationLink && contentLink === undefined){
+          contentLink = '<a target="_blank" href="' + formation[indexOf.FORMATION.LINK] + '"><img class="bbva-icon" src="' + iconUrl + '"/></a>';
+        } else if (existFormationLink) {
+          contentLink = contentLink + '<a target="_blank" href="' + formation[indexOf.FORMATION.LINK] + '"><img class="bbva-icon" src="' + iconUrl + '"/></a>';
+        }
+      });
+
+      return getValueIfArrayNotEmpty(row[indexOf.OPERATIVE.FORMATIONS_ARRAY], contentLink);
     }
 
     function renderSeeMoreColumn(link) {
@@ -173,9 +211,14 @@
       return stringToCheck.trim() ? value : '';
     }
 
+    function getValueIfArrayNotEmpty(arrayToCheck, value) {
+      return arrayToCheck.length  > 0 ? value : '';
+    }
+
     function getSpreadsheetKey() {
       //return prefs.getString('spreadsheet_key');
-      return '1twUE1Uau5gScwU2ML86I_5jGlAG2aMWA20YMGUPjSO4';
+      // return '1twUE1Uau5gScwU2ML86I_5jGlAG2aMWA20YMGUPjSO4';
+      return '1657GYnIli1NLuCtZcdQuXZYtU6dN3Y4fBj_FOpoWiBo';
     }
   </script>
 </html>
