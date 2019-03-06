@@ -9,7 +9,7 @@
   <UserPref name="spreadsheet_key" default_value="" display_name="Spreadsheet key" required="true" />
   <Content type="html">
     <![CDATA[
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -114,7 +114,7 @@
           formationsArray = formations.filter(formation => formation[indexOf.FORMATION.ID_OPERATIVE] === operative[indexOf.OPERATIVE.ID]);
           operative[indexOf.OPERATIVE.FORMATIONS_ARRAY] = formationsArray;
         });
-
+        console.log(operatives);
         return operatives;
       }
 
@@ -179,7 +179,7 @@
 
     function renderOperativeColumn(title, callType, row) {
           var description = row[indexOf.OPERATIVE.DESCRIPTION];
-      return '<h6 class="text-primary">' + title + '</h6><p>' + description.replace(/\n/g, '<br/>') + '</p>';
+      return '<h6 class="text-primary">' + title + '</h6><p>' + description.replace(/\n/g, '<br>') + '</p>';
     }
 
     var contentTypeIconIds = {
