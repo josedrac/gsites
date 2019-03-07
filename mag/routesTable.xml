@@ -96,8 +96,6 @@
         crossDomain: true,
         jsonpCallback: 'on_result',
         dataSrc: function(data) {
-        console.log('data');
-          console.log(data);
           let formattedData = formatData(data);
           return formattedData;
         },
