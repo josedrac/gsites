@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script>window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="./js/jQuery.js"%3E%3C/script%3E'))</script>
+  <script>window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="https://cdn.rawgit.com/josedrac/gsites/master/mag/js/jQuery.js"%3E%3C/script%3E'))</script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
