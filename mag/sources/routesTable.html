@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" />
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>window.jQuery || document.write('%3Cscript type="text/javascript" src="../js/jQuery.js"%3E%3C/script%3E')</script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
@@ -37,8 +38,9 @@
   </table>
 
   <script type="text/javascript">
-    var prefs = new _IG_Prefs(),
-      routesTableSel = '.routes-table',
+    // Dejar comentado para desarrollo
+    //var prefs = new _IG_Prefs(),
+    var routesTableSel = '.routes-table',
       globalFilterSel = '#global-filter',
       formativeContentCheckSel = '#formative-content-check';
 
@@ -65,7 +67,7 @@
       },
       PAGE:{
         OPERATIVES: 0,
-        FORMATIONS: 1034925399
+        FORMATIONS: 831621540
       }
     }
 
@@ -73,7 +75,8 @@
       loadRoutesTable();
       $(globalFilterSel).keyup(applyGlobalFilter);
       $(formativeContentCheckSel).click(applyFormativeContentFilter);
-      $(routesTableSel).on('draw.dt', gadgets.window.adjustHeight);
+      // Dejar comentado para desarrollo
+      //$(routesTableSel).on('draw.dt', gadgets.window.adjustHeight);
     });
 
     function loadRoutesTable() {
@@ -81,7 +84,7 @@
         type: 'GET',
         url:
           'https://script.google.com/a/bbva.com/macros/s/AKfycbxVevzQgc7veASuhYIysBwkqR1QRxkkzrkU6rBVtLvIZo8eoqYT/exec',
-        data: { key: getSpreadsheetKey() , sheetIDs: JSON.stringify(["0","1034925399"])},
+        data: { key: getSpreadsheetKey() , sheetIDs: JSON.stringify(["0","831621540"])},
         dataType: 'jsonp',
         crossDomain: true,
         jsonpCallback: 'on_result',
@@ -216,7 +219,9 @@
     }
 
     function getSpreadsheetKey() {
-      return prefs.getString('spreadsheet_key');
+      // Dejar comentado para desarrollo
+      //return prefs.getString('spreadsheet_key');
+      return '1657GYnIli1NLuCtZcdQuXZYtU6dN3Y4fBj_FOpoWiBo';
     }
   </script>
 </html>
